@@ -6,14 +6,26 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "laravel/framework": "5.3.*"
+        "laravel/framework": "5.3.*",
+        "arcanedev/no-captcha": "^3.1",
+        "yajra/laravel-datatables-oracle": "^6.22",
+        "laravelcollective/html": "^5.3",
+        "barryvdh/laravel-dompdf": "^0.7.0",
+        "roumen/sitemap": "^2.6",
+        "intervention/image": "^2.3",
+        "intervention/imagecache": "^2.3",
+        "guzzlehttp/guzzle": "^6.2",
+        "hieu-le/active": "^3.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~5.0",
         "symfony/css-selector": "3.1.*",
-        "symfony/dom-crawler": "3.1.*"
+        "symfony/dom-crawler": "3.1.*",
+        "barryvdh/laravel-ide-helper": "^2.2",
+        "barryvdh/laravel-debugbar": "^2.3",
+        "doctrine/dbal": "^2.5"
     },
     "autoload": {
         "classmap": [
@@ -41,6 +53,8 @@
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "php artisan ide-helper:generate",
+            "php artisan ide-helper:meta",
             "php artisan optimize"
         ]
     },

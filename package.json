@@ -5,13 +5,28 @@
     "dev": "gulp watch"
   },
   "devDependencies": {
+    "admin-lte": "^2.3.8",
+    "bootstrap-datepicker": "^1.6.4",
+    "bootstrap-daterangepicker": "^2.1.24",
     "bootstrap-sass": "^3.3.7",
+    "bootstrap-slider": "^9.4.1",
+    "bootstrap-timepicker": "^0.5.2",
+    "datatables.net": "^1.10.12",
+    "datatables.net-bs": "^1.10.12",
+    "dotenv": "^2.0.0",
+    "flexslider": "^2.6.3",
+    "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
+    "icheck": "^1.0.2",
     "jquery": "^3.1.0",
     "laravel-elixir": "^6.0.0-14",
+    "laravel-elixir-browsersync-official": "^1.0.0",
     "laravel-elixir-vue-2": "^0.2.0",
     "laravel-elixir-webpack-official": "^1.0.2",
     "lodash": "^4.16.2",
+    "moment": "^2.16.0",
+    "select2": "^4.0.3",
+    "sweetalert": "^1.1.3",
     "vue": "^2.0.1",
     "vue-resource": "^1.0.3"
   }
