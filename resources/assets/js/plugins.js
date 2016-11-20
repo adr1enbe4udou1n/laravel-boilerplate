@@ -114,4 +114,9 @@ $(function () {
     });
 
     $('.select2').select2({width: '100%'});
+
+    $('.datepicker').datepicker({
+        autoclose: true,
+        language: 'fr'
+    });
 });

@@ -45,6 +45,7 @@
         <script src="{{ asset('js/frontend.js') }}"></script>
     @endif
 
+    <script src="{{ asset('i18n/bootstrap-datepicker.fr.js') }}"></script>
     <script src="{{ asset('i18n/select2.fr.js') }}"></script>
     @yield('scripts')
 </body>
