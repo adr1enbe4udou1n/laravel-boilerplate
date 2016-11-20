@@ -3,8 +3,11 @@
 
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "node_modules/datatables.net-bs/css/dataTables.bootstrap";
-@import "node_modules/font-awesome/scss/font-awesome.scss";
-@import "node_modules/sweetalert/dev/sweetalert.scss";
+@import "node_modules/bootstrap-slider/src/sass/bootstrap-slider";
+@import "node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker3";
+@import "node_modules/bootstrap-timepicker/css/bootstrap-timepicker";
+@import "node_modules/font-awesome/scss/font-awesome";
+@import "node_modules/sweetalert/dev/sweetalert";
 @import "node_modules/admin-lte/dist/css/skins/skin-blue";
 @import "node_modules/icheck/skins/square/blue";
 @import "node_modules/select2/src/scss/core";

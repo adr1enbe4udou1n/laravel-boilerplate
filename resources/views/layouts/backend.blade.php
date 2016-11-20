@@ -31,7 +31,7 @@
     <script src="{{ asset('js/backend.js') }}"></script>
 @endif
 
-<script src="{{ asset('js/i18n/select2.fr.js') }}"></script>
+<script src="{{ asset('i18n/select2.fr.js') }}"></script>
 @yield('scripts')
 </body>
 </html>
