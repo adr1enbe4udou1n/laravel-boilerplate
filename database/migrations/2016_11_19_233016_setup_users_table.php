@@ -15,9 +15,7 @@ class SetupUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->boolean('active')->after('password')->default(true);
-            $table->string('last_name')->after('active')->nullable();
-            $table->string('first_name')->after('last_name')->nullable();
-            $table->tinyInteger('role')->after('first_name')->default(0);
+            $table->tinyInteger('role')->after('active')->default(0);
         });
     }
 
@@ -30,8 +28,6 @@ class SetupUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('active');
-            $table->dropColumn('last_name');
-            $table->dropColumn('first_name');
             $table->dropColumn('role');
         });
     }
