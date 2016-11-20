@@ -1,0 +1,27 @@
+// Variables
+@import "variables";
+
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "node_modules/datatables.net-bs/css/dataTables.bootstrap";
+@import "node_modules/font-awesome/scss/font-awesome.scss";
+@import "node_modules/sweetalert/dev/sweetalert.scss";
+@import "node_modules/admin-lte/dist/css/skins/skin-blue";
+@import "node_modules/icheck/skins/square/blue";
+@import "node_modules/select2/src/scss/core";
+@import "node_modules/admin-lte/dist/css/AdminLTE";
+
+.navbar-nav > .user-menu > .dropdown-menu > li.user-header {
+  height: auto !important;
+}
+
+.alert.logged-in-as {
+  border: none;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.icheck {
+  > label {
+    margin-right: 10px;
+  }
+}

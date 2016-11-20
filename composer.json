@@ -15,7 +15,8 @@
         "intervention/image": "^2.3",
         "intervention/imagecache": "^2.3",
         "guzzlehttp/guzzle": "^6.2",
-        "hieu-le/active": "^3.3"
+        "hieu-le/active": "^3.3",
+        "davejamesmiller/laravel-breadcrumbs": "^3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

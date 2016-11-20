@@ -32,4 +32,37 @@ class FrontendController extends Controller
     {
         return view('frontend.home');
     }
+
+    public function about()
+    {
+        return view('frontend.pages.about');
+    }
+
+    public function contact(Request $request)
+    {
+        if ($request->isMethod('POST')) {
+            $this->validate($request, [
+                'name' => 'required',
+                'company' => 'required',
+                'city' => 'required',
+                'phone' => 'required',
+                'email' => 'required|email',
+                'message' => 'required',
+                'g-recaptcha-response' => 'required|captcha',
+            ]);
+
+            return redirect(route('contact-sent'));
+        }
+        return view('frontend.pages.contact');
+    }
+
+    public function contactSent()
+    {
+        return view('frontend.pages.contact-sent');
+    }
+
+    public function legalMentions()
+    {
+        return view('frontend.pages.legal-mentions');
+    }
 }

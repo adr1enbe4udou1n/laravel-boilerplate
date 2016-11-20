@@ -97,7 +97,7 @@ class EloquentUserRepository implements UserRepository
         $this->flushTempSession();
 
         session(['admin_user_id' => auth()->id()]);
-        session(['admin_user_name' => auth()->user()->fullname]);
+        session(['admin_user_name' => auth()->user()->name]);
         session(['temp_user_id' => $user->id]);
 
         //Login user

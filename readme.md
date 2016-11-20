@@ -43,14 +43,14 @@ php artisan migrate --seed
 Commande générique de création :
 
 ```shell
-php artisan user:create[:admin] {email} {lastname} {firstname} {password}
+php artisan user:create[:admin] {name} {email} {password}
 ```
 
-Exemples pour générer un accès super-admin pour Useweb puis superviseur pour le client
+Exemples pour générer un accès super-admin puis superviseur pour le client
 
 ```shell
-php artisan user:create:admin dev@useweb.com Beaudouin Adrien azerty
-php artisan user:create client@exemple.org John Doe azerty
+php artisan user:create:admin "John Doe" admin@example.com azerty
+php artisan user:create "John Doe" client@example.com azerty
 ```
 
 ## Développement

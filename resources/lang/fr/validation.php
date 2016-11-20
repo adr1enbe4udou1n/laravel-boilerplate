@@ -142,6 +142,8 @@ return [
         'time'                  => 'Heure',
         'available'             => 'Disponible',
         'size'                  => 'Taille',
+        'role'                  => 'Rôle',
+        'active'                => 'Actif',
     ],
 
 ];

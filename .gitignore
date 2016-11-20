@@ -6,3 +6,7 @@
 Homestead.json
 Homestead.yaml
 .env
+
+# Dev Builded Files
+/public/css
+/public/js

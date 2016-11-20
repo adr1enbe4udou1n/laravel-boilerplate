@@ -173,6 +173,7 @@ return [
         HieuLe\Active\ActiveServiceProvider::class,
         Roumen\Sitemap\SitemapServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -239,6 +240,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Active' => HieuLe\Active\Facades\Active::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
     ],
 
 ];
