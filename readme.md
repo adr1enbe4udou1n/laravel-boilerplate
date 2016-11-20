@@ -1,40 +1,79 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img width="150"src="https://laravel.com/laravel.png"></a></p>
+# Laravel Boilerplate
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## Présentation
 
-## About Laravel
+Ce framework sert de base pour le développement d'un site sur-mesure avec backend
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+## Installation
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. Clonage du projet
+2. Création de la base mysql + connexion utilisateur
+3. Copier **.env.example** vers **.env**
+4. Editer **.env** avec les bonnes variables d'environnement de connexion à la base de données, mail, captcha
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+### Installation en mode production :
 
-## Learning Laravel
+Modifier les variables d'environnement avec les valeurs suivantes :
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+* APP_ENV=production
+* APP_DEBUG=false
+* APP_URL=[Url d'accès au site avec si besoin le numéro de port]
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+Ensuite indiquer les droits d'écriture web sur le répertoire `storage` puis lancer les commandes suivante :
 
-## Contributing
+```shell
+composer install --no-dev --optimize-autoloader
+php artisan key:generate
+php artisan storage:link
+php artisan migrate --seed --force
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+```
 
-## Security Vulnerabilities
+### Installation en mode développement/local/debug :
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+```shell
+composer install
+php artisan key:generate
+php artisan storage:link
+php artisan migrate --seed
+```
 
-## License
+## Création d'utilisateurs en production
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+Commande générique de création :
+
+```shell
+php artisan user:create[:admin] {email} {lastname} {firstname} {password}
+```
+
+Exemples pour générer un accès super-admin pour Useweb puis superviseur pour le client
+
+```shell
+php artisan user:create:admin dev@useweb.com Beaudouin Adrien azerty
+php artisan user:create client@exemple.org John Doe azerty
+```
+
+## Développement
+
+### Chargement des assets
+
+Préparation des assets par elixir avec sass/webpack/browsersync :
+
+1. Paramétrage des variables d'environnement BROWSERSYNC_*
+2. Installation du package yarn puis du client gulp avec `npm install --global yarn gulp-cli`
+3. Lancement des commandes suivantes :
+
+```shell
+yarn
+gulp watch
+```
+
+Cela doit normalement le navigateur avec autoloading sur l'ensemble des fichiers sources du projet, que ce soit côté PHP ou bien assets
+
+NB : A chaque mise en production, penser à faire `gulp --production` avant chaque push
+
+## Paramétrage
+
+### Les métas
+
+Le paramétrage des metas *title* et *description* s'effectue dans le fichier `config/meta.php`
