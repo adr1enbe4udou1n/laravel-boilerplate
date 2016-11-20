@@ -36,19 +36,6 @@
             @endif
         </div>
     </div>
-    <div class="form-group">
-        <label class="col-lg-2 control-label">Date:</label>
-
-        <div class="col-sm-10">
-        <div class="input-group date">
-            <div class="input-group-addon">
-                <i class="fa fa-calendar"></i>
-            </div>
-            <input type="text" class="form-control pull-right datepicker">
-        </div>
-        </div>
-        <!-- /.input group -->
-    </div>
     <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
         {{ Form::label('role', trans('validation.attributes.role'), ['class' => 'col-lg-2 control-label']) }}
 

@@ -144,6 +144,7 @@ return [
         'size'                  => 'Taille',
         'role'                  => 'Rôle',
         'active'                => 'Actif',
+        'g-recaptcha-response'  => 'Captcha'
     ],
 
 ];

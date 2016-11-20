@@ -1,7 +1,7 @@
 
 require('./../bootstrap');
-require('flexslider');
 require('./../plugins');
+require('flexslider');
 
 const app = new Vue({
     el: '#app'

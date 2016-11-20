@@ -31,7 +31,7 @@
     <script src="{{ asset('js/backend.js') }}"></script>
 @endif
 
-<script src="{{ asset('i18n/bootstrap-datepicker.fr.js') }}"></script>
+<script src="{{ asset('i18n/moment.fr.js') }}"></script>
 <script src="{{ asset('i18n/select2.fr.js') }}"></script>
 @yield('scripts')
 </body>

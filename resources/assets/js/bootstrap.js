@@ -1,5 +1,6 @@
 
 window._ = require('lodash');
+window.moment = require('moment');
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -8,13 +9,11 @@ window._ = require('lodash');
  */
 
 window.$ = window.jQuery = require('jquery');
-require('moment');
 require('bootstrap-sass');
 
 require('datatables.net');
 require('datatables.net-bs');
-require('bootstrap-datepicker');
-require('bootstrap-timepicker');
+$.fn.datetimepicker = require('eonasdan-bootstrap-datetimepicker');
 require('bootstrap-slider');
 
 /**
