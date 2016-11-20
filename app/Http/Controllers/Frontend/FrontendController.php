@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ContactSend;
 use Illuminate\Http\Request;
+use Mail;
 use View;
 
 class FrontendController extends Controller
@@ -43,13 +45,14 @@ class FrontendController extends Controller
         if ($request->isMethod('POST')) {
             $this->validate($request, [
                 'name' => 'required',
-                'company' => 'required',
                 'city' => 'required',
                 'phone' => 'required',
                 'email' => 'required|email',
                 'message' => 'required',
                 'g-recaptcha-response' => 'required|captcha',
             ]);
+
+            Mail::send(new ContactSend($request->input()));
 
             return redirect(route('contact-sent'));
         }

@@ -11,5 +11,9 @@ return [
         'intro' => 'Vous recevez ce mail car vous avez effectué une demande de réinitialisation de mot de passe.',
         'action' => 'Réinitialiser le mot de passe',
         'outro' => 'Si vous n\'avez pas fais cette demande de réinitialisation, aucune action n\'est requise.'
+    ],
+    'contact' => [
+        'subject' => 'Nouveau message de contact',
+        'new_contact' => 'Vous avez reçu un nouveau message de contact'
     ]
 ];
