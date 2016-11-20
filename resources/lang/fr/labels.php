@@ -24,6 +24,7 @@ return [
         ],
 
         'users' => [
+            'management' => 'Gestion des utilisateurs',
             'profile' => 'Profil',
             'logout' => 'Déconnexion',
             'member_since' => 'Membre depuis le :date',

@@ -1,21 +1,25 @@
 <?php
 
-Breadcrumbs::register('admin.access.user.index', function ($breadcrumbs) {
+Breadcrumbs::register('admin.dashboard', function ($breadcrumbs) {
+    $breadcrumbs->push(trans('labels.backend.dashboard.title'), route('admin.dashboard'));
+});
+
+Breadcrumbs::register('admin.user.index', function ($breadcrumbs) {
     $breadcrumbs->parent('admin.dashboard');
-    $breadcrumbs->push(trans('labels.backend.access.users.management'), route('admin.access.user.index'));
+    $breadcrumbs->push(trans('labels.backend.users.management'), route('admin.user.index'));
 });
 
-Breadcrumbs::register('admin.access.user.deleted', function ($breadcrumbs) {
-    $breadcrumbs->parent('admin.access.user.index');
-    $breadcrumbs->push(trans('menus.backend.access.users.deleted'), route('admin.access.user.deleted'));
+Breadcrumbs::register('admin.user.deleted', function ($breadcrumbs) {
+    $breadcrumbs->parent('admin.user.index');
+    $breadcrumbs->push(trans('menus.backend.users.deleted'), route('admin.user.deleted'));
 });
 
-Breadcrumbs::register('admin.access.user.create', function ($breadcrumbs) {
-    $breadcrumbs->parent('admin.access.user.index');
-    $breadcrumbs->push(trans('menus.backend.access.users.create'), route('admin.access.user.create'));
+Breadcrumbs::register('admin.user.create', function ($breadcrumbs) {
+    $breadcrumbs->parent('admin.user.index');
+    $breadcrumbs->push(trans('menus.backend.users.create'), route('admin.user.create'));
 });
 
-Breadcrumbs::register('admin.access.user.edit', function ($breadcrumbs, $id) {
-    $breadcrumbs->parent('admin.access.user.index');
-    $breadcrumbs->push(trans('menus.backend.access.users.edit'), route('admin.access.user.edit', $id));
+Breadcrumbs::register('admin.user.edit', function ($breadcrumbs, $id) {
+    $breadcrumbs->parent('admin.user.index');
+    $breadcrumbs->push(trans('menus.backend.users.edit'), route('admin.user.edit', $id));
 });
