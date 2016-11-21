@@ -12,8 +12,8 @@
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    @yield('header-title')
-                    <small>@yield('header-description')</small>
+                    @yield('header_title')
+                    <small>@yield('header_description')</small>
                 </h1>
 
                 {!! Breadcrumbs::renderIfExists() !!}

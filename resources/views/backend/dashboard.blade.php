@@ -1,6 +1,6 @@
 @extends('backend.body')
 
-@section('header-title', trans('labels.backend.titles.dashboard'))
+@section('header_title', trans('labels.backend.titles.dashboard'))
 
 @section('content')
 
