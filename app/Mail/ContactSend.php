@@ -5,7 +5,6 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class ContactSend extends Mailable
 {
@@ -25,7 +24,6 @@ class ContactSend extends Mailable
     {
         $this->contact = $input;
     }
-
 
     /**
      * Build the message.

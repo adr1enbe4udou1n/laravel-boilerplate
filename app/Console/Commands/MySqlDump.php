@@ -32,7 +32,7 @@ class MySqlDump extends Command
         $password = env('DB_PASSWORD');
         $database = env('DB_DATABASE');
 
-        $filePath = storage_path('dump') . DIRECTORY_SEPARATOR . $database . '.sql';
+        $filePath = storage_path('dump').DIRECTORY_SEPARATOR.$database.'.sql';
         $command = sprintf('mysqldump -h%s -u%s -p%s %s --no-data > %s', $host, $username, $password, $database, $filePath);
         exec($command);
     }

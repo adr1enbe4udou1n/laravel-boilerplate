@@ -43,12 +43,13 @@ class UserController extends Controller
      * Show the application dashboard.
      *
      * @param Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            /**@var EloquentEngine $collection */
+            /** @var EloquentEngine $collection */
             $query = Datatables::of($this->users->get());
 
             return $query->editColumn('email', function (User $user) {
@@ -73,16 +74,19 @@ class UserController extends Controller
 
     /**
      * @param StoreUserRequest $request
+     *
      * @return mixed
      */
     public function store(StoreUserRequest $request)
     {
         $this->users->store($request->input());
+
         return redirect()->route('admin.user.index')->withFlashSuccess(trans('alerts.backend.users.created'));
     }
 
     /**
      * @param User $user
+     *
      * @return mixed
      */
     public function edit(User $user)
@@ -91,29 +95,34 @@ class UserController extends Controller
     }
 
     /**
-     * @param User $user
+     * @param User              $user
      * @param UpdateUserRequest $request
+     *
      * @return mixed
      */
     public function update(User $user, UpdateUserRequest $request)
     {
         $this->users->update($user,  $request->input());
+
         return redirect()->route('admin.user.index')->withFlashSuccess(trans('alerts.backend.users.updated'));
     }
 
     /**
-     * @param User $user
+     * @param User    $user
      * @param Request $request
+     *
      * @return mixed
      */
     public function destroy(User $user, Request $request)
     {
         $this->users->destroy($user);
+
         return redirect()->back()->withFlashSuccess(trans('alerts.backend.users.deleted'));
     }
 
     /**
      * @param User $user
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function loginAs(User $user)
@@ -136,24 +145,27 @@ class UserController extends Controller
     {
         $user = User::find(auth()->user()->id);
 
-        if (! $user) {
+        if (!$user) {
             abort(404);
         }
+
         return view('backend.user.profile')->withUser($user);
     }
 
     /**
      * @param UpdateProfileRequest $request
+     *
      * @return mixed
      */
     public function profileUpdate(UpdateProfileRequest $request)
     {
         $user = User::find(auth()->user()->id);
 
-        if (! $user) {
+        if (!$user) {
             abort(404);
         }
         $this->users->update($user,  $request->input());
+
         return back()->withFlashSuccess(trans('alerts.backend.users.updated'));
     }
 }

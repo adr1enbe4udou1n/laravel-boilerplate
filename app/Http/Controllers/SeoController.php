@@ -12,7 +12,7 @@ class SeoController extends Controller
         $lines = [
             'User-agent: *',
             'Disallow:',
-            'Sitemap: ' . url('/') . '/sitemap.xml'
+            'Sitemap: '.url('/').'/sitemap.xml',
         ];
 
         return Response::make(implode(PHP_EOL, $lines), 200, ['Content-Type' => 'text/plain']);
@@ -20,7 +20,7 @@ class SeoController extends Controller
 
     public function sitemap()
     {
-        $sitemap = app("sitemap");
+        $sitemap = app('sitemap');
 
         $sitemap->add(route('home'), Carbon::now(), '1.0', 'daily');
 

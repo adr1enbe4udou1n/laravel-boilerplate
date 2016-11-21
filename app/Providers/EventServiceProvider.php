@@ -16,22 +16,19 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [];
 
     /**
-     * Class event subscribers
+     * Class event subscribers.
+     *
      * @var array
      */
     protected $subscribe = [
-        UserEventListener::class
+        UserEventListener::class,
     ];
 
     /**
      * Register any events for your application.
-     *
-     * @return void
      */
     public function boot()
     {
         parent::boot();
-
-        //
     }
 }

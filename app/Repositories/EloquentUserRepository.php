@@ -12,8 +12,7 @@ use DB;
 use Exception;
 
 /**
- * Class EloquentUserRepository
- * @package App\Repositories\User
+ * Class EloquentUserRepository.
  */
 class EloquentUserRepository implements UserRepository
 {
@@ -27,6 +26,7 @@ class EloquentUserRepository implements UserRepository
 
     /**
      * @param  $input
+     *
      * @return bool
      */
     public function store($input)
@@ -37,6 +37,7 @@ class EloquentUserRepository implements UserRepository
         DB::transaction(function () use ($user) {
             if ($user->save()) {
                 event(new UserCreated($user));
+
                 return true;
             }
 
@@ -47,7 +48,9 @@ class EloquentUserRepository implements UserRepository
     /**
      * @param User $user
      * @param $input
+     *
      * @return bool
+     *
      * @throws Exception
      */
     public function update(User $user, $input)
@@ -60,6 +63,7 @@ class EloquentUserRepository implements UserRepository
                 $user->save();
 
                 event(new UserUpdated($user));
+
                 return true;
             }
 
@@ -68,14 +72,16 @@ class EloquentUserRepository implements UserRepository
     }
 
     /**
-     * @param  User $user
-     * @return boolean|null
+     * @param User $user
+     *
+     * @return bool|null
      */
     public function destroy(User $user)
     {
         DB::transaction(function () use ($user) {
             if ($user->delete()) {
                 event(new UserDeleted($user));
+
                 return true;
             }
 
@@ -85,7 +91,9 @@ class EloquentUserRepository implements UserRepository
 
     /**
      * @param User $user
+     *
      * @return \Illuminate\Http\RedirectResponse
+     *
      * @throws Exception
      */
     public function loginAs(User $user)
@@ -102,6 +110,7 @@ class EloquentUserRepository implements UserRepository
 
         //Login user
         auth()->loginUsingId($user->id);
+
         return redirect()->route('admin.dashboard');
     }
 
@@ -116,13 +125,14 @@ class EloquentUserRepository implements UserRepository
 
         if ($admin_id = session()->get('admin_user_id')) {
             $this->flushTempSession();
-            auth()->loginUsingId((int)$admin_id);
+            auth()->loginUsingId((int) $admin_id);
         }
+
         return redirect()->route('admin.dashboard');
     }
 
     /**
-     * Remove old session variables from admin logging in as user
+     * Remove old session variables from admin logging in as user.
      */
     private function flushTempSession()
     {

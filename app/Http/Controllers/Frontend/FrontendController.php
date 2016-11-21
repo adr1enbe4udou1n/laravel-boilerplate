@@ -56,6 +56,7 @@ class FrontendController extends Controller
 
             return redirect(route('contact-sent'));
         }
+
         return view('frontend.pages.contact');
     }
 

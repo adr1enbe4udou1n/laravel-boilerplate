@@ -11,6 +11,7 @@ class DashboardController extends Controller
      * Show the application dashboard.
      *
      * @param Request $request
+     *
      * @return \Illuminate\View\View
      */
     public function index(Request $request)

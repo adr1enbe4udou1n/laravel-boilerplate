@@ -19,8 +19,9 @@ class UserPolicy
     /**
      * Determine whether the user can update the user.
      *
-     * @param  User  $authenticatedUser
-     * @param  User  $user
+     * @param User $authenticatedUser
+     * @param User $user
+     *
      * @return mixed
      */
     public function update(User $authenticatedUser, User $user)

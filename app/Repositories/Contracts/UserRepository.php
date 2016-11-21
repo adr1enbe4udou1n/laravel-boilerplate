@@ -5,8 +5,7 @@ namespace App\Repositories\Contracts;
 use App\Models\User;
 
 /**
- * Class EloquentUserRepository
- * @package App\Repositories\User
+ * Class EloquentUserRepository.
  */
 interface UserRepository
 {
@@ -17,6 +16,7 @@ interface UserRepository
 
     /**
      * @param $input
+     *
      * @return mixed
      */
     public function store($input);
@@ -24,18 +24,21 @@ interface UserRepository
     /**
      * @param User $user
      * @param $input
+     *
      * @return mixed
      */
     public function update(User $user, $input);
 
     /**
-     * @param  User $user
+     * @param User $user
+     *
      * @return mixed
      */
     public function destroy(User $user);
 
     /**
      * @param User $user
+     *
      * @return mixed
      */
     public function loginAs(User $user);

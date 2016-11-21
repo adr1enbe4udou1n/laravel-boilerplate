@@ -24,7 +24,7 @@ class UpdateProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email|unique:users,email,' . auth()->user()->id,
+            'email' => 'required|email|unique:users,email,'.auth()->user()->id,
             'password' => 'min:6|confirmed',
             'password_confirmation' => 'min:6',
         ];
