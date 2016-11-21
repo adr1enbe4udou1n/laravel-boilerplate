@@ -20,10 +20,10 @@
                     <!-- /.box-body -->
                     <div class="box-footer">
                         <div class="pull-left">
-                            <a href="{{ route('admin.user.index') }}" class="btn btn-danger btn-xs">@lang('buttons.backend.back')</a>
+                            <a href="{{ route('admin.user.index') }}" class="btn btn-danger btn-xs">@lang('buttons.general.back')</a>
                         </div>
                         <div class="pull-right">
-                            {{ Form::submit(trans('buttons.backend.create'), ['class' => 'btn btn-success btn-xs']) }}
+                            {{ Form::submit(trans('buttons.general.create'), ['class' => 'btn btn-success btn-xs']) }}
                         </div>
                     </div>
                     <!-- /.box-footer -->

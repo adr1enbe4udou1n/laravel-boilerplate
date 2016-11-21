@@ -19,13 +19,13 @@
                             <th>@lang('labels.backend.users.tables.email')</th>
                             <th>@lang('labels.backend.users.tables.active')</th>
                             <th>@lang('labels.backend.users.tables.role')</th>
-                            <th>@lang('labels.backend.created_at')</th>
-                            <th>@lang('labels.backend.updated_at')</th>
-                            <th>@lang('labels.backend.actions')</th>
+                            <th>@lang('labels.general.created_at')</th>
+                            <th>@lang('labels.general.updated_at')</th>
+                            <th>@lang('labels.general.actions')</th>
                         </tr>
                         </thead>
                     </table>
-                    <a href="{{ route('admin.user.create') }}" class="btn btn-success btn-xs">@lang('buttons.backend.create')</a>
+                    <a href="{{ route('admin.user.create') }}" class="btn btn-success btn-xs">@lang('buttons.general.create')</a>
                 </div>
                 <!-- /.box-body -->
             </div>

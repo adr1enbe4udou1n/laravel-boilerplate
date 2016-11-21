@@ -30,9 +30,9 @@ trait HtmlElements
     public function getBooleanLabelHtml($boolean)
     {
         if ($boolean) {
-            return "<label class='label label-success'>" . trans('labels.backend.yes') . "</label>";
+            return "<label class='label label-success'>" . trans('labels.general.yes') . "</label>";
         }
-        return "<label class='label label-danger'>" . trans('labels.backend.no') . "</label>";
+        return "<label class='label label-danger'>" . trans('labels.general.no') . "</label>";
     }
 
     /**
@@ -41,7 +41,7 @@ trait HtmlElements
      */
     public function getShowButtonHtml($route)
     {
-        return '<a href="' . route($route, $this) . '" class="btn btn-xs btn-success"><i class="fa fa-eye" data-toggle="tooltip" data-placement="top" title="' . trans('buttons.backend.show') . '"></i></a> ';
+        return '<a href="' . route($route, $this) . '" class="btn btn-xs btn-success"><i class="fa fa-eye" data-toggle="tooltip" data-placement="top" title="' . trans('buttons.general.view') . '"></i></a> ';
     }
 
     /**
@@ -50,7 +50,7 @@ trait HtmlElements
      */
     public function getEditButtonHtml($route)
     {
-        return '<a href="' . route($route, $this) . '" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="' . trans('buttons.backend.edit') . '"></i></a> ';
+        return '<a href="' . route($route, $this) . '" class="btn btn-xs btn-primary"><i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="' . trans('buttons.general.edit') . '"></i></a> ';
     }
 
     /**
@@ -61,9 +61,9 @@ trait HtmlElements
     {
         return '<a href="' . route($route, $this) . '"
             data-method="delete"
-            data-trans-button-cancel="' . trans('buttons.backend.cancel') . '"
-            data-trans-button-confirm="' . trans('buttons.backend.delete') . '"
-            data-trans-title="' . trans('labels.backend.are_you_sure') . '"
-            class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="' . trans('buttons.backend.delete') . '"></i></a> ';
+            data-trans-button-cancel="' . trans('buttons.general.cancel') . '"
+            data-trans-button-confirm="' . trans('buttons.general.delete') . '"
+            data-trans-title="' . trans('labels.general.are_you_sure') . '"
+            class="btn btn-xs btn-danger"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="' . trans('buttons.general.delete') . '"></i></a> ';
     }
 }

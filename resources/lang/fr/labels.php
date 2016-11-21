@@ -2,34 +2,13 @@
 
 return [
     'backend' => [
-        'actions' => 'Actions',
-        'general' => 'Général',
-        'no_results' => 'Aucune donnée disponible dans le tableau',
         'login-as' => 'Vous êtes actuellement connecté en tant que <strong>:name</strong>, vous pouvez à tout moment vous reconnecter en tant que <a href=":route">:admin</a>.',
-        'are_you_sure' => 'Etes-vous sûr ?',
-        'yes' => 'Oui',
-        'no' => 'Non',
-        'more_info' => 'Plus d\'info',
-        'created_at' => 'Date création',
-        'updated_at' => 'Date modification',
-        'deleted_at' => 'Date suppression',
 
-        'sidebars' => [
+        'titles' => [
             'dashboard' => 'Tableau de bord',
-            'users' => 'Gestion des utilisateurs',
-        ],
-
-        'dashboard' => [
-            'title' => 'Tableau de bord',
         ],
 
         'users' => [
-            'management' => 'Gestion des utilisateurs',
-            'profile' => 'Profil',
-            'logout' => 'Déconnexion',
-            'member_since' => 'Membre depuis le :date',
-            'password_confirm' => 'Confirmer le mot de passe',
-
             'titles' => [
                 'main' => 'Gestion des utilisateurs',
                 'index' => 'Liste des utilisateurs',
@@ -49,5 +28,21 @@ return [
 
     'frontend' => [
 
+    ],
+
+    'general' => [
+        'actions' => 'Actions',
+        'no_results' => 'Aucune donnée disponible dans le tableau',
+        'are_you_sure' => 'Etes-vous sûr ?',
+        'yes' => 'Oui',
+        'no' => 'Non',
+        'more_info' => 'Plus d\'info',
+        'created_at' => 'Date création',
+        'updated_at' => 'Date modification',
+        'deleted_at' => 'Date suppression',
+        'profile' => 'Profil',
+        'logout' => 'Déconnexion',
+        'member_since' => 'Membre depuis le :date',
+        'password_confirm' => 'Confirmer le mot de passe',
     ]
 ];
