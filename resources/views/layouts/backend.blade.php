@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{ config('app.locale') }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,16 +23,20 @@
     @yield('styles')
 </head>
 <body id="@yield('body_id')" class="hold-transition skin-blue sidebar-mini @yield('body_class')">
-@yield('body')
+    @yield('body')
 
-@if(app()->environment('production'))
-    <script src="{{ elixir('js/backend.js') }}"></script>
-@else
-    <script src="{{ asset('js/backend.js') }}"></script>
-@endif
+    <!-- Scripts -->
+    @if(app()->environment('production'))
+        <script src="{{ elixir('js/backend.js') }}"></script>
+    @else
+        <script src="{{ asset('js/backend.js') }}"></script>
+    @endif
 
-<script src="{{ asset('i18n/moment.fr.js') }}"></script>
-<script src="{{ asset('i18n/select2.fr.js') }}"></script>
-@yield('scripts')
+    @if (config('app.locale') != 'en')
+        <script src="{{ asset('i18n/moment.' . config('app.locale') . '.js') }}"></script>
+        <script src="{{ asset('i18n/select2.' . config('app.locale') . '.js') }}"></script>
+    @endif
+
+    @yield('scripts')
 </body>
 </html>

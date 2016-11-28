@@ -31,6 +31,8 @@ function addDeleteForms() {
  * Place any jQuery/helper plugins in here.
  */
 $(function () {
+    const locale = $('html').attr('lang');
+
     /**
      * Place the CSRF token as a header on all pages for access in AJAX requests
      */
@@ -101,12 +103,20 @@ $(function () {
     });
 
     if ($.fn.dataTable) {
-        $.extend(true, $.fn.dataTable.defaults, {
-            lengthMenu: [[5, 10, 15, 25, 50, -1], [5, 10, 15, 25, 50, "Tout"]],
-            language: {
-                "url": "/i18n/datatables.fr.json"
-            }
-        });
+        let dataTableOptions = {
+            lengthMenu: [[5, 10, 15, 25, 50, -1], [5, 10, 15, 25, 50, "All"]],
+        };
+
+        if (locale != 'en') {
+            dataTableOptions = {
+                lengthMenu: [[5, 10, 15, 25, 50, -1], [5, 10, 15, 25, 50, "Tout"]],
+                language: {
+                    "url": "/i18n/datatables." + locale + ".json"
+                }
+            };
+        }
+
+        $.extend(true, $.fn.dataTable.defaults, dataTableOptions);
     }
 
     $('.auto-submit').change(function () {

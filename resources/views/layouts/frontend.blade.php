@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{ config('app.locale') }}">
 <head>
     @include('frontend.scripts.gtm')
 
@@ -45,8 +45,11 @@
         <script src="{{ asset('js/frontend.js') }}"></script>
     @endif
 
-    <script src="{{ asset('i18n/moment.fr.js') }}"></script>
-    <script src="{{ asset('i18n/select2.fr.js') }}"></script>
+    @if (config('app.locale') != 'en')
+        <script src="{{ asset('i18n/moment.' . config('app.locale') . '.js') }}"></script>
+        <script src="{{ asset('i18n/select2.' . config('app.locale') . '.js') }}"></script>
+    @endif
+
     @yield('scripts')
 </body>
 </html>
