@@ -8,13 +8,12 @@ return [
     'yes' => 'Oui',
     'no' => 'Non',
     'more_info' => 'Plus d\'info',
-    'created_at' => 'Date création',
-    'updated_at' => 'Date modification',
-    'deleted_at' => 'Date suppression',
+    'created_at' => 'Créé le',
+    'updated_at' => 'Modifié le',
+    'deleted_at' => 'Supprimé le',
     'profile' => 'Profil',
     'logout' => 'Déconnexion',
     'member_since' => 'Membre depuis le :date',
-    'password_confirm' => 'Confirmer le mot de passe',
 
     'backend' => [
         'login-as' => 'Vous êtes actuellement connecté en tant que <strong>:name</strong>, vous pouvez à tout moment vous reconnecter en tant que <a href=":route">:admin</a>.',

@@ -112,6 +112,40 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name'                  => 'Name',
+        'username'              => 'Pseudo',
+        'email'                 => 'Email',
+        'first_name'            => 'Firstname',
+        'last_name'             => 'Lastname',
+        'password'              => 'Password',
+        'password_confirmation' => 'Confirm password',
+        'city'                  => 'City',
+        'country'               => 'Country',
+        'address'               => 'Address',
+        'phone'                 => 'Phone',
+        'mobile'                => 'Mobile',
+        'age'                   => 'Age',
+        'sex'                   => 'Sex',
+        'gender'                => 'Gender',
+        'day'                   => 'Day',
+        'month'                 => 'Month',
+        'year'                  => 'Year',
+        'hour'                  => 'Hour',
+        'minute'                => 'Minute',
+        'second'                => 'Second',
+        'title'                 => 'Title',
+        'content'               => 'Content',
+        'description'           => 'Description',
+        'excerpt'               => 'Excerpt',
+        'date'                  => 'Date',
+        'time'                  => 'Time',
+        'available'             => 'Available',
+        'size'                  => 'Size',
+        'role'                  => 'Role',
+        'active'                => 'Active',
+        'message'               => 'Message',
+        'g-recaptcha-response'  => 'Captcha'
+    ],
 
 ];
