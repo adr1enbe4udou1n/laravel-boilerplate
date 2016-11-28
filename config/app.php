@@ -14,6 +14,8 @@ return [
 
     'name' => 'Laravel',
 
+    'editor' => env('APP_EDITOR', 'Laravel'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -64,7 +66,7 @@ return [
     |
     */
 
-    'timezone' => 'Europe/Paris',
+    'timezone' => 'UTC',
 
     /*
     |--------------------------------------------------------------------------
@@ -77,7 +79,9 @@ return [
     |
     */
 
-    'locale' => 'fr',
+    'locale' => env('APP_LOCALE', 'en'),
+
+    'locale_php' => env('APP_LOCALE_PHP', 'en_US'),
 
     /*
     |--------------------------------------------------------------------------
@@ -90,7 +94,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
 
     /*
     |--------------------------------------------------------------------------

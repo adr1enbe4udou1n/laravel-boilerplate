@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Repositories\Contracts\UserRepository;
 use App\Repositories\EloquentUserRepository;
+use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,6 +14,19 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        /**
+         * setLocale for php. Enables ->formatLocalized() with localized values for dates
+         */
+        setLocale(LC_TIME, config('app.locale_php'));
+        /**
+         * setLocale to use Carbon source locales. Enables diffForHumans() localized
+         */
+        Carbon::setLocale(config('app.locale'));
+
+        // Force SSL in production
+        if ($this->app->environment() == 'production') {
+            //URL::forceSchema('https');
+        }
     }
 
     /**

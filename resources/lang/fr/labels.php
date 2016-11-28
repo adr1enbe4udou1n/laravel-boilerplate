@@ -14,6 +14,8 @@ return [
     'profile' => 'Profil',
     'logout' => 'Déconnexion',
     'member_since' => 'Membre depuis le :date',
+    'all_rights_reserved' => 'Tous droits réservés.',
+    'edit_by' => 'Edité par <strong>:editor</strong>',
 
     'backend' => [
         'login-as' => 'Vous êtes actuellement connecté en tant que <strong>:name</strong>, vous pouvez à tout moment vous reconnecter en tant que <a href=":route">:admin</a>.',
