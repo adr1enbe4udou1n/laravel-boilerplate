@@ -6,7 +6,7 @@
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
-            <li class="header">@lang('navs.backend.general')</li>
+            <li class="header">@lang('labels.general')</li>
             <!-- Optionally, you can add icons to the links -->
             <li class="{{ active_class(if_route_pattern('admin.dashboard')) }}"><a href="{{ route('admin.dashboard') }}"><i class="fa fa-tachometer"></i> <span>@lang('labels.backend.titles.dashboard')</span></a></li>
             @can('manage-users')

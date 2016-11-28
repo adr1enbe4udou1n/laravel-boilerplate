@@ -126,7 +126,7 @@ class User extends Authenticatable
             $buttons .= '<a href="'.route(
                     'admin.user.login-as', $this
                 ).'" class="btn btn-xs btn-success"><i class="fa fa-lock" data-toggle="tooltip" data-placement="top" title="'.trans(
-                    'buttons.backend.login-as', ['name' => $this->name]
+                    'buttons.login-as', ['name' => $this->name]
                 ).'"></i></a> ';
         }
 

@@ -15,17 +15,17 @@
                     <table id="users-table" class="table table-bordered table-hover" width="100%">
                         <thead>
                         <tr>
-                            <th>@lang('labels.backend.users.tables.name')</th>
-                            <th>@lang('labels.backend.users.tables.email')</th>
-                            <th>@lang('labels.backend.users.tables.active')</th>
-                            <th>@lang('labels.backend.users.tables.role')</th>
-                            <th>@lang('labels.general.created_at')</th>
-                            <th>@lang('labels.general.updated_at')</th>
-                            <th>@lang('labels.general.actions')</th>
+                            <th>@lang('validation.attributes.name')</th>
+                            <th>@lang('validation.attributes.email')</th>
+                            <th>@lang('validation.attributes.active')</th>
+                            <th>@lang('validation.attributes.role')</th>
+                            <th>@lang('labels.created_at')</th>
+                            <th>@lang('labels.updated_at')</th>
+                            <th>@lang('labels.actions')</th>
                         </tr>
                         </thead>
                     </table>
-                    <a href="{{ route('admin.user.create') }}" class="btn btn-success btn-xs">@lang('buttons.general.create')</a>
+                    <a href="{{ route('admin.user.create') }}" class="btn btn-success btn-xs">@lang('buttons.create')</a>
                 </div>
                 <!-- /.box-body -->
             </div>
