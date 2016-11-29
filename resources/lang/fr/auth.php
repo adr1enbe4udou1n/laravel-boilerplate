@@ -13,10 +13,10 @@ return [
     |
     */
 
-    'failed'   => 'Ces identifiants ne correspondent pas à nos enregistrements',
+    'failed' => 'Ces identifiants ne correspondent pas à nos enregistrements',
     'throttle' => 'Trop de tentatives de connexion. Veuillez essayer de nouveau dans :seconds secondes.',
 
     'remember' => 'Se souvenir',
     'login' => 'Se connecter',
-    'password_forgot' => 'Mot de passe oublié ?'
+    'password_forgot' => 'Mot de passe oublié ?',
 ];

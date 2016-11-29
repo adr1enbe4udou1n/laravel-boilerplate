@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'id' => 'GTM-XXXX'
+    'id' => 'GTM-XXXX',
 ];

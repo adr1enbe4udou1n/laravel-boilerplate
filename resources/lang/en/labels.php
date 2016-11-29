@@ -31,7 +31,7 @@ return [
                 'create' => 'User creation',
                 'edit' => 'User modification',
             ],
-        ]
+        ],
     ],
 
     'frontend' => [

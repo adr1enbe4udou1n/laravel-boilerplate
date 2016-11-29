@@ -5,11 +5,11 @@ return [
         'users' => [
             'created' => 'User ID :user created',
             'updated' => 'User ID :user updated',
-            'deleted' => 'User ID :user deleted'
-        ]
+            'deleted' => 'User ID :user deleted',
+        ],
     ],
 
     'frontend' => [
 
-    ]
+    ],
 ];

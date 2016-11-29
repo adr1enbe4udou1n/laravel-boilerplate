@@ -31,7 +31,7 @@ return [
                 'create' => 'Créer un utilisateur',
                 'edit' => 'Editer un utilisateur',
             ],
-        ]
+        ],
     ],
 
     'frontend' => [
