@@ -14,7 +14,7 @@ return [
 
     'name' => 'Laravel',
 
-    'editor' => env('APP_EDITOR', 'Laravel'),
+    'editor' => 'My Company',
 
     /*
     |--------------------------------------------------------------------------
