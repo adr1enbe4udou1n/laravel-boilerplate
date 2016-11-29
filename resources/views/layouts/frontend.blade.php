@@ -10,10 +10,12 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $title or '' }} | {{ config('app.name') }}</title>
+    <title>{{ $title or config('app.name') }}</title>
 
-    <meta name="description" content="{{ $description or '' }}">
-    @yield('meta')
+    @if (!empty($description))
+    <meta name="description" content="{{ $description }}">
+    @endif
+    @yield('metas')
 
     <!-- Styles -->
     @if(app()->environment('production'))

@@ -14,7 +14,7 @@
 Route::get('/robots.txt', 'SeoController@robots');
 Route::get('/sitemap.xml', 'SeoController@sitemap');
 
-Route::group(['namespace' => 'Frontend'], function () {
+Route::group(['namespace' => 'Frontend', 'middleware' => ['metas']], function () {
     Route::get('/', 'FrontendController@index')->name('home');
     Route::get('/qui-sommes-nous', 'FrontendController@about')->name('about');
     Route::match(['GET', 'POST'], '/contactez-nous', 'FrontendController@contact')->name('contact');

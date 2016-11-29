@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\MetaTags;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -52,5 +53,6 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'metas' => \App\Http\Middleware\MetaTags::class,
     ];
 }
