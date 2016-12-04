@@ -35,7 +35,7 @@ php artisan storage:link
 php artisan migrate --seed
 ```
 
-## User creation commands
+### User creation commands and backend access
 
 ```shell
 php artisan user:create[:admin] {name} {email} {password}
@@ -47,6 +47,8 @@ Generate Super-admin and supervisor access :
 php artisan user:create:admin "Admin" admin@example.com 123456
 php artisan user:create "John Doe" john.doe@example.com 123456
 ```
+
+Backend is accessible under `/admin` url.
 
 ## Development Usage
 
