@@ -54,8 +54,8 @@ class User extends Authenticatable
     public static function getRoles()
     {
         return [
-            self::ROLE_ADMIN => 'Administrateur',
-            self::ROLE_SUPERVISOR => 'Superviseur',
+            self::ROLE_ADMIN => trans('labels.backend.users.roles.administrator'),
+            self::ROLE_SUPERVISOR => trans('labels.backend.users.roles.supervisor'),
         ];
     }
 

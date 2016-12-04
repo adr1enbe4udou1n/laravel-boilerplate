@@ -31,6 +31,11 @@ return [
                 'create' => 'User creation',
                 'edit' => 'User modification',
             ],
+
+            'roles' => [
+                'administrator' => 'Administrator',
+                'supervisor' => 'Supervisor',
+            ],
         ],
     ],
 
