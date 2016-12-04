@@ -3,7 +3,7 @@
 @section('body_id', 'page-about')
 
 @section('content')
-    <h1>Qui sommes-nous ?</h1>
+    <h1>@lang('labels.frontend.about')</h1>
 
     <p>Etiam ut purus mattis mauris sodales aliquam. Curabitur ullamcorper ultricies nisi. Quisque rutrum. Proin faucibus arcu quis ante. Sed cursus turpis vitae tortor.</p>
 

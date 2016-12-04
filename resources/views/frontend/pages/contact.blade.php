@@ -3,7 +3,7 @@
 @section('body_id', 'page-contact')
 
 @section('content')
-    <h1>Contact</h1>
+    <h1>@lang('labels.frontend.contact')</h1>
     <form action="{{ route('contact') }}" method="POST" class="form-horizontal">
         {{ csrf_field() }}
 
