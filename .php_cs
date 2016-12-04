@@ -4,6 +4,15 @@ use Symfony\CS\Finder;
 use Symfony\CS\Config\Config;
 use Symfony\CS\FixerInterface;
 
+$finder = Finder::create()
+	->notPath('bootstrap/cache')
+	->notPath('storage')
+	->notPath('vendor')
+    ->in(__DIR__)
+    ->name('*.php')
+    ->ignoreDotFiles(true)
+    ->ignoreVCS(true);
+
 $fixers = [
     'blankline_after_open_tag',
     'braces',
@@ -71,7 +80,7 @@ $fixers = [
 ];
 
 return Config::create()
-    ->finder(Finder::create()->in(__DIR__))
+    ->finder($finder)
     ->fixers($fixers)
-    ->level(FixerInterface::NONE_LEVEL)
+    ->level(FixerInterface::PSR2_LEVEL)
     ->setUsingCache(true);

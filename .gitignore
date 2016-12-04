@@ -6,6 +6,7 @@
 Homestead.json
 Homestead.yaml
 .env
+.php_cs.cache
 
 # Dev Builded Files
 /public/css
