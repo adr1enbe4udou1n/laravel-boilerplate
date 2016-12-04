@@ -1,7 +1,7 @@
 {
     "name": "adr1enbe4udou1n/laravel-boilerplate",
     "description": "Lite boilerplate site with backend based on Laravel 5.3.",
-    "keywords": ["framework", "laravel"],
+    "keywords": ["framework", "laravel", "boilerplate", "adminlte"],
     "license": "MIT",
     "type": "project",
     "require": {
