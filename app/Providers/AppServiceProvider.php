@@ -6,6 +6,7 @@ use App\Repositories\Contracts\UserRepository;
 use App\Repositories\EloquentUserRepository;
 use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
+use URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,9 +24,9 @@ class AppServiceProvider extends ServiceProvider
          */
         Carbon::setLocale(config('app.locale'));
 
-        // Force SSL in production
-        if ($this->app->environment() == 'production') {
-            //URL::forceSchema('https');
+        if ($this->app->environment() === 'production') {
+            // Force SSL in production
+            URL::forceSchema('https');
         }
     }
 
@@ -34,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if ($this->app->environment() == 'local') {
+        if ($this->app->environment() === 'local') {
             $this->app->register(\Barryvdh\Debugbar\ServiceProvider::class);
             $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
         }
