@@ -72,3 +72,7 @@ Note : If assets modified, launch `gulp --production` before push for each produ
 ### MetaTags
 
 *title* et *description* metas settings can be set on `resources/lang/{locale}/metas.php` file for each routes.
+
+## License
+
+This project is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
