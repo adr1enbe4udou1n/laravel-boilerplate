@@ -67,13 +67,13 @@ elixir((mix) => {
     if (elixir.inProduction) {
         // Versionning
         mix.version([
-            "public/css/frontend.css",
-            "public/js/frontend.js",
-            "public/css/backend.css",
-            "public/js/backend.js"
+            'public/css/frontend.css',
+            'public/js/frontend.js',
+            'public/css/backend.css',
+            'public/js/backend.js'
         ]);
     }
-    else {
+    else if (process.env.BROWSERSYNC_PROXY) {
         // BrowserSync
         mix.browserSync({
             proxy: {

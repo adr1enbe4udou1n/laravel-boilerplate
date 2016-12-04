@@ -1,35 +1,32 @@
 # Laravel Boilerplate
 
-## Présentation
+This is a lite boilerplate site with backend based on Laravel 5.3.
 
-Ce framework sert de base pour le développement d'un site sur-mesure avec backend
+## Features
 
-## Installation
+* Bootstrap Frontend with basic home-about-contact pages
+* Backend with AdminLTE Theme and Datatables
+* Basic User Management
 
-1. Clonage du projet
-2. Création de la base mysql + connexion utilisateur
-3. Copier **.env.example** vers **.env**
-4. Editer **.env** avec les bonnes variables d'environnement de connexion à la base de données, mail, captcha
+## Install
 
-### Installation en mode production :
+1. Fork and clone this repository
+2. Set Database and environment variables from **.env.example**
+* APP_ENV=[local|production]
+* APP_URL=[Site URL]
+3. Set Web write permission to `bootstrap` and `storage` folders.
+4. Launch this commands :
 
-Modifier les variables d'environnement avec les valeurs suivantes :
-
-* APP_ENV=production
-* APP_DEBUG=false
-* APP_URL=[Url d'accès au site avec si besoin le numéro de port]
-
-Ensuite indiquer les droits d'écriture web sur le répertoire `storage` puis lancer les commandes suivante :
+### For Production :
 
 ```shell
 composer install --no-dev --optimize-autoloader
 php artisan key:generate
 php artisan storage:link
 php artisan migrate --seed --force
-
 ```
 
-### Installation en mode développement/local/debug :
+### For Local/Development :
 
 ```shell
 composer install
@@ -38,42 +35,38 @@ php artisan storage:link
 php artisan migrate --seed
 ```
 
-## Création d'utilisateurs en production
-
-Commande générique de création :
+## User creation commands
 
 ```shell
 php artisan user:create[:admin] {name} {email} {password}
 ```
 
-Exemples pour générer un accès super-admin puis superviseur pour le client
+Generate Super-admin and supervisor access :
 
 ```shell
-php artisan user:create:admin "John Doe" admin@example.com azerty
-php artisan user:create "John Doe" client@example.com azerty
+php artisan user:create:admin "Admin" admin@example.com 123456
+php artisan user:create "John Doe" john.doe@example.com 123456
 ```
 
-## Développement
+## Development Usage
 
-### Chargement des assets
+### Autoloading assets with Browsersync
 
-Préparation des assets par elixir avec sass/webpack/browsersync :
-
-1. Paramétrage des variables d'environnement BROWSERSYNC_*
-2. Installation du package yarn puis du client gulp avec `npm install --global yarn gulp-cli`
-3. Lancement des commandes suivantes :
+1. If not yet done, get Yarn and Gulp globally with `npm -g i yarn gulp-cli`
+2. Set BROWSERSYNC_* environment variables with valid proxy, host and port
+3. Launch this commands :
 
 ```shell
 yarn
 gulp watch
 ```
 
-Cela doit normalement le navigateur avec autoloading sur l'ensemble des fichiers sources du projet, que ce soit côté PHP ou bien assets
+This should automatically start your default browser with browsersync activated for autoloading.
 
-NB : A chaque mise en production, penser à faire `gulp --production` avant chaque push
+Note : If assets modified, launch `gulp --production` before push for each production deploy.
 
-## Paramétrage
+## Settings
 
-### Les métas
+### MetaTags
 
-Le paramétrage des metas *title* et *description* s'effectue dans le fichier `config/meta.php`
+*title* et *description* metas settings can be set on `resources/lang/{locale}/metas.php` file for each routes.
