@@ -122,7 +122,7 @@ class User extends Authenticatable
     {
         $buttons = $this->getEditButtonHtml('admin.user.edit');
 
-        if (!session()->has('admin_user_id') && $this->id != auth()->id()) {
+        if (! session()->has('admin_user_id') && $this->id != auth()->id()) {
             $buttons .= '<a href="'.route(
                     'admin.user.login-as', $this
                 ).'" class="btn btn-xs btn-success"><i class="fa fa-lock" data-toggle="tooltip" data-placement="top" title="'.trans(
@@ -130,7 +130,7 @@ class User extends Authenticatable
                 ).'"></i></a> ';
         }
 
-        if ($this->id != auth()->id()) {
+        if ($this->id !== auth()->id()) {
             $buttons .= $this->getDeleteButtonHtml('admin.user.destroy');
         }
 

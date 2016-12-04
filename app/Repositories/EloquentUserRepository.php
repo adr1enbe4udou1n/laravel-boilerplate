@@ -28,6 +28,8 @@ class EloquentUserRepository implements UserRepository
      * @param  $input
      *
      * @return bool
+     *
+     * @throws \Exception|\Throwable
      */
     public function store($input)
     {
@@ -52,12 +54,13 @@ class EloquentUserRepository implements UserRepository
      * @return bool
      *
      * @throws Exception
+     * @throws \Exception|\Throwable
      */
     public function update(User $user, $input)
     {
         DB::transaction(function () use ($user, $input) {
             if ($user->update($input)) {
-                if (isset($input['password']) && !empty($input['password'])) {
+                if (isset($input['password']) && ! empty($input['password'])) {
                     $user->password = bcrypt($input['password']);
                 }
                 $user->save();
@@ -75,6 +78,8 @@ class EloquentUserRepository implements UserRepository
      * @param User $user
      *
      * @return bool|null
+     *
+     * @throws \Exception|\Throwable
      */
     public function destroy(User $user)
     {
@@ -98,7 +103,7 @@ class EloquentUserRepository implements UserRepository
      */
     public function loginAs(User $user)
     {
-        if (auth()->id() == $user->id || session()->get('admin_user_id') == $user->id) {
+        if (auth()->id() === $user->id || session()->get('admin_user_id') === $user->id) {
             return redirect()->route('admin.dashboard');
         }
 
@@ -119,7 +124,7 @@ class EloquentUserRepository implements UserRepository
      */
     public function logoutAs()
     {
-        if (!auth()->check()) {
+        if (! auth()->check()) {
             return redirect()->route('auth.login');
         }
 

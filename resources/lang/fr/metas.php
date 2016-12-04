@@ -19,5 +19,5 @@ return [
     'contact' => [
         'title' => 'Titre page contact',
         'description' => 'Description page contact',
-    ]
+    ],
 ];
