@@ -15,6 +15,7 @@ $finder = Finder::create()
     ->ignoreVCS(true);
 
 $fixers = [
+    '-psr0',
     'blankline_after_open_tag',
     'braces',
     'concat_without_spaces',
