@@ -17,7 +17,7 @@ This is a lite boilerplate site with backend based on Laravel 5.3.
 
 ## Install
 
-1. Fork and clone this repository
+1. Install by command `composer require adr1enbe4udou1n/laravel-boilerplate`
 2. Set Database and environment variables from **.env.example**
 * APP_ENV=[local|production]
 * APP_URL=[Site URL]
