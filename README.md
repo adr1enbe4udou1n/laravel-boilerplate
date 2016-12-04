@@ -1,10 +1,8 @@
 # Laravel Boilerplate
 
 [![Latest Stable Version](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/v/stable)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
-[![Total Downloads](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/downloads)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
-[![Latest Unstable Version](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/v/unstable)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 [![License](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/license)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
-[![Monthly Downloads](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/d/monthly)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
+[![Total Downloads](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/downloads)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 [![composer.lock](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/composerlock)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 
 This is a lite boilerplate site with backend based on Laravel 5.3.
