@@ -10,5 +10,6 @@ return [
     'update' => 'Update',
     'view' => 'View',
     'back' => 'Back',
+    'send' => 'Send',
     'login-as' => 'Login as :name',
 ];

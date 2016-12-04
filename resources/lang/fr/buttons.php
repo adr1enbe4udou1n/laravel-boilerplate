@@ -10,5 +10,6 @@ return [
     'update' => 'Mettre à jour',
     'view' => 'Voir',
     'back' => 'Retour',
+    'send' => 'Envoyer',
     'login-as' => 'Se loguer en tant que :name',
 ];

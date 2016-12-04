@@ -35,6 +35,7 @@ return [
     ],
 
     'frontend' => [
-
+        'about' => 'Qui sommes-nous ?',
+        'contact' => 'Contact',
     ],
 ];

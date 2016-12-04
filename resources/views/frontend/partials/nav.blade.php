@@ -20,8 +20,8 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 <li class="{{ active_class(if_route('home')) }}"><a href="{{ route('home') }}"><i class="fa fa-home"></i></a></li>
-                <li class="{{ active_class(if_route('about')) }}"><a href="{{ route('about') }}">Qui sommes-nous</a></li>
-                <li class="{{ active_class(if_route('contact')) }}"><a href="{{ route('contact') }}">Contact</a></li>
+                <li class="{{ active_class(if_route('about')) }}"><a href="{{ route('about') }}">@lang('labels.frontend.about')</a></li>
+                <li class="{{ active_class(if_route('contact')) }}"><a href="{{ route('contact') }}">@lang('labels.frontend.contact')</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
