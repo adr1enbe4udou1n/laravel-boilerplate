@@ -145,7 +145,7 @@ class UserController extends Controller
     {
         $user = User::find(auth()->user()->id);
 
-        if (! $user) {
+        if (!$user) {
             abort(404);
         }
 
@@ -161,7 +161,7 @@ class UserController extends Controller
     {
         $user = User::find(auth()->user()->id);
 
-        if (! $user) {
+        if (!$user) {
             abort(404);
         }
         $this->users->update($user, $request->input());

@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | PDO Fetch Style
@@ -45,7 +44,6 @@ return [
     */
 
     'connections' => [
-
         'sqlite' => [
             'driver' => 'sqlite',
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
@@ -78,7 +76,6 @@ return [
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
-
     ],
 
     /*
@@ -106,7 +103,6 @@ return [
     */
 
     'redis' => [
-
         'cluster' => false,
 
         'default' => [
@@ -115,7 +111,5 @@ return [
             'port' => env('REDIS_PORT', 6379),
             'database' => 0,
         ],
-
     ],
-
 ];

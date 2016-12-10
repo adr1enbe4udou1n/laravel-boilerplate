@@ -2,7 +2,6 @@
 
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Filename & Format
@@ -83,7 +82,6 @@ return [
     */
 
     'interfaces' => [
-
     ],
 
     /*
@@ -113,7 +111,6 @@ return [
     |
     */
     'custom_db_types' => [
-
     ],
 
     /*
@@ -141,5 +138,4 @@ return [
      |
      */
     'model_camel_case_properties' => false,
-
 ];

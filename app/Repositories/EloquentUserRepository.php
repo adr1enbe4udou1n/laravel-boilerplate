@@ -60,7 +60,7 @@ class EloquentUserRepository implements UserRepository
     {
         DB::transaction(function () use ($user, $input) {
             if ($user->update($input)) {
-                if (isset($input['password']) && ! empty($input['password'])) {
+                if (isset($input['password']) && !empty($input['password'])) {
                     $user->password = bcrypt($input['password']);
                 }
                 $user->save();
@@ -124,7 +124,7 @@ class EloquentUserRepository implements UserRepository
      */
     public function logoutAs()
     {
-        if (! auth()->check()) {
+        if (!auth()->check()) {
             return redirect()->route('auth.login');
         }
 

@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Default Cache Store
@@ -29,7 +28,6 @@ return [
     */
 
     'stores' => [
-
         'apc' => [
             'driver' => 'apc',
         ],
@@ -72,7 +70,6 @@ return [
             'driver' => 'redis',
             'connection' => 'default',
         ],
-
     ],
 
     /*
@@ -87,5 +84,4 @@ return [
     */
 
     'prefix' => 'laravel',
-
 ];

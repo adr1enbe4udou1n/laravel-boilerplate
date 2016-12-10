@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Password Reminder Language Lines
@@ -22,5 +21,4 @@ return [
     'reset_title' => 'Réinitialisation du mot de passe',
     'send_password_link' => 'Envoyer le mot de passe de réinitialisation',
     'reset_password' => 'Réinitialiser le mot de passe',
-
 ];

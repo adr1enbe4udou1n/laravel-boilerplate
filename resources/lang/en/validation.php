@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Validation Language Lines
@@ -147,5 +146,4 @@ return [
         'message' => 'Message',
         'g-recaptcha-response' => 'Captcha',
     ],
-
 ];

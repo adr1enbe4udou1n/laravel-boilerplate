@@ -20,14 +20,14 @@ use App\Notifications\ResetPassword as ResetPasswordNotification;
  * @property string $remember_token
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property-read mixed $is_super_admin
- * @property-read mixed $is_supervisor
- * @property-read mixed $role_label
- * @property-read mixed $activated_label
- * @property-read mixed $action_buttons
- * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
- * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $readNotifications
- * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $unreadNotifications
+ * @property mixed $is_super_admin
+ * @property mixed $is_supervisor
+ * @property mixed $role_label
+ * @property mixed $activated_label
+ * @property mixed $action_buttons
+ * @property \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @property \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $readNotifications
+ * @property \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $unreadNotifications
  *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereName($value)
@@ -122,7 +122,7 @@ class User extends Authenticatable
     {
         $buttons = $this->getEditButtonHtml('admin.user.edit');
 
-        if (! session()->has('admin_user_id') && $this->id != auth()->id()) {
+        if (!session()->has('admin_user_id') && $this->id != auth()->id()) {
             $buttons .= '<a href="'.route(
                     'admin.user.login-as', $this
                 ).'" class="btn btn-xs btn-success"><i class="fa fa-lock" data-toggle="tooltip" data-placement="top" title="'.trans(
