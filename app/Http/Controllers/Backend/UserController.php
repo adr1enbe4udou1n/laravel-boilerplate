@@ -102,7 +102,7 @@ class UserController extends Controller
      */
     public function update(User $user, UpdateUserRequest $request)
     {
-        $this->users->update($user,  $request->input());
+        $this->users->update($user, $request->input());
 
         return redirect()->route('admin.user.index')->withFlashSuccess(trans('alerts.backend.users.updated'));
     }
@@ -164,7 +164,7 @@ class UserController extends Controller
         if (! $user) {
             abort(404);
         }
-        $this->users->update($user,  $request->input());
+        $this->users->update($user, $request->input());
 
         return back()->withFlashSuccess(trans('alerts.backend.users.updated'));
     }

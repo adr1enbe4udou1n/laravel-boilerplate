@@ -1,14 +1,12 @@
 <?php
 
 $finder = PhpCsFixer\Finder::create()
-    ->notPath('bootstrap/cache')
-    ->notPath('storage')
-    ->notPath('vendor')
-    ->notPath('node_modules')
-    ->in(__DIR__)
-    ->name('*.php')
-    ->ignoreDotFiles(true)
-    ->ignoreVCS(true)
+    ->in('app')
+    ->in('config')
+    ->in('database')
+    ->in('resources/lang')
+    ->in('routes')
+    ->in('tests')
 ;
 
 return PhpCsFixer\Config::create()
