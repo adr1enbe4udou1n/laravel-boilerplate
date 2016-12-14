@@ -15,6 +15,8 @@ This is a lite boilerplate site with backend based on Laravel 5.3.
 
 ## Install
 
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
 1. Launch command `composer create-project adr1enbe4udou1n/laravel-boilerplate my-project`
 2. Set Database and environment variables from **.env.example**
     * APP_ENV=[local|production]
