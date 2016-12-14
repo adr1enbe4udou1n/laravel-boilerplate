@@ -7,6 +7,8 @@
 
 This is a lite boilerplate site with backend based on Laravel 5.3.
 
+![showcase](https://cloud.githubusercontent.com/assets/3679080/21204210/8443454c-c256-11e6-9d53-b95a6b19aae4.gif)
+
 ## Features
 
 * Bootstrap Frontend with basic home-about-contact pages

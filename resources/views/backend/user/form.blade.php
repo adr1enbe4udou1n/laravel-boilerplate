@@ -2,7 +2,7 @@
     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
         {{ Form::label('email', trans('validation.attributes.email'), ['class' => 'col-lg-2 control-label']) }}
 
-        <div class="col-sm-10">
+        <div class="col-lg-10">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
                 {{ Form::text('email', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.email')]) }}
@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
+        <div class="col-lg-offset-2 col-lg-10">
             <div class="checkbox icheck">
                 <label>
                     {{ Form::hidden('active', 0) }}
@@ -27,7 +27,7 @@
     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
         {{ Form::label('name', trans('validation.attributes.name'), ['class' => 'col-lg-2 control-label']) }}
 
-        <div class="col-sm-10">
+        <div class="col-lg-10">
             {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.name')]) }}
             @if ($errors->has('name'))
                 <span class="help-block">
@@ -39,7 +39,7 @@
     <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
         {{ Form::label('role', trans('validation.attributes.role'), ['class' => 'col-lg-2 control-label']) }}
 
-        <div class="col-sm-10">
+        <div class="col-lg-10">
             @foreach(\App\Models\User::getRoles() as $key => $role)
                 <div class="radio icheck">
                     <label>
@@ -57,7 +57,7 @@
     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
         {{ Form::label('password', trans('validation.attributes.password'), ['class' => 'col-lg-2 control-label']) }}
 
-        <div class="col-sm-10">
+        <div class="col-lg-10">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
                 {{ Form::password('password', ['class' => 'form-control', 'placeholder' => trans('validation.attributes.password')]) }}
