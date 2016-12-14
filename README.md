@@ -1,19 +1,25 @@
 # Laravel Boilerplate
+> This is a lite boilerplate site with backend based on Laravel 5.3.
 
 [![Latest Stable Version](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/v/stable)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 [![License](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/license)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 [![Total Downloads](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/downloads)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 [![composer.lock](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/composerlock)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 
-This is a lite boilerplate site with backend based on Laravel 5.3.
+This boilerplate is heavily inspired by the the most popular laravel boilerplate [here](https://github.com/rappasoft/laravel-5-boilerplate). Main difference is this one is just a bit more lite, no history logging, no advanced permissions/roles management but just one simple role by user because sufficient for most apps.
+
+If you need full permissions feature, you can simply use one of this packages :
+* [ENTRUST](https://github.com/Zizaco/entrust)
+* [laravel-permission](https://github.com/spatie/laravel-permission), this one have maximum granularity (users can be directly associate to permissions)
 
 ![showcase](https://cloud.githubusercontent.com/assets/3679080/21204210/8443454c-c256-11e6-9d53-b95a6b19aae4.gif)
 
 ## Features
 
 * Bootstrap Frontend with basic home-about-contact pages
-* Backend with AdminLTE Theme and Datatables
-* Basic User Management
+* Backend with AdminLTE theme, datatables, sweet alerts, etc.
+* Basic User Management with just one role
+* Login-as feature for quick specific user context testing
 
 ## Install
 
