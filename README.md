@@ -82,4 +82,4 @@ Note : If assets modified, launch `gulp --production` before push for each produ
 
 ## License
 
-This project is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+This project is open-sourced software licensed under the [MIT license](https://adr1enbe4udou1n.mit-license.org).
