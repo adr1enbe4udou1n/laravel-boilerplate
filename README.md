@@ -8,7 +8,7 @@
 
 This boilerplate is heavily inspired by the the most popular laravel boilerplate [here](https://github.com/rappasoft/laravel-5-boilerplate). Main difference is this one is just a bit more lite, no history logging, no advanced permissions/roles management but just one simple role by user because sufficient for most apps.
 
-If you need full permissions feature, you can simply use one of this packages :
+If you need full permissions feature, you can simply add one of this packages :
 * [ENTRUST](https://github.com/Zizaco/entrust)
 * [laravel-permission](https://github.com/spatie/laravel-permission), this one have maximum granularity (users can be directly associate to permissions)
 
