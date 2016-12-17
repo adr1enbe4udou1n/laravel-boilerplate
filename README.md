@@ -6,7 +6,7 @@
 [![Total Downloads](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/downloads)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 [![composer.lock](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/composerlock)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 
-This boilerplate is heavily inspired by the the most popular laravel boilerplate [here](https://github.com/rappasoft/laravel-5-boilerplate). Main difference is this one is just a bit more lite, no history logging, no advanced permissions/roles management but just one simple role by user because sufficient for most apps.
+This boilerplate is heavily inspired by the most popular laravel boilerplate [here](https://github.com/rappasoft/laravel-5-boilerplate). Main difference is this one is just a bit more lite, no history logging, no advanced permissions/roles management but just one simple role by user because sufficient for most apps.
 
 If you need full permissions feature, you can simply add one of this packages :
 * [ENTRUST](https://github.com/Zizaco/entrust)
