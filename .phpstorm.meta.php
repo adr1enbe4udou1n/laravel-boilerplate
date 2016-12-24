@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2016-12-17.
+    * Generated on 2016-12-24.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -38,8 +38,8 @@ namespace PHPSTORM_META {
             'view.engine.resolver' instanceof \Illuminate\View\Engines\EngineResolver,
             'view.finder' instanceof \Illuminate\View\FileViewFinder,
             'view' instanceof \Illuminate\View\Factory,
-            'arcanedev.no-captcha' instanceof \Arcanedev\NoCaptcha\NoCaptcha,
             'Arcanedev\NoCaptcha\Contracts\NoCaptcha' instanceof \Arcanedev\NoCaptcha\NoCaptcha,
+            'arcanedev.no-captcha' instanceof \Arcanedev\NoCaptcha\NoCaptcha,
             'html' instanceof \Collective\Html\HtmlBuilder,
             'form' instanceof \Collective\Html\FormBuilder,
             'excel.identifier' instanceof \Maatwebsite\Excel\Classes\FormatIdentifier,
@@ -175,8 +175,8 @@ namespace PHPSTORM_META {
             'view.engine.resolver' instanceof \Illuminate\View\Engines\EngineResolver,
             'view.finder' instanceof \Illuminate\View\FileViewFinder,
             'view' instanceof \Illuminate\View\Factory,
-            'arcanedev.no-captcha' instanceof \Arcanedev\NoCaptcha\NoCaptcha,
             'Arcanedev\NoCaptcha\Contracts\NoCaptcha' instanceof \Arcanedev\NoCaptcha\NoCaptcha,
+            'arcanedev.no-captcha' instanceof \Arcanedev\NoCaptcha\NoCaptcha,
             'html' instanceof \Collective\Html\HtmlBuilder,
             'form' instanceof \Collective\Html\FormBuilder,
             'excel.identifier' instanceof \Maatwebsite\Excel\Classes\FormatIdentifier,
@@ -312,8 +312,8 @@ namespace PHPSTORM_META {
             'view.engine.resolver' instanceof \Illuminate\View\Engines\EngineResolver,
             'view.finder' instanceof \Illuminate\View\FileViewFinder,
             'view' instanceof \Illuminate\View\Factory,
-            'arcanedev.no-captcha' instanceof \Arcanedev\NoCaptcha\NoCaptcha,
             'Arcanedev\NoCaptcha\Contracts\NoCaptcha' instanceof \Arcanedev\NoCaptcha\NoCaptcha,
+            'arcanedev.no-captcha' instanceof \Arcanedev\NoCaptcha\NoCaptcha,
             'html' instanceof \Collective\Html\HtmlBuilder,
             'form' instanceof \Collective\Html\FormBuilder,
             'excel.identifier' instanceof \Maatwebsite\Excel\Classes\FormatIdentifier,
@@ -449,8 +449,8 @@ namespace PHPSTORM_META {
             'view.engine.resolver' instanceof \Illuminate\View\Engines\EngineResolver,
             'view.finder' instanceof \Illuminate\View\FileViewFinder,
             'view' instanceof \Illuminate\View\Factory,
-            'arcanedev.no-captcha' instanceof \Arcanedev\NoCaptcha\NoCaptcha,
             'Arcanedev\NoCaptcha\Contracts\NoCaptcha' instanceof \Arcanedev\NoCaptcha\NoCaptcha,
+            'arcanedev.no-captcha' instanceof \Arcanedev\NoCaptcha\NoCaptcha,
             'html' instanceof \Collective\Html\HtmlBuilder,
             'form' instanceof \Collective\Html\FormBuilder,
             'excel.identifier' instanceof \Maatwebsite\Excel\Classes\FormatIdentifier,

@@ -8,7 +8,7 @@
     "admin-lte": "^2.3.8",
     "axios": "^0.15.3",
     "bootstrap-sass": "^3.3.7",
-    "bootstrap-slider": "^9.4.1",
+    "bootstrap-slider": "^9.5.4",
     "datatables.net": "^1.10.12",
     "datatables.net-bs": "^1.10.12",
     "dotenv": "^2.0.0",
