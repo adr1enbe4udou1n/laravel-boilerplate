@@ -22,10 +22,10 @@
     "laravel-elixir-browsersync-official": "^1.0.0",
     "laravel-elixir-vue-2": "^0.3.0",
     "laravel-elixir-webpack-official": "^1.0.2",
-    "lodash": "^4.16.2",
+    "lodash": "^4.17.3",
     "moment": "^2.16.0",
     "select2": "^4.0.3",
     "sweetalert": "^1.1.3",
-    "vue": "^2.1.6"
+    "vue": "^2.1.7"
   }
 }
