@@ -14,6 +14,8 @@ return [
     'name' => 'Laravel',
 
     'editor' => 'My Company',
+    'editor_site_url' => 'http://my.company.com',
+    'gtm' => env('GTM_USER_ID'),
 
     /*
     |--------------------------------------------------------------------------

@@ -15,7 +15,6 @@ return [
     'logout' => 'Logout',
     'member_since' => 'Member since :date',
     'all_rights_reserved' => 'All rights reserved.',
-    'edit_by' => 'Edited by <strong>:editor</strong>',
 
     'backend' => [
         'login-as' => 'You are actually logged as <strong>:name</strong>, you can logout as <a href=":route">:admin</a>.',
