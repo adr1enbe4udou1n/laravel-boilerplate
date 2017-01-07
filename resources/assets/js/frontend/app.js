@@ -1,12 +1,13 @@
 
 require('./../bootstrap');
 require('./../plugins');
-require('flexslider');
+require('swiper');
 
 const app = new Vue({
     el: '#app'
 });
 
-$('.flexslider').flexslider({
-    animation: "slide"
+let swiper = new Swiper('.swiper-container', {
+    pagination: '.swiper-pagination',
+    paginationClickable: true
 });

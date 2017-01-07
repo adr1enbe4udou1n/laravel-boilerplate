@@ -1,16 +1,17 @@
- <div class="flexslider">
-    <ul class="slides">
-        <li>
-            <img src="http://flexslider.woothemes.com/images/kitchen_adventurer_cheesecake_brownie.jpg" />
-        </li>
-        <li>
-            <img src="http://flexslider.woothemes.com/images/kitchen_adventurer_lemon.jpg" />
-        </li>
-        <li>
-            <img src="http://flexslider.woothemes.com/images/kitchen_adventurer_donut.jpg" />
-        </li>
-        <li>
-            <img src="http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg" />
-        </li>
-    </ul>
+<!-- Swiper -->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide">Slide 4</div>
+        <div class="swiper-slide">Slide 5</div>
+        <div class="swiper-slide">Slide 6</div>
+        <div class="swiper-slide">Slide 7</div>
+        <div class="swiper-slide">Slide 8</div>
+        <div class="swiper-slide">Slide 9</div>
+        <div class="swiper-slide">Slide 10</div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
 </div>
