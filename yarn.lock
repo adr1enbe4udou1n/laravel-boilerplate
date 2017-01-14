@@ -52,9 +52,9 @@ acorn@^3.0.0, acorn@^3.0.4, acorn@^3.1.0, acorn@^3.2.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-3.3.0.tgz#45e37fb39e8da3f25baee3ff5369e2bb5f22017a"
 
-admin-lte@^2.3.8:
-  version "2.3.8"
-  resolved "https://registry.yarnpkg.com/admin-lte/-/admin-lte-2.3.8.tgz#2f2cad7aa2ef869e03143d3c23fdffdee795bb94"
+admin-lte@^2.3.11:
+  version "2.3.11"
+  resolved "https://registry.yarnpkg.com/admin-lte/-/admin-lte-2.3.11.tgz#da56dcd34d42e9ef1af362be15520a053a9d43db"
 
 after@0.8.1:
   version "0.8.1"
@@ -1170,9 +1170,9 @@ domain-browser@^1.1.1:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.1.7.tgz#867aa4b093faa05f1de08c06f4d7b21fdf8698bc"
 
-dotenv@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-2.0.0.tgz#bd759c357aaa70365e01c96b7b0bec08a6e0d949"
+dotenv@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-4.0.0.tgz#864ef1379aced55ce6f95debecdce179f7a0cd1d"
 
 duplexer2@0.0.2:
   version "0.0.2"
@@ -1314,9 +1314,9 @@ enhanced-resolve@~0.9.0:
     memory-fs "^0.2.0"
     tapable "^0.1.8"
 
-eonasdan-bootstrap-datetimepicker@^4.17.43:
-  version "4.17.43"
-  resolved "https://registry.yarnpkg.com/eonasdan-bootstrap-datetimepicker/-/eonasdan-bootstrap-datetimepicker-4.17.43.tgz#a8e69addab70452b48fec8b9c9b479da8d1eb4d5"
+eonasdan-bootstrap-datetimepicker@^4.17.45:
+  version "4.17.45"
+  resolved "https://registry.yarnpkg.com/eonasdan-bootstrap-datetimepicker/-/eonasdan-bootstrap-datetimepicker-4.17.45.tgz#def7e1423c9f2943a9f8bf2925c61af030079773"
   dependencies:
     bootstrap "^3.3"
     jquery "^1.8.3 || ^2.0"
