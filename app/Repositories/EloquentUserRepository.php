@@ -33,7 +33,7 @@ class EloquentUserRepository implements UserRepository
      */
     public function store($input)
     {
-        $user = User::create($input);
+        $user = new User($input);
         $user->password = bcrypt($input['password']);
 
         DB::transaction(function () use ($user) {
