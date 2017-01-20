@@ -1,13 +1,16 @@
 
 require('./../bootstrap');
 require('./../plugins');
-require('swiper');
+require('slick-carousel');
 
 const app = new Vue({
     el: '#app'
 });
 
-let swiper = new Swiper('.swiper-container', {
-    pagination: '.swiper-pagination',
-    paginationClickable: true
+$('.slider').slick({
+    dots: true,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 3,
+    slidesToScroll: 1
 });

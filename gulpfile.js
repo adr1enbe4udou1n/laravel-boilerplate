@@ -20,7 +20,7 @@ elixir((mix) => {
          * Process Fonts + images
          */
         .copy(
-            ['node_modules/bootstrap-sass/assets/fonts/bootstrap', 'node_modules/font-awesome/fonts', 'node_modules/flexslider/fonts', 'resources/assets/fonts'],
+            ['node_modules/bootstrap-sass/assets/fonts/bootstrap', 'node_modules/font-awesome/fonts', 'node_modules/slick-carousel/slick/fonts', 'resources/assets/fonts'],
             'public/css/fonts'
         )
         .copy(
@@ -28,7 +28,7 @@ elixir((mix) => {
             'public/css'
         )
         .copy(
-            ['node_modules/bootstrap-sass/assets/fonts/bootstrap', 'node_modules/font-awesome/fonts', 'node_modules/flexslider/fonts', 'resources/assets/fonts'],
+            ['node_modules/bootstrap-sass/assets/fonts/bootstrap', 'node_modules/font-awesome/fonts', 'node_modules/slick-carousel/slick/fonts', 'resources/assets/fonts'],
             'public/build/css/fonts'
         )
         .copy(

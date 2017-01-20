@@ -1,5 +1,5 @@
 require('select2');
-require('sweetalert');
+window.swal = require('sweetalert2');
 
 /**
  * Allows you to add data-method="METHOD to links to automatically inject a form
@@ -60,25 +60,28 @@ $(function () {
      */
     $('body').on('submit', 'form[name=delete_item]', function (e) {
         e.preventDefault();
-        var form = this;
-        var link = $('a[data-method="delete"]');
-        var cancel = (link.attr('data-trans-button-cancel')) ? link.attr('data-trans-button-cancel') : "Cancel";
-        var confirm = (link.attr('data-trans-button-confirm')) ? link.attr('data-trans-button-confirm') : "Yes, delete";
-        var title = (link.attr('data-trans-title')) ? link.attr('data-trans-title') : "Warning";
-        var text = (link.attr('data-trans-text')) ? link.attr('data-trans-text') : "Are you sure you want to delete this item?";
+        let form = this;
+        let link = $('a[data-method="delete"]');
+        let cancel = (link.attr('data-trans-button-cancel')) ? link.attr('data-trans-button-cancel') : "Cancel";
+        let confirm = (link.attr('data-trans-button-confirm')) ? link.attr('data-trans-button-confirm') : "Yes, delete";
+        let title = (link.attr('data-trans-title')) ? link.attr('data-trans-title') : "Warning";
+        let text = (link.attr('data-trans-text')) ? link.attr('data-trans-text') : "Are you sure you want to delete this item?";
 
         swal({
             title: title,
             type: "warning",
             showCancelButton: true,
-            cancelButtonText: cancel,
-            confirmButtonColor: "#DD6B55",
-            confirmButtonText: confirm,
-            closeOnConfirm: true
-        }, function (confirmed) {
-            if (confirmed)
+            cancelButtonText: 'Cancel',
+            confirmButtonColor: "#dd4b39",
+            confirmButtonText: 'Delete'
+        }).then(
+            function() {
                 form.submit();
-        });
+            },
+            function (dismiss) {
+
+            }
+        );
     });
 
     /**

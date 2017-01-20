@@ -12,20 +12,23 @@
 @import "node_modules/eonasdan-bootstrap-datetimepicker/src/sass/bootstrap-datetimepicker-build";
 
 @import "node_modules/font-awesome/scss/font-awesome";
-@import "node_modules/sweetalert/dev/sweetalert";
-@import "node_modules/swiper/dist/css/swiper";
+@import "node_modules/sweetalert2/src/sweetalert2";
+@import "node_modules/slick-carousel/slick/slick.scss";
+@import "node_modules/slick-carousel/slick/slick-theme.scss";
 @import "node_modules/select2/src/scss/core";
 
-.swiper-container {
-  width: 100%;
-  height: 300px;
+.slick-list {
+  .slick-loading & {
+    background: none;
+  }
 }
 
-.swiper-slide {
+.slick-slide {
   text-align: center;
-  font-size: 18px;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+  h3 {
+    line-height: 200px;
+    background-color: #eee;
+    margin: 0 10px;
+  }
 }

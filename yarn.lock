@@ -1044,13 +1044,7 @@ datatables.net-bs@^2.1.1:
     datatables.net ">=1.10.9"
     jquery ">=1.7"
 
-datatables.net@>=1.10.9:
-  version "1.10.13"
-  resolved "https://registry.yarnpkg.com/datatables.net/-/datatables.net-1.10.13.tgz#6ac584ba6fc2dff1195e5c66d3e3b051a4b52b96"
-  dependencies:
-    jquery ">=1.7"
-
-datatables.net@^2.1.1:
+datatables.net@>=1.10.9, datatables.net@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/datatables.net/-/datatables.net-2.1.1.tgz#6f1103ef08054642aecf85e7e25efd592822ee78"
   dependencies:
@@ -1355,6 +1349,10 @@ es6-iterator@2:
     d "^0.1.1"
     es5-ext "^0.10.7"
     es6-symbol "3"
+
+es6-promise@^4.0.5:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-4.0.5.tgz#7882f30adde5b240ccfa7f7d78c548330951ae42"
 
 es6-symbol@3, es6-symbol@^3.0.2, es6-symbol@~3.1:
   version "3.1.0"
@@ -2414,7 +2412,7 @@ jquery-mousewheel@~3.1.13:
   version "3.1.13"
   resolved "https://registry.yarnpkg.com/jquery-mousewheel/-/jquery-mousewheel-3.1.13.tgz#06f0335f16e353a695e7206bf50503cb523a6ee5"
 
-jquery@>=1.7, jquery@^3.1.0:
+jquery@>=1.7, jquery@>=1.7.2, jquery@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.1.1.tgz#347c1c21c7e004115e0a4da32cece041fad3c8a3"
 
@@ -4294,6 +4292,12 @@ signal-exit@^3.0.0:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
+slick-carousel@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/slick-carousel/-/slick-carousel-1.6.0.tgz#780f378e470f4e6f6bec1aa2bae0475f4f9eb085"
+  dependencies:
+    jquery ">=1.7.2"
+
 sntp@1.x.x:
   version "1.0.9"
   resolved "https://registry.yarnpkg.com/sntp/-/sntp-1.0.9.tgz#6541184cc90aeea6c6e7b35e2659082443c66198"
@@ -4568,13 +4572,11 @@ svgo@^0.7.0:
     sax "~1.2.1"
     whet.extend "~0.9.9"
 
-sweetalert@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/sweetalert/-/sweetalert-1.1.3.tgz#d2c31ea492b22b6a8d887aea15989a238fc084ae"
-
-swiper@^3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/swiper/-/swiper-3.4.1.tgz#05f2e72c4fdc8f618e3570f5583696c54641d3a2"
+sweetalert2@^6.3.2:
+  version "6.3.2"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-6.3.2.tgz#7c7e7b27134fabd74985e5b9eadd2a1bb0fbe726"
+  dependencies:
+    es6-promise "^4.0.5"
 
 tapable@^0.1.8, tapable@~0.1.8:
   version "0.1.10"
