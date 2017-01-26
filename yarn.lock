@@ -1314,9 +1314,9 @@ enhanced-resolve@~0.9.0:
     memory-fs "^0.2.0"
     tapable "^0.1.8"
 
-eonasdan-bootstrap-datetimepicker@^4.17.45:
-  version "4.17.45"
-  resolved "https://registry.yarnpkg.com/eonasdan-bootstrap-datetimepicker/-/eonasdan-bootstrap-datetimepicker-4.17.45.tgz#def7e1423c9f2943a9f8bf2925c61af030079773"
+eonasdan-bootstrap-datetimepicker@^4.17.46:
+  version "4.17.46"
+  resolved "https://registry.yarnpkg.com/eonasdan-bootstrap-datetimepicker/-/eonasdan-bootstrap-datetimepicker-4.17.46.tgz#d143e0f09830d3e1671d52d17a61fcef65e7d527"
   dependencies:
     bootstrap "^3.3"
     jquery "^1.8.3 || ^2.0"

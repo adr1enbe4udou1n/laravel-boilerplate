@@ -12,7 +12,7 @@
     "datatables.net": "^2.1.1",
     "datatables.net-bs": "^2.1.1",
     "dotenv": "^4.0.0",
-    "eonasdan-bootstrap-datetimepicker": "^4.17.45",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.46",
     "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
     "icheck": "^1.0.2",

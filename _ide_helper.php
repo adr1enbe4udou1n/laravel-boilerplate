@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.3.29 on 2017-01-19.
+ * Generated for Laravel 5.3.30 on 2017-01-26.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -13080,6 +13080,17 @@ namespace {
         }
         
         /**
+         * Convert all applicable characters to HTML entities.
+         *
+         * @param string $value
+         * @return string 
+         * @static 
+         */
+        public static function escapeAll($value){
+            return \Collective\Html\HtmlBuilder::escapeAll($value);
+        }
+        
+        /**
          * Convert entities to HTML characters.
          *
          * @param string $value
@@ -13767,6 +13778,17 @@ namespace {
          */
         public static function loadView($view, $data = array(), $mergeData = array(), $encoding = null){
             return \Barryvdh\DomPDF\PDF::loadView($view, $data, $mergeData, $encoding);
+        }
+        
+        /**
+         * Set/Change an option in DomPdf
+         *
+         * @param array $options
+         * @return static 
+         * @static 
+         */
+        public static function setOptions($options){
+            return \Barryvdh\DomPDF\PDF::setOptions($options);
         }
         
         /**
