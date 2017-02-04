@@ -13,9 +13,9 @@ const {mix} = require('laravel-mix');
 
 mix
 
-    /**
-     * Combine frontend scripts
-     */
+/**
+ * Combine frontend scripts
+ */
     .js('resources/assets/js/frontend/app.js', 'public/js/frontend.js')
 
     /**
@@ -32,6 +32,11 @@ mix
      * Process backend SCSS stylesheets
      */
     .sass('resources/assets/sass/backend/app.scss', 'public/css/backend.css')
+
+    .autoload({
+        jQuery: 'jquery',
+        $: 'jquery'
+    })
 
     .sourceMaps()
 

@@ -30,7 +30,7 @@ function addDeleteForms() {
 /**
  * Place any jQuery/helper plugins in here.
  */
-$(function () {
+(function ($) {
     const locale = $('html').attr('lang');
 
     /**
@@ -131,4 +131,4 @@ $(function () {
     $('.datetimepicker').datetimepicker({
         locale: locale
     });
-});
+})(jQuery);

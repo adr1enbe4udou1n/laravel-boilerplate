@@ -1,7 +1,8 @@
+
 require('./../bootstrap');
+require('./../plugins');
 require('icheck');
 require('admin-lte');
-require('./../plugins');
 
 $(function () {
     $('input').iCheck({

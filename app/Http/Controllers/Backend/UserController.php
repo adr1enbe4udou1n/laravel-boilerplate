@@ -11,6 +11,7 @@ use App\Repositories\Contracts\UserRepository;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
+use Yajra\Datatables\Html\Builder;
 
 class UserController extends Controller
 {
@@ -20,13 +21,21 @@ class UserController extends Controller
     protected $users;
 
     /**
+     * Datatables Html Builder
+     * @var Builder
+     */
+    protected $htmlBuilder;
+
+    /**
      * Create a new controller instance.
      *
      * @param UserRepository $users
+     * @param Builder $htmlBuilder
      */
-    public function __construct(UserRepository $users)
+    public function __construct(UserRepository $users, Builder $htmlBuilder)
     {
         $this->users = $users;
+        $this->htmlBuilder = $htmlBuilder;
     }
 
     /**
@@ -36,7 +45,20 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('backend.user.index');
+        $html = $this->htmlBuilder
+            ->setTableAttribute('class', 'table table-bordered table-hover')
+            ->setTableAttribute('width', '100%')
+            ->parameters(['lengthChange' => false, 'searching' => false, 'order' => [[5, 'desc']]])
+            ->addColumn(['data' => 'name', 'name' => 'name', 'title' => trans('validation.attributes.name')])
+            ->addColumn(['data' => 'email', 'name' => 'email', 'title' => trans('validation.attributes.email')])
+            ->addColumn(['data' => 'active', 'name' => 'active', 'title' => trans('validation.attributes.active'), 'orderable' => false])
+            ->addColumn(['data' => 'role', 'name' => 'role', 'title' => trans('validation.attributes.role'), 'orderable' => false])
+            ->addColumn(['data' => 'created_at', 'name' => 'created_at', 'title' => trans('labels.created_at')])
+            ->addColumn(['data' => 'updated_at', 'name' => 'updated_at', 'title' => trans('labels.updated_at')])
+            ->addColumn(['data' => 'actions', 'name' => 'actions', 'title' => trans('labels.actions'), 'orderable' => false])
+            ->ajax(['url' => route('admin.user.search'), 'type' => 'post']);
+
+        return view('backend.user.index', compact('html'));
     }
 
     /**
@@ -60,7 +82,9 @@ class UserController extends Controller
                 return $user->role_label;
             })->addColumn('actions', function (User $user) {
                 return $user->action_buttons;
-            })->make(true);
+            })
+                ->rawColumns(['active', 'actions'])
+                ->make(true);
         }
     }
 
