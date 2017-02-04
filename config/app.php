@@ -174,6 +174,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Arcanedev\NoCaptcha\NoCaptchaServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
+        Yajra\Datatables\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         HieuLe\Active\ActiveServiceProvider::class,
         Roumen\Sitemap\SitemapServiceProvider::class,

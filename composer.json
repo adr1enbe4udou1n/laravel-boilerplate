@@ -17,7 +17,7 @@
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4",
         "roumen/sitemap": "^2.6",
-        "yajra/laravel-datatables-buttons": "^1.0"
+        "yajra/laravel-datatables-html": "^1.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^2.3",
