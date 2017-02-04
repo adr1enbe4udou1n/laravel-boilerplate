@@ -15,22 +15,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 
     <!-- Custom Styles -->
-    @if(app()->environment('production'))
-        <link rel="stylesheet" href="{{ elixir('css/backend.css') }}">
-    @else
-        <link rel="stylesheet" href="{{ asset('css/backend.css') }}">
-    @endif
+    <link rel="stylesheet" href="{{ mix('css/backend.css') }}">
     @yield('styles')
 </head>
 <body id="@yield('body_id')" class="hold-transition skin-blue sidebar-mini @yield('body_class')">
     @yield('body')
 
     <!-- Scripts -->
-    @if(app()->environment('production'))
-        <script src="{{ elixir('js/backend.js') }}"></script>
-    @else
-        <script src="{{ asset('js/backend.js') }}"></script>
-    @endif
+    <script src="{{ mix('js/backend.js') }}"></script>
 
     @if (config('app.locale') != 'en')
         <script src="{{ asset('i18n/moment.' . config('app.locale') . '.js') }}"></script>

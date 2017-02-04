@@ -1,32 +1,31 @@
 {
     "name": "adr1enbe4udou1n/laravel-boilerplate",
-    "description": "Lite boilerplate site with backend based on Laravel 5.3.",
+    "description": "Lite boilerplate site with backend based on Laravel 5.4.",
     "keywords": ["framework", "laravel", "boilerplate", "adminlte"],
     "license": "MIT",
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "laravel/framework": "5.3.*",
-        "arcanedev/no-captcha": "^3.1",
-        "yajra/laravel-datatables-oracle": "^6.22",
-        "laravelcollective/html": "^5.3",
+        "arcanedev/no-captcha": "^3.2",
         "barryvdh/laravel-dompdf": "^0.7.0",
-        "roumen/sitemap": "^2.6",
-        "intervention/image": "^2.3",
-        "intervention/imagecache": "^2.3",
+        "davejamesmiller/laravel-breadcrumbs": "^3.0",
         "guzzlehttp/guzzle": "^6.2",
         "hieu-le/active": "^3.3",
-        "davejamesmiller/laravel-breadcrumbs": "^3.0"
+        "intervention/image": "^2.3",
+        "intervention/imagecache": "^2.3",
+        "laravel/framework": "5.4.*",
+        "laravel/tinker": "~1.0",
+        "laravelcollective/html": "^5.4",
+        "roumen/sitemap": "^2.6",
+        "yajra/laravel-datatables-buttons": "^1.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^2.3",
+        "barryvdh/laravel-ide-helper": "^2.2",
+        "doctrine/dbal": "^2.5",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~5.0",
-        "symfony/css-selector": "3.1.*",
-        "symfony/dom-crawler": "3.1.*",
-        "barryvdh/laravel-ide-helper": "^2.2",
-        "barryvdh/laravel-debugbar": "^2.3",
-        "doctrine/dbal": "^2.5"
+        "phpunit/phpunit": "^6.0"
     },
     "autoload": {
         "classmap": [
@@ -40,9 +39,9 @@
         ]
     },
     "autoload-dev": {
-        "classmap": [
-            "tests/TestCase.php"
-        ]
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
     },
     "scripts": {
         "post-root-package-install": [
