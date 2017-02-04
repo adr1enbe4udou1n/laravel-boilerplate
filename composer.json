@@ -7,7 +7,6 @@
     "require": {
         "php": ">=5.6.4",
         "arcanedev/no-captcha": "^3.2",
-        "barryvdh/laravel-dompdf": "^0.7.0",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
         "guzzlehttp/guzzle": "^6.2",
         "hieu-le/active": "^3.3",

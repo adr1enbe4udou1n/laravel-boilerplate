@@ -178,7 +178,6 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         HieuLe\Active\ActiveServiceProvider::class,
         Roumen\Sitemap\SitemapServiceProvider::class,
-        Barryvdh\DomPDF\ServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
 
         /*
@@ -244,7 +243,6 @@ return [
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Active' => HieuLe\Active\Facades\Active::class,
-        'PDF' => Barryvdh\DomPDF\Facade::class,
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
     ],
 ];
