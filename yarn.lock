@@ -228,15 +228,7 @@ axios@^0.15.3:
   dependencies:
     follow-redirects "1.0.0"
 
-babel-code-frame@^6.11.0:
-  version "6.20.0"
-  resolved "https://registry.yarnpkg.com/babel-code-frame/-/babel-code-frame-6.20.0.tgz#b968f839090f9a8bc6d41938fb96cb84f7387b26"
-  dependencies:
-    chalk "^1.1.0"
-    esutils "^2.0.2"
-    js-tokens "^2.0.0"
-
-babel-code-frame@^6.22.0:
+babel-code-frame@^6.11.0, babel-code-frame@^6.22.0:
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/babel-code-frame/-/babel-code-frame-6.22.0.tgz#027620bee567a88c32561574e7fd0801d33118e4"
   dependencies:
@@ -700,9 +692,9 @@ bootstrap-sass@^3.3.7:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/bootstrap-sass/-/bootstrap-sass-3.3.7.tgz#6596c7ab40f6637393323ab0bc80d064fc630498"
 
-bootstrap-slider@^9.7.0:
-  version "9.7.0"
-  resolved "https://registry.yarnpkg.com/bootstrap-slider/-/bootstrap-slider-9.7.0.tgz#ae1f4a87232f887ef494b4006fc4fc3d5705c946"
+bootstrap-slider@^9.7.1:
+  version "9.7.1"
+  resolved "https://registry.yarnpkg.com/bootstrap-slider/-/bootstrap-slider-9.7.1.tgz#7cbb3f1cdb18fb1f27e179b4bb35c3b0b1dc3e7b"
 
 bootstrap@^3.3:
   version "3.3.7"
@@ -2505,10 +2497,6 @@ js-beautify@^1.6.3:
     mkdirp "~0.5.0"
     nopt "~3.0.1"
 
-js-tokens@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-2.0.0.tgz#79903f5563ee778cc1162e6dcf1a0027c97f9cb5"
-
 js-tokens@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.1.tgz#08e9f132484a2c45a30907e9dc4d5567b7f114d7"
@@ -3768,16 +3756,7 @@ postcss-zindex@^2.0.1:
     postcss "^5.0.4"
     uniqs "^2.0.0"
 
-postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0.14, postcss@^5.0.16, postcss@^5.0.2, postcss@^5.0.4, postcss@^5.0.5, postcss@^5.0.6, postcss@^5.0.8, postcss@^5.2.5:
-  version "5.2.6"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-5.2.6.tgz#a252cd67cd52585035f17e9ad12b35137a7bdd9e"
-  dependencies:
-    chalk "^1.1.3"
-    js-base64 "^2.1.9"
-    source-map "^0.5.6"
-    supports-color "^3.1.2"
-
-postcss@^5.2.9:
+postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0.14, postcss@^5.0.16, postcss@^5.0.2, postcss@^5.0.4, postcss@^5.0.5, postcss@^5.0.8, postcss@^5.2.5, postcss@^5.2.9:
   version "5.2.11"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-5.2.11.tgz#ff29bcd6d2efb98bfe08a022055ec599bbe7b761"
   dependencies:
@@ -3785,6 +3764,15 @@ postcss@^5.2.9:
     js-base64 "^2.1.9"
     source-map "^0.5.6"
     supports-color "^3.2.3"
+
+postcss@^5.0.6:
+  version "5.2.6"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-5.2.6.tgz#a252cd67cd52585035f17e9ad12b35137a7bdd9e"
+  dependencies:
+    chalk "^1.1.3"
+    js-base64 "^2.1.9"
+    source-map "^0.5.6"
+    supports-color "^3.1.2"
 
 prepend-http@^1.0.0:
   version "1.0.4"
@@ -4201,13 +4189,13 @@ select2@^4.0.3:
     almond "~0.3.1"
     jquery-mousewheel "~3.1.13"
 
-"semver@2 || 3 || 4 || 5", semver@^4.1.0:
-  version "4.3.6"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-4.3.6.tgz#300bc6e0e86374f7ba61068b5b1ecd57fc6532da"
-
-"semver@2.x || 3.x || 4 || 5", semver@^5.1.0, semver@~5.3.0:
+"semver@2 || 3 || 4 || 5", semver@^5.1.0, semver@~5.3.0:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.3.0.tgz#9b2ce5d3de02d17c6012ad326aa6b4d0cf54f94f"
+
+"semver@2.x || 3.x || 4 || 5", semver@^4.1.0:
+  version "4.3.6"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-4.3.6.tgz#300bc6e0e86374f7ba61068b5b1ecd57fc6532da"
 
 send@0.14.2:
   version "0.14.2"
@@ -4548,9 +4536,9 @@ svgo@^0.7.0:
     sax "~1.2.1"
     whet.extend "~0.9.9"
 
-sweetalert2@^6.3.2:
-  version "6.3.2"
-  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-6.3.2.tgz#7c7e7b27134fabd74985e5b9eadd2a1bb0fbe726"
+sweetalert2@^6.3.8:
+  version "6.3.8"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-6.3.8.tgz#f9b89b79bf816fa1e149d4ba0fc130993bb7e315"
   dependencies:
     es6-promise "^4.0.5"
 

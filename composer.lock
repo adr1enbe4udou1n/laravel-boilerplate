@@ -1402,16 +1402,16 @@
         },
         {
             "name": "orchestra/testbench",
-            "version": "v3.4.3",
+            "version": "v3.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/testbench.git",
-                "reference": "dbb5dcad060a7a1b3830ef6f30844b529b5f3f2a"
+                "reference": "ca3ca6979090dfefd02fe28f57288d2dc9da6203"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench/zipball/dbb5dcad060a7a1b3830ef6f30844b529b5f3f2a",
-                "reference": "dbb5dcad060a7a1b3830ef6f30844b529b5f3f2a",
+                "url": "https://api.github.com/repos/orchestral/testbench/zipball/ca3ca6979090dfefd02fe28f57288d2dc9da6203",
+                "reference": "ca3ca6979090dfefd02fe28f57288d2dc9da6203",
                 "shasum": ""
             },
             "require": {
@@ -1464,7 +1464,7 @@
                 "orchestral",
                 "testing"
             ],
-            "time": "2017-02-02T10:03:31+00:00"
+            "time": "2017-02-05T02:35:12+00:00"
         },
         {
             "name": "paragonie/random_compat",

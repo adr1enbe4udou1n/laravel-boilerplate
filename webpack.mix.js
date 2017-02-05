@@ -1,3 +1,4 @@
+require('dotenv').config();
 const {mix} = require('laravel-mix');
 
 /*
@@ -13,9 +14,9 @@ const {mix} = require('laravel-mix');
 
 mix
 
-/**
- * Combine frontend scripts
- */
+    /**
+     * Combine frontend scripts
+     */
     .js('resources/assets/js/frontend/app.js', 'public/js/frontend.js')
 
     /**
@@ -33,11 +34,22 @@ mix
      */
     .sass('resources/assets/sass/backend/app.scss', 'public/css/backend.css')
 
+    /**
+     * Autoload global plugins
+     */
     .autoload({
         jQuery: 'jquery',
         $: 'jquery'
     })
 
-    .sourceMaps()
+    /**
+     * Enable sourcemaps
+     */
+    .sourceMaps();
 
-    .version();
+if (mix.config.inProduction) {
+    /**
+     * Cache busting for production
+     */
+    mix.version();
+}
