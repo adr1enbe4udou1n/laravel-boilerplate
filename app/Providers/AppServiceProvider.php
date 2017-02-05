@@ -23,6 +23,11 @@ class AppServiceProvider extends ServiceProvider
          * setLocale to use Carbon source locales. Enables diffForHumans() localized
          */
         Carbon::setLocale(config('app.locale'));
+
+        if ($this->app->environment() === 'production') {
+            // Force SSL in production
+            URL::forceScheme('https');
+        }
     }
 
     /**
