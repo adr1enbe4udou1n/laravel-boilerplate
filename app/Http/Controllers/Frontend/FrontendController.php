@@ -34,8 +34,8 @@ class FrontendController extends Controller
             Mail::to([
                 [
                     'email' => 'admin@example.com',
-                    'name' => 'Admin'
-                ]
+                    'name' => 'Admin',
+                ],
             ])->send(new ContactSend($request->input()));
 
             return redirect(route('contact-sent'));

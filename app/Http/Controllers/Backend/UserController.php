@@ -21,7 +21,8 @@ class UserController extends Controller
     protected $users;
 
     /**
-     * Datatables Html Builder
+     * Datatables Html Builder.
+     *
      * @var Builder
      */
     protected $htmlBuilder;
@@ -30,7 +31,7 @@ class UserController extends Controller
      * Create a new controller instance.
      *
      * @param UserRepository $users
-     * @param Builder $htmlBuilder
+     * @param Builder        $htmlBuilder
      */
     public function __construct(UserRepository $users, Builder $htmlBuilder)
     {
