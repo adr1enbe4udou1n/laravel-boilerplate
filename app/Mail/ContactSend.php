@@ -33,8 +33,7 @@ class ContactSend extends Mailable
     public function build()
     {
         return $this->subject(trans('mails.contact.subject'))
-            ->view('vendor.notifications.email')
-            ->text('vendor.notifications.email-plain')
+            ->markdown('vendor.notifications.email')
             ->with('level', 'success')
             ->with('introLines', [
                 trans('validation.attributes.name') => $this->contact['name'],

@@ -5,7 +5,7 @@ return [
         'hello' => 'Bonjour !',
         'regards' => 'Cordialement',
         'trouble' => 'Si vous rencontrer un problème en cliquant sur le bouton :action, copier et coller l\'URL suivante dans votre navigateur :',
-        'all_rights_reserved' => 'Tous droits réservés',
+        'all_rights_reserved' => 'Tous droits réservés.',
     ],
     'password_reset' => [
         'intro' => 'Vous recevez ce mail car vous avez effectué une demande de réinitialisation de mot de passe.',

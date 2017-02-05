@@ -31,7 +31,12 @@ class FrontendController extends Controller
                 'g-recaptcha-response' => 'required|captcha',
             ]);
 
-            Mail::send(new ContactSend($request->input()));
+            Mail::to([
+                [
+                    'email' => 'admin@example.com',
+                    'name' => 'Admin'
+                ]
+            ])->send(new ContactSend($request->input()));
 
             return redirect(route('contact-sent'));
         }
