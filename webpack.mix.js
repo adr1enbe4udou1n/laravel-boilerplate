@@ -45,7 +45,12 @@ mix
     /**
      * Enable sourcemaps
      */
-    .sourceMaps();
+    .sourceMaps()
+
+    /**
+     * Enable browsersync
+     */
+    .browserSync(process.env.APP_URL);
 
 if (mix.config.inProduction) {
     /**
