@@ -1,6 +1,7 @@
 
 require('./../bootstrap');
 require('./../plugins');
+
 require('icheck');
 require('admin-lte');
 

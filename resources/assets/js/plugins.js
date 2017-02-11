@@ -1,6 +1,13 @@
 require('select2');
 window.swal = require('sweetalert2');
 
+require('datatables.net');
+require('datatables.net-bs');
+
+window.moment = require('moment');
+$.fn.datetimepicker = require('eonasdan-bootstrap-datetimepicker');
+require('bootstrap-slider');
+
 /**
  * Allows you to add data-method="METHOD to links to automatically inject a form
  * with the method on click

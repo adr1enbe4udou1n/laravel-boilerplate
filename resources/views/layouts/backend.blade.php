@@ -22,6 +22,8 @@
     @yield('body')
 
     <!-- Scripts -->
+    <script src="{{ mix('js/manifest.js') }}"></script>
+    <script src="{{ mix('js/vendor.js') }}"></script>
     <script src="{{ mix('js/backend.js') }}"></script>
 
     @if (config('app.locale') != 'en')

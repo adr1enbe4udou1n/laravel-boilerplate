@@ -43,6 +43,21 @@ mix
     })
 
     /**
+     * Extract vendors
+     */
+    .extract([
+        'lodash',
+        'moment',
+        'jquery',
+        'vue',
+        'axios',
+        'datatables.net',
+        'select2',
+        'sweetalert2',
+        'slick-carousel'
+    ])
+
+    /**
      * Enable sourcemaps
      */
     .sourceMaps()
