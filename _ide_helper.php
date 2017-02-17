@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.11 on 2017-02-14.
+ * Generated for Laravel 5.4.12 on 2017-02-17.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -14918,14 +14918,14 @@ namespace Yajra\Datatables\Facades {
         /**
          * Gets query and returns instance of class.
          *
-         * @param mixed $builder
+         * @param mixed $source
          * @return mixed 
          * @throws \Exception
          * @static 
          */
-        public static function of($builder)
+        public static function of($source)
         {
-            return \Yajra\Datatables\Datatables::of($builder);
+            return \Yajra\Datatables\Datatables::of($source);
         }
         
         /**
@@ -14966,13 +14966,13 @@ namespace Yajra\Datatables\Facades {
         /**
          * Datatables using Collection.
          *
-         * @param \Illuminate\Support\Collection|mixed $builder
+         * @param \Illuminate\Support\Collection|mixed $collection
          * @return \Yajra\Datatables\Engines\CollectionEngine 
          * @static 
          */
-        public static function collection($builder)
+        public static function collection($collection)
         {
-            return \Yajra\Datatables\Datatables::collection($builder);
+            return \Yajra\Datatables\Datatables::collection($collection);
         }
         
         /**
