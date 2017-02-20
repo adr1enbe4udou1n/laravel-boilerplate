@@ -72,15 +72,14 @@ function addDeleteForms() {
         let cancel = (link.attr('data-trans-button-cancel')) ? link.attr('data-trans-button-cancel') : "Cancel";
         let confirm = (link.attr('data-trans-button-confirm')) ? link.attr('data-trans-button-confirm') : "Yes, delete";
         let title = (link.attr('data-trans-title')) ? link.attr('data-trans-title') : "Warning";
-        let text = (link.attr('data-trans-text')) ? link.attr('data-trans-text') : "Are you sure you want to delete this item?";
 
         swal({
             title: title,
             type: "warning",
             showCancelButton: true,
-            cancelButtonText: 'Cancel',
+            cancelButtonText: cancel,
             confirmButtonColor: "#dd4b39",
-            confirmButtonText: 'Delete'
+            confirmButtonText: confirm
         }).then(
             function() {
                 form.submit();
