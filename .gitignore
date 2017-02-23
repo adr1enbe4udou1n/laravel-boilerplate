@@ -15,3 +15,5 @@ Homestead.yaml
 /public/css/frontend.css
 /public/js/backend.js
 /public/js/frontend.js
+/public/js/vendor.js
+/public/js/manifest.js

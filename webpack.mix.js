@@ -65,7 +65,17 @@ mix
     /**
      * Enable browsersync
      */
-    .browserSync(process.env.APP_URL);
+    .browserSync({
+        proxy: {
+            target: process.env.BROWSERSYNC_PROXY,
+            reqHeaders: function () {
+                return {
+                    host: `localhost:${process.env.BROWSERSYNC_PORT}`
+                };
+            }
+        },
+        port: process.env.BROWSERSYNC_PORT
+    });
 
 if (mix.config.inProduction) {
     /**
