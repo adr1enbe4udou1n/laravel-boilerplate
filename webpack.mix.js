@@ -68,13 +68,13 @@ mix
     .browserSync({
         proxy: {
             target: process.env.BROWSERSYNC_PROXY,
-            reqHeaders: function () {
+            reqHeaders: function (config) {
                 return {
-                    host: `localhost:${process.env.BROWSERSYNC_PORT}`
+                    host: `${config.url.hostname}:${process.env.BROWSERSYNC_PORT}`
                 };
             }
         },
-        port: process.env.BROWSERSYNC_PORT
+        port: parseInt(process.env.BROWSERSYNC_PORT, 10)
     });
 
 if (mix.config.inProduction) {
