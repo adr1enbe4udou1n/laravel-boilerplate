@@ -74,6 +74,8 @@ mix
                 };
             }
         },
+        open: 'external',
+        host: process.env.BROWSERSYNC_HOST || 'localhost',
         port: parseInt(process.env.BROWSERSYNC_PORT, 10)
     });
 
