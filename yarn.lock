@@ -1550,12 +1550,12 @@ enhanced-resolve@^3.0.0:
     object-assign "^4.0.1"
     tapable "^0.2.5"
 
-eonasdan-bootstrap-datetimepicker@^4.17.46:
-  version "4.17.46"
-  resolved "https://registry.yarnpkg.com/eonasdan-bootstrap-datetimepicker/-/eonasdan-bootstrap-datetimepicker-4.17.46.tgz#d143e0f09830d3e1671d52d17a61fcef65e7d527"
+eonasdan-bootstrap-datetimepicker@^4.17.47:
+  version "4.17.47"
+  resolved "https://registry.yarnpkg.com/eonasdan-bootstrap-datetimepicker/-/eonasdan-bootstrap-datetimepicker-4.17.47.tgz#7a49970044065276e7965efd16f822735219e735"
   dependencies:
     bootstrap "^3.3"
-    jquery "^1.8.3 || ^2.0"
+    jquery "^1.8.3 || ^2.0 || ^3.0"
     moment "^2.10"
     moment-timezone "^0.4.0"
 
@@ -2421,13 +2421,9 @@ jquery-mousewheel@~3.1.13:
   version "3.1.13"
   resolved "https://registry.yarnpkg.com/jquery-mousewheel/-/jquery-mousewheel-3.1.13.tgz#06f0335f16e353a695e7206bf50503cb523a6ee5"
 
-jquery@>=1.7, jquery@>=1.7.2, jquery@^3.1.1:
+jquery@>=1.7, jquery@>=1.7.2, "jquery@^1.8.3 || ^2.0 || ^3.0", jquery@^3.1.1:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.1.1.tgz#347c1c21c7e004115e0a4da32cece041fad3c8a3"
-
-"jquery@^1.8.3 || ^2.0":
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-2.2.4.tgz#2c89d6889b5eac522a7eea32c14521559c6cbf02"
 
 js-base64@^2.1.9:
   version "2.1.9"
