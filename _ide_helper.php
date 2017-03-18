@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.15 on 2017-03-11.
+ * Generated for Laravel 5.4.15 on 2017-03-18.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -11423,6 +11423,19 @@ namespace Arcanedev\NoCaptcha\Facades {
         public static function audio($name = null, $attributes = array())
         {
             return \Arcanedev\NoCaptcha\NoCaptcha::audio($name, $attributes);
+        }
+        
+        /**
+         * Display an invisible Captcha (bind the challenge to a button).
+         *
+         * @param string $value
+         * @param array $attributes
+         * @return string 
+         * @static 
+         */
+        public static function button($value, $attributes = array())
+        {
+            return \Arcanedev\NoCaptcha\NoCaptcha::button($value, $attributes);
         }
         
         /**

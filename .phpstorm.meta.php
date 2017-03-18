@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2017-03-11.
+    * Generated on 2017-03-18.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -40,7 +40,6 @@ namespace PHPSTORM_META {
             'view.finder' instanceof \Illuminate\View\FileViewFinder,
             'view.engine.resolver' instanceof \Illuminate\View\Engines\EngineResolver,
             'Arcanedev\NoCaptcha\Contracts\NoCaptcha' instanceof \Arcanedev\NoCaptcha\NoCaptcha,
-            'arcanedev.no-captcha' instanceof \Arcanedev\NoCaptcha\NoCaptcha,
             'datatables' instanceof \Yajra\Datatables\Datatables,
             'html' instanceof \Collective\Html\HtmlBuilder,
             'form' instanceof \Collective\Html\FormBuilder,
@@ -173,7 +172,6 @@ namespace PHPSTORM_META {
             'view.finder' instanceof \Illuminate\View\FileViewFinder,
             'view.engine.resolver' instanceof \Illuminate\View\Engines\EngineResolver,
             'Arcanedev\NoCaptcha\Contracts\NoCaptcha' instanceof \Arcanedev\NoCaptcha\NoCaptcha,
-            'arcanedev.no-captcha' instanceof \Arcanedev\NoCaptcha\NoCaptcha,
             'datatables' instanceof \Yajra\Datatables\Datatables,
             'html' instanceof \Collective\Html\HtmlBuilder,
             'form' instanceof \Collective\Html\FormBuilder,
@@ -306,7 +304,6 @@ namespace PHPSTORM_META {
             'view.finder' instanceof \Illuminate\View\FileViewFinder,
             'view.engine.resolver' instanceof \Illuminate\View\Engines\EngineResolver,
             'Arcanedev\NoCaptcha\Contracts\NoCaptcha' instanceof \Arcanedev\NoCaptcha\NoCaptcha,
-            'arcanedev.no-captcha' instanceof \Arcanedev\NoCaptcha\NoCaptcha,
             'datatables' instanceof \Yajra\Datatables\Datatables,
             'html' instanceof \Collective\Html\HtmlBuilder,
             'form' instanceof \Collective\Html\FormBuilder,
@@ -439,7 +436,6 @@ namespace PHPSTORM_META {
             'view.finder' instanceof \Illuminate\View\FileViewFinder,
             'view.engine.resolver' instanceof \Illuminate\View\Engines\EngineResolver,
             'Arcanedev\NoCaptcha\Contracts\NoCaptcha' instanceof \Arcanedev\NoCaptcha\NoCaptcha,
-            'arcanedev.no-captcha' instanceof \Arcanedev\NoCaptcha\NoCaptcha,
             'datatables' instanceof \Yajra\Datatables\Datatables,
             'html' instanceof \Collective\Html\HtmlBuilder,
             'form' instanceof \Collective\Html\FormBuilder,
