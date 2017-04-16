@@ -69,16 +69,16 @@
         },
         {
             "name": "arcanedev/support",
-            "version": "4.1.5",
+            "version": "4.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ARCANEDEV/Support.git",
-                "reference": "4fc68a934029153ad83e33ed0299097faa7ef71f"
+                "reference": "fab3ca1377894c3fe5f9b309b7253c580bce40e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ARCANEDEV/Support/zipball/4fc68a934029153ad83e33ed0299097faa7ef71f",
-                "reference": "4fc68a934029153ad83e33ed0299097faa7ef71f",
+                "url": "https://api.github.com/repos/ARCANEDEV/Support/zipball/fab3ca1377894c3fe5f9b309b7253c580bce40e4",
+                "reference": "fab3ca1377894c3fe5f9b309b7253c580bce40e4",
                 "shasum": ""
             },
             "require": {
@@ -125,7 +125,7 @@
                 "laravel",
                 "support"
             ],
-            "time": "2017-03-21T16:15:25+00:00"
+            "time": "2017-04-11T11:43:07+00:00"
         },
         {
             "name": "davejamesmiller/laravel-breadcrumbs",
@@ -812,16 +812,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.4.17",
+            "version": "v5.4.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "f7675d59e3863a58ecdff1a5ee1dcd0cff788f4b"
+                "reference": "02444b7450350db17a7607c8a52f7268ebdb0dad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/f7675d59e3863a58ecdff1a5ee1dcd0cff788f4b",
-                "reference": "f7675d59e3863a58ecdff1a5ee1dcd0cff788f4b",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/02444b7450350db17a7607c8a52f7268ebdb0dad",
+                "reference": "02444b7450350db17a7607c8a52f7268ebdb0dad",
                 "shasum": ""
             },
             "require": {
@@ -937,7 +937,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-04-03T13:07:39+00:00"
+            "time": "2017-04-16T13:33:34+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -3661,16 +3661,16 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.6.0",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "5a5a9fc8025a08d8919be87d6884d5a92520cefe"
+                "reference": "8e6e04167378abf1ddb4d3522d8755c5fd90d102"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/5a5a9fc8025a08d8919be87d6884d5a92520cefe",
-                "reference": "5a5a9fc8025a08d8919be87d6884d5a92520cefe",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/8e6e04167378abf1ddb4d3522d8755c5fd90d102",
+                "reference": "8e6e04167378abf1ddb4d3522d8755c5fd90d102",
                 "shasum": ""
             },
             "require": {
@@ -3699,7 +3699,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2017-01-26T22:05:40+00:00"
+            "time": "2017-04-12T18:52:22+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -4014,16 +4014,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "5.1.0",
+            "version": "5.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "cff36444733ac6d3f153866f55898373ca184610"
+                "reference": "bc433b7af27e0ab9b6b4c6d8ec918a493875f6bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/cff36444733ac6d3f153866f55898373ca184610",
-                "reference": "cff36444733ac6d3f153866f55898373ca184610",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/bc433b7af27e0ab9b6b4c6d8ec918a493875f6bc",
+                "reference": "bc433b7af27e0ab9b6b4c6d8ec918a493875f6bc",
                 "shasum": ""
             },
             "require": {
@@ -4073,7 +4073,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-04-07T04:39:58+00:00"
+            "time": "2017-04-12T07:59:32+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",

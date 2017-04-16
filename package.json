@@ -11,10 +11,10 @@
   },
   "devDependencies": {
     "admin-lte": "^2.3.11",
-    "axios": "^0.16.0",
+    "axios": "^0.16.1",
     "bootstrap-sass": "^3.3.7",
-    "bootstrap-slider": "^9.7.2",
-    "cross-env": "^3.2.4",
+    "bootstrap-slider": "^9.7.3",
+    "cross-env": "^3.2.3",
     "datatables.net": "^2.1.1",
     "datatables.net-bs": "^2.1.1",
     "dotenv": "^4.0.0",

@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.17 on 2017-04-08.
+ * Generated for Laravel 5.4.19 on 2017-04-16.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -1913,6 +1913,31 @@ namespace Illuminate\Support\Facades {
         public static function guest()
         {
             return \Illuminate\Auth\SessionGuard::guest();
+        }
+        
+        /**
+         * Register a custom macro.
+         *
+         * @param string $name
+         * @param callable $macro
+         * @return void 
+         * @static 
+         */
+        public static function macro($name, $macro)
+        {
+            \Illuminate\Auth\SessionGuard::macro($name, $macro);
+        }
+        
+        /**
+         * Checks if macro is registered.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */
+        public static function hasMacro($name)
+        {
+            return \Illuminate\Auth\SessionGuard::hasMacro($name);
         }
         
     }         
@@ -5574,6 +5599,31 @@ namespace Illuminate\Support\Facades {
         public static function setQueue($queue)
         {
             return \Illuminate\Mail\Mailer::setQueue($queue);
+        }
+        
+        /**
+         * Register a custom macro.
+         *
+         * @param string $name
+         * @param callable $macro
+         * @return void 
+         * @static 
+         */
+        public static function macro($name, $macro)
+        {
+            \Illuminate\Mail\Mailer::macro($name, $macro);
+        }
+        
+        /**
+         * Checks if macro is registered.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */
+        public static function hasMacro($name)
+        {
+            return \Illuminate\Mail\Mailer::hasMacro($name);
         }
         
     }         
@@ -10590,6 +10640,20 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
+         * Register a custom implicit validator extension.
+         *
+         * @param string $rule
+         * @param \Closure|string $extension
+         * @param string $message
+         * @return void 
+         * @static 
+         */
+        public static function extendDependent($rule, $extension, $message = null)
+        {
+            \Illuminate\Validation\Factory::extendDependent($rule, $extension, $message);
+        }
+        
+        /**
          * Register a custom implicit validator message replacer.
          *
          * @param string $rule
@@ -14016,6 +14080,18 @@ namespace {
         public static function without($relations)
         {
             return \Illuminate\Database\Eloquent\Builder::without($relations);
+        }
+        
+        /**
+         * Create a new instance of the model being queried.
+         *
+         * @param array $attributes
+         * @return \Illuminate\Database\Eloquent\Model 
+         * @static 
+         */
+        public static function newModelInstance($attributes = array())
+        {
+            return \Illuminate\Database\Eloquent\Builder::newModelInstance($attributes);
         }
         
         /**
