@@ -17,6 +17,13 @@
     <!-- Custom Styles -->
     <link rel="stylesheet" href="{{ mix('css/backend.css') }}">
     @yield('styles')
+
+    <!-- Scripts -->
+    <script>
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token(),
+        ]) !!};
+    </script>
 </head>
 <body id="@yield('body_id')" class="hold-transition skin-blue sidebar-mini @yield('body_class')">
     @yield('body')
