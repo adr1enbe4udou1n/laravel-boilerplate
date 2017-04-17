@@ -6,6 +6,7 @@ use App\Repositories\Contracts\UserRepository;
 use App\Repositories\EloquentUserRepository;
 use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
+use Schema;
 use URL;
 
 class AppServiceProvider extends ServiceProvider
