@@ -41,5 +41,6 @@ return [
     'frontend' => [
         'about' => 'About',
         'contact' => 'Contact',
+        'legal_mentions' => 'Legal mentions',
     ],
 ];

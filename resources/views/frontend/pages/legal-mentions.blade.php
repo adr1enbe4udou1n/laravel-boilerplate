@@ -3,7 +3,7 @@
 @section('body_id', 'page-legal-mentions')
 
 @section('content')
-    <h1>Mentions légales</h1>
+    <h1>@lang('labels.frontend.legal_mentions')</h1>
 
     <p>Etiam ut purus mattis mauris sodales aliquam. Curabitur ullamcorper ultricies nisi. Quisque rutrum. Proin faucibus arcu quis ante. Sed cursus turpis vitae tortor.</p>
 

@@ -41,5 +41,6 @@ return [
     'frontend' => [
         'about' => 'Qui sommes-nous ?',
         'contact' => 'Contact',
+        'legal_mentions' => 'Mention légales',
     ],
 ];
