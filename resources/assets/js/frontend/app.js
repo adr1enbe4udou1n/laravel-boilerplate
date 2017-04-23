@@ -3,6 +3,8 @@ require('./../bootstrap');
 require('./../plugins');
 require('slick-carousel');
 
+window.Vue = require('vue');
+
 const app = new Vue({
     el: '#app'
 });

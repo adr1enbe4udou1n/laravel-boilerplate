@@ -15,19 +15,19 @@
     "bootstrap-sass": "^3.3.7",
     "bootstrap-slider": "^9.7.3",
     "cross-env": "^3.2.3",
-    "datatables.net": "^1.10.14",
-    "datatables.net-bs": "^1.10.14",
+    "datatables.net": "^1.10.15",
+    "datatables.net-bs": "^1.10.15",
     "dotenv": "^4.0.0",
     "eonasdan-bootstrap-datetimepicker": "^4.17.47",
     "font-awesome": "^4.7.0",
     "icheck": "^1.0.2",
     "jquery": "^3.2.1",
-    "laravel-mix": "^0.10.0",
+    "laravel-mix": "^0.11.3",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "select2": "^4.0.3",
     "slick-carousel": "^1.6.0",
-    "sweetalert2": "^6.6.0",
+    "sweetalert2": "^6.6.1",
     "vue": "^2.2.6"
   }
 }
