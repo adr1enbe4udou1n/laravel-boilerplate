@@ -13,7 +13,7 @@
     "admin-lte": "^2.3.11",
     "axios": "^0.16.1",
     "bootstrap-sass": "^3.3.7",
-    "bootstrap-slider": "^9.7.3",
+    "bootstrap-slider": "^9.8.0",
     "cross-env": "^3.2.3",
     "datatables.net": "^1.10.15",
     "datatables.net-bs": "^1.10.15",
@@ -22,12 +22,12 @@
     "font-awesome": "^4.7.0",
     "icheck": "^1.0.2",
     "jquery": "^3.2.1",
-    "laravel-mix": "^0.11.3",
+    "laravel-mix": "^0.11.4",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "select2": "^4.0.3",
     "slick-carousel": "^1.6.0",
-    "sweetalert2": "^6.6.1",
-    "vue": "^2.2.6"
+    "sweetalert2": "^6.6.2",
+    "vue": "^2.3.2"
   }
 }
