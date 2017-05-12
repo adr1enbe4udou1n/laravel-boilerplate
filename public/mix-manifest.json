@@ -1,8 +1,8 @@
 {
-  "/js/vendor.js": "/js/vendor.js",
-  "/js/frontend.js": "/js/frontend.js",
-  "/css/frontend.css": "/css/frontend.css",
-  "/css/backend.css": "/css/backend.css",
-  "/js/backend.js": "/js/backend.js",
-  "/js/manifest.js": "/js/manifest.js"
+  "/js/vendor.js": "/js/vendor.709ec64a81a6005da8b2.js",
+  "/js/frontend.js": "/js/frontend.85d458e244e0f93d1a07.js",
+  "/css/frontend.css": "/css/frontend.5a44e69c67ad103c4da700bd13bd53b8.css",
+  "/css/backend.css": "/css/backend.9ea36877dddafa173b33bc1f1c99e451.css",
+  "/js/backend.js": "/js/backend.5394b08c6fd6a849b731.js",
+  "/js/manifest.js": "/js/manifest.d41d8cd98f00b204e980.js"
 }
