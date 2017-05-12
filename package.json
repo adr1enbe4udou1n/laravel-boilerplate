@@ -14,7 +14,7 @@
     "axios": "^0.16.1",
     "bootstrap-sass": "^3.3.7",
     "bootstrap-slider": "^9.8.0",
-    "cross-env": "^3.2.3",
+    "cross-env": "^5.0.0",
     "datatables.net": "^1.10.15",
     "datatables.net-bs": "^1.10.15",
     "dotenv": "^4.0.0",
@@ -28,6 +28,6 @@
     "select2": "^4.0.3",
     "slick-carousel": "^1.6.0",
     "sweetalert2": "^6.6.2",
-    "vue": "^2.3.2"
+    "vue": "^2.3.3"
   }
 }
