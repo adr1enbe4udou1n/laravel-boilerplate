@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.23 on 2017-05-12.
+ * Generated for Laravel 5.4.23 on 2017-05-16.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -12413,13 +12413,14 @@ namespace Collective\Html {
          * @param string $name
          * @param array $list
          * @param string $selected
-         * @param array $options
+         * @param array $selectAttributes
+         * @param array $optionsAttributes
          * @return \Illuminate\Support\HtmlString 
          * @static 
          */
-        public static function select($name, $list = array(), $selected = null, $options = array())
+        public static function select($name, $list = array(), $selected = null, $selectAttributes = array(), $optionsAttributes = array())
         {
-            return \Collective\Html\FormBuilder::select($name, $list, $selected, $options);
+            return \Collective\Html\FormBuilder::select($name, $list, $selected, $selectAttributes, $optionsAttributes);
         }
         
         /**
@@ -12475,12 +12476,13 @@ namespace Collective\Html {
          * @param string $display
          * @param string $value
          * @param string $selected
+         * @param array $attributes
          * @return \Illuminate\Support\HtmlString 
          * @static 
          */
-        public static function getSelectOption($display, $value, $selected)
+        public static function getSelectOption($display, $value, $selected, $attributes = array())
         {
-            return \Collective\Html\FormBuilder::getSelectOption($display, $value, $selected);
+            return \Collective\Html\FormBuilder::getSelectOption($display, $value, $selected, $attributes);
         }
         
         /**
@@ -12745,18 +12747,6 @@ namespace Collective\Html {
         public static function entities($value)
         {
             return \Collective\Html\HtmlBuilder::entities($value);
-        }
-        
-        /**
-         * Convert all applicable characters to HTML entities.
-         *
-         * @param string $value
-         * @return string 
-         * @static 
-         */
-        public static function escapeAll($value)
-        {
-            return \Collective\Html\HtmlBuilder::escapeAll($value);
         }
         
         /**

@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2017-05-12.
+    * Generated on 2017-05-16.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -43,6 +43,7 @@ namespace PHPSTORM_META {
             'datatables' instanceof \Yajra\Datatables\Datatables,
             'html' instanceof \Collective\Html\HtmlBuilder,
             'form' instanceof \Collective\Html\FormBuilder,
+            'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'datatables.html' instanceof \Yajra\Datatables\Html\Builder,
             'image' instanceof \Intervention\Image\ImageManager,
             'active' instanceof \HieuLe\Active\Active,
@@ -53,7 +54,6 @@ namespace PHPSTORM_META {
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
             'App\Repositories\Contracts\UserRepository' instanceof \App\Repositories\EloquentUserRepository,
-            'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'validation.presence' instanceof \Illuminate\Validation\DatabasePresenceVerifier,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
@@ -175,6 +175,7 @@ namespace PHPSTORM_META {
             'datatables' instanceof \Yajra\Datatables\Datatables,
             'html' instanceof \Collective\Html\HtmlBuilder,
             'form' instanceof \Collective\Html\FormBuilder,
+            'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'datatables.html' instanceof \Yajra\Datatables\Html\Builder,
             'image' instanceof \Intervention\Image\ImageManager,
             'active' instanceof \HieuLe\Active\Active,
@@ -185,7 +186,6 @@ namespace PHPSTORM_META {
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
             'App\Repositories\Contracts\UserRepository' instanceof \App\Repositories\EloquentUserRepository,
-            'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'validation.presence' instanceof \Illuminate\Validation\DatabasePresenceVerifier,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
@@ -307,6 +307,7 @@ namespace PHPSTORM_META {
             'datatables' instanceof \Yajra\Datatables\Datatables,
             'html' instanceof \Collective\Html\HtmlBuilder,
             'form' instanceof \Collective\Html\FormBuilder,
+            'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'datatables.html' instanceof \Yajra\Datatables\Html\Builder,
             'image' instanceof \Intervention\Image\ImageManager,
             'active' instanceof \HieuLe\Active\Active,
@@ -317,7 +318,6 @@ namespace PHPSTORM_META {
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
             'App\Repositories\Contracts\UserRepository' instanceof \App\Repositories\EloquentUserRepository,
-            'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'validation.presence' instanceof \Illuminate\Validation\DatabasePresenceVerifier,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,
@@ -439,6 +439,7 @@ namespace PHPSTORM_META {
             'datatables' instanceof \Yajra\Datatables\Datatables,
             'html' instanceof \Collective\Html\HtmlBuilder,
             'form' instanceof \Collective\Html\FormBuilder,
+            'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'datatables.html' instanceof \Yajra\Datatables\Html\Builder,
             'image' instanceof \Intervention\Image\ImageManager,
             'active' instanceof \HieuLe\Active\Active,
@@ -449,7 +450,6 @@ namespace PHPSTORM_META {
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
             'App\Repositories\Contracts\UserRepository' instanceof \App\Repositories\EloquentUserRepository,
-            'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'validation.presence' instanceof \Illuminate\Validation\DatabasePresenceVerifier,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
             'translator' instanceof \Illuminate\Translation\Translator,

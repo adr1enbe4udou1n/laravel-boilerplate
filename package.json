@@ -27,7 +27,7 @@
     "moment": "^2.18.1",
     "select2": "^4.0.3",
     "slick-carousel": "^1.6.0",
-    "sweetalert2": "^6.6.2",
+    "sweetalert2": "^6.6.3",
     "vue": "^2.3.3"
   }
 }
