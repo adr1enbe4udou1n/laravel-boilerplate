@@ -20,13 +20,6 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/frontend.css') }}">
     @yield('styles')
-
-    <!-- Scripts -->
-    <script>
-        window.Laravel = {!! json_encode([
-            'csrfToken' => csrf_token(),
-        ]) !!};
-    </script>
 </head>
 <body id="@yield('body_id')" class="@yield('body_class')">
     @include('frontend.scripts.gtmiframe')

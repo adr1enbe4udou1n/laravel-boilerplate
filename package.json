@@ -22,12 +22,12 @@
     "font-awesome": "^4.7.0",
     "icheck": "^1.0.2",
     "jquery": "^3.2.1",
-    "laravel-mix": "^0.11.4",
+    "laravel-mix": "^0.12.0",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "select2": "^4.0.3",
     "slick-carousel": "^1.6.0",
-    "sweetalert2": "^6.6.3",
+    "sweetalert2": "^6.6.4",
     "vue": "^2.3.3"
   }
 }
