@@ -18,7 +18,6 @@
     @yield('metas')
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ mix('css/frontend.css') }}">
     @if(app()->environment('production'))
         <link rel="stylesheet" href="{{ mix('dist/css/frontend.css') }}">
     @else
