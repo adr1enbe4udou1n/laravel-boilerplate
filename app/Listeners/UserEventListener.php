@@ -5,7 +5,7 @@ namespace App\Listeners;
 use App\Events\UserCreated;
 use App\Events\UserDeleted;
 use App\Events\UserUpdated;
-use Log;
+use Illuminate\Support\Facades\Log;
 
 class UserEventListener
 {

@@ -3,8 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Lang;
-use View;
+use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\View;
 
 class MetaTags
 {

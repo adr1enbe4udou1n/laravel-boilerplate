@@ -5,9 +5,9 @@ namespace App\Providers;
 use App\Repositories\Contracts\UserRepository;
 use App\Repositories\EloquentUserRepository;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
-use Schema;
-use URL;
 
 class AppServiceProvider extends ServiceProvider
 {

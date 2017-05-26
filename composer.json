@@ -24,7 +24,7 @@
         "doctrine/dbal": "^2.5",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "^6.0"
+        "phpunit/phpunit": "~6.0"
     },
     "autoload": {
         "classmap": [

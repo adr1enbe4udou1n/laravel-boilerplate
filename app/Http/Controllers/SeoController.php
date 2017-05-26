@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
-use Response;
+use Illuminate\Support\Facades\Response;
 
 class SeoController extends Controller
 {

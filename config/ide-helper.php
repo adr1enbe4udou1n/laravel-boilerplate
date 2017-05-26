@@ -1,6 +1,5 @@
 <?php
 
-
 return [
     /*
     |--------------------------------------------------------------------------
@@ -11,8 +10,19 @@ return [
     |
     */
 
-    'filename' => '_ide_helper',
-    'format' => 'php',
+  'filename' => '_ide_helper',
+  'format' => 'php',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Fluent helpers
+    |--------------------------------------------------------------------------
+    |
+    | Set to true to generate commonly used Fluent methods
+    |
+    */
+
+  'include_fluent' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -24,11 +34,11 @@ return [
     |
     */
 
-    'include_helpers' => false,
+  'include_helpers' => false,
 
-    'helper_files' => [
-        base_path().'/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
-    ],
+  'helper_files' => [
+    base_path().'/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
+  ],
 
     /*
     |--------------------------------------------------------------------------
@@ -40,9 +50,9 @@ return [
     |
     */
 
-    'model_locations' => [
-        'app',
-    ],
+  'model_locations' => [
+    'app',
+  ],
 
     /*
     |--------------------------------------------------------------------------
@@ -53,23 +63,23 @@ return [
     |
     */
 
-    'extra' => [
-        'Eloquent' => ['Illuminate\Database\Eloquent\Builder', 'Illuminate\Database\Query\Builder'],
-        'Session' => ['Illuminate\Session\Store'],
-    ],
+  'extra' => [
+    'Eloquent' => ['Illuminate\Database\Eloquent\Builder', 'Illuminate\Database\Query\Builder'],
+    'Session' => ['Illuminate\Session\Store'],
+  ],
 
-    'magic' => [
-        'Log' => [
-            'debug' => 'Monolog\Logger::addDebug',
-            'info' => 'Monolog\Logger::addInfo',
-            'notice' => 'Monolog\Logger::addNotice',
-            'warning' => 'Monolog\Logger::addWarning',
-            'error' => 'Monolog\Logger::addError',
-            'critical' => 'Monolog\Logger::addCritical',
-            'alert' => 'Monolog\Logger::addAlert',
-            'emergency' => 'Monolog\Logger::addEmergency',
-        ],
+  'magic' => [
+    'Log' => [
+      'debug' => 'Monolog\Logger::addDebug',
+      'info' => 'Monolog\Logger::addInfo',
+      'notice' => 'Monolog\Logger::addNotice',
+      'warning' => 'Monolog\Logger::addWarning',
+      'error' => 'Monolog\Logger::addError',
+      'critical' => 'Monolog\Logger::addCritical',
+      'alert' => 'Monolog\Logger::addAlert',
+      'emergency' => 'Monolog\Logger::addEmergency',
     ],
+  ],
 
     /*
     |--------------------------------------------------------------------------
@@ -81,8 +91,8 @@ return [
     |
     */
 
-    'interfaces' => [
-    ],
+  'interfaces' => [
+  ],
 
     /*
     |--------------------------------------------------------------------------
@@ -110,8 +120,8 @@ return [
     |  ),
     |
     */
-    'custom_db_types' => [
-    ],
+  'custom_db_types' => [
+  ],
 
     /*
      |--------------------------------------------------------------------------
@@ -137,5 +147,18 @@ return [
      | Note, it is currently an all-or-nothing option.
      |
      */
-    'model_camel_case_properties' => false,
+  'model_camel_case_properties' => false,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Property Casts
+    |--------------------------------------------------------------------------
+    |
+    | Cast the given "real type" to the given "type".
+    |
+    */
+  'type_overrides' => [
+    'integer' => 'int',
+    'boolean' => 'bool',
+  ],
 ];

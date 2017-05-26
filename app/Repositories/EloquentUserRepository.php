@@ -8,8 +8,8 @@ use App\Events\UserUpdated;
 use App\Exceptions\GeneralException;
 use App\Models\User;
 use App\Repositories\Contracts\UserRepository;
-use DB;
 use Exception;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class EloquentUserRepository.

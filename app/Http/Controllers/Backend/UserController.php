@@ -68,6 +68,8 @@ class UserController extends Controller
      * @param Request $request
      *
      * @return \Illuminate\Http\Response
+     *
+     * @throws \Exception
      */
     public function search(Request $request)
     {
