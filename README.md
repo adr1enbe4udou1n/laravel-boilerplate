@@ -1,9 +1,10 @@
 # Laravel Boilerplate
 > This is a lite boilerplate site with backend based on Laravel 5.4.
 
+[![Build Status](https://travis-ci.org/adr1enbe4udou1n/laravel-boilerplate.svg)](https://travis-ci.org/adr1enbe4udou1n/laravel-boilerplate)
+[![Total Downloads](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/downloads)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 [![Latest Stable Version](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/v/stable)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 [![License](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/license)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
-[![Total Downloads](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/downloads)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 
 This boilerplate is heavily inspired by the most popular laravel boilerplate [here](https://github.com/rappasoft/laravel-5-boilerplate). Main difference is this one is just a bit more lite, no history logging, no advanced permissions/roles management but just one simple role by user because sufficient for most apps.
 
