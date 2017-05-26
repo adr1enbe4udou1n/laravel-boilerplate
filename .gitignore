@@ -14,9 +14,5 @@ npm-debug.log
 .php_cs.cache
 
 # Dev Builded Files
-/public/css/backend.css
-/public/css/frontend.css
-/public/js/backend.js
-/public/js/frontend.js
-/public/js/vendor.js
-/public/js/manifest.js
+/public/css
+/public/js

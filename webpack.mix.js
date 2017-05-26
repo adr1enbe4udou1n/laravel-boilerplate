@@ -1,4 +1,5 @@
 require('dotenv').config();
+const rimraf = require('rimraf');
 const {mix} = require('laravel-mix');
 
 /*
@@ -12,27 +13,42 @@ const {mix} = require('laravel-mix');
  |
  */
 
+let path = 'public/';
+
+if (mix.config.inProduction) {
+
+    /**
+     * Set dist directory target
+     */
+    path = 'public/dist/';
+
+    /**
+     * Cache busting for production
+     */
+    mix.version();
+}
+
 mix
 
     /**
      * Combine frontend scripts
      */
-    .js('resources/assets/js/frontend/app.js', 'public/js/frontend.js')
+    .js('resources/assets/js/frontend/app.js', path + 'js/frontend.js')
 
     /**
      * Process frontend SCSS stylesheets
      */
-    .sass('resources/assets/sass/frontend/app.scss', 'public/css/frontend.css')
+    .sass('resources/assets/sass/frontend/app.scss', path + 'css/frontend.css')
 
     /**
      * Combine backend scripts
      */
-    .js('resources/assets/js/backend/app.js', 'public/js/backend.js')
+    .js('resources/assets/js/backend/app.js', path + 'js/backend.js')
 
     /**
      * Process backend SCSS stylesheets
      */
-    .sass('resources/assets/sass/backend/app.scss', 'public/css/backend.css')
+    .sass('resources/assets/sass/backend/app.scss', path + 'css/backend.css')
 
     /**
      * Autoload global plugins
@@ -78,10 +94,3 @@ mix
         host: process.env.BROWSERSYNC_HOST || 'localhost',
         port: parseInt(process.env.BROWSERSYNC_PORT, 10)
     });
-
-if (mix.config.inProduction) {
-    /**
-     * Cache busting for production
-     */
-    mix.version();
-}

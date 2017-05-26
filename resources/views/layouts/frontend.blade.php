@@ -19,6 +19,11 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/frontend.css') }}">
+    @if(app()->environment('production'))
+        <link rel="stylesheet" href="{{ mix('dist/css/frontend.css') }}">
+    @else
+        <link rel="stylesheet" href="{{ asset('css/frontend.css') }}">
+    @endif
     @yield('styles')
 </head>
 <body id="@yield('body_id')" class="@yield('body_class')">
@@ -37,11 +42,17 @@
     @include('frontend.partials.footer')
 
     <!-- Scripts -->
-    <script src="{{ mix('js/manifest.js') }}"></script>
-    <script src="{{ mix('js/vendor.js') }}"></script>
-    <script src="{{ mix('js/frontend.js') }}"></script>
+    @if(app()->environment('production'))
+        <script src="{{ mix('dist/js/manifest.js') }}"></script>
+        <script src="{{ mix('dist/js/vendor.js') }}"></script>
+        <script src="{{ mix('dist/js/frontend.js') }}"></script>
+    @else
+        <script src="{{ asset('js/manifest.js') }}"></script>
+        <script src="{{ asset('js/vendor.js') }}"></script>
+        <script src="{{ asset('js/frontend.js') }}"></script>
+    @endif
 
-    @if (config('app.locale') != 'en')
+    @if (config('app.locale') !== 'en')
         <script src="{{ asset('i18n/moment.' . config('app.locale') . '.js') }}"></script>
         <script src="{{ asset('i18n/select2.' . config('app.locale') . '.js') }}"></script>
     @endif
