@@ -5,7 +5,6 @@ language: php
 
 cache:
   directories:
-    - vendor
     - $HOME/.composer/cache
 
 php:
@@ -21,5 +20,6 @@ before_install:
 
 install:
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
+  - php artisan key:generate
 
 script: vendor/bin/phpunit
