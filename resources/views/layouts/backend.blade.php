@@ -16,7 +16,7 @@
 
     <!-- Custom Styles -->
     @if(app()->environment('production'))
-        <link rel="stylesheet" href="{{ mix('dist/css/backend.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/backend.css') }}">
     @else
         <link rel="stylesheet" href="{{ asset('css/backend.css') }}">
     @endif
@@ -27,9 +27,9 @@
 
     <!-- Scripts -->
     @if(app()->environment('production'))
-        <script src="{{ mix('dist/js/manifest.js') }}"></script>
-        <script src="{{ mix('dist/js/vendor.js') }}"></script>
-        <script src="{{ mix('dist/js/backend.js') }}"></script>
+        <script src="{{ mix('js/manifest.js') }}"></script>
+        <script src="{{ mix('js/vendor.js') }}"></script>
+        <script src="{{ mix('js/backend.js') }}"></script>
     @else
         <script src="{{ asset('js/manifest.js') }}"></script>
         <script src="{{ asset('js/vendor.js') }}"></script>

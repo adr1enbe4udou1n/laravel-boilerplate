@@ -99,7 +99,17 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: 'images/[name].[ext]?[hash]',
+                            name: path => {
+                                if (! /node_modules|bower_components/.test(path)) {
+                                    return 'images/[name].[ext]?[hash]';
+                                }
+
+                                return 'images/vendor/' + path
+                                    .replace(/\\/g, '/')
+                                    .replace(
+                                    /((.*(node_modules|bower_components))|images|image|img|assets)\//g, ''
+                                    ) + '?[hash]';
+                            },
                             publicPath: '/'
                         }
                     },
@@ -188,7 +198,7 @@ if (hmr) {
 
 if (production) {
     plugins = [
-        new CleanWebpackPlugin(['dist'], {
+        new CleanWebpackPlugin(['dist', 'images/vendor'], {
             root: path.join(__dirname, '/public')
         }),
         new webpack.optimize.UglifyJsPlugin({
@@ -201,12 +211,12 @@ if (production) {
             filename: 'mix-manifest.json',
             transform(data) {
                 return JSON.stringify({
-                    '/js/manifest.js': data.assetsByChunkName.manifest[0],
-                    '/js/vendor.js': data.assetsByChunkName.vendor[0],
-                    '/js/frontend.js': data.assetsByChunkName.frontend[0],
-                    '/css/frontend.css': data.assetsByChunkName.frontend[1],
-                    '/js/backend.js': data.assetsByChunkName.backend[0],
-                    '/css/backend.css': data.assetsByChunkName.backend[1]
+                    '/js/manifest.js': `/${data.assetsByChunkName.manifest[0]}`,
+                    '/js/vendor.js': `/${data.assetsByChunkName.vendor[0]}`,
+                    '/js/frontend.js': `/${data.assetsByChunkName.frontend[0]}`,
+                    '/css/frontend.css': `/${data.assetsByChunkName.frontend[1]}`,
+                    '/js/backend.js': `/${data.assetsByChunkName.backend[0]}`,
+                    '/css/backend.css': `/${data.assetsByChunkName.backend[1]}`
                 }, null, 2);
             }
         })
