@@ -18,7 +18,9 @@
     @yield('metas')
 
     <!-- Styles -->
+    @if (!$hmr)
     <link rel="stylesheet" href="{{ assets('css/frontend.css') }}">
+    @endif
     @yield('styles')
 </head>
 <body id="@yield('body_id')" class="@yield('body_class')">

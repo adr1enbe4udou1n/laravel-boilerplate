@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 
     <!-- Custom Styles -->
+    @if (!$hmr)
     <link rel="stylesheet" href="{{ assets('css/backend.css') }}">
+    @endif
     @yield('styles')
 </head>
 <body id="@yield('body_id')" class="hold-transition skin-blue sidebar-mini @yield('body_class')">

@@ -7,6 +7,7 @@ use App\Repositories\EloquentUserRepository;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Dusk\DuskServiceProvider;
 
@@ -32,6 +33,8 @@ class AppServiceProvider extends ServiceProvider
             // Force SSL in production
             URL::forceScheme('https');
         }
+
+        View::share('hmr', file_exists(public_path('/hot')));
     }
 
     /**

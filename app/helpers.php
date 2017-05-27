@@ -7,12 +7,11 @@ if (! function_exists('assets')) {
      * Get the path to a versioned Mix file.
      *
      * @param  string  $path
-     * @param  string  $manifestDirectory
      * @return mixed
      *
      * @throws \Exception
      */
-    function assets($path, $manifestDirectory = '')
+    function assets($path)
     {
         static $manifest;
 
@@ -20,12 +19,8 @@ if (! function_exists('assets')) {
             $path = "/{$path}";
         }
 
-        if ($manifestDirectory && ! starts_with($manifestDirectory, '/')) {
-            $manifestDirectory = "/{$manifestDirectory}";
-        }
-
         if (app()->environment('local', 'testing')) {
-            if (file_exists(public_path($manifestDirectory.'/hot'))) {
+            if (file_exists(public_path('/hot'))) {
                 $hmrPort = config('app.hmr_port');
                 return new HtmlString("//localhost:{$hmrPort}{$path}");
             }
@@ -36,7 +31,7 @@ if (! function_exists('assets')) {
         }
 
         if (! $manifest) {
-            if (! file_exists($manifestPath = public_path($manifestDirectory.'/assets-manifest.json'))) {
+            if (! file_exists($manifestPath = public_path('/assets-manifest.json'))) {
                 throw new Exception('The Assets manifest does not exist.');
             }
 
@@ -46,10 +41,10 @@ if (! function_exists('assets')) {
         if (! array_key_exists($path, $manifest)) {
             throw new Exception(
                 "Unable to locate Assets file: {$path}. Please check your ".
-                'webpack.mix.js output paths and try again.'
+                'webpack.config.js output paths and try again.'
             );
         }
 
-        return new HtmlString($manifestDirectory.$manifest[$path]);
+        return new HtmlString($manifest[$path]);
     }
 }
