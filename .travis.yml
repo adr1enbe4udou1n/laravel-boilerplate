@@ -5,8 +5,8 @@ language: php
 
 cache:
   directories:
-    - node_modules
     - $HOME/.composer/cache
+    - $HOME/.npm
 
 php:
   - 7.0
