@@ -4,7 +4,6 @@ git:
 language: php
 
 cache:
-  yarn: true
   directories:
     - node_modules
     - $HOME/.composer/cache
@@ -21,6 +20,7 @@ install:
   - composer run-script post-root-package-install
   - composer run-script post-create-project-cmd
   - composer run-script post-install-cmd
+  - npm install
   - npm run dev
 
 script: vendor/bin/phpunit
