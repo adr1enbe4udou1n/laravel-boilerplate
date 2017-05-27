@@ -22,7 +22,7 @@ before_install:
 install:
   - composer install --no-interaction --prefer-dist --no-suggest --no-scripts
   - cp .env.testing .env
-  - composer run-script post-create-project-cmd
+  - php artisan key:generate --env=testing
   - composer run-script post-install-cmd
   - npm install
   - npm run dev

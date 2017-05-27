@@ -9,8 +9,8 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 .env
+.env.testing
 
-.php_cs
 .php_cs.cache
 
 # Dev Builded Files
