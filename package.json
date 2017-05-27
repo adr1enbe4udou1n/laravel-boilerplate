@@ -9,9 +9,6 @@
     "prod": "npm run production",
     "production": "rimraf public/dist && cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
-  "engines": {
-    "node": ">=6"
-  },
   "devDependencies": {
     "admin-lte": "^2.3.11",
     "axios": "^0.16.1",
