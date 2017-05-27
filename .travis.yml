@@ -33,7 +33,9 @@ before_script:
   - ./vendor/laravel/dusk/bin/chromedriver-linux &
   - php artisan serve &
 
-script: vendor/bin/phpunit
+script:
+  - vendor/bin/phpunit
+  - php artisan dusk
 
 deploy:
   provider: heroku
