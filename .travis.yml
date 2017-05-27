@@ -9,6 +9,7 @@ language: php
 cache:
   directories:
     - $HOME/.composer/cache
+    - $HOME/.npm
 
 php:
   - 7.0
@@ -16,6 +17,7 @@ php:
 
 before_install:
   - phpenv config-rm xdebug.ini
+  - nvm install "$(jq -r '.engines.node' package.json)"
 
 install:
   - composer install --no-interaction --prefer-dist --no-suggest --no-scripts
