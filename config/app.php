@@ -56,6 +56,8 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
+    'hmr_port' => env('WEBPACKDEVSERVER_PORT', '8080'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

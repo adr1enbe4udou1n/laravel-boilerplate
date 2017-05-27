@@ -1,4 +1,5 @@
 require('dotenv').config();
+const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
 
@@ -16,8 +17,20 @@ const browserSyncHost = process.env.BROWSERSYNC_HOST || 'localhost';
 const browserSyncPort = parseInt(process.env.BROWSERSYNC_PORT || '3000', 10);
 const webpackDevServerPort = parseInt(process.env.WEBPACKDEVSERVER_PORT || '8080', 10);
 
+// Hot reloading file for Laravel detection
+const hotfilename = 'public/hot';
+
+if (fs.existsSync(hotfilename)) {
+    fs.unlinkSync(hotfilename);
+}
+
+if (hmr) {
+    fs.writeFileSync(hotfilename, 'hot reloading');
+}
+
 const extractSass = new ExtractTextPlugin({
-    filename: production ? 'dist/css/[name].[contenthash].css' : 'css/[name].css'
+    filename: production ? 'dist/css/[name].[contenthash].css' : 'css/[name].css',
+    disable: hmr
 });
 
 module.exports = {
@@ -45,7 +58,7 @@ module.exports = {
     output: {
         path: path.join(__dirname, '/public'),
         filename: production ? 'dist/js/[name].[chunkhash].js' : 'js/[name].js',
-        publicPath: hmr ? `http://${browserSyncHost}:${webpackDevServerPort}/` : '/'
+        publicPath: hmr ? `http://localhost:${webpackDevServerPort}/` : '/'
     },
     module: {
         rules: [
@@ -179,22 +192,20 @@ module.exports = {
     performance: {
         hints: false
     },
-    devtool: production ? 'source-map' : 'inline-source-map'
+    devtool: production ? 'source-map' : 'inline-source-map',
+    devServer: {
+        headers: {
+            "Access-Control-Allow-Origin": "*"
+        },
+        historyApiFallback: true,
+        noInfo: true,
+        compress: true,
+        quiet: true,
+        port: webpackDevServerPort
+    }
 };
 
 let plugins = [];
-
-if (hmr) {
-    module.exports.entry.app.push(
-        `webpack-dev-server/client?http://${browserSyncHost}:${webpackDevServerPort}/`,
-        'webpack/hot/dev-server'
-    );
-
-    plugins = [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoEmitOnErrorsPlugin()
-    ];
-}
 
 if (production) {
     plugins = [
@@ -208,7 +219,7 @@ if (production) {
             }
         }),
         new StatsWriterPlugin({
-            filename: 'mix-manifest.json',
+            filename: 'assets-manifest.json',
             transform(data) {
                 return JSON.stringify({
                     '/js/manifest.js': `/${data.assetsByChunkName.manifest[0]}`,

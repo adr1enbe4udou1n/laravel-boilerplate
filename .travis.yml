@@ -9,7 +9,6 @@ language: php
 cache:
   directories:
     - $HOME/.composer/cache
-    - $HOME/.npm
 
 php:
   - 7.0
@@ -24,8 +23,6 @@ install:
   - cp .env.testing.example .env.testing
   - php artisan key:generate --env=testing
   - composer run-script post-install-cmd
-  - npm install
-  - npm run dev
 
 before_script:
   - export DISPLAY=:99.0
