@@ -21,7 +21,7 @@ before_install:
 
 install:
   - composer install --no-interaction --prefer-dist --no-suggest --no-scripts
-  - composer run-script post-root-package-install
+  - cp .env.testing .env
   - composer run-script post-create-project-cmd
   - composer run-script post-install-cmd
   - npm install
