@@ -12,6 +12,7 @@
         "hieu-le/active": "^3.3",
         "intervention/image": "^2.3",
         "intervention/imagecache": "^2.3",
+        "laravel/dusk": "^1.1",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4",
