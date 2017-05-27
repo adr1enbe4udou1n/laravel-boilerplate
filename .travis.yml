@@ -16,7 +16,6 @@ php:
 
 before_install:
   - phpenv config-rm xdebug.ini
-  - nvm install node
 
 install:
   - composer install --no-interaction --prefer-dist --no-suggest --no-scripts
