@@ -76,7 +76,7 @@ module.exports = {
                             sourceMap: true
                         }
                     }, {
-                        loader: 'resolve-url-loader'
+                        loader: 'resolve-url-loader?sourceMap'
                     }, {
                         loader: 'sass-loader',
                         options: {
@@ -192,7 +192,7 @@ module.exports = {
     performance: {
         hints: false
     },
-    devtool: production ? 'source-map' : 'inline-source-map',
+    devtool: production ? 'cheap-source-map' : 'cheap-module-eval-source-map',
     devServer: {
         headers: {
             "Access-Control-Allow-Origin": "*"
