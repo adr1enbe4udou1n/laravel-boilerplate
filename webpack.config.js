@@ -111,14 +111,14 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: path => {
-                                if (!/node_modules|bower_components/.test(path)) {
+                                if (!/node_modules/.test(path)) {
                                     return 'images/[name].[ext]?[hash]';
                                 }
 
                                 return 'images/vendor/' + path
                                         .replace(/\\/g, '/')
                                         .replace(
-                                            /((.*(node_modules|bower_components))|images|image|img|assets)\//g, ''
+                                            /((.*(node_modules))|images|image|img|assets)\//g, ''
                                         ) + '?[hash]';
                             },
                             publicPath: '/'
@@ -131,7 +131,13 @@ module.exports = {
                 test: /\.(woff2?|ttf|eot|svg|otf)$/,
                 loader: 'file-loader',
                 options: {
-                    name: 'fonts/[name].[ext]?[hash]'
+                    name: path => {
+                        if (!/node_modules/.test(path)) {
+                            return 'fonts/[name].[ext]?[hash]';
+                        }
+
+                        return 'fonts/vendor/[name].[ext]?[hash]';
+                    }
                 }
             }
         ]
@@ -181,10 +187,8 @@ module.exports = {
         )
     ],
     resolve: {
-        extensions: ['*', '.js', '.jsx', '.vue'],
-
         alias: {
-            vue$: 'vue/dist/vue.common.js'
+            'vue$': 'vue/dist/vue.common.js'
         }
     },
     performance: {
@@ -213,8 +217,13 @@ if (hmr) {
 
 if (production) {
     plugins = [
-        new CleanWebpackPlugin(['dist', 'images/vendor'], {
+        new CleanWebpackPlugin(['dist', 'fonts/vendor', 'images/vendor'], {
             root: path.join(__dirname, '/public')
+        }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('production')
+            }
         }),
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: true,
