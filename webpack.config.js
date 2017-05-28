@@ -212,6 +212,12 @@ module.exports = {
 
 let plugins = [];
 
+if (hmr) {
+    plugins = [
+        new webpack.NamedModulesPlugin()
+    ];
+}
+
 if (production) {
     plugins = [
         new CleanWebpackPlugin(['dist', 'images/vendor'], {
