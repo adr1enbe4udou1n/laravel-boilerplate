@@ -73,13 +73,18 @@ module.exports = {
                     }, {
                         loader: 'postcss-loader',
                         options: {
-                            sourceMap: true
+                            sourceMap: true,
+                            plugins: [
+                                require('postcss-import')()
+                            ]
                         }
                     }, {
                         loader: 'resolve-url-loader?sourceMap'
                     }, {
                         loader: 'sass-loader',
                         options: {
+                            precision: 8,
+                            outputStyle: 'expanded',
                             sourceMap: true
                         }
                     }],
@@ -113,15 +118,15 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: path => {
-                                if (! /node_modules|bower_components/.test(path)) {
+                                if (!/node_modules|bower_components/.test(path)) {
                                     return 'images/[name].[ext]?[hash]';
                                 }
 
                                 return 'images/vendor/' + path
-                                    .replace(/\\/g, '/')
-                                    .replace(
-                                    /((.*(node_modules|bower_components))|images|image|img|assets)\//g, ''
-                                    ) + '?[hash]';
+                                        .replace(/\\/g, '/')
+                                        .replace(
+                                            /((.*(node_modules|bower_components))|images|image|img|assets)\//g, ''
+                                        ) + '?[hash]';
                             },
                             publicPath: '/'
                         }
@@ -148,7 +153,7 @@ module.exports = {
             minimize: production,
             options: {
                 context: __dirname,
-                output: { path: './' }
+                output: {path: './'}
             }
         }),
         new WebpackNotifierPlugin(),

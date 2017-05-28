@@ -37,7 +37,6 @@
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "node-sass": "^4.5.3",
-    "postcss-cssnext": "^2.11.0",
     "postcss-import": "^10.0.0",
     "postcss-loader": "^2.0.5",
     "resolve-url-loader": "^2.0.2",
