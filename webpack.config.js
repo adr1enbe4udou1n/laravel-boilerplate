@@ -72,14 +72,6 @@ module.exports = {
                             sourceMap: true
                         }
                     }, {
-                        loader: 'postcss-loader',
-                        options: {
-                            sourceMap: true,
-                            plugins: [
-                                require('postcss-import')()
-                            ]
-                        }
-                    }, {
                         loader: 'resolve-url-loader?sourceMap'
                     }, {
                         loader: 'sass-loader',
@@ -198,7 +190,7 @@ module.exports = {
     performance: {
         hints: false
     },
-    devtool: production ? 'cheap-source-map' : 'cheap-module-eval-source-map',
+    devtool: production ? 'source-map' : 'inline-source-map',
     devServer: {
         headers: {
             "Access-Control-Allow-Origin": "*"
