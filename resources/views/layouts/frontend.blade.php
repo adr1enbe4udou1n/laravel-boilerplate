@@ -28,9 +28,10 @@
 
     <div id="app">
         @include('frontend.partials.header')
-        @include('frontend.partials.nav')
+        @yield('highlight')
 
         <div class="container">
+            @yield('title')
             @include('partials.messages')
             @yield('content')
         </div>

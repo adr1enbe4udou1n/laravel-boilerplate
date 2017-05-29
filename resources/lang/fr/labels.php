@@ -39,6 +39,7 @@ return [
     ],
 
     'frontend' => [
+        'home' => 'Accueil',
         'about' => 'Qui sommes-nous ?',
         'contact' => 'Contact',
         'legal_mentions' => 'Mention légales',

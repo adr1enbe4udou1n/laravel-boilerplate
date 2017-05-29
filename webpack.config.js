@@ -161,11 +161,6 @@ module.exports = {
             minChunks: Infinity
         }),
         extractSass,
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: JSON.stringify('production')
-            }
-        }),
         new BrowserSyncPlugin(
             {
                 host: browserSyncHost,
@@ -224,6 +219,11 @@ if (production) {
     plugins = [
         new CleanWebpackPlugin(['dist', 'fonts/vendor', 'images/vendor'], {
             root: path.join(__dirname, '/public')
+        }),
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('production')
+            }
         }),
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: true,

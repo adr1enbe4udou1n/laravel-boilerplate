@@ -39,6 +39,7 @@ return [
     ],
 
     'frontend' => [
+        'home' => 'Home',
         'about' => 'About',
         'contact' => 'Contact',
         'legal_mentions' => 'Legal mentions',

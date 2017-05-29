@@ -1,7 +1,4 @@
 
-// Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
-
 // Variables
 @import "variables";
 
@@ -11,11 +8,15 @@
 @import "node_modules/bootstrap-slider/src/sass/bootstrap-slider";
 @import "node_modules/eonasdan-bootstrap-datetimepicker/src/sass/bootstrap-datetimepicker-build";
 
+// Vendor
 @import "node_modules/font-awesome/scss/font-awesome";
 @import "node_modules/sweetalert2/src/sweetalert2";
 @import "node_modules/slick-carousel/slick/slick.scss";
 @import "node_modules/slick-carousel/slick/slick-theme.scss";
 @import "node_modules/select2/src/scss/core";
+
+// App
+@import "footer";
 
 .slick-list {
   .slick-loading & {

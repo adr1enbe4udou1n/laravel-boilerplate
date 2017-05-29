@@ -16,7 +16,7 @@ class FrontendController extends Controller
 
     public function about()
     {
-        return view('frontend.pages.about');
+        return view('frontend.pages.about')->withFlashMessage('Hey ! I\'m a flash message !');
     }
 
     public function contact(Request $request)
