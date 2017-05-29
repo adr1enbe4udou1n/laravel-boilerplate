@@ -24,8 +24,14 @@ class RouteServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        // Force the application URL
-        URL::forceRootUrl(config('app.url'));
+        if (config('app.force_ssl')) {
+            // Force SSL in production
+            URL::forceScheme('https');
+        }
+
+        if (config('app.force_app_url')) {
+            URL::forceRootUrl(config('app.url'));
+        }
     }
 
     /**
