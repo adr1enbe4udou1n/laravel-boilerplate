@@ -14,7 +14,7 @@
         <div class="col-xs-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <i class="fa fa-home"></i> @lang('labels.frontend.home')
+                    <i class="fa fa-home"></i> @lang('labels.frontend.titles.home')
                 </div>
 
                 <div class="panel-body">
