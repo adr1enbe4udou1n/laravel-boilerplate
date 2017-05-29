@@ -18,6 +18,18 @@
 // App
 @import "footer";
 
+.highlight .jumbotron {
+  margin-bottom: 0;
+}
+
+ol.breadcrumb {
+  margin-bottom: 0;
+}
+
+h1 {
+  margin-top: 0;
+}
+
 .slick-list {
   .slick-loading & {
     background: none;
@@ -29,7 +41,11 @@
 
   h3 {
     line-height: 200px;
-    background-color: #eee;
+    background-color: #fff;
     margin: 0 10px;
   }
+}
+
+[v-cloak] {
+  display: none;
 }

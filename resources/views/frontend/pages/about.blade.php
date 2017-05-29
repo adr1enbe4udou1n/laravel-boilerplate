@@ -3,7 +3,17 @@
 @section('body_id', 'page-about')
 
 @section('title')
-    <h1>@lang('labels.frontend.about')</h1>
+    <h1>@lang('labels.frontend.titles.about')</h1>
+@endsection
+
+@section('highlight')
+    @component('frontend.components.highlight')
+        <h1>Hello, world!</h1>
+        <p>Contents...</p>
+        <p>
+            <a class="btn btn-primary btn-lg">Learn more</a>
+        </p>
+    @endcomponent
 @endsection
 
 @section('content')
@@ -31,7 +41,7 @@
             </div>
         </div>
 
-        <panel title="Vue Panel Component">
+        <panel title="Vue Panel Component" v-cloak>
             <p>Hey ! I'm a Vue Panel component !</p>
         </panel>
     </div>

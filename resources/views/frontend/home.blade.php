@@ -4,11 +4,7 @@
 
 @section('highlight')
     @component('frontend.components.highlight')
-        <h1>Hello, world!</h1>
-        <p>Contents...</p>
-        <p>
-            <a class="btn btn-primary btn-lg">Learn more</a>
-        </p>
+        @include('frontend.partials.slider')
     @endcomponent
 @endsection
 

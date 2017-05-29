@@ -2,9 +2,11 @@
 
 @section('body_id', 'page-legal-mentions')
 
-@section('content')
-    <h1>@lang('labels.frontend.legal_mentions')</h1>
+@section('title')
+    <h1>@lang('labels.frontend.titles.legal_mentions')</h1>
+@endsection
 
+@section('content')
     <p>Etiam ut purus mattis mauris sodales aliquam. Curabitur ullamcorper ultricies nisi. Quisque rutrum. Proin faucibus arcu quis ante. Sed cursus turpis vitae tortor.</p>
 
     <p>Morbi mattis ullamcorper velit. Nullam vel sem. Nam commodo suscipit quam. Nunc nonummy metus. Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum laoreet sapien, quis venenatis ante odio sit amet eros.</p>

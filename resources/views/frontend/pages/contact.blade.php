@@ -3,7 +3,7 @@
 @section('body_id', 'page-contact')
 
 @section('title')
-    <h1>@lang('labels.frontend.contact')</h1>
+    <h1>@lang('labels.frontend.titles.contact')</h1>
 @endsection
 
 @section('content')
