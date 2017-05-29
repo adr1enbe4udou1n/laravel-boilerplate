@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2017-05-27.
+    * Generated on 2017-05-29.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -47,6 +47,7 @@ namespace PHPSTORM_META {
             'image' instanceof \Intervention\Image\ImageManager,
             'active' instanceof \HieuLe\Active\Active,
             'breadcrumbs' instanceof \DaveJamesMiller\Breadcrumbs\Manager,
+            'Mcamara\LaravelLocalization\LaravelLocalization' instanceof \Mcamara\LaravelLocalization\LaravelLocalization,
             'debugbar' instanceof \Barryvdh\Debugbar\LaravelDebugbar,
             'command.debugbar.clear' instanceof \Barryvdh\Debugbar\Console\ClearCommand,
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
@@ -179,6 +180,7 @@ namespace PHPSTORM_META {
             'image' instanceof \Intervention\Image\ImageManager,
             'active' instanceof \HieuLe\Active\Active,
             'breadcrumbs' instanceof \DaveJamesMiller\Breadcrumbs\Manager,
+            'Mcamara\LaravelLocalization\LaravelLocalization' instanceof \Mcamara\LaravelLocalization\LaravelLocalization,
             'debugbar' instanceof \Barryvdh\Debugbar\LaravelDebugbar,
             'command.debugbar.clear' instanceof \Barryvdh\Debugbar\Console\ClearCommand,
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
@@ -311,6 +313,7 @@ namespace PHPSTORM_META {
             'image' instanceof \Intervention\Image\ImageManager,
             'active' instanceof \HieuLe\Active\Active,
             'breadcrumbs' instanceof \DaveJamesMiller\Breadcrumbs\Manager,
+            'Mcamara\LaravelLocalization\LaravelLocalization' instanceof \Mcamara\LaravelLocalization\LaravelLocalization,
             'debugbar' instanceof \Barryvdh\Debugbar\LaravelDebugbar,
             'command.debugbar.clear' instanceof \Barryvdh\Debugbar\Console\ClearCommand,
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
@@ -443,6 +446,7 @@ namespace PHPSTORM_META {
             'image' instanceof \Intervention\Image\ImageManager,
             'active' instanceof \HieuLe\Active\Active,
             'breadcrumbs' instanceof \DaveJamesMiller\Breadcrumbs\Manager,
+            'Mcamara\LaravelLocalization\LaravelLocalization' instanceof \Mcamara\LaravelLocalization\LaravelLocalization,
             'debugbar' instanceof \Barryvdh\Debugbar\LaravelDebugbar,
             'command.debugbar.clear' instanceof \Barryvdh\Debugbar\Console\ClearCommand,
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,

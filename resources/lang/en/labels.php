@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'language' => 'Language',
     'actions' => 'Actions',
     'general' => 'General',
     'no_results' => 'No results availible',

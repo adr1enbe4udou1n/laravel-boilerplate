@@ -204,6 +204,7 @@ return [
         HieuLe\Active\ActiveServiceProvider::class,
         Roumen\Sitemap\SitemapServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+        Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -269,5 +270,6 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Active' => HieuLe\Active\Facades\Active::class,
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
+        'LaravelLocalization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
     ],
 ];

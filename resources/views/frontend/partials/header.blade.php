@@ -31,7 +31,19 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
+                    @if (count(config('laravellocalization.supportedLocales')) > 1)
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false">
+                                {{ trans('labels.language') }}
+                                <span class="caret"></span>
+                            </a>
 
+                            <ul class="dropdown-menu" role="menu">
+                                @include('partials.locales')
+                            </ul>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </div>

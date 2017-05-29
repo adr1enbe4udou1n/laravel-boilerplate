@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'language' => 'Langue',
     'actions' => 'Actions',
     'general' => 'Général',
     'no_results' => 'Aucune donnée disponible dans le tableau',

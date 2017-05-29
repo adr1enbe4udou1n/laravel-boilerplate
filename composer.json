@@ -16,6 +16,7 @@
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4",
+        "mcamara/laravel-localization": "^1.2",
         "roumen/sitemap": "^2.6",
         "yajra/laravel-datatables-html": "^1.1"
     },
