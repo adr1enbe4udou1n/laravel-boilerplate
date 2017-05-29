@@ -23,13 +23,20 @@ class AppServiceProvider extends ServiceProvider
          * setLocale for php. Enables ->formatLocalized() with localized values for dates
          */
         setlocale(LC_TIME, config('app.locale_php'));
+
         /*
          * setLocale to use Carbon source locales. Enables diffForHumans() localized
          */
         Carbon::setLocale(config('app.locale'));
 
+        /*
+         * Share hot mode for views
+         */
         View::share('hmr', file_exists(public_path('/hot')));
 
+        /*
+         * Prepare flash message for alerts
+         */
         View::composer('partials/messages', function (\Illuminate\View\View $view) {
             $data = collect($view->getData());
 
