@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use App\Repositories\Contracts\UserRepository;
 use App\Repositories\EloquentUserRepository;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -18,16 +17,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-
-        /*
-         * setLocale for php. Enables ->formatLocalized() with localized values for dates
-         */
-        setlocale(LC_TIME, config('app.locale_php'));
-
-        /*
-         * setLocale to use Carbon source locales. Enables diffForHumans() localized
-         */
-        Carbon::setLocale(config('app.locale'));
 
         /*
          * Share hot mode for views

@@ -10,13 +10,15 @@ return [
             'name' => 'English',
             'script' => 'Latn',
             'native' => 'English',
-            'regional' => 'en_GB',
+            'regional' => 'en_US',
+            'locale_win' => 'English_United States.1252'
         ],
         'fr' => [
             'name' => 'French',
             'script' => 'Latn',
             'native' => 'Français',
             'regional' => 'fr_FR',
+            'locale_win' => 'French_France.1252'
         ],
     ],
 
