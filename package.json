@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "precommit": "npm run production",
     "dev": "npm run development",
     "development": "cross-env NODE_ENV=development webpack --progress --hide-modules",
     "watch": "cross-env NODE_ENV=development webpack --watch --progress --hide-modules",
@@ -31,6 +32,7 @@
     "font-awesome": "^4.7.0",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-loader": "^0.4.5",
+    "husky": "^0.13.4",
     "icheck": "^1.0.2",
     "img-loader": "^2.0.0",
     "jquery": "^3.2.1",
