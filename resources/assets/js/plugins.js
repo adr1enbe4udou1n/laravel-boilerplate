@@ -156,9 +156,13 @@ $(function() {
      * Bootstrap tabs nav specific hash manager
      */
     let hash = document.location.hash;
+    let tabanchor = $(`.nav-tabs a:first`);
+
     if (hash) {
-        $(`.nav-tabs a[href="${hash}"]`).tab('show');
+        tabanchor = $(`.nav-tabs a[href="${hash}"]`);
     }
+
+    tabanchor.tab('show');
 
     $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
         window.location.hash = e.target.hash;

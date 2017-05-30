@@ -10,7 +10,7 @@
         <div class="col-xs-12">
 
             <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active">
+                <li role="presentation">
                     <a href="#profile" aria-controls="profile" role="tab"
                        data-toggle="tab">@lang('labels.user.profile')</a>
                 </li>
@@ -28,7 +28,7 @@
 
             <div class="tab-content">
 
-                <div role="tabpanel" class="tab-pane active" id="profile">
+                <div role="tabpanel" class="tab-pane" id="profile">
                     @include('user.account.profile')
                 </div><!--tab panel profile-->
 
