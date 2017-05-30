@@ -44,12 +44,14 @@
                             </ul>
                         </li>
                     @endif
-                    @if (Auth::guest())
-                        <li><a href="{{ route('login') }}">@lang('labels.user.login')</a></li>
-                        <li><a href="{{ route('register') }}">@lang('labels.user.register')</a></li>
-                    @else
-                        <li><a href="{{ route('user.home') }}">@lang('labels.user.space')</a></li>
-                        <li><a href="{{ route('logout') }}">@lang('labels.user.logout')</a></li>
+                    @if (config('app.registration'))
+                        @if (Auth::guest())
+                            <li><a href="{{ route('login') }}">@lang('labels.user.login')</a></li>
+                            <li><a href="{{ route('register') }}">@lang('labels.user.register')</a></li>
+                        @else
+                            <li><a href="{{ route('user.home') }}">@lang('labels.user.space')</a></li>
+                            <li><a href="{{ route('logout') }}">@lang('labels.user.logout')</a></li>
+                        @endif
                     @endif
                 </ul>
             </div>

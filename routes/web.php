@@ -45,25 +45,24 @@ Route::group([
     Route::group(
         ['namespace' => 'Auth'],
         function () {
+            if (config('app.registration')) {
+                // Registration Routes...
+                Route::get('register',
+                    'RegisterController@showRegistrationForm')
+                    ->name('register');
+                Route::post('register', 'RegisterController@register');
+            }
+
             // Authentication Routes...
-            Route::get('login', 'LoginController@showLoginForm')->name('login');
-            Route::get('admin/login', 'LoginController@showAdminLoginForm')
-                ->name('admin.login');
+            Route::get('login', 'LoginController@showLoginForm')
+                ->name('login');
             Route::post('login', 'LoginController@login');
             Route::get('logout', 'LoginController@logout')->name('logout');
-
-            // Registration Routes...
-            Route::get('register', 'RegisterController@showRegistrationForm')
-                ->name('register');
-            Route::post('register', 'RegisterController@register');
 
             // Password Reset Routes...
             Route::get('password/reset',
                 'ForgotPasswordController@showLinkRequestForm')
                 ->name('password.request');
-            Route::get('admin/password/reset',
-                'ForgotPasswordController@showAdminLinkRequestForm')
-                ->name('admin.password.request');
             Route::post('password/email',
                 'ForgotPasswordController@sendResetLinkEmail')
                 ->name('password.email');
@@ -71,6 +70,13 @@ Route::group([
                 'ResetPasswordController@showResetForm')
                 ->name('password.reset');
             Route::post('password/reset', 'ResetPasswordController@reset');
+
+            // Admin specific login forms
+            Route::get('admin/login', 'LoginController@showAdminLoginForm')
+                ->name('admin.login');
+            Route::get('admin/password/reset',
+                'ForgotPasswordController@showAdminLinkRequestForm')
+                ->name('admin.password.request');
         }
     );
 
