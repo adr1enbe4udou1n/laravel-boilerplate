@@ -40,6 +40,9 @@ class EloquentRoleRepository implements RoleRepository
             throw new GeneralException(trans('exceptions.backend.roles.create_error'));
         });
 
+        $permissions = isset($input['permissions']) ? $input['permissions'] : [];
+        $role->permissions()->sync($permissions);
+
         return $role;
     }
 
@@ -63,6 +66,9 @@ class EloquentRoleRepository implements RoleRepository
 
             throw new GeneralException(trans('exceptions.backend.roles.update_error'));
         });
+
+        $permissions = isset($input['permissions']) ? $input['permissions'] : [];
+        $role->permissions()->sync($permissions);
 
         return $role;
     }

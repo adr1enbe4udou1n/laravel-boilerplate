@@ -211,7 +211,6 @@ return [
         Roumen\Sitemap\SitemapServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
-        Zizaco\Entrust\EntrustServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -278,6 +277,5 @@ return [
         'Active' => HieuLe\Active\Facades\Active::class,
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
         'LaravelLocalization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
-        'Entrust' => Zizaco\Entrust\EntrustFacade::class,
     ],
 ];

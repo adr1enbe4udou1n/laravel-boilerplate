@@ -35,4 +35,22 @@
             @endif
         </div>
     </div>
+    <div class="form-group{{ $errors->has('permissions') ? ' has-error' : '' }}">
+        {{ Form::label('permissions[]', trans('validation.attributes.roles'), ['class' => 'col-lg-2 control-label']) }}
+
+        <div class="col-lg-10">
+            @foreach($permissions as $name => $permission)
+                <div class="checkbox icheck">
+                    <label>
+                        {{ Form::checkbox('permissions[]', $name, isset($role) && $role->hasPermissions($name)) }} {{ trans($permission['display_name']) }}
+                    </label>
+                </div>
+            @endforeach
+            @if ($errors->has('permissions'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('permissions') }}</strong>
+                </span>
+            @endif
+        </div>
+    </div>
 </div>

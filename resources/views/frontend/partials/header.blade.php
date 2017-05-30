@@ -59,7 +59,7 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ route('user.home') }}">@lang('labels.user.space')</a></li>
                                 <li><a href="{{ route('user.account') }}">@lang('labels.user.account')</a></li>
-                                @can('view-backend')
+                                @can('access backend')
                                     <li><a href="{{ route('admin.home') }}">@lang('labels.user.administration')</a></li>
                                 @endcan
                                 <li><a href="{{ route('logout') }}">@lang('labels.user.logout')</a></li>

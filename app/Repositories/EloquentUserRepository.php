@@ -47,6 +47,9 @@ class EloquentUserRepository implements UserRepository
             throw new GeneralException(trans('exceptions.backend.users.create_error'));
         });
 
+        $roles = isset($input['roles']) ? $input['roles'] : [];
+        $user->roles()->sync($roles);
+
         return $user;
     }
 
@@ -68,9 +71,6 @@ class EloquentUserRepository implements UserRepository
                 }
                 $user->save();
 
-                $roles = isset($input['roles']) ? $input['roles'] : [];
-                $user->roles()->sync($roles);
-
                 event(new UserUpdated($user));
 
                 return true;
@@ -78,6 +78,9 @@ class EloquentUserRepository implements UserRepository
 
             throw new GeneralException(trans('exceptions.backend.users.update_error'));
         });
+
+        $roles = isset($input['roles']) ? $input['roles'] : [];
+        $user->roles()->sync($roles);
 
         return $user;
     }

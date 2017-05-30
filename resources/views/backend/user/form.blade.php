@@ -43,7 +43,7 @@
             @foreach($roles->get() as $role)
                 <div class="checkbox icheck">
                     <label>
-                        {{ Form::checkbox('roles[]', $role->id, isset($user) && $user->hasRole($role->name) ? true : false) }} {{ $role }}
+                        {{ Form::checkbox('roles[]', $role->id, isset($user) && $user->hasRole($role->name)) }} {{ $role }}
                     </label>
                 </div>
             @endforeach

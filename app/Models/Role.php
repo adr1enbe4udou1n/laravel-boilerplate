@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Models\Traits\HtmlElements;
-use Zizaco\Entrust\EntrustRole;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * App\Models\Role
@@ -15,8 +15,7 @@ use Zizaco\Entrust\EntrustRole;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property-read string $action_buttons
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Permission[] $perms
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $users
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Permission[] $permissions
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereDescription($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereDisplayName($value)
@@ -25,7 +24,7 @@ use Zizaco\Entrust\EntrustRole;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class Role extends EntrustRole
+class Role extends Model
 {
 
     use HtmlElements;
@@ -42,6 +41,26 @@ class Role extends EntrustRole
             'description',
         ];
 
+    /**
+     * Many-to-Many relations with Role.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class);
+    }
+
+    /**
+     * @param $name
+     *
+     * @return bool
+     */
+    public function hasPermissions($name)
+    {
+        return $this->permissions->contains('name', $name);
+    }
+    
     /**
      * @return string
      */

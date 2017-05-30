@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\ResetPassword as ResetPasswordNotification;
-use Zizaco\Entrust\Traits\EntrustUserTrait;
 
 /**
  * App\Models\User
@@ -37,29 +36,75 @@ use Zizaco\Entrust\Traits\EntrustUserTrait;
  */
 class User extends Authenticatable
 {
-    use Notifiable, HtmlElements, EntrustUserTrait;
+
+    use Notifiable, HtmlElements;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'active',
-    ];
+    protected $fillable
+        = [
+            'name',
+            'email',
+            'active',
+        ];
 
     /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    protected $hidden
+        = [
+            'password',
+            'remember_token',
+        ];
 
     public function scopeActives(Builder $query)
     {
         return $query->where('active', '=', true);
+    }
+
+    /**
+     * Many-to-Many relations with Role.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    /**
+     * @param $name
+     *
+     * @return bool
+     */
+    public function hasRole($name)
+    {
+        return $this->roles->contains('name', $name);
+    }
+
+    /**
+     * @param string $ability
+     * @param array  $arguments
+     *
+     * @return bool
+     */
+    public function can($ability, $arguments = [])
+    {
+        foreach ($this->roles as $role) {
+            // Validate against the Permission table
+            foreach ($role->permissions as $permission) {
+                if (str_is($permission, $permission->name)) {
+                    return true;
+                }
+            }
+        }
+
+        return parent::can($ability, $arguments);
     }
 
     /**
@@ -91,7 +136,9 @@ class User extends Authenticatable
             if (!session()->has('admin_user_id')) {
                 $buttons .= '<a href="'.route(
                         'admin.user.login-as', $this
-                    ).'" class="btn btn-xs btn-success"><i class="fa fa-lock" data-toggle="tooltip" data-placement="top" title="'.trans(
+                    )
+                    .'" class="btn btn-xs btn-success"><i class="fa fa-lock" data-toggle="tooltip" data-placement="top" title="'
+                    .trans(
                         'buttons.login-as', ['name' => $this->name]
                     ).'"></i></a> ';
             }

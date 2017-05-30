@@ -31,7 +31,7 @@
 
                                         <a href="{{ route('user.account') }}" class="btn btn-info btn-xs">@lang('labels.user.account')</a>
 
-                                        @can('view-backend')
+                                        @can('access backend')
                                         <a href="{{ route('admin.home') }}" class="btn btn-danger btn-xs">@lang('labels.user.administration')</a>
                                         @endcan
                                     </div><!--media-body-->

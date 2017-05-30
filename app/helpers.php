@@ -55,7 +55,7 @@ if (!function_exists('homeRoute')) {
      */
     function homeRoute()
     {
-        if (Gate::allows('view-backend')) {
+        if (Gate::allows('access backend')) {
             return route('admin.home');
         }
 

@@ -119,14 +119,14 @@ Route::group([
             'namespace' => 'Backend',
             'prefix' => 'admin',
             'as' => 'admin.',
-            'middleware' => ['auth', 'can:view-backend'],
+            'middleware' => ['auth', 'can:access backend'],
         ],
         function () {
             Route::get('/', 'BackendController@index')
                 ->name('home');
 
             Route::group(
-                ['middleware' => ['can:manage-users']],
+                ['middleware' => ['can:manage users']],
                 function () {
                     Route::resource('user', 'UserController',
                         ['except' => ['show']]);
@@ -137,7 +137,12 @@ Route::group([
                         ->name(
                             'user.login-as'
                         );
+                }
+            );
 
+            Route::group(
+                ['middleware' => ['can:manage roles']],
+                function () {
                     Route::resource('role', 'RoleController',
                         ['except' => ['show']]);
                     Route::post('role/search', 'RoleController@search')->name(

@@ -90,7 +90,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('backend.role.create');
+        return view('backend.role.create')->withPermissions(config('permissions'));
     }
 
     /**
@@ -112,7 +112,7 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        return view('backend.role.edit')->withRole($role);
+        return view('backend.role.edit')->withRole($role)->withPermissions(config('permissions'));
     }
 
     /**
