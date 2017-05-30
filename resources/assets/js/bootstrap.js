@@ -50,3 +50,9 @@ if (token) {
 //     broadcaster: 'pusher',
 //     key: 'your-pusher-key'
 // });
+
+/**
+ * JS Settings App
+ */
+let jsonSettings = $('[data-settings-selector="settings-json"]').text();
+window.settings = jsonSettings ? JSON.parse(jsonSettings) : {};

@@ -29,6 +29,11 @@ return [
         ],
     ],
 
+    'cookieconsent' => [
+        'message' => 'En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de Cookies afin de réaliser des statistiques de visites.',
+        'dismiss' => 'J\'ai compris !',
+    ],
+
     'user' => [
         'dashboard' => 'Tableau de bord',
         'remember' => 'Se souvenir',

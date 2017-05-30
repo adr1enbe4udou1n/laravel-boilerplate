@@ -14,6 +14,7 @@
 @import "node_modules/slick-carousel/slick/slick.scss";
 @import "node_modules/slick-carousel/slick/slick-theme.scss";
 @import "node_modules/select2/src/scss/core";
+@import "node_modules/cookieconsent/build/cookieconsent.min";
 
 // App
 @import "footer";
@@ -55,3 +56,9 @@ h1 {
   display: none;
 }
 
+.tab-content {
+  background-color: #fff;
+  padding: 15px;
+  border: 1px solid $nav-tabs-border-color;
+  border-top: 0;
+}

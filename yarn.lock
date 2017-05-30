@@ -1470,6 +1470,10 @@ cookie@0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.3.1.tgz#e7e0a1f9ef43b4c8ba925c5c5a96e806d16873bb"
 
+cookieconsent@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/cookieconsent/-/cookieconsent-3.0.4.tgz#ef02b3fdbd10de6a9af20f22e287448bfdd48c5d"
+
 core-js@^2.4.0:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.4.1.tgz#4de911e667b0eae9124e34254b53aea6fc618d3e"
@@ -1577,13 +1581,14 @@ css-color-names@0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/css-color-names/-/css-color-names-0.0.4.tgz#808adc2e79cf84738069b646cb20ec27beb629e0"
 
-css-loader@^0.28.3:
-  version "0.28.3"
-  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-0.28.3.tgz#9fd5e0b8c405b6df927ba1103887015d360640ce"
+css-loader@^0.28.4:
+  version "0.28.4"
+  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-0.28.4.tgz#6cf3579192ce355e8b38d5f42dd7a1f2ec898d0f"
   dependencies:
     babel-code-frame "^6.11.0"
     css-selector-tokenizer "^0.7.0"
     cssnano ">=2.6.1 <4"
+    icss-utils "^2.1.0"
     loader-utils "^1.0.2"
     lodash.camelcase "^4.3.0"
     object-assign "^4.0.1"
@@ -2894,6 +2899,12 @@ icheck@^1.0.2:
 icss-replace-symbols@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/icss-replace-symbols/-/icss-replace-symbols-1.1.0.tgz#06ea6f83679a7749e386cfe1fe812ae5db223ded"
+
+icss-utils@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/icss-utils/-/icss-utils-2.1.0.tgz#83f0a0ec378bf3246178b6c2ad9136f135b1c962"
+  dependencies:
+    postcss "^6.0.1"
 
 ieee754@^1.1.4:
   version "1.1.8"
@@ -5824,9 +5835,9 @@ ua-parser-js@0.7.12:
   version "0.7.12"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.12.tgz#04c81a99bdd5dc52263ea29d24c6bf8d4818a4bb"
 
-uglify-js@3.0.x, uglify-js@^3.0.12:
-  version "3.0.12"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.0.12.tgz#a3f9f0d77e3b0344022f4a5aa4e29134509e0693"
+uglify-js@3.0.x, uglify-js@^3.0.13:
+  version "3.0.13"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.0.13.tgz#1871d736aa1e550c728d7e5a6556579e70925d68"
   dependencies:
     commander "~2.9.0"
     source-map "~0.5.1"
@@ -6043,9 +6054,9 @@ vue-hot-reload-api@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.1.0.tgz#9ca58a6e0df9078554ce1708688b6578754d86de"
 
-vue-loader@^12.2.0:
-  version "12.2.0"
-  resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-12.2.0.tgz#ddcf189398f08384be341d2af0100f6f797c3a34"
+vue-loader@^12.2.1:
+  version "12.2.1"
+  resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-12.2.1.tgz#53f27c0973d386768f5a75156f4129b5efc6ba55"
   dependencies:
     consolidate "^0.14.0"
     hash-sum "^1.0.2"
