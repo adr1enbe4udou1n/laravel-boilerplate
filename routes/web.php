@@ -46,24 +46,64 @@ Route::group([
         ['namespace' => 'Auth'],
         function () {
             // Authentication Routes...
-            Route::get('admin', 'LoginController@showLoginForm')->name('login');
-            Route::post('admin', 'LoginController@login');
+            Route::get('login', 'LoginController@showLoginForm')->name('login');
+            Route::get('admin', 'LoginController@showAdminLoginForm')
+                ->name('admin.login');
+            Route::post('login', 'LoginController@login');
             Route::get('logout', 'LoginController@logout')->name('logout');
 
+            // Registration Routes...
+            Route::get('register', 'RegisterController@showRegistrationForm')
+                ->name('register');
+            Route::post('register', 'RegisterController@register');
+
             // Password Reset Routes...
-            Route::get(
-                'password/reset',
-                'ForgotPasswordController@showLinkRequestForm'
-            );
-            Route::post(
-                'password/email',
-                'ForgotPasswordController@sendResetLinkEmail'
-            );
-            Route::get(
-                'password/reset/{token}',
-                'ResetPasswordController@showResetForm'
-            );
+            Route::get('password/reset',
+                'ForgotPasswordController@showLinkRequestForm')
+                ->name('password.request');
+            Route::get('admin/password/reset',
+                'ForgotPasswordController@showAdminLinkRequestForm')
+                ->name('admin.password.request');
+            Route::post('password/email',
+                'ForgotPasswordController@sendResetLinkEmail')
+                ->name('password.email');
+            Route::get('password/reset/{token}',
+                'ResetPasswordController@showResetForm')
+                ->name('password.reset');
             Route::post('password/reset', 'ResetPasswordController@reset');
+        }
+    );
+
+    // Admin Routes
+    Route::group(
+        [
+            'namespace' => 'User',
+            'prefix' => 'user',
+            'as' => 'user.',
+            'middleware' => ['auth'],
+        ],
+        function () {
+            /*
+             * User Dashboard Specific
+             */
+            Route::get('/', 'UserController@index')->name('home');
+
+            /*
+             * User Account Specific
+             */
+            Route::get('account', 'AccountController@index')->name('account');
+
+            /*
+             * User Profile Update
+             */
+            Route::patch('account/update', 'AccountController@update')
+                ->name('account.update');
+
+            /*
+             * Password Change
+             */
+            Route::patch('password/change', 'AccountController@changePassword')
+                ->name('password.change');
         }
     );
 
@@ -73,7 +113,7 @@ Route::group([
             'namespace' => 'Backend',
             'prefix' => 'admin',
             'as' => 'admin.',
-            'middleware' => ['auth'],
+            'middleware' => ['auth', 'can:view-backend'],
         ],
         function () {
             Route::get('dashboard', 'DashboardController@index')

@@ -1,39 +1,48 @@
-@extends('layouts.backend')
+@extends('layouts.frontend')
 
 @section('body_class', 'login-page')
 
 <!-- Main Content -->
-@section('body')
-    <div class="login-box">
-        <div class="login-box-body">
-            @if (session('status'))
-                <div class="alert alert-success">
-                    {{ session('status') }}
-                </div>
-            @endif
-
-            <form action="{{ url('/password/email') }}" method="post">
-                {{ csrf_field() }}
-                <div class="form-group has-feedback{{ $errors->has('email') ? ' has-error' : '' }}">
-                    <input type="email" class="form-control" placeholder="@lang('validation.attributes.email')" name="email" value="{{ old('email') }}">
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-
-                    @if ($errors->has('email'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('email') }}</strong>
-                        </span>
+@section('content')
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">@lang('labels.user.send_password_link')</div>
+                <div class="panel-body">
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
                     @endif
+
+                    <form class="form-horizontal" role="form" method="POST" action="{{ route('password.email') }}">
+                        {{ csrf_field() }}
+
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">@lang('validation.attributes.email')</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control" name="email"
+                                       value="{{ old('email') }}" required>
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    @lang('labels.user.send_password_link')
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div class="row">
-                    <!-- /.col -->
-                    <div class="col-xs-12">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">@lang('passwords.send_password_link')</button>
-                    </div>
-                    <!-- /.col -->
-                </div>
-            </form>
+            </div>
         </div>
-        <!-- /.login-box-body -->
     </div>
-    <!-- /.login-box -->
 @endsection

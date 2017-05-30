@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -55,6 +56,24 @@ class Handler extends ExceptionHandler
     }
 
     /**
+     * Prepare response containing exception render.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Exception $e
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    protected function prepareResponse($request, Exception $e)
+    {
+        if (! $this->isHttpException($e) && config('app.debug')) {
+            return $this->toIlluminateResponse($this->convertExceptionToResponse($e), $e);
+        }
+        if (! $this->isHttpException($e)) {
+            $e = new HttpException(500, $e->getMessage());
+        }
+        return $this->toIlluminateResponse($this->renderHttpException($e), $e);
+    }
+
+    /**
      * Convert an authentication exception into an unauthenticated response.
      *
      * @param \Illuminate\Http\Request                 $request
@@ -66,6 +85,10 @@ class Handler extends ExceptionHandler
     {
         if ($request->expectsJson()) {
             return response()->json(['error' => 'Unauthenticated.'], 401);
+        }
+
+        if ($request->is('*admin/*')) {
+            return redirect()->guest(route('admin.login'));
         }
 
         return redirect()->guest(route('login'));

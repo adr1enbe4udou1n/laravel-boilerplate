@@ -13,7 +13,7 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ route('home') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
             </div>
@@ -43,6 +43,13 @@
                                 @include('partials.locales')
                             </ul>
                         </li>
+                    @endif
+                    @if (Auth::guest())
+                        <li><a href="{{ route('login') }}">@lang('labels.user.login')</a></li>
+                        <li><a href="{{ route('register') }}">@lang('labels.user.register')</a></li>
+                    @else
+                        <li><a href="{{ route('user.home') }}">@lang('labels.user.space')</a></li>
+                        <li><a href="{{ route('logout') }}">@lang('labels.user.logout')</a></li>
                     @endif
                 </ul>
             </div>

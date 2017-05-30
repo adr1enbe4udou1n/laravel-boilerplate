@@ -44,18 +44,18 @@
                             <li class="user-header">
                                 <p>
                                     {{ auth()->user()->name }}
-                                    <small>@lang('labels.member_since', ['date' => auth()->user()->created_at->format('d-m-Y')])</small>
+                                    <small>@lang('labels.user.member_since', ['date' => auth()->user()->created_at->format('d-m-Y')])</small>
                                 </p>
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
                                     <a href="{{ route('admin.profile.edit') }}"
-                                       class="btn btn-default btn-flat">@lang('labels.profile')</a>
+                                       class="btn btn-default btn-flat">@lang('labels.user.profile')</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="{{ route('logout') }}"
-                                       class="btn btn-default btn-flat">@lang('labels.logout')</a>
+                                       class="btn btn-default btn-flat">@lang('labels.user.logout')</a>
                                 </div>
                             </li>
                         </ul>

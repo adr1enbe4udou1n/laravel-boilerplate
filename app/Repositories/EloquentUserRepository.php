@@ -27,7 +27,7 @@ class EloquentUserRepository implements UserRepository
     /**
      * @param  $input
      *
-     * @return bool
+     * @return \App\Models\User
      *
      * @throws \Exception|\Throwable
      */
@@ -45,13 +45,15 @@ class EloquentUserRepository implements UserRepository
 
             throw new GeneralException(trans('exceptions.backend.users.create_error'));
         });
+
+        return $user;
     }
 
     /**
      * @param User $user
      * @param $input
      *
-     * @return bool
+     * @return \App\Models\User
      *
      * @throws Exception
      * @throws \Exception|\Throwable
@@ -72,6 +74,8 @@ class EloquentUserRepository implements UserRepository
 
             throw new GeneralException(trans('exceptions.backend.users.update_error'));
         });
+
+        return $user;
     }
 
     /**

@@ -12,10 +12,52 @@ return [
     'created_at' => 'Créé le',
     'updated_at' => 'Modifié le',
     'deleted_at' => 'Supprimé le',
-    'profile' => 'Profil',
-    'logout' => 'Déconnexion',
-    'member_since' => 'Membre depuis le :date',
     'all_rights_reserved' => 'Tous droits réservés.',
+
+    'http' => [
+        '403' => [
+            'title' => 'Accès non autorisé',
+            'description' => 'Désolé, mais vous n\'avez pas les permissions pour accéder à cette page.',
+        ],
+        '404' => [
+            'title' => 'Page introuvable',
+            'description' => 'Désolé, mais la page à laquelle vous tentez d\'accéder n\'existe pas.',
+        ],
+        '500' => [
+            'title' => 'Erreur serveur',
+            'description' => 'Désolé, mais le serveur a rencontré une erreur non prévue. Nous la fixerons dès que possible.',
+        ],
+    ],
+
+    'user' => [
+        'dashboard' => 'Tableau de bord',
+        'remember' => 'Se souvenir',
+        'login' => 'Se connecter',
+        'logout' => 'Déconnexion',
+        'password_forgot' => 'Mot de passe oublié ?',
+        'send_password_link' => 'Envoyer le mot de passe de réinitialisation',
+        'password_reset' => 'Réinitialisation du mot de passe',
+        'register' => 'S\'inscrire',
+        'space' => 'Mon espace',
+        'account' => 'Mon compte',
+        'profile' => 'Mon profil',
+        'edit_profile' => 'Mettre à jour mon profil',
+        'change_password' => 'Changer mon mot de passe',
+        'administration' => 'Administration',
+        'member_since' => 'Membre depuis le :date',
+
+        'titles' => [
+            'space' => 'Mon espace',
+            'account' => 'Mon compte',
+        ],
+
+        'attributes' => [
+            'name' => 'Nom',
+            'email' => 'Email',
+            'created_at' => 'Date de création',
+            'updated_at' => 'Date de mise à jour',
+        ],
+    ],
 
     'backend' => [
         'login-as' => 'Vous êtes actuellement connecté en tant que <strong>:name</strong>, vous pouvez à tout moment vous reconnecter en tant que <a href=":route">:admin</a>.',
@@ -35,6 +77,7 @@ return [
             'roles' => [
                 'administrator' => 'Administrateur',
                 'supervisor' => 'Superviseur',
+                'client' => 'Client',
             ],
         ],
     ],

@@ -22,8 +22,13 @@
   margin-bottom: 0;
 }
 
-ol.breadcrumb {
+.breadcrumb {
   margin-bottom: 0;
+}
+
+.main-container {
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 h1 {
@@ -49,3 +54,4 @@ h1 {
 [v-cloak] {
   display: none;
 }
+

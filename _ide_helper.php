@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.23 on 2017-05-29.
+ * Generated for Laravel 5.4.23 on 2017-05-30.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -6824,6 +6824,8 @@ namespace Illuminate\Support\Facades {
          * You should only list the reverse proxies that you manage directly.
          *
          * @param array $proxies A list of trusted proxies
+         * @param int $trustedHeaderSet A bit field of Request::HEADER_*, usually either Request::HEADER_FORWARDED or Request::HEADER_X_FORWARDED_ALL, to set which headers to trust from your proxies
+         * @throws \InvalidArgumentException When $trustedHeaderSet is invalid
          * @static 
          */
         public static function setTrustedProxies($proxies)
@@ -6842,6 +6844,18 @@ namespace Illuminate\Support\Facades {
         {
             //Method inherited from \Symfony\Component\HttpFoundation\Request            
             return \Illuminate\Http\Request::getTrustedProxies();
+        }
+        
+        /**
+         * Gets the set of trusted headers from trusted proxies.
+         *
+         * @return int A bit field of Request::HEADER_* that defines which headers are trusted from your proxies
+         * @static 
+         */
+        public static function getTrustedHeaderSet()
+        {
+            //Method inherited from \Symfony\Component\HttpFoundation\Request            
+            return \Illuminate\Http\Request::getTrustedHeaderSet();
         }
         
         /**
@@ -6886,6 +6900,7 @@ namespace Illuminate\Support\Facades {
          * @param string $key The header key
          * @param string $value The header name
          * @throws \InvalidArgumentException
+         * @deprecated since version 3.3, to be removed in 4.0. Use "X-Forwarded-*" headers or the "Forwarded" header defined in RFC7239, and the $trustedHeaderSet argument of the Request::setTrustedProxies() method instead.
          * @static 
          */
         public static function setTrustedHeaderName($key, $value)
@@ -6900,6 +6915,7 @@ namespace Illuminate\Support\Facades {
          * @param string $key The header key
          * @return string The header name
          * @throws \InvalidArgumentException
+         * @deprecated since version 3.3, to be removed in 4.0. Use the Request::getTrustedHeaderSet() method instead.
          * @static 
          */
         public static function getTrustedHeaderName($key)
@@ -7348,7 +7364,7 @@ namespace Illuminate\Support\Facades {
          * configure it via "setTrustedHeaderName()" with the "client-host" key.
          *
          * @return string 
-         * @throws \UnexpectedValueException when the host name is invalid
+         * @throws SuspiciousOperationException when the host name is invalid or not trusted
          * @static 
          */
         public static function getHost()

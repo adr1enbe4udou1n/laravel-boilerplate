@@ -21,7 +21,9 @@ class AppServiceProvider extends ServiceProvider
         /*
          * Share hot mode for views
          */
-        View::share('hmr', file_exists(public_path('/hot')));
+        View::composer('*', function(\Illuminate\View\View $view) {
+            $view->with('hmr', file_exists(public_path('/hot')));
+        });
 
         /*
          * Prepare flash message for alerts
@@ -53,6 +55,10 @@ class AppServiceProvider extends ServiceProvider
                 $view->with('flash_message', $flash);
                 $view->with('flash_type', 'danger');
             }
+        });
+
+        View::composer('*', function(\Illuminate\View\View $view) {
+            $view->with('logged_in_user', $logged_in_user = auth()->user());
         });
     }
 

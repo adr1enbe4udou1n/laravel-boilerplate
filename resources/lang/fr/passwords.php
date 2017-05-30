@@ -18,7 +18,4 @@ return [
     'token' => "Ce jeton de réinitialisation du mot de passe n'est pas valide.",
     'user' => "Aucun utilisateur n'a été trouvé avec cette adresse e-mail.",
 
-    'reset_title' => 'Réinitialisation du mot de passe',
-    'send_password_link' => 'Envoyer le mot de passe de réinitialisation',
-    'reset_password' => 'Réinitialiser le mot de passe',
 ];

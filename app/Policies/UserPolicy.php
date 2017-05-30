@@ -11,7 +11,7 @@ class UserPolicy
 
     public function before(User $user, $ability)
     {
-        if ($user->is_super_admin) {
+        if ($user->is_admin) {
             return true;
         }
     }
@@ -26,6 +26,6 @@ class UserPolicy
      */
     public function update(User $authenticatedUser, User $user)
     {
-        return $authenticatedUser->id == $user->id;
+        return $authenticatedUser->id === $user->id;
     }
 }

@@ -27,8 +27,13 @@ class MetaTags
             ? trans("metas.$routeName.description")
             : trans('metas.default.description');
 
-        View::share('title', $metaTitle);
-        View::share('description', $metaDescription);
+        View::composer('*', function(\Illuminate\View\View $view) use($metaTitle) {
+            $view->with('title', $metaTitle);
+        });
+
+        View::composer('*', function(\Illuminate\View\View $view) use($metaDescription) {
+            $view->with('description', $metaDescription);
+        });
 
         return $next($request);
     }

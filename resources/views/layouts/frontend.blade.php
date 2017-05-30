@@ -38,7 +38,7 @@
         </section>
     @endif
 
-    <div class="container">
+    <div class="main-container container">
         @yield('title')
         @include('partials.messages')
         @yield('content')
