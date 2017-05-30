@@ -108,7 +108,7 @@ class EloquentUserRepository implements UserRepository
     public function loginAs(User $user)
     {
         if (auth()->id() === $user->id || session()->get('admin_user_id') === $user->id) {
-            return redirect()->route('admin.dashboard');
+            return redirect()->route('admin.home');
         }
 
         $this->flushTempSession();
@@ -120,7 +120,7 @@ class EloquentUserRepository implements UserRepository
         //Login user
         auth()->loginUsingId($user->id);
 
-        return redirect()->route('admin.dashboard');
+        return redirect()->route('admin.home');
     }
 
     /**
@@ -137,7 +137,7 @@ class EloquentUserRepository implements UserRepository
             auth()->loginUsingId((int) $admin_id);
         }
 
-        return redirect()->route('admin.dashboard');
+        return redirect()->route('admin.home');
     }
 
     /**

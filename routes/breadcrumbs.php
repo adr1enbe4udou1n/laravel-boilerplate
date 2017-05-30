@@ -21,12 +21,12 @@ Breadcrumbs::register('legal-mentions', function (Generator $breadcrumbs) {
     $breadcrumbs->push(trans('labels.frontend.titles.legal_mentions'), route('legal-mentions'));
 });
 
-Breadcrumbs::register('admin.dashboard', function (Generator $breadcrumbs) {
-    $breadcrumbs->push(trans('labels.backend.titles.dashboard'), route('admin.dashboard'));
+Breadcrumbs::register('admin.home', function (Generator $breadcrumbs) {
+    $breadcrumbs->push(trans('labels.backend.titles.dashboard'), route('admin.home'));
 });
 
 Breadcrumbs::register('admin.user.index', function (Generator $breadcrumbs) {
-    $breadcrumbs->parent('admin.dashboard');
+    $breadcrumbs->parent('admin.home');
     $breadcrumbs->push(trans('labels.backend.users.titles.main'), route('admin.user.index'));
 });
 

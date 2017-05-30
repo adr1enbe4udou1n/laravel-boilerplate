@@ -71,10 +71,6 @@ class LoginController extends Controller
     }
 
     protected function redirectTo() {
-        if (Gate::allows('view-backend')) {
-            return route('admin.dashboard');
-        }
-
-        return route('user.home');
+        return homeRoute();
     }
 }

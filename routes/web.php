@@ -47,7 +47,7 @@ Route::group([
         function () {
             // Authentication Routes...
             Route::get('login', 'LoginController@showLoginForm')->name('login');
-            Route::get('admin', 'LoginController@showAdminLoginForm')
+            Route::get('admin/login', 'LoginController@showAdminLoginForm')
                 ->name('admin.login');
             Route::post('login', 'LoginController@login');
             Route::get('logout', 'LoginController@logout')->name('logout');
@@ -116,8 +116,8 @@ Route::group([
             'middleware' => ['auth', 'can:view-backend'],
         ],
         function () {
-            Route::get('dashboard', 'DashboardController@index')
-                ->name('dashboard');
+            Route::get('/', 'BackendController@index')
+                ->name('home');
 
             Route::group(
                 ['middleware' => ['can:manage-users']],

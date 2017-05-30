@@ -45,3 +45,27 @@ if (!function_exists('assets')) {
         return new HtmlString($path);
     }
 }
+
+if (!function_exists('homeRoute')) {
+
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function homeRoute()
+    {
+        if (Gate::allows('view-backend')) {
+            return route('admin.home');
+        }
+
+        return route('user.home');
+    }
+
+    function isAdminRoute(Illuminate\Http\Request $request)
+    {
+        $action = $request->route()->getAction();
+
+        return ($action['namespace'] === 'App\Http\Controllers\Backend');
+    }
+}
