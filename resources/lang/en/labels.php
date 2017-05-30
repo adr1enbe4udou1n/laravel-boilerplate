@@ -50,6 +50,8 @@ return [
         'change_password' => 'Change my password',
         'administration' => 'Administration',
         'member_since' => 'Member since :date',
+        'profile_updated' => 'Profile successfully updated.',
+        'password_updated' => 'Password successfully updated.',
 
         'titles' => [
             'space' => 'My space',

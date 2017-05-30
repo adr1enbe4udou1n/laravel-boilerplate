@@ -39,8 +39,8 @@ window.addEventListener("load", function () {
     window.cookieconsent.initialise({
         "palette": {
             "popup": {
-                "background": "#2a2730",
-                "text": "#ffffff"
+                "background": "#fff",
+                "text": "#777"
             },
             "button": {
                 "background": "#3097d1",

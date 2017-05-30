@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Repositories\Contracts\UserRepository;
 use Exception;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * Class EloquentUserRepository.
@@ -96,6 +97,54 @@ class EloquentUserRepository implements UserRepository
 
             throw new GeneralException(trans('exceptions.backend.users.delete_error'));
         });
+
+        return true;
+    }
+
+    /**
+     * @param $input
+     *
+     * @return mixed
+     * @throws \App\Exceptions\GeneralException
+     */
+    public function updateProfile($input)
+    {
+        $user = auth()->user();
+
+        $user = User::find($user->id);
+        $user->name = $input['name'];
+        $user->email = $input['email'];
+
+        if ($user->email !== $input['email']) {
+            //Emails have to be unique
+            if (User::findByEmail($input['email'])) {
+                throw new GeneralException(trans('exceptions.frontend.user.email_taken'));
+            }
+        }
+
+        return $user->save();
+    }
+
+    /**
+     * @param $oldPassword
+     * @param $newPassword
+     *
+     * @return mixed
+     * @throws \App\Exceptions\GeneralException
+     */
+    public function changePassword($oldPassword, $newPassword)
+    {
+        $user = auth()->user();
+
+        $user = User::find($user->id);
+
+        if (Hash::check($oldPassword, $user->password)) {
+            $user->password = bcrypt($newPassword);
+
+            return $user->save();
+        }
+
+        throw new GeneralException(trans('exceptions.frontend.user.password_mismatch'));
     }
 
     /**

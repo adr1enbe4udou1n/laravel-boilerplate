@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class AccountController extends Controller
 {
+
     /**
      * @var UserRepository
      */
@@ -42,7 +43,19 @@ class AccountController extends Controller
      */
     public function update(Request $request)
     {
-        return back();
+        $user = auth()->user();
+
+        $request->headers->set('referer', route('user.account') . '#edit');
+
+        $this->validate($request, [
+            'name' => 'required|max:191',
+            'email' => 'required|email|unique:users,email,'.$user->id,
+        ]);
+
+        $this->user->updateProfile($request->only('name', 'email'));
+
+        return redirect()->route('user.account')
+            ->withFlashSuccess(trans('labels.user.profile_updated'));
     }
 
     /**
@@ -52,6 +65,19 @@ class AccountController extends Controller
      */
     public function changePassword(Request $request)
     {
-        return back();
+        $request->headers->set('referer', route('user.account') . '#password');
+
+        $this->validate($request, [
+            'old_password' => 'required',
+            'password' => 'required|min:6|confirmed',
+        ]);
+
+        $this->user->changePassword(
+            $request->get('old_password'),
+            $request->get('password')
+        );
+
+        return redirect()->route('user.account')
+            ->withFlashSuccess(trans('labels.user.password_updated'));
     }
 }

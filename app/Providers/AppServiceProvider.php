@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
             }
             else if ($flash = session()->get('flash_success') ?: $data->get('flash_success')) {
                 $view->with('flash_message', $flash);
-                $view->with('flash_type', 'info');
+                $view->with('flash_type', 'success');
             }
             else if ($flash = session()->get('flash_info') ?: $data->get('flash_info')) {
                 $view->with('flash_message', $flash);

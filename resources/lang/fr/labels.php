@@ -50,6 +50,8 @@ return [
         'change_password' => 'Changer mon mot de passe',
         'administration' => 'Administration',
         'member_since' => 'Membre depuis le :date',
+        'profile_updated' => 'Profil modifié avec succès.',
+        'password_updated' => 'Mot de passe modifié avec succès.',
 
         'titles' => [
             'space' => 'Mon espace',

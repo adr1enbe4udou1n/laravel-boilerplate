@@ -111,6 +111,9 @@ function addDeleteForms() {
         });
     });
 
+    /**
+     * Datatable config
+     */
     if ($.fn.dataTable) {
         let dataTableOptions = {
             lengthMenu: [[5, 10, 15, 25, 50, -1], [5, 10, 15, 25, 50, "All"]],
@@ -128,13 +131,36 @@ function addDeleteForms() {
         $.extend(true, $.fn.dataTable.defaults, dataTableOptions);
     }
 
+    /**
+     * Autosubmit
+     */
     $('.auto-submit').change(function () {
         $(this).closest("form").submit();
     });
 
+    /**
+     * Select2
+     */
     $('.select2').select2({width: '100%'});
 
+    /**
+     * Datetimepicker
+     */
     $('.datetimepicker').datetimepicker({
         locale: locale
     });
 })(jQuery);
+
+$(function() {
+    /**
+     * Bootstrap tabs nav specific hash manager
+     */
+    let hash = document.location.hash;
+    if (hash) {
+        $(`.nav-tabs a[href="${hash}"]`).tab('show');
+    }
+
+    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+        window.location.hash = e.target.hash;
+    });
+});

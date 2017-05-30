@@ -67,6 +67,7 @@ class RouteServiceProvider extends ServiceProvider
          * setLocale to use Carbon source locales. Enables diffForHumans() localized
          */
         Carbon::setLocale($currentLocale);
+        Carbon::setUtf8(true);
 
         /*
          * Set Captcha locale

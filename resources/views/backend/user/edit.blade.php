@@ -5,19 +5,14 @@
 
 @section('content')
     <div class="row">
-        <!-- left column -->
         <div class="col-md-6 col-md-offset-3">
-            <!-- Horizontal Form -->
             <div class="box box-info">
                 <div class="box-header with-border">
                     <h3 class="box-title">@lang('labels.backend.users.titles.edit')</h3>
                 </div>
-                <!-- /.box-header -->
-                <!-- form start -->
                 {{ Form::model($user, ['route' => ['admin.user.update', $user], 'class' => 'form-horizontal', 'role' => 'form', 'method' => 'PATCH']) }}
                     @include('backend.user.form')
 
-                    <!-- /.box-body -->
                     <div class="box-footer">
                         <div class="pull-left">
                             <a href="{{ route('admin.user.index') }}"
@@ -27,11 +22,8 @@
                             {{ Form::submit(trans('buttons.edit'), ['class' => 'btn btn-success btn-xs']) }}
                         </div>
                     </div>
-                    <!-- /.box-footer -->
                 {{ Form::close() }}
             </div>
-            <!-- /.box -->
         </div>
-        <!--/.col (right) -->
     </div>
 @endsection

@@ -9,7 +9,6 @@
 
         <div class="col-xs-12">
 
-            <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active">
                     <a href="#profile" aria-controls="profile" role="tab"
