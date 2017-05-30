@@ -36,20 +36,20 @@
             @endif
         </div>
     </div>
-    <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
-        {{ Form::label('role', trans('validation.attributes.role'), ['class' => 'col-lg-2 control-label']) }}
+    <div class="form-group{{ $errors->has('roles') ? ' has-error' : '' }}">
+        {{ Form::label('roles[]', trans('validation.attributes.roles'), ['class' => 'col-lg-2 control-label']) }}
 
         <div class="col-lg-10">
-            @foreach(\App\Models\User::getRoles() as $key => $role)
-                <div class="radio icheck">
+            @foreach($roles->get() as $role)
+                <div class="checkbox icheck">
                     <label>
-                        {{ Form::radio('role', $key, isset($user) && $user->role == $key ? true : false) }} {{ $role }}
+                        {{ Form::checkbox('roles[]', $role->id, isset($user) && $user->hasRole($role->name) ? true : false) }} {{ $role }}
                     </label>
                 </div>
             @endforeach
-            @if ($errors->has('role'))
+            @if ($errors->has('roles'))
                 <span class="help-block">
-                    <strong>{{ $errors->first('role') }}</strong>
+                    <strong>{{ $errors->first('roles') }}</strong>
                 </span>
             @endif
         </div>

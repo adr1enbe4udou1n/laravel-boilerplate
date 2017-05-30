@@ -117,6 +117,7 @@ return [
 
     'attributes' => [
         'name' => 'Name',
+        'display_name' => 'Display name',
         'username' => 'Pseudo',
         'email' => 'Email',
         'first_name' => 'Firstname',
@@ -148,7 +149,7 @@ return [
         'time' => 'Time',
         'available' => 'Available',
         'size' => 'Size',
-        'role' => 'Role',
+        'roles' => 'Roles',
         'active' => 'Active',
         'message' => 'Message',
         'g-recaptcha-response' => 'Captcha',

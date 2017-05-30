@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
-use App\Http\Requests\UpdateProfileRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
+use App\Repositories\Contracts\RoleRepository;
 use App\Repositories\Contracts\UserRepository;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
@@ -21,6 +21,11 @@ class UserController extends Controller
     protected $users;
 
     /**
+     * @var RoleRepository
+     */
+    protected $roles;
+
+    /**
      * Datatables Html Builder.
      *
      * @var Builder
@@ -30,12 +35,14 @@ class UserController extends Controller
     /**
      * Create a new controller instance.
      *
-     * @param UserRepository $users
-     * @param Builder        $htmlBuilder
+     * @param UserRepository                             $users
+     * @param \App\Repositories\Contracts\RoleRepository $roles
+     * @param Builder                                    $htmlBuilder
      */
-    public function __construct(UserRepository $users, Builder $htmlBuilder)
+    public function __construct(UserRepository $users, RoleRepository $roles, Builder $htmlBuilder)
     {
         $this->users = $users;
+        $this->roles = $roles;
         $this->htmlBuilder = $htmlBuilder;
     }
 
@@ -53,7 +60,7 @@ class UserController extends Controller
             ->addColumn(['data' => 'name', 'name' => 'name', 'title' => trans('validation.attributes.name')])
             ->addColumn(['data' => 'email', 'name' => 'email', 'title' => trans('validation.attributes.email')])
             ->addColumn(['data' => 'active', 'name' => 'active', 'title' => trans('validation.attributes.active'), 'orderable' => false])
-            ->addColumn(['data' => 'role', 'name' => 'role', 'title' => trans('validation.attributes.role'), 'orderable' => false])
+            ->addColumn(['data' => 'roles', 'name' => 'roles', 'title' => trans('validation.attributes.roles'), 'orderable' => false])
             ->addColumn(['data' => 'created_at', 'name' => 'created_at', 'title' => trans('labels.created_at')])
             ->addColumn(['data' => 'updated_at', 'name' => 'updated_at', 'title' => trans('labels.updated_at')])
             ->addColumn(['data' => 'actions', 'name' => 'actions', 'title' => trans('labels.actions'), 'orderable' => false])
@@ -81,8 +88,8 @@ class UserController extends Controller
                 return link_to_route('admin.user.edit', $user->email, $user);
             })->editColumn('active', function (User $user) {
                 return $user->activated_label;
-            })->editColumn('role', function (User $user) {
-                return $user->role_label;
+            })->editColumn('roles', function (User $user) {
+                return $user->roles->implode('display_name', ', ');
             })->addColumn('actions', function (User $user) {
                 return $user->action_buttons;
             })
@@ -118,7 +125,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('backend.user.edit')->withUser($user);
+        return view('backend.user.edit')
+            ->withUser($user)
+            ->withRoles($this->roles->get());
     }
 
     /**

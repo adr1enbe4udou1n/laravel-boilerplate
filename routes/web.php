@@ -137,6 +137,12 @@ Route::group([
                         ->name(
                             'user.login-as'
                         );
+
+                    Route::resource('role', 'RoleController',
+                        ['except' => ['show']]);
+                    Route::post('role/search', 'RoleController@search')->name(
+                        'role.search'
+                    );
                 }
             );
 

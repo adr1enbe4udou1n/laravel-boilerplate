@@ -7,6 +7,12 @@ return [
             'update' => 'Error when user updating',
             'delete' => 'Error when user deletion',
         ],
+
+        'roles' => [
+            'create' => 'Error when role creation',
+            'update' => 'Error when role updating',
+            'delete' => 'Error when role deletion',
+        ],
     ],
 
     'frontend' => [

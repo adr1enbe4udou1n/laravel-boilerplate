@@ -7,6 +7,12 @@ return [
             'update' => 'Erreur lors de la mise à jour de l\'utilisateur',
             'delete' => 'Erreur lors de la suppression de l\'utilisateur',
         ],
+
+        'roles' => [
+            'create' => 'Erreur lors de la création du rôle',
+            'update' => 'Erreur lors de la mise à jour du rôle',
+            'delete' => 'Erreur lors de la suppression du rôle',
+        ],
     ],
 
     'frontend' => [

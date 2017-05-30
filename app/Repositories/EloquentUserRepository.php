@@ -22,7 +22,7 @@ class EloquentUserRepository implements UserRepository
      */
     public function get()
     {
-        return User::select(['id', 'name', 'email', 'active', 'role', 'created_at', 'updated_at']);
+        return User::select(['id', 'name', 'email', 'active', 'created_at', 'updated_at'])->with('roles');
     }
 
     /**
@@ -67,6 +67,9 @@ class EloquentUserRepository implements UserRepository
                     $user->password = bcrypt($input['password']);
                 }
                 $user->save();
+
+                $roles = isset($input['roles']) ? $input['roles'] : [];
+                $user->roles()->sync($roles);
 
                 event(new UserUpdated($user));
 

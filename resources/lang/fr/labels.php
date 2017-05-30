@@ -80,11 +80,14 @@ return [
                 'create' => 'Créer un utilisateur',
                 'edit' => 'Editer un utilisateur',
             ],
+        ],
 
-            'roles' => [
-                'administrator' => 'Administrateur',
-                'supervisor' => 'Superviseur',
-                'client' => 'Client',
+        'roles' => [
+            'titles' => [
+                'main' => 'Gestion des rôles',
+                'index' => 'Liste des rôles',
+                'create' => 'Créer un rôle',
+                'edit' => 'Editer un rôle',
             ],
         ],
     ],
