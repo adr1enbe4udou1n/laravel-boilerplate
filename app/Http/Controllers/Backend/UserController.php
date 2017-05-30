@@ -164,35 +164,4 @@ class UserController extends Controller
     {
         return $this->users->logoutAs();
     }
-
-    /**
-     * @return mixed
-     */
-    public function profileEdit()
-    {
-        $user = User::find(auth()->user()->id);
-
-        if (!$user) {
-            abort(404);
-        }
-
-        return view('backend.user.profile')->withUser($user);
-    }
-
-    /**
-     * @param UpdateProfileRequest $request
-     *
-     * @return mixed
-     */
-    public function profileUpdate(UpdateProfileRequest $request)
-    {
-        $user = User::find(auth()->user()->id);
-
-        if (!$user) {
-            abort(404);
-        }
-        $this->users->update($user, $request->input());
-
-        return back()->withFlashSuccess(trans('alerts.backend.users.updated'));
-    }
 }

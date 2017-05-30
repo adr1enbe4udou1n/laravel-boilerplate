@@ -140,13 +140,6 @@ Route::group([
                 }
             );
 
-            Route::get('profile/edit', 'UserController@profileEdit')->name(
-                'profile.edit'
-            );
-            Route::patch('profile/update', 'UserController@profileUpdate')
-                ->name(
-                    'profile.update'
-                );
             Route::get('logout-as', 'UserController@logoutAs')->name(
                 'user.logout-as'
             );

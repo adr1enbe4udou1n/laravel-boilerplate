@@ -44,14 +44,27 @@
                             </ul>
                         </li>
                     @endif
-                    @if (config('app.registration'))
-                        @if (Auth::guest())
+                    @if (Auth::guest())
+                        @if (config('app.registration'))
                             <li><a href="{{ route('login') }}">@lang('labels.user.login')</a></li>
                             <li><a href="{{ route('register') }}">@lang('labels.user.register')</a></li>
-                        @else
-                            <li><a href="{{ route('user.home') }}">@lang('labels.user.space')</a></li>
-                            <li><a href="{{ route('logout') }}">@lang('labels.user.logout')</a></li>
                         @endif
+                    @else
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false">
+                                {{ $logged_in_user->name }} <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ route('user.home') }}">@lang('labels.user.space')</a></li>
+                                <li><a href="{{ route('user.account') }}">@lang('labels.user.account')</a></li>
+                                @can('view-backend')
+                                    <li><a href="{{ route('admin.home') }}">@lang('labels.user.administration')</a></li>
+                                @endcan
+                                <li><a href="{{ route('logout') }}">@lang('labels.user.logout')</a></li>
+                            </ul>
+                        </li>
                     @endif
                 </ul>
             </div>

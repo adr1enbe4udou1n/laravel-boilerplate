@@ -50,7 +50,7 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="{{ route('admin.profile.edit') }}"
+                                    <a href="{{ route('user.account') }}"
                                        class="btn btn-default btn-flat">@lang('labels.user.profile')</a>
                                 </div>
                                 <div class="pull-right">
