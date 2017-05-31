@@ -12,16 +12,16 @@ class AccountController extends Controller
     /**
      * @var UserRepository
      */
-    protected $user;
+    protected $users;
 
     /**
      * RegisterController constructor.
      *
-     * @param UserRepository $user
+     * @param UserRepository $users
      */
-    public function __construct(UserRepository $user)
+    public function __construct(UserRepository $users)
     {
-        $this->user = $user;
+        $this->users = $users;
     }
 
     /**
@@ -52,7 +52,7 @@ class AccountController extends Controller
             'email' => 'required|email|unique:users,email,'.$user->id,
         ]);
 
-        $this->user->updateProfile($request->only('name', 'email'));
+        $this->users->updateProfile($request->only('name', 'email'));
 
         return redirect()->route('user.account')
             ->withFlashSuccess(trans('labels.user.profile_updated'));
@@ -72,7 +72,7 @@ class AccountController extends Controller
             'password' => 'required|min:6|confirmed',
         ]);
 
-        $this->user->changePassword(
+        $this->users->changePassword(
             $request->get('old_password'),
             $request->get('password')
         );

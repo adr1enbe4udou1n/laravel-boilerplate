@@ -11,16 +11,16 @@ class UserController extends Controller
     /**
      * @var UserRepository
      */
-    protected $user;
+    protected $users;
 
     /**
      * UserController constructor.
      *
-     * @param UserRepository $user
+     * @param UserRepository $users
      */
-    public function __construct(UserRepository $user)
+    public function __construct(UserRepository $users)
     {
-        $this->user = $user;
+        $this->users = $users;
     }
 
     /**

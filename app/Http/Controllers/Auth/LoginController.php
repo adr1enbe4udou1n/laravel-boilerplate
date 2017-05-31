@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Repositories\Contracts\UserRepository;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -26,18 +27,18 @@ class LoginController extends Controller
     /**
      * @var UserRepository
      */
-    protected $user;
+    protected $users;
 
     /**
      * RegisterController constructor.
      *
-     * @param UserRepository $user
+     * @param UserRepository $users
      */
-    public function __construct(UserRepository $user)
+    public function __construct(UserRepository $users)
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest')->except('logout', 'loginAs', 'logoutAs');
 
-        $this->user = $user;
+        $this->users = $users;
     }
 
     /**
@@ -70,7 +71,7 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        $this->user->loadPermissions($user);
+        $this->users->loadPermissions($user);
     }
 
     /**
@@ -89,6 +90,24 @@ class LoginController extends Controller
         $request->session()->regenerate();
 
         return redirect()->route('home');
+    }
+
+    /**
+     * @param User $user
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function loginAs(User $user)
+    {
+        return $this->users->loginAs($user);
+    }
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function logoutAs()
+    {
+        return $this->users->logoutAs();
     }
 
     protected function redirectTo() {

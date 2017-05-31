@@ -59,6 +59,17 @@ Route::group([
             Route::post('login', 'LoginController@login');
             Route::get('logout', 'LoginController@logout')->name('logout');
 
+            Route::group(
+                ['middleware' => ['can:impersonate users']],
+                function () {
+                    Route::get('user/{user}/login-as', 'LoginController@loginAs')
+                        ->name('login-as');
+                }
+            );
+            Route::get('logout-as', 'LoginController@logoutAs')->name(
+                'logout-as'
+            );
+
             // Password Reset Routes...
             Route::get('password/reset',
                 'ForgotPasswordController@showLinkRequestForm')
@@ -147,20 +158,6 @@ Route::group([
                         ['except' => ['show']]);
                     Route::post('role/search', 'RoleController@search')->name(
                         'role.search'
-                    );
-                }
-            );
-
-            Route::group(
-                ['middleware' => ['can:impersonate users']],
-                function () {
-                    Route::get('user/{user}/login-as', 'UserController@loginAs')
-                        ->name(
-                            'user.login-as'
-                        );
-
-                    Route::get('logout-as', 'UserController@logoutAs')->name(
-                        'user.logout-as'
                     );
                 }
             );

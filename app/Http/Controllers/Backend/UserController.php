@@ -155,22 +155,4 @@ class UserController extends Controller
 
         return redirect()->back()->withFlashSuccess(trans('alerts.backend.users.deleted'));
     }
-
-    /**
-     * @param User $user
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function loginAs(User $user)
-    {
-        return $this->users->loginAs($user);
-    }
-
-    /**
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function logoutAs()
-    {
-        return $this->users->logoutAs();
-    }
 }

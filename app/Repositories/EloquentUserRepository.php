@@ -206,8 +206,11 @@ class EloquentUserRepository implements UserRepository
         $authenticatedUser = auth()->user();
 
         if ($this->hasPermission($authenticatedUser, 'impersonate users')) {
-            return !$user->is_super_admin && $user->id !== $authenticatedUser->id;
+            return !$user->is_super_admin
+                && session()->get('admin_user_id') !== $user->id
+                && $user->id !== $authenticatedUser->id;
         }
+
         return false;
     }
 
@@ -227,15 +230,19 @@ class EloquentUserRepository implements UserRepository
      */
     public function loginAs(User $user)
     {
-        if (auth()->id() === $user->id
+        $authenticatedUser = auth()->user();
+
+        if ($authenticatedUser->id === $user->id
             || session()->get('admin_user_id') === $user->id
         ) {
             return redirect()->route('admin.home');
         }
 
-        session(['admin_user_id' => auth()->id()]);
-        session(['admin_user_name' => auth()->user()->name]);
-        session(['temp_user_id' => $user->id]);
+        if (!session()->get('admin_user_id')) {
+            session(['admin_user_id' => $authenticatedUser->id]);
+            session(['admin_user_name' => $authenticatedUser->name]);
+            session(['temp_user_id' => $user->id]);
+        }
 
         //Login user
         auth()->loginUsingId($user->id);
@@ -249,10 +256,6 @@ class EloquentUserRepository implements UserRepository
      */
     public function logoutAs()
     {
-        if (!auth()->check()) {
-            return redirect()->route('auth.login');
-        }
-
         if ($admin_id = session()->get('admin_user_id')) {
             $this->flushTempSession();
             $user = auth()->loginUsingId((int)$admin_id);
@@ -283,7 +286,7 @@ class EloquentUserRepository implements UserRepository
 
         if ($this->canImpersonate($user)) {
             $buttons .= '<a href="'.route(
-                    'admin.user.login-as', $user
+                    'login-as', $user
                 )
                 .'" class="btn btn-xs btn-success"><i class="fa fa-lock" data-toggle="tooltip" data-placement="top" title="'
                 .trans(

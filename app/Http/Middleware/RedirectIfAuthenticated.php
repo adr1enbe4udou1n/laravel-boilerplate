@@ -19,7 +19,7 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            if (isAdminRoute($request)) {
+            if (is_admin_route($request)) {
                 return redirect()->route('admin.home');
             }
 

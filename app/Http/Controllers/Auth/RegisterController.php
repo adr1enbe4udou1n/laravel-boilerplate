@@ -26,21 +26,21 @@ class RegisterController extends Controller
     /**
      * @var UserRepository
      */
-    protected $user;
+    protected $users;
 
     /**
      * RegisterController constructor.
      *
-     * @param UserRepository $user
+     * @param UserRepository $users
      */
-    public function __construct(UserRepository $user)
+    public function __construct(UserRepository $users)
     {
         $this->middleware('guest');
 
         // Where to redirect users after registering
         $this->redirectTo = route('user.home');
 
-        $this->user = $user;
+        $this->users = $users;
     }
 
     /**
@@ -67,6 +67,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return $this->user->store($data);
+        return $this->users->store($data);
     }
 }
