@@ -10,6 +10,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
  */
 interface UserRepository
 {
+
     /**
      * @return mixed
      */
@@ -24,7 +25,7 @@ interface UserRepository
 
     /**
      * @param User $user
-     * @param $input
+     * @param      $input
      *
      * @return mixed
      */
@@ -53,6 +54,23 @@ interface UserRepository
     public function changePassword($oldPassword, $newPassword);
 
     /**
+     *
+     * @param \Illuminate\Contracts\Auth\Authenticatable $user
+     *
+     * @return void
+     */
+    public function loadPermissions(Authenticatable $user);
+
+    /**
+     *
+     * @param \Illuminate\Contracts\Auth\Authenticatable $user
+     * @param                                            $name
+     *
+     * @return mixed
+     */
+    public function hasPermission(Authenticatable $user, $name);
+
+    /**
      * @param User $user
      *
      * @return mixed
@@ -63,4 +81,11 @@ interface UserRepository
      * @return mixed
      */
     public function logoutAs();
+
+    /**
+     * @param \App\Models\User $user
+     *
+     * @return mixed
+     */
+    public function getActionButtons(User $user);
 }

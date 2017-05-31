@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Traits\HtmlElements;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -19,8 +18,7 @@ use App\Notifications\ResetPassword as ResetPasswordNotification;
  * @property string $remember_token
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property-read string $action_buttons
- * @property-read string $activated_label
+ * @property-read mixed $is_super_admin
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Role[] $roles
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User actives()
@@ -37,7 +35,7 @@ use App\Notifications\ResetPassword as ResetPasswordNotification;
 class User extends Authenticatable
 {
 
-    use Notifiable, HtmlElements;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -67,6 +65,11 @@ class User extends Authenticatable
         return $query->where('active', '=', true);
     }
 
+    public function getIsSuperAdminAttribute()
+    {
+        return $this->id === 1;
+    }
+
     /**
      * Many-to-Many relations with Role.
      *
@@ -75,6 +78,12 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(Role::class);
+    }
+
+    public function getFormattedRoles() {
+        return $this->is_super_admin
+            ? trans('labels.user.super_admin')
+            : $this->roles->implode('display_name', ', ');
     }
 
     /**
@@ -88,23 +97,20 @@ class User extends Authenticatable
     }
 
     /**
-     * @param string $ability
-     * @param array  $arguments
-     *
-     * @return bool
+     * @return array
      */
-    public function can($ability, $arguments = [])
+    public function getPermissions()
     {
+        $permissions = [];
+
         foreach ($this->roles as $role) {
             // Validate against the Permission table
             foreach ($role->permissions as $permission) {
-                if (str_is($permission, $permission->name)) {
-                    return true;
-                }
+                $permissions[] = $permission->name;
             }
         }
 
-        return parent::can($ability, $arguments);
+        return $permissions;
     }
 
     /**
@@ -115,37 +121,5 @@ class User extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPasswordNotification($token));
-    }
-
-    /**
-     * @return string
-     */
-    public function getActivatedLabelAttribute()
-    {
-        return $this->getBooleanLabelHtml($this->active);
-    }
-
-    /**
-     * @return string
-     */
-    public function getActionButtonsAttribute()
-    {
-        $buttons = $this->getEditButtonHtml('admin.user.edit');
-
-        if ($this->id !== 1 && $this->id !== auth()->id()) {
-            if (!session()->has('admin_user_id')) {
-                $buttons .= '<a href="'.route(
-                        'admin.user.login-as', $this
-                    )
-                    .'" class="btn btn-xs btn-success"><i class="fa fa-lock" data-toggle="tooltip" data-placement="top" title="'
-                    .trans(
-                        'buttons.login-as', ['name' => $this->name]
-                    ).'"></i></a> ';
-            }
-
-            $buttons .= $this->getDeleteButtonHtml('admin.user.destroy');
-        }
-
-        return $buttons;
     }
 }

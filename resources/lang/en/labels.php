@@ -52,6 +52,7 @@ return [
         'member_since' => 'Member since :date',
         'profile_updated' => 'Profile successfully updated.',
         'password_updated' => 'Password successfully updated.',
+        'super_admin' => 'Super administrateur',
 
         'titles' => [
             'space' => 'My space',

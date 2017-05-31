@@ -4,19 +4,22 @@ namespace App\Providers;
 
 use App\Models\User;
 use App\Policies\UserPolicy;
+use App\Repositories\Contracts\UserRepository;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
+
     /**
      * The policy mappings for the application.
      *
      * @var array
      */
-    protected $policies = [
-        User::class => UserPolicy::class,
-    ];
+    protected $policies
+        = [
+            User::class => UserPolicy::class,
+        ];
 
     /**
      * Register any authentication / authorization services.
@@ -27,9 +30,11 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        foreach(config('permissions') as $key => $permissions) {
-            Gate::define($key, function (User $user) {
-                return true;
+        $userRepository = $this->app->make(UserRepository::class);
+
+        foreach (config('permissions') as $key => $permissions) {
+            Gate::define($key, function (User $user) use ($userRepository, $key) {
+                return $userRepository->hasPermission($user, $key);
             });
         }
     }

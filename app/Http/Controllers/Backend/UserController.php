@@ -87,11 +87,11 @@ class UserController extends Controller
             return $query->editColumn('email', function (User $user) {
                 return link_to_route('admin.user.edit', $user->email, $user);
             })->editColumn('active', function (User $user) {
-                return $user->activated_label;
+                return boolean_html_label($user->active);
             })->editColumn('roles', function (User $user) {
-                return $user->roles->implode('display_name', ', ');
+                return $user->getFormattedRoles();
             })->addColumn('actions', function (User $user) {
-                return $user->action_buttons;
+                return $this->users->getActionButtons($user);
             })
                 ->rawColumns(['active', 'actions'])
                 ->make(true);

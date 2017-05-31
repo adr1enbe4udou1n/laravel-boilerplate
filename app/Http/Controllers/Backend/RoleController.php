@@ -78,7 +78,7 @@ class RoleController extends Controller
             return $query->editColumn('name', function (Role $role) {
                 return link_to_route('admin.role.edit', $role->name, $role);
             })->addColumn('actions', function (Role $role) {
-                return $role->action_buttons;
+                return $this->roles->getActionButtons($role);
             })
                 ->rawColumns(['actions'])
                 ->make(true);

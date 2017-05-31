@@ -4,19 +4,24 @@ return [
     'access' => [
         'backend' => [
             'display_name' => 'Accès au backoffice',
-            'description' => 'Permet l\'accès aux pages du backoffice',
+            'description' => 'Permet l\'accès aux pages du backoffice.',
         ],
     ],
 
     'manage' => [
         'users' => [
             'display_name' => 'Administrer les utilisateurs',
-            'description' => 'Possibilité de gérer la liste des utilisateurs (création, mise à jour, suppression)',
+            'description' => 'Possibilité de gérer la liste des utilisateurs (création, mise à jour, suppression).',
         ],
 
         'roles' => [
             'display_name' => 'Administrer les rôles',
-            'description' => 'Possibilité de gérer la liste des rôles (création, mise à jour, suppression)',
+            'description' => 'Possibilité de gérer la liste des rôles (création, mise à jour, suppression).',
         ],
+    ],
+
+    'impersonate' => [
+        'display_name' => 'Usurpation d\'utilisateur',
+        'description' => 'Permet de prendre l\'identité d\'un autre utilisateur. Utile pour les tests.',
     ],
 ];

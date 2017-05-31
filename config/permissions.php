@@ -21,4 +21,9 @@ return [
         'display_name' => 'permissions.manage.roles.display_name',
         'description' => 'permissions.manage.roles.description',
     ],
+
+    'impersonate users' => [
+        'display_name' => 'permissions.impersonate.display_name',
+        'description' => 'permissions.impersonate.description',
+    ],
 ];

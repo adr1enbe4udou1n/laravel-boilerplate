@@ -19,4 +19,9 @@ return [
             'description' => 'Can manage all roles (create, update, delete)',
         ],
     ],
+
+    'impersonate' => [
+        'display_name' => 'Impersonate user',
+        'description' => 'Can take ownership of others user identities. Useful for tests.',
+    ],
 ];

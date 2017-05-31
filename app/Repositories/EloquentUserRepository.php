@@ -8,7 +8,9 @@ use App\Events\UserUpdated;
 use App\Exceptions\GeneralException;
 use App\Models\User;
 use App\Repositories\Contracts\UserRepository;
+use App\Repositories\Traits\HtmlActionsButtons;
 use Exception;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -17,12 +19,22 @@ use Illuminate\Support\Facades\Hash;
  */
 class EloquentUserRepository implements UserRepository
 {
+
+    use HtmlActionsButtons;
+
     /**
      * @return mixed
      */
     public function get()
     {
-        return User::select(['id', 'name', 'email', 'active', 'created_at', 'updated_at'])->with('roles');
+        return User::select([
+            'id',
+            'name',
+            'email',
+            'active',
+            'created_at',
+            'updated_at',
+        ])->with('roles');
     }
 
     /**
@@ -55,7 +67,7 @@ class EloquentUserRepository implements UserRepository
 
     /**
      * @param User $user
-     * @param $input
+     * @param      $input
      *
      * @return \App\Models\User
      *
@@ -154,6 +166,59 @@ class EloquentUserRepository implements UserRepository
     }
 
     /**
+     * @param \Illuminate\Contracts\Auth\Authenticatable $user
+     */
+    public function loadPermissions(Authenticatable $user)
+    {
+        session(['permissions' => $user->getPermissions()]);
+    }
+
+    /**
+     * @param \Illuminate\Contracts\Auth\Authenticatable $user
+     * @param                                            $name
+     *
+     * @return bool
+     */
+    public function hasPermission(Authenticatable $user, $name)
+    {
+        // First user is always super admin and cannot be deleted
+        if ($user->is_super_admin) {
+            return true;
+        }
+
+        $permissions = session()->get('permissions');
+
+        if (empty($permissions)) {
+            return false;
+        }
+
+        foreach ($permissions as $permission) {
+            if (str_is($name, $permission)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private function canImpersonate(User $user)
+    {
+        $authenticatedUser = auth()->user();
+
+        if ($this->hasPermission($authenticatedUser, 'impersonate users')) {
+            return !$user->is_super_admin && $user->id !== $authenticatedUser->id;
+        }
+        return false;
+    }
+
+    private function canDelete(User $user)
+    {
+        $authenticatedUser = auth()->user();
+
+        return !$user->is_super_admin && $user->id !== $authenticatedUser->id;
+    }
+
+    /**
      * @param User $user
      *
      * @return \Illuminate\Http\RedirectResponse
@@ -162,11 +227,11 @@ class EloquentUserRepository implements UserRepository
      */
     public function loginAs(User $user)
     {
-        if (auth()->id() === $user->id || session()->get('admin_user_id') === $user->id) {
+        if (auth()->id() === $user->id
+            || session()->get('admin_user_id') === $user->id
+        ) {
             return redirect()->route('admin.home');
         }
-
-        $this->flushTempSession();
 
         session(['admin_user_id' => auth()->id()]);
         session(['admin_user_name' => auth()->user()->name]);
@@ -174,6 +239,7 @@ class EloquentUserRepository implements UserRepository
 
         //Login user
         auth()->loginUsingId($user->id);
+        $this->loadPermissions($user);
 
         return redirect()->route('admin.home');
     }
@@ -189,7 +255,8 @@ class EloquentUserRepository implements UserRepository
 
         if ($admin_id = session()->get('admin_user_id')) {
             $this->flushTempSession();
-            auth()->loginUsingId((int) $admin_id);
+            $user = auth()->loginUsingId((int)$admin_id);
+            $this->loadPermissions($user);
         }
 
         return redirect()->route('admin.home');
@@ -203,5 +270,31 @@ class EloquentUserRepository implements UserRepository
         session()->forget('admin_user_id');
         session()->forget('admin_user_name');
         session()->forget('temp_user_id');
+    }
+
+    /**
+     * @param \App\Models\User $user
+     *
+     * @return string
+     */
+    public function getActionButtons(User $user)
+    {
+        $buttons = $this->getEditButtonHtml('admin.user.edit', $user);
+
+        if ($this->canImpersonate($user)) {
+            $buttons .= '<a href="'.route(
+                    'admin.user.login-as', $user
+                )
+                .'" class="btn btn-xs btn-success"><i class="fa fa-lock" data-toggle="tooltip" data-placement="top" title="'
+                .trans(
+                    'buttons.login-as', ['name' => $user->name]
+                ).'"></i></a> ';
+        }
+
+        if ($this->canDelete($user)) {
+            $buttons .= $this->getDeleteButtonHtml('admin.user.destroy', $user);
+        }
+
+        return $buttons;
     }
 }

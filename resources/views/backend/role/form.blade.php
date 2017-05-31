@@ -36,7 +36,7 @@
         </div>
     </div>
     <div class="form-group{{ $errors->has('permissions') ? ' has-error' : '' }}">
-        {{ Form::label('permissions[]', trans('validation.attributes.roles'), ['class' => 'col-lg-2 control-label']) }}
+        {{ Form::label('permissions[]', trans('validation.attributes.permissions'), ['class' => 'col-lg-2 control-label']) }}
 
         <div class="col-lg-10">
             @foreach($permissions as $name => $permission)

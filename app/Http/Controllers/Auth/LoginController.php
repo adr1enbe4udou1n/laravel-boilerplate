@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Repositories\Contracts\UserRepository;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -23,11 +24,20 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
-     * Create a new controller instance.
+     * @var UserRepository
      */
-    public function __construct()
+    protected $user;
+
+    /**
+     * RegisterController constructor.
+     *
+     * @param UserRepository $user
+     */
+    public function __construct(UserRepository $user)
     {
         $this->middleware('guest')->except('logout');
+
+        $this->user = $user;
     }
 
     /**
@@ -53,6 +63,17 @@ class LoginController extends Controller
     }
 
     /**
+     * The user has been authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     */
+    protected function authenticated(Request $request, $user)
+    {
+        $this->user->loadPermissions($user);
+    }
+
+    /**
      * Log the user out of the application.
      *
      * @param Request $request
@@ -71,6 +92,6 @@ class LoginController extends Controller
     }
 
     protected function redirectTo() {
-        return homeRoute();
+        return home_route();
     }
 }

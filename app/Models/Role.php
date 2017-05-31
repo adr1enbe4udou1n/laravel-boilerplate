@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Traits\HtmlElements;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -14,7 +13,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $description
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property-read string $action_buttons
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Permission[] $permissions
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereDescription($value)
@@ -26,8 +24,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Role extends Model
 {
-
-    use HtmlElements;
 
     /**
      * The attributes that are mass assignable.
@@ -44,11 +40,11 @@ class Role extends Model
     /**
      * Many-to-Many relations with Role.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function permissions()
     {
-        return $this->belongsToMany(Permission::class);
+        return $this->hasMany(Permission::class);
     }
 
     /**
@@ -59,17 +55,6 @@ class Role extends Model
     public function hasPermissions($name)
     {
         return $this->permissions->contains('name', $name);
-    }
-    
-    /**
-     * @return string
-     */
-    public function getActionButtonsAttribute()
-    {
-        $buttons = $this->getEditButtonHtml('admin.role.edit')
-            .$this->getDeleteButtonHtml('admin.role.destroy');
-
-        return $buttons;
     }
 
     public function __toString()

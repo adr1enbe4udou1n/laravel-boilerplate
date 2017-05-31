@@ -35,4 +35,11 @@ interface RoleRepository
      * @return mixed
      */
     public function destroy(Role $role);
+
+    /**
+     * @param \App\Models\Role $role
+     *
+     * @return mixed
+     */
+    public function getActionButtons(Role $role);
 }

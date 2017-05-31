@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Exceptions\GeneralException;
 use App\Models\Role;
 use App\Repositories\Contracts\RoleRepository;
+use App\Repositories\Traits\HtmlActionsButtons;
 use Exception;
 use Illuminate\Support\Facades\DB;
 
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\DB;
  */
 class EloquentRoleRepository implements RoleRepository
 {
+    use HtmlActionsButtons;
+
     /**
      * @return mixed
      */
@@ -41,7 +44,9 @@ class EloquentRoleRepository implements RoleRepository
         });
 
         $permissions = isset($input['permissions']) ? $input['permissions'] : [];
-        $role->permissions()->sync($permissions);
+        foreach($permissions as $name) {
+            $role->permissions()->create(['name' => $name]);
+        }
 
         return $role;
     }
@@ -67,8 +72,12 @@ class EloquentRoleRepository implements RoleRepository
             throw new GeneralException(trans('exceptions.backend.roles.update_error'));
         });
 
+        $role->permissions()->delete();
+
         $permissions = isset($input['permissions']) ? $input['permissions'] : [];
-        $role->permissions()->sync($permissions);
+        foreach($permissions as $name) {
+            $role->permissions()->create(['name' => $name]);
+        }
 
         return $role;
     }
@@ -91,5 +100,18 @@ class EloquentRoleRepository implements RoleRepository
         });
 
         return true;
+    }
+
+    /**
+     * @param \App\Models\Role $role
+     *
+     * @return mixed
+     */
+    public function getActionButtons(Role $role)
+    {
+        $buttons = $this->getEditButtonHtml('admin.role.edit', $role)
+            .$this->getDeleteButtonHtml('admin.role.destroy', $role);
+
+        return $buttons;
     }
 }

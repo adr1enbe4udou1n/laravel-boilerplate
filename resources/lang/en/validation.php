@@ -150,6 +150,7 @@ return [
         'available' => 'Available',
         'size' => 'Size',
         'roles' => 'Roles',
+        'permissions' => 'Permissions',
         'active' => 'Active',
         'message' => 'Message',
         'g-recaptcha-response' => 'Captcha',

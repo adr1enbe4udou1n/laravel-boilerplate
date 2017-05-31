@@ -151,8 +151,18 @@ Route::group([
                 }
             );
 
-            Route::get('logout-as', 'UserController@logoutAs')->name(
-                'user.logout-as'
+            Route::group(
+                ['middleware' => ['can:impersonate users']],
+                function () {
+                    Route::get('user/{user}/login-as', 'UserController@loginAs')
+                        ->name(
+                            'user.login-as'
+                        );
+
+                    Route::get('logout-as', 'UserController@logoutAs')->name(
+                        'user.logout-as'
+                    );
+                }
             );
         }
     );

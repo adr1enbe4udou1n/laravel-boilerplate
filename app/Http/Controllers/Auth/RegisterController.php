@@ -67,7 +67,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $data['role'] = User::ROLE_CLIENT;
         return $this->user->store($data);
     }
 }
