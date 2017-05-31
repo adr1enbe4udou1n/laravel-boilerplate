@@ -6,7 +6,7 @@
         @include('backend.partials.sidebar')
 
         <div class="content-wrapper">
-            @include('backend.partials.logged-as')
+            @include('partials.logged-as')
 
             <section class="content-header">
                 <h1>

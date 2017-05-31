@@ -21,6 +21,16 @@ Breadcrumbs::register('legal-mentions', function (Generator $breadcrumbs) {
     $breadcrumbs->push(trans('labels.frontend.titles.legal_mentions'), route('legal-mentions'));
 });
 
+Breadcrumbs::register('user.home', function (Generator $breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push(trans('labels.user.titles.space'), route('user.home'));
+});
+
+Breadcrumbs::register('user.account', function (Generator $breadcrumbs) {
+    $breadcrumbs->parent('user.home');
+    $breadcrumbs->push(trans('labels.user.titles.account'), route('user.account'));
+});
+
 Breadcrumbs::register('admin.home', function (Generator $breadcrumbs) {
     $breadcrumbs->push(trans('labels.backend.titles.dashboard'), route('admin.home'));
 });

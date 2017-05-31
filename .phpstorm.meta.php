@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2017-05-31.
+    * Generated on 2017-06-01.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -55,6 +55,7 @@ namespace PHPSTORM_META {
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
             'App\Repositories\Contracts\UserRepository' instanceof \App\Repositories\EloquentUserRepository,
             'App\Repositories\Contracts\RoleRepository' instanceof \App\Repositories\EloquentRoleRepository,
+            'App\Repositories\Contracts\MetaRepository' instanceof \App\Repositories\EloquentMetaRepository,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'validation.presence' instanceof \Illuminate\Validation\DatabasePresenceVerifier,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
@@ -189,6 +190,7 @@ namespace PHPSTORM_META {
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
             'App\Repositories\Contracts\UserRepository' instanceof \App\Repositories\EloquentUserRepository,
             'App\Repositories\Contracts\RoleRepository' instanceof \App\Repositories\EloquentRoleRepository,
+            'App\Repositories\Contracts\MetaRepository' instanceof \App\Repositories\EloquentMetaRepository,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'validation.presence' instanceof \Illuminate\Validation\DatabasePresenceVerifier,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
@@ -323,6 +325,7 @@ namespace PHPSTORM_META {
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
             'App\Repositories\Contracts\UserRepository' instanceof \App\Repositories\EloquentUserRepository,
             'App\Repositories\Contracts\RoleRepository' instanceof \App\Repositories\EloquentRoleRepository,
+            'App\Repositories\Contracts\MetaRepository' instanceof \App\Repositories\EloquentMetaRepository,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'validation.presence' instanceof \Illuminate\Validation\DatabasePresenceVerifier,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
@@ -457,6 +460,7 @@ namespace PHPSTORM_META {
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
             'App\Repositories\Contracts\UserRepository' instanceof \App\Repositories\EloquentUserRepository,
             'App\Repositories\Contracts\RoleRepository' instanceof \App\Repositories\EloquentRoleRepository,
+            'App\Repositories\Contracts\MetaRepository' instanceof \App\Repositories\EloquentMetaRepository,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'validation.presence' instanceof \Illuminate\Validation\DatabasePresenceVerifier,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,

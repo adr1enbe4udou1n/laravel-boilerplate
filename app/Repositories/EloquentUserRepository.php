@@ -256,7 +256,7 @@ class EloquentUserRepository extends BaseRepository implements UserRepository
         auth()->loginUsingId($user->id);
         $this->loadPermissions($user);
 
-        return redirect()->route('admin.home');
+        return redirect(home_route());
     }
 
     /**

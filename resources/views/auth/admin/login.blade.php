@@ -27,6 +27,11 @@
                         </span>
                     @endif
                 </div>
+                @if($is_locked)
+                <div class="form-group">
+                    {!! Captcha::display() !!}
+                </div>
+                @endif
                 <div class="row">
                     <div class="col-xs-7">
                         <div class="checkbox icheck">
@@ -48,4 +53,8 @@
         <!-- /.login-box-body -->
     </div>
     <!-- /.login-box -->
+@endsection
+
+@section('scripts')
+    {!! Captcha::script() !!}
 @endsection

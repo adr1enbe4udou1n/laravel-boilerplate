@@ -83,5 +83,5 @@
 @endsection
 
 @section('scripts')
-{!! Captcha::script() !!}
+    {!! Captcha::script() !!}
 @endsection

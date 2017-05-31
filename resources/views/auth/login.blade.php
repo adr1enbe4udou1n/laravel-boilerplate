@@ -40,6 +40,14 @@
                             </div>
                         </div>
 
+                        @if($is_locked)
+                        <div class="form-group">
+                            <div class="col-md-2 col-sm-12 col-md-offset-4">
+                                {!! Captcha::display() !!}
+                            </div>
+                        </div>
+                        @endif
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
@@ -67,4 +75,8 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    {!! Captcha::script() !!}
 @endsection

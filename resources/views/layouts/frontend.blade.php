@@ -33,6 +33,7 @@
 @include('frontend.scripts.gtmiframe')
 
 <div id="app">
+    @include('partials.logged-as')
     @include('frontend.partials.header')
     @yield('highlight')
 

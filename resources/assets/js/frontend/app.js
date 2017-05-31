@@ -25,7 +25,7 @@ const app = new Vue({
 
 // Slider
 
-$('.slider').slick({
+$('.slider').removeClass('hidden').slick({
     dots: true,
     infinite: true,
     speed: 300,

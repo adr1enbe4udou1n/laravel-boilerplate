@@ -7,7 +7,7 @@ use App\Models\User;
 use App\Repositories\Contracts\UserRepository;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Str;
 
 class LoginController extends Controller
 {
@@ -56,11 +56,73 @@ class LoginController extends Controller
     /**
      * Show the application's login form.
      *
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function showAdminLoginForm()
+    public function showLoginForm(Request $request)
     {
-        return view('auth.admin.login');
+        return view('auth.login')->withIsLocked($this->hasTooManyLoginAttempts($request));
+    }
+
+    /**
+     * Show the application's login form.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showAdminLoginForm(Request $request)
+    {
+        return view('auth.admin.login')->withIsLocked($this->hasTooManyLoginAttempts($request));
+    }
+
+    /**
+     * Determine if the user has too many failed login attempts.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return bool
+     */
+    protected function hasTooManyLoginAttempts(Request $request)
+    {
+        return $this->limiter()->tooManyAttempts(
+            $this->throttleKey($request), 3, 10
+        );
+    }
+
+    /**
+     * Get the throttle key for the given request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return string
+     */
+    protected function throttleKey(Request $request)
+    {
+        return Str::lower($request->ip());
+    }
+
+    /**
+     * Validate the user login request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return void
+     */
+    protected function validateLogin(Request $request)
+    {
+        $rules = [
+            $this->username() => 'required|string',
+            'password' => 'required|string',
+        ];
+
+        if ($this->hasTooManyLoginAttempts($request)) {
+            $rules['g-recaptcha-response'] = 'required|captcha';
+        }
+
+        $this->validate($request, $rules);
+
+        if ($this->hasTooManyLoginAttempts($request)) {
+            $this->clearLoginAttempts($request);
+        }
     }
 
     /**
