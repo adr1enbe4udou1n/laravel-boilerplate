@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\View;
 
 class MetaTags
 {
-
     /**
      * @var MetaRepository
      */

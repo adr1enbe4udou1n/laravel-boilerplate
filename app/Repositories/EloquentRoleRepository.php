@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\DB;
  */
 class EloquentRoleRepository extends BaseRepository implements RoleRepository
 {
-
     use HtmlActionsButtons;
 
     /**
@@ -47,7 +46,7 @@ class EloquentRoleRepository extends BaseRepository implements RoleRepository
     public function store($input)
     {
         $role = self::MODEL;
-        
+
         /** @var Role $role */
         $role = new $role($input);
 

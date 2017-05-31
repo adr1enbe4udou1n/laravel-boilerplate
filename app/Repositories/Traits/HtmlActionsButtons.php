@@ -7,10 +7,8 @@ namespace App\Repositories\Traits;
  */
 trait HtmlActionsButtons
 {
-
     /**
      * @param $route
-     *
      * @param $parameters
      *
      * @return string
@@ -22,7 +20,6 @@ trait HtmlActionsButtons
 
     /**
      * @param $route
-     *
      * @param $parameters
      *
      * @return string
@@ -34,7 +31,6 @@ trait HtmlActionsButtons
 
     /**
      * @param $route
-     *
      * @param $parameters
      *
      * @return string

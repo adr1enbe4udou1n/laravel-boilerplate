@@ -27,7 +27,7 @@ class StoreMetaRequest extends FormRequest
 
         return [
             'locale' => 'required',
-            'route' => 'required|unique:metas,route,NULL,id,locale,' . $locale,
+            'route' => 'required|unique:metas,route,NULL,id,locale,'.$locale,
         ];
     }
 }

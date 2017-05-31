@@ -35,7 +35,7 @@ return [
     ],
 
     'placeholder' => [
-        'route' => 'Select a valid internal route'
+        'route' => 'Select a valid internal route',
     ],
 
     'cookieconsent' => [
@@ -45,8 +45,8 @@ return [
 
     'descriptions' => [
         'metas' => [
-            'route' => 'Value should correspond to an valid route name'
-        ]
+            'route' => 'Value should correspond to an valid route name',
+        ],
     ],
 
     'user' => [
@@ -118,7 +118,6 @@ return [
     ],
 
     'frontend' => [
-
         'titles' => [
             'home' => 'Home',
             'about' => 'About',

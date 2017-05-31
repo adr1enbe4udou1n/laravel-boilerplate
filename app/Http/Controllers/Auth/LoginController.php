@@ -80,7 +80,8 @@ class LoginController extends Controller
     /**
      * Determine if the user has too many failed login attempts.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return bool
      */
     protected function hasTooManyLoginAttempts(Request $request)
@@ -93,7 +94,8 @@ class LoginController extends Controller
     /**
      * Get the throttle key for the given request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return string
      */
     protected function throttleKey(Request $request)
@@ -104,8 +106,7 @@ class LoginController extends Controller
     /**
      * Validate the user login request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return void
+     * @param \Illuminate\Http\Request $request
      */
     protected function validateLogin(Request $request)
     {
@@ -128,8 +129,8 @@ class LoginController extends Controller
     /**
      * The user has been authenticated.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  mixed  $user
+     * @param \Illuminate\Http\Request $request
+     * @param mixed                    $user
      */
     protected function authenticated(Request $request, $user)
     {
@@ -172,7 +173,8 @@ class LoginController extends Controller
         return $this->users->logoutAs();
     }
 
-    protected function redirectTo() {
+    protected function redirectTo()
+    {
         return home_route();
     }
 }

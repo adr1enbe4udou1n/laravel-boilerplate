@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\Role
+ * App\Models\Role.
  *
  * @property int $id
  * @property string $name
@@ -13,7 +13,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $description
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Permission[] $permissions
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Permission[] $permissions
+ *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereDescription($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereDisplayName($value)
@@ -24,7 +25,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Role extends Model
 {
-
     /**
      * The attributes that are mass assignable.
      *

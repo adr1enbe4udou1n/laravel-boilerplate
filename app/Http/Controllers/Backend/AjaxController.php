@@ -9,7 +9,6 @@ use Illuminate\Routing\Router;
 
 class AjaxController extends Controller
 {
-
     /**
      * @var \Illuminate\Routing\Router
      */
@@ -31,6 +30,7 @@ class AjaxController extends Controller
      * @param Request $request
      *
      * @return array
+     *
      * @throws \InvalidArgumentException
      */
     public function routeSearch(Request $request)

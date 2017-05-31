@@ -8,7 +8,6 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class SeoController extends Controller
 {
-
     public function robots()
     {
         $lines = [
@@ -66,14 +65,14 @@ class SeoController extends Controller
 
         $defaultLocale = LaravelLocalization::getDefaultLocale();
 
-        $supportedLocales = array_filter(LaravelLocalization::getSupportedLocales(), function ($localCode) use($defaultLocale) {
+        $supportedLocales = array_filter(LaravelLocalization::getSupportedLocales(), function ($localCode) use ($defaultLocale) {
             return $localCode !== $defaultLocale;
         }, ARRAY_FILTER_USE_KEY);
 
-        foreach($supportedLocales as $localeCode => $properties) {
+        foreach ($supportedLocales as $localeCode => $properties) {
             $translations[] = [
                 'language' => $localeCode,
-                'url' => LaravelLocalization::getLocalizedURL($localeCode, route($routeName))
+                'url' => LaravelLocalization::getLocalizedURL($localeCode, route($routeName)),
             ];
         }
 

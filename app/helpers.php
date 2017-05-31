@@ -6,7 +6,7 @@ if (!function_exists('assets')) {
     /**
      * Get the path to a versioned Mix file.
      *
-     * @param  string $path
+     * @param string $path
      *
      * @return mixed
      *
@@ -47,7 +47,6 @@ if (!function_exists('assets')) {
 }
 
 if (!function_exists('home_route')) {
-
     /**
      * Return the route to the "home" page depending on authentication/authorization status.
      *
@@ -64,7 +63,6 @@ if (!function_exists('home_route')) {
 }
 
 if (!function_exists('is_admin_route')) {
-
     /**
      * @param \Illuminate\Http\Request $request
      *
@@ -74,12 +72,11 @@ if (!function_exists('is_admin_route')) {
     {
         $action = $request->route()->getAction();
 
-        return ($action['namespace'] === 'App\Http\Controllers\Backend');
+        return $action['namespace'] === 'App\Http\Controllers\Backend';
     }
 }
 
 if (!function_exists('boolean_html_label')) {
-
     /**
      * @param $boolean boolean
      *

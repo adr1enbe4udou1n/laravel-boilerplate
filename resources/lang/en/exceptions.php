@@ -18,7 +18,7 @@ return [
             'create' => 'Error when meta creation',
             'update' => 'Error when meta updating',
             'delete' => 'Error when meta deletion',
-            'already_exist' => 'There is already a meta for this locale route'
+            'already_exist' => 'There is already a meta for this locale route',
         ],
     ],
 
@@ -26,6 +26,6 @@ return [
         'user' => [
             'email_taken' => 'That e-mail address is already taken.',
             'password_mismatch' => 'That is not your old password.',
-        ]
+        ],
     ],
 ];

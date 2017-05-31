@@ -10,7 +10,6 @@ use Illuminate\Contracts\Auth\Authenticatable;
  */
 interface UserRepository
 {
-
     /**
      * @return mixed
      */
@@ -54,15 +53,11 @@ interface UserRepository
     public function changePassword($oldPassword, $newPassword);
 
     /**
-     *
      * @param \Illuminate\Contracts\Auth\Authenticatable $user
-     *
-     * @return void
      */
     public function loadPermissions(Authenticatable $user);
 
     /**
-     *
      * @param \Illuminate\Contracts\Auth\Authenticatable $user
      * @param                                            $name
      *

@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\DB;
  */
 class EloquentMetaRepository extends BaseRepository implements MetaRepository
 {
-
     use HtmlActionsButtons;
 
     /**
@@ -46,7 +45,7 @@ class EloquentMetaRepository extends BaseRepository implements MetaRepository
      */
     public function find($locale, $route)
     {
-        /** @var Meta $meta */
+        /* @var Meta $meta */
         return $this->query()->whereLocale($locale)->whereRoute($route)->first();
     }
 

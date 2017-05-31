@@ -5,11 +5,9 @@ use Illuminate\Database\Schema\Blueprint;
 
 class SetupPermissionsTables extends Migration
 {
-
     /**
      * Run the migrations.
      *
-     * @return  void
      * @throws \Exception
      */
     public function up()
@@ -54,8 +52,6 @@ class SetupPermissionsTables extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return  void
      */
     public function down()
     {

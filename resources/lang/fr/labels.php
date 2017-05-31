@@ -35,7 +35,7 @@ return [
     ],
 
     'placeholder' => [
-        'route' => 'Sélectionner une route interne valide'
+        'route' => 'Sélectionner une route interne valide',
     ],
 
     'cookieconsent' => [
@@ -45,8 +45,8 @@ return [
 
     'descriptions' => [
         'metas' => [
-            'route' => 'La valeur doit correspondre à un nom de route valide'
-        ]
+            'route' => 'La valeur doit correspondre à un nom de route valide',
+        ],
     ],
 
     'user' => [
@@ -118,7 +118,6 @@ return [
     ],
 
     'frontend' => [
-
         'titles' => [
             'home' => 'Accueil',
             'about' => 'Qui sommes-nous ?',

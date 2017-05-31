@@ -44,7 +44,6 @@ class MetaController extends Controller
      * @param MetaRepository             $metas
      * @param Builder                    $htmlBuilder
      * @param LaravelLocalization        $localization
-     *
      * @param \Illuminate\Routing\Router $router
      */
     public function __construct(MetaRepository $metas, LaravelLocalization $localization, Router $router, Builder $htmlBuilder)
@@ -131,6 +130,7 @@ class MetaController extends Controller
     public function edit(Meta $meta)
     {
         $meta->uri = $this->router->getRoutes()->getByName($meta->route)->uri();
+
         return view('backend.meta.edit')->withMeta($meta)->withLocales($this->supportedLocales);
     }
 

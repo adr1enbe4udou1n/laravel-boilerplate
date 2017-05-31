@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Hash;
  */
 class EloquentUserRepository extends BaseRepository implements UserRepository
 {
-
     use HtmlActionsButtons;
 
     /**
@@ -131,6 +130,7 @@ class EloquentUserRepository extends BaseRepository implements UserRepository
      * @param $input
      *
      * @return mixed
+     *
      * @throws \App\Exceptions\GeneralException
      */
     public function updateProfile($input)
@@ -156,6 +156,7 @@ class EloquentUserRepository extends BaseRepository implements UserRepository
      * @param $newPassword
      *
      * @return mixed
+     *
      * @throws \App\Exceptions\GeneralException
      */
     public function changePassword($oldPassword, $newPassword)
@@ -266,7 +267,7 @@ class EloquentUserRepository extends BaseRepository implements UserRepository
     {
         if ($admin_id = session()->get('admin_user_id')) {
             $this->flushTempSession();
-            $user = auth()->loginUsingId((int)$admin_id);
+            $user = auth()->loginUsingId((int) $admin_id);
             $this->loadPermissions($user);
         }
 

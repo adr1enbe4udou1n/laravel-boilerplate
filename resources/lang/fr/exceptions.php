@@ -18,7 +18,7 @@ return [
             'create' => 'Erreur lors de la création de la meta',
             'update' => 'Erreur lors de la mise à jour de la meta',
             'delete' => 'Erreur lors de la suppression de la meta',
-            'already_exist' => 'Il existe déjà une meta pour cette route'
+            'already_exist' => 'Il existe déjà une meta pour cette route',
         ],
     ],
 

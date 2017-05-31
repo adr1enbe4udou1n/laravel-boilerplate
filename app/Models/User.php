@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\ResetPassword as ResetPasswordNotification;
 
 /**
- * App\Models\User
+ * App\Models\User.
  *
  * @property int $id
  * @property string $name
@@ -18,9 +18,10 @@ use App\Notifications\ResetPassword as ResetPasswordNotification;
  * @property string $remember_token
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property-read mixed $is_super_admin
- * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Role[] $roles
+ * @property mixed $is_super_admin
+ * @property \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Role[] $roles
+ *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User actives()
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereActive($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereCreatedAt($value)
@@ -34,7 +35,6 @@ use App\Notifications\ResetPassword as ResetPasswordNotification;
  */
 class User extends Authenticatable
 {
-
     use Notifiable;
 
     /**
@@ -80,7 +80,8 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class);
     }
 
-    public function getFormattedRoles() {
+    public function getFormattedRoles()
+    {
         return $this->is_super_admin
             ? trans('labels.user.super_admin')
             : $this->roles->implode('display_name', ', ');

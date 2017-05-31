@@ -58,18 +58,20 @@ class Handler extends ExceptionHandler
     /**
      * Prepare response containing exception render.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception $e
+     * @param \Illuminate\Http\Request $request
+     * @param \Exception               $e
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     protected function prepareResponse($request, Exception $e)
     {
-        if (! $this->isHttpException($e) && config('app.debug')) {
+        if (!$this->isHttpException($e) && config('app.debug')) {
             return $this->toIlluminateResponse($this->convertExceptionToResponse($e), $e);
         }
-        if (! $this->isHttpException($e)) {
+        if (!$this->isHttpException($e)) {
             $e = new HttpException(500, $e->getMessage());
         }
+
         return $this->toIlluminateResponse($this->renderHttpException($e), $e);
     }
 

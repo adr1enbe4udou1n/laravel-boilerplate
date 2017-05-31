@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 
 class AccountController extends Controller
 {
-
     /**
      * @var UserRepository
      */
@@ -45,7 +44,7 @@ class AccountController extends Controller
     {
         $user = auth()->user();
 
-        $request->headers->set('referer', route('user.account') . '#edit');
+        $request->headers->set('referer', route('user.account').'#edit');
 
         $this->validate($request, [
             'name' => 'required|max:191',
@@ -65,7 +64,7 @@ class AccountController extends Controller
      */
     public function changePassword(Request $request)
     {
-        $request->headers->set('referer', route('user.account') . '#password');
+        $request->headers->set('referer', route('user.account').'#password');
 
         $this->validate($request, [
             'old_password' => 'required',

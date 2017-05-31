@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     // Uncomment the languages that your site supports - or add new ones.
     // These are sorted by the native name, which is the order you might show them in a language selector.
     // Regional languages are sorted by their base language, so "British English" sorts as "English, British"
@@ -11,14 +10,14 @@ return [
             'script' => 'Latn',
             'native' => 'English',
             'regional' => 'en_US',
-            'locale_win' => 'English_United States.1252'
+            'locale_win' => 'English_United States.1252',
         ],
         'fr' => [
             'name' => 'labels.localization.fr',
             'script' => 'Latn',
             'native' => 'Français',
             'regional' => 'fr_FR',
-            'locale_win' => 'French_France.1252'
+            'locale_win' => 'French_France.1252',
         ],
     ],
 
@@ -34,9 +33,8 @@ return [
     //
     'hideDefaultLocaleInURL' => true,
 
-    // If you want to display the locales in particular order in the language selector you should write the order here. 
+    // If you want to display the locales in particular order in the language selector you should write the order here.
     //CAUTION: Please consider using the appropriate locale code otherwise it will not work
     //Example: 'localesOrder' => ['es','en'],
     'localesOrder' => [],
-
 ];

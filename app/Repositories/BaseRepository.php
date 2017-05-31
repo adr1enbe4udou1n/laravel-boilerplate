@@ -2,14 +2,11 @@
 
 namespace App\Repositories;
 
-use Illuminate\Database\Concerns\ManagesTransactions;
-
 /**
  * Class BaseRepository.
  */
 class BaseRepository
 {
-
     /**
      * Associated Repository Model.
      */
