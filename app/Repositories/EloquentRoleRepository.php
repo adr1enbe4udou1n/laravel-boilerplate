@@ -40,7 +40,7 @@ class EloquentRoleRepository implements RoleRepository
                 return true;
             }
 
-            throw new GeneralException(trans('exceptions.backend.roles.create_error'));
+            throw new GeneralException(trans('exceptions.backend.roles.create'));
         });
 
         $permissions = isset($input['permissions']) ? $input['permissions'] : [];
@@ -69,7 +69,7 @@ class EloquentRoleRepository implements RoleRepository
                 return true;
             }
 
-            throw new GeneralException(trans('exceptions.backend.roles.update_error'));
+            throw new GeneralException(trans('exceptions.backend.roles.update'));
         });
 
         $role->permissions()->delete();
@@ -96,7 +96,7 @@ class EloquentRoleRepository implements RoleRepository
                 return true;
             }
 
-            throw new GeneralException(trans('exceptions.backend.roles.delete_error'));
+            throw new GeneralException(trans('exceptions.backend.roles.delete'));
         });
 
         return true;

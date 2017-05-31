@@ -41,6 +41,7 @@ class EloquentMetaRepository implements MetaRepository
      */
     public function find($locale, $route)
     {
+        /** @var Meta $meta */
         return Meta::whereLocale($locale)->whereRoute($route)->first();
     }
 
@@ -55,12 +56,16 @@ class EloquentMetaRepository implements MetaRepository
     {
         $meta = new Meta($input);
 
+        if ($this->find($meta->locale, $meta->route)) {
+            throw new GeneralException(trans('exceptions.backend.metas.already_exist'));
+        }
+
         DB::transaction(function () use ($meta) {
             if ($meta->save()) {
                 return true;
             }
 
-            throw new GeneralException(trans('exceptions.backend.metas.create_error'));
+            throw new GeneralException(trans('exceptions.backend.metas.create'));
         });
 
         return $meta;
@@ -77,6 +82,10 @@ class EloquentMetaRepository implements MetaRepository
      */
     public function update(Meta $meta, $input)
     {
+        if (($existingMeta = $this->find($meta->locale, $meta->route)) && $existingMeta->id !== $meta->id) {
+            throw new GeneralException(trans('exceptions.backend.metas.already_exist'));
+        }
+
         DB::transaction(function () use ($meta, $input) {
             if ($meta->update($input)) {
                 $meta->save();
@@ -84,7 +93,7 @@ class EloquentMetaRepository implements MetaRepository
                 return true;
             }
 
-            throw new GeneralException(trans('exceptions.backend.metas.update_error'));
+            throw new GeneralException(trans('exceptions.backend.metas.update'));
         });
 
         return $meta;
@@ -104,7 +113,7 @@ class EloquentMetaRepository implements MetaRepository
                 return true;
             }
 
-            throw new GeneralException(trans('exceptions.backend.metas.delete_error'));
+            throw new GeneralException(trans('exceptions.backend.metas.delete'));
         });
 
         return true;

@@ -21,7 +21,13 @@
         {{ Form::label('route', trans('validation.attributes.route'), ['class' => 'col-lg-2 control-label']) }}
 
         <div class="col-lg-10">
-            {{ Form::text('route', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.route'), 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => trans('labels.descriptions.metas.route')]) }}
+            @if(old('route'))
+                @php($routeList = [old('route') => route(old('route'), [], false)])
+            @else
+                @php($routeList = isset($meta) ? [$meta->route => $meta->uri] : [])
+            @endif
+
+            {{ Form::select('route', $routeList, null, ['class' => 'select2-routes form-control', 'placeholder' => trans('labels.placeholder.route'), 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => trans('labels.descriptions.metas.route')]) }}
             @if ($errors->has('display_name'))
                 <span class="help-block">
                     <strong>{{ $errors->first('display_name') }}</strong>

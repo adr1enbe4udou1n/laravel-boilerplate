@@ -16,25 +16,32 @@ $(function () {
         $(this).trigger('change');
     });
 
-    $('.radio-toggle').each(function() {
-        var targets = [];
+    console.log(window.settings.ajaxUrls.routeSearch);
 
-        $(this).find('input').each(function () {
-            var target = $(this).data('target');
-            targets.push($(this).data('target'));
-
-            if ($(this).is(':checked')) {
-                $(target).show();
-            }
-        });
-
-        $(this).find('input').change(function(event) {
-            $.each(targets, function (index, value) {
-                $(value).hide();
-            });
-
-            var target = $(this).data('target');
-            $(target).fadeIn();
-        });
+    $('.select2-routes').select2({
+        minimumInputLength: 2,
+        width: '100%',
+        ajax: {
+            url: window.settings.ajaxUrls.routeSearch,
+            dataType: 'json',
+            delay: 250,
+            data: function (params) {
+                return {
+                    q: params.term,
+                    middleware: 'metas'
+                };
+            },
+            processResults: function (data, params) {
+                return {
+                    results: $.map(data, function (item, key) {
+                        return {
+                            text: item.uri,
+                            id: key
+                        }
+                    })
+                };
+            },
+            cache: true
+        }
     });
 });

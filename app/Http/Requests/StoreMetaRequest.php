@@ -23,9 +23,11 @@ class StoreMetaRequest extends FormRequest
      */
     public function rules()
     {
+        $locale = $this->get('locale');
+
         return [
             'locale' => 'required',
-            'route' => 'required',
+            'route' => 'required|unique:metas,route,NULL,id,locale,' . $locale,
         ];
     }
 }

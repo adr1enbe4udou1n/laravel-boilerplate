@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use function GuzzleHttp\Psr7\uri_for;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -22,6 +23,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Meta whereTitle($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Meta whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property mixed $uri
  */
 class Meta extends Model
 {
@@ -37,4 +39,14 @@ class Meta extends Model
             'title',
             'description',
         ];
+
+    public function getUriAttribute()
+    {
+        return $this->uri;
+    }
+
+    public function setUriAttribute($uri)
+    {
+        return $this->uri = $uri;
+    }
 }

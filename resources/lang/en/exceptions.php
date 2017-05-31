@@ -18,6 +18,7 @@ return [
             'create' => 'Error when meta creation',
             'update' => 'Error when meta updating',
             'delete' => 'Error when meta deletion',
+            'already_exist' => 'There is already a meta for this locale route'
         ],
     ],
 

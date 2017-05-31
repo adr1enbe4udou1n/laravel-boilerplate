@@ -135,6 +135,8 @@ Route::group([
         function () {
             Route::get('/', 'BackendController@index')
                 ->name('home');
+            Route::get('/route/search', 'AjaxController@routeSearch')
+                ->name('route.search');
 
             Route::group(
                 ['middleware' => ['can:manage users']],

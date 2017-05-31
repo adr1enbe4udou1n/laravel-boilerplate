@@ -56,7 +56,7 @@ class EloquentUserRepository implements UserRepository
                 return true;
             }
 
-            throw new GeneralException(trans('exceptions.backend.users.create_error'));
+            throw new GeneralException(trans('exceptions.backend.users.create'));
         });
 
         $roles = isset($input['roles']) ? $input['roles'] : [];
@@ -88,7 +88,7 @@ class EloquentUserRepository implements UserRepository
                 return true;
             }
 
-            throw new GeneralException(trans('exceptions.backend.users.update_error'));
+            throw new GeneralException(trans('exceptions.backend.users.update'));
         });
 
         $roles = isset($input['roles']) ? $input['roles'] : [];
@@ -113,7 +113,7 @@ class EloquentUserRepository implements UserRepository
                 return true;
             }
 
-            throw new GeneralException(trans('exceptions.backend.users.delete_error'));
+            throw new GeneralException(trans('exceptions.backend.users.delete'));
         });
 
         return true;

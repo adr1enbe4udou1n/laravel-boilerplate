@@ -7,10 +7,10 @@
 @import "node_modules/eonasdan-bootstrap-datetimepicker/src/sass/bootstrap-datetimepicker-build";
 @import "node_modules/font-awesome/scss/font-awesome";
 @import "node_modules/sweetalert2/src/sweetalert2";
+@import "node_modules/select2/src/scss/core";
 @import "node_modules/admin-lte/dist/css/AdminLTE";
 @import "node_modules/admin-lte/dist/css/skins/skin-blue";
 @import "node_modules/icheck/skins/square/blue";
-@import "node_modules/select2/src/scss/core";
 
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header {
   height: auto !important;

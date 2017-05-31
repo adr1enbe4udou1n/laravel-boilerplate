@@ -24,10 +24,11 @@ class UpdateMetaRequest extends FormRequest
     public function rules()
     {
         $meta = $this->route('meta');
+        $locale = $this->get('locale');
 
         return [
             'locale' => 'required',
-            'route' => 'required',
+            'route' => "required|unique:metas,route,{$meta->id},id,locale,$locale",
         ];
     }
 }

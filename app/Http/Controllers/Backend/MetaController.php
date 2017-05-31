@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateMetaRequest;
 use App\Models\Meta;
 use App\Repositories\Contracts\MetaRepository;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Router;
 use Mcamara\LaravelLocalization\LaravelLocalization;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
@@ -26,6 +27,11 @@ class MetaController extends Controller
     protected $supportedLocales;
 
     /**
+     * @var \Illuminate\Routing\Router
+     */
+    protected $router;
+
+    /**
      * Datatables Html Builder.
      *
      * @var Builder
@@ -35,16 +41,17 @@ class MetaController extends Controller
     /**
      * Create a new controller instance.
      *
-     * @param MetaRepository      $metas
-     * @param Builder             $htmlBuilder
-     * @param LaravelLocalization $localization
+     * @param MetaRepository             $metas
+     * @param Builder                    $htmlBuilder
+     * @param LaravelLocalization        $localization
      *
-     * @throws \Mcamara\LaravelLocalization\Exceptions\SupportedLocalesNotDefined
+     * @param \Illuminate\Routing\Router $router
      */
-    public function __construct(MetaRepository $metas, Builder $htmlBuilder, LaravelLocalization $localization)
+    public function __construct(MetaRepository $metas, LaravelLocalization $localization, Router $router, Builder $htmlBuilder)
     {
         $this->metas = $metas;
         $this->supportedLocales = $localization->getSupportedLocales();
+        $this->router = $router;
         $this->htmlBuilder = $htmlBuilder;
     }
 
@@ -123,6 +130,7 @@ class MetaController extends Controller
      */
     public function edit(Meta $meta)
     {
+        $meta->uri = $this->router->getRoutes()->getByName($meta->route)->uri();
         return view('backend.meta.edit')->withMeta($meta)->withLocales($this->supportedLocales);
     }
 

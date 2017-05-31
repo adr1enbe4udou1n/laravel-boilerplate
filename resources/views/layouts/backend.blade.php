@@ -23,6 +23,15 @@
 <body id="@yield('body_id')" class="hold-transition skin-blue sidebar-mini @yield('body_class')">
     @yield('body')
 
+    <!-- JS settings -->
+    <script type="application/json" data-settings-selector="settings-json">
+        {!! json_encode([
+            'ajaxUrls' => [
+                'routeSearch' => route('admin.route.search'),
+            ]
+        ]) !!}
+    </script>
+
     <!-- Scripts -->
     <script src="{{ assets('js/manifest.js') }}"></script>
     <script src="{{ assets('js/vendor.js') }}"></script>
