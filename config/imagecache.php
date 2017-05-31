@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'route' => null,
+    'route' => 'imagecache',
 
     /*
     |--------------------------------------------------------------------------
@@ -51,9 +51,9 @@ return [
     */
 
     'templates' => [
-        'small' => 'Intervention\Image\Templates\Small',
-        'medium' => 'Intervention\Image\Templates\Medium',
-        'large' => 'Intervention\Image\Templates\Large',
+        'small' => App\Image\Templates\Small::class,
+        'medium' => App\Image\Templates\Medium::class,
+        'large' => App\Image\Templates\Large::class,
     ],
 
     /*
