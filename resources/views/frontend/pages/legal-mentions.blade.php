@@ -1,10 +1,8 @@
 @extends('layouts.frontend')
 
-@section('body_id', 'page-legal-mentions')
+@section('title', trans('labels.frontend.titles.legal_mentions'))
 
-@section('title')
-    <h1>@lang('labels.frontend.titles.legal_mentions')</h1>
-@endsection
+@section('body_id', 'page-legal-mentions')
 
 @section('content')
     <p>Etiam ut purus mattis mauris sodales aliquam. Curabitur ullamcorper ultricies nisi. Quisque rutrum. Proin faucibus arcu quis ante. Sed cursus turpis vitae tortor.</p>

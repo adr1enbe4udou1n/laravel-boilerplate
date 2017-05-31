@@ -1,10 +1,8 @@
 @extends('layouts.frontend')
 
-@section('body_id', 'page-about')
+@section('title', trans('labels.frontend.titles.about'))
 
-@section('title')
-    <h1>@lang('labels.frontend.titles.about')</h1>
-@endsection
+@section('body_id', 'page-about')
 
 @section('highlight')
     @component('frontend.components.highlight')

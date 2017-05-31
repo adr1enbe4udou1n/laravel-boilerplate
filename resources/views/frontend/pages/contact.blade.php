@@ -1,10 +1,8 @@
 @extends('layouts.frontend')
 
-@section('body_id', 'page-contact')
+@section('title', trans('labels.frontend.titles.contact'))
 
-@section('title')
-    <h1>@lang('labels.frontend.titles.contact')</h1>
-@endsection
+@section('body_id', 'page-contact')
 
 @section('content')
     <form action="{{ route('contact') }}" method="POST" class="form-horizontal">

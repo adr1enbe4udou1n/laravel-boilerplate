@@ -1,8 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title')
-    <h1>@lang('labels.user.titles.space')</h1>
-@endsection
+@section('title', trans('labels.user.titles.space'))
 
 @section('content')
     <div class="row">

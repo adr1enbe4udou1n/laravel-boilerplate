@@ -10,7 +10,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $title or config('app.name') }}</title>
+    @if (!empty($title))
+        <title>{{ $title }} | {{ config('app.name') }}</title>
+    @elseif(View::hasSection('title'))
+        <title>@yield('title') | {{ config('app.name') }}</title>
+    @else
+        <title>{{ config('app.name') }}</title>
+    @endif
 
     @if (!empty($description))
         <meta name="description" content="{{ $description }}">
@@ -39,7 +45,9 @@
     @endif
 
     <div class="main-container container">
-        @yield('title')
+        @hasSection('title')
+            <h1>@yield('title')</h1>
+        @endif
         @include('partials.messages')
         @yield('content')
     </div>
