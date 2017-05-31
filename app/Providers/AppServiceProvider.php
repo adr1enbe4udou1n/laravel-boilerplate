@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Repositories\Contracts\MetaRepository;
 use App\Repositories\Contracts\RoleRepository;
 use App\Repositories\Contracts\UserRepository;
+use App\Repositories\EloquentMetaRepository;
 use App\Repositories\EloquentRoleRepository;
 use App\Repositories\EloquentUserRepository;
 use Illuminate\Support\Facades\Schema;
@@ -83,6 +85,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             RoleRepository::class,
             EloquentRoleRepository::class
+        );
+
+        $this->app->bind(
+            MetaRepository::class,
+            EloquentMetaRepository::class
         );
     }
 }

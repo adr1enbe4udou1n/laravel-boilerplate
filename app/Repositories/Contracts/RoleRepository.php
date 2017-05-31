@@ -5,7 +5,7 @@ namespace App\Repositories\Contracts;
 use App\Models\Role;
 
 /**
- * Class EloquentUserRepository.
+ * Class EloquentRoleRepository.
  */
 interface RoleRepository
 {

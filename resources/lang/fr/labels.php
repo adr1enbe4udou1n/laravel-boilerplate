@@ -29,9 +29,20 @@ return [
         ],
     ],
 
+    'localization' => [
+        'en' => 'Anglais',
+        'fr' => 'Français',
+    ],
+
     'cookieconsent' => [
         'message' => 'En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de Cookies afin de réaliser des statistiques de visites.',
         'dismiss' => 'J\'ai compris !',
+    ],
+
+    'descriptions' => [
+        'metas' => [
+            'route' => 'La valeur doit correspondre à un nom de route valide'
+        ]
     ],
 
     'user' => [
@@ -89,6 +100,15 @@ return [
                 'index' => 'Liste des rôles',
                 'create' => 'Créer un rôle',
                 'edit' => 'Editer un rôle',
+            ],
+        ],
+
+        'metas' => [
+            'titles' => [
+                'main' => 'Gestion des metas',
+                'index' => 'Liste des metas',
+                'create' => 'Créer une meta',
+                'edit' => 'Editer une meta',
             ],
         ],
     ],

@@ -15,6 +15,9 @@
             @can('manage roles')
                 <li class="{{ active_class(if_route_pattern('admin.role.*')) }}"><a href="{{ route('admin.role.index') }}"><i class="fa fa-shield"></i> <span>@lang('labels.backend.roles.titles.main')</span></a></li>
             @endcan
+            @can('manage metas')
+                <li class="{{ active_class(if_route_pattern('admin.meta.*')) }}"><a href="{{ route('admin.meta.index') }}"><i class="fa fa-tags"></i> <span>@lang('labels.backend.metas.titles.main')</span></a></li>
+            @endcan
         </ul>
         <!-- /.sidebar-menu -->
     </section>

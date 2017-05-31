@@ -7,14 +7,14 @@ return [
     // Regional languages are sorted by their base language, so "British English" sorts as "English, British"
     'supportedLocales' => [
         'en' => [
-            'name' => 'English',
+            'name' => 'labels.localization.en',
             'script' => 'Latn',
             'native' => 'English',
             'regional' => 'en_US',
             'locale_win' => 'English_United States.1252'
         ],
         'fr' => [
-            'name' => 'French',
+            'name' => 'labels.localization.fr',
             'script' => 'Latn',
             'native' => 'Français',
             'regional' => 'fr_FR',

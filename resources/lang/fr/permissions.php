@@ -18,6 +18,11 @@ return [
             'display_name' => 'Administrer les rôles',
             'description' => 'Possibilité de gérer la liste des rôles (création, mise à jour, suppression).',
         ],
+
+        'metas' => [
+            'display_name' => 'Administrer les metas',
+            'description' => 'Possibilité de gérer la liste des metas (création, mise à jour, suppression).',
+        ],
     ],
 
     'impersonate' => [

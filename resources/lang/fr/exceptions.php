@@ -13,6 +13,12 @@ return [
             'update' => 'Erreur lors de la mise à jour du rôle',
             'delete' => 'Erreur lors de la suppression du rôle',
         ],
+
+        'metas' => [
+            'create' => 'Erreur lors de la création de la meta',
+            'update' => 'Erreur lors de la mise à jour de la meta',
+            'delete' => 'Erreur lors de la suppression de la meta',
+        ],
     ],
 
     'frontend' => [

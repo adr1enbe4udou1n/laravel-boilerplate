@@ -13,6 +13,12 @@ return [
             'update' => 'Error when role updating',
             'delete' => 'Error when role deletion',
         ],
+
+        'metas' => [
+            'create' => 'Error when meta creation',
+            'update' => 'Error when meta updating',
+            'delete' => 'Error when meta deletion',
+        ],
     ],
 
     'frontend' => [

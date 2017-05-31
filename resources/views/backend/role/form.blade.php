@@ -41,8 +41,8 @@
         <div class="col-lg-10">
             @foreach($permissions as $name => $permission)
                 <div class="checkbox icheck">
-                    <label>
-                        {{ Form::checkbox('permissions[]', $name, isset($role) && $role->hasPermissions($name)) }} {{ trans($permission['display_name']) }}
+                    <label data-toggle="tooltip" data-placement="right" title="@lang($permission['description'])">
+                        {{ Form::checkbox('permissions[]', $name, isset($role) && $role->hasPermissions($name)) }} @lang($permission['display_name'])
                     </label>
                 </div>
             @endforeach

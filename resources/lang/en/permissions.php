@@ -18,6 +18,11 @@ return [
             'display_name' => 'Manage roles',
             'description' => 'Can manage all roles (create, update, delete)',
         ],
+
+        'metas' => [
+            'display_name' => 'Manage metas',
+            'description' => 'Can manage all metas (create, update, delete)',
+        ],
     ],
 
     'impersonate' => [

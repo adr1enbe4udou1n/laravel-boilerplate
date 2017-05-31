@@ -13,6 +13,12 @@ return [
             'updated' => 'Rôle mis à jour',
             'deleted' => 'Rôle supprimé',
         ],
+
+        'metas' => [
+            'created' => 'Meta créée',
+            'updated' => 'Meta mise à jour',
+            'deleted' => 'Meta supprimée',
+        ],
     ],
 
     'frontend' => [

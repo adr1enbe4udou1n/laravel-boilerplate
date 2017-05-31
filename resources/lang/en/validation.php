@@ -154,5 +154,7 @@ return [
         'active' => 'Active',
         'message' => 'Message',
         'g-recaptcha-response' => 'Captcha',
+        'locale' => 'Localization',
+        'route' => 'Internal route',
     ],
 ];

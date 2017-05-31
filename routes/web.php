@@ -161,6 +161,21 @@ Route::group([
                     );
                 }
             );
+
+            Route::group(
+                ['middleware' => ['can:manage metas']],
+                function () {
+                    Route::get('meta', 'MetaController@index')->name('meta.index');
+                    Route::get('meta/create', 'MetaController@create')->name('meta.create');
+                    Route::post('meta', 'MetaController@store')->name('meta.store');
+                    Route::get('meta/{meta}/edit', 'MetaController@edit')->name('meta.edit');
+                    Route::match(['PUT', 'PATCH'], 'meta/{meta}', 'MetaController@update')->name('meta.update');
+                    Route::delete('meta/{meta}', 'MetaController@destroy')->name('meta.destroy');
+                    Route::post('meta/search', 'MetaController@search')->name(
+                        'meta.search'
+                    );
+                }
+            );
         }
     );
 });

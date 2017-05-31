@@ -13,6 +13,12 @@ return [
             'updated' => 'Role updated',
             'deleted' => 'Role deleted',
         ],
+
+        'metas' => [
+            'created' => 'Meta created',
+            'updated' => 'Meta updated',
+            'deleted' => 'Meta deleted',
+        ],
     ],
 
     'frontend' => [

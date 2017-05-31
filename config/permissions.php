@@ -26,4 +26,9 @@ return [
         'display_name' => 'permissions.impersonate.display_name',
         'description' => 'permissions.impersonate.description',
     ],
+
+    'manage metas' => [
+        'display_name' => 'permissions.manage.metas.display_name',
+        'description' => 'permissions.manage.metas.description',
+    ],
 ];

@@ -29,9 +29,20 @@ return [
         ],
     ],
 
+    'localization' => [
+        'en' => 'English',
+        'fr' => 'French',
+    ],
+
     'cookieconsent' => [
         'message' => 'This website uses cookies to ensure you get the best experience on our website.',
         'dismiss' => 'Got it !',
+    ],
+
+    'descriptions' => [
+        'metas' => [
+            'route' => 'Value should correspond to an valid route name'
+        ]
     ],
 
     'user' => [
@@ -89,6 +100,15 @@ return [
                 'index' => 'Role list',
                 'create' => 'Role creation',
                 'edit' => 'Role modification',
+            ],
+        ],
+
+        'metas' => [
+            'titles' => [
+                'main' => 'Meta management',
+                'index' => 'Meta list',
+                'create' => 'Meta creation',
+                'edit' => 'Meta modification',
             ],
         ],
     ],
