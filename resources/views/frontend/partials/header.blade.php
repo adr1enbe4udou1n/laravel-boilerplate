@@ -45,8 +45,8 @@
                         </li>
                     @endif
                     @if (Auth::guest())
+                        <li><a href="{{ route('login') }}">@lang('labels.user.login')</a></li>
                         @if (config('app.registration'))
-                            <li><a href="{{ route('login') }}">@lang('labels.user.login')</a></li>
                             <li><a href="{{ route('register') }}">@lang('labels.user.register')</a></li>
                         @endif
                     @else

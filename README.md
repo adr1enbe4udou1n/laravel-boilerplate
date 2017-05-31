@@ -6,16 +6,20 @@
 [![Latest Stable Version](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/v/stable)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 [![License](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/license)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 
-This boilerplate is heavily inspired by the most popular laravel boilerplate [here](https://github.com/rappasoft/laravel-5-boilerplate). Main difference is this one is just a bit more lite, no history logging, no advanced permissions/roles management but just one simple role by user because sufficient for most apps.
+This boilerplate is heavily inspired by the most popular [laravel boilerplate](https://github.com/rappasoft/laravel-5-boilerplate).
 
 ![showcase](https://cloud.githubusercontent.com/assets/3679080/21204210/8443454c-c256-11e6-9d53-b95a6b19aae4.gif)
 
 ## Features
 
-* Bootstrap Frontend with basic home-about-contact pages
-* Backend with AdminLTE theme, datatables, sweet alerts, etc.
-* Basic User Management with just one role
-* Login-as feature for quick specific user context testing
+* Bootstrap Frontend with basic home-about-contact and legal mentions pages
+* [Slick carousel](http://kenwheeler.github.io/slick/) and [Cookie Consent](https://cookieconsent.insites.com/) integrated, intervention image cache for dynamic optimized images, login throttle by recaptcha, etc.
+* Frontend user space with registration (can be disabled by environment parameter)
+* Backend with AdminLTE theme and some plugins (datatables, SweetAlert2, Select2, etc.)
+* User and permissions management (classic users <-> roles <-> permissions)
+* Impersonation feature for quick specific user context testing
+* Seo Metatags management (title & description link to specific localized route)
+
 
 If you need full permissions feature, use one of this packages :
 * [ENTRUST](https://github.com/Zizaco/entrust)
