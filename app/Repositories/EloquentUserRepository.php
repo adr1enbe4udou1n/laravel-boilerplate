@@ -17,17 +17,22 @@ use Illuminate\Support\Facades\Hash;
 /**
  * Class EloquentUserRepository.
  */
-class EloquentUserRepository implements UserRepository
+class EloquentUserRepository extends BaseRepository implements UserRepository
 {
 
     use HtmlActionsButtons;
+
+    /**
+     * Associated Repository Model.
+     */
+    const MODEL = User::class;
 
     /**
      * @return mixed
      */
     public function get()
     {
-        return User::select([
+        return $this->query()->select([
             'id',
             'name',
             'email',
@@ -46,7 +51,10 @@ class EloquentUserRepository implements UserRepository
      */
     public function store($input)
     {
-        $user = new User($input);
+        $user = self::MODEL;
+
+        /** @var User $user */
+        $user = new $user($input);
         $user->password = bcrypt($input['password']);
 
         DB::transaction(function () use ($user) {
@@ -129,13 +137,13 @@ class EloquentUserRepository implements UserRepository
     {
         $user = auth()->user();
 
-        $user = User::find($user->id);
+        $user = $this->query()->find($user->id);
         $user->name = $input['name'];
         $user->email = $input['email'];
 
         if ($user->email !== $input['email']) {
             //Emails have to be unique
-            if (User::findByEmail($input['email'])) {
+            if ($this->query()->findByEmail($input['email'])) {
                 throw new GeneralException(trans('exceptions.frontend.user.email_taken'));
             }
         }
@@ -154,7 +162,7 @@ class EloquentUserRepository implements UserRepository
     {
         $user = auth()->user();
 
-        $user = User::find($user->id);
+        $user = $this->query()->find($user->id);
 
         if (Hash::check($oldPassword, $user->password)) {
             $user->password = bcrypt($newPassword);

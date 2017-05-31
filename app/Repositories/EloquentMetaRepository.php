@@ -12,17 +12,22 @@ use Illuminate\Support\Facades\DB;
 /**
  * Class EloquentMetaRepository.
  */
-class EloquentMetaRepository implements MetaRepository
+class EloquentMetaRepository extends BaseRepository implements MetaRepository
 {
 
     use HtmlActionsButtons;
+
+    /**
+     * Associated Repository Model.
+     */
+    const MODEL = Meta::class;
 
     /**
      * @return mixed
      */
     public function get()
     {
-        return Meta::select([
+        return $this->query()->select([
             'id',
             'locale',
             'route',
@@ -42,7 +47,7 @@ class EloquentMetaRepository implements MetaRepository
     public function find($locale, $route)
     {
         /** @var Meta $meta */
-        return Meta::whereLocale($locale)->whereRoute($route)->first();
+        return $this->query()->whereLocale($locale)->whereRoute($route)->first();
     }
 
     /**
@@ -54,7 +59,10 @@ class EloquentMetaRepository implements MetaRepository
      */
     public function store($input)
     {
-        $meta = new Meta($input);
+        $meta = self::MODEL;
+
+        /** @var Meta $meta */
+        $meta = new $meta($input);
 
         if ($this->find($meta->locale, $meta->route)) {
             throw new GeneralException(trans('exceptions.backend.metas.already_exist'));

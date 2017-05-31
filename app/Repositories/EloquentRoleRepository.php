@@ -12,16 +12,29 @@ use Illuminate\Support\Facades\DB;
 /**
  * Class EloquentRoleRepository.
  */
-class EloquentRoleRepository implements RoleRepository
+class EloquentRoleRepository extends BaseRepository implements RoleRepository
 {
+
     use HtmlActionsButtons;
+
+    /**
+     * Associated Repository Model.
+     */
+    const MODEL = Role::class;
 
     /**
      * @return mixed
      */
     public function get()
     {
-        return Role::select(['id', 'name', 'display_name', 'description', 'created_at', 'updated_at'])->orderBy('name');
+        return $this->query()->select([
+            'id',
+            'name',
+            'display_name',
+            'description',
+            'created_at',
+            'updated_at',
+        ])->orderBy('name');
     }
 
     /**
@@ -33,7 +46,10 @@ class EloquentRoleRepository implements RoleRepository
      */
     public function store($input)
     {
-        $role = new Role($input);
+        $role = self::MODEL;
+        
+        /** @var Role $role */
+        $role = new $role($input);
 
         DB::transaction(function () use ($role) {
             if ($role->save()) {
@@ -43,8 +59,9 @@ class EloquentRoleRepository implements RoleRepository
             throw new GeneralException(trans('exceptions.backend.roles.create'));
         });
 
-        $permissions = isset($input['permissions']) ? $input['permissions'] : [];
-        foreach($permissions as $name) {
+        $permissions = isset($input['permissions']) ? $input['permissions']
+            : [];
+        foreach ($permissions as $name) {
             $role->permissions()->create(['name' => $name]);
         }
 
@@ -53,7 +70,7 @@ class EloquentRoleRepository implements RoleRepository
 
     /**
      * @param Role $role
-     * @param $input
+     * @param      $input
      *
      * @return \App\Models\Role
      *
@@ -74,8 +91,9 @@ class EloquentRoleRepository implements RoleRepository
 
         $role->permissions()->delete();
 
-        $permissions = isset($input['permissions']) ? $input['permissions'] : [];
-        foreach($permissions as $name) {
+        $permissions = isset($input['permissions']) ? $input['permissions']
+            : [];
+        foreach ($permissions as $name) {
             $role->permissions()->create(['name' => $name]);
         }
 
