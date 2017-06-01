@@ -10,16 +10,16 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    @if (!empty($title))
-        <title>{{ $title }} | {{ config('app.name') }}</title>
+    @if (!empty($meta_title))
+        <title>{{ $meta_title }} | {{ config('app.name') }}</title>
     @elseif(View::hasSection('title'))
         <title>@yield('title') | {{ config('app.name') }}</title>
     @else
         <title>{{ config('app.name') }}</title>
     @endif
 
-    @if (!empty($description))
-        <meta name="description" content="{{ $description }}">
+    @if (!empty($meta_description))
+        <meta name="description" content="{{ $meta_description }}">
     @endif
     @yield('metas')
 

@@ -41,12 +41,12 @@ class MetaTags
         if ($meta) {
             View::composer('*',
                 function (\Illuminate\View\View $view) use ($meta) {
-                    $view->with('title', $meta->title);
+                    $view->with('meta_title', $meta->title);
                 });
 
             View::composer('*',
                 function (\Illuminate\View\View $view) use ($meta) {
-                    $view->with('description', $meta->description);
+                    $view->with('meta_description', $meta->description);
                 });
         }
 

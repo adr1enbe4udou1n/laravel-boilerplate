@@ -112,6 +112,7 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
+        $role->permissions = $role->permissions->pluck('name')->toArray();
         return view('backend.role.edit')->withRole($role)->withPermissions(config('permissions'));
     }
 

@@ -1,62 +1,39 @@
 <div class="box-body">
-    <div class="form-group{{ $errors->has('locale') ? ' has-error' : '' }}">
-        {{ Form::label('locale', trans('validation.attributes.locale'), ['class' => 'col-lg-2 control-label']) }}
+    @include('partials.form.choices', [
+        'type' => 'radio',
+        'name' => 'locale',
+        'title' => trans('validation.attributes.locale'),
+        'label_class' => 'col-lg-2',
+        'field_wrapper_class' => 'col-lg-10',
+        'choices' => $locales,
+        'choice_label' => 'name',
+    ])
 
-        <div class="col-lg-10">
-            @foreach($locales as $code => $locale)
-                <div class="radio icheck">
-                    <label>
-                        {{ Form::radio('locale', $code, isset($meta) && $meta->locale === $code) }} {{ trans($locale['name']) }}
-                    </label>
-                </div>
-            @endforeach
-            @if ($errors->has('locale'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('locale') }}</strong>
-                </span>
-            @endif
-        </div>
-    </div>
-    <div class="form-group{{ $errors->has('route') ? ' has-error' : '' }}">
-        {{ Form::label('route', trans('validation.attributes.route'), ['class' => 'col-lg-2 control-label']) }}
+    @if(old('route'))
+        @php($route_list = [old('route') => route(old('route'), [], false)])
+    @else
+        @php($route_list = isset($meta) ? [$meta->route => $meta->uri] : [])
+    @endif
 
-        <div class="col-lg-10">
-            @if(old('route'))
-                @php($routeList = [old('route') => route(old('route'), [], false)])
-            @else
-                @php($routeList = isset($meta) ? [$meta->route => $meta->uri] : [])
-            @endif
-
-            {{ Form::select('route', $routeList, null, ['class' => 'select2-routes form-control', 'placeholder' => trans('labels.placeholder.route'), 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => trans('labels.descriptions.metas.route')]) }}
-            @if ($errors->has('display_name'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('display_name') }}</strong>
-                </span>
-            @endif
-        </div>
-    </div>
-    <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
-        {{ Form::label('name', trans('validation.attributes.title'), ['class' => 'col-lg-2 control-label']) }}
-
-        <div class="col-lg-10">
-            {{ Form::text('title', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.title')]) }}
-            @if ($errors->has('title'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('title') }}</strong>
-                </span>
-            @endif
-        </div>
-    </div>
-    <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
-        {{ Form::label('name', trans('validation.attributes.description'), ['class' => 'col-lg-2 control-label']) }}
-
-        <div class="col-lg-10">
-            {{ Form::textarea('description', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.description')]) }}
-            @if ($errors->has('description'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('description') }}</strong>
-                </span>
-            @endif
-        </div>
-    </div>
+    @include('partials.form.select', [
+        'name' => 'route',
+        'title' => trans('validation.attributes.route'),
+        'label_class' => 'col-lg-2',
+        'field_wrapper_class' => 'col-lg-10',
+        'input_class' => 'select2-routes',
+        'choices' => $route_list
+    ])
+    @include('partials.form.input', [
+        'type' => 'text',
+        'name' => 'title',
+        'title' => trans('validation.attributes.title'),
+        'label_class' => 'col-lg-2',
+        'field_wrapper_class' => 'col-lg-10',
+    ])
+    @include('partials.form.textarea', [
+        'name' => 'description',
+        'title' => trans('validation.attributes.description'),
+        'label_class' => 'col-lg-2',
+        'field_wrapper_class' => 'col-lg-10',
+    ])
 </div>
