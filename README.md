@@ -6,24 +6,29 @@
 [![Latest Stable Version](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/v/stable)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 [![License](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/license)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 
-This boilerplate is heavily inspired by the most popular [laravel boilerplate](https://github.com/rappasoft/laravel-5-boilerplate).
+This boilerplate is heavily inspired by the most popular [Laravel 5 Boilerplate](https://github.com/rappasoft/laravel-5-boilerplate).
 
 ![showcase](https://cloud.githubusercontent.com/assets/3679080/21204210/8443454c-c256-11e6-9d53-b95a6b19aae4.gif)
 
 ## Features
 
+### Frontend
+
 * Bootstrap Frontend with basic home-about-contact and legal mentions pages
 * [Slick carousel](http://kenwheeler.github.io/slick/) and [Cookie Consent](https://cookieconsent.insites.com/) integrated, intervention image cache for dynamic optimized images, login throttle by recaptcha, etc.
-* Frontend user space with registration (can be disabled by environment parameter)
+* Frontend user space and profile management. Registration can be disabled by environment parameter
+
+### Backend
+
 * Backend with AdminLTE theme and some plugins (datatables, SweetAlert2, Select2, etc.)
 * User and permissions management (classic users <-> roles <-> permissions)
 * Impersonation feature for quick specific user context testing
-* Seo Metatags management (title & description link to specific localized route)
 
+### Localization & SEO
 
-If you need full permissions feature, use one of this packages :
-* [ENTRUST](https://github.com/Zizaco/entrust)
-* [laravel-permission](https://github.com/spatie/laravel-permission), this one have maximum granularity (users can be directly associate to permissions)
+* Multilingual ready thanks to [Laravel Localization](https://github.com/mcamara/laravel-localization) package. Each routes are prefixed by locale in URL for best SEO support. For this boilerplate, EN & FR locales are entirely installed
+* Robots and Sitemap integrated, multilangual include
+* Seo Metatags manageable in backend (title & description link to specific localized route)
 
 ## Install
 
@@ -31,8 +36,6 @@ If you need full permissions feature, use one of this packages :
 
 1. Launch command `composer create-project adr1enbe4udou1n/laravel-boilerplate my-project`
 2. Set database and environment variables from **.env.example**
-    * APP_ENV=[local|production]
-    * APP_URL=[Site URL]
 3. Set Web write permission if needed to `bootstrap/cache` and `storage` folders.
 4. Launch follow commands :
 
@@ -42,7 +45,7 @@ If you need full permissions feature, use one of this packages :
 composer install --no-dev --optimize-autoloader
 php artisan key:generate
 php artisan storage:link
-php artisan migrate --seed --force
+php artisan migrate --force
 ```
 
 ### For Local/Development :
@@ -51,38 +54,40 @@ php artisan migrate --seed --force
 composer install
 php artisan key:generate
 php artisan storage:link
-php artisan migrate --seed
+php artisan migrate
 ```
 
-### User creation commands and backend access
+### Backend access
 
-```shell
-php artisan user:create[:admin] {name} {email} {password}
-```
+The first user to register will be automatically super admin with no restriction and will cannot be deleted.
+Both frontend and backend have dedicated login pages. 
 
-Generate Super-admin and supervisor access :
+## Development notes
 
-```shell
-php artisan user:create:admin "Admin" admin@example.com 123456
-php artisan user:create "John Doe" john.doe@example.com 123456
-```
+### Permissions definitions
 
-Backend is accessible under `/admin` url.
+Unlike other known project as [ENTRUST](https://github.com/Zizaco/entrust) or [laravel-permission](https://github.com/spatie/laravel-permission), which are well suited for generic roles/permissions, i preferred a more lite and integrated custom solution.
 
-## Development Usage
+You will especially note that relations between roles and permissions are a bit different, while links between users and roles stay a classic many-to-many relationship. Instead of store all permissions into specific SQL table and link them with roles by a many-to-many relationship, these latter must be directly defined in a specific config file permissions. Roles just own only a list of permissions key names.
+
+Indeed i feel this approach even more logical for maintainability simply because permissions are hardly tied to the application with Laravel Authorization. This is anyway the standard way in CMS as Drupal where each module have specific config permission file. Permissions should be only owned by developers.
 
 ### Compiling assets with Webpack
 
 1. If not yet done, get Yarn globally with `npm -g i yarn` and launch `yarn`
-2. Launch `npm run dev` or `npm run watch` for compiling assets with webpack
+2. Launch `yarn dev` or `yarn watch` for compiling assets with webpack
 
-Note : If assets modified, don't forget to launch `npm run production` before deploy for each production environment.
+> Note : If assets modified, don't forget to launch `yarn production` before deploy for each production environment.
 
-## Settings
+## Note on Laravel Mix
 
-### MetaTags
+You will observe that this boilerplate does not use [Laravel Mix](https://github.com/JeffreyWay/laravel-mix) which is shipped in Laravel for all assets management.
 
-*title* et *description* metas settings can be set on `resources/lang/{locale}/metas.php` file for each routes.
+Laravel Mix still stay awesome for newcomers thanks to his laravel-like webpack fluent API, but, even if Laravel Mix can be easily overridden, for this project i preferred use my custom framework-free webpack setup in order to have total control of assets workflow.
+
+For instance, with this custom setup HMR work natively with configurable port and productions assets are correctly cleanup after each compilation in specific "dist" directory.
+
+For your info, this webpack setup is a direct recovery from my other little side-project [Express Boilerplate](https://github.com/adr1enbe4udou1n/express-boilerplate) which is optimized for quick prototype frontend development based on express Node framework.
 
 ## License
 
