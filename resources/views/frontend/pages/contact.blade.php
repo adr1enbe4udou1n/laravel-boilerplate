@@ -8,7 +8,7 @@
     <form action="{{ route('contact') }}" method="POST" class="form-horizontal">
         {{ csrf_field() }}
 
-        @include('partials.form.input', [
+        @include('partials.form.widgets.input', [
             'type' => 'text',
             'name' => 'name',
             'title' => trans('validation.attributes.name'),
@@ -16,7 +16,7 @@
             'field_wrapper_class' => 'col-md-10 col-sm-12',
         ])
 
-        @include('partials.form.input', [
+        @include('partials.form.widgets.input', [
             'type' => 'text',
             'name' => 'city',
             'title' => trans('validation.attributes.city'),
@@ -24,7 +24,7 @@
             'field_wrapper_class' => 'col-md-10 col-sm-12',
         ])
 
-        @include('partials.form.input', [
+        @include('partials.form.widgets.input', [
             'type' => 'text',
             'name' => 'phone',
             'title' => trans('validation.attributes.phone'),
@@ -32,7 +32,7 @@
             'field_wrapper_class' => 'col-md-10 col-sm-12',
         ])
 
-        @include('partials.form.input', [
+        @include('partials.form.widgets.input', [
             'type' => 'text',
             'name' => 'email',
             'title' => trans('validation.attributes.email'),
@@ -40,7 +40,7 @@
             'field_wrapper_class' => 'col-md-10 col-sm-12',
         ])
 
-        @include('partials.form.textarea', [
+        @include('partials.form.widgets.textarea', [
             'type' => 'text',
             'name' => 'message',
             'title' => trans('validation.attributes.message'),

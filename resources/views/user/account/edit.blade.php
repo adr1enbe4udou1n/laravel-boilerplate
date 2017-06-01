@@ -1,6 +1,6 @@
 {{ Form::model($logged_in_user, ['route' => 'user.account.update', 'class' => 'form-horizontal', 'method' => 'PATCH']) }}
 
-@include('partials.form.input', [
+@include('partials.form.widgets.input', [
     'type' => 'text',
     'name' => 'name',
     'title' => trans('validation.attributes.name'),
@@ -8,7 +8,7 @@
     'field_wrapper_class' => 'col-md-6',
 ])
 
-@include('partials.form.input', [
+@include('partials.form.widgets.input', [
     'type' => 'email',
     'name' => 'email',
     'title' => trans('validation.attributes.email'),

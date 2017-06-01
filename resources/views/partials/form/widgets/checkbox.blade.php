@@ -1,4 +1,4 @@
-<div class="form-group{{ $errors->has($name) ? ' has-error' : '' }}">
+@component('partials.form.group', ['name' => $name])
     @if (isset($field_wrapper_class))
         <div class="{{ $field_wrapper_class }}">
     @endif
@@ -8,12 +8,8 @@
                 {{ Form::checkbox($name, 1) }} {{ $title }}
             </label>
         </div>
-        @if ($errors->has($name))
-            <span class="help-block">
-                <strong>{{ $errors->first($name) }}</strong>
-            </span>
-        @endif
+        @include('partials.form.help')
     @if (isset($field_wrapper_class))
     </div>
     @endif
-</div>
+@endcomponent

@@ -1,5 +1,5 @@
 <div class="box-body">
-    @include('partials.form.choices', [
+    @include('partials.form.widgets.choices', [
         'type' => 'radio',
         'name' => 'locale',
         'title' => trans('validation.attributes.locale'),
@@ -15,7 +15,7 @@
         @php($route_list = isset($meta) ? [$meta->route => $meta->uri] : [])
     @endif
 
-    @include('partials.form.select', [
+    @include('partials.form.widgets.select', [
         'name' => 'route',
         'title' => trans('validation.attributes.route'),
         'label_class' => 'col-lg-2',
@@ -23,14 +23,14 @@
         'input_class' => 'select2-routes',
         'choices' => $route_list
     ])
-    @include('partials.form.input', [
+    @include('partials.form.widgets.input', [
         'type' => 'text',
         'name' => 'title',
         'title' => trans('validation.attributes.title'),
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',
     ])
-    @include('partials.form.textarea', [
+    @include('partials.form.widgets.textarea', [
         'name' => 'description',
         'title' => trans('validation.attributes.description'),
         'label_class' => 'col-lg-2',

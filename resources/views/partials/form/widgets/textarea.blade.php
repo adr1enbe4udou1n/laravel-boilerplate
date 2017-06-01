@@ -1,4 +1,4 @@
-<div class="form-group{{ $errors->has($name) ? ' has-error' : '' }}">
+@component('partials.form.group', ['name' => $name])
     @isset($title)
     {{ Form::label($name, $title, ['class' =>  isset($label_class) ? "$label_class control-label" : 'control-label']) }}
     @endisset
@@ -8,13 +8,9 @@
     @endif
 
         {{ Form::textarea($name, null, ['class' => isset($input_class) ? "$input_class form-control" : 'form-control'] + (isset($attributes) ? $attributes : [])) }}
+        @include('partials.form.help')
 
-        @if ($errors->has($name))
-            <span class="help-block">
-                <strong>{{ $errors->first($name) }}</strong>
-            </span>
-        @endif
     @if (isset($field_wrapper_class))
     </div>
     @endif
-</div>
+@endcomponent

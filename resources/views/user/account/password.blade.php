@@ -1,6 +1,6 @@
 {{ Form::open(['route' => ['user.password.change'], 'class' => 'form-horizontal', 'method' => 'PATCH']) }}
 
-@include('partials.form.input', [
+@include('partials.form.widgets.input', [
     'type' => 'password',
     'name' => 'old_password',
     'title' => trans('validation.attributes.old_password'),
@@ -8,7 +8,7 @@
     'field_wrapper_class' => 'col-md-6',
 ])
 
-@include('partials.form.input', [
+@include('partials.form.widgets.input', [
     'type' => 'password',
     'name' => 'password',
     'title' => trans('validation.attributes.new_password'),
@@ -16,7 +16,7 @@
     'field_wrapper_class' => 'col-md-6',
 ])
 
-@include('partials.form.input', [
+@include('partials.form.widgets.input', [
     'type' => 'password',
     'name' => 'password_confirmation',
     'title' => trans('validation.attributes.new_password_confirmation'),

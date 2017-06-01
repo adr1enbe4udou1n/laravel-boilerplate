@@ -1,4 +1,4 @@
-<div class="form-group{{ $errors->has($name) ? ' has-error' : '' }}">
+@component('partials.form.group', ['name' => $name])
     @isset($title)
     {{ Form::label($type === 'radio' ? $name : $name.'[]', $title, ['class' =>  isset($label_class) ? "$label_class control-label" : 'control-label']) }}
     @endisset
@@ -22,12 +22,8 @@
             </div>
         @endforeach
 
-        @if ($errors->has($name))
-            <span class="help-block">
-                <strong>{{ $errors->first($name) }}</strong>
-            </span>
-        @endif
+        @include('partials.form.help')
     @if (isset($field_wrapper_class))
     </div>
     @endif
-</div>
+@endcomponent
