@@ -1,13 +1,12 @@
 <div class="box-body">
-    @include('partials.form.widgets.choices', [
-        'type' => 'radio',
+    {!! form_row('radios', [
         'name' => 'locale',
         'title' => trans('validation.attributes.locale'),
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',
         'choices' => $locales,
         'choice_label' => 'name',
-    ])
+    ]) !!}
 
     @if(old('route'))
         @php($route_list = [old('route') => route(old('route'), [], false)])
@@ -24,8 +23,7 @@
         'options' => $route_list,
     ]) !!}
 
-    {!! form_row('input', [
-        'type' => 'text',
+    {!! form_row('text', [
         'name' => 'title',
         'title' => trans('validation.attributes.title'),
         'label_class' => 'col-lg-2',

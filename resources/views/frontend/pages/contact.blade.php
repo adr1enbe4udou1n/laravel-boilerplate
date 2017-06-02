@@ -8,32 +8,28 @@
     <form action="{{ route('contact') }}" method="POST" class="form-horizontal">
         {{ csrf_field() }}
 
-        {!! form_row('input', [
-            'type' => 'text',
+        {!! form_row('text', [
             'name' => 'name',
             'title' => trans('validation.attributes.name'),
             'label_class' => 'col-md-2 col-sm-12',
             'field_wrapper_class' => 'col-md-10 col-sm-12',
         ]) !!}
 
-        {!! form_row('input', [
-            'type' => 'text',
+        {!! form_row('text', [
             'name' => 'city',
             'title' => trans('validation.attributes.city'),
             'label_class' => 'col-md-2 col-sm-12',
             'field_wrapper_class' => 'col-md-10 col-sm-12',
         ]) !!}
 
-        {!! form_row('input', [
-            'type' => 'text',
+        {!! form_row('text', [
             'name' => 'phone',
             'title' => trans('validation.attributes.phone'),
             'label_class' => 'col-md-2 col-sm-12',
             'field_wrapper_class' => 'col-md-10 col-sm-12',
         ]) !!}
 
-        {!! form_row('input', [
-            'type' => 'text',
+        {!! form_row('text', [
             'name' => 'email',
             'title' => trans('validation.attributes.email'),
             'label_class' => 'col-md-2 col-sm-12',
@@ -41,7 +37,6 @@
         ]) !!}
 
         {!! form_row('textarea', [
-            'type' => 'text',
             'name' => 'message',
             'title' => trans('validation.attributes.message'),
             'label_class' => 'col-md-2 col-sm-12',

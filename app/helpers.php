@@ -93,16 +93,39 @@ if (!function_exists('boolean_html_label')) {
 }
 
 if (!function_exists('form_widget')) {
-    function form_widget($widget, $options)
+    function form_widget($type, $options)
     {
-        return view("partials.form.widgets.$widget", $options);
+        $options += ['type' => $type];
+
+        $widgetsLookup = [
+            'input' => [
+                'text',
+                'password',
+                'email',
+                'phone',
+                'number',
+                'date'
+            ],
+            'choices' => [
+                'checkboxes',
+                'radios'
+            ]
+        ];
+
+        foreach($widgetsLookup as $widget => $types) {
+            if (in_array($type, $types, true)) {
+                return view("partials.form.widgets.{$widget}", $options);
+            }
+        }
+
+        return view("partials.form.widgets.{$type}", $options);
     }
 }
 
 if (!function_exists('form_row')) {
-    function form_row($widget, $options)
+    function form_row($type, $options)
     {
-        $widget = form_widget($widget, $options)->render();
+        $widget = form_widget($type, $options)->render();
 
         return view('partials.form.row', $options)->withWidget($widget);
     }

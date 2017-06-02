@@ -12,6 +12,13 @@
         @else
             <label>
         @endif
+            @if($type === 'checkboxes')
+                @php($type = 'checkbox')
+            @endif
+            @if($type === 'radios')
+                @php($type = 'radio')
+            @endif
+
             {{ Form::$type($type === 'radio' ? $name : $name.'[]', $value) }} {{ trans($label) }}
         </label>
     </div>
