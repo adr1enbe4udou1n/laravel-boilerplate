@@ -8,39 +8,39 @@
     <form action="{{ route('contact') }}" method="POST" class="form-horizontal">
         {{ csrf_field() }}
 
-        @include('partials.form.widgets.input', [
+        {!! form_row('input', [
             'type' => 'text',
             'name' => 'name',
             'title' => trans('validation.attributes.name'),
             'label_class' => 'col-md-2 col-sm-12',
             'field_wrapper_class' => 'col-md-10 col-sm-12',
-        ])
+        ]) !!}
 
-        @include('partials.form.widgets.input', [
+        {!! form_row('input', [
             'type' => 'text',
             'name' => 'city',
             'title' => trans('validation.attributes.city'),
             'label_class' => 'col-md-2 col-sm-12',
             'field_wrapper_class' => 'col-md-10 col-sm-12',
-        ])
+        ]) !!}
 
-        @include('partials.form.widgets.input', [
+        {!! form_row('input', [
             'type' => 'text',
             'name' => 'phone',
             'title' => trans('validation.attributes.phone'),
             'label_class' => 'col-md-2 col-sm-12',
             'field_wrapper_class' => 'col-md-10 col-sm-12',
-        ])
+        ]) !!}
 
-        @include('partials.form.widgets.input', [
+        {!! form_row('input', [
             'type' => 'text',
             'name' => 'email',
             'title' => trans('validation.attributes.email'),
             'label_class' => 'col-md-2 col-sm-12',
             'field_wrapper_class' => 'col-md-10 col-sm-12',
-        ])
+        ]) !!}
 
-        @include('partials.form.widgets.textarea', [
+        {!! form_row('textarea', [
             'type' => 'text',
             'name' => 'message',
             'title' => trans('validation.attributes.message'),
@@ -49,7 +49,7 @@
             'attributes' => [
                 'rows' => 5
             ],
-        ])
+        ]) !!}
 
         <div class="form-group">
             <div class="col-md-2 col-sm-12 col-md-offset-2">

@@ -91,3 +91,19 @@ if (!function_exists('boolean_html_label')) {
         return "<label class='label label-danger'>".trans('labels.no').'</label>';
     }
 }
+
+if (!function_exists('form_widget')) {
+    function form_widget($widget, $options)
+    {
+        return view("partials.form.widgets.$widget", $options);
+    }
+}
+
+if (!function_exists('form_row')) {
+    function form_row($widget, $options)
+    {
+        $widget = form_widget($widget, $options)->render();
+
+        return view('partials.form.row', $options)->withWidget($widget);
+    }
+}

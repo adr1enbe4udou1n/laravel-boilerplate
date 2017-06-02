@@ -1,46 +1,51 @@
 <div class="box-body">
-    @include('partials.form.widgets.input', [
+    {!! form_row('input', [
         'type' => 'email',
         'name' => 'email',
         'title' => trans('validation.attributes.email'),
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',
         'input_group_prefix' => '<i class="fa fa-envelope"></i>',
-    ])
-    @include('partials.form.widgets.checkbox', [
+    ]) !!}
+
+    {!! form_row('checkbox', [
         'name' => 'active',
-        'title' => trans('validation.attributes.active'),
+        'label' => trans('validation.attributes.active'),
         'field_wrapper_class' => 'col-lg-offset-2 col-lg-10',
-    ])
-    @include('partials.form.widgets.input', [
+    ]) !!}
+
+    {!! form_row('input', [
         'type' => 'text',
         'name' => 'name',
         'title' => trans('validation.attributes.name'),
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',
-    ])
-    @include('partials.form.widgets.choices', [
+    ]) !!}
+
+    {!! form_row('choices', [
         'type' => 'checkbox',
         'name' => 'roles',
         'title' => trans('validation.attributes.roles'),
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',
         'choices' => $roles->get(),
-    ])
-    @include('partials.form.widgets.input', [
+    ]) !!}
+
+    {!! form_row('input', [
         'type' => 'password',
         'name' => 'password',
         'title' => trans('validation.attributes.password'),
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',
         'input_group_prefix' => '<i class="fa fa-key"></i>',
-    ])
-    @include('partials.form.widgets.input', [
+    ]) !!}
+
+    {!! form_row('input', [
         'type' => 'password',
         'name' => 'password_confirmation',
         'title' => trans('validation.attributes.password_confirmation'),
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',
         'input_group_prefix' => '<i class="fa fa-key"></i>',
-    ])
+    ]) !!}
 </div>

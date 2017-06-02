@@ -1,26 +1,29 @@
 <div class="box-body">
-    @include('partials.form.widgets.input', [
+    {!! form_row('input', [
         'type' => 'text',
         'name' => 'name',
         'title' => trans('validation.attributes.name'),
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',
-    ])
-    @include('partials.form.widgets.input', [
+    ]) !!}
+
+    {!! form_row('input', [
         'type' => 'text',
         'name' => 'display_name',
         'title' => trans('validation.attributes.display_name'),
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',
-    ])
-    @include('partials.form.widgets.input', [
+    ]) !!}
+
+    {!! form_row('input', [
         'type' => 'text',
         'name' => 'description',
         'title' => trans('validation.attributes.description'),
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',
-    ])
-    @include('partials.form.widgets.choices', [
+    ]) !!}
+
+    {!! form_row('choices', [
         'type' => 'checkbox',
         'name' => 'permissions',
         'title' => trans('validation.attributes.permissions'),
@@ -31,6 +34,6 @@
         'choice_tooltip' => [
             'position' => 'right',
             'title' => 'description',
-        ],
-    ])
+        ]
+    ]) !!}
 </div>

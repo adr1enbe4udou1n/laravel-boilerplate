@@ -15,25 +15,27 @@
         @php($route_list = isset($meta) ? [$meta->route => $meta->uri] : [])
     @endif
 
-    @include('partials.form.widgets.select', [
+    {!! form_row('select', [
         'name' => 'route',
         'title' => trans('validation.attributes.route'),
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',
         'field_class' => 'select2-routes',
         'options' => $route_list,
-    ])
-    @include('partials.form.widgets.input', [
+    ]) !!}
+
+    {!! form_row('input', [
         'type' => 'text',
         'name' => 'title',
         'title' => trans('validation.attributes.title'),
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',
-    ])
-    @include('partials.form.widgets.textarea', [
+    ]) !!}
+
+    {!! form_row('textarea', [
         'name' => 'description',
         'title' => trans('validation.attributes.description'),
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',
-    ])
+    ]) !!}
 </div>
