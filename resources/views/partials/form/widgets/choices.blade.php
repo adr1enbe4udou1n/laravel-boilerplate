@@ -16,7 +16,11 @@
                 @php($label = isset($choice_label) ? $choice->$choice_label : $choice->__toString())
             @endif
             <div class="checkbox icheck">
-                <label>
+                @if(isset($choice_tooltip))
+                    <label data-toggle="tooltip" data-placement="{{ $choice_tooltip['position'] }}" title="{{ trans(is_array($choice) ? $choice[$choice_tooltip['title']] : $choice->$choice_tooltip['title']) }}">
+                @else
+                    <label>
+                @endif
                     {{ Form::$type($type === 'radio' ? $name : $name.'[]', $value) }} {{ trans($label) }}
                 </label>
             </div>

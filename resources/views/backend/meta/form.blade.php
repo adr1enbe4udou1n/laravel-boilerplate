@@ -20,8 +20,8 @@
         'title' => trans('validation.attributes.route'),
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',
-        'input_class' => 'select2-routes',
-        'choices' => $route_list
+        'field_class' => 'select2-routes',
+        'options' => $route_list,
     ])
     @include('partials.form.widgets.input', [
         'type' => 'text',

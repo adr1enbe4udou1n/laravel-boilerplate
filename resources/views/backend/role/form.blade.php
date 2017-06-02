@@ -27,6 +27,10 @@
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',
         'choices' => $permissions,
-        'choice_label' => 'display_name'
+        'choice_label' => 'display_name',
+        'choice_tooltip' => [
+            'position' => 'right',
+            'title' => 'description',
+        ],
     ])
 </div>
