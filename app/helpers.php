@@ -109,6 +109,9 @@ if (!function_exists('form_widget')) {
             'choices' => [
                 'checkboxes',
                 'radios'
+            ],
+            'select' => [
+                'autocomplete'
             ]
         ];
 

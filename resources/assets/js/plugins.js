@@ -93,12 +93,12 @@ function addDeleteForms() {
     /**
      * Bind all bootstrap tooltips
      */
-    $("[data-toggle=\"tooltip\"]").tooltip();
+    $('[data-toggle="tooltip"]').tooltip();
 
     /**
      * Bind all bootstrap popovers
      */
-    $("[data-toggle=\"popover\"]").popover();
+    $('[data-toggle="popover"]').popover();
 
     /**
      * This closes the popover when its clicked away from
@@ -119,7 +119,7 @@ function addDeleteForms() {
             lengthMenu: [[5, 10, 15, 25, 50, -1], [5, 10, 15, 25, 50, "All"]],
         };
 
-        if (locale != 'en') {
+        if (locale !== 'en') {
             dataTableOptions = {
                 lengthMenu: [[5, 10, 15, 25, 50, -1], [5, 10, 15, 25, 50, "Tout"]],
                 language: {
@@ -141,12 +141,50 @@ function addDeleteForms() {
     /**
      * Select2
      */
-    $('.select2').select2({width: '100%'});
+    $('[data-toggle="select2"]').select2({
+        width: '100%',
+        language: locale
+    });
+
+    /**
+     * Autocomplete select2
+     */
+    $('[data-toggle="autocomplete"]').each(function() {
+        let itemValue = $(this).data('item-value');
+        let itemLabel = $(this).data('item-label');
+        let ajaxQuery = $(this).data('ajax-query') || {};
+
+        $(this).select2({
+            width: '100%',
+            language: locale,
+            minimumInputLength: $(this).data('minimum-input-length'),
+            ajax: {
+                url: $(this).data('ajax-url'),
+                dataType: 'json',
+                delay: 250,
+                data: function (params) {
+                    ajaxQuery.q = params.term;
+                    return ajaxQuery;
+                },
+                processResults: function (data, params) {
+                    return {
+                        results: $.map(data.items, function (item, key) {
+                            return {
+                                text: item[itemValue],
+                                id: item[itemLabel]
+                            }
+                        })
+                    };
+                },
+                cache: true
+            }
+        });
+    });
 
     /**
      * Datetimepicker
      */
-    $('.datetimepicker').datetimepicker({
+    $('[data-toggle="datetimepicker"]').datetimepicker({
         locale: locale
     });
 })(jQuery);

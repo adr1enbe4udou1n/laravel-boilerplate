@@ -14,13 +14,19 @@
         @php($route_list = isset($meta) ? [$meta->route => $meta->uri] : [])
     @endif
 
-    {!! form_row('select', [
+    {!! form_row('autocomplete', [
         'name' => 'route',
         'title' => trans('validation.attributes.route'),
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',
-        'field_class' => 'select2-routes',
         'options' => $route_list,
+        'ajax_url' => route('admin.route.search'),
+        'ajax_query' => [
+            'middleware' => 'metas'
+        ],
+        'minimum_input_length' => 2,
+        'item_value' => 'name',
+        'item_label' => 'uri',
     ]) !!}
 
     {!! form_row('text', [

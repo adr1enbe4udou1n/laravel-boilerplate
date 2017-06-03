@@ -38,7 +38,7 @@ class AjaxController extends Controller
         $query = $request->get('q');
         $middlware = $request->get('middleware');
 
-        $data = [];
+        $items = [];
 
         $routes = $this->router->getRoutes();
 
@@ -55,12 +55,15 @@ class AjaxController extends Controller
                     continue;
                 }
 
-                $data[$route->getName()] = [
+                $items[] = [
+                    'name' => $route->getName(),
                     'uri' => $route->uri(),
                 ];
             }
         }
 
-        return $data;
+        return [
+            'items' => $items
+        ];
     }
 }

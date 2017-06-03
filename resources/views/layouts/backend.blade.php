@@ -25,11 +25,7 @@
 
     <!-- JS settings -->
     <script type="application/json" data-settings-selector="settings-json">
-        {!! json_encode([
-            'ajaxUrls' => [
-                'routeSearch' => route('admin.route.search'),
-            ]
-        ]) !!}
+        {!! json_encode([]) !!}
     </script>
 
     <!-- Scripts -->
@@ -37,7 +33,7 @@
     <script src="{{ assets('js/vendor.js') }}"></script>
     <script src="{{ assets('js/backend.js') }}"></script>
 
-    @if (config('app.locale') != 'en')
+    @if (config('app.locale') !== 'en')
         <script src="{{ assets('i18n/moment.' . config('app.locale') . '.js') }}"></script>
         <script src="{{ assets('i18n/select2.' . config('app.locale') . '.js') }}"></script>
     @endif
