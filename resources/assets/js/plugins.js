@@ -5,7 +5,6 @@ require('datatables.net');
 require('datatables.net-bs');
 
 window.moment = require('moment');
-$.fn.datetimepicker = require('eonasdan-bootstrap-datetimepicker');
 require('bootstrap-slider');
 
 /**
@@ -34,12 +33,12 @@ function addDeleteForms() {
         .attr('onclick', '$(this).find("form").submit();');
 }
 
-const locale = $('html').attr('lang');
-
 /**
  * Place any jQuery/helper plugins in here.
  */
 (function ($) {
+
+    const locale = $('html').attr('lang');
 
     /**
      * Place the CSRF token as a header on all pages for access in AJAX requests
@@ -142,71 +141,70 @@ const locale = $('html').attr('lang');
     /**
      * Datetimepicker
      */
+    $.fn.datetimepicker = require('eonasdan-bootstrap-datetimepicker');
     $('[data-toggle="datetimepicker"]').datetimepicker({
         locale: locale
     });
-})(jQuery);
-
-/**
- * Plugins to load after DOM is ready
- */
-$(function() {
-    /**
-     * Bootstrap tabs nav specific hash manager
-     */
-    let hash = document.location.hash;
-    let tabanchor = $(`.nav-tabs a:first`);
-
-    if (hash) {
-        tabanchor = $(`.nav-tabs a[href="${hash}"]`);
-    }
-
-    tabanchor.tab('show');
-
-    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
-        window.location.hash = e.target.hash;
-    });
 
     /**
-     * Select2
+     * Plugins to load after DOM is ready
      */
-    $('[data-toggle="select2"]').select2({
-        width: '100%',
-        language: locale
-    });
+    $(function() {
+        /**
+         * Bootstrap tabs nav specific hash manager
+         */
+        let hash = document.location.hash;
+        let tabanchor = $(`.nav-tabs a:first`);
 
-    /**
-     * Autocomplete select2
-     */
-    $('[data-toggle="autocomplete"]').each(function() {
-        let itemValue = $(this).data('item-value');
-        let itemLabel = $(this).data('item-label');
-        let ajaxQuery = $(this).data('ajax-query') || {};
+        if (hash) {
+            tabanchor = $(`.nav-tabs a[href="${hash}"]`);
+        }
 
-        $(this).select2({
-            width: '100%',
-            language: locale,
-            minimumInputLength: $(this).data('minimum-input-length'),
-            ajax: {
-                url: $(this).data('ajax-url'),
-                dataType: 'json',
-                delay: 250,
-                data: function (params) {
-                    ajaxQuery.q = params.term;
-                    return ajaxQuery;
-                },
-                processResults: function (data, params) {
-                    return {
-                        results: $.map(data.items, function (item, key) {
-                            return {
-                                text: item[itemValue],
-                                id: item[itemLabel]
-                            }
-                        })
-                    };
-                },
-                cache: true
-            }
+        tabanchor.tab('show');
+
+        $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+            window.location.hash = e.target.hash;
+        });
+
+        /**
+         * Select2
+         */
+        $('[data-toggle="select2"]').select2({
+            width: '100%'
+        });
+
+        /**
+         * Autocomplete select2
+         */
+        $('[data-toggle="autocomplete"]').each(function() {
+            let itemValue = $(this).data('item-value');
+            let itemLabel = $(this).data('item-label');
+            let ajaxQuery = $(this).data('ajax-query') || {};
+
+            $(this).select2({
+                width: '100%',
+                minimumInputLength: $(this).data('minimum-input-length'),
+                ajax: {
+                    url: $(this).data('ajax-url'),
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                        ajaxQuery.q = params.term;
+                        return ajaxQuery;
+                    },
+                    processResults: function (data, params) {
+                        return {
+                            results: $.map(data.items, function (item, key) {
+                                return {
+                                    text: item[itemValue],
+                                    id: item[itemLabel]
+                                }
+                            })
+                        };
+                    },
+                    cache: true
+                }
+            });
         });
     });
-});
+})(jQuery);
