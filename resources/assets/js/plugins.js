@@ -34,11 +34,12 @@ function addDeleteForms() {
         .attr('onclick', '$(this).find("form").submit();');
 }
 
+const locale = $('html').attr('lang');
+
 /**
  * Place any jQuery/helper plugins in here.
  */
 (function ($) {
-    const locale = $('html').attr('lang');
 
     /**
      * Place the CSRF token as a header on all pages for access in AJAX requests
@@ -139,6 +140,34 @@ function addDeleteForms() {
     });
 
     /**
+     * Datetimepicker
+     */
+    $('[data-toggle="datetimepicker"]').datetimepicker({
+        locale: locale
+    });
+})(jQuery);
+
+/**
+ * Plugins to load after DOM is ready
+ */
+$(function() {
+    /**
+     * Bootstrap tabs nav specific hash manager
+     */
+    let hash = document.location.hash;
+    let tabanchor = $(`.nav-tabs a:first`);
+
+    if (hash) {
+        tabanchor = $(`.nav-tabs a[href="${hash}"]`);
+    }
+
+    tabanchor.tab('show');
+
+    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+        window.location.hash = e.target.hash;
+    });
+
+    /**
      * Select2
      */
     $('[data-toggle="select2"]').select2({
@@ -179,30 +208,5 @@ function addDeleteForms() {
                 cache: true
             }
         });
-    });
-
-    /**
-     * Datetimepicker
-     */
-    $('[data-toggle="datetimepicker"]').datetimepicker({
-        locale: locale
-    });
-})(jQuery);
-
-$(function() {
-    /**
-     * Bootstrap tabs nav specific hash manager
-     */
-    let hash = document.location.hash;
-    let tabanchor = $(`.nav-tabs a:first`);
-
-    if (hash) {
-        tabanchor = $(`.nav-tabs a[href="${hash}"]`);
-    }
-
-    tabanchor.tab('show');
-
-    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
-        window.location.hash = e.target.hash;
     });
 });
