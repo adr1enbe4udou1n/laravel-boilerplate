@@ -111,6 +111,7 @@ if (!function_exists('form_widget')) {
                 'radios'
             ],
             'select' => [
+                'select2',
                 'autocomplete'
             ]
         ];
