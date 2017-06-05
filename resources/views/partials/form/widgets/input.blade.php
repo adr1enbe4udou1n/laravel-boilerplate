@@ -3,6 +3,10 @@
 @endif
 @if (isset($required))
     @php($attributes += ['required'])
+    @php($rules = isset($rules) ? "required|$rules" : 'required')
+@endif
+@if (isset($rules))
+    @php($attributes += ['v-validate' => "'$rules'"])
 @endif
 @if (isset($tooltip))
     @php($attributes += ['data-toggle' => 'tooltip', 'data-placement' => $tooltip['position'], 'title' => $tooltip['title']])

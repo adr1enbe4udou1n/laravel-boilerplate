@@ -12,6 +12,10 @@
 @import "node_modules/admin-lte/dist/css/skins/skin-blue";
 @import "node_modules/icheck/skins/square/blue";
 
+[v-cloak] {
+  display: none;
+}
+
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header {
   height: auto !important;
 }

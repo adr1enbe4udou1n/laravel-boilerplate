@@ -10,6 +10,7 @@
 
         {!! form_row('text', [
             'name' => 'name',
+            'required' => true,
             'title' => trans('validation.attributes.name'),
             'label_class' => 'col-md-2 col-sm-12',
             'field_wrapper_class' => 'col-md-10 col-sm-12',
@@ -31,6 +32,8 @@
 
         {!! form_row('text', [
             'name' => 'email',
+            'required' => true,
+            'rules' => 'email',
             'title' => trans('validation.attributes.email'),
             'label_class' => 'col-md-2 col-sm-12',
             'field_wrapper_class' => 'col-md-10 col-sm-12',
@@ -38,6 +41,7 @@
 
         {!! form_row('textarea', [
             'name' => 'message',
+            'required' => true,
             'title' => trans('validation.attributes.message'),
             'label_class' => 'col-md-2 col-sm-12',
             'field_wrapper_class' => 'col-md-10 col-sm-12',

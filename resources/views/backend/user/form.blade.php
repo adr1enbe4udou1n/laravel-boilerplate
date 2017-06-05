@@ -1,7 +1,16 @@
 <div class="box-body">
+    {!! form_row('text', [
+        'name' => 'name',
+        'required' => true,
+        'title' => trans('validation.attributes.name'),
+        'label_class' => 'col-lg-2',
+        'field_wrapper_class' => 'col-lg-10',
+    ]) !!}
+
     {!! form_row('email', [
         'name' => 'email',
         'required' => true,
+        'rules' => 'email',
         'title' => trans('validation.attributes.email'),
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',
@@ -12,22 +21,6 @@
         'name' => 'active',
         'label' => trans('validation.attributes.active'),
         'field_wrapper_class' => 'col-lg-offset-2 col-lg-10',
-    ]) !!}
-
-    {!! form_row('text', [
-        'name' => 'name',
-        'required' => true,
-        'title' => trans('validation.attributes.name'),
-        'label_class' => 'col-lg-2',
-        'field_wrapper_class' => 'col-lg-10',
-    ]) !!}
-
-    {!! form_row('checkboxes', [
-        'name' => 'roles',
-        'title' => trans('validation.attributes.roles'),
-        'label_class' => 'col-lg-2',
-        'field_wrapper_class' => 'col-lg-10',
-        'choices' => $roles->get(),
     ]) !!}
 
     {!! form_row('password', [
@@ -44,5 +37,13 @@
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',
         'input_group_prefix' => '<i class="fa fa-key"></i>',
+    ]) !!}
+
+    {!! form_row('checkboxes', [
+        'name' => 'roles',
+        'title' => trans('validation.attributes.roles'),
+        'label_class' => 'col-lg-2',
+        'field_wrapper_class' => 'col-lg-10',
+        'choices' => $roles->get(),
     ]) !!}
 </div>

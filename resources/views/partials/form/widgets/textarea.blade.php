@@ -4,6 +4,9 @@
 @if (isset($required))
     @php($attributes += ['required'])
 @endif
+@if (isset($rules))
+    @php($attributes += ['v-validate' => "'$rules'"])
+@endif
 @if (isset($tooltip))
     @php($attributes += ['data-toggle' => 'tooltip', 'data-placement' => $tooltip['position'], 'title' => $tooltip['title']])
 @endif

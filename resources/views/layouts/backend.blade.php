@@ -18,7 +18,9 @@
     @yield('styles')
 </head>
 <body id="@yield('body_id')" class="hold-transition skin-blue sidebar-mini @yield('body_class')">
-    @yield('body')
+    <div id="app">
+        @yield('body')
+    </div>
 
     <!-- JS settings -->
     <script type="application/json" data-settings-selector="settings-json">

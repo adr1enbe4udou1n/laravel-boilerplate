@@ -33,12 +33,12 @@ function addDeleteForms() {
         .attr('onclick', '$(this).find("form").submit();');
 }
 
+const locale = $('html').attr('lang');
+
 /**
  * Place any jQuery/helper plugins in here.
  */
 (function ($) {
-
-    const locale = $('html').attr('lang');
 
     /**
      * Place the CSRF token as a header on all pages for access in AJAX requests
@@ -208,3 +208,20 @@ function addDeleteForms() {
         });
     });
 })(jQuery);
+
+/**
+ * Initialize Vue
+ */
+import Vue from 'vue';
+
+/**
+ * Vee Validate
+ */
+import VeeValidate from 'vee-validate';
+import french from 'vee-validate/dist/locale/fr';
+
+VeeValidate.Validator.addLocale(french);
+
+Vue.use(VeeValidate, {
+    locale: locale
+});
