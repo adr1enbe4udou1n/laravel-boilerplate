@@ -34,7 +34,7 @@ This boilerplate is heavily inspired by the most popular [Laravel 5 Boilerplate]
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-1. Launch command `composer create-project adr1enbe4udou1n/laravel-boilerplate my-project`
+1. Fork it and clone
 2. Set database and environment variables from **.env.example**
 3. Set Web write permission if needed to `bootstrap/cache` and `storage` folders.
 4. Launch follow commands :
