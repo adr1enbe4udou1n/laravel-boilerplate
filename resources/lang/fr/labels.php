@@ -85,6 +85,11 @@ return [
     'backend' => [
         'login-as' => 'Vous êtes actuellement connecté en tant que <strong>:name</strong>, vous pouvez à tout moment vous reconnecter en tant que <a href=":route">:admin</a>.',
 
+        'sidebar' => [
+            'access' => 'Gestion des accès',
+            'seo' => 'Paramétrages SEO'
+        ],
+
         'titles' => [
             'dashboard' => 'Tableau de bord',
         ],

@@ -56,11 +56,11 @@ class UserController extends Controller
         $html = $this->htmlBuilder
             ->setTableAttribute('class', 'table table-bordered table-hover')
             ->setTableAttribute('width', '100%')
-            ->parameters(['lengthChange' => false, 'searching' => false, 'order' => [[5, 'desc']]])
+            ->parameters(['order' => [[5, 'desc']]])
             ->addColumn(['data' => 'name', 'name' => 'name', 'title' => trans('validation.attributes.name')])
             ->addColumn(['data' => 'email', 'name' => 'email', 'title' => trans('validation.attributes.email')])
             ->addColumn(['data' => 'active', 'name' => 'active', 'title' => trans('validation.attributes.active'), 'orderable' => false])
-            ->addColumn(['data' => 'roles', 'name' => 'roles', 'title' => trans('validation.attributes.roles'), 'orderable' => false])
+            ->addColumn(['data' => 'roles', 'name' => 'roles', 'title' => trans('validation.attributes.roles'), 'searchable' => false, 'orderable' => false])
             ->addColumn(['data' => 'created_at', 'name' => 'created_at', 'title' => trans('labels.created_at')])
             ->addColumn(['data' => 'updated_at', 'name' => 'updated_at', 'title' => trans('labels.updated_at')])
             ->addColumn(['data' => 'actions', 'name' => 'actions', 'title' => trans('labels.actions'), 'orderable' => false])

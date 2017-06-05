@@ -134,3 +134,50 @@ if (!function_exists('form_row')) {
         return view('partials.form.row', $options)->withWidget($widget);
     }
 }
+
+if (!function_exists('has_access')) {
+    function has_access($route_name) {
+        $routes = \Illuminate\Support\Facades\Route::getRoutes();
+        $route = $routes->getByName($route_name);
+
+        foreach($route->gatherMiddleware() as $middleware) {
+            if (starts_with($middleware, 'can:')) {
+                $ability = explode(':', $middleware);
+                if (!Gate::allows($ability[1])) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+}
+
+if (!function_exists('menu_item_access')) {
+    function menu_item_access($route_name, $title, $parameters = [], $active_route_patterns = null)
+    {
+        if (!has_access($route_name)) {
+            return null;
+        }
+
+        $route = link_to(route($route_name), $title, $parameters, [], false);
+
+        $pattern = $active_route_patterns === null ? $route_name : $active_route_patterns;
+        $active_class = active_class(if_route_pattern($pattern));
+
+        return "<li class=\"{$active_class}\">$route</li>";
+    }
+}
+
+if (!function_exists('menu_header_access')) {
+    function menu_header_access($title, ...$route_names)
+    {
+        foreach($route_names as $route_name) {
+            if (has_access($route_name)) {
+                return "<li class=\"header\">$title</li>";
+            }
+        }
+
+        return null;
+    }
+}

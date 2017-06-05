@@ -85,6 +85,11 @@ return [
     'backend' => [
         'login-as' => 'You are actually logged as <strong>:name</strong>, you can logout as <a href=":route">:admin</a>.',
 
+        'sidebar' => [
+            'access' => 'Access management',
+            'seo' => 'SEO settings'
+        ],
+
         'titles' => [
             'dashboard' => 'Dashboard',
         ],

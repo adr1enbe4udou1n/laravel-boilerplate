@@ -9,15 +9,12 @@
             <li class="header">@lang('labels.general')</li>
             <!-- Optionally, you can add icons to the links -->
             <li class="{{ active_class(if_route_pattern('admin.home')) }}"><a href="{{ route('admin.home') }}"><i class="fa fa-tachometer"></i> <span>@lang('labels.backend.titles.dashboard')</span></a></li>
-            @can('manage users')
-                <li class="{{ active_class(if_route_pattern('admin.user.*')) }}"><a href="{{ route('admin.user.index') }}"><i class="fa fa-users"></i> <span>@lang('labels.backend.users.titles.main')</span></a></li>
-            @endcan
-            @can('manage roles')
-                <li class="{{ active_class(if_route_pattern('admin.role.*')) }}"><a href="{{ route('admin.role.index') }}"><i class="fa fa-shield"></i> <span>@lang('labels.backend.roles.titles.main')</span></a></li>
-            @endcan
-            @can('manage metas')
-                <li class="{{ active_class(if_route_pattern('admin.meta.*')) }}"><a href="{{ route('admin.meta.index') }}"><i class="fa fa-tags"></i> <span>@lang('labels.backend.metas.titles.main')</span></a></li>
-            @endcan
+
+            {!! menu_header_access(trans('labels.backend.sidebar.access'), 'admin.user.index', 'admin.role.index') !!}
+            {!! menu_item_access('admin.user.index', '<i class="fa fa-users"></i><span>' . trans('labels.backend.users.titles.main') . '</span>', [], 'admin.user.*') !!}
+            {!! menu_item_access('admin.role.index', '<i class="fa fa-shield"></i><span>' . trans('labels.backend.roles.titles.main') . '</span>', [], 'admin.role.*') !!}
+            {!! menu_header_access(trans('labels.backend.sidebar.seo'), 'admin.meta.index') !!}
+            {!! menu_item_access('admin.meta.index', '<i class="fa fa-tags"></i><span>' . trans('labels.backend.metas.titles.main') . '</span>', [], 'admin.meta.*') !!}
         </ul>
         <!-- /.sidebar-menu -->
     </section>

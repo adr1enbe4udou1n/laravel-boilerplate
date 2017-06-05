@@ -48,7 +48,7 @@ class RoleController extends Controller
         $html = $this->htmlBuilder
             ->setTableAttribute('class', 'table table-bordered table-hover')
             ->setTableAttribute('width', '100%')
-            ->parameters(['lengthChange' => false, 'searching' => false, 'order' => [[0, 'asc']]])
+            ->parameters(['lengthChange' => false, 'searching' => false, 'paging' => false, 'info' => false, 'order' => [[0, 'asc']]])
             ->addColumn(['data' => 'name', 'name' => 'name', 'title' => trans('validation.attributes.name')])
             ->addColumn(['data' => 'display_name', 'name' => 'display_name', 'title' => trans('validation.attributes.display_name')])
             ->addColumn(['data' => 'description', 'name' => 'description', 'title' => trans('validation.attributes.description'), 'orderable' => false])
