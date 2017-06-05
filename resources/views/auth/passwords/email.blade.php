@@ -20,6 +20,7 @@
 
                         {!! form_row('email', [
                             'name' => 'email',
+                            'required' => true,
                             'title' => trans('validation.attributes.email'),
                             'label_class' => 'col-md-4',
                             'field_wrapper_class' => 'col-md-6',

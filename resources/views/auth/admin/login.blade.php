@@ -10,12 +10,14 @@
 
                 {!! form_row('email', [
                     'name' => 'email',
+                    'required' => true,
                     'placeholder' => trans('validation.attributes.email'),
                     'feedback_class' => 'glyphicon glyphicon-envelope',
                 ]) !!}
 
                 {!! form_row('password', [
                     'name' => 'password',
+                    'required' => true,
                     'placeholder' => trans('validation.attributes.password'),
                     'feedback_class' => 'glyphicon glyphicon-lock',
                 ]) !!}

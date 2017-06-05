@@ -1,6 +1,7 @@
 <div class="box-body">
     {!! form_row('radios', [
         'name' => 'locale',
+        'required' => true,
         'title' => trans('validation.attributes.locale'),
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',
@@ -16,6 +17,7 @@
 
     {!! form_row('autocomplete', [
         'name' => 'route',
+        'required' => true,
         'title' => trans('validation.attributes.route'),
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',

@@ -1,6 +1,7 @@
 <div class="box-body">
     {!! form_row('text', [
         'name' => 'name',
+        'required' => true,
         'title' => trans('validation.attributes.name'),
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',

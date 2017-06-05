@@ -1,3 +1,10 @@
+@if(!isset($attributes))
+    @php($attributes = [])
+@endif
+@if (isset($required))
+    @php($attributes += ['required'])
+@endif
+
 @foreach($choices as $key => $choice)
     @if(is_array($choice))
         @php($value = isset($choice_value) ? $choice[$choice_value] : $key)
@@ -19,7 +26,7 @@
                 @php($type = 'radio')
             @endif
 
-            {{ Form::$type($type === 'radio' ? $name : $name.'[]', $value) }} {{ trans($label) }}
+            {{ Form::$type($type === 'radio' ? $name : $name.'[]', $value, null, $attributes) }} {{ trans($label) }}
         </label>
     </div>
 @endforeach

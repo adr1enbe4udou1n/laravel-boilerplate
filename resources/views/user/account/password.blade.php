@@ -2,6 +2,7 @@
 
 {!! form_row('password', [
     'name' => 'old_password',
+    'required' => true,
     'title' => trans('validation.attributes.old_password'),
     'label_class' => 'col-md-4',
     'field_wrapper_class' => 'col-md-6',
@@ -9,6 +10,7 @@
 
 {!! form_row('password', [
     'name' => 'password',
+    'required' => true,
     'title' => trans('validation.attributes.new_password'),
     'label_class' => 'col-md-4',
     'field_wrapper_class' => 'col-md-6',
@@ -16,6 +18,7 @@
 
 {!! form_row('password', [
     'name' => 'password_confirmation',
+    'required' => true,
     'title' => trans('validation.attributes.new_password_confirmation'),
     'label_class' => 'col-md-4',
     'field_wrapper_class' => 'col-md-6',

@@ -17,6 +17,7 @@
 
                 {!! form_row('email', [
                     'name' => 'email',
+                    'required' => true,
                     'placeholder' => trans('validation.attributes.email'),
                     'feedback_class' => 'glyphicon glyphicon-envelope',
                 ]) !!}
