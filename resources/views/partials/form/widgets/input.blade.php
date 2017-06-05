@@ -16,6 +16,9 @@
     @else
         {{ Form::$type($name, null, ['class' => isset($field_class) ? "$field_class form-control" : 'form-control', 'placeholder' => isset($placeholder) ? $placeholder : $title] + $attributes) }}
     @endif
+    @if (isset($feedback_class))
+    <span class="{{ $feedback_class }} form-control-feedback"></span>
+    @endif
     @if (isset($input_group_suffix))
     <span class="input-group-addon">{!! $input_group_suffix !!}</span>
     @endif

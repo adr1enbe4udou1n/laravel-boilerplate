@@ -14,16 +14,13 @@
 
             <form action="{{ route('password.email') }}" method="post">
                 {{ csrf_field() }}
-                <div class="form-group has-feedback{{ $errors->has('email') ? ' has-error' : '' }}">
-                    <input type="email" class="form-control" placeholder="@lang('validation.attributes.email')" name="email" value="{{ old('email') }}">
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 
-                    @if ($errors->has('email'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('email') }}</strong>
-                        </span>
-                    @endif
-                </div>
+                {!! form_row('email', [
+                    'name' => 'email',
+                    'placeholder' => trans('validation.attributes.email'),
+                    'feedback_class' => 'glyphicon glyphicon-envelope',
+                ]) !!}
+
                 <div class="row">
                     <!-- /.col -->
                     <div class="col-xs-12">

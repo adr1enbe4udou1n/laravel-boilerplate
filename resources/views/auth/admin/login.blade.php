@@ -7,26 +7,19 @@
         <div class="login-box-body">
             <form action="{{ route('login') }}" method="post">
                 {{ csrf_field() }}
-                <div class="form-group has-feedback{{ $errors->has('email') ? ' has-error' : '' }}">
-                    <input type="email" class="form-control" placeholder="@lang('validation.attributes.email')" name="email" value="{{ old('email') }}">
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 
-                    @if ($errors->has('email'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('email') }}</strong>
-                        </span>
-                    @endif
-                </div>
-                <div class="form-group has-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
-                    <input type="password" class="form-control" placeholder="@lang('validation.attributes.password')" name="password">
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                {!! form_row('email', [
+                    'name' => 'email',
+                    'placeholder' => trans('validation.attributes.email'),
+                    'feedback_class' => 'glyphicon glyphicon-envelope',
+                ]) !!}
 
-                    @if ($errors->has('password'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span>
-                    @endif
-                </div>
+                {!! form_row('password', [
+                    'name' => 'password',
+                    'placeholder' => trans('validation.attributes.password'),
+                    'feedback_class' => 'glyphicon glyphicon-lock',
+                ]) !!}
+
                 @if($is_locked)
                 <div class="form-group">
                     {!! Captcha::display() !!}
