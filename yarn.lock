@@ -3018,6 +3018,10 @@ interpret@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.0.3.tgz#cbc35c62eeee73f19ab7b10a801511401afc0f90"
 
+intl-tel-input@^11.0.14:
+  version "11.0.14"
+  resolved "https://registry.yarnpkg.com/intl-tel-input/-/intl-tel-input-11.0.14.tgz#e758dc7e04bf17c5e9a8b1f84103e7fe8fb4b152"
+
 invariant@^2.2.0, invariant@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.2.tgz#9e1f56ac0acdb6bf303306f338be3b204ae60360"
@@ -5674,9 +5678,9 @@ svgo@^0.7.0:
     sax "~1.2.1"
     whet.extend "~0.9.9"
 
-sweetalert2@^6.6.4:
-  version "6.6.4"
-  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-6.6.4.tgz#7799100c4dba878de2a9581b3f42d29f3dd1d9e0"
+sweetalert2@^6.6.5:
+  version "6.6.5"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-6.6.5.tgz#ffffc1064711ff7870bc8aefe1678f95ecc290db"
 
 tapable@^0.2.5, tapable@~0.2.5:
   version "0.2.6"

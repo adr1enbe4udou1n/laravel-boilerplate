@@ -127,6 +127,7 @@ return [
         'old_password' => 'Old password',
         'new_password' => 'New password',
         'new_password_confirmation' => 'Confirm new password',
+        'postal_code' => 'Postal code',
         'city' => 'City',
         'country' => 'Country',
         'address' => 'Address',

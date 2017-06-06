@@ -129,5 +129,10 @@ return [
             'contact' => 'Contact',
             'legal_mentions' => 'Mention légales',
         ],
+
+        'form' => [
+            'postal_code_city' => 'Code postal et ville',
+            'email_and_phone' => 'Adresse e-mail et téléphone'
+        ]
     ],
 ];

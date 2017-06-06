@@ -129,5 +129,10 @@ return [
             'contact' => 'Contact',
             'legal_mentions' => 'Legal mentions',
         ],
+
+        'form' => [
+            'postal_code_city' => 'Postal code and city',
+            'email_and_phone' => 'Email address and phone'
+        ]
     ],
 ];

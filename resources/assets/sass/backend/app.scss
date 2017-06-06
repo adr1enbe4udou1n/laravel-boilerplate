@@ -11,9 +11,14 @@
 @import "node_modules/admin-lte/dist/css/AdminLTE";
 @import "node_modules/admin-lte/dist/css/skins/skin-blue";
 @import "node_modules/icheck/skins/square/blue";
+@import "node_modules/intl-tel-input/src/css/intlTelInput.scss";
 
 [v-cloak] {
   display: none;
+}
+
+.intl-tel-input {
+  width: 100%;
 }
 
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header {

@@ -127,6 +127,7 @@ return [
         'old_password' => 'Ancien mot de passe',
         'new_password' => 'Nouveau mot de passe',
         'new_password_confirmation' => 'Confirmation du nouveau mot de passe',
+        'postal_code' => 'Code postal',
         'city' => 'Ville',
         'country' => 'Pays',
         'address' => 'Adresse',

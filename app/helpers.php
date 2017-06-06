@@ -92,8 +92,8 @@ if (!function_exists('boolean_html_label')) {
     }
 }
 
-if (!function_exists('form_widget')) {
-    function form_widget($type, $options)
+if (!function_exists('form_field')) {
+    function form_field($type, $options)
     {
         $options += ['type' => $type];
 
@@ -108,19 +108,28 @@ if (!function_exists('form_widget')) {
         ];
 
         if (isset($widgetsLookup[$type])) {
-            return view("partials.form.widgets.{$widgetsLookup[$type]}", $options);
+            return view("partials.form.fields.{$widgetsLookup[$type]}", $options);
         }
 
-        return view('partials.form.widgets.input', $options);
+        return view('partials.form.fields.input', $options);
+    }
+}
+
+if (!function_exists('form_widget')) {
+    function form_widget($type, $options)
+    {
+        $field = form_field($type, $options)->render();
+
+        return view('partials.form.widget', $options)->withField($field);
     }
 }
 
 if (!function_exists('form_row')) {
     function form_row($type, $options)
     {
-        $widget = form_widget($type, $options)->render();
+        $field = form_field($type, $options)->render();
 
-        return view('partials.form.row', $options)->withWidget($widget);
+        return view('partials.form.row', $options)->withField($field);
     }
 }
 

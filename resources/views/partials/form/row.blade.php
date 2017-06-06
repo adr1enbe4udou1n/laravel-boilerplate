@@ -7,7 +7,7 @@
         <div class="{{ $field_wrapper_class }}">
             @endif
 
-            {!! $widget !!}
+            {!! $field !!}
             @include('partials.form.help')
 
             @if (isset($field_wrapper_class))

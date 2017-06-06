@@ -15,12 +15,17 @@
 @import "node_modules/slick-carousel/slick/slick-theme.scss";
 @import "node_modules/select2/src/scss/core";
 @import "node_modules/cookieconsent/build/cookieconsent.min";
+@import "node_modules/intl-tel-input/src/css/intlTelInput.scss";
 
 // App
 @import "footer";
 
 [v-cloak] {
   display: none;
+}
+
+.intl-tel-input {
+  width: 100%;
 }
 
 .alert.logged-in-as {

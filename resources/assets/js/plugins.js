@@ -7,6 +7,8 @@ require('datatables.net-bs');
 window.moment = require('moment');
 require('bootstrap-slider');
 
+require('intl-tel-input');
+
 /**
  * Allows you to add data-method="METHOD to links to automatically inject a form
  * with the method on click
@@ -205,6 +207,11 @@ const locale = $('html').attr('lang');
                     cache: true
                 }
             });
+        });
+
+        $('[type="tel"]').intlTelInput({
+            initialCountry: locale === 'en' ? 'us' : locale,
+            preferredCountries: ['us', 'gb', 'fr']
         });
     });
 })(jQuery);
