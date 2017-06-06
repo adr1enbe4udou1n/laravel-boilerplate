@@ -1,6 +1,9 @@
 @if(!isset($attributes))
     @php($attributes = [])
 @endif
+@if ($type === 'email')
+    @php($rules = isset($rules) ? "email|$rules" : 'email')
+@endif
 @if (isset($required))
     @php($attributes += ['required'])
     @php($rules = isset($rules) ? "required|$rules" : 'required')

@@ -10,7 +10,6 @@
     {!! form_row('email', [
         'name' => 'email',
         'required' => true,
-        'rules' => 'email',
         'title' => trans('validation.attributes.email'),
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',

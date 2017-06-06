@@ -3,6 +3,7 @@
 @endif
 @if (isset($required))
     @php($attributes += ['required'])
+    @php($rules = isset($rules) ? "required|$rules" : 'required')
 @endif
 @if (isset($rules))
     @php($attributes += ['v-validate' => "'$rules'"])
