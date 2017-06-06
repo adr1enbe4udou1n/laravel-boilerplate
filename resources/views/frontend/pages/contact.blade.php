@@ -23,13 +23,13 @@
 
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-sm-6">
                             {!! form_row('text', [
                                 'name' => 'postal_code',
                                 'title' => trans('validation.attributes.postal_code'),
                             ]) !!}
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-sm-6">
                             {!! form_row('text', [
                                 'name' => 'city',
                                 'title' => trans('validation.attributes.city'),
@@ -40,14 +40,14 @@
 
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-sm-6">
                             {!! form_row('email', [
                                 'name' => 'email',
                                 'required' => true,
                                 'title' => trans('validation.attributes.email'),
                             ]) !!}
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-sm-6">
                             {!! form_row('tel', [
                                 'name' => 'phone',
                                 'title' => trans('validation.attributes.phone'),
