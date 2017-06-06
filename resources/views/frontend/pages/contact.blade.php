@@ -7,52 +7,50 @@
 @section('content')
 
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <form action="{{ route('contact') }}" method="POST" class="form-horizontal">
+        <div class="col-md-6">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d317718.69319292053!2d-0.3817765050863085!3d51.528307984912544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondres%2C+Royaume-Uni!5e0!3m2!1sfr!2sfr!4v1496781964517"
+                    height="550" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="col-md-6">
+            <form action="{{ route('contact') }}" method="POST">
                 {{ csrf_field() }}
 
                 {!! form_row('text', [
                     'name' => 'name',
                     'required' => true,
                     'title' => trans('validation.attributes.name'),
-                    'label_class' => 'col-md-3 col-sm-12',
-                    'field_wrapper_class' => 'col-md-9 col-sm-12',
                 ]) !!}
 
                 <div class="form-group">
-                    {{ Form::label('postal_code', trans('labels.frontend.form.postal_code_city'), ['class' =>  'col-md-3 col-sm-12 control-label']) }}
-
-                    <div class="col-md-9 col-sm-12">
-                        <div class="row">
-                            {!! form_widget('text', [
+                    <div class="row">
+                        <div class="col-md-6">
+                            {!! form_row('text', [
                                 'name' => 'postal_code',
                                 'title' => trans('validation.attributes.postal_code'),
-                                'wrapper_class' => 'col-md-6'
                             ]) !!}
-                            {!! form_widget('text', [
+                        </div>
+                        <div class="col-md-6">
+                            {!! form_row('text', [
                                 'name' => 'city',
                                 'title' => trans('validation.attributes.city'),
-                                'wrapper_class' => 'col-md-6'
                             ]) !!}
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    {{ Form::label('email', trans('labels.frontend.form.email_and_phone'), ['class' =>  'col-md-3 col-sm-12 control-label']) }}
-
-                    <div class="col-md-9 col-sm-12">
-                        <div class="row">
-                            {!! form_widget('email', [
+                    <div class="row">
+                        <div class="col-md-6">
+                            {!! form_row('email', [
                                 'name' => 'email',
                                 'required' => true,
                                 'title' => trans('validation.attributes.email'),
-                                'wrapper_class' => 'col-md-6'
                             ]) !!}
-                            {!! form_widget('tel', [
+                        </div>
+                        <div class="col-md-6">
+                            {!! form_row('tel', [
                                 'name' => 'phone',
                                 'title' => trans('validation.attributes.phone'),
-                                'wrapper_class' => 'col-md-6'
                             ]) !!}
                         </div>
                     </div>
@@ -62,23 +60,17 @@
                     'name' => 'message',
                     'required' => true,
                     'title' => trans('validation.attributes.message'),
-                    'label_class' => 'col-md-3 col-sm-12',
-                    'field_wrapper_class' => 'col-md-9 col-sm-12',
                     'attributes' => [
                         'rows' => 5
                     ],
                 ]) !!}
 
                 <div class="form-group">
-                    <div class="col-md-3 col-sm-12 col-md-offset-3">
-                        {!! Captcha::display() !!}
-                    </div>
+                    {!! Captcha::display() !!}
                 </div>
 
                 <div class="form-group">
-                    <div class="col-md-3 col-sm-12 col-md-offset-3">
-                        <input type="submit" class="btn btn-default" value="@lang('buttons.send')">
-                    </div>
+                    <input type="submit" class="btn btn-default" value="@lang('buttons.send')">
                 </div>
             </form>
         </div>

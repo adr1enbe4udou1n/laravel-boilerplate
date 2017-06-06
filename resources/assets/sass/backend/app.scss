@@ -21,6 +21,11 @@
   width: 100%;
 }
 
+iframe {
+  width: 100%;
+  border: 0;
+}
+
 .navbar-nav > .user-menu > .dropdown-menu > li.user-header {
   height: auto !important;
 }

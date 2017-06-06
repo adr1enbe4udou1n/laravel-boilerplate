@@ -115,15 +115,6 @@ if (!function_exists('form_field')) {
     }
 }
 
-if (!function_exists('form_widget')) {
-    function form_widget($type, $options)
-    {
-        $field = form_field($type, $options)->render();
-
-        return view('partials.form.widget', $options)->withField($field);
-    }
-}
-
 if (!function_exists('form_row')) {
     function form_row($type, $options)
     {
