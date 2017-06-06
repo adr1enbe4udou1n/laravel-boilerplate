@@ -211,7 +211,7 @@ const locale = $('html').attr('lang');
 
         $('[type="tel"]').intlTelInput({
             autoPlaceholder: 'aggressive',
-            utilsScript: require('intl-tel-input/build/js/utils'),
+            utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.14/js/utils.js',
             initialCountry: locale === 'en' ? 'us' : locale,
             preferredCountries: ['us', 'gb', 'fr']
         });
@@ -233,4 +233,8 @@ VeeValidate.Validator.addLocale(french);
 
 Vue.use(VeeValidate, {
     locale: locale
+});
+
+VeeValidate.Validator.extend('phone', (value, [inputId]) => {
+    return $(`#${inputId}`).intlTelInput('isValidNumber');
 });

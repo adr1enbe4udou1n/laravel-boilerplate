@@ -4,6 +4,9 @@
 @if ($type === 'email')
     @php($rules = isset($rules) ? "email|$rules" : 'email')
 @endif
+@if ($type === 'tel')
+    @php($rules = isset($rules) ? "phone:$name|$rules" : "phone:$name")
+@endif
 @if (isset($required))
     @php($attributes += ['required'])
     @php($rules = isset($rules) ? "required|$rules" : 'required')
