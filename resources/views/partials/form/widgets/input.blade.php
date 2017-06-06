@@ -21,11 +21,7 @@
     @if (isset($input_group_prefix))
     <span class="input-group-addon">{!! $input_group_prefix !!}</span>
     @endif
-    @if ($type === 'password')
-        {{ Form::password($name, ['class' => isset($field_class) ? "$field_class form-control" : 'form-control', 'placeholder' => '************'] + $attributes) }}
-    @else
-        {{ Form::$type($name, null, ['class' => isset($field_class) ? "$field_class form-control" : 'form-control', 'placeholder' => isset($placeholder) ? $placeholder : $title] + $attributes) }}
-    @endif
+    {{ Form::input($type, $name, null, ['class' => isset($field_class) ? "$field_class form-control" : 'form-control', 'placeholder' => isset($placeholder) ? $placeholder : $title] + $attributes) }}
     @if (isset($feedback_class))
     <span class="{{ $feedback_class }} form-control-feedback"></span>
     @endif
