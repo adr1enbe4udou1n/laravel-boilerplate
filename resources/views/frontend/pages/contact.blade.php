@@ -20,34 +20,30 @@
                     'title' => trans('validation.attributes.name'),
                 ]) !!}
 
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            {!! form_row('text', 'postal_code', [
-                                'title' => trans('validation.attributes.postal_code'),
-                            ]) !!}
-                        </div>
-                        <div class="col-sm-6">
-                            {!! form_row('text', 'city', [
-                                'title' => trans('validation.attributes.city'),
-                            ]) !!}
-                        </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        {!! form_row('text', 'postal_code', [
+                            'title' => trans('validation.attributes.postal_code'),
+                        ]) !!}
+                    </div>
+                    <div class="col-sm-6">
+                        {!! form_row('text', 'city', [
+                            'title' => trans('validation.attributes.city'),
+                        ]) !!}
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            {!! form_row('email', 'email', [
-                                'required' => true,
-                                'title' => trans('validation.attributes.email'),
-                            ]) !!}
-                        </div>
-                        <div class="col-sm-6">
-                            {!! form_row('tel', 'phone', [
-                                'title' => trans('validation.attributes.phone'),
-                            ]) !!}
-                        </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        {!! form_row('email', 'email', [
+                            'required' => true,
+                            'title' => trans('validation.attributes.email'),
+                        ]) !!}
+                    </div>
+                    <div class="col-sm-6">
+                        {!! form_row('tel', 'phone', [
+                            'title' => trans('validation.attributes.phone'),
+                        ]) !!}
                     </div>
                 </div>
 
