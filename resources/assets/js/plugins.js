@@ -181,7 +181,6 @@ const locale = $('html').attr('lang');
         $('[data-toggle="autocomplete"]').each(function() {
             let itemValue = $(this).data('item-value');
             let itemLabel = $(this).data('item-label');
-            let ajaxQuery = $(this).data('ajax-query') || {};
 
             $(this).select2({
                 width: '100%',
@@ -191,8 +190,9 @@ const locale = $('html').attr('lang');
                     dataType: 'json',
                     delay: 250,
                     data: function (params) {
-                        ajaxQuery.q = params.term;
-                        return ajaxQuery;
+                        return {
+                            q: params.term,
+                        };
                     },
                     processResults: function (data, params) {
                         return {

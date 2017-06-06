@@ -22,10 +22,9 @@
         'label_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-9',
         'options' => $route_list,
-        'ajax_url' => route('admin.route.search'),
-        'ajax_query' => [
+        'ajax_url' => route('admin.route.search', [
             'middleware' => 'metas'
-        ],
+        ]),
         'minimum_input_length' => 2,
         'item_value' => 'name',
         'item_label' => 'uri',
