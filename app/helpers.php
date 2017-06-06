@@ -98,31 +98,20 @@ if (!function_exists('form_widget')) {
         $options += ['type' => $type];
 
         $widgetsLookup = [
-            'input' => [
-                'text',
-                'password',
-                'email',
-                'phone',
-                'number',
-                'date'
-            ],
-            'choices' => [
-                'checkboxes',
-                'radios'
-            ],
-            'select' => [
-                'select2',
-                'autocomplete'
-            ]
+            'checkbox' => 'checkbox',
+            'textarea' => 'textarea',
+            'checkboxes' => 'choices',
+            'radios' => 'choices',
+            'select' => 'select',
+            'select2' => 'select',
+            'autocomplete' => 'select',
         ];
 
-        foreach($widgetsLookup as $widget => $types) {
-            if (in_array($type, $types, true)) {
-                return view("partials.form.widgets.{$widget}", $options);
-            }
+        if (isset($widgetsLookup[$type])) {
+            return view("partials.form.widgets.{$widgetsLookup[$type]}", $options);
         }
 
-        return view("partials.form.widgets.{$type}", $options);
+        return view('partials.form.widgets.input', $options);
     }
 }
 
