@@ -1,15 +1,13 @@
 {{ Form::model($logged_in_user, ['route' => 'user.account.update', 'class' => 'form-horizontal', 'method' => 'PATCH']) }}
 
-{!! form_row('text', [
-    'name' => 'name',
+{!! form_row('text', 'name', [
     'required' => true,
     'title' => trans('validation.attributes.name'),
     'label_class' => 'col-md-4',
     'field_wrapper_class' => 'col-md-6',
 ]) !!}
 
-{!! form_row('email', [
-    'name' => 'email',
+{!! form_row('email', 'email', [
     'required' => true,
     'title' => trans('validation.attributes.email'),
     'label_class' => 'col-md-4',

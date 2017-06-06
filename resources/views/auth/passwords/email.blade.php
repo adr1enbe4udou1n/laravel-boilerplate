@@ -18,8 +18,7 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('password.email') }}">
                         {{ csrf_field() }}
 
-                        {!! form_row('email', [
-                            'name' => 'email',
+                        {!! form_row('email', 'email', [
                             'required' => true,
                             'title' => trans('validation.attributes.email'),
                             'label_class' => 'col-md-4',

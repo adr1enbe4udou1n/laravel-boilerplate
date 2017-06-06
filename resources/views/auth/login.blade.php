@@ -11,16 +11,14 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
-                        {!! form_row('email', [
-                            'name' => 'email',
+                        {!! form_row('email', 'email', [
                             'required' => true,
                             'title' => trans('validation.attributes.email'),
                             'label_class' => 'col-md-4',
                             'field_wrapper_class' => 'col-md-6',
                         ]) !!}
 
-                        {!! form_row('password', [
-                            'name' => 'password',
+                        {!! form_row('password', 'password', [
                             'required' => true,
                             'title' => trans('validation.attributes.password'),
                             'label_class' => 'col-md-4',
@@ -35,8 +33,7 @@
                         </div>
                         @endif
 
-                        {!! form_row('checkbox', [
-                            'name' => 'remember',
+                        {!! form_row('checkbox', 'remember', [
                             'label' => trans('labels.user.remember'),
                             'field_wrapper_class' => 'col-md-6 col-md-offset-4',
                         ]) !!}

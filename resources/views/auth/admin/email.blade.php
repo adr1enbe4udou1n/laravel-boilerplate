@@ -15,8 +15,7 @@
             <form action="{{ route('password.email') }}" method="post">
                 {{ csrf_field() }}
 
-                {!! form_row('email', [
-                    'name' => 'email',
+                {!! form_row('email', 'email', [
                     'required' => true,
                     'placeholder' => trans('validation.attributes.email'),
                     'feedback_class' => 'glyphicon glyphicon-envelope',

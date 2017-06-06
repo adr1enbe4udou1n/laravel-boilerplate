@@ -93,10 +93,8 @@ if (!function_exists('boolean_html_label')) {
 }
 
 if (!function_exists('form_field')) {
-    function form_field($type, $options)
+    function form_field($type, $name, $options)
     {
-        $options += ['type' => $type];
-
         $widgetsLookup = [
             'checkbox' => 'checkbox',
             'textarea' => 'textarea',
@@ -108,19 +106,23 @@ if (!function_exists('form_field')) {
         ];
 
         if (isset($widgetsLookup[$type])) {
-            return view("partials.form.fields.{$widgetsLookup[$type]}", $options);
+            return view("partials.form.fields.{$widgetsLookup[$type]}", $options)
+                ->withType($type)
+                ->withName($name);
         }
 
-        return view('partials.form.fields.input', $options);
+        return view('partials.form.fields.input', $options)
+            ->withType($type)
+            ->withName($name);
     }
 }
 
 if (!function_exists('form_row')) {
-    function form_row($type, $options)
+    function form_row($type, $name, $options)
     {
-        $field = form_field($type, $options)->render();
+        $field = form_field($type, $name, $options)->render();
 
-        return view('partials.form.row', $options)->withField($field);
+        return view('partials.form.row', $options)->withName($name)->withField($field);
     }
 }
 

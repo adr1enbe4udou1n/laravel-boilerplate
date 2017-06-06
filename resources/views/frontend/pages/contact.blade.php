@@ -15,8 +15,7 @@
             <form action="{{ route('contact') }}" method="POST">
                 {{ csrf_field() }}
 
-                {!! form_row('text', [
-                    'name' => 'name',
+                {!! form_row('text', 'name', [
                     'required' => true,
                     'title' => trans('validation.attributes.name'),
                 ]) !!}
@@ -24,14 +23,12 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col-sm-6">
-                            {!! form_row('text', [
-                                'name' => 'postal_code',
+                            {!! form_row('text', 'postal_code', [
                                 'title' => trans('validation.attributes.postal_code'),
                             ]) !!}
                         </div>
                         <div class="col-sm-6">
-                            {!! form_row('text', [
-                                'name' => 'city',
+                            {!! form_row('text', 'city', [
                                 'title' => trans('validation.attributes.city'),
                             ]) !!}
                         </div>
@@ -41,23 +38,20 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col-sm-6">
-                            {!! form_row('email', [
-                                'name' => 'email',
+                            {!! form_row('email', 'email', [
                                 'required' => true,
                                 'title' => trans('validation.attributes.email'),
                             ]) !!}
                         </div>
                         <div class="col-sm-6">
-                            {!! form_row('tel', [
-                                'name' => 'phone',
+                            {!! form_row('tel', 'phone', [
                                 'title' => trans('validation.attributes.phone'),
                             ]) !!}
                         </div>
                     </div>
                 </div>
 
-                {!! form_row('textarea', [
-                    'name' => 'message',
+                {!! form_row('textarea', 'message', [
                     'required' => true,
                     'title' => trans('validation.attributes.message'),
                     'attributes' => [
