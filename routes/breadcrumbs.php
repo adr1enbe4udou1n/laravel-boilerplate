@@ -49,3 +49,33 @@ Breadcrumbs::register('admin.user.edit', function (Generator $breadcrumbs, $id) 
     $breadcrumbs->parent('admin.user.index');
     $breadcrumbs->push(trans('labels.backend.users.titles.edit'), route('admin.user.edit', $id));
 });
+
+Breadcrumbs::register('admin.role.index', function (Generator $breadcrumbs) {
+    $breadcrumbs->parent('admin.home');
+    $breadcrumbs->push(trans('labels.backend.roles.titles.main'), route('admin.role.index'));
+});
+
+Breadcrumbs::register('admin.role.create', function (Generator $breadcrumbs) {
+    $breadcrumbs->parent('admin.role.index');
+    $breadcrumbs->push(trans('labels.backend.roles.titles.create'), route('admin.role.create'));
+});
+
+Breadcrumbs::register('admin.role.edit', function (Generator $breadcrumbs, $id) {
+    $breadcrumbs->parent('admin.role.index');
+    $breadcrumbs->push(trans('labels.backend.roles.titles.edit'), route('admin.role.edit', $id));
+});
+
+Breadcrumbs::register('admin.meta.index', function (Generator $breadcrumbs) {
+    $breadcrumbs->parent('admin.home');
+    $breadcrumbs->push(trans('labels.backend.metas.titles.main'), route('admin.meta.index'));
+});
+
+Breadcrumbs::register('admin.meta.create', function (Generator $breadcrumbs) {
+    $breadcrumbs->parent('admin.meta.index');
+    $breadcrumbs->push(trans('labels.backend.metas.titles.create'), route('admin.meta.create'));
+});
+
+Breadcrumbs::register('admin.meta.edit', function (Generator $breadcrumbs, $id) {
+    $breadcrumbs->parent('admin.meta.index');
+    $breadcrumbs->push(trans('labels.backend.metas.titles.edit'), route('admin.meta.edit', $id));
+});
