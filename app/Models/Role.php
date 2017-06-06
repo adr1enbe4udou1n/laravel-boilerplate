@@ -59,6 +59,6 @@ class Role extends Model
 
     public function __toString()
     {
-        return $this->display_name;
+        return $this->display_name ?: $this->name;
     }
 }

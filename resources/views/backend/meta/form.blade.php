@@ -3,8 +3,8 @@
         'name' => 'locale',
         'required' => true,
         'title' => trans('validation.attributes.locale'),
-        'label_class' => 'col-lg-2',
-        'field_wrapper_class' => 'col-lg-10',
+        'label_class' => 'col-lg-3',
+        'field_wrapper_class' => 'col-lg-9',
         'choices' => $locales,
         'choice_label' => 'name',
     ]) !!}
@@ -19,8 +19,8 @@
         'name' => 'route',
         'required' => true,
         'title' => trans('validation.attributes.route'),
-        'label_class' => 'col-lg-2',
-        'field_wrapper_class' => 'col-lg-10',
+        'label_class' => 'col-lg-3',
+        'field_wrapper_class' => 'col-lg-9',
         'options' => $route_list,
         'ajax_url' => route('admin.route.search'),
         'ajax_query' => [
@@ -34,14 +34,14 @@
     {!! form_row('text', [
         'name' => 'title',
         'title' => trans('validation.attributes.title'),
-        'label_class' => 'col-lg-2',
-        'field_wrapper_class' => 'col-lg-10',
+        'label_class' => 'col-lg-3',
+        'field_wrapper_class' => 'col-lg-9',
     ]) !!}
 
     {!! form_row('textarea', [
         'name' => 'description',
         'title' => trans('validation.attributes.description'),
-        'label_class' => 'col-lg-2',
-        'field_wrapper_class' => 'col-lg-10',
+        'label_class' => 'col-lg-3',
+        'field_wrapper_class' => 'col-lg-9',
     ]) !!}
 </div>
