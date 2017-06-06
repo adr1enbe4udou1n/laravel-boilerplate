@@ -38,6 +38,7 @@
                         {!! form_row('email', 'email', [
                             'required' => true,
                             'title' => trans('validation.attributes.email'),
+                            'input_group_prefix' => '<i class="fa fa-envelope"></i>',
                         ]) !!}
                     </div>
                     <div class="col-sm-6">

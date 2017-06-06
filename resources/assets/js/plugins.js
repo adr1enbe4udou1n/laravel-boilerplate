@@ -210,6 +210,8 @@ const locale = $('html').attr('lang');
         });
 
         $('[type="tel"]').intlTelInput({
+            autoPlaceholder: 'aggressive',
+            utilsScript: require('intl-tel-input/build/js/utils'),
             initialCountry: locale === 'en' ? 'us' : locale,
             preferredCountries: ['us', 'gb', 'fr']
         });
