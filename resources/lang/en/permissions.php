@@ -9,6 +9,11 @@ return [
     ],
 
     'manage' => [
+        'form_submissions' => [
+            'display_name' => 'Manage form submissions',
+            'description' => 'Can manage all form submissions (view, delete)',
+        ],
+
         'users' => [
             'display_name' => 'Manage users',
             'description' => 'Can manage all users (create, update, delete)',

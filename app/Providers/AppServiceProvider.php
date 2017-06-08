@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Repositories\Contracts\FormSubmissionRepository;
 use App\Repositories\Contracts\MetaRepository;
 use App\Repositories\Contracts\RoleRepository;
 use App\Repositories\Contracts\UserRepository;
+use App\Repositories\EloquentFormSubmissionRepository;
 use App\Repositories\EloquentMetaRepository;
 use App\Repositories\EloquentRoleRepository;
 use App\Repositories\EloquentUserRepository;
@@ -85,6 +87,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             MetaRepository::class,
             EloquentMetaRepository::class
+        );
+
+        $this->app->bind(
+            FormSubmissionRepository::class,
+            EloquentFormSubmissionRepository::class
         );
     }
 }

@@ -157,5 +157,7 @@ return [
         'g-recaptcha-response' => 'Captcha',
         'locale' => 'Localization',
         'route' => 'Internal route',
+        'form_type' => 'Form type',
+        'form_data' => 'Form data',
     ],
 ];

@@ -12,6 +12,11 @@ return [
         'description' => 'permissions.access.backend.description',
     ],
 
+    'manage form_submissions' => [
+        'display_name' => 'permissions.manage.form_submissions.display_name',
+        'description' => 'permissions.manage.form_submissions.description',
+    ],
+
     'manage users' => [
         'display_name' => 'permissions.manage.users.display_name',
         'description' => 'permissions.manage.users.description',

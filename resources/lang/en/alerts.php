@@ -23,6 +23,11 @@ return [
             'deleted' => 'Meta deleted',
             'bulk_destroyed' => 'Selected metas deleted',
         ],
+
+        'form_submissions' => [
+            'deleted' => 'Submission deleted',
+            'bulk_destroyed' => 'Selected submissions deleted',
+        ],
     ],
 
     'frontend' => [

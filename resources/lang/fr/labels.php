@@ -86,6 +86,7 @@ return [
         'login-as' => 'Vous êtes actuellement connecté en tant que <strong>:name</strong>, vous pouvez à tout moment vous reconnecter en tant que <a href=":route">:admin</a>.',
 
         'sidebar' => [
+            'forms' => 'Gestion des formulaires',
             'access' => 'Gestion des accès',
             'seo' => 'Paramétrages SEO'
         ],
@@ -130,6 +131,21 @@ return [
                 'destroy' => 'Supprimer les metas sélectionnés',
             ]
         ],
+
+        'form_submissions' => [
+            'titles' => [
+                'main' => 'Gestion des soumissions',
+                'index' => 'Liste des soumissions',
+            ],
+
+            'actions' => [
+                'destroy' => 'Supprimer les soumissions sélectionnées',
+            ],
+
+            'form_types' => [
+                'contact' => 'Formulaire de contact'
+            ]
+        ],
     ],
 
     'frontend' => [
@@ -137,7 +153,12 @@ return [
             'home' => 'Accueil',
             'about' => 'Qui sommes-nous ?',
             'contact' => 'Contact',
+            'message_sent' => 'Message envoyé',
             'legal_mentions' => 'Mention légales',
         ],
+
+        'submissions' => [
+            'message_sent' => '<p>Votre demande de contact a bien été envoyée</p>'
+        ]
     ],
 ];

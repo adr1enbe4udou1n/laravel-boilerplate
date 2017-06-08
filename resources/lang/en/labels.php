@@ -86,6 +86,7 @@ return [
         'login-as' => 'You are actually logged as <strong>:name</strong>, you can logout as <a href=":route">:admin</a>.',
 
         'sidebar' => [
+            'forms' => 'Form management',
             'access' => 'Access management',
             'seo' => 'SEO settings'
         ],
@@ -130,6 +131,21 @@ return [
                 'destroy' => 'Delete selected metas',
             ]
         ],
+
+        'form_submissions' => [
+            'titles' => [
+                'main' => 'Submission management',
+                'index' => 'Submission list',
+            ],
+
+            'actions' => [
+                'destroy' => 'Delete selected submissions',
+            ],
+
+            'form_types' => [
+                'contact' => 'Contact form'
+            ]
+        ],
     ],
 
     'frontend' => [
@@ -137,7 +153,12 @@ return [
             'home' => 'Home',
             'about' => 'About',
             'contact' => 'Contact',
+            'message_sent' => 'Message sent',
             'legal_mentions' => 'Legal mentions',
         ],
+
+        'submissions' => [
+            'message_sent' => '<p>Your message has been successfully sent</p>'
+        ]
     ],
 ];

@@ -21,7 +21,12 @@ return [
             'created' => 'Meta créée',
             'updated' => 'Meta mise à jour',
             'deleted' => 'Meta supprimée',
-            'bulk_destroyed' => 'Metas sélectionnés supprimés',
+            'bulk_destroyed' => 'Metas sélectionnées supprimées',
+        ],
+
+        'form_submissions' => [
+            'deleted' => 'Soumission supprimée',
+            'bulk_destroyed' => 'Soumissions sélectionnées supprimées',
         ],
     ],
 

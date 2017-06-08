@@ -15,19 +15,19 @@ interface RoleRepository
     public function get();
 
     /**
-     * @param $input
+     * @param array $input
      *
      * @return mixed
      */
-    public function store($input);
+    public function store(array $input);
 
     /**
      * @param Role $role
-     * @param $input
+     * @param array $input
      *
      * @return mixed
      */
-    public function update(Role $role, $input);
+    public function update(Role $role, array $input);
 
     /**
      * @param Role $role

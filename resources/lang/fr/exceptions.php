@@ -20,6 +20,11 @@ return [
             'delete' => 'Erreur lors de la suppression de la meta',
             'already_exist' => 'Il existe déjà une meta pour cette route',
         ],
+
+        'form_submissions' => [
+            'create' => 'Erreur lors de la création de la soumission',
+            'delete' => 'Erreur lors de la suppression de la soumission',
+        ],
     ],
 
     'frontend' => [

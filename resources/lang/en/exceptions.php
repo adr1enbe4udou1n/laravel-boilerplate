@@ -20,6 +20,11 @@ return [
             'delete' => 'Error when meta deletion',
             'already_exist' => 'There is already a meta for this locale route',
         ],
+
+        'form_submissions' => [
+            'create' => 'Error when submission creation',
+            'delete' => 'Error when submission deletion',
+        ],
     ],
 
     'frontend' => [

@@ -4,11 +4,27 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Mail\ContactSend;
+use App\Repositories\Contracts\FormSubmissionRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class FrontendController extends Controller
 {
+    /**
+     * @var FormSubmissionRepository
+     */
+    protected $formSubmissions;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @param \App\Repositories\Contracts\FormSubmissionRepository $formSubmissions
+     */
+    public function __construct(FormSubmissionRepository $formSubmissions)
+    {
+        $this->formSubmissions = $formSubmissions;
+    }
+
     public function index()
     {
         return view('frontend.home');
@@ -24,19 +40,12 @@ class FrontendController extends Controller
         if ($request->isMethod('POST')) {
             $this->validate($request, [
                 'name' => 'required',
-                'city' => 'required',
-                'phone' => 'required',
                 'email' => 'required|email',
                 'message' => 'required',
                 'g-recaptcha-response' => 'required|captcha',
             ]);
 
-            Mail::to([
-                [
-                    'email' => 'admin@example.com',
-                    'name' => 'Admin',
-                ],
-            ])->send(new ContactSend($request->input()));
+            $this->formSubmissions->store('contact', $request->input());
 
             return redirect(route('contact-sent'));
         }

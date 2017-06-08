@@ -9,6 +9,11 @@ return [
     ],
 
     'manage' => [
+        'form_submissions' => [
+            'display_name' => 'Administrer les soumissions de formulaire',
+            'description' => 'Possibilité de gérer la liste des soumissions de formulaire (détail, suppressions)',
+        ],
+
         'users' => [
             'display_name' => 'Administrer les utilisateurs',
             'description' => 'Possibilité de gérer la liste des utilisateurs (création, mise à jour, suppression).',

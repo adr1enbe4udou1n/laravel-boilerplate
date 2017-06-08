@@ -140,6 +140,25 @@ Route::group([
                 ->name('route.search');
 
             Route::group(
+                ['middleware' => ['can:manage form_submissions']],
+                function () {
+                    Route::get('form-submission', 'FormSubmissionController@index')
+                        ->name('form_submission.index');
+                    Route::delete('form-submission/{form_submission}', 'FormSubmissionController@destroy')
+                        ->name('form_submission.destroy');
+
+                    Route::post('form_submission/search', 'FormSubmissionController@search')->name(
+                        'form_submission.search'
+                    );
+
+                    Route::post('form_submission/batch-action',
+                        'FormSubmissionController@batchAction')->name(
+                        'form_submission.batch-action'
+                    );
+                }
+            );
+
+            Route::group(
                 ['middleware' => ['can:manage users']],
                 function () {
                     Route::resource('user', 'UserController',

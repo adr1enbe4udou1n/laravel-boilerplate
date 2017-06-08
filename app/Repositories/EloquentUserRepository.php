@@ -19,10 +19,12 @@ use Illuminate\Support\Facades\Hash;
  */
 class EloquentUserRepository extends BaseRepository implements UserRepository
 {
+
     use HtmlActionsButtons;
 
     /**
      * EloquentUserRepository constructor.
+     *
      * @param User $user
      */
     public function __construct(User $user)
@@ -46,13 +48,13 @@ class EloquentUserRepository extends BaseRepository implements UserRepository
     }
 
     /**
-     * @param  $input
+     * @param  array $input
      *
      * @return \App\Models\User
      *
      * @throws \Exception|\Throwable
      */
-    public function store($input)
+    public function store(array $input)
     {
         /** @var User $user */
         $user = $this->make($input);
@@ -75,15 +77,15 @@ class EloquentUserRepository extends BaseRepository implements UserRepository
     }
 
     /**
-     * @param User $user
-     * @param      $input
+     * @param User       $user
+     * @param      array $input
      *
      * @return \App\Models\User
      *
      * @throws Exception
      * @throws \Exception|\Throwable
      */
-    public function update(User $user, $input)
+    public function update(User $user, array $input)
     {
         DB::transaction(function () use ($user, $input) {
             if ($user->update($input)) {
@@ -159,7 +161,9 @@ class EloquentUserRepository extends BaseRepository implements UserRepository
     public function batchEnable(array $ids)
     {
         DB::transaction(function () use ($ids) {
-            if ($this->query()->whereIn('id', $ids)->update(['active' => true])) {
+            if ($this->query()->whereIn('id', $ids)
+                ->update(['active' => true])
+            ) {
                 return true;
             }
 
@@ -179,7 +183,9 @@ class EloquentUserRepository extends BaseRepository implements UserRepository
     public function batchDisable(array $ids)
     {
         DB::transaction(function () use ($ids) {
-            if ($this->query()->whereIn('id', $ids)->update(['active' => false])) {
+            if ($this->query()->whereIn('id', $ids)
+                ->update(['active' => false])
+            ) {
                 return true;
             }
 
@@ -330,7 +336,7 @@ class EloquentUserRepository extends BaseRepository implements UserRepository
     {
         if ($admin_id = session()->get('admin_user_id')) {
             $this->flushTempSession();
-            $user = auth()->loginUsingId((int) $admin_id);
+            $user = auth()->loginUsingId((int)$admin_id);
             $this->loadPermissions($user);
         }
 

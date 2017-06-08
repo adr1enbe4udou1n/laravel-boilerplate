@@ -23,19 +23,19 @@ interface MetaRepository
     public function find($locale, $route);
 
     /**
-     * @param $input
+     * @param array $input
      *
      * @return mixed
      */
-    public function store($input);
+    public function store(array $input);
 
     /**
      * @param Meta $meta
-     * @param $input
+     * @param array $input
      *
      * @return mixed
      */
-    public function update(Meta $meta, $input);
+    public function update(Meta $meta, array $input);
 
     /**
      * @param Meta $meta

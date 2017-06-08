@@ -16,19 +16,19 @@ interface UserRepository
     public function get();
 
     /**
-     * @param $input
+     * @param array $input
      *
      * @return mixed
      */
-    public function store($input);
+    public function store(array $input);
 
     /**
      * @param User $user
-     * @param      $input
+     * @param      array $input
      *
      * @return mixed
      */
-    public function update(User $user, $input);
+    public function update(User $user, array $input);
 
     /**
      * @param User $user

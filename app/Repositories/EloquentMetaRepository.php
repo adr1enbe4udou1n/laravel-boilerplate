@@ -14,10 +14,12 @@ use Illuminate\Support\Facades\DB;
  */
 class EloquentMetaRepository extends BaseRepository implements MetaRepository
 {
+
     use HtmlActionsButtons;
 
     /**
      * EloquentMetaRepository constructor.
+     *
      * @param Meta $meta
      */
     public function __construct(Meta $meta)
@@ -50,17 +52,18 @@ class EloquentMetaRepository extends BaseRepository implements MetaRepository
     public function find($locale, $route)
     {
         /* @var Meta $meta */
-        return $this->query()->whereLocale($locale)->whereRoute($route)->first();
+        return $this->query()->whereLocale($locale)->whereRoute($route)
+            ->first();
     }
 
     /**
-     * @param  $input
+     * @param  array $input
      *
      * @return \App\Models\Meta
      *
      * @throws \Exception|\Throwable
      */
-    public function store($input)
+    public function store(array $input)
     {
         /** @var Meta $meta */
         $meta = $this->make($input);
@@ -82,16 +85,18 @@ class EloquentMetaRepository extends BaseRepository implements MetaRepository
 
     /**
      * @param Meta $meta
-     * @param      $input
+     * @param      array $input
      *
      * @return \App\Models\Meta
      *
      * @throws Exception
      * @throws \Exception|\Throwable
      */
-    public function update(Meta $meta, $input)
+    public function update(Meta $meta, array $input)
     {
-        if (($existingMeta = $this->find($meta->locale, $meta->route)) && $existingMeta->id !== $meta->id) {
+        if (($existingMeta = $this->find($meta->locale, $meta->route))
+            && $existingMeta->id !== $meta->id
+        ) {
             throw new GeneralException(trans('exceptions.backend.metas.already_exist'));
         }
 

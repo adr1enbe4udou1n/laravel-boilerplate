@@ -10,6 +10,8 @@
             <!-- Optionally, you can add icons to the links -->
             <li class="{{ active_class(if_route_pattern('admin.home')) }}"><a href="{{ route('admin.home') }}"><i class="fa fa-tachometer"></i> <span>@lang('labels.backend.titles.dashboard')</span></a></li>
 
+            {!! menu_header_access(trans('labels.backend.sidebar.access'), 'admin.form_submission.index') !!}
+            {!! menu_item_access('admin.form_submission.index', '<i class="fa fa-id-card-o"></i><span>' . trans('labels.backend.form_submissions.titles.main') . '</span>', [], 'admin.form_submission.*') !!}
             {!! menu_header_access(trans('labels.backend.sidebar.access'), 'admin.user.index', 'admin.role.index') !!}
             {!! menu_item_access('admin.user.index', '<i class="fa fa-users"></i><span>' . trans('labels.backend.users.titles.main') . '</span>', [], 'admin.user.*') !!}
             {!! menu_item_access('admin.role.index', '<i class="fa fa-shield"></i><span>' . trans('labels.backend.roles.titles.main') . '</span>', [], 'admin.role.*') !!}

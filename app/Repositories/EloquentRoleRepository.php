@@ -14,10 +14,12 @@ use Illuminate\Support\Facades\DB;
  */
 class EloquentRoleRepository extends BaseRepository implements RoleRepository
 {
+
     use HtmlActionsButtons;
 
     /**
      * EloquentRoleRepository constructor.
+     *
      * @param Role $role
      */
     public function __construct(Role $role)
@@ -41,13 +43,13 @@ class EloquentRoleRepository extends BaseRepository implements RoleRepository
     }
 
     /**
-     * @param  $input
+     * @param  array $input
      *
      * @return \App\Models\Role
      *
      * @throws \Exception|\Throwable
      */
-    public function store($input)
+    public function store(array $input)
     {
         /** @var Role $role */
         $role = $this->make($input);
@@ -70,15 +72,15 @@ class EloquentRoleRepository extends BaseRepository implements RoleRepository
     }
 
     /**
-     * @param Role $role
-     * @param      $input
+     * @param Role       $role
+     * @param      array $input
      *
      * @return \App\Models\Role
      *
      * @throws Exception
      * @throws \Exception|\Throwable
      */
-    public function update(Role $role, $input)
+    public function update(Role $role, array $input)
     {
         DB::transaction(function () use ($role, $input) {
             if ($role->update($input)) {

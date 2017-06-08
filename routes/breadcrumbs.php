@@ -16,6 +16,11 @@ Breadcrumbs::register('contact', function (Generator $breadcrumbs) {
     $breadcrumbs->push(trans('labels.frontend.titles.contact'), route('contact'));
 });
 
+Breadcrumbs::register('contact-sent', function (Generator $breadcrumbs) {
+    $breadcrumbs->parent('contact');
+    $breadcrumbs->push(trans('labels.frontend.titles.message_sent'), route('contact-sent'));
+});
+
 Breadcrumbs::register('legal-mentions', function (Generator $breadcrumbs) {
     $breadcrumbs->parent('home');
     $breadcrumbs->push(trans('labels.frontend.titles.legal_mentions'), route('legal-mentions'));
