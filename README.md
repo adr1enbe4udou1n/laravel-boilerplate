@@ -15,20 +15,29 @@ This boilerplate is heavily inspired by the most popular [Laravel 5 Boilerplate]
 ### Frontend
 
 * Bootstrap Frontend with basic home-about-contact and legal mentions pages
-* [Slick carousel](http://kenwheeler.github.io/slick/) and [Cookie Consent](https://cookieconsent.insites.com/) integrated, intervention image cache for dynamic optimized images, login throttle by recaptcha, etc.
+* [Slick carousel](http://kenwheeler.github.io/slick/) and [Cookie Consent](https://cookieconsent.insites.com/) integrated
+* Intervention image cache for dynamic optimized images
+* Login throttle by recaptcha.
 * Frontend user space and profile management. Registration can be disabled by environment parameter
 
 ### Backend
 
 * Backend with AdminLTE theme and some plugins (datatables, SweetAlert2, Select2, etc.)
+* Batch actions integrated within datatables
 * User and permissions management (classic users <-> roles <-> permissions)
 * Impersonation feature for quick specific user context testing
 
 ### Localization & SEO
 
-* Multilingual ready thanks to [Laravel Localization](https://github.com/mcamara/laravel-localization) package. Each routes are prefixed by locale in URL for best SEO support. For this boilerplate, EN & FR locales are entirely installed
-* Robots and Sitemap integrated, multilangual include
+* Multilingual ready thanks to [Laravel Localization](https://github.com/mcamara/laravel-localization) package. Each routes are prefixed by locale in URL for best SEO support. For this boilerplate, EN & FR locales are 100% completed
+* Robots and Sitemap integrated, include multilingual
 * Seo Metatags manageable in backend (title & description link to specific localized route)
+
+### Developer Tools
+
+* Form helpers with client validation by vee-validate
+* Permissions configuration
+* Menu access helpers
 
 ## Install
 
@@ -88,6 +97,26 @@ Laravel Mix still stay awesome for newcomers thanks to his laravel-like webpack 
 For instance, with this custom setup HMR work natively with configurable port and productions assets are correctly cleanup after each compilation in specific "dist" directory.
 
 For your info, this webpack setup is a direct recovery from my other little side-project [Express Boilerplate](https://github.com/adr1enbe4udou1n/express-boilerplate) which is optimized for quick prototype frontend development based on express Node framework.
+
+## TODO
+
+- [ ] Data seeds
+- [x] Batch actions
+- [x] Form & menu access helpers
+- [x] Metas management
+- [x] Permissions management
+- [ ] Form submissions backup
+- [ ] Client validation with vee-validate
+- [ ] Titles associate with routes ?
+- [ ] Alias url system for routing ?
+- [ ] 301 redirection management with CSV import
+- [ ] Own account deletion
+- [ ] Account preferred language selection
+- [ ] Account mail confirmation
+- [ ] Account avatar
+- [ ] Facebook/Twitter/Google Sign in with socialite package
+- [ ] Inclusion of unit/featured/browser tests
+- [ ] Blog system (posts, publication date, multilangue, HTML wysiwyg, tags, featured image, medias, public user profile)
 
 ## License
 
