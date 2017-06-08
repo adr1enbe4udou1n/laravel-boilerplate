@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\DB;
  */
 class EloquentRoleRepository extends BaseRepository implements RoleRepository
 {
-
     use HtmlActionsButtons;
 
     /**
@@ -43,7 +42,7 @@ class EloquentRoleRepository extends BaseRepository implements RoleRepository
     }
 
     /**
-     * @param  array $input
+     * @param array $input
      *
      * @return \App\Models\Role
      *
@@ -72,8 +71,8 @@ class EloquentRoleRepository extends BaseRepository implements RoleRepository
     }
 
     /**
-     * @param Role       $role
-     * @param      array $input
+     * @param Role  $role
+     * @param array $input
      *
      * @return \App\Models\Role
      *

@@ -23,8 +23,8 @@ interface UserRepository
     public function store(array $input);
 
     /**
-     * @param User $user
-     * @param      array $input
+     * @param User  $user
+     * @param array $input
      *
      * @return mixed
      */
@@ -41,7 +41,6 @@ interface UserRepository
      * @param array $ids
      *
      * @return mixed
-     *
      */
     public function batchDestroy(array $ids);
 
@@ -49,7 +48,6 @@ interface UserRepository
      * @param array $ids
      *
      * @return mixed
-     *
      */
     public function batchEnable(array $ids);
 
@@ -57,7 +55,6 @@ interface UserRepository
      * @param array $ids
      *
      * @return mixed
-     *
      */
     public function batchDisable(array $ids);
 

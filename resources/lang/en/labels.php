@@ -88,7 +88,7 @@ return [
         'sidebar' => [
             'forms' => 'Form management',
             'access' => 'Access management',
-            'seo' => 'SEO settings'
+            'seo' => 'SEO settings',
         ],
 
         'titles' => [
@@ -106,8 +106,8 @@ return [
             'actions' => [
                 'destroy' => 'Delete selected users',
                 'enable' => 'Enable selected users',
-                'disable' => 'Disable selected users'
-            ]
+                'disable' => 'Disable selected users',
+            ],
         ],
 
         'roles' => [
@@ -129,7 +129,7 @@ return [
 
             'actions' => [
                 'destroy' => 'Delete selected metas',
-            ]
+            ],
         ],
 
         'form_submissions' => [
@@ -143,8 +143,8 @@ return [
             ],
 
             'form_types' => [
-                'contact' => 'Contact form'
-            ]
+                'contact' => 'Contact form',
+            ],
         ],
     ],
 
@@ -158,7 +158,7 @@ return [
         ],
 
         'submissions' => [
-            'message_sent' => '<p>Your message has been successfully sent</p>'
-        ]
+            'message_sent' => '<p>Your message has been successfully sent</p>',
+        ],
     ],
 ];

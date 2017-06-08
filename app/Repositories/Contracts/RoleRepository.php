@@ -22,7 +22,7 @@ interface RoleRepository
     public function store(array $input);
 
     /**
-     * @param Role $role
+     * @param Role  $role
      * @param array $input
      *
      * @return mixed

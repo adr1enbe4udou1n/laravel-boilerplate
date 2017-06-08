@@ -88,7 +88,7 @@ return [
         'sidebar' => [
             'forms' => 'Gestion des formulaires',
             'access' => 'Gestion des accès',
-            'seo' => 'Paramétrages SEO'
+            'seo' => 'Paramétrages SEO',
         ],
 
         'titles' => [
@@ -106,8 +106,8 @@ return [
             'actions' => [
                 'destroy' => 'Supprimer les utilisateurs sélectionnés',
                 'enable' => 'Activer les utilisateurs sélectionnés',
-                'disable' => 'Désactiver les utilisateurs sélectionnés'
-            ]
+                'disable' => 'Désactiver les utilisateurs sélectionnés',
+            ],
         ],
 
         'roles' => [
@@ -129,7 +129,7 @@ return [
 
             'actions' => [
                 'destroy' => 'Supprimer les metas sélectionnés',
-            ]
+            ],
         ],
 
         'form_submissions' => [
@@ -143,8 +143,8 @@ return [
             ],
 
             'form_types' => [
-                'contact' => 'Formulaire de contact'
-            ]
+                'contact' => 'Formulaire de contact',
+            ],
         ],
     ],
 
@@ -158,7 +158,7 @@ return [
         ],
 
         'submissions' => [
-            'message_sent' => '<p>Votre demande de contact a bien été envoyée</p>'
-        ]
+            'message_sent' => '<p>Votre demande de contact a bien été envoyée</p>',
+        ],
     ],
 ];

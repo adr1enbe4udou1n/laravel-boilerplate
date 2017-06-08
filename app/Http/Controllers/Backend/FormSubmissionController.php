@@ -3,13 +3,9 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreFormSubmissionRequest;
-use App\Http\Requests\UpdateFormSubmissionRequest;
 use App\Models\FormSubmission;
 use App\Repositories\Contracts\FormSubmissionRepository;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Router;
-use Mcamara\LaravelLocalization\LaravelLocalization;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
 use Yajra\Datatables\Html\Builder;
@@ -31,8 +27,8 @@ class FormSubmissionController extends Controller
     /**
      * Create a new controller instance.
      *
-     * @param FormSubmissionRepository             $formSubmissions
-     * @param Builder                    $htmlBuilder
+     * @param FormSubmissionRepository $formSubmissions
+     * @param Builder                  $htmlBuilder
      */
     public function __construct(FormSubmissionRepository $formSubmissions, Builder $htmlBuilder)
     {
@@ -96,8 +92,8 @@ class FormSubmissionController extends Controller
     }
 
     /**
-     * @param FormSubmission    $form_submission
-     * @param Request $request
+     * @param FormSubmission $form_submission
+     * @param Request        $request
      *
      * @return mixed
      */
@@ -119,6 +115,7 @@ class FormSubmissionController extends Controller
         switch ($action) {
             case 'destroy':
                 $this->formSubmissions->batchDestroy($ids);
+
                 return redirect()->back()->withFlashSuccess(trans('alerts.backend.form_submissions.bulk_destroyed'));
                 break;
         }

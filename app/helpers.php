@@ -134,11 +134,12 @@ if (!function_exists('form_batch_action')) {
 }
 
 if (!function_exists('has_access')) {
-    function has_access($route_name) {
+    function has_access($route_name)
+    {
         $routes = \Illuminate\Support\Facades\Route::getRoutes();
         $route = $routes->getByName($route_name);
 
-        foreach($route->gatherMiddleware() as $middleware) {
+        foreach ($route->gatherMiddleware() as $middleware) {
             if (starts_with($middleware, 'can:')) {
                 $ability = explode(':', $middleware);
                 if (!Gate::allows($ability[1])) {
@@ -170,7 +171,7 @@ if (!function_exists('menu_item_access')) {
 if (!function_exists('menu_header_access')) {
     function menu_header_access($title, ...$route_names)
     {
-        foreach($route_names as $route_name) {
+        foreach ($route_names as $route_name) {
             if (has_access($route_name)) {
                 return "<li class=\"header\">$title</li>";
             }

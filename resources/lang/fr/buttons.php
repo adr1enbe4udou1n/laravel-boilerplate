@@ -24,5 +24,5 @@ return [
 
     'metas' => [
         'create' => 'Créer une meta',
-    ]
+    ],
 ];

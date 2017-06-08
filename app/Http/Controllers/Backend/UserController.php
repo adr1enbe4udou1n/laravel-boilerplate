@@ -176,14 +176,17 @@ class UserController extends Controller
         switch ($action) {
             case 'destroy':
                 $this->users->batchDestroy($ids);
+
                 return redirect()->back()->withFlashSuccess(trans('alerts.backend.users.bulk_destroyed'));
                 break;
             case 'enable':
                 $this->users->batchEnable($ids);
+
                 return redirect()->back()->withFlashSuccess(trans('alerts.backend.users.bulk_enabled'));
                 break;
             case 'disable':
                 $this->users->batchDisable($ids);
+
                 return redirect()->back()->withFlashSuccess(trans('alerts.backend.users.bulk_disabled'));
                 break;
         }

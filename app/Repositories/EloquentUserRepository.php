@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Hash;
  */
 class EloquentUserRepository extends BaseRepository implements UserRepository
 {
-
     use HtmlActionsButtons;
 
     /**
@@ -48,7 +47,7 @@ class EloquentUserRepository extends BaseRepository implements UserRepository
     }
 
     /**
-     * @param  array $input
+     * @param array $input
      *
      * @return \App\Models\User
      *
@@ -77,8 +76,8 @@ class EloquentUserRepository extends BaseRepository implements UserRepository
     }
 
     /**
-     * @param User       $user
-     * @param      array $input
+     * @param User  $user
+     * @param array $input
      *
      * @return \App\Models\User
      *
@@ -134,8 +133,8 @@ class EloquentUserRepository extends BaseRepository implements UserRepository
      * @param array $ids
      *
      * @return mixed
-     * @throws \Exception|\Throwable
      *
+     * @throws \Exception|\Throwable
      */
     public function batchDestroy(array $ids)
     {
@@ -155,8 +154,8 @@ class EloquentUserRepository extends BaseRepository implements UserRepository
      * @param array $ids
      *
      * @return mixed
-     * @throws \Exception|\Throwable
      *
+     * @throws \Exception|\Throwable
      */
     public function batchEnable(array $ids)
     {
@@ -177,8 +176,8 @@ class EloquentUserRepository extends BaseRepository implements UserRepository
      * @param array $ids
      *
      * @return mixed
-     * @throws \Exception|\Throwable
      *
+     * @throws \Exception|\Throwable
      */
     public function batchDisable(array $ids)
     {
@@ -336,7 +335,7 @@ class EloquentUserRepository extends BaseRepository implements UserRepository
     {
         if ($admin_id = session()->get('admin_user_id')) {
             $this->flushTempSession();
-            $user = auth()->loginUsingId((int)$admin_id);
+            $user = auth()->loginUsingId((int) $admin_id);
             $this->loadPermissions($user);
         }
 

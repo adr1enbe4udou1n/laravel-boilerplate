@@ -9,7 +9,6 @@ use App\Models\FormSubmission;
  */
 interface FormSubmissionRepository
 {
-
     /**
      * @return \Illuminate\Database\Query\Builder
      */
@@ -34,7 +33,6 @@ interface FormSubmissionRepository
      * @param array $ids
      *
      * @return mixed
-     *
      */
     public function batchDestroy(array $ids);
 

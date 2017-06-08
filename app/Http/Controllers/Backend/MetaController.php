@@ -180,6 +180,7 @@ class MetaController extends Controller
         switch ($action) {
             case 'destroy':
                 $this->metas->batchDestroy($ids);
+
                 return redirect()->back()->withFlashSuccess(trans('alerts.backend.metas.bulk_destroyed'));
                 break;
         }

@@ -30,7 +30,7 @@ interface MetaRepository
     public function store(array $input);
 
     /**
-     * @param Meta $meta
+     * @param Meta  $meta
      * @param array $input
      *
      * @return mixed
@@ -48,7 +48,6 @@ interface MetaRepository
      * @param array $ids
      *
      * @return mixed
-     *
      */
     public function batchDestroy(array $ids);
 

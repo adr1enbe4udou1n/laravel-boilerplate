@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\DB;
  */
 class EloquentMetaRepository extends BaseRepository implements MetaRepository
 {
-
     use HtmlActionsButtons;
 
     /**
@@ -57,7 +56,7 @@ class EloquentMetaRepository extends BaseRepository implements MetaRepository
     }
 
     /**
-     * @param  array $input
+     * @param array $input
      *
      * @return \App\Models\Meta
      *
@@ -84,8 +83,8 @@ class EloquentMetaRepository extends BaseRepository implements MetaRepository
     }
 
     /**
-     * @param Meta $meta
-     * @param      array $input
+     * @param Meta  $meta
+     * @param array $input
      *
      * @return \App\Models\Meta
      *
@@ -137,8 +136,8 @@ class EloquentMetaRepository extends BaseRepository implements MetaRepository
      * @param array $ids
      *
      * @return mixed
-     * @throws \Exception|\Throwable
      *
+     * @throws \Exception|\Throwable
      */
     public function batchDestroy(array $ids)
     {

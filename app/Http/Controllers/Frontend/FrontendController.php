@@ -3,10 +3,8 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Mail\ContactSend;
 use App\Repositories\Contracts\FormSubmissionRepository;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 
 class FrontendController extends Controller
 {

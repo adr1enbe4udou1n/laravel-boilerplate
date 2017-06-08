@@ -36,7 +36,7 @@ class FormSubmissionSend extends Mailable
         $lines = [];
         $data = json_decode($this->formSubmission->data);
 
-        foreach($data as $name => $value) {
+        foreach ($data as $name => $value) {
             $lines[trans("validation.attributes.$name")] = $value;
         }
 

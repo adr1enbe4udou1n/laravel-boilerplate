@@ -63,7 +63,7 @@ class AjaxController extends Controller
         }
 
         return [
-            'items' => $items
+            'items' => $items,
         ];
     }
 }

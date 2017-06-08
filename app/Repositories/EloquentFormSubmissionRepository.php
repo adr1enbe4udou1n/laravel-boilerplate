@@ -13,10 +13,8 @@ use Illuminate\Support\Facades\DB;
 /**
  * Class EloquentFormSubmissionRepository.
  */
-class EloquentFormSubmissionRepository extends BaseRepository implements
-    FormSubmissionRepository
+class EloquentFormSubmissionRepository extends BaseRepository implements FormSubmissionRepository
 {
-
     use HtmlActionsButtons;
 
     /**
@@ -45,9 +43,10 @@ class EloquentFormSubmissionRepository extends BaseRepository implements
 
     /**
      * @param string $type
-     * @param  array $input
+     * @param array  $input
      *
      * @return \App\Models\FormSubmission
+     *
      * @throws \Exception|\Throwable
      */
     public function store($type, array $input)
@@ -97,8 +96,8 @@ class EloquentFormSubmissionRepository extends BaseRepository implements
      * @param array $ids
      *
      * @return mixed
-     * @throws \Exception|\Throwable
      *
+     * @throws \Exception|\Throwable
      */
     public function batchDestroy(array $ids)
     {
