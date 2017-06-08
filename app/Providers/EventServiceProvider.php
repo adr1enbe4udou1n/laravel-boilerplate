@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Listeners\FormSubmissionEventListener;
 use App\Listeners\UserEventListener;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -21,6 +22,7 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $subscribe = [
         UserEventListener::class,
+        FormSubmissionEventListener::class,
     ];
 
     /**

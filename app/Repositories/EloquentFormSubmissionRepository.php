@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Events\FormSubmissionCreated;
 use App\Exceptions\GeneralException;
 use App\Models\FormSubmission;
 use App\Repositories\Contracts\FormSubmissionRepository;
@@ -61,6 +62,8 @@ class EloquentFormSubmissionRepository extends BaseRepository implements
 
         DB::transaction(function () use ($formSubmission) {
             if ($formSubmission->save()) {
+                event(new FormSubmissionCreated($formSubmission));
+
                 return true;
             }
 
