@@ -17,9 +17,13 @@ class EloquentRoleRepository extends BaseRepository implements RoleRepository
     use HtmlActionsButtons;
 
     /**
-     * Associated Repository Model.
+     * EloquentRoleRepository constructor.
+     * @param Role $role
      */
-    const MODEL = Role::class;
+    public function __construct(Role $role)
+    {
+        parent::__construct($role);
+    }
 
     /**
      * @return mixed
@@ -45,10 +49,8 @@ class EloquentRoleRepository extends BaseRepository implements RoleRepository
      */
     public function store($input)
     {
-        $role = self::MODEL;
-
         /** @var Role $role */
-        $role = new $role($input);
+        $role = $this->make($input);
 
         DB::transaction(function () use ($role) {
             if ($role->save()) {

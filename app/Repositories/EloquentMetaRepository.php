@@ -17,9 +17,13 @@ class EloquentMetaRepository extends BaseRepository implements MetaRepository
     use HtmlActionsButtons;
 
     /**
-     * Associated Repository Model.
+     * EloquentMetaRepository constructor.
+     * @param Meta $meta
      */
-    const MODEL = Meta::class;
+    public function __construct(Meta $meta)
+    {
+        parent::__construct($meta);
+    }
 
     /**
      * @return mixed
@@ -58,10 +62,8 @@ class EloquentMetaRepository extends BaseRepository implements MetaRepository
      */
     public function store($input)
     {
-        $meta = self::MODEL;
-
         /** @var Meta $meta */
-        $meta = new $meta($input);
+        $meta = $this->make($input);
 
         if ($this->find($meta->locale, $meta->route)) {
             throw new GeneralException(trans('exceptions.backend.metas.already_exist'));

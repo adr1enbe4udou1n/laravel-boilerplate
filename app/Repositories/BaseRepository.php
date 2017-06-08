@@ -2,21 +2,39 @@
 
 namespace App\Repositories;
 
+use Illuminate\Database\Eloquent\Model;
+
 /**
  * Class BaseRepository.
  */
 class BaseRepository
 {
+    protected $model;
+
     /**
-     * Associated Repository Model.
+     * BaseRepository constructor.
+     * @param Model $model
      */
-    const MODEL = null;
+    public function __construct(Model $model)
+    {
+        $this->model = $model;
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query()
     {
-        return call_user_func(static::MODEL.'::query');
+        return $this->model->newQuery();
+    }
+
+    /**
+     * @param array $attributes
+     *
+     * @return Model
+     */
+    public function make(array $attributes = [])
+    {
+        return $this->query()->newModelInstance($attributes);
     }
 }

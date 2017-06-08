@@ -22,9 +22,13 @@ class EloquentUserRepository extends BaseRepository implements UserRepository
     use HtmlActionsButtons;
 
     /**
-     * Associated Repository Model.
+     * EloquentUserRepository constructor.
+     * @param User $user
      */
-    const MODEL = User::class;
+    public function __construct(User $user)
+    {
+        parent::__construct($user);
+    }
 
     /**
      * @return mixed
@@ -50,10 +54,8 @@ class EloquentUserRepository extends BaseRepository implements UserRepository
      */
     public function store($input)
     {
-        $user = self::MODEL;
-
         /** @var User $user */
-        $user = new $user($input);
+        $user = $this->make($input);
         $user->password = bcrypt($input['password']);
 
         DB::transaction(function () use ($user) {
