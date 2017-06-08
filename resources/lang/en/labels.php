@@ -101,6 +101,12 @@ return [
                 'create' => 'User creation',
                 'edit' => 'User modification',
             ],
+
+            'actions' => [
+                'destroy' => 'Delete selected users',
+                'enable' => 'Enable selected users',
+                'disable' => 'Disable selected users'
+            ]
         ],
 
         'roles' => [
@@ -119,6 +125,10 @@ return [
                 'create' => 'Meta creation',
                 'edit' => 'Meta modification',
             ],
+
+            'actions' => [
+                'destroy' => 'Delete selected metas',
+            ]
         ],
     ],
 

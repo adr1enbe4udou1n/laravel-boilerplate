@@ -1678,9 +1678,24 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
-datatables.net-bs@^1.10.15:
+datatables.net-bs@>=1.10.9, datatables.net-bs@^1.10.15:
   version "1.10.15"
   resolved "https://registry.yarnpkg.com/datatables.net-bs/-/datatables.net-bs-1.10.15.tgz#b2c2261007d84ca5b5abf56c18edc227e0da1a4d"
+  dependencies:
+    datatables.net ">=1.10.9"
+    jquery ">=1.7"
+
+datatables.net-select-bs@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/datatables.net-select-bs/-/datatables.net-select-bs-1.2.2.tgz#22baa97718fb73ebea28494c985c49d456ef04b5"
+  dependencies:
+    datatables.net-bs ">=1.10.9"
+    datatables.net-select ">=1.0.1"
+    jquery ">=1.7"
+
+datatables.net-select@>=1.0.1, datatables.net-select@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/datatables.net-select/-/datatables.net-select-1.2.2.tgz#9651793f52899f4e5745c0720821e8b8286fbf45"
   dependencies:
     datatables.net ">=1.10.9"
     jquery ">=1.7"

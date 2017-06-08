@@ -127,6 +127,27 @@ class EloquentMetaRepository extends BaseRepository implements MetaRepository
     }
 
     /**
+     * @param array $ids
+     *
+     * @return mixed
+     * @throws \Exception|\Throwable
+     *
+     */
+    public function batchDestroy(array $ids)
+    {
+        DB::transaction(function () use ($ids) {
+            // This wont call eloquent events, change to destroy if needed
+            if ($this->query()->whereIn('id', $ids)->delete()) {
+                return true;
+            }
+
+            throw new GeneralException(trans('exceptions.backend.metas.delete'));
+        });
+
+        return true;
+    }
+
+    /**
      * @param \App\Models\Meta $meta
      *
      * @return mixed

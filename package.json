@@ -25,6 +25,8 @@
     "css-loader": "^0.28.4",
     "datatables.net": "^1.10.15",
     "datatables.net-bs": "^1.10.15",
+    "datatables.net-select": "^1.2.2",
+    "datatables.net-select-bs": "^1.2.2",
     "dotenv": "^4.0.0",
     "eonasdan-bootstrap-datetimepicker": "^4.17.47",
     "extract-text-webpack-plugin": "^2.1.0",

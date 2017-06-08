@@ -1,0 +1,19 @@
+table.dataTable tbody > tr.selected, table.dataTable tbody > tr > .selected {
+  background-color: $gray-lighter;
+}
+
+table.dataTable tbody tr.selected, table.dataTable tbody th.selected, table.dataTable tbody td.selected {
+  color: #000000;
+}
+
+table.dataTable tbody tr.selected a, table.dataTable tbody th.selected a, table.dataTable tbody td.selected a {
+  color: #3c8dbc;
+}
+
+table.dataTable tbody tr.selected td:last-child a {
+  color: #ffffff;
+}
+
+table.dataTable tr.selected td.select-checkbox:after, table.dataTable tr.selected th.select-checkbox:after {
+  text-shadow: none;
+}

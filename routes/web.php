@@ -62,7 +62,8 @@ Route::group([
             Route::group(
                 ['middleware' => ['can:impersonate users']],
                 function () {
-                    Route::get('user/{user}/login-as', 'LoginController@loginAs')
+                    Route::get('user/{user}/login-as',
+                        'LoginController@loginAs')
                         ->name('login-as');
                 }
             );
@@ -143,9 +144,16 @@ Route::group([
                 function () {
                     Route::resource('user', 'UserController',
                         ['except' => ['show']]);
+
                     Route::post('user/search', 'UserController@search')->name(
                         'user.search'
                     );
+
+                    Route::post('user/batch-action',
+                        'UserController@batchAction')->name(
+                        'user.batch-action'
+                    );
+
                     Route::get('user/{user}/login-as', 'UserController@loginAs')
                         ->name(
                             'user.login-as'
@@ -158,6 +166,7 @@ Route::group([
                 function () {
                     Route::resource('role', 'RoleController',
                         ['except' => ['show']]);
+
                     Route::post('role/search', 'RoleController@search')->name(
                         'role.search'
                     );
@@ -167,14 +176,26 @@ Route::group([
             Route::group(
                 ['middleware' => ['can:manage metas']],
                 function () {
-                    Route::get('meta', 'MetaController@index')->name('meta.index');
-                    Route::get('meta/create', 'MetaController@create')->name('meta.create');
-                    Route::post('meta', 'MetaController@store')->name('meta.store');
-                    Route::get('meta/{meta}/edit', 'MetaController@edit')->name('meta.edit');
-                    Route::match(['PUT', 'PATCH'], 'meta/{meta}', 'MetaController@update')->name('meta.update');
-                    Route::delete('meta/{meta}', 'MetaController@destroy')->name('meta.destroy');
+                    Route::get('meta', 'MetaController@index')
+                        ->name('meta.index');
+                    Route::get('meta/create', 'MetaController@create')
+                        ->name('meta.create');
+                    Route::post('meta', 'MetaController@store')
+                        ->name('meta.store');
+                    Route::get('meta/{meta}/edit', 'MetaController@edit')
+                        ->name('meta.edit');
+                    Route::match(['PUT', 'PATCH'], 'meta/{meta}',
+                        'MetaController@update')->name('meta.update');
+                    Route::delete('meta/{meta}', 'MetaController@destroy')
+                        ->name('meta.destroy');
+
                     Route::post('meta/search', 'MetaController@search')->name(
                         'meta.search'
+                    );
+
+                    Route::post('meta/batch-action',
+                        'MetaController@batchAction')->name(
+                        'meta.batch-action'
                     );
                 }
             );

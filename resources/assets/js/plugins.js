@@ -3,6 +3,7 @@ window.swal = require('sweetalert2');
 
 require('datatables.net');
 require('datatables.net-bs');
+require('datatables.net-select');
 
 window.moment = require('moment');
 require('bootstrap-slider');
@@ -33,6 +34,24 @@ function addDeleteForms() {
         .removeAttr('href')
         .attr('style', 'cursor:pointer;')
         .attr('onclick', '$(this).find("form").submit();');
+}
+
+function confirmSwal(form, title, confirm, cancel) {
+    swal({
+        title: title,
+        type: "warning",
+        showCancelButton: true,
+        cancelButtonText: cancel,
+        confirmButtonColor: "#dd4b39",
+        confirmButtonText: confirm
+    }).then(
+        function() {
+            form.submit();
+        },
+        function (dismiss) {
+
+        }
+    );
 }
 
 const locale = $('html').attr('lang');
@@ -69,27 +88,9 @@ const locale = $('html').attr('lang');
      */
     $('body').on('submit', 'form[name=delete_item]', function (e) {
         e.preventDefault();
-        let form = this;
+
         let link = $('a[data-method="delete"]');
-        let cancel = (link.attr('data-trans-button-cancel')) ? link.attr('data-trans-button-cancel') : "Cancel";
-        let confirm = (link.attr('data-trans-button-confirm')) ? link.attr('data-trans-button-confirm') : "Yes, delete";
-        let title = (link.attr('data-trans-title')) ? link.attr('data-trans-title') : "Warning";
-
-        swal({
-            title: title,
-            type: "warning",
-            showCancelButton: true,
-            cancelButtonText: cancel,
-            confirmButtonColor: "#dd4b39",
-            confirmButtonText: confirm
-        }).then(
-            function() {
-                form.submit();
-            },
-            function (dismiss) {
-
-            }
-        );
+        confirmSwal(this, link.attr('data-trans-title'), link.attr('data-trans-button-confirm'), link.attr('data-trans-button-cancel'));
     });
 
     /**
@@ -125,7 +126,7 @@ const locale = $('html').attr('lang');
             dataTableOptions = {
                 lengthMenu: [[5, 10, 15, 25, 50, -1], [5, 10, 15, 25, 50, "Tout"]],
                 language: {
-                    "url": "/i18n/datatables." + locale + ".json"
+                    url: `/i18n/datatables.${locale}.json`
                 }
             };
         }
@@ -152,6 +153,28 @@ const locale = $('html').attr('lang');
      * Plugins to load after DOM is ready
      */
     $(function() {
+        /**
+         * Bulk forms
+         */
+        $('body').on('submit', '[data-toggle="bulk-form"]', function (e) {
+            e.preventDefault();
+            let $form = $(this);
+            $form.find('[name="ids[]"]').remove();
+
+            confirmSwal(this, $(this).attr('data-trans-title'), $(this).attr('data-trans-button-confirm'), $(this).attr('data-trans-button-cancel'));
+
+            let dataTableId = $(this).data('target');
+            let dataTable = $(dataTableId).DataTable();
+
+            $.each(dataTable.rows({ selected: true }).ids(), function(index, value){
+                let input = $('<input>').attr({
+                    'type':'hidden',
+                    'name':'ids[]'
+                }).val(value);
+                $form.prepend(input);
+            });
+        });
+
         /**
          * Bootstrap tabs nav specific hash manager
          */

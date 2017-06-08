@@ -126,6 +126,13 @@ if (!function_exists('form_row')) {
     }
 }
 
+if (!function_exists('form_batch_action')) {
+    function form_batch_action($route, $table_id, $actions)
+    {
+        return view('backend.partials.form.batch-action', compact('route', 'table_id', 'actions'));
+    }
+}
+
 if (!function_exists('has_access')) {
     function has_access($route_name) {
         $routes = \Illuminate\Support\Facades\Route::getRoutes();

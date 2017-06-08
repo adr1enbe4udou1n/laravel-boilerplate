@@ -6,6 +6,9 @@ return [
             'created' => 'User created',
             'updated' => 'User updated',
             'deleted' => 'User deleted',
+            'bulk_destroyed' => 'Selected users deleted',
+            'bulk_enabled' => 'Selected users enabled',
+            'bulk_disabled' => 'Selected users disabled',
         ],
 
         'roles' => [
@@ -18,6 +21,7 @@ return [
             'created' => 'Meta created',
             'updated' => 'Meta updated',
             'deleted' => 'Meta deleted',
+            'bulk_destroyed' => 'Selected metas deleted',
         ],
     ],
 

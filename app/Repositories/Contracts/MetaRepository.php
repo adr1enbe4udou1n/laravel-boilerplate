@@ -45,6 +45,14 @@ interface MetaRepository
     public function destroy(Meta $meta);
 
     /**
+     * @param array $ids
+     *
+     * @return mixed
+     *
+     */
+    public function batchDestroy(array $ids);
+
+    /**
      * @param \App\Models\Meta $meta
      *
      * @return mixed

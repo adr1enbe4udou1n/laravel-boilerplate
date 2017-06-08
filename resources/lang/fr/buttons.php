@@ -12,4 +12,17 @@ return [
     'back' => 'Retour',
     'send' => 'Envoyer',
     'login-as' => 'Se loguer en tant que :name',
+    'apply' => 'Appliquer',
+
+    'users' => [
+        'create' => 'Créer un utilisateur',
+    ],
+
+    'roles' => [
+        'create' => 'Créer un rôle',
+    ],
+
+    'metas' => [
+        'create' => 'Créer une meta',
+    ]
 ];

@@ -56,7 +56,16 @@ class UserController extends Controller
         $html = $this->htmlBuilder
             ->setTableAttribute('class', 'table table-bordered table-hover')
             ->setTableAttribute('width', '100%')
-            ->parameters(['order' => [[5, 'desc']]])
+            ->parameters([
+                'select' => ['style' => 'multi'],
+                'order' => [[5, 'desc']],
+                'rowId' => 'id',
+            ])
+            ->addCheckbox([
+                'title' => '',
+                'defaultContent' => '',
+                'className' => 'select-checkbox',
+            ])
             ->addColumn(['data' => 'name', 'name' => 'name', 'title' => trans('validation.attributes.name')])
             ->addColumn(['data' => 'email', 'name' => 'email', 'title' => trans('validation.attributes.email')])
             ->addColumn(['data' => 'active', 'name' => 'active', 'title' => trans('validation.attributes.active'), 'orderable' => false])
@@ -154,5 +163,29 @@ class UserController extends Controller
         $this->users->destroy($user);
 
         return redirect()->back()->withFlashSuccess(trans('alerts.backend.users.deleted'));
+    }
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     */
+    public function batchAction(Request $request)
+    {
+        $action = $request->get('action');
+        $ids = $request->get('ids');
+
+        switch ($action) {
+            case 'destroy':
+                $this->users->batchDestroy($ids);
+                return redirect()->back()->withFlashSuccess(trans('alerts.backend.users.bulk_destroyed'));
+                break;
+            case 'enable':
+                $this->users->batchEnable($ids);
+                return redirect()->back()->withFlashSuccess(trans('alerts.backend.users.bulk_enabled'));
+                break;
+            case 'disable':
+                $this->users->batchDisable($ids);
+                return redirect()->back()->withFlashSuccess(trans('alerts.backend.users.bulk_disabled'));
+                break;
+        }
     }
 }

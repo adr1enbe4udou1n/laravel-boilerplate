@@ -159,4 +159,20 @@ class MetaController extends Controller
 
         return redirect()->back()->withFlashSuccess(trans('alerts.backend.metas.deleted'));
     }
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     */
+    public function batchAction(Request $request)
+    {
+        $action = $request->get('action');
+        $ids = $request->get('ids');
+
+        switch ($action) {
+            case 'destroy':
+                $this->metas->batchDestroy($ids);
+                return redirect()->back()->withFlashSuccess(trans('alerts.backend.metas.bulk_destroyed'));
+                break;
+        }
+    }
 }

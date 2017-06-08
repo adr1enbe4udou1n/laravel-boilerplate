@@ -127,6 +127,67 @@ class EloquentUserRepository extends BaseRepository implements UserRepository
     }
 
     /**
+     * @param array $ids
+     *
+     * @return mixed
+     * @throws \Exception|\Throwable
+     *
+     */
+    public function batchDestroy(array $ids)
+    {
+        DB::transaction(function () use ($ids) {
+            // This wont call eloquent events, change to destroy if needed
+            if ($this->query()->whereIn('id', $ids)->delete()) {
+                return true;
+            }
+
+            throw new GeneralException(trans('exceptions.backend.users.delete'));
+        });
+
+        return true;
+    }
+
+    /**
+     * @param array $ids
+     *
+     * @return mixed
+     * @throws \Exception|\Throwable
+     *
+     */
+    public function batchEnable(array $ids)
+    {
+        DB::transaction(function () use ($ids) {
+            if ($this->query()->whereIn('id', $ids)->update(['active' => true])) {
+                return true;
+            }
+
+            throw new GeneralException(trans('exceptions.backend.users.update'));
+        });
+
+        return true;
+    }
+
+    /**
+     * @param array $ids
+     *
+     * @return mixed
+     * @throws \Exception|\Throwable
+     *
+     */
+    public function batchDisable(array $ids)
+    {
+        DB::transaction(function () use ($ids) {
+            if ($this->query()->whereIn('id', $ids)->update(['active' => false])) {
+                return true;
+            }
+
+            throw new GeneralException(trans('exceptions.backend.users.update'));
+        });
+
+        return true;
+    }
+
+    /**
      * @param $input
      *
      * @return mixed

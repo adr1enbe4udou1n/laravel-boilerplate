@@ -101,6 +101,12 @@ return [
                 'create' => 'Créer un utilisateur',
                 'edit' => 'Editer un utilisateur',
             ],
+
+            'actions' => [
+                'destroy' => 'Supprimer les utilisateurs sélectionnés',
+                'enable' => 'Activer les utilisateurs sélectionnés',
+                'disable' => 'Désactiver les utilisateurs sélectionnés'
+            ]
         ],
 
         'roles' => [
@@ -119,6 +125,10 @@ return [
                 'create' => 'Créer une meta',
                 'edit' => 'Editer une meta',
             ],
+
+            'actions' => [
+                'destroy' => 'Supprimer les metas sélectionnés',
+            ]
         ],
     ],
 

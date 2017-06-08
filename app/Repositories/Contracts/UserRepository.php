@@ -38,6 +38,30 @@ interface UserRepository
     public function destroy(User $user);
 
     /**
+     * @param array $ids
+     *
+     * @return mixed
+     *
+     */
+    public function batchDestroy(array $ids);
+
+    /**
+     * @param array $ids
+     *
+     * @return mixed
+     *
+     */
+    public function batchEnable(array $ids);
+
+    /**
+     * @param array $ids
+     *
+     * @return mixed
+     *
+     */
+    public function batchDisable(array $ids);
+
+    /**
      * @param $input
      *
      * @return mixed

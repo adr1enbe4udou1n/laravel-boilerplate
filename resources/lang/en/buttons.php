@@ -12,4 +12,17 @@ return [
     'back' => 'Back',
     'send' => 'Send',
     'login-as' => 'Login as :name',
+    'apply' => 'Apply',
+
+    'users' => [
+        'create' => 'Create user',
+    ],
+
+    'roles' => [
+        'create' => 'Create role',
+    ],
+
+    'metas' => [
+        'create' => 'Create meta',
+    ]
 ];
