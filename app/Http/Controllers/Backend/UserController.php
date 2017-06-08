@@ -57,7 +57,7 @@ class UserController extends Controller
             ->setTableAttribute('class', 'table table-bordered table-hover')
             ->setTableAttribute('width', '100%')
             ->parameters([
-                'select' => ['style' => 'multi'],
+                'select' => ['style' => 'os'],
                 'order' => [[5, 'desc']],
                 'rowId' => 'id',
             ])

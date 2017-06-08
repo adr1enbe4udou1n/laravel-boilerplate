@@ -64,7 +64,16 @@ class MetaController extends Controller
         $html = $this->htmlBuilder
             ->setTableAttribute('class', 'table table-bordered table-hover')
             ->setTableAttribute('width', '100%')
-            ->parameters(['order' => [[0, 'asc'], [1, 'asc']]])
+            ->parameters([
+                'select' => ['style' => 'os'],
+                'order' => ['order' => [[0, 'asc'], [1, 'asc']]],
+                'rowId' => 'id',
+            ])
+            ->addCheckbox([
+                'title' => '',
+                'defaultContent' => '',
+                'className' => 'select-checkbox',
+            ])
             ->addColumn(['data' => 'locale', 'name' => 'locale', 'title' => trans('validation.attributes.locale')])
             ->addColumn(['data' => 'route', 'name' => 'route', 'title' => trans('validation.attributes.route')])
             ->addColumn(['data' => 'title', 'name' => 'title', 'title' => trans('validation.attributes.title'), 'width' => 200])
