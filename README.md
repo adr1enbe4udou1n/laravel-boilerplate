@@ -106,7 +106,7 @@ For your info, this webpack setup is a direct recovery from my other little side
 - [x] Metas management
 - [x] Permissions management
 - [ ] Form submissions backup
-- [ ] Client validation with vee-validate
+- [x] Client validation with vee-validate
 - [ ] Titles associate with routes ?
 - [ ] Alias url system for routing ?
 - [ ] 301 redirection management with CSV import
