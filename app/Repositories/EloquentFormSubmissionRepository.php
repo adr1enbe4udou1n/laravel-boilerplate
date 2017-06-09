@@ -13,8 +13,10 @@ use Illuminate\Support\Facades\DB;
 /**
  * Class EloquentFormSubmissionRepository.
  */
-class EloquentFormSubmissionRepository extends BaseRepository implements FormSubmissionRepository
+class EloquentFormSubmissionRepository extends BaseRepository implements
+    FormSubmissionRepository
 {
+
     use HtmlActionsButtons;
 
     /**
@@ -120,7 +122,10 @@ class EloquentFormSubmissionRepository extends BaseRepository implements FormSub
      */
     public function getActionButtons(FormSubmission $formSubmission)
     {
-        $buttons = $this->getDeleteButtonHtml('admin.form_submission.destroy',
+        $buttons =
+            $this->getShowButtonHtml('admin.form_submission.show',
+                $formSubmission) .
+            $this->getDeleteButtonHtml('admin.form_submission.destroy',
                 $formSubmission);
 
         return $buttons;

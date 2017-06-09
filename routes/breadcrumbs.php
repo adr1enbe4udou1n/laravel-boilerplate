@@ -40,6 +40,16 @@ Breadcrumbs::register('admin.home', function (Generator $breadcrumbs) {
     $breadcrumbs->push(trans('labels.backend.titles.dashboard'), route('admin.home'));
 });
 
+Breadcrumbs::register('admin.form_submission.index', function (Generator $breadcrumbs) {
+    $breadcrumbs->parent('admin.home');
+    $breadcrumbs->push(trans('labels.backend.form_submissions.titles.main'), route('admin.form_submission.index'));
+});
+
+Breadcrumbs::register('admin.form_submission.show', function (Generator $breadcrumbs, $id) {
+    $breadcrumbs->parent('admin.form_submission.index');
+    $breadcrumbs->push(trans('labels.backend.form_submissions.titles.show'), route('admin.form_submission.show', $id));
+});
+
 Breadcrumbs::register('admin.user.index', function (Generator $breadcrumbs) {
     $breadcrumbs->parent('admin.home');
     $breadcrumbs->push(trans('labels.backend.users.titles.main'), route('admin.user.index'));

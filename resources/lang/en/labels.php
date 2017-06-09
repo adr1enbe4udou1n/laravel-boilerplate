@@ -136,6 +136,7 @@ return [
             'titles' => [
                 'main' => 'Submission management',
                 'index' => 'Submission list',
+                'show' => 'Submission detail',
             ],
 
             'actions' => [

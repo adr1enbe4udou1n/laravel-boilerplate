@@ -144,6 +144,8 @@ Route::group([
                 function () {
                     Route::get('form-submission', 'FormSubmissionController@index')
                         ->name('form_submission.index');
+                    Route::get('form-submission/{form_submission}', 'FormSubmissionController@show')
+                        ->name('form_submission.show');
                     Route::delete('form-submission/{form_submission}', 'FormSubmissionController@destroy')
                         ->name('form_submission.destroy');
 

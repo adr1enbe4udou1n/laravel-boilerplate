@@ -101,12 +101,12 @@ For your info, this webpack setup is a direct recovery from my other little side
 ## TODO
 
 - [ ] Data seeds
-- [x] Batch actions
-- [x] Form & menu access helpers
-- [x] Metas management
-- [x] Permissions management
-- [ ] Form submissions backup
-- [x] Client validation with vee-validate
+- [x] <s>Batch actions</s>
+- [x] <s>Form & menu access helpers</s>
+- [x] <s>Metas management</s>
+- [x] <s>Permissions management</s>
+- [x] <s>Form submissions management</s>
+- [x] <s>Client validation with vee-validate</s>
 - [ ] Titles associate with routes ?
 - [ ] Alias url system for routing ?
 - [ ] 301 redirection management with CSV import

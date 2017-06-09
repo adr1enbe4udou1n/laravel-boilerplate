@@ -62,6 +62,18 @@ class FormSubmissionController extends Controller
     }
 
     /**
+     * Show the application dashboard.
+     *
+     * @param \App\Models\FormSubmission $form_submission
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show(FormSubmission $form_submission)
+    {
+        return view('backend.form-submission.show')->withFormSubmission($form_submission);
+    }
+
+    /**
      * @param FormSubmission $form_submission
      * @param Request        $request
      *

@@ -362,13 +362,10 @@ class EloquentUserRepository extends BaseRepository implements UserRepository
         $buttons = $this->getEditButtonHtml('admin.user.edit', $user);
 
         if ($this->canImpersonate($user)) {
-            $buttons .= '<a href="'.route(
-                    'login-as', $user
-                )
-                .'" class="btn btn-xs btn-success"><i class="fa fa-lock" data-toggle="tooltip" data-placement="top" title="'
-                .trans(
-                    'buttons.login-as', ['name' => $user->name]
-                ).'"></i></a> ';
+            $title = '<i class="fa fa-lock" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.login-as', ['name' => $user->name]).'"></i>';
+            $buttons .= link_to(route('login-as', $user), $title, [
+                'class' => 'btn btn-xs btn-warning'
+            ], false, false) . ' ';
         }
 
         if ($this->canDelete($user)) {
