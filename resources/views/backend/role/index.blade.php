@@ -15,7 +15,7 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    {!! $html->table() !!}
+                    <table class="table table-bordered table-hover" id="dataTableBuilder" width="100%"></table>
                 </div>
                 <!-- /.box-body -->
             </div>
@@ -27,5 +27,53 @@
 @endsection
 
 @section('scripts')
-    {!! $html->scripts() !!}
+    <script>
+        $('#dataTableBuilder').DataTable({
+            serverSide: true,
+            processing: true,
+            lengthChange: false,
+            searching: false,
+            paging: false,
+            info: false,
+            ajax: {
+                url: '{{ route('admin.role.search') }}',
+                type: 'post'
+            },
+            columns: [{
+                title: '{{ trans('validation.attributes.name') }}',
+                data: 'name',
+                name: 'name',
+                width: 150,
+            }, {
+                title: '{{ trans('validation.attributes.display_name') }}',
+                data: 'display_name',
+                name: 'display_name',
+                width: 150,
+            }, {
+                title: '{{ trans('validation.attributes.description') }}',
+                data: 'description',
+                name: 'description',
+                orderable: false,
+            }, {
+                title: '{{ trans('labels.created_at') }}',
+                data: 'created_at',
+                name: 'created_at',
+                width: 100,
+                className: 'text-center'
+            }, {
+                title: '{{ trans('labels.updated_at') }}',
+                data: 'updated_at',
+                name: 'updated_at',
+                width: 100,
+                className: 'text-center'
+            }, {
+                title: '{{ trans('labels.actions') }}',
+                data: 'actions',
+                name: 'actions',
+                orderable: false,
+                width: 50,
+            }],
+            order: [[0, 'asc']]
+        });
+    </script>
 @endsection

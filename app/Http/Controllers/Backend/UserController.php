@@ -11,7 +11,6 @@ use App\Repositories\Contracts\UserRepository;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
-use Yajra\Datatables\Html\Builder;
 
 class UserController extends Controller
 {
@@ -26,24 +25,15 @@ class UserController extends Controller
     protected $roles;
 
     /**
-     * Datatables Html Builder.
-     *
-     * @var Builder
-     */
-    protected $htmlBuilder;
-
-    /**
      * Create a new controller instance.
      *
      * @param UserRepository                             $users
      * @param \App\Repositories\Contracts\RoleRepository $roles
-     * @param Builder                                    $htmlBuilder
      */
-    public function __construct(UserRepository $users, RoleRepository $roles, Builder $htmlBuilder)
+    public function __construct(UserRepository $users, RoleRepository $roles)
     {
         $this->users = $users;
         $this->roles = $roles;
-        $this->htmlBuilder = $htmlBuilder;
     }
 
     /**
@@ -53,29 +43,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $html = $this->htmlBuilder
-            ->setTableAttribute('class', 'table table-bordered table-hover')
-            ->setTableAttribute('width', '100%')
-            ->parameters([
-                'select' => ['style' => 'os'],
-                'order' => [[5, 'desc']],
-                'rowId' => 'id',
-            ])
-            ->addCheckbox([
-                'title' => '',
-                'defaultContent' => '',
-                'className' => 'select-checkbox',
-            ])
-            ->addColumn(['data' => 'name', 'name' => 'name', 'title' => trans('validation.attributes.name')])
-            ->addColumn(['data' => 'email', 'name' => 'email', 'title' => trans('validation.attributes.email')])
-            ->addColumn(['data' => 'active', 'name' => 'active', 'title' => trans('validation.attributes.active'), 'orderable' => false])
-            ->addColumn(['data' => 'roles', 'name' => 'roles', 'title' => trans('validation.attributes.roles'), 'searchable' => false, 'orderable' => false])
-            ->addColumn(['data' => 'created_at', 'name' => 'created_at', 'title' => trans('labels.created_at')])
-            ->addColumn(['data' => 'updated_at', 'name' => 'updated_at', 'title' => trans('labels.updated_at')])
-            ->addColumn(['data' => 'actions', 'name' => 'actions', 'title' => trans('labels.actions'), 'orderable' => false])
-            ->ajax(['url' => route('admin.user.search'), 'type' => 'post']);
-
-        return view('backend.user.index', compact('html'));
+        return view('backend.user.index');
     }
 
     /**

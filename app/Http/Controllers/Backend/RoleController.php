@@ -10,7 +10,6 @@ use App\Repositories\Contracts\RoleRepository;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
-use Yajra\Datatables\Html\Builder;
 
 class RoleController extends Controller
 {
@@ -20,22 +19,13 @@ class RoleController extends Controller
     protected $roles;
 
     /**
-     * Datatables Html Builder.
-     *
-     * @var Builder
-     */
-    protected $htmlBuilder;
-
-    /**
      * Create a new controller instance.
      *
      * @param RoleRepository $roles
-     * @param Builder        $htmlBuilder
      */
-    public function __construct(RoleRepository $roles, Builder $htmlBuilder)
+    public function __construct(RoleRepository $roles)
     {
         $this->roles = $roles;
-        $this->htmlBuilder = $htmlBuilder;
     }
 
     /**
@@ -45,19 +35,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $html = $this->htmlBuilder
-            ->setTableAttribute('class', 'table table-bordered table-hover')
-            ->setTableAttribute('width', '100%')
-            ->parameters(['lengthChange' => false, 'searching' => false, 'paging' => false, 'info' => false, 'order' => [[0, 'asc']]])
-            ->addColumn(['data' => 'name', 'name' => 'name', 'title' => trans('validation.attributes.name')])
-            ->addColumn(['data' => 'display_name', 'name' => 'display_name', 'title' => trans('validation.attributes.display_name')])
-            ->addColumn(['data' => 'description', 'name' => 'description', 'title' => trans('validation.attributes.description'), 'orderable' => false])
-            ->addColumn(['data' => 'created_at', 'name' => 'created_at', 'title' => trans('labels.created_at')])
-            ->addColumn(['data' => 'updated_at', 'name' => 'updated_at', 'title' => trans('labels.updated_at')])
-            ->addColumn(['data' => 'actions', 'name' => 'actions', 'title' => trans('labels.actions'), 'orderable' => false])
-            ->ajax(['url' => route('admin.role.search'), 'type' => 'post']);
-
-        return view('backend.role.index', compact('html'));
+        return view('backend.role.index');
     }
 
     /**

@@ -8,7 +8,6 @@ use App\Repositories\Contracts\FormSubmissionRepository;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
-use Yajra\Datatables\Html\Builder;
 
 class FormSubmissionController extends Controller
 {
@@ -18,22 +17,13 @@ class FormSubmissionController extends Controller
     protected $formSubmissions;
 
     /**
-     * Datatables Html Builder.
-     *
-     * @var Builder
-     */
-    protected $htmlBuilder;
-
-    /**
      * Create a new controller instance.
      *
      * @param FormSubmissionRepository $formSubmissions
-     * @param Builder                  $htmlBuilder
      */
-    public function __construct(FormSubmissionRepository $formSubmissions, Builder $htmlBuilder)
+    public function __construct(FormSubmissionRepository $formSubmissions)
     {
         $this->formSubmissions = $formSubmissions;
-        $this->htmlBuilder = $htmlBuilder;
     }
 
     /**
@@ -43,27 +33,7 @@ class FormSubmissionController extends Controller
      */
     public function index()
     {
-        $html = $this->htmlBuilder
-            ->setTableAttribute('class', 'table table-bordered table-hover')
-            ->setTableAttribute('width', '100%')
-            ->parameters([
-                'select' => ['style' => 'os'],
-                'order' => ['order' => [[0, 'asc'], [1, 'asc']]],
-                'rowId' => 'id',
-            ])
-            ->addCheckbox([
-                'title' => '',
-                'defaultContent' => '',
-                'className' => 'select-checkbox',
-            ])
-            ->addColumn(['data' => 'type', 'name' => 'type', 'title' => trans('validation.attributes.form_type')])
-            ->addColumn(['data' => 'data', 'name' => 'data', 'title' => trans('validation.attributes.form_data')])
-            ->addColumn(['data' => 'created_at', 'name' => 'created_at', 'title' => trans('labels.created_at'), 'width' => 100])
-            ->addColumn(['data' => 'updated_at', 'name' => 'updated_at', 'title' => trans('labels.updated_at'), 'width' => 100])
-            ->addColumn(['data' => 'actions', 'name' => 'actions', 'title' => trans('labels.actions'), 'width' => 50, 'orderable' => false])
-            ->ajax(['url' => route('admin.form_submission.search'), 'type' => 'post']);
-
-        return view('backend.form-submission.index', compact('html'));
+        return view('backend.form-submission.index');
     }
 
     /**

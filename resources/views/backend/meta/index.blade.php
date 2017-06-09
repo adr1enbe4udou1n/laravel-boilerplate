@@ -15,7 +15,7 @@
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    {!! $html->table() !!}
+                    <table class="table table-bordered table-hover" id="dataTableBuilder" width="100%"></table>
                     {!! form_batch_action('admin.meta.batch-action', 'dataTableBuilder', [
                         'delete' => trans('labels.backend.metas.actions.destroy'),
                     ]) !!}
@@ -30,5 +30,66 @@
 @endsection
 
 @section('scripts')
-    {!! $html->scripts() !!}
+    <script>
+        $('#dataTableBuilder').DataTable({
+            serverSide: true,
+            processing: true,
+            ajax: {
+                url: '{{ route('admin.meta.search') }}',
+                type: 'post'
+            },
+            columns: [{
+                defaultContent: '',
+                title: '',
+                data: 'checkbox',
+                name: 'checkbox',
+                orderable: false,
+                searchable: false,
+                width: 15,
+                className: 'select-checkbox'
+            }, {
+                title: '{{ trans('validation.attributes.locale') }}',
+                data: 'locale',
+                name: 'locale',
+                searchable: false,
+                width: 50,
+            }, {
+                title: '{{ trans('validation.attributes.route') }}',
+                data: 'route',
+                name: 'route',
+                width: 150,
+            }, {
+                title: '{{ trans('validation.attributes.title') }}',
+                data: 'title',
+                name: 'title',
+                width: 150,
+            }, {
+                title: '{{ trans('validation.attributes.description') }}',
+                data: 'description',
+                name: 'description',
+                orderable: false,
+            }, {
+                title: '{{ trans('labels.created_at') }}',
+                data: 'created_at',
+                name: 'created_at',
+                width: 100,
+                className: 'text-center'
+            }, {
+                title: '{{ trans('labels.updated_at') }}',
+                data: 'updated_at',
+                name: 'updated_at',
+                width: 100,
+                className: 'text-center'
+            }, {
+                title: '{{ trans('labels.actions') }}',
+                data: 'actions',
+                name: 'actions',
+                orderable: false,
+                width: 50,
+            }],
+            select: {style: 'os'},
+            order: [[1, 'asc'], [2, 'asc']],
+            rowId: 'id'
+        });
+    </script>
 @endsection

@@ -12,7 +12,6 @@ use Illuminate\Routing\Router;
 use Mcamara\LaravelLocalization\LaravelLocalization;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
-use Yajra\Datatables\Html\Builder;
 
 class MetaController extends Controller
 {
@@ -32,26 +31,19 @@ class MetaController extends Controller
     protected $router;
 
     /**
-     * Datatables Html Builder.
-     *
-     * @var Builder
-     */
-    protected $htmlBuilder;
-
-    /**
      * Create a new controller instance.
      *
      * @param MetaRepository             $metas
-     * @param Builder                    $htmlBuilder
      * @param LaravelLocalization        $localization
      * @param \Illuminate\Routing\Router $router
+     *
+     * @throws \Mcamara\LaravelLocalization\Exceptions\SupportedLocalesNotDefined
      */
-    public function __construct(MetaRepository $metas, LaravelLocalization $localization, Router $router, Builder $htmlBuilder)
+    public function __construct(MetaRepository $metas, LaravelLocalization $localization, Router $router)
     {
         $this->metas = $metas;
         $this->supportedLocales = $localization->getSupportedLocales();
         $this->router = $router;
-        $this->htmlBuilder = $htmlBuilder;
     }
 
     /**
@@ -61,29 +53,7 @@ class MetaController extends Controller
      */
     public function index()
     {
-        $html = $this->htmlBuilder
-            ->setTableAttribute('class', 'table table-bordered table-hover')
-            ->setTableAttribute('width', '100%')
-            ->parameters([
-                'select' => ['style' => 'os'],
-                'order' => ['order' => [[0, 'asc'], [1, 'asc']]],
-                'rowId' => 'id',
-            ])
-            ->addCheckbox([
-                'title' => '',
-                'defaultContent' => '',
-                'className' => 'select-checkbox',
-            ])
-            ->addColumn(['data' => 'locale', 'name' => 'locale', 'title' => trans('validation.attributes.locale')])
-            ->addColumn(['data' => 'route', 'name' => 'route', 'title' => trans('validation.attributes.route')])
-            ->addColumn(['data' => 'title', 'name' => 'title', 'title' => trans('validation.attributes.title'), 'width' => 200])
-            ->addColumn(['data' => 'description', 'name' => 'description', 'title' => trans('validation.attributes.description'), 'orderable' => false])
-            ->addColumn(['data' => 'created_at', 'name' => 'created_at', 'title' => trans('labels.created_at'), 'width' => 100])
-            ->addColumn(['data' => 'updated_at', 'name' => 'updated_at', 'title' => trans('labels.updated_at'), 'width' => 100])
-            ->addColumn(['data' => 'actions', 'name' => 'actions', 'title' => trans('labels.actions'), 'width' => 50, 'orderable' => false])
-            ->ajax(['url' => route('admin.meta.search'), 'type' => 'post']);
-
-        return view('backend.meta.index', compact('html'));
+        return view('backend.meta.index');
     }
 
     /**
@@ -101,9 +71,7 @@ class MetaController extends Controller
             /** @var EloquentEngine $collection */
             $query = Datatables::of($this->metas->get());
 
-            return $query->editColumn('name', function (Meta $meta) {
-                return link_to_route('admin.meta.edit', $meta->title, $meta);
-            })->addColumn('actions', function (Meta $meta) {
+            return $query->addColumn('actions', function (Meta $meta) {
                 return $this->metas->getActionButtons($meta);
             })
                 ->rawColumns(['actions'])

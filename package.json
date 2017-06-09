@@ -12,7 +12,7 @@
   "devDependencies": {
     "admin-lte": "^2.3.11",
     "axios": "^0.16.2",
-    "babel-core": "^6.24.1",
+    "babel-core": "^6.25.0",
     "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.5.2",
     "bootstrap-sass": "^3.3.7",
