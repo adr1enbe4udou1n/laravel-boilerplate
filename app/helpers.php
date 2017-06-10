@@ -192,8 +192,12 @@ if (!function_exists('route_alias')) {
         $meta = app(MetaRepository::class)->find($locale, $name);
 
         if ($meta) {
-            return $meta->url;
+            return url($meta->url, $parameters);
         }
-        return route($name, $parameters);
+
+        if (\Illuminate\Support\Facades\Route::has($name)) {
+            return route($name, $parameters);
+        }
+        return url($name, $parameters);
     }
 }
