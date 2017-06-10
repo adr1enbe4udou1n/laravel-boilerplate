@@ -19,7 +19,7 @@ class EloquentFormSettingRepository extends BaseRepository implements FormSettin
     /**
      * EloquentFormSettingRepository constructor.
      *
-     * @param FormSetting $formSetting
+     * @param FormSetting                                      $formSetting
      */
     public function __construct(FormSetting $formSetting)
     {
@@ -35,15 +35,13 @@ class EloquentFormSettingRepository extends BaseRepository implements FormSettin
             'id',
             'name',
             'recipients',
-            'message',
             'created_at',
             'updated_at',
         ]);
     }
 
     /**
-     * @param $locale
-     * @param $route
+     * @param $name
      *
      * @return FormSetting
      */

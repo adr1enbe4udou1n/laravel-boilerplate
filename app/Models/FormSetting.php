@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -10,7 +11,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property string $name
  * @property string $recipients
- * @property string $message
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSetting whereCreatedAt($value)
@@ -20,11 +20,25 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSetting whereRecipients($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSetting whereUpdatedAt($value)
  * @mixin \Eloquent
- * @property-read mixed $html_message
  * @property-read mixed $array_recipients
+ * @property-read mixed $html_message
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\FormSettingTranslation[] $translations
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSetting listsTranslations($translationField)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSetting notTranslatedIn($locale = null)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSetting orWhereTranslation($key, $value, $locale = null)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSetting orWhereTranslationLike($key, $value, $locale = null)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSetting translated()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSetting translatedIn($locale = null)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSetting whereTranslation($key, $value, $locale = null)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSetting whereTranslationLike($key, $value, $locale = null)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSetting withTranslation()
  */
 class FormSetting extends Model
 {
+    use Translatable;
+
+    public $translatedAttributes = ['message'];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -34,8 +48,9 @@ class FormSetting extends Model
         = [
             'name',
             'recipients',
-            'message',
         ];
+
+    protected $with = ['translations'];
 
     public function getArrayRecipientsAttribute()
     {

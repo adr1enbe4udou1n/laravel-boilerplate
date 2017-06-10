@@ -8,6 +8,7 @@
         "php": "^7.0",
         "arcanedev/no-captcha": "^4.0",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
+        "dimsav/laravel-translatable": "^7.2",
         "guzzlehttp/guzzle": "^6.2",
         "hieu-le/active": "^3.3",
         "intervention/image": "^2.3",

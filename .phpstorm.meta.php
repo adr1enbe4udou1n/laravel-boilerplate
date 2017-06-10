@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2017-06-09.
+    * Generated on 2017-06-10.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -53,6 +53,7 @@ namespace PHPSTORM_META {
             'App\Repositories\Contracts\UserRepository' instanceof \App\Repositories\EloquentUserRepository,
             'App\Repositories\Contracts\RoleRepository' instanceof \App\Repositories\EloquentRoleRepository,
             'App\Repositories\Contracts\MetaRepository' instanceof \App\Repositories\EloquentMetaRepository,
+            'App\Repositories\Contracts\FormSettingRepository' instanceof \App\Repositories\EloquentFormSettingRepository,
             'App\Repositories\Contracts\FormSubmissionRepository' instanceof \App\Repositories\EloquentFormSubmissionRepository,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'validation.presence' instanceof \Illuminate\Validation\DatabasePresenceVerifier,
@@ -188,6 +189,7 @@ namespace PHPSTORM_META {
             'App\Repositories\Contracts\UserRepository' instanceof \App\Repositories\EloquentUserRepository,
             'App\Repositories\Contracts\RoleRepository' instanceof \App\Repositories\EloquentRoleRepository,
             'App\Repositories\Contracts\MetaRepository' instanceof \App\Repositories\EloquentMetaRepository,
+            'App\Repositories\Contracts\FormSettingRepository' instanceof \App\Repositories\EloquentFormSettingRepository,
             'App\Repositories\Contracts\FormSubmissionRepository' instanceof \App\Repositories\EloquentFormSubmissionRepository,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'validation.presence' instanceof \Illuminate\Validation\DatabasePresenceVerifier,
@@ -323,6 +325,7 @@ namespace PHPSTORM_META {
             'App\Repositories\Contracts\UserRepository' instanceof \App\Repositories\EloquentUserRepository,
             'App\Repositories\Contracts\RoleRepository' instanceof \App\Repositories\EloquentRoleRepository,
             'App\Repositories\Contracts\MetaRepository' instanceof \App\Repositories\EloquentMetaRepository,
+            'App\Repositories\Contracts\FormSettingRepository' instanceof \App\Repositories\EloquentFormSettingRepository,
             'App\Repositories\Contracts\FormSubmissionRepository' instanceof \App\Repositories\EloquentFormSubmissionRepository,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'validation.presence' instanceof \Illuminate\Validation\DatabasePresenceVerifier,
@@ -458,6 +461,7 @@ namespace PHPSTORM_META {
             'App\Repositories\Contracts\UserRepository' instanceof \App\Repositories\EloquentUserRepository,
             'App\Repositories\Contracts\RoleRepository' instanceof \App\Repositories\EloquentRoleRepository,
             'App\Repositories\Contracts\MetaRepository' instanceof \App\Repositories\EloquentMetaRepository,
+            'App\Repositories\Contracts\FormSettingRepository' instanceof \App\Repositories\EloquentFormSettingRepository,
             'App\Repositories\Contracts\FormSubmissionRepository' instanceof \App\Repositories\EloquentFormSubmissionRepository,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'validation.presence' instanceof \Illuminate\Validation\DatabasePresenceVerifier,

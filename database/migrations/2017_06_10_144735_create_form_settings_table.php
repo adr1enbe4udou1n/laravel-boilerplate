@@ -14,8 +14,7 @@ class CreateFormSettingsTable extends Migration
         Schema::create('form_settings', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
-            $table->text('recipients');
-            $table->text('message');
+            $table->text('recipients')->nullable();
             $table->timestamps();
         });
     }
