@@ -182,6 +182,20 @@ if (!function_exists('menu_header_access')) {
     }
 }
 
+if (!function_exists('url_alias')) {
+    function url_alias($name)
+    {
+        $locale = LaravelLocalization::getCurrentLocale();
+        $meta = app(MetaRepository::class)->find($locale, $name);
+
+        if ($meta) {
+            return $meta->url;
+        }
+
+        return "/$name";
+    }
+}
+
 if (!function_exists('route_alias')) {
     function route_alias($name, $parameters = [], $locale = null)
     {
