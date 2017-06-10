@@ -25,4 +25,8 @@ return [
     'metas' => [
         'create' => 'Créer une meta',
     ],
+
+    'form_settings' => [
+        'create' => 'Créer un paramètre',
+    ],
 ];

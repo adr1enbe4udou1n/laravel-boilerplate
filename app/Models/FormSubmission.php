@@ -18,31 +18,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSubmission whereType($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSubmission whereUpdatedAt($value)
  * @mixin \Eloquent
- * @property mixed $type_label
- * @property-read array $formatted_data
+ * @property array $formatted_data
  */
 class FormSubmission extends Model
 {
-    const FORM_CONTACT = 'contact';
-
-    /**
-     * @return array
-     */
-    public static function getFormTypes()
-    {
-        return [
-            self::FORM_CONTACT => 'labels.backend.form_submissions.form_types.contact',
-        ];
-    }
-
-    /**
-     * @return string
-     */
-    public function getTypeLabelAttribute()
-    {
-        return self::getFormTypes()[$this->type];
-    }
-
     /**
      * @return array
      */

@@ -5,5 +5,7 @@
 @section('body_id', 'page-contact')
 
 @section('content')
-    @lang('labels.frontend.submissions.message_sent')
+    @if(!empty($message))
+    {!! $message !!}
+    @endif
 @endsection

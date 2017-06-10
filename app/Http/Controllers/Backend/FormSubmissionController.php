@@ -52,7 +52,7 @@ class FormSubmissionController extends Controller
             $query = Datatables::of($this->formSubmissions->get());
 
             return $query->editColumn('type', function (FormSubmission $formSubmission) {
-                return trans($formSubmission->type_label);
+                return trans("forms.{$formSubmission->type}.display_name");
             })->addColumn('actions', function (FormSubmission $formSubmission) {
                 return $this->formSubmissions->getActionButtons($formSubmission);
             })

@@ -364,8 +364,8 @@ class EloquentUserRepository extends BaseRepository implements UserRepository
         if ($this->canImpersonate($user)) {
             $title = '<i class="fa fa-lock" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.login-as', ['name' => $user->name]).'"></i>';
             $buttons .= link_to(route('login-as', $user), $title, [
-                'class' => 'btn btn-xs btn-warning'
-            ], false, false) . ' ';
+                'class' => 'btn btn-xs btn-warning',
+            ], false, false).' ';
         }
 
         if ($this->canDelete($user)) {

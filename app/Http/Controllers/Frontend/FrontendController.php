@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Repositories\Contracts\FormSettingRepository;
 use App\Repositories\Contracts\FormSubmissionRepository;
 use Illuminate\Http\Request;
 
@@ -14,13 +15,20 @@ class FrontendController extends Controller
     protected $formSubmissions;
 
     /**
+     * @var FormSettingRepository
+     */
+    protected $formSettings;
+
+    /**
      * Create a new controller instance.
      *
      * @param \App\Repositories\Contracts\FormSubmissionRepository $formSubmissions
+     * @param \App\Repositories\Contracts\FormSettingRepository $formSettings
      */
-    public function __construct(FormSubmissionRepository $formSubmissions)
+    public function __construct(FormSubmissionRepository $formSubmissions, FormSettingRepository $formSettings)
     {
         $this->formSubmissions = $formSubmissions;
+        $this->formSettings = $formSettings;
     }
 
     public function index()
@@ -53,7 +61,9 @@ class FrontendController extends Controller
 
     public function contactSent()
     {
-        return view('frontend.pages.contact-sent');
+        $formSetting = $this->formSettings->find('contact');
+
+        return view('frontend.pages.contact-sent')->withMessage($formSetting->html_message);
     }
 
     public function legalMentions()

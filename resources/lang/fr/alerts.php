@@ -28,6 +28,12 @@ return [
             'deleted' => 'Soumission supprimée',
             'bulk_destroyed' => 'Soumissions sélectionnées supprimées',
         ],
+
+        'form_settings' => [
+            'created' => 'Paramétrage de formulaire créé',
+            'updated' => 'Paramétrage de formulaire mis à jour',
+            'deleted' => 'Paramétrage de formulaire supprimé',
+        ],
     ],
 
     'frontend' => [

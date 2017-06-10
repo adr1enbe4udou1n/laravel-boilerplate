@@ -159,5 +159,6 @@ return [
         'route' => 'Route interne',
         'form_type' => 'Type de formulaire',
         'form_data' => 'Données du formulaire',
+        'recipients' => 'Destinataires',
     ],
 ];

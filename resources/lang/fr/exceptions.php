@@ -25,6 +25,13 @@ return [
             'create' => 'Erreur lors de la création de la soumission',
             'delete' => 'Erreur lors de la suppression de la soumission',
         ],
+
+        'form_settings' => [
+            'create' => 'Erreur lors de la création du paramètre de formulaire',
+            'update' => 'Erreur lors de la mise à jour du paramètre de formulaire',
+            'delete' => 'Erreur lors de la suppression du paramètre de formulaire',
+            'already_exist' => 'Il existe déjà un paramétrage pour ce formulaire',
+        ],
     ],
 
     'frontend' => [

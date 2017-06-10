@@ -47,6 +47,11 @@ return [
         'metas' => [
             'route' => 'Value should correspond to an valid route name',
         ],
+
+        'form_settings' => [
+            'recipients' => 'Example: \'webmaster@example.com\' or \'sales@example.com,support@example.com\' . To specify multiple recipients, separate each email address with a comma.',
+            'message' => 'The message to display to the user after submission of this form. Leave blank for no message.'
+        ],
     ],
 
     'user' => [
@@ -142,9 +147,14 @@ return [
             'actions' => [
                 'destroy' => 'Delete selected submissions',
             ],
+        ],
 
-            'form_types' => [
-                'contact' => 'Contact form',
+        'form_settings' => [
+            'titles' => [
+                'main' => 'Form setting',
+                'index' => 'Form setting list',
+                'create' => 'Form setting creation',
+                'edit' => 'Form setting modification',
             ],
         ],
     ],

@@ -159,5 +159,6 @@ return [
         'route' => 'Internal route',
         'form_type' => 'Form type',
         'form_data' => 'Form data',
+        'recipients' => 'Recipients',
     ],
 ];

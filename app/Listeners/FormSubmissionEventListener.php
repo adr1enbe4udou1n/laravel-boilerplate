@@ -4,24 +4,42 @@ namespace App\Listeners;
 
 use App\Events\FormSubmissionCreated;
 use App\Mail\Contact;
+use App\Repositories\Contracts\FormSettingRepository;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class FormSubmissionEventListener
 {
+
+    /**
+     * @var FormSettingRepository
+     */
+    protected $formSettings;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @param \App\Repositories\Contracts\FormSettingRepository $formSettings
+     */
+    public function __construct(FormSettingRepository $formSettings)
+    {
+        $this->formSettings = $formSettings;
+    }
+
     /**
      * @param $event
      */
     public function onCreated(FormSubmissionCreated $event)
     {
-        Log::notice(trans('logs.backend.form_submissions.created', ['form_submission' => $event->formSubmission->id]));
+        Log::notice(trans('logs.backend.form_submissions.created',
+            ['form_submission' => $event->formSubmission->id]));
 
-        Mail::to([
-            [
-                'email' => 'admin@example.com',
-                'name' => 'Admin',
-            ],
-        ])->send(new Contact($event->formSubmission));
+        $formSetting = $this->formSettings->find($event->formSubmission->type);
+
+        if ($formSetting && !empty($formSetting->recipients)) {
+            Mail::to($formSetting->array_recipients)
+                ->send(new Contact($event->formSubmission));
+        }
     }
 
     /**

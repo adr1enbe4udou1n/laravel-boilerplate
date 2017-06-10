@@ -47,6 +47,11 @@ return [
         'metas' => [
             'route' => 'La valeur doit correspondre à un nom de route valide',
         ],
+
+        'form_settings' => [
+            'recipients' => 'Exemple: \'webmaster@example.com\' or \'sales@example.com,support@example.com\' . Pour déclarer des destinataires multiples, séparer chaque adresse par une virgule.',
+            'message' => 'Le message à afficher après la soumission de ce formulaire. Laissez vide pour n\'afficher aucun message.'
+        ],
     ],
 
     'user' => [
@@ -142,9 +147,14 @@ return [
             'actions' => [
                 'destroy' => 'Supprimer les soumissions sélectionnées',
             ],
+        ],
 
-            'form_types' => [
-                'contact' => 'Formulaire de contact',
+        'form_settings' => [
+            'titles' => [
+                'main' => 'Paramètres de formulaire',
+                'index' => 'Liste des paramètres de formulaire',
+                'create' => 'Création d\'un paramètre de formulaire',
+                'edit' => 'Edition d\'un paramètre de formulaire',
             ],
         ],
     ],

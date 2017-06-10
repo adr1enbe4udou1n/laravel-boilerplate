@@ -28,6 +28,12 @@ return [
             'deleted' => 'Submission deleted',
             'bulk_destroyed' => 'Selected submissions deleted',
         ],
+
+        'form_settings' => [
+            'created' => 'Form setting created',
+            'updated' => 'Form setting updated',
+            'deleted' => 'Form setting deleted',
+        ],
     ],
 
     'frontend' => [

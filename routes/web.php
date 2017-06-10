@@ -140,6 +140,28 @@ Route::group([
                 ->name('route.search');
 
             Route::group(
+                ['middleware' => ['can:manage form_settings']],
+                function () {
+                    Route::get('form-setting', 'FormSettingController@index')
+                        ->name('form_setting.index');
+                    Route::get('form-setting/create', 'FormSettingController@create')
+                        ->name('form_setting.create');
+                    Route::post('form-setting', 'FormSettingController@store')
+                        ->name('form_setting.store');
+                    Route::get('form-setting/{form_setting}/edit', 'FormSettingController@edit')
+                        ->name('form_setting.edit');
+                    Route::match(['PUT', 'PATCH'], 'form-setting/{form_setting}',
+                        'FormSettingController@update')->name('form_setting.update');
+                    Route::delete('form-setting/{form_setting}', 'FormSettingController@destroy')
+                        ->name('form_setting.destroy');
+
+                    Route::post('form-setting/search', 'FormSettingController@search')->name(
+                        'form_setting.search'
+                    );
+                }
+            );
+
+            Route::group(
                 ['middleware' => ['can:manage form_submissions']],
                 function () {
                     Route::get('form-submission', 'FormSubmissionController@index')

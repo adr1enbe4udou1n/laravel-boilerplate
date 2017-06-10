@@ -25,4 +25,8 @@ return [
     'metas' => [
         'create' => 'Create meta',
     ],
+
+    'form_settings' => [
+        'create' => 'Create setting',
+    ],
 ];

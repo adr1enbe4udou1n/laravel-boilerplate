@@ -9,6 +9,11 @@ return [
     ],
 
     'manage' => [
+        'form_settings' => [
+            'display_name' => 'Manage form settings',
+            'description' => 'Can manage all form settings (create, update, delete)',
+        ],
+
         'form_submissions' => [
             'display_name' => 'Manage form submissions',
             'description' => 'Can manage all form submissions (view, delete)',

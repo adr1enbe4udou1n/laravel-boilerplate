@@ -9,6 +9,11 @@ return [
     ],
 
     'manage' => [
+        'form_settings' => [
+            'display_name' => 'Administrer les paramètres de formulaires',
+            'description' => 'Possibilité de gérer la liste des paramètres de formulaires (création, mise à jour, suppression).',
+        ],
+
         'form_submissions' => [
             'display_name' => 'Administrer les soumissions de formulaire',
             'description' => 'Possibilité de gérer la liste des soumissions de formulaire (détail, suppressions)',
