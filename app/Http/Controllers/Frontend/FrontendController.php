@@ -23,7 +23,7 @@ class FrontendController extends Controller
      * Create a new controller instance.
      *
      * @param \App\Repositories\Contracts\FormSubmissionRepository $formSubmissions
-     * @param \App\Repositories\Contracts\FormSettingRepository $formSettings
+     * @param \App\Repositories\Contracts\FormSettingRepository    $formSettings
      */
     public function __construct(FormSubmissionRepository $formSubmissions, FormSettingRepository $formSettings)
     {

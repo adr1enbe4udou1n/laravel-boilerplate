@@ -6,11 +6,8 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateFormSettingTranslationsTable extends Migration
 {
-
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
@@ -29,8 +26,6 @@ class CreateFormSettingTranslationsTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

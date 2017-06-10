@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Mail;
 
 class FormSubmissionEventListener
 {
-
     /**
      * @var FormSettingRepository
      */

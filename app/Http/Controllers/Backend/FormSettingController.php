@@ -8,8 +8,6 @@ use App\Http\Requests\UpdateFormSettingRequest;
 use App\Models\FormSetting;
 use App\Repositories\Contracts\FormSettingRepository;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Router;
-use Mcamara\LaravelLocalization\LaravelLocalization;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
 
@@ -23,7 +21,7 @@ class FormSettingController extends Controller
     /**
      * Create a new controller instance.
      *
-     * @param FormSettingRepository             $formSettings
+     * @param FormSettingRepository $formSettings
      *
      * @throws \Mcamara\LaravelLocalization\Exceptions\SupportedLocalesNotDefined
      */
@@ -123,8 +121,8 @@ class FormSettingController extends Controller
     }
 
     /**
-     * @param FormSetting    $formSetting
-     * @param Request $request
+     * @param FormSetting $formSetting
+     * @param Request     $request
      *
      * @return mixed
      */

@@ -19,7 +19,7 @@ class EloquentFormSettingRepository extends BaseRepository implements FormSettin
     /**
      * EloquentFormSettingRepository constructor.
      *
-     * @param FormSetting                                      $formSetting
+     * @param FormSetting $formSetting
      */
     public function __construct(FormSetting $formSetting)
     {
@@ -79,8 +79,8 @@ class EloquentFormSettingRepository extends BaseRepository implements FormSettin
     }
 
     /**
-     * @param FormSetting  $formSetting
-     * @param array $input
+     * @param FormSetting $formSetting
+     * @param array       $input
      *
      * @return \App\Models\FormSetting
      *

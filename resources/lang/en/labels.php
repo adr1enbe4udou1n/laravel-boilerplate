@@ -50,7 +50,7 @@ return [
 
         'form_settings' => [
             'recipients' => 'Example: \'webmaster@example.com\' or \'sales@example.com,support@example.com\' . To specify multiple recipients, separate each email address with a comma.',
-            'message' => 'The message to display to the user after submission of this form. Leave blank for no message.'
+            'message' => 'The message to display to the user after submission of this form. Leave blank for no message.',
         ],
     ],
 

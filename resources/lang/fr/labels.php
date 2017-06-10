@@ -50,7 +50,7 @@ return [
 
         'form_settings' => [
             'recipients' => 'Exemple: \'webmaster@example.com\' or \'sales@example.com,support@example.com\' . Pour déclarer des destinataires multiples, séparer chaque adresse par une virgule.',
-            'message' => 'Le message à afficher après la soumission de ce formulaire. Laissez vide pour n\'afficher aucun message.'
+            'message' => 'Le message à afficher après la soumission de ce formulaire. Laissez vide pour n\'afficher aucun message.',
         ],
     ],
 
