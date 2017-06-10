@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 /**
  * Class EloquentMetaRepository.
  */
-class EloquentMetaRepository extends BaseRepository implements MetaRepository
+class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepository
 {
     use HtmlActionsButtons;
 
@@ -35,6 +35,7 @@ class EloquentMetaRepository extends BaseRepository implements MetaRepository
             'id',
             'locale',
             'route',
+            'url',
             'title',
             'description',
             'created_at',
@@ -53,6 +54,17 @@ class EloquentMetaRepository extends BaseRepository implements MetaRepository
         /* @var Meta $meta */
         return $this->query()->whereLocale($locale)->whereRoute($route)
             ->first();
+    }
+
+    /**
+     * @param $slug
+     *
+     * @return Meta
+     */
+    public function findBySlug($slug)
+    {
+        /* @var Meta $meta */
+        return $this->query()->whereUrl($slug)->first();
     }
 
     /**

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 /**
  * Class EloquentFormSettingRepository.
  */
-class EloquentFormSettingRepository extends BaseRepository implements FormSettingRepository
+class EloquentFormSettingRepository extends EloquentBaseRepository implements FormSettingRepository
 {
     use HtmlActionsButtons;
 

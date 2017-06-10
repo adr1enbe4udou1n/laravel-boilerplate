@@ -59,6 +59,11 @@
                 name: 'route',
                 width: 150,
             }, {
+                title: '{{ trans('validation.attributes.url') }}',
+                data: 'url',
+                name: 'url',
+                width: 150,
+            }, {
                 title: '{{ trans('validation.attributes.title') }}',
                 data: 'title',
                 name: 'title',

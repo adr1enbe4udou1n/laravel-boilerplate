@@ -13,7 +13,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $recipients
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSetting whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSetting whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSetting whereMessage($value)
@@ -21,11 +20,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSetting whereRecipients($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSetting whereUpdatedAt($value)
  * @mixin \Eloquent
- *
  * @property mixed $array_recipients
  * @property mixed $html_message
  * @property \Illuminate\Database\Eloquent\Collection|\App\Models\FormSettingTranslation[] $translations
- *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSetting listsTranslations($translationField)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSetting notTranslatedIn($locale = null)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSetting orWhereTranslation($key, $value, $locale = null)

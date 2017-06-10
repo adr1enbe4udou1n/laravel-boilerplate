@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 /**
  * Class EloquentRoleRepository.
  */
-class EloquentRoleRepository extends BaseRepository implements RoleRepository
+class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepository
 {
     use HtmlActionsButtons;
 

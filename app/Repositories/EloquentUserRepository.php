@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Hash;
 /**
  * Class EloquentUserRepository.
  */
-class EloquentUserRepository extends BaseRepository implements UserRepository
+class EloquentUserRepository extends EloquentBaseRepository implements UserRepository
 {
     use HtmlActionsButtons;
 

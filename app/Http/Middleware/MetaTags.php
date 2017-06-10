@@ -5,9 +5,15 @@ namespace App\Http\Middleware;
 use App\Repositories\Contracts\MetaRepository;
 use Closure;
 use Illuminate\Support\Facades\View;
+use Mcamara\LaravelLocalization\LaravelLocalization;
 
 class MetaTags
 {
+    /**
+     * @var LaravelLocalization
+     */
+    protected $localization;
+
     /**
      * @var MetaRepository
      */
@@ -16,10 +22,12 @@ class MetaTags
     /**
      * Create a new controller instance.
      *
-     * @param MetaRepository $metas
+     * @param \Mcamara\LaravelLocalization\LaravelLocalization $localization
+     * @param MetaRepository                                   $metas
      */
-    public function __construct(MetaRepository $metas)
+    public function __construct(LaravelLocalization $localization, MetaRepository $metas)
     {
+        $this->localization = $localization;
         $this->metas = $metas;
     }
 
@@ -33,7 +41,7 @@ class MetaTags
      */
     public function handle($request, Closure $next)
     {
-        $currentLocale = \LaravelLocalization::getCurrentLocale();
+        $currentLocale = $this->localization->getCurrentLocale();
         $routeName = $request->route()->getName();
 
         $meta = $this->metas->find($currentLocale, $routeName);

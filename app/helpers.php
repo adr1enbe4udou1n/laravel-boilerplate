@@ -1,5 +1,6 @@
 <?php
 
+use App\Repositories\Contracts\MetaRepository;
 use Illuminate\Support\HtmlString;
 
 if (!function_exists('assets')) {
@@ -178,5 +179,21 @@ if (!function_exists('menu_header_access')) {
         }
 
         return null;
+    }
+}
+
+if (!function_exists('route_alias')) {
+    function route_alias($name, $parameters = [], $locale = null)
+    {
+        if ($locale === null) {
+            $locale = LaravelLocalization::getCurrentLocale();
+        }
+
+        $meta = app(MetaRepository::class)->find($locale, $name);
+
+        if ($meta) {
+            return $meta->url;
+        }
+        return route($name, $parameters);
     }
 }

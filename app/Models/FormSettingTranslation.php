@@ -11,7 +11,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $form_setting_id
  * @property string $locale
  * @property string $message
- *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSettingTranslation whereFormSettingId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSettingTranslation whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSettingTranslation whereLocale($value)

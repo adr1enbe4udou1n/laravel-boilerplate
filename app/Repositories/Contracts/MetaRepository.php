@@ -7,7 +7,7 @@ use App\Models\Meta;
 /**
  * Class EloquentMetaRepository.
  */
-interface MetaRepository
+interface MetaRepository extends BaseRepository
 {
     /**
      * @return \Illuminate\Database\Query\Builder
@@ -21,6 +21,13 @@ interface MetaRepository
      * @return Meta
      */
     public function find($locale, $route);
+
+    /**
+     * @param $slug
+     *
+     * @return Meta
+     */
+    public function findBySlug($slug);
 
     /**
      * @param array $input

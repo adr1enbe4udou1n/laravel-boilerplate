@@ -7,7 +7,7 @@ use App\Models\Role;
 /**
  * Class EloquentRoleRepository.
  */
-interface RoleRepository
+interface RoleRepository extends BaseRepository
 {
     /**
      * @return \Illuminate\Database\Query\Builder

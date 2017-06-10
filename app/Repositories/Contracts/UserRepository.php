@@ -8,7 +8,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 /**
  * Class EloquentUserRepository.
  */
-interface UserRepository
+interface UserRepository extends BaseRepository
 {
     /**
      * @return mixed

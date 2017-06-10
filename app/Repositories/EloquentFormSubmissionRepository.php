@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 /**
  * Class EloquentFormSubmissionRepository.
  */
-class EloquentFormSubmissionRepository extends BaseRepository implements FormSubmissionRepository
+class EloquentFormSubmissionRepository extends EloquentBaseRepository implements FormSubmissionRepository
 {
     use HtmlActionsButtons;
 

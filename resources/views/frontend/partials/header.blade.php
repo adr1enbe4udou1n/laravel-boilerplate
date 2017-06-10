@@ -24,9 +24,9 @@
                     <li class="{{ active_class(if_route('home')) }}"><a href="{{ route('home') }}"><i
                                     class="fa fa-home"></i></a></li>
                     <li class="{{ active_class(if_route('about')) }}"><a
-                                href="{{ route('about') }}">@lang('labels.frontend.titles.about')</a></li>
+                                href="{{ route_alias('about') }}">@lang('labels.frontend.titles.about')</a></li>
                     <li class="{{ active_class(if_route('contact')) }}"><a
-                                href="{{ route('contact') }}">@lang('labels.frontend.titles.contact')</a></li>
+                                href="{{ route_alias('contact') }}">@lang('labels.frontend.titles.contact')</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

@@ -7,7 +7,7 @@ use App\Models\FormSetting;
 /**
  * Class EloquentFormSettingRepository.
  */
-interface FormSettingRepository
+interface FormSettingRepository extends BaseRepository
 {
     /**
      * @return \Illuminate\Database\Query\Builder

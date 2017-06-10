@@ -10,12 +10,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property string $locale
  * @property string $route
+ * @property string $url
  * @property string $title
  * @property string $description
  * @property mixed $uri
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Meta whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Meta whereDescription($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Meta whereId($value)
@@ -24,6 +24,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Meta whereTitle($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Meta whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Meta whereUrl($value)
  */
 class Meta extends Model
 {
@@ -36,6 +37,7 @@ class Meta extends Model
         = [
             'locale',
             'route',
+            'url',
             'title',
             'description',
         ];

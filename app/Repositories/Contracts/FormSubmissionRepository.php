@@ -7,7 +7,7 @@ use App\Models\FormSubmission;
 /**
  * Class EloquentFormSubmissionRepository.
  */
-interface FormSubmissionRepository
+interface FormSubmissionRepository extends BaseRepository
 {
     /**
      * @return \Illuminate\Database\Query\Builder
