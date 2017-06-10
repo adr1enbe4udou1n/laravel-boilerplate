@@ -3,7 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\FormSubmissionCreated;
-use App\Mail\FormSubmissionSend;
+use App\Mail\Contact;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
@@ -21,7 +21,7 @@ class FormSubmissionEventListener
                 'email' => 'admin@example.com',
                 'name' => 'Admin',
             ],
-        ])->send(new FormSubmissionSend($event->formSubmission));
+        ])->send(new Contact($event->formSubmission));
     }
 
     /**

@@ -14,6 +14,6 @@ return [
     ],
     'contact' => [
         'subject' => 'New contact message',
-        'new_contact' => 'You\'ve got a new contact message',
+        'new_contact' => 'You\'ve got a new contact message. Submission detail :',
     ],
 ];

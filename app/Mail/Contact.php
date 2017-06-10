@@ -6,8 +6,9 @@ use App\Models\FormSubmission;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Arr;
 
-class FormSubmissionSend extends Mailable
+class Contact extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -33,17 +34,11 @@ class FormSubmissionSend extends Mailable
      */
     public function build()
     {
-        $lines = [];
-        $data = json_decode($this->formSubmission->data);
-
-        foreach ($data as $name => $value) {
-            $lines[trans("validation.attributes.$name")] = $value;
-        }
+        $data = (array) json_decode($this->formSubmission->data);
 
         return $this->subject(trans("mails.{$this->formSubmission->type}.subject"))
-            ->markdown('vendor.notifications.email')
-            ->with('level', 'success')
-            ->with('introLines', $lines)
-            ->with('outroLines', []);
+            ->markdown('emails.contact')
+            ->withData(Arr::except($data, 'message'))
+            ->withMessage($data['message']);
     }
 }

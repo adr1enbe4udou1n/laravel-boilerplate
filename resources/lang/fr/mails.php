@@ -14,6 +14,6 @@ return [
     ],
     'contact' => [
         'subject' => 'Nouveau message de contact',
-        'new_contact' => 'Vous avez reçu un nouveau message de contact',
+        'new_contact' => 'Vous avez reçu un nouveau message de contact. Détail de la soumission :',
     ],
 ];
