@@ -101,5 +101,7 @@ class FormSubmissionController extends Controller
                 return redirect()->back()->withFlashSuccess(trans('alerts.backend.form_submissions.bulk_destroyed'));
                 break;
         }
+
+        return redirect()->back()->withFlashError(trans('alerts.backend.actions.invalid'));
     }
 }

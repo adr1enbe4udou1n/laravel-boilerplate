@@ -42,6 +42,11 @@ return [
             'bulk_destroyed' => 'Selected redirections deleted',
             'bulk_enabled' => 'Selected redirections enabled',
             'bulk_disabled' => 'Selected redirections disabled',
+            'file_imported' => 'File successfully imported',
+        ],
+
+        'actions' => [
+            'invalid' => 'Invalid action',
         ],
     ],
 

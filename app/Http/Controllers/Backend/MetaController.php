@@ -139,5 +139,7 @@ class MetaController extends Controller
                 return redirect()->back()->withFlashSuccess(trans('alerts.backend.metas.bulk_destroyed'));
                 break;
         }
+
+        return redirect()->back()->withFlashError(trans('alerts.backend.actions.invalid'));
     }
 }

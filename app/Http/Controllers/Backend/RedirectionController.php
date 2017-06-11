@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ImportRedirectionRequest;
 use App\Http\Requests\StoreRedirectionRequest;
 use App\Http\Requests\UpdateRedirectionRequest;
+use App\Imports\RedirectionListImport;
 use App\Models\Redirection;
 use App\Repositories\Contracts\RedirectionRepository;
 use Illuminate\Http\Request;
@@ -21,23 +23,15 @@ class RedirectionController extends Controller
     protected $redirections;
 
     /**
-     * @var array
-     */
-    protected $supportedLocales;
-
-    /**
      * Create a new controller instance.
      *
      * @param RedirectionRepository      $redirections
-     * @param LaravelLocalization        $localization
-     * @param \Illuminate\Routing\Router $router
      *
      * @throws \Mcamara\LaravelLocalization\Exceptions\SupportedLocalesNotDefined
      */
-    public function __construct(RedirectionRepository $redirections, LaravelLocalization $localization, Router $router)
+    public function __construct(RedirectionRepository $redirections)
     {
         $this->redirections = $redirections;
-        $this->supportedLocales = $localization->getSupportedLocales();
     }
 
     /**
@@ -82,7 +76,7 @@ class RedirectionController extends Controller
      */
     public function create()
     {
-        return view('backend.redirection.create')->withLocales($this->supportedLocales);
+        return view('backend.redirection.create');
     }
 
     /**
@@ -104,7 +98,7 @@ class RedirectionController extends Controller
      */
     public function edit(Redirection $redirection)
     {
-        return view('backend.redirection.edit')->withRedirection($redirection)->withLocales($this->supportedLocales);
+        return view('backend.redirection.edit')->withRedirection($redirection);
     }
 
     /**
@@ -158,5 +152,19 @@ class RedirectionController extends Controller
                 return redirect()->back()->withFlashSuccess(trans('alerts.backend.redirections.bulk_disabled'));
                 break;
         }
+
+        return redirect()->back()->withFlashError(trans('alerts.backend.actions.invalid'));
+    }
+
+    /**
+     * @param \App\Http\Requests\ImportRedirectionRequest $request
+     * @param \App\Imports\RedirectionListImport          $import
+     *
+     * @return
+     */
+    public function import(ImportRedirectionRequest $request, RedirectionListImport $import) {
+        $import->handleImport();
+
+        return redirect()->back()->withFlashSuccess(trans('alerts.backend.redirections.file_imported'));
     }
 }

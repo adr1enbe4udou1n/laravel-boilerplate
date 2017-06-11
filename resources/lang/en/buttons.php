@@ -32,5 +32,6 @@ return [
 
     'redirections' => [
         'create' => 'Create redirection',
+        'import' => 'Import CSV',
     ],
 ];

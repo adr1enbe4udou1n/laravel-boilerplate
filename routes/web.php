@@ -267,6 +267,9 @@ Route::group([
                         'RedirectionController@batchAction')->name(
                         'redirection.batch-action'
                     );
+
+                    Route::post('redirection/import', 'RedirectionController@import')
+                        ->name('redirection.import');
                 }
             );
         }

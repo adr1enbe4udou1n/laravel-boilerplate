@@ -177,6 +177,11 @@ return [
                 'permanent' => 'Redirection permanente (301)',
                 'temporary' => 'Redirection temporaire (302)',
             ],
+
+            'import' => [
+                'title' => 'Sélectionner un fichier CSV/XLS à importer',
+                'description' => 'Le fichier doit avoir 2 colonnes avec en-têtes de colonne "source" et "target", la redirection sera du type permanent par défaut'
+            ]
         ],
     ],
 

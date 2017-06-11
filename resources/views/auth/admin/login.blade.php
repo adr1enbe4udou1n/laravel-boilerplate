@@ -14,7 +14,7 @@
                     'feedback_class' => 'glyphicon glyphicon-envelope',
                 ]) !!}
 
-                {!! form_row('password', 'email', [
+                {!! form_row('password', 'password', [
                     'required' => true,
                     'placeholder' => trans('validation.attributes.password'),
                     'feedback_class' => 'glyphicon glyphicon-lock',

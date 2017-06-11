@@ -17,7 +17,7 @@
                 <div class="box-body">
                     <table class="table table-bordered table-hover" id="dataTableBuilder" width="100%"></table>
                     {!! form_batch_action('admin.redirection.batch-action', 'dataTableBuilder', [
-                        'delete' => trans('labels.backend.redirections.actions.destroy'),
+                        'destroy' => trans('labels.backend.redirections.actions.destroy'),
                         'enable' => trans('labels.backend.redirections.actions.enable'),
                         'disable' => trans('labels.backend.redirections.actions.disable')
                     ]) !!}
@@ -29,6 +29,31 @@
         <!-- /.col -->
     </div>
     <!-- /.row -->
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">@lang('labels.backend.redirections.import.title')</h3>
+                </div>
+                <div class="box-body">
+                    {{ Form::open(['route' => 'admin.redirection.import', 'class' => 'form-inline', 'method' => 'POST', 'files' => true]) }}
+
+                        {!! form_row('file', 'import', [
+                            'required' => true,
+                            'title' => trans('labels.backend.redirections.import.title'),
+                            'tooltip' => [
+                                'position' => 'bottom',
+                                'title' => trans('labels.backend.redirections.import.description'),
+                            ],
+                        ]) !!}
+
+                        {{ Form::submit(trans('buttons.redirections.import'), ['class' => 'btn btn-warning btn-sm']) }}
+                    {{ Form::close() }}
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('scripts')

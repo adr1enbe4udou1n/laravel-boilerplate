@@ -41,7 +41,11 @@ return [
             'deleted' => 'Redirection supprimée',
             'bulk_destroyed' => 'Redirections sélectionnés supprimés',
             'bulk_enabled' => 'Redirections sélectionnés activés',
-            'bulk_disabled' => 'Redirections sélectionnés désactivés',
+            'file_imported' => 'Fichier importé avec succès',
+        ],
+
+        'actions' => [
+            'invalid' => 'Action invalide',
         ],
     ],
 

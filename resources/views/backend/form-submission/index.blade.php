@@ -14,7 +14,7 @@
                 <div class="box-body">
                     <table class="table table-bordered table-hover" id="dataTableBuilder" width="100%"></table>
                     {!! form_batch_action('admin.form_submission.batch-action', 'dataTableBuilder', [
-                        'delete' => trans('labels.backend.form_submissions.actions.destroy'),
+                        'destroy' => trans('labels.backend.form_submissions.actions.destroy'),
                     ]) !!}
                 </div>
                 <!-- /.box-body -->

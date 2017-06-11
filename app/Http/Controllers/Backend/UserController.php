@@ -158,5 +158,7 @@ class UserController extends Controller
                 return redirect()->back()->withFlashSuccess(trans('alerts.backend.users.bulk_disabled'));
                 break;
         }
+
+        return redirect()->back()->withFlashError(trans('alerts.backend.actions.invalid'));
     }
 }
