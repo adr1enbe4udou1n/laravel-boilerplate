@@ -32,6 +32,13 @@ return [
             'delete' => 'Error on form setting deletion',
             'already_exist' => 'There is already a setting linked to this form',
         ],
+
+        'redirections' => [
+            'create' => 'Error on redirection creation',
+            'update' => 'Error on redirection updating',
+            'delete' => 'Error on redirection deletion',
+            'already_exist' => 'There is already a redirection for this path',
+        ],
     ],
 
     'frontend' => [

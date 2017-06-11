@@ -242,6 +242,33 @@ Route::group([
                     );
                 }
             );
+
+            Route::group(
+                ['middleware' => ['can:manage redirections']],
+                function () {
+                    Route::get('redirection', 'RedirectionController@index')
+                        ->name('redirection.index');
+                    Route::get('redirection/create', 'RedirectionController@create')
+                        ->name('redirection.create');
+                    Route::post('redirection', 'RedirectionController@store')
+                        ->name('redirection.store');
+                    Route::get('redirection/{redirection}/edit', 'RedirectionController@edit')
+                        ->name('redirection.edit');
+                    Route::match(['PUT', 'PATCH'], 'redirection/{redirection}',
+                        'RedirectionController@update')->name('redirection.update');
+                    Route::delete('redirection/{redirection}', 'RedirectionController@destroy')
+                        ->name('redirection.destroy');
+
+                    Route::post('redirection/search', 'RedirectionController@search')->name(
+                        'redirection.search'
+                    );
+
+                    Route::post('redirection/batch-action',
+                        'RedirectionController@batchAction')->name(
+                        'redirection.batch-action'
+                    );
+                }
+            );
         }
     );
 });

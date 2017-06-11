@@ -158,6 +158,26 @@ return [
                 'edit' => 'Edition d\'un paramètre de formulaire',
             ],
         ],
+
+        'redirections' => [
+            'titles' => [
+                'main' => 'Gestion des redirections',
+                'index' => 'Liste des redirections',
+                'create' => 'Création d\'une redirection',
+                'edit' => 'Modification d\'une redirection',
+            ],
+
+            'actions' => [
+                'destroy' => 'Supprimer les redirections sélectionnées',
+                'enable' => 'Activer les redirections sélectionnées',
+                'disable' => 'Désactiver les redirections sélectionnées',
+            ],
+
+            'types' => [
+                'permanent' => 'Redirection permanente (301)',
+                'temporary' => 'Redirection temporaire (302)',
+            ],
+        ],
     ],
 
     'frontend' => [

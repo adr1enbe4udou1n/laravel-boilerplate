@@ -33,6 +33,11 @@ return [
             'display_name' => 'Manage metas',
             'description' => 'Can manage all metas (create, update, delete)',
         ],
+
+        'redirections' => [
+            'display_name' => 'Manage redirections',
+            'description' => 'Can manage all redirections (create, update, delete)',
+        ],
     ],
 
     'impersonate' => [

@@ -18,6 +18,7 @@
             {!! menu_item_access('admin.role.index', '<i class="fa fa-shield"></i><span>' . trans('labels.backend.roles.titles.main') . '</span>', [], 'admin.role.*') !!}
             {!! menu_header_access(trans('labels.backend.sidebar.seo'), 'admin.meta.index') !!}
             {!! menu_item_access('admin.meta.index', '<i class="fa fa-tags"></i><span>' . trans('labels.backend.metas.titles.main') . '</span>', [], 'admin.meta.*') !!}
+            {!! menu_item_access('admin.redirection.index', '<i class="fa fa-forward"></i><span>' . trans('labels.backend.redirections.titles.main') . '</span>', [], 'admin.redirection.*') !!}
         </ul>
         <!-- /.sidebar-menu -->
     </section>

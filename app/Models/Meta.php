@@ -15,7 +15,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property \Illuminate\Database\Eloquent\Collection|\App\Models\MetaTranslation[] $translations
- *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Meta listsTranslations($translationField)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Meta notTranslatedIn($locale = null)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Meta orWhereTranslation($key, $value, $locale = null)

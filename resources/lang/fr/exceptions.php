@@ -32,6 +32,13 @@ return [
             'delete' => 'Erreur lors de la suppression du paramètre de formulaire',
             'already_exist' => 'Il existe déjà un paramétrage pour ce formulaire',
         ],
+
+        'redirections' => [
+            'create' => 'Erreur lors de la création de la redirection',
+            'update' => 'Erreur lors de la mise à jour de la redirection',
+            'delete' => 'Erreur lors de la suppression de la redirection',
+            'already_exist' => 'Il existe déjà une redirection pour ce chemin',
+        ],
     ],
 
     'frontend' => [

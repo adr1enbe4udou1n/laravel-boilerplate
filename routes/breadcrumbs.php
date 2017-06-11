@@ -109,3 +109,18 @@ Breadcrumbs::register('admin.meta.edit', function (Generator $breadcrumbs, $id) 
     $breadcrumbs->parent('admin.meta.index');
     $breadcrumbs->push(trans('labels.backend.metas.titles.edit'), route('admin.meta.edit', $id));
 });
+
+Breadcrumbs::register('admin.redirection.index', function (Generator $breadcrumbs) {
+    $breadcrumbs->parent('admin.home');
+    $breadcrumbs->push(trans('labels.backend.redirections.titles.main'), route('admin.redirection.index'));
+});
+
+Breadcrumbs::register('admin.redirection.create', function (Generator $breadcrumbs) {
+    $breadcrumbs->parent('admin.redirection.index');
+    $breadcrumbs->push(trans('labels.backend.redirections.titles.create'), route('admin.redirection.create'));
+});
+
+Breadcrumbs::register('admin.redirection.edit', function (Generator $breadcrumbs, $id) {
+    $breadcrumbs->parent('admin.redirection.index');
+    $breadcrumbs->push(trans('labels.backend.redirections.titles.edit'), route('admin.redirection.edit', $id));
+});

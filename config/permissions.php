@@ -41,4 +41,9 @@ return [
         'display_name' => 'permissions.manage.metas.display_name',
         'description' => 'permissions.manage.metas.description',
     ],
+
+    'manage redirections' => [
+        'display_name' => 'permissions.manage.redirections.display_name',
+        'description' => 'permissions.manage.redirections.description',
+    ],
 ];

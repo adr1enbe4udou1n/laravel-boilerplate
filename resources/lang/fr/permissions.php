@@ -33,6 +33,11 @@ return [
             'display_name' => 'Administrer les metas',
             'description' => 'Possibilité de gérer la liste des metas (création, mise à jour, suppression).',
         ],
+
+        'redirections' => [
+            'display_name' => 'Administrer les redirections',
+            'description' => 'Possibilité de gérer la liste des redirections (création, mise à jour, suppression).',
+        ],
     ],
 
     'impersonate' => [

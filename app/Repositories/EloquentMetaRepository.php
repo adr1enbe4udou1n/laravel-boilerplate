@@ -19,11 +19,11 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
     /**
      * EloquentMetaRepository constructor.
      *
-     * @param Meta $meta
+     * @param Meta $redirection
      */
-    public function __construct(Meta $meta)
+    public function __construct(Meta $redirection)
     {
-        parent::__construct($meta);
+        parent::__construct($redirection);
     }
 
     /**

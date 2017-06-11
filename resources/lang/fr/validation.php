@@ -161,5 +161,7 @@ return [
         'form_type' => 'Type de formulaire',
         'form_data' => 'Données du formulaire',
         'recipients' => 'Destinataires',
+        'path' => 'Chemin origine',
+        'redirect_type' => 'Type de redirection',
     ],
 ];

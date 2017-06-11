@@ -21,23 +21,16 @@ class MetaController extends Controller
     protected $metas;
 
     /**
-     * @var array
-     */
-    protected $supportedLocales;
-
-    /**
      * Create a new controller instance.
      *
      * @param MetaRepository             $metas
-     * @param LaravelLocalization        $localization
      * @param \Illuminate\Routing\Router $router
      *
      * @throws \Mcamara\LaravelLocalization\Exceptions\SupportedLocalesNotDefined
      */
-    public function __construct(MetaRepository $metas, LaravelLocalization $localization, Router $router)
+    public function __construct(MetaRepository $metas, Router $router)
     {
         $this->metas = $metas;
-        $this->supportedLocales = $localization->getSupportedLocales();
     }
 
     /**
@@ -80,7 +73,7 @@ class MetaController extends Controller
      */
     public function create()
     {
-        return view('backend.meta.create')->withLocales($this->supportedLocales);
+        return view('backend.meta.create');
     }
 
     /**
@@ -102,7 +95,7 @@ class MetaController extends Controller
      */
     public function edit(Meta $meta)
     {
-        return view('backend.meta.edit')->withMeta($meta)->withLocales($this->supportedLocales);
+        return view('backend.meta.edit')->withMeta($meta);
     }
 
     /**

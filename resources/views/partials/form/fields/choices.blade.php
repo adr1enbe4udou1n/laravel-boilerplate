@@ -6,7 +6,10 @@
 @endif
 
 @foreach($choices as $key => $choice)
-    @if(is_array($choice))
+    @if(is_string($choice))
+        @php($value = $key)
+        @php($label = $choice)
+    @elseif(is_array($choice))
         @php($value = isset($choice_value) ? $choice[$choice_value] : $key)
         @php($label = isset($choice_label) ? $choice[$choice_label] : $key)
     @else

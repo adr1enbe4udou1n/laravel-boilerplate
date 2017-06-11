@@ -29,4 +29,8 @@ return [
     'form_settings' => [
         'create' => 'Créer un paramètre',
     ],
+
+    'redirections' => [
+        'create' => 'Créer une redirection',
+    ],
 ];

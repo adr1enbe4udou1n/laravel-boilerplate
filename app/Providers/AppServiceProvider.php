@@ -5,11 +5,13 @@ namespace App\Providers;
 use App\Repositories\Contracts\FormSettingRepository;
 use App\Repositories\Contracts\FormSubmissionRepository;
 use App\Repositories\Contracts\MetaRepository;
+use App\Repositories\Contracts\RedirectionRepository;
 use App\Repositories\Contracts\RoleRepository;
 use App\Repositories\Contracts\UserRepository;
 use App\Repositories\EloquentFormSettingRepository;
 use App\Repositories\EloquentFormSubmissionRepository;
 use App\Repositories\EloquentMetaRepository;
+use App\Repositories\EloquentRedirectionRepository;
 use App\Repositories\EloquentRoleRepository;
 use App\Repositories\EloquentUserRepository;
 use Illuminate\Support\Facades\Schema;
@@ -99,6 +101,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             FormSubmissionRepository::class,
             EloquentFormSubmissionRepository::class
+        );
+
+        $this->app->bind(
+            RedirectionRepository::class,
+            EloquentRedirectionRepository::class
         );
     }
 }

@@ -34,6 +34,12 @@ return [
             'updated' => 'Form setting updated',
             'deleted' => 'Form setting deleted',
         ],
+
+        'redirections' => [
+            'created' => 'Redirection created',
+            'updated' => 'Redirection updated',
+            'deleted' => 'Redirection deleted',
+        ],
     ],
 
     'frontend' => [

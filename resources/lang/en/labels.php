@@ -158,6 +158,26 @@ return [
                 'edit' => 'Form setting modification',
             ],
         ],
+
+        'redirections' => [
+            'titles' => [
+                'main' => 'Redirection management',
+                'index' => 'Redirection list',
+                'create' => 'Redirection creation',
+                'edit' => 'Redirection modification',
+            ],
+
+            'actions' => [
+                'destroy' => 'Delete selected redirections',
+                'enable' => 'Enable selected redirections',
+                'disable' => 'Disable selected redirections',
+            ],
+
+            'types' => [
+                'permanent' => 'Permanent redirect (301)',
+                'temporary' => 'Temporary redirect (302)',
+            ],
+        ],
     ],
 
     'frontend' => [

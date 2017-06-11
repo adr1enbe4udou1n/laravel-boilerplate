@@ -4,10 +4,26 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Response;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Mcamara\LaravelLocalization\LaravelLocalization;
 
 class SeoController extends Controller
 {
+
+    /**
+     * @var LaravelLocalization
+     */
+    protected $localization;
+
+    /**
+     * SeoController constructor.
+     *
+     * @param LaravelLocalization $localization
+     */
+    public function __construct(LaravelLocalization $localization)
+    {
+        $this->localization = $localization;
+    }
+
     public function robots()
     {
         $lines = [
@@ -29,7 +45,6 @@ class SeoController extends Controller
             'lastmod' => Carbon::now(),
             'priority' => '1.0',
             'freq' => 'daily',
-            'translations' => $this->getTranslations('home'),
         ]);
 
         $sitemap->addItem([
@@ -63,16 +78,16 @@ class SeoController extends Controller
     {
         $translations = [];
 
-        $defaultLocale = LaravelLocalization::getDefaultLocale();
+        $defaultLocale = $this->localization->getDefaultLocale();
 
-        $supportedLocales = array_filter(LaravelLocalization::getSupportedLocales(), function ($localCode) use ($defaultLocale) {
+        $supportedLocales = array_filter($this->localization->getSupportedLocales(), function ($localCode) use ($defaultLocale) {
             return $localCode !== $defaultLocale;
         }, ARRAY_FILTER_USE_KEY);
 
         foreach ($supportedLocales as $localeCode => $properties) {
             $translations[] = [
                 'language' => $localeCode,
-                'url' => LaravelLocalization::getLocalizedURL($localeCode, route($routeName)),
+                'url' => url("$localeCode/" . trans("routes.$routeName", [], $localeCode)),
             ];
         }
 

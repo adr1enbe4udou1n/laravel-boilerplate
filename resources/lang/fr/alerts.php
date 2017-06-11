@@ -34,6 +34,12 @@ return [
             'updated' => 'Paramétrage de formulaire mis à jour',
             'deleted' => 'Paramétrage de formulaire supprimé',
         ],
+
+        'redirections' => [
+            'created' => 'Redirection créée',
+            'updated' => 'Redirection mise à jour',
+            'deleted' => 'Redirection supprimée',
+        ],
     ],
 
     'frontend' => [

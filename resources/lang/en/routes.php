@@ -1,8 +1,9 @@
 <?php
 
 return [
+    'home' => 'home',
     'about' => 'about',
     'contact' => 'contact',
-    'contact-sent' => 'contact',
-    'legal-mentions' => 'legal',
+    'contact-sent' => 'contact-sent',
+    'legal-mentions' => 'legal-mentions',
 ];
