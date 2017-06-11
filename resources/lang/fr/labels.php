@@ -12,6 +12,7 @@ return [
     'created_at' => 'Créé le',
     'updated_at' => 'Modifié le',
     'deleted_at' => 'Supprimé le',
+    'no_value' => 'Aucune valeur',
     'all_rights_reserved' => 'Tous droits réservés.',
 
     'http' => [

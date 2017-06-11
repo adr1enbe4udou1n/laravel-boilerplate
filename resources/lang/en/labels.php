@@ -12,6 +12,7 @@ return [
     'created_at' => 'Created at',
     'updated_at' => 'Updated at',
     'deleted_at' => 'Deleted at',
+    'no_value' => 'No value',
     'all_rights_reserved' => 'All rights reserved.',
 
     'http' => [

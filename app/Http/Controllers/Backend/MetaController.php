@@ -66,7 +66,7 @@ class MetaController extends Controller
             $query = Datatables::of($this->metas->get());
 
             return $query->editColumn('route', function (Meta $meta) {
-                return trans("routes.{$meta->route}");
+                return trans($meta->route);
             })->addColumn('actions', function (Meta $meta) {
                 return $this->metas->getActionButtons($meta);
             })

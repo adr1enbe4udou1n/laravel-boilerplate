@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Dusk\DuskServiceProvider;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -83,24 +84,31 @@ class AppServiceProvider extends ServiceProvider
     {
         $metas = $this->app->make(MetaRepository::class);
 
-        self::$aliases = $metas->query()->get(['locale', 'route', 'url']);
+        self::$aliases = $metas->query()->get(['id', 'route']);
     }
 
     /**
-     * @param $locale
      * @param $name
+     *
+     * @param $locale
      *
      * @return string
      */
-    public static function getAliasUrl($locale, $name)
+    public static function getAliasUrl($name, $locale = null)
     {
         /** @var Meta $meta */
-        $meta = self::$aliases->first(function (Meta $item) use ($locale, $name) {
-            return $item->locale === $locale && $item->route === $name;
+        $meta = self::$aliases->first(function (Meta $item) use ($name) {
+            return $item->route === $name;
         });
 
         if ($meta) {
-            return $meta->url;
+            if (empty($locale)) {
+                $locale = LaravelLocalization::getCurrentLocale();
+            }
+
+            if ($trans = $meta->getTranslation($locale)) {
+                return $trans->url;
+            }
         }
         return null;
     }

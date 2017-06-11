@@ -33,38 +33,21 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
     {
         return $this->query()->select([
             'id',
-            'locale',
             'route',
-            'url',
-            'title',
-            'description',
             'created_at',
             'updated_at',
-        ])->orderBy('locale')->orderBy('route');
+        ]);
     }
 
     /**
-     * @param $locale
      * @param $route
      *
      * @return Meta
      */
-    public function find($locale, $route)
+    public function find($route)
     {
         /* @var Meta $meta */
-        return $this->query()->whereLocale($locale)->whereRoute($route)
-            ->first();
-    }
-
-    /**
-     * @param $slug
-     *
-     * @return Meta
-     */
-    public function findBySlug($slug)
-    {
-        /* @var Meta $meta */
-        return $this->query()->whereUrl($slug)->first();
+        return $this->query()->whereRoute($route)->first();
     }
 
     /**
@@ -79,7 +62,7 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
         /** @var Meta $meta */
         $meta = $this->make($input);
 
-        if ($this->find($meta->locale, $meta->route)) {
+        if ($this->find($meta->route)) {
             throw new GeneralException(trans('exceptions.backend.metas.already_exist'));
         }
 
@@ -105,7 +88,7 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
      */
     public function update(Meta $meta, array $input)
     {
-        if (($existingMeta = $this->find($meta->locale, $meta->route))
+        if (($existingMeta = $this->find($meta->route))
             && $existingMeta->id !== $meta->id
         ) {
             throw new GeneralException(trans('exceptions.backend.metas.already_exist'));

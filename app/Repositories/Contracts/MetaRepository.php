@@ -15,19 +15,11 @@ interface MetaRepository extends BaseRepository
     public function get();
 
     /**
-     * @param $locale
      * @param $route
      *
      * @return Meta
      */
-    public function find($locale, $route);
-
-    /**
-     * @param $slug
-     *
-     * @return Meta
-     */
-    public function findBySlug($slug);
+    public function find($route);
 
     /**
      * @param array $input

@@ -1,17 +1,8 @@
 <div class="box-body">
-    {!! form_row('radios', 'locale', [
-        'required' => true,
-        'title' => trans('validation.attributes.locale'),
-        'label_class' => 'col-lg-3',
-        'field_wrapper_class' => 'col-lg-9',
-        'choices' => $locales,
-        'choice_label' => 'name',
-    ]) !!}
-
     @if(old('route'))
-        @php($route_list = [old('route') => trans('routes.' . old('route'))])
+        @php($route_list = [old('route') => trans(old('route'))])
     @else
-        @php($route_list = isset($meta) ? [$meta->route => trans('routes.' . $meta->route)] : [])
+        @php($route_list = isset($meta) ? [$meta->route => trans($meta->route)] : [])
     @endif
 
     {!! form_row('autocomplete', 'route', [

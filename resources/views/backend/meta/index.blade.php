@@ -48,12 +48,6 @@
                 width: 15,
                 className: 'select-checkbox'
             }, {
-                title: '{{ trans('validation.attributes.locale') }}',
-                data: 'locale',
-                name: 'locale',
-                searchable: false,
-                width: 50,
-            }, {
                 title: '{{ trans('validation.attributes.route') }}',
                 data: 'route',
                 name: 'route',
@@ -62,16 +56,19 @@
                 title: '{{ trans('validation.attributes.url') }}',
                 data: 'url',
                 name: 'url',
+                defaultContent: '{{ trans('labels.no_value') }}',
                 width: 150,
             }, {
                 title: '{{ trans('validation.attributes.title') }}',
                 data: 'title',
                 name: 'title',
+                defaultContent: '{{ trans('labels.no_value') }}',
                 width: 150,
             }, {
                 title: '{{ trans('validation.attributes.description') }}',
                 data: 'description',
                 name: 'description',
+                defaultContent: '{{ trans('labels.no_value') }}',
                 orderable: false,
             }, {
                 title: '{{ trans('labels.created_at') }}',
@@ -93,7 +90,7 @@
                 width: 50,
             }],
             select: {style: 'os'},
-            order: [[1, 'asc'], [2, 'asc']],
+            order: [[1, 'asc']],
             rowId: 'id'
         });
     </script>

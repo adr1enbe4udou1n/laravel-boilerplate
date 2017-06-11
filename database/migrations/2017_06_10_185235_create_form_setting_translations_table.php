@@ -6,6 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateFormSettingTranslationsTable extends Migration
 {
+
     /**
      * Run the migrations.
      */
@@ -19,9 +20,11 @@ class CreateFormSettingTranslationsTable extends Migration
                 $table->text('message')->nullable();
 
                 $table->unique(['form_setting_id', 'locale']);
-                $table->foreign('form_setting_id')->references('id')->on('form_settings')
+                $table->foreign('form_setting_id')->references('id')
+                    ->on('form_settings')
                     ->onDelete('cascade');
-            });
+            }
+        );
     }
 
     /**

@@ -53,6 +53,7 @@
                 title: '{{ trans('validation.attributes.message') }}',
                 data: 'message',
                 name: 'message',
+                defaultContent: '{{ trans('labels.no_value') }}',
                 orderable: false,
             }, {
                 title: '{{ trans('labels.created_at') }}',

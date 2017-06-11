@@ -13,14 +13,8 @@ class CreateMetasTable extends Migration
     {
         Schema::create('metas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('locale');
-            $table->string('route');
-            $table->string('url')->nullable();
-            $table->string('title')->nullable();
-            $table->text('description')->nullable();
+            $table->string('route')->unique();
             $table->timestamps();
-
-            $table->unique(['locale', 'route']);
         });
     }
 

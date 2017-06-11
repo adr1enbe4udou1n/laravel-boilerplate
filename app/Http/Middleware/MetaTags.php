@@ -44,7 +44,8 @@ class MetaTags
         $currentLocale = $this->localization->getCurrentLocale();
         $routeName = $request->route()->getName();
 
-        $meta = $this->metas->find($currentLocale, $routeName);
+        //$meta = $this->metas->find($currentLocale, $routeName);
+        $meta = null;
 
         if ($meta) {
             View::composer('*',

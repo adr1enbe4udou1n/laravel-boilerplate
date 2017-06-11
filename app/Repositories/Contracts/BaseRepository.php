@@ -8,7 +8,7 @@ namespace App\Repositories\Contracts;
 interface BaseRepository
 {
     /**
-     * @return \Illuminate\Database\Query\Builder
+     * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query();
 
