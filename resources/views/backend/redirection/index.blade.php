@@ -18,6 +18,8 @@
                     <table class="table table-bordered table-hover" id="dataTableBuilder" width="100%"></table>
                     {!! form_batch_action('admin.redirection.batch-action', 'dataTableBuilder', [
                         'delete' => trans('labels.backend.redirections.actions.destroy'),
+                        'enable' => trans('labels.backend.redirections.actions.enable'),
+                        'disable' => trans('labels.backend.redirections.actions.disable')
                     ]) !!}
                 </div>
                 <!-- /.box-body -->

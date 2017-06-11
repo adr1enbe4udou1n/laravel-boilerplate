@@ -6,6 +6,8 @@ return [
             'create' => 'Error on user creation',
             'update' => 'Error on user updating',
             'delete' => 'Error on user deletion',
+            'first_user_cannot_be_disabled' => 'Super admin user cannot be disabled',
+            'first_user_cannot_be_destroyed' => 'Super admin user cannot be deleted',
         ],
 
         'roles' => [

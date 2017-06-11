@@ -17,7 +17,7 @@
     {!! form_row('checkbox', 'active', [
         'label' => trans('validation.attributes.active'),
         'field_wrapper_class' => 'col-lg-offset-3 col-lg-9',
-        'checked' => true
+        'checked' => isset($user) ? $user->active : true
     ]) !!}
 
     {!! form_row('password', 'password', [

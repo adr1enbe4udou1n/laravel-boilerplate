@@ -88,6 +88,10 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
     {
         DB::transaction(function () use ($user, $input) {
             if ($user->update($input)) {
+                if ($user->is_super_admin && !$user->active) {
+                    throw new GeneralException(trans('exceptions.backend.users.first_user_cannot_be_disabled'));
+                }
+
                 if (isset($input['password']) && !empty($input['password'])) {
                     $user->password = bcrypt($input['password']);
                 }
@@ -116,6 +120,10 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
      */
     public function destroy(User $user)
     {
+        if ($user->is_super_admin) {
+            throw new GeneralException(trans('exceptions.backend.users.first_user_cannot_be_destroyed'));
+        }
+
         DB::transaction(function () use ($user) {
             if ($user->delete()) {
                 event(new UserDeleted($user));

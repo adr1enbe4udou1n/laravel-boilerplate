@@ -6,6 +6,8 @@ return [
             'create' => 'Erreur lors de la création de l\'utilisateur',
             'update' => 'Erreur lors de la mise à jour de l\'utilisateur',
             'delete' => 'Erreur lors de la suppression de l\'utilisateur',
+            'first_user_cannot_be_disabled' => 'L\'utilisateur super admin ne peut pas être désactivé',
+            'first_user_cannot_be_destroyed' => 'L\'utilisateur super admin ne peut pas être supprimé',
         ],
 
         'roles' => [

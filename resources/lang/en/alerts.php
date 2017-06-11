@@ -39,6 +39,9 @@ return [
             'created' => 'Redirection created',
             'updated' => 'Redirection updated',
             'deleted' => 'Redirection deleted',
+            'bulk_destroyed' => 'Selected redirections deleted',
+            'bulk_enabled' => 'Selected redirections enabled',
+            'bulk_disabled' => 'Selected redirections disabled',
         ],
     ],
 
