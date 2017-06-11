@@ -183,29 +183,3 @@ if (!function_exists('menu_header_access')) {
         return null;
     }
 }
-
-if (!function_exists('url_alias')) {
-    function url_alias($name, $locale = null)
-    {
-        if ($url = AppServiceProvider::getAliasUrl($name, $locale)) {
-            return $url;
-        }
-
-        return LaravelLocalization::transRoute($name);
-    }
-}
-
-if (!function_exists('localized_current_url')) {
-    function localized_current_url($locale = null)
-    {
-        $name = 'routes.' . request()->route()->getName();
-
-        $url = url_alias($name, $locale);
-
-        if ($url === $name) {
-            return null;
-        }
-
-        return $url;
-    }
-}

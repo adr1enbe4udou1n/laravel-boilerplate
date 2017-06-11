@@ -32,7 +32,7 @@ class AjaxController extends Controller
                 || str_contains($uri, $query)
             ) {
                 $items[] = [
-                    'name' => "routes.$name",
+                    'name' => $name,
                     'uri' => $uri,
                 ];
             }

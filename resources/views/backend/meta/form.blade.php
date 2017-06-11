@@ -1,8 +1,8 @@
 <div class="box-body">
     @if(old('route'))
-        @php($route_list = [old('route') => trans(old('route'))])
+        @php($route_list = [old('route') => trans('routes.' . old('route'))])
     @else
-        @php($route_list = isset($meta) ? [$meta->route => trans($meta->route)] : [])
+        @php($route_list = isset($meta) ? [$meta->route => trans('routes.' . $meta->route)] : [])
     @endif
 
     {!! form_row('autocomplete', 'route', [
@@ -15,12 +15,6 @@
         'minimum_input_length' => 2,
         'item_value' => 'name',
         'item_label' => 'uri',
-    ]) !!}
-
-    {!! form_row('text', 'url', [
-        'title' => trans('validation.attributes.url'),
-        'label_class' => 'col-lg-3',
-        'field_wrapper_class' => 'col-lg-9',
     ]) !!}
 
     {!! form_row('text', 'title', [

@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int $meta_id
  * @property string $locale
- * @property string $url
  * @property string $title
  * @property string $description
  * @method static \Illuminate\Database\Query\Builder|\App\Models\MetaTranslation whereDescription($value)
@@ -24,5 +23,5 @@ use Illuminate\Database\Eloquent\Model;
 class MetaTranslation extends Model
 {
     public $timestamps = false;
-    protected $fillable = ['url', 'title', 'description'];
+    protected $fillable = ['title', 'description'];
 }

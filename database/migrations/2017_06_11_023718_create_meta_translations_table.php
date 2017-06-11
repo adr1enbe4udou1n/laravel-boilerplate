@@ -17,7 +17,6 @@ class CreateMetaTranslationsTable extends Migration
             $table->increments('id');
             $table->integer('meta_id')->unsigned();
             $table->string('locale')->index();
-            $table->string('url')->nullable();
             $table->string('title')->nullable();
             $table->text('description')->nullable();
 

@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int $id
  * @property string $route
+ * @property string $title
+ * @property string $description
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\MetaTranslation[] $translations
@@ -32,7 +34,7 @@ class Meta extends Model
 {
     use Translatable;
 
-    public $translatedAttributes = ['url', 'title', 'description'];
+    public $translatedAttributes = ['title', 'description'];
 
     /**
      * The attributes that are mass assignable.

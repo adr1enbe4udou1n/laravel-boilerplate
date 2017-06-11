@@ -29,7 +29,7 @@ This boilerplate is heavily inspired by the most popular [Laravel 5 Boilerplate]
 
 ### Localization & SEO
 
-* Multilingual ready thanks to [Laravel Localization](https://github.com/mcamara/laravel-localization) package. Each routes are prefixed by locale in URL for best SEO support. For this boilerplate, EN & FR locales are 100% completed
+* Multilingual ready thanks to [Laravel Localization](https://github.com/mcamara/laravel-localization) package. Each routes are prefixed by locale in URL for best SEO support. For this boilerplate, EN & FR locales are 100% completed, with translated routes
 * Robots and Sitemap integrated, include multilingual
 * Seo Metatags manageable in backend (title & description link to specific localized route)
 
@@ -107,7 +107,6 @@ For your info, this webpack setup is a direct recovery from my other little side
 - [x] <s>Permissions management</s>
 - [x] <s>Form submissions management</s>
 - [x] <s>Client validation with vee-validate</s>
-- [x] <s>Alias url system routing (multi language)</s>
 - [ ] 301 redirection management with CSV import
 - [ ] Own account deletion
 - [ ] Account preferred language selection

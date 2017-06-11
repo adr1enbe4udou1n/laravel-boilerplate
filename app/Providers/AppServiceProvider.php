@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Models\Meta;
 use App\Repositories\Contracts\FormSettingRepository;
 use App\Repositories\Contracts\FormSubmissionRepository;
 use App\Repositories\Contracts\MetaRepository;
@@ -17,14 +16,9 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Dusk\DuskServiceProvider;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * @var \Illuminate\Support\Collection
-     */
-    protected static $aliases;
 
     /**
      * Bootstrap any application services.
@@ -32,11 +26,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-
-        /*
-         * Load URL aliases
-         */
-        $this->loadAliases();
 
         /*
          * Share hot mode for views
@@ -75,42 +64,6 @@ class AppServiceProvider extends ServiceProvider
         View::composer('*', function (\Illuminate\View\View $view) {
             $view->with('logged_in_user', $logged_in_user = auth()->user());
         });
-    }
-
-    /**
-     * Load URL Aliases cached statically by request
-     */
-    private function loadAliases()
-    {
-        $metas = $this->app->make(MetaRepository::class);
-
-        self::$aliases = $metas->query()->get(['id', 'route']);
-    }
-
-    /**
-     * @param $name
-     *
-     * @param $locale
-     *
-     * @return string
-     */
-    public static function getAliasUrl($name, $locale = null)
-    {
-        /** @var Meta $meta */
-        $meta = self::$aliases->first(function (Meta $item) use ($name) {
-            return $item->route === $name;
-        });
-
-        if ($meta) {
-            if (empty($locale)) {
-                $locale = LaravelLocalization::getCurrentLocale();
-            }
-
-            if ($trans = $meta->getTranslation($locale)) {
-                return $trans->url;
-            }
-        }
-        return null;
     }
 
     /**
