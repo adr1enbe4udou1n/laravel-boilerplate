@@ -8,8 +8,6 @@
 
 This boilerplate is heavily inspired by the most popular [Laravel 5 Boilerplate](https://github.com/rappasoft/laravel-5-boilerplate).
 
-![showcase](https://cloud.githubusercontent.com/assets/3679080/21204210/8443454c-c256-11e6-9d53-b95a6b19aae4.gif)
-
 ## Features
 
 ### Frontend
@@ -26,12 +24,15 @@ This boilerplate is heavily inspired by the most popular [Laravel 5 Boilerplate]
 * Batch actions integrated within datatables
 * User and permissions management (classic users <-> roles <-> permissions)
 * Impersonation feature for quick specific user context testing
+* Frontend forms module, including settings (recipients and translatable message confirmation) & submissions management. Note for developer, definitions of different forms stay on specific config file, not in datablase. This boilerplate include just one "contact form" type
 
 ### Localization & SEO
 
-* Multilingual ready thanks to [Laravel Localization](https://github.com/mcamara/laravel-localization) package. Each routes are prefixed by locale in URL for best SEO support. For this boilerplate, EN & FR locales are 100% completed, with translated routes
+* Multilingual ready thanks to awesome [Laravel Localization](https://github.com/mcamara/laravel-localization) package. Each routes are prefixed by locale in URL for best SEO support. For this boilerplate, EN & FR locales are 100% completed, with translated routes
+* Model Field Translatable support thanks to very cool [Laravel Translatable](https://github.com/dimsav/laravel-translatable), used for contact form confirmed message and metatags
 * Robots and Sitemap integrated, include multilingual
 * Seo Metatags manageable in backend (title & description link to specific localized route)
+* 301/302 redirections manager, with CSV/XLS import feature
 
 ### Developer Tools
 
@@ -107,7 +108,8 @@ For your info, this webpack setup is a direct recovery from my other little side
 - [x] <s>Permissions management</s>
 - [x] <s>Form submissions management</s>
 - [x] <s>Client validation with vee-validate</s>
-- [ ] 301 redirection management with CSV import
+- [x] 301 redirection management with CSV/XLS import
+- [ ] Export Datatable to XLS action
 - [ ] Own account deletion
 - [ ] Account preferred language selection
 - [ ] Account mail confirmation
