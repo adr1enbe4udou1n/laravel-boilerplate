@@ -8,7 +8,6 @@ use Mcamara\LaravelLocalization\LaravelLocalization;
 
 class SeoController extends Controller
 {
-
     /**
      * @var LaravelLocalization
      */
@@ -87,7 +86,7 @@ class SeoController extends Controller
         foreach ($supportedLocales as $localeCode => $properties) {
             $translations[] = [
                 'language' => $localeCode,
-                'url' => url("$localeCode/" . trans("routes.$routeName", [], $localeCode)),
+                'url' => url("$localeCode/".trans("routes.$routeName", [], $localeCode)),
             ];
         }
 

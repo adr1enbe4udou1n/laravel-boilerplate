@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Response;
 
 /**
- * App\Models\Redirection
+ * App\Models\Redirection.
  *
  * @property int $id
  * @property string $source
@@ -15,7 +15,8 @@ use Illuminate\Http\Response;
  * @property string $type
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property-read mixed $redirect_type
+ * @property mixed $redirect_type
+ *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Redirection whereActive($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Redirection whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Redirection whereId($value)
@@ -27,7 +28,6 @@ use Illuminate\Http\Response;
  */
 class Redirection extends Model
 {
-
     /**
      * The attributes that are mass assignable.
      *
@@ -52,7 +52,8 @@ class Redirection extends Model
         ];
     }
 
-    public function getRedirectTypeAttribute() {
+    public function getRedirectTypeAttribute()
+    {
         return self::getRedirectTypes()[$this->type];
     }
 }

@@ -9,7 +9,6 @@ use App\Models\Meta;
 use App\Repositories\Contracts\MetaRepository;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
-use Mcamara\LaravelLocalization\LaravelLocalization;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
 

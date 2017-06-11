@@ -180,8 +180,8 @@ return [
 
             'import' => [
                 'title' => 'Sélectionner un fichier CSV/XLS à importer',
-                'description' => 'Le fichier doit avoir 2 colonnes avec en-têtes de colonne "source" et "target", la redirection sera du type permanent par défaut'
-            ]
+                'description' => 'Le fichier doit avoir 2 colonnes avec en-têtes de colonne "source" et "target", la redirection sera du type permanent par défaut',
+            ],
         ],
     ],
 

@@ -10,8 +10,6 @@ use App\Imports\RedirectionListImport;
 use App\Models\Redirection;
 use App\Repositories\Contracts\RedirectionRepository;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Router;
-use Mcamara\LaravelLocalization\LaravelLocalization;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
 
@@ -25,7 +23,7 @@ class RedirectionController extends Controller
     /**
      * Create a new controller instance.
      *
-     * @param RedirectionRepository      $redirections
+     * @param RedirectionRepository $redirections
      *
      * @throws \Mcamara\LaravelLocalization\Exceptions\SupportedLocalesNotDefined
      */
@@ -115,8 +113,8 @@ class RedirectionController extends Controller
     }
 
     /**
-     * @param Redirection    $redirection
-     * @param Request $request
+     * @param Redirection $redirection
+     * @param Request     $request
      *
      * @return mixed
      */
@@ -162,7 +160,8 @@ class RedirectionController extends Controller
      *
      * @return
      */
-    public function import(ImportRedirectionRequest $request, RedirectionListImport $import) {
+    public function import(ImportRedirectionRequest $request, RedirectionListImport $import)
+    {
         $import->handleImport();
 
         return redirect()->back()->withFlashSuccess(trans('alerts.backend.redirections.file_imported'));

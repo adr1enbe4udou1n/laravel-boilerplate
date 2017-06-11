@@ -10,7 +10,6 @@ use Maatwebsite\Excel\Files\ImportHandler;
 
 class RedirectionListImportHandler implements ImportHandler
 {
-
     /**
      * @var RedirectionRepository
      */
@@ -19,7 +18,7 @@ class RedirectionListImportHandler implements ImportHandler
     /**
      * Create a new controller instance.
      *
-     * @param RedirectionRepository      $redirections
+     * @param RedirectionRepository $redirections
      *
      * @throws \Mcamara\LaravelLocalization\Exceptions\SupportedLocalesNotDefined
      */
@@ -38,7 +37,7 @@ class RedirectionListImportHandler implements ImportHandler
                 $this->redirections->store([
                     'source' => $row['source'],
                     'target' => $row['target'],
-                    'type' => Response::HTTP_MOVED_PERMANENTLY
+                    'type' => Response::HTTP_MOVED_PERMANENTLY,
                 ]);
             }
         });

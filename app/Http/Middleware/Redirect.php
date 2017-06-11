@@ -4,11 +4,9 @@ namespace App\Http\Middleware;
 
 use App\Repositories\Contracts\RedirectionRepository;
 use Closure;
-use Mcamara\LaravelLocalization\LaravelLocalization;
 
 class Redirect
 {
-
     /**
      * @var RedirectionRepository
      */
@@ -17,7 +15,7 @@ class Redirect
     /**
      * Create a new controller instance.
      *
-     * @param RedirectionRepository                            $redirections
+     * @param RedirectionRepository $redirections
      */
     public function __construct(RedirectionRepository $redirections)
     {
@@ -27,10 +25,11 @@ class Redirect
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \Closure                 $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
      *
      * @return mixed
+     *
      * @throws \Mcamara\LaravelLocalization\Exceptions\UnsupportedLocaleException
      * @throws \Mcamara\LaravelLocalization\Exceptions\SupportedLocalesNotDefined
      */

@@ -24,7 +24,7 @@ class ImportRedirectionRequest extends FormRequest
     public function rules()
     {
         return [
-            'import' => 'required|file'
+            'import' => 'required|file',
         ];
     }
 }
