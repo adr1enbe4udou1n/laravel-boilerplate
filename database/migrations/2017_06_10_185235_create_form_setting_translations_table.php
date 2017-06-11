@@ -6,7 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateFormSettingTranslationsTable extends Migration
 {
-
     /**
      * Run the migrations.
      */

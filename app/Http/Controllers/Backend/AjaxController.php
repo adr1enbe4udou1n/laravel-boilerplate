@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
-use Illuminate\Routing\Router;
 
 class AjaxController extends Controller
 {
@@ -27,7 +26,7 @@ class AjaxController extends Controller
         $routes = trans('routes');
 
         foreach ($routes as $name => $uri) {
-            /** @var Route $route */
+            /* @var Route $route */
             if (str_contains($name, $query)
                 || str_contains($uri, $query)
             ) {

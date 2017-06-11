@@ -6,7 +6,7 @@ use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\Meta
+ * App\Models\Meta.
  *
  * @property int $id
  * @property string $route
@@ -14,7 +14,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $description
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\MetaTranslation[] $translations
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Models\MetaTranslation[] $translations
+ *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Meta listsTranslations($translationField)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Meta notTranslatedIn($locale = null)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Meta orWhereTranslation($key, $value, $locale = null)

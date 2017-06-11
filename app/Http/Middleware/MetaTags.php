@@ -5,11 +5,9 @@ namespace App\Http\Middleware;
 use App\Repositories\Contracts\MetaRepository;
 use Closure;
 use Illuminate\Support\Facades\View;
-use Mcamara\LaravelLocalization\LaravelLocalization;
 
 class MetaTags
 {
-
     /**
      * @var MetaRepository
      */
@@ -18,7 +16,7 @@ class MetaTags
     /**
      * Create a new controller instance.
      *
-     * @param MetaRepository                                   $metas
+     * @param MetaRepository $metas
      */
     public function __construct(MetaRepository $metas)
     {
