@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\URL;
+use Mcamara\LaravelLocalization\LaravelLocalization;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -20,6 +21,8 @@ class RouteServiceProvider extends ServiceProvider
 
     /**
      * Define your route model bindings, pattern filters, etc.
+     *
+     * @throws \Mcamara\LaravelLocalization\Exceptions\SupportedLocalesNotDefined
      */
     public function boot()
     {
@@ -43,11 +46,15 @@ class RouteServiceProvider extends ServiceProvider
 
     /**
      * Define default locale.
+     *
+     * @throws \Mcamara\LaravelLocalization\Exceptions\SupportedLocalesNotDefined
      */
     private function setLocale()
     {
-        $supportedLocales = \LaravelLocalization::getSupportedLocales();
-        $currentLocale = \LaravelLocalization::getCurrentLocale();
+        $localization = $this->app->make(LaravelLocalization::class);
+
+        $supportedLocales = $localization->getSupportedLocales();
+        $currentLocale = $localization->getCurrentLocale();
 
         $localeRegional = $supportedLocales[$currentLocale]['regional'];
         $localeWin = $supportedLocales[$currentLocale]['locale_win'];

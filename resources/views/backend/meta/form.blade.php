@@ -9,9 +9,9 @@
     ]) !!}
 
     @if(old('route'))
-        @php($route_list = [old('route') => route(old('route'), [], false)])
+        @php($route_list = [old('route') => trans('routes.' . old('route'))])
     @else
-        @php($route_list = isset($meta) ? [$meta->route => $meta->uri] : [])
+        @php($route_list = isset($meta) ? [$meta->route => trans('routes.' . $meta->route)] : [])
     @endif
 
     {!! form_row('autocomplete', 'route', [
@@ -20,9 +20,7 @@
         'label_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-9',
         'options' => $route_list,
-        'ajax_url' => route('admin.route.search', [
-            'middleware' => 'metas'
-        ]),
+        'ajax_url' => route('admin.route.search'),
         'minimum_input_length' => 2,
         'item_value' => 'name',
         'item_label' => 'uri',

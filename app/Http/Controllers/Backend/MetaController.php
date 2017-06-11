@@ -26,11 +26,6 @@ class MetaController extends Controller
     protected $supportedLocales;
 
     /**
-     * @var \Illuminate\Routing\Router
-     */
-    protected $router;
-
-    /**
      * Create a new controller instance.
      *
      * @param MetaRepository             $metas
@@ -43,7 +38,6 @@ class MetaController extends Controller
     {
         $this->metas = $metas;
         $this->supportedLocales = $localization->getSupportedLocales();
-        $this->router = $router;
     }
 
     /**
@@ -71,7 +65,9 @@ class MetaController extends Controller
             /** @var EloquentEngine $collection */
             $query = Datatables::of($this->metas->get());
 
-            return $query->addColumn('actions', function (Meta $meta) {
+            return $query->editColumn('route', function (Meta $meta) {
+                return trans("routes.{$meta->route}");
+            })->addColumn('actions', function (Meta $meta) {
                 return $this->metas->getActionButtons($meta);
             })
                 ->rawColumns(['actions'])
@@ -106,8 +102,6 @@ class MetaController extends Controller
      */
     public function edit(Meta $meta)
     {
-        $meta->uri = $this->router->getRoutes()->getByName($meta->route)->uri();
-
         return view('backend.meta.edit')->withMeta($meta)->withLocales($this->supportedLocales);
     }
 

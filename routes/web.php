@@ -28,14 +28,14 @@ Route::group([
         ['namespace' => 'Frontend', 'middleware' => ['metas']],
         function () {
             Route::get('/', 'FrontendController@index')->name('home');
-            Route::get(url_alias('about'), 'FrontendController@about')->name('about');
-            Route::match(['GET', 'POST'], url_alias('contact'),
+            Route::get(url_alias('routes.about'), 'FrontendController@about')->name('about');
+            Route::match(['GET', 'POST'], url_alias('routes.contact'),
                 'FrontendController@contact')
                 ->name('contact');
-            Route::get(url_alias('contact-sent'), 'FrontendController@contactSent')->name(
+            Route::get(url_alias('routes.contact-sent'), 'FrontendController@contactSent')->name(
                 'contact-sent'
             );
-            Route::get(url_alias('legal-mentions'), 'FrontendController@legalMentions')
+            Route::get(url_alias('routes.legal-mentions'), 'FrontendController@legalMentions')
                 ->name(
                     'legal-mentions'
                 );

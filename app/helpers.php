@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Meta;
+use App\Providers\AppServiceProvider;
 use App\Repositories\Contracts\MetaRepository;
 use Illuminate\Support\HtmlString;
 
@@ -186,32 +188,11 @@ if (!function_exists('url_alias')) {
     function url_alias($name)
     {
         $locale = LaravelLocalization::getCurrentLocale();
-        $meta = app(MetaRepository::class)->find($locale, $name);
 
-        if ($meta) {
-            return $meta->url;
+        if ($url = AppServiceProvider::getAliasUrl($locale, $name)) {
+            return $url;
         }
 
-        return "/$name";
-    }
-}
-
-if (!function_exists('route_alias')) {
-    function route_alias($name, $parameters = [], $locale = null)
-    {
-        if ($locale === null) {
-            $locale = LaravelLocalization::getCurrentLocale();
-        }
-
-        $meta = app(MetaRepository::class)->find($locale, $name);
-
-        if ($meta) {
-            return url($meta->url, $parameters);
-        }
-
-        if (\Illuminate\Support\Facades\Route::has($name)) {
-            return route($name, $parameters);
-        }
-        return url($name, $parameters);
+        return LaravelLocalization::transRoute($name);
     }
 }

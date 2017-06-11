@@ -221,8 +221,8 @@ const locale = $('html').attr('lang');
                         return {
                             results: $.map(data.items, function (item, key) {
                                 return {
-                                    text: item[itemValue],
-                                    id: item[itemLabel]
+                                    id: item[itemValue],
+                                    text: item[itemLabel],
                                 }
                             })
                         };

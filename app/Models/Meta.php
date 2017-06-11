@@ -13,7 +13,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $url
  * @property string $title
  * @property string $description
- * @property mixed $uri
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Meta whereCreatedAt($value)
@@ -41,14 +40,4 @@ class Meta extends Model
             'title',
             'description',
         ];
-
-    public function getUriAttribute()
-    {
-        return $this->uri;
-    }
-
-    public function setUriAttribute($uri)
-    {
-        return $this->uri = $uri;
-    }
 }

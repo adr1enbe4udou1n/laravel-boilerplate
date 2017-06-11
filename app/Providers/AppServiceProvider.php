@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Meta;
 use App\Repositories\Contracts\FormSettingRepository;
 use App\Repositories\Contracts\FormSubmissionRepository;
 use App\Repositories\Contracts\MetaRepository;
@@ -20,11 +21,21 @@ use Laravel\Dusk\DuskServiceProvider;
 class AppServiceProvider extends ServiceProvider
 {
     /**
+     * @var \Illuminate\Support\Collection
+     */
+    protected static $aliases;
+
+    /**
      * Bootstrap any application services.
      */
     public function boot()
     {
         Schema::defaultStringLength(191);
+
+        /*
+         * Load URL aliases
+         */
+        $this->loadAliases();
 
         /*
          * Share hot mode for views
@@ -63,6 +74,35 @@ class AppServiceProvider extends ServiceProvider
         View::composer('*', function (\Illuminate\View\View $view) {
             $view->with('logged_in_user', $logged_in_user = auth()->user());
         });
+    }
+
+    /**
+     * Load URL Aliases cached statically by request
+     */
+    private function loadAliases()
+    {
+        $metas = $this->app->make(MetaRepository::class);
+
+        self::$aliases = $metas->query()->get(['locale', 'route', 'url']);
+    }
+
+    /**
+     * @param $locale
+     * @param $name
+     *
+     * @return string
+     */
+    public static function getAliasUrl($locale, $name)
+    {
+        /** @var Meta $meta */
+        $meta = self::$aliases->first(function (Meta $item) use ($locale, $name) {
+            return $item->locale === $locale && $item->route === $name;
+        });
+
+        if ($meta) {
+            return $meta->url;
+        }
+        return null;
     }
 
     /**

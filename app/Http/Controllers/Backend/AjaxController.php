@@ -10,22 +10,7 @@ use Illuminate\Routing\Router;
 class AjaxController extends Controller
 {
     /**
-     * @var \Illuminate\Routing\Router
-     */
-    protected $router;
-
-    /**
-     * AjaxController constructor.
-     *
-     * @param \Illuminate\Routing\Router $router
-     */
-    public function __construct(Router $router)
-    {
-        $this->router = $router;
-    }
-
-    /**
-     * Search internal routes.
+     * Search internal transatables routes.
      *
      * @param Request $request
      *
@@ -36,28 +21,19 @@ class AjaxController extends Controller
     public function routeSearch(Request $request)
     {
         $query = $request->get('q');
-        $middlware = $request->get('middleware');
 
         $items = [];
 
-        $routes = $this->router->getRoutes();
+        $routes = trans('routes');
 
-        foreach ($routes as $route) {
+        foreach ($routes as $name => $uri) {
             /** @var Route $route */
-            if (str_contains($route->getName(), $query)
-                || str_contains($route->uri(), $query)
+            if (str_contains($name, $query)
+                || str_contains($uri, $query)
             ) {
-                $action = $route->getAction();
-
-                if ($middlware
-                    && !in_array($middlware, $action['middleware'], true)
-                ) {
-                    continue;
-                }
-
                 $items[] = [
-                    'name' => $route->getName(),
-                    'uri' => $route->uri(),
+                    'name' => $name,
+                    'uri' => $uri,
                 ];
             }
         }
