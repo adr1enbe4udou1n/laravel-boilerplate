@@ -107,8 +107,7 @@ For your info, this webpack setup is a direct recovery from my other little side
 - [x] <s>Permissions management</s>
 - [x] <s>Form submissions management</s>
 - [x] <s>Client validation with vee-validate</s>
-- [ ] Titles associate with routes ?
-- [x] <s>Alias url system routing (multi language)<s>
+- [x] <s>Alias url system routing (multi language)</s>
 - [ ] 301 redirection management with CSV import
 - [ ] Own account deletion
 - [ ] Account preferred language selection
