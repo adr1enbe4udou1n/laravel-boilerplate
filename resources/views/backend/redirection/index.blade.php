@@ -48,9 +48,9 @@
                 width: 15,
                 className: 'select-checkbox'
             }, {
-                title: '{{ trans('validation.attributes.path') }}',
-                data: 'path',
-                name: 'path',
+                title: '{{ trans('validation.attributes.source_path') }}',
+                data: 'source',
+                name: 'source',
             }, {
                 title: '{{ trans('validation.attributes.active') }}',
                 data: 'active',
@@ -59,15 +59,9 @@
                 width: 50,
                 className: 'text-center'
             }, {
-                title: '{{ trans('validation.attributes.locale') }}',
-                data: 'locale',
-                name: 'locale',
-                width: 50,
-            }, {
-                title: '{{ trans('validation.attributes.route') }}',
-                data: 'route',
-                name: 'route',
-                width: 250,
+                title: '{{ trans('validation.attributes.target_path') }}',
+                data: 'target',
+                name: 'target',
             }, {
                 title: '{{ trans('validation.attributes.redirect_type') }}',
                 data: 'type',

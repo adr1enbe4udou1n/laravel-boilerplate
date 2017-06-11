@@ -33,10 +33,9 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
     {
         return $this->query()->select([
             'id',
-            'path',
+            'source',
             'active',
-            'locale',
-            'route',
+            'target',
             'type',
             'created_at',
             'updated_at',
@@ -44,13 +43,13 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
     }
 
     /**
-     * @param $path
+     * @param $source
      *
      * @return Redirection
      */
-    public function find($path)
+    public function find($source)
     {
-        return $this->query()->wherePath($path)->first();
+        return $this->query()->whereSource($source)->first();
     }
 
     /**
@@ -65,7 +64,7 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
         /** @var Redirection $redirection */
         $redirection = $this->make($input);
 
-        if ($this->find($redirection->path)) {
+        if ($this->find($redirection->source)) {
             throw new GeneralException(trans('exceptions.backend.redirections.already_exist'));
         }
 
@@ -91,7 +90,7 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
      */
     public function update(Redirection $redirection, array $input)
     {
-        if (($existingRedirection = $this->find($redirection->path))
+        if (($existingRedirection = $this->find($redirection->source))
             && $existingRedirection->id !== $redirection->id
         ) {
             throw new GeneralException(trans('exceptions.backend.redirections.already_exist'));

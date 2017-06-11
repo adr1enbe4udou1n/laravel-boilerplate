@@ -15,10 +15,9 @@ class CreateRedirectionsTable extends Migration
     {
         Schema::create('redirections', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('path')->unique();
+            $table->string('source')->unique();
             $table->boolean('active')->default(true);
-            $table->string('locale');
-            $table->string('route');
+            $table->string('target');
             $table->string('type');
             $table->timestamps();
         });

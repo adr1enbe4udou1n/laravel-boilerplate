@@ -26,9 +26,8 @@ class UpdateRedirectionRequest extends FormRequest
         $redirection = $this->route('redirection');
 
         return [
-            'path' => "required|unique:redirections,path,{$redirection->id}",
-            'locale' => 'required',
-            'route' => 'required',
+            'target' => "required|unique:redirections,target,{$redirection->id}",
+            'source' => 'required',
             'type' => 'required',
         ];
     }

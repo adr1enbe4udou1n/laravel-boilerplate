@@ -24,9 +24,8 @@ class StoreRedirectionRequest extends FormRequest
     public function rules()
     {
         return [
-            'path' => 'required|unique:redirections',
-            'locale' => 'required',
-            'route' => 'required',
+            'target' => 'required|unique:redirections',
+            'source' => 'required',
             'type' => 'required',
         ];
     }

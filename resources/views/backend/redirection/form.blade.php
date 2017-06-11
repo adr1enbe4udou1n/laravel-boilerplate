@@ -1,8 +1,8 @@
 <div class="box-body">
 
-    {!! form_row('text', 'path', [
+    {!! form_row('text', 'source', [
         'required' => true,
-        'title' => trans('validation.attributes.path'),
+        'title' => trans('validation.attributes.source_path'),
         'label_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-9',
     ]) !!}
@@ -13,31 +13,11 @@
         'checked' => true
     ]) !!}
 
-    {!! form_row('radios', 'locale', [
+    {!! form_row('text', 'target', [
         'required' => true,
-        'title' => trans('validation.attributes.locale'),
+        'title' => trans('validation.attributes.target_path'),
         'label_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-9',
-        'choices' => $locales,
-        'choice_label' => 'name',
-    ]) !!}
-
-    @if(old('route'))
-        @php($route_list = [old('route') => trans('routes.' . old('route'))])
-    @else
-        @php($route_list = isset($redirection) ? [$redirection->route => trans('routes.' . $redirection->route)] : [])
-    @endif
-
-    {!! form_row('autocomplete', 'route', [
-        'required' => true,
-        'title' => trans('validation.attributes.route'),
-        'label_class' => 'col-lg-3',
-        'field_wrapper_class' => 'col-lg-9',
-        'options' => $route_list,
-        'ajax_url' => route('admin.route.search'),
-        'minimum_input_length' => 2,
-        'item_value' => 'name',
-        'item_label' => 'uri',
     ]) !!}
 
     {!! form_row('radios', 'type', [

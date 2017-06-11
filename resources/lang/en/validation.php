@@ -161,7 +161,8 @@ return [
         'form_type' => 'Form type',
         'form_data' => 'Form data',
         'recipients' => 'Recipients',
-        'path' => 'Original path',
+        'source_path' => 'Original path',
+        'target_path' => 'Target path',
         'redirect_type' => 'Redirect type',
     ],
 ];

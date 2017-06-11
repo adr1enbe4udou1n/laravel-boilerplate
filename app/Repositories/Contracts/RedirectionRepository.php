@@ -15,11 +15,11 @@ interface RedirectionRepository extends BaseRepository
     public function get();
 
     /**
-     * @param $path
+     * @param $source
      *
      * @return Redirection
      */
-    public function find($path);
+    public function find($source);
 
     /**
      * @param array $input

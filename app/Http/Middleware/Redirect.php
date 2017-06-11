@@ -15,20 +15,13 @@ class Redirect
     protected $redirections;
 
     /**
-     * @var \Mcamara\LaravelLocalization\LaravelLocalization
-     */
-    protected $localization;
-
-    /**
      * Create a new controller instance.
      *
      * @param RedirectionRepository                            $redirections
-     * @param \Mcamara\LaravelLocalization\LaravelLocalization $localization
      */
-    public function __construct(RedirectionRepository $redirections, LaravelLocalization $localization)
+    public function __construct(RedirectionRepository $redirections)
     {
         $this->redirections = $redirections;
-        $this->localization = $localization;
     }
 
     /**
@@ -46,9 +39,7 @@ class Redirect
         $redirection = $this->redirections->find($request->getPathInfo());
 
         if ($redirection) {
-            $target = $this->localization->getURLFromRouteNameTranslated($redirection->locale, "routes.{$redirection->route}");
-
-            return redirect($target, $redirection->type);
+            return redirect($redirection->target, $redirection->type);
         }
 
         return $next($request);
