@@ -2,8 +2,6 @@
 @import "variables";
 
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-@import "node_modules/datatables.net-bs/css/dataTables.bootstrap";
-@import "node_modules/datatables.net-select-bs/css/select.bootstrap";
 @import "node_modules/bootstrap-slider/src/sass/bootstrap-slider";
 @import "node_modules/eonasdan-bootstrap-datetimepicker/src/sass/bootstrap-datetimepicker-build";
 @import "node_modules/font-awesome/scss/font-awesome";
@@ -14,6 +12,7 @@
 @import "node_modules/icheck/skins/square/blue";
 @import "node_modules/intl-tel-input/src/css/intlTelInput.scss";
 
+// Datatables
 @import "datatables";
 
 [v-cloak] {

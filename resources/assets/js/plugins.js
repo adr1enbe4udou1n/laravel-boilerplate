@@ -1,10 +1,6 @@
 require('select2');
 window.swal = require('sweetalert2');
 
-require('datatables.net');
-require('datatables.net-bs');
-require('datatables.net-select');
-
 window.moment = require('moment');
 require('bootstrap-slider');
 
@@ -119,15 +115,18 @@ const locale = $('html').attr('lang');
      */
     if ($.fn.dataTable) {
         let dataTableOptions = {
-            lengthMenu: [[5, 10, 15, 25, 50, -1], [5, 10, 15, 25, 50, "All"]],
+            lengthMenu: [[5, 10, 15, 25, 50, -1], [5, 10, 15, 25, 50, locale === 'en' ? 'All' : 'Tout']],
+            buttons: [
+                'csvHtml5', 'excelHtml5'
+            ],
+            dom: "<'row'<'col-sm-6'l><'col-sm-6'f>>" +
+            "<'row'<'col-sm-12'tr>>" +
+            "<'row'<'col-sm-4'i><'col-sm-4 text-center'p><'col-sm-4 text-right'B>>",
         };
 
         if (locale !== 'en') {
-            dataTableOptions = {
-                lengthMenu: [[5, 10, 15, 25, 50, -1], [5, 10, 15, 25, 50, "Tout"]],
-                language: {
-                    url: `/i18n/datatables.${locale}.json`
-                }
+            dataTableOptions['language'] = {
+                url: `/i18n/datatables.${locale}.json`
             };
         }
 

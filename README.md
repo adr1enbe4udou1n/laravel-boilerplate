@@ -109,7 +109,7 @@ For your info, this webpack setup is a direct recovery from my other little side
 - [x] <s>Form submissions management</s>
 - [x] <s>Client validation with vee-validate</s>
 - [x] <s>301 redirection management with CSV/XLS import</s>
-- [ ] Export Datatable to XLS action
+- [x] <s>Export Datatables to CSV/Excel buttons</s>
 - [ ] Own account deletion
 - [ ] Account preferred language selection
 - [ ] Account mail confirmation

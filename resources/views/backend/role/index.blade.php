@@ -35,6 +35,7 @@
             searching: false,
             paging: false,
             info: false,
+            buttons: [],
             ajax: {
                 url: '{{ route('admin.role.search') }}',
                 type: 'post'

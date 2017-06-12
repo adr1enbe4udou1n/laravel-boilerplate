@@ -5,6 +5,31 @@
 
 @section('content')
     <div class="row">
+        <div class="col-sm-6">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">@lang('labels.backend.redirections.import.title')</h3>
+                </div>
+                <div class="box-body">
+                    {{ Form::open(['route' => 'admin.redirection.import', 'class' => 'form-inline', 'method' => 'POST', 'files' => true]) }}
+
+                    {!! form_row('file', 'import', [
+                        'required' => true,
+                        'title' => trans('labels.backend.redirections.import.title'),
+                        'tooltip' => [
+                            'position' => 'bottom',
+                            'title' => trans('labels.backend.redirections.import.description'),
+                        ],
+                    ]) !!}
+
+                    {{ Form::submit(trans('buttons.redirections.import'), ['class' => 'btn btn-warning btn-sm']) }}
+                    {{ Form::close() }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
@@ -29,31 +54,6 @@
         <!-- /.col -->
     </div>
     <!-- /.row -->
-
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="box">
-                <div class="box-header">
-                    <h3 class="box-title">@lang('labels.backend.redirections.import.title')</h3>
-                </div>
-                <div class="box-body">
-                    {{ Form::open(['route' => 'admin.redirection.import', 'class' => 'form-inline', 'method' => 'POST', 'files' => true]) }}
-
-                        {!! form_row('file', 'import', [
-                            'required' => true,
-                            'title' => trans('labels.backend.redirections.import.title'),
-                            'tooltip' => [
-                                'position' => 'bottom',
-                                'title' => trans('labels.backend.redirections.import.description'),
-                            ],
-                        ]) !!}
-
-                        {{ Form::submit(trans('buttons.redirections.import'), ['class' => 'btn btn-warning btn-sm']) }}
-                    {{ Form::close() }}
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
 
 @section('scripts')
@@ -115,7 +115,7 @@
             }],
             select: {style: 'os'},
             order: [[1, 'asc']],
-            rowId: 'id'
+            rowId: 'id',
         });
     </script>
 @endsection

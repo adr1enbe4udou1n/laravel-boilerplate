@@ -179,7 +179,8 @@ return [
             ],
 
             'import' => [
-                'title' => 'Sélectionner un fichier CSV/XLS à importer',
+                'title' => 'Import de fichier CSV/Excel',
+                'label' => 'Sélectionner un fichier CSV/Excel à importer',
                 'description' => 'Le fichier doit avoir 2 colonnes avec en-têtes de colonne "source" et "target", la redirection sera du type permanent par défaut',
             ],
         ],

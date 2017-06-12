@@ -35,6 +35,7 @@
             searching: false,
             paging: false,
             info: false,
+            buttons: [],
             ajax: {
                 url: '{{ route('admin.form_setting.search') }}',
                 type: 'post'

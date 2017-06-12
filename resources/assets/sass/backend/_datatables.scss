@@ -1,3 +1,7 @@
+@import "node_modules/datatables.net-bs/css/dataTables.bootstrap";
+@import "node_modules/datatables.net-select-bs/css/select.bootstrap";
+@import "node_modules/datatables.net-buttons-bs/css/buttons.bootstrap";
+
 table.dataTable tbody > tr.selected, table.dataTable tbody > tr > .selected {
   background-color: $gray-lighter;
 }
@@ -16,4 +20,8 @@ table.dataTable tbody tr.selected td:last-child a {
 
 table.dataTable tr.selected td.select-checkbox:after, table.dataTable tr.selected th.select-checkbox:after {
   text-shadow: none;
+}
+
+div.dataTables_wrapper div.dataTables_paginate {
+  text-align: center;
 }
