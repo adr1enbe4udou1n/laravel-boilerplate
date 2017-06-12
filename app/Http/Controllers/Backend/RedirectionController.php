@@ -59,8 +59,6 @@ class RedirectionController extends Controller
 
             return $query->editColumn('active', function (Redirection $redirection) {
                 return boolean_html_label($redirection->active);
-            })->editColumn('route', function (Redirection $redirection) {
-                return trans("routes.{$redirection->route}");
             })->addColumn('actions', function (Redirection $redirection) {
                 return $this->redirections->getActionButtons($redirection);
             })

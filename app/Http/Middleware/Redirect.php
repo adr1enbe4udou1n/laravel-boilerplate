@@ -37,7 +37,7 @@ class Redirect
     {
         $redirection = $this->redirections->find($request->getPathInfo());
 
-        if ($redirection) {
+        if ($redirection && $redirection->active) {
             return redirect($redirection->target, $redirection->type);
         }
 

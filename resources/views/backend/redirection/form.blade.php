@@ -25,6 +25,6 @@
         'title' => trans('validation.attributes.redirect_type'),
         'label_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-9',
-        'choices' => \App\Models\Redirection::getRedirectTypes(),
+        'choices' => config('redirections'),
     ]) !!}
 </div>

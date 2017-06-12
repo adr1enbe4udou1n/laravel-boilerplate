@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Response;
 
 /**
  * App\Models\Redirection.
@@ -15,8 +15,8 @@ use Illuminate\Http\Response;
  * @property string $type
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property mixed $redirect_type
  *
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Redirection actives()
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Redirection whereActive($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Redirection whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Redirection whereId($value)
@@ -41,19 +41,8 @@ class Redirection extends Model
             'type',
         ];
 
-    /**
-     * @return array
-     */
-    public static function getRedirectTypes()
+    public function scopeActives(Builder $query)
     {
-        return [
-            Response::HTTP_MOVED_PERMANENTLY => 'labels.backend.redirections.types.permanent',
-            Response::HTTP_FOUND => 'labels.backend.redirections.types.temporary',
-        ];
-    }
-
-    public function getRedirectTypeAttribute()
-    {
-        return self::getRedirectTypes()[$this->type];
+        return $query->where('active', '=', true);
     }
 }
