@@ -164,5 +164,6 @@ return [
         'source_path' => 'Original path',
         'target_path' => 'Target path',
         'redirect_type' => 'Redirect type',
+        'timezone' => 'Timezone',
     ],
 ];

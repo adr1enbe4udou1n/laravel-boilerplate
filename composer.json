@@ -7,6 +7,7 @@
     "require": {
         "php": "^7.0",
         "arcanedev/no-captcha": "^4.0",
+        "cviebrock/eloquent-sluggable": "^4.2",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
         "dimsav/laravel-translatable": "^7.2",
         "guzzlehttp/guzzle": "^6.2",

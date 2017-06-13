@@ -79,13 +79,6 @@ return [
             'space' => 'My space',
             'account' => 'My account',
         ],
-
-        'attributes' => [
-            'name' => 'Name',
-            'email' => 'Email',
-            'created_at' => 'Creation date',
-            'updated_at' => 'Last updated date',
-        ],
     ],
 
     'backend' => [
@@ -197,6 +190,11 @@ return [
 
         'submissions' => [
             'message_sent' => '<p>Your message has been successfully sent</p>',
+        ],
+
+        'placeholders' => [
+            'locale' => 'Select your language',
+            'timezone' => 'Select your timezone',
         ],
     ],
 ];

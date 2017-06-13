@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -15,7 +16,12 @@ use App\Notifications\ResetPassword as ResetPasswordNotification;
  * @property string $email
  * @property string $password
  * @property bool $active
+ * @property string $confirmation_token
+ * @property bool $confirmed
  * @property string $remember_token
+ * @property string $locale
+ * @property string $timezone
+ * @property bool $slug
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property mixed $is_super_admin
@@ -24,18 +30,24 @@ use App\Notifications\ResetPassword as ResetPasswordNotification;
  *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User actives()
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereActive($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereConfirmationToken($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereConfirmed($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereEmail($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereLocale($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereName($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User wherePassword($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereRememberToken($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereSlug($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereTimezone($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereUpdatedAt($value)
  * @mixin \Eloquent
  */
 class User extends Authenticatable
 {
     use Notifiable;
+    use Sluggable;
 
     /**
      * The attributes that are mass assignable.
@@ -47,6 +59,8 @@ class User extends Authenticatable
             'name',
             'email',
             'active',
+            'locale',
+            'timezone',
         ];
 
     /**
@@ -57,6 +71,7 @@ class User extends Authenticatable
     protected $hidden
         = [
             'password',
+            'confirmation_token',
             'remember_token',
         ];
 
@@ -122,5 +137,17 @@ class User extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPasswordNotification($token));
+    }
+
+    /**
+     * @return array
+     */
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name',
+            ],
+        ];
     }
 }

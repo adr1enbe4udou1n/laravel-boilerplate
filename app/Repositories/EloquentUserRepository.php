@@ -11,6 +11,7 @@ use App\Repositories\Contracts\UserRepository;
 use App\Repositories\Traits\HtmlActionsButtons;
 use Exception;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -213,9 +214,10 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
     {
         $user = auth()->user();
 
+        /** @var User $user */
         $user = $this->query()->find($user->id);
-        $user->name = $input['name'];
-        $user->email = $input['email'];
+
+        $user->update(Arr::only($input, ['name', 'email', 'locale', 'timezone']));
 
         if ($user->email !== $input['email']) {
             //Emails have to be unique

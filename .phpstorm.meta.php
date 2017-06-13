@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2017-06-12.
+    * Generated on 2017-06-13.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -53,6 +53,7 @@ namespace PHPSTORM_META {
             'phpexcel' instanceof \Maatwebsite\Excel\Classes\PHPExcel,
             'excel.writer' instanceof \Maatwebsite\Excel\Writers\LaravelExcelWriter,
             'excel' instanceof \Maatwebsite\Excel\Excel,
+            'Cviebrock\EloquentSluggable\SluggableObserver' instanceof \Cviebrock\EloquentSluggable\SluggableObserver,
             'debugbar' instanceof \Barryvdh\Debugbar\LaravelDebugbar,
             'command.debugbar.clear' instanceof \Barryvdh\Debugbar\Console\ClearCommand,
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
@@ -198,6 +199,7 @@ namespace PHPSTORM_META {
             'phpexcel' instanceof \Maatwebsite\Excel\Classes\PHPExcel,
             'excel.writer' instanceof \Maatwebsite\Excel\Writers\LaravelExcelWriter,
             'excel' instanceof \Maatwebsite\Excel\Excel,
+            'Cviebrock\EloquentSluggable\SluggableObserver' instanceof \Cviebrock\EloquentSluggable\SluggableObserver,
             'debugbar' instanceof \Barryvdh\Debugbar\LaravelDebugbar,
             'command.debugbar.clear' instanceof \Barryvdh\Debugbar\Console\ClearCommand,
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
@@ -343,6 +345,7 @@ namespace PHPSTORM_META {
             'phpexcel' instanceof \Maatwebsite\Excel\Classes\PHPExcel,
             'excel.writer' instanceof \Maatwebsite\Excel\Writers\LaravelExcelWriter,
             'excel' instanceof \Maatwebsite\Excel\Excel,
+            'Cviebrock\EloquentSluggable\SluggableObserver' instanceof \Cviebrock\EloquentSluggable\SluggableObserver,
             'debugbar' instanceof \Barryvdh\Debugbar\LaravelDebugbar,
             'command.debugbar.clear' instanceof \Barryvdh\Debugbar\Console\ClearCommand,
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
@@ -488,6 +491,7 @@ namespace PHPSTORM_META {
             'phpexcel' instanceof \Maatwebsite\Excel\Classes\PHPExcel,
             'excel.writer' instanceof \Maatwebsite\Excel\Writers\LaravelExcelWriter,
             'excel' instanceof \Maatwebsite\Excel\Excel,
+            'Cviebrock\EloquentSluggable\SluggableObserver' instanceof \Cviebrock\EloquentSluggable\SluggableObserver,
             'debugbar' instanceof \Barryvdh\Debugbar\LaravelDebugbar,
             'command.debugbar.clear' instanceof \Barryvdh\Debugbar\Console\ClearCommand,
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,

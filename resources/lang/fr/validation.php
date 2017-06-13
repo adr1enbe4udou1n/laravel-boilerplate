@@ -164,5 +164,6 @@ return [
         'source_path' => 'Chemin origine',
         'target_path' => 'Chemin cible',
         'redirect_type' => 'Type de redirection',
+        'timezone' => 'Fuseau horaire',
     ],
 ];

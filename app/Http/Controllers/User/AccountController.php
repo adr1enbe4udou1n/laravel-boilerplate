@@ -4,7 +4,10 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\UserRepository;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
+use Mcamara\LaravelLocalization\LaravelLocalization;
 
 class AccountController extends Controller
 {
@@ -14,13 +17,31 @@ class AccountController extends Controller
     protected $users;
 
     /**
+     * @var \Mcamara\LaravelLocalization\LaravelLocalization
+     */
+    protected $localization;
+
+    /**
      * RegisterController constructor.
      *
-     * @param UserRepository $users
+     * @param UserRepository                                   $users
+     * @param \Mcamara\LaravelLocalization\LaravelLocalization $localization
+     * @param \Illuminate\Contracts\View\Factory               $view
+     *
+     * @throws \Mcamara\LaravelLocalization\Exceptions\SupportedLocalesNotDefined
      */
-    public function __construct(UserRepository $users)
+    public function __construct(UserRepository $users, LaravelLocalization $localization, Factory $view)
     {
         $this->users = $users;
+        $this->localization = $localization;
+
+        $view->composer('*', function (\Illuminate\View\View $view) {
+            $locales = collect($this->localization->getSupportedLocales())->map(function ($item) {
+                return $item['native'];
+            });
+
+            $view->withLocales($locales)->withTimezones(\DateTimeZone::listIdentifiers());
+        });
     }
 
     /**
@@ -29,6 +50,8 @@ class AccountController extends Controller
      * @param Request $request
      *
      * @return \Illuminate\View\View
+     *
+     * @throws \Mcamara\LaravelLocalization\Exceptions\SupportedLocalesNotDefined
      */
     public function index(Request $request)
     {
@@ -51,7 +74,7 @@ class AccountController extends Controller
             'email' => 'required|email|unique:users,email,'.$user->id,
         ]);
 
-        $this->users->updateProfile($request->only('name', 'email'));
+        $this->users->updateProfile($request->input());
 
         return redirect()->route('user.account')
             ->withFlashSuccess(trans('labels.user.profile_updated'));

@@ -2,11 +2,9 @@
 
 namespace App\Providers;
 
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\URL;
-use Mcamara\LaravelLocalization\LaravelLocalization;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -37,48 +35,6 @@ class RouteServiceProvider extends ServiceProvider
             // Force Route URL (useful for multi-device development)
             URL::forceRootUrl(config('app.url'));
         }
-
-        /*
-         * Set correct locale after LaravelLocalization middleware registration
-         */
-        $this->setLocale();
-    }
-
-    /**
-     * Define default locale.
-     *
-     * @throws \Mcamara\LaravelLocalization\Exceptions\SupportedLocalesNotDefined
-     */
-    private function setLocale()
-    {
-        $localization = $this->app->make(LaravelLocalization::class);
-
-        $supportedLocales = $localization->getSupportedLocales();
-        $currentLocale = $localization->getCurrentLocale();
-
-        $localeRegional = $supportedLocales[$currentLocale]['regional'];
-        $localeWin = $supportedLocales[$currentLocale]['locale_win'];
-
-        /*
-         * setLocale for php. Enables localized dates, format numbers, etc.
-         */
-        setlocale(LC_ALL,
-            $localeRegional,
-            "${localeRegional}.utf-8",
-            "${localeRegional}.iso-8859-1",
-            $localeWin
-        );
-
-        /*
-         * setLocale to use Carbon source locales. Enables diffForHumans() localized
-         */
-        Carbon::setLocale($currentLocale);
-        Carbon::setUtf8(true);
-
-        /*
-         * Set Captcha locale
-         */
-        app('config')->set('no-captcha.lang', $currentLocale);
     }
 
     /**

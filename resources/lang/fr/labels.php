@@ -79,13 +79,6 @@ return [
             'space' => 'Mon espace',
             'account' => 'Mon compte',
         ],
-
-        'attributes' => [
-            'name' => 'Nom',
-            'email' => 'Email',
-            'created_at' => 'Date de création',
-            'updated_at' => 'Date de mise à jour',
-        ],
     ],
 
     'backend' => [
@@ -197,6 +190,11 @@ return [
 
         'submissions' => [
             'message_sent' => '<p>Votre demande de contact a bien été envoyée</p>',
+        ],
+
+        'placeholders' => [
+            'locale' => 'Sélectionnez votre langue',
+            'timezone' => 'Sélectionnez votre fuseau horaire',
         ],
     ],
 ];
