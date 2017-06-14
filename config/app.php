@@ -92,7 +92,9 @@ return [
     |
     */
 
-    'timezone' => env('APP_TIMEZONE', 'UTC'),
+    'timezone' => 'UTC',
+
+    'default_timezone' => env('APP_DEFAULT_TIMEZONE', 'UTC'),
 
     /*
     |--------------------------------------------------------------------------

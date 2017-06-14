@@ -61,6 +61,10 @@ class MetaController extends Controller
                 return trans("routes.{$meta->route}");
             })->addColumn('actions', function (Meta $meta) {
                 return $this->metas->getActionButtons($meta);
+            })->addColumn('created_at', function (Meta $meta) use ($request) {
+                return $meta->created_at->setTimezone($request->user()->timezone);
+            })->addColumn('updated_at', function (Meta $meta) use ($request) {
+                return $meta->updated_at->setTimezone($request->user()->timezone);
             })
                 ->rawColumns(['actions'])
                 ->make(true);

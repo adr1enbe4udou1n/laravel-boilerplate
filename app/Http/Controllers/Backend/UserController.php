@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use App\Repositories\Contracts\RoleRepository;
 use App\Repositories\Contracts\UserRepository;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
@@ -69,6 +70,10 @@ class UserController extends Controller
                 return $user->getFormattedRoles();
             })->addColumn('actions', function (User $user) {
                 return $this->users->getActionButtons($user);
+            })->addColumn('created_at', function (User $user) use ($request) {
+                return $user->created_at->setTimezone($request->user()->timezone);
+            })->addColumn('updated_at', function (User $user) use ($request) {
+                return $user->updated_at->setTimezone($request->user()->timezone);
             })
                 ->rawColumns(['active', 'actions'])
                 ->make(true);

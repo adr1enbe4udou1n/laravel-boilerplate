@@ -17,10 +17,10 @@
     </tr>
     <tr>
         <th>@lang('labels.created_at')</th>
-        <td>{{ $logged_in_user->created_at }} ({{ $logged_in_user->created_at->diffForHumans() }})</td>
+        <td>{{ $logged_in_user->created_at->setTimezone($logged_in_user->timezone) }} ({{ $logged_in_user->created_at->diffForHumans() }})</td>
     </tr>
     <tr>
         <th>@lang('labels.updated_at')</th>
-        <td>{{ $logged_in_user->updated_at }} ({{ $logged_in_user->updated_at->diffForHumans() }})</td>
+        <td>{{ $logged_in_user->updated_at->setTimezone($logged_in_user->timezone) }} ({{ $logged_in_user->updated_at->diffForHumans() }})</td>
     </tr>
 </table>

@@ -59,6 +59,10 @@ class FormSettingController extends Controller
                 return trans("forms.{$formSetting->name}.display_name");
             })->addColumn('actions', function (FormSetting $formSetting) {
                 return $this->formSettings->getActionButtons($formSetting);
+            })->addColumn('created_at', function (FormSetting $formSetting) use ($request) {
+                return $formSetting->created_at->setTimezone($request->user()->timezone);
+            })->addColumn('updated_at', function (FormSetting $formSetting) use ($request) {
+                return $formSetting->updated_at->setTimezone($request->user()->timezone);
             })
                 ->rawColumns(['actions'])
                 ->make(true);

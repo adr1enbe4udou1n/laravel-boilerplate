@@ -11,9 +11,11 @@ use App\Repositories\Contracts\UserRepository;
 use App\Repositories\Traits\HtmlActionsButtons;
 use Exception;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Contracts\Config\Repository;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Mcamara\LaravelLocalization\LaravelLocalization;
 
 /**
  * Class EloquentUserRepository.
@@ -23,13 +25,27 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
     use HtmlActionsButtons;
 
     /**
+     * @var \Mcamara\LaravelLocalization\LaravelLocalization
+     */
+    protected $localization;
+
+    /**
+     * @var \Illuminate\Contracts\Config\Repository
+     */
+    protected $config;
+
+    /**
      * EloquentUserRepository constructor.
      *
-     * @param User $user
+     * @param User                                             $user
+     * @param \Mcamara\LaravelLocalization\LaravelLocalization $localization
+     * @param \Illuminate\Contracts\Config\Repository          $config
      */
-    public function __construct(User $user)
+    public function __construct(User $user, LaravelLocalization $localization, Repository $config)
     {
         parent::__construct($user);
+        $this->localization = $localization;
+        $this->config = $config;
     }
 
     /**
@@ -59,6 +75,14 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
         /** @var User $user */
         $user = $this->make($input);
         $user->password = bcrypt($input['password']);
+
+        if (empty($user->locale)) {
+            $user->locale = $this->localization->getDefaultLocale();
+        }
+
+        if (empty($user->timezone)) {
+            $user->timezone = $this->config->get('app.default_timezone');
+        }
 
         DB::transaction(function () use ($user) {
             if ($user->save()) {

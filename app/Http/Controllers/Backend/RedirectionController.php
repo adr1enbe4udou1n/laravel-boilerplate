@@ -61,6 +61,10 @@ class RedirectionController extends Controller
                 return boolean_html_label($redirection->active);
             })->addColumn('actions', function (Redirection $redirection) {
                 return $this->redirections->getActionButtons($redirection);
+            })->addColumn('created_at', function (Redirection $redirection) use ($request) {
+                return $redirection->created_at->setTimezone($request->user()->timezone);
+            })->addColumn('updated_at', function (Redirection $redirection) use ($request) {
+                return $redirection->updated_at->setTimezone($request->user()->timezone);
             })
                 ->rawColumns(['active', 'actions'])
                 ->make(true);

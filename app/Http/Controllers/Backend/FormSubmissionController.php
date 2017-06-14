@@ -55,6 +55,10 @@ class FormSubmissionController extends Controller
                 return trans("forms.{$formSubmission->type}.display_name");
             })->addColumn('actions', function (FormSubmission $formSubmission) {
                 return $this->formSubmissions->getActionButtons($formSubmission);
+            })->addColumn('created_at', function (FormSubmission $formSubmission) use ($request) {
+                return $formSubmission->created_at->setTimezone($request->user()->timezone);
+            })->addColumn('updated_at', function (FormSubmission $formSubmission) use ($request) {
+                return $formSubmission->updated_at->setTimezone($request->user()->timezone);
             })
                 ->rawColumns(['actions'])
                 ->make(true);

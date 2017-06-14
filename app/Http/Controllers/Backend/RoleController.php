@@ -57,6 +57,10 @@ class RoleController extends Controller
                 return link_to_route('admin.role.edit', $role->name, $role);
             })->addColumn('actions', function (Role $role) {
                 return $this->roles->getActionButtons($role);
+            })->addColumn('created_at', function (Role $role) use ($request) {
+                return $role->created_at->setTimezone($request->user()->timezone);
+            })->addColumn('updated_at', function (Role $role) use ($request) {
+                return $role->updated_at->setTimezone($request->user()->timezone);
             })
                 ->rawColumns(['actions'])
                 ->make(true);
