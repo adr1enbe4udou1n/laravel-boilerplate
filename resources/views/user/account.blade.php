@@ -23,10 +23,12 @@
                        data-toggle="tab">@lang('labels.user.change_password')</a>
                 </li>
 
+                @if (config('auth.account.can_delete'))
                 <li role="presentation">
                     <a href="#delete" aria-controls="delete" role="tab"
                        data-toggle="tab">@lang('labels.user.delete')</a>
                 </li>
+                @endif
             </ul>
 
             <div class="tab-content">
@@ -43,9 +45,11 @@
                     @include('user.account.password')
                 </div>
 
+                @if (config('auth.account.can_delete'))
                 <div role="tabpanel" class="tab-pane" id="delete">
                     @include('user.account.delete')
                 </div>
+                @endif
 
             </div><!--tab content-->
 

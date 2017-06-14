@@ -44,11 +44,4 @@ return [
         'display_name' => 'Usurpation d\'utilisateur',
         'description' => 'Permet de prendre l\'identité d\'un autre utilisateur. Utile pour les tests.',
     ],
-
-    'account' => [
-        'delete' => [
-            'display_name' => 'Suppression de son propre compte',
-            'description' => 'Permet à l\'utilisateur de supprimer son propre compte.',
-        ],
-    ],
 ];

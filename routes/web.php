@@ -123,11 +123,13 @@ Route::group([
             Route::patch('password/change', 'AccountController@changePassword')
                 ->name('password.change');
 
-            /*
-             * Account delete
-             */
-            Route::delete('account/delete', 'AccountController@delete')
-                ->name('account.delete');
+            if (config('auth.account.can_delete')) {
+                /*
+                 * Account delete
+                 */
+                Route::delete('account/delete', 'AccountController@delete')
+                    ->name('account.delete');
+            }
         }
     );
 

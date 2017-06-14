@@ -46,9 +46,4 @@ return [
         'display_name' => 'permissions.manage.redirections.display_name',
         'description' => 'permissions.manage.redirections.description',
     ],
-
-    'delete account' => [
-        'display_name' => 'permissions.account.delete.display_name',
-        'description' => 'permissions.account.delete.description',
-    ],
 ];
