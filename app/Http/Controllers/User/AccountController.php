@@ -74,7 +74,7 @@ class AccountController extends Controller
             'email' => 'required|email|unique:users,email,'.$user->id,
         ]);
 
-        $this->users->updateProfile($request->input());
+        $this->users->updateAccount($request->input());
 
         return redirect()->route('user.account')
             ->withFlashSuccess(trans('labels.user.profile_updated'));
@@ -101,5 +101,23 @@ class AccountController extends Controller
 
         return redirect()->route('user.account')
             ->withFlashSuccess(trans('labels.user.password_updated'));
+    }
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return mixed
+     * @throws \RuntimeException
+     */
+    public function delete(Request $request)
+    {
+        $this->users->deleteAccount();
+
+        auth()->logout();
+        $request->session()->flush();
+        $request->session()->regenerate();
+
+        return redirect()->route('home')
+            ->withFlashSuccess(trans('labels.user.account_deleted'));
     }
 }

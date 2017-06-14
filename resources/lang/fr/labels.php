@@ -69,11 +69,15 @@ return [
         'profile' => 'Mon profil',
         'edit_profile' => 'Mettre à jour mon profil',
         'change_password' => 'Changer mon mot de passe',
+        'delete' => 'Supprimer mon compte',
         'administration' => 'Administration',
         'member_since' => 'Membre depuis le :date',
         'profile_updated' => 'Profil modifié avec succès.',
         'password_updated' => 'Mot de passe modifié avec succès.',
         'super_admin' => 'Super admin',
+
+        'account_delete' => '<p>Cette action supprimera définitivement votre compte de ce site ainsi que toutes vos données associées.</p>',
+        'account_deleted' => 'Compte supprimé avec succès',
 
         'titles' => [
             'space' => 'Mon espace',

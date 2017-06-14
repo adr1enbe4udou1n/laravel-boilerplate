@@ -22,21 +22,30 @@
                     <a href="#password" aria-controls="password" role="tab"
                        data-toggle="tab">@lang('labels.user.change_password')</a>
                 </li>
+
+                <li role="presentation">
+                    <a href="#delete" aria-controls="delete" role="tab"
+                       data-toggle="tab">@lang('labels.user.delete')</a>
+                </li>
             </ul>
 
             <div class="tab-content">
 
                 <div role="tabpanel" class="tab-pane" id="profile">
                     @include('user.account.profile')
-                </div><!--tab panel profile-->
+                </div>
 
                 <div role="tabpanel" class="tab-pane" id="edit">
                     @include('user.account.edit')
-                </div><!--tab panel profile-->
+                </div>
 
                 <div role="tabpanel" class="tab-pane" id="password">
                     @include('user.account.password')
-                </div><!--tab panel change password-->
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="delete">
+                    @include('user.account.delete')
+                </div>
 
             </div><!--tab content-->
 

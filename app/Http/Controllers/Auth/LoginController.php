@@ -143,6 +143,7 @@ class LoginController extends Controller
      * @param Request $request
      *
      * @return \Illuminate\Http\Response
+     * @throws \RuntimeException
      */
     public function logout(Request $request)
     {

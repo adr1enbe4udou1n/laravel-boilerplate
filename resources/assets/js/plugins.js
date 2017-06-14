@@ -6,56 +6,62 @@ require('bootstrap-slider');
 
 require('intl-tel-input');
 
-/**
- * Allows you to add data-method="METHOD to links to automatically inject a form
- * with the method on click
- *
- * Example: <a href="{{route('customers.destroy', $customer->id)}}"
- * data-method="delete" name="delete_item">Delete</a>
- *
- * Injects a form with that's fired on click of the link with a DELETE request.
- * Good because you don't have to dirty your HTML with delete forms everywhere.
- */
-function addDeleteForms() {
-    $('[data-method]').append(function () {
-        if (!$(this).find('form').length > 0)
-            return "\n" +
-                "<form action='" + $(this).attr('href') + "' method='POST' name='delete_item' style='display:none'>\n" +
-                "   <input type='hidden' name='_method' value='" + $(this).attr('data-method') + "'>\n" +
-                "   <input type='hidden' name='_token' value='" + $('meta[name="csrf-token"]').attr('content') + "'>\n" +
-                "</form>\n";
-        else
-            return "";
-    })
-        .removeAttr('href')
-        .attr('style', 'cursor:pointer;')
-        .attr('onclick', '$(this).find("form").submit();');
-}
-
-function confirmSwal(form, title, confirm, cancel) {
-    swal({
-        title: title,
-        type: "warning",
-        showCancelButton: true,
-        cancelButtonText: cancel,
-        confirmButtonColor: "#dd4b39",
-        confirmButtonText: confirm
-    }).then(
-        function() {
-            form.submit();
-        },
-        function (dismiss) {
-
-        }
-    );
-}
-
 const locale = $('html').attr('lang');
 
 /**
  * Place any jQuery/helper plugins in here.
  */
 (function ($) {
+
+    /**
+     * Allows you to add data-method="METHOD to links to automatically inject a form
+     * with the method on click
+     *
+     * Example: <a href="{{route('customers.destroy', $customer->id)}}"
+     * data-method="delete" name="delete_item">Delete</a>
+     *
+     * Injects a form with that's fired on click of the link with a DELETE request.
+     * Good because you don't have to dirty your HTML with delete forms everywhere.
+     */
+    function addDeleteForms() {
+        $('[data-method]').append(function () {
+            if (!$(this).find('form').length > 0)
+                return "\n" +
+                    "<form action='" + $(this).attr('href') + "' method='POST' name='delete_item' style='display:none'>\n" +
+                    "   <input type='hidden' name='_method' value='" + $(this).attr('data-method') + "'>\n" +
+                    "   <input type='hidden' name='_token' value='" + $('meta[name="csrf-token"]').attr('content') + "'>\n" +
+                    "</form>\n";
+            else
+                return "";
+        })
+            .removeAttr('href')
+            .attr('style', 'cursor:pointer;')
+            .attr('onclick', '$(this).find("form").submit();');
+    }
+
+    /**
+     * Swal confirm dialog
+     */
+    function confirmSwal(button, form = null) {
+        swal({
+            title: $(button).attr('data-trans-title'),
+            type: "warning",
+            showCancelButton: true,
+            cancelButtonText: $(button).attr('data-trans-button-cancel'),
+            confirmButtonColor: "#dd4b39",
+            confirmButtonText: $(button).attr('data-trans-button-confirm')
+        }).then(
+            function() {
+                if (form) {
+                    return form.submit();
+                }
+                $(button).closest('form').submit();
+            },
+            function (dismiss) {
+
+            }
+        );
+    }
 
     /**
      * Place the CSRF token as a header on all pages for access in AJAX requests
@@ -86,7 +92,7 @@ const locale = $('html').attr('lang');
         e.preventDefault();
 
         let link = $('a[data-method="delete"]');
-        confirmSwal(this, link.attr('data-trans-title'), link.attr('data-trans-button-confirm'), link.attr('data-trans-button-cancel'));
+        confirmSwal(link, this);
     });
 
     /**
@@ -153,14 +159,19 @@ const locale = $('html').attr('lang');
      */
     $(function() {
         /**
+         * Bind all swal confirm buttons
+         */
+        $('[data-toggle="confirm"]').click(function (e) {
+            e.preventDefault();
+            confirmSwal(e.target);
+        });
+
+        /**
          * Bulk forms
          */
-        $('body').on('submit', '[data-toggle="bulk-form"]', function (e) {
-            e.preventDefault();
+        $('[data-toggle="bulk-form"]').submit(function (e) {
             let $form = $(this);
             $form.find('[name="ids[]"]').remove();
-
-            confirmSwal(this, $(this).attr('data-trans-title'), $(this).attr('data-trans-button-confirm'), $(this).attr('data-trans-button-cancel'));
 
             let dataTableId = $(this).data('target');
             let dataTable = $(dataTableId).DataTable();

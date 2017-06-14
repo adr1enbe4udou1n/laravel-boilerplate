@@ -47,6 +47,7 @@ return [
         'user' => [
             'email_taken' => 'Cet email est déjà utilisé par un compte existant.',
             'password_mismatch' => 'L\'ancien mot de passe est incorrect.',
+            'delete_account' => 'Erreur lors de la suppression de votre compte.',
         ],
     ],
 ];

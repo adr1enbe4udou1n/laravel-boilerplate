@@ -234,7 +234,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
      *
      * @throws \App\Exceptions\GeneralException
      */
-    public function updateProfile($input)
+    public function updateAccount($input)
     {
         $user = auth()->user();
 
@@ -274,6 +274,28 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
         }
 
         throw new GeneralException(trans('exceptions.frontend.user.password_mismatch'));
+    }
+
+    /**
+     * @return mixed
+     * @throws \App\Exceptions\GeneralException|Exception
+     */
+    public function deleteAccount()
+    {
+        $user = auth()->user();
+
+        /** @var User $user */
+        $user = $this->query()->find($user->id);
+
+        if ($user->is_super_admin) {
+            throw new GeneralException(trans('exceptions.backend.users.first_user_cannot_be_destroyed'));
+        }
+
+        if (!$user->delete()) {
+            throw new GeneralException(trans('exceptions.frontend.user.delete_account'));
+        }
+
+        return true;
     }
 
     /**

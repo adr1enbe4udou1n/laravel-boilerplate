@@ -44,4 +44,11 @@ return [
         'display_name' => 'Impersonate user',
         'description' => 'Can take ownership of others user identities. Useful for tests.',
     ],
+
+    'account' => [
+        'delete' => [
+            'display_name' => 'Own account delete',
+            'description' => 'User can delete its own account.',
+        ],
+    ],
 ];

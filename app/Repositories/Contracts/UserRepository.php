@@ -63,7 +63,7 @@ interface UserRepository extends BaseRepository
      *
      * @return mixed
      */
-    public function updateProfile($input);
+    public function updateAccount($input);
 
     /**
      * @param $oldPassword
@@ -72,6 +72,11 @@ interface UserRepository extends BaseRepository
      * @return mixed
      */
     public function changePassword($oldPassword, $newPassword);
+
+    /**
+     * @return mixed
+     */
+    public function deleteAccount();
 
     /**
      * @param \Illuminate\Contracts\Auth\Authenticatable $user

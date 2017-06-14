@@ -111,7 +111,7 @@ For your info, this webpack setup is a direct recovery from my other little side
 - [x] <s>301 redirection management with CSV/XLS import</s>
 - [x] <s>Export Datatables to CSV/Excel buttons</s>
 - [ ] Own account deletion
-- [ ] Account preferred language selection
+- [x] <s>Account language & timezone selection</s>
 - [ ] Account mail confirmation
 - [ ] Account avatar
 - [ ] Facebook/Twitter/Google Sign in with socialite package

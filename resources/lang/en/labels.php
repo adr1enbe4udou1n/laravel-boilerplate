@@ -69,11 +69,15 @@ return [
         'profile' => 'My profile',
         'edit_profile' => 'Edit my profile',
         'change_password' => 'Change my password',
+        'delete' => 'Delete my account',
         'administration' => 'Administration',
         'member_since' => 'Member since :date',
         'profile_updated' => 'Profile successfully updated.',
         'password_updated' => 'Password successfully updated.',
         'super_admin' => 'Super administrateur',
+
+        'account_delete' => '<p>This action will delete entirely your account from this site as well as all associated data.</p>',
+        'account_deleted' => 'Account successfully deleted',
 
         'titles' => [
             'space' => 'My space',
