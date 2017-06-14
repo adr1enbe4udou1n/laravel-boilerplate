@@ -74,6 +74,12 @@
                 orderable: false,
                 searchable: false,
             }, {
+                title: '{{ trans('labels.last_access_at') }}',
+                data: 'last_access_at',
+                name: 'last_access_at',
+                width: 100,
+                className: 'text-center'
+            }, {
                 title: '{{ trans('labels.created_at') }}',
                 data: 'created_at',
                 name: 'created_at',

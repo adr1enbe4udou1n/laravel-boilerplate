@@ -134,7 +134,7 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        $this->users->loadPermissions($user);
+        $this->users->login($user);
     }
 
     /**

@@ -14,7 +14,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Permission[] $permissions
- *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereDescription($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereDisplayName($value)

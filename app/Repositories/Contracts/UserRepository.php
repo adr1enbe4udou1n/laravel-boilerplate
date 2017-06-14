@@ -80,16 +80,18 @@ interface UserRepository extends BaseRepository
 
     /**
      * @param \Illuminate\Contracts\Auth\Authenticatable $user
-     */
-    public function loadPermissions(Authenticatable $user);
-
-    /**
-     * @param \Illuminate\Contracts\Auth\Authenticatable $user
      * @param                                            $name
      *
      * @return mixed
      */
     public function hasPermission(Authenticatable $user, $name);
+
+    /**
+     * @param User $user
+     *
+     * @return mixed
+     */
+    public function login(User $user);
 
     /**
      * @param User $user

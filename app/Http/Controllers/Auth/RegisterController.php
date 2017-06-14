@@ -69,6 +69,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return $this->users->store($data);
+        if ($user = $this->users->store($data)) {
+            $this->users->login($user);
+
+            return $user;
+        }
+        return null;
     }
 }

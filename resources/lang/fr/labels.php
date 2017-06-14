@@ -9,6 +9,7 @@ return [
     'yes' => 'Oui',
     'no' => 'Non',
     'more_info' => 'Plus d\'info',
+    'last_access_at' => 'Dernier accès le',
     'created_at' => 'Créé le',
     'updated_at' => 'Modifié le',
     'deleted_at' => 'Supprimé le',

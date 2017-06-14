@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\ResetPassword as ResetPasswordNotification;
 
 /**
- * App\Models\User.
+ * App\Models\User
  *
  * @property int $id
  * @property string $name
@@ -21,20 +21,22 @@ use App\Notifications\ResetPassword as ResetPasswordNotification;
  * @property string $remember_token
  * @property string $locale
  * @property string $timezone
- * @property bool $slug
+ * @property string $slug
+ * @property \Carbon\Carbon $last_access_at
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property mixed $is_super_admin
- * @property \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
- * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Role[] $roles
- *
+ * @property-read mixed $is_super_admin
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Role[] $roles
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User actives()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User findSimilarSlugs(\Illuminate\Database\Eloquent\Model $model, $attribute, $config, $slug)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereActive($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereConfirmationToken($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereConfirmed($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereEmail($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereLastAccessAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereLocale($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereName($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User wherePassword($value)
@@ -48,6 +50,13 @@ class User extends Authenticatable
 {
     use Notifiable;
     use Sluggable;
+
+    protected $dates = [
+        'last_access_at',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
 
     /**
      * The attributes that are mass assignable.

@@ -70,6 +70,8 @@ class UserController extends Controller
                 return $user->getFormattedRoles();
             })->addColumn('actions', function (User $user) {
                 return $this->users->getActionButtons($user);
+            })->addColumn('last_access_at', function (User $user) use ($request) {
+                return $user->last_access_at ? $user->last_access_at->setTimezone($request->user()->timezone) : null;
             })->addColumn('created_at', function (User $user) use ($request) {
                 return $user->created_at->setTimezone($request->user()->timezone);
             })->addColumn('updated_at', function (User $user) use ($request) {

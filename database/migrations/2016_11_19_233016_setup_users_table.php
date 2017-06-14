@@ -21,6 +21,7 @@ class SetupUsersTable extends Migration
             $table->string('timezone')->after('locale')->nullable();
 
             $table->string('slug')->after('timezone')->unique();
+            $table->timestamp('last_access_at')->after('slug');
         });
     }
 
@@ -36,6 +37,7 @@ class SetupUsersTable extends Migration
             $table->dropColumn('locale');
             $table->dropColumn('timezone');
             $table->dropColumn('slug');
+            $table->dropColumn('last_access_at');
         });
     }
 }
