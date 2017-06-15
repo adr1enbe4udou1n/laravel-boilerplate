@@ -67,13 +67,9 @@ class EloquentFormSettingRepository extends EloquentBaseRepository implements Fo
             throw new GeneralException(trans('exceptions.backend.form_settings.already_exist'));
         }
 
-        DB::transaction(function () use ($formSetting) {
-            if ($formSetting->save()) {
-                return true;
-            }
-
+        if (!$formSetting->save()) {
             throw new GeneralException(trans('exceptions.backend.form_settings.create'));
-        });
+        }
 
         return $formSetting;
     }
@@ -95,13 +91,9 @@ class EloquentFormSettingRepository extends EloquentBaseRepository implements Fo
             throw new GeneralException(trans('exceptions.backend.form_settings.already_exist'));
         }
 
-        DB::transaction(function () use ($formSetting, $input) {
-            if ($formSetting->update($input)) {
-                return true;
-            }
-
+        if (!$formSetting->update($input)) {
             throw new GeneralException(trans('exceptions.backend.form_settings.update'));
-        });
+        }
 
         return $formSetting;
     }
@@ -115,13 +107,9 @@ class EloquentFormSettingRepository extends EloquentBaseRepository implements Fo
      */
     public function destroy(FormSetting $formSetting)
     {
-        DB::transaction(function () use ($formSetting) {
-            if ($formSetting->delete()) {
-                return true;
-            }
-
+        if (!$formSetting->delete()) {
             throw new GeneralException(trans('exceptions.backend.form_settings.delete'));
-        });
+        }
 
         return true;
     }

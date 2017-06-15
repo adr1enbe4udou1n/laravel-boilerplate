@@ -68,13 +68,9 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
             throw new GeneralException(trans('exceptions.backend.redirections.already_exist'));
         }
 
-        DB::transaction(function () use ($redirection) {
-            if ($redirection->save()) {
-                return true;
-            }
-
+        if (!$redirection->save()) {
             throw new GeneralException(trans('exceptions.backend.redirections.create'));
-        });
+        }
 
         return $redirection;
     }
@@ -96,13 +92,9 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
             throw new GeneralException(trans('exceptions.backend.redirections.already_exist'));
         }
 
-        DB::transaction(function () use ($redirection, $input) {
-            if ($redirection->update($input)) {
-                return true;
-            }
-
+        if (!$redirection->update($input)) {
             throw new GeneralException(trans('exceptions.backend.redirections.update'));
-        });
+        }
 
         return $redirection;
     }
@@ -116,13 +108,9 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
      */
     public function destroy(Redirection $redirection)
     {
-        DB::transaction(function () use ($redirection) {
-            if ($redirection->delete()) {
-                return true;
-            }
-
+        if (!$redirection->delete()) {
             throw new GeneralException(trans('exceptions.backend.redirections.delete'));
-        });
+        }
 
         return true;
     }

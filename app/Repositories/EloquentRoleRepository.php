@@ -53,16 +53,12 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
         /** @var Role $role */
         $role = $this->make($input);
 
-        DB::transaction(function () use ($role) {
-            if ($role->save()) {
-                return true;
-            }
-
+        if (!$role->save()) {
             throw new GeneralException(trans('exceptions.backend.roles.create'));
-        });
+        }
 
-        $permissions = isset($input['permissions']) ? $input['permissions']
-            : [];
+        $permissions = isset($input['permissions']) ? $input['permissions'] : [];
+
         foreach ($permissions as $name) {
             $role->permissions()->create(['name' => $name]);
         }
@@ -81,18 +77,14 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
      */
     public function update(Role $role, array $input)
     {
-        DB::transaction(function () use ($role, $input) {
-            if ($role->update($input)) {
-                return true;
-            }
-
+        if (!$role->update($input)) {
             throw new GeneralException(trans('exceptions.backend.roles.update'));
-        });
+        }
 
         $role->permissions()->delete();
 
-        $permissions = isset($input['permissions']) ? $input['permissions']
-            : [];
+        $permissions = isset($input['permissions']) ? $input['permissions'] : [];
+
         foreach ($permissions as $name) {
             $role->permissions()->create(['name' => $name]);
         }
@@ -109,13 +101,9 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
      */
     public function destroy(Role $role)
     {
-        DB::transaction(function () use ($role) {
-            if ($role->delete()) {
-                return true;
-            }
-
+        if (!$role->delete()) {
             throw new GeneralException(trans('exceptions.backend.roles.delete'));
-        });
+        }
 
         return true;
     }

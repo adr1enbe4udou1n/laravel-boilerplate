@@ -66,13 +66,9 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
             throw new GeneralException(trans('exceptions.backend.metas.already_exist'));
         }
 
-        DB::transaction(function () use ($meta) {
-            if ($meta->save()) {
-                return true;
-            }
-
+        if (!$meta->save()) {
             throw new GeneralException(trans('exceptions.backend.metas.create'));
-        });
+        }
 
         return $meta;
     }
@@ -94,13 +90,9 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
             throw new GeneralException(trans('exceptions.backend.metas.already_exist'));
         }
 
-        DB::transaction(function () use ($meta, $input) {
-            if ($meta->update($input)) {
-                return true;
-            }
-
+        if (!$meta->update($input)) {
             throw new GeneralException(trans('exceptions.backend.metas.update'));
-        });
+        }
 
         return $meta;
     }
@@ -114,13 +106,9 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
      */
     public function destroy(Meta $meta)
     {
-        DB::transaction(function () use ($meta) {
-            if ($meta->delete()) {
-                return true;
-            }
-
+        if (!$meta->delete()) {
             throw new GeneralException(trans('exceptions.backend.metas.delete'));
-        });
+        }
 
         return true;
     }

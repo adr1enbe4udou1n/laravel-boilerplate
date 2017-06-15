@@ -81,13 +81,9 @@ class EloquentFormSubmissionRepository extends EloquentBaseRepository implements
      */
     public function destroy(FormSubmission $formSubmission)
     {
-        DB::transaction(function () use ($formSubmission) {
-            if ($formSubmission->delete()) {
-                return true;
-            }
-
+        if (!$formSubmission->delete()) {
             throw new GeneralException(trans('exceptions.backend.form_submissions.delete'));
-        });
+        }
 
         return true;
     }

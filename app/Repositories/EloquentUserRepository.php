@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use Exception;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Config\Repository;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Mcamara\LaravelLocalization\LaravelLocalization;
 
@@ -87,15 +88,11 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
             $user->timezone = $this->config->get('app.timezone');
         }
 
-        DB::transaction(function () use ($user) {
-            if ($user->save()) {
-                event(new UserCreated($user));
-
-                return true;
-            }
-
+        if (!$user->save()) {
             throw new GeneralException(trans('exceptions.backend.users.create'));
-        });
+        }
+
+        event(new UserCreated($user));
 
         $roles = isset($input['roles']) ? $input['roles'] : [];
         $user->roles()->sync($roles);
@@ -114,24 +111,21 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
      */
     public function update(User $user, array $input)
     {
-        DB::transaction(function () use ($user, $input) {
-            if ($user->update($input)) {
-                if ($user->is_super_admin && !$user->active) {
-                    throw new GeneralException(trans('exceptions.backend.users.first_user_cannot_be_disabled'));
-                }
+        $user->fill(Arr::except($input, 'password'));
 
-                if (isset($input['password']) && !empty($input['password'])) {
-                    $user->password = bcrypt($input['password']);
-                }
-                $user->save();
+        if ($user->is_super_admin && !$user->active) {
+            throw new GeneralException(trans('exceptions.backend.users.first_user_cannot_be_disabled'));
+        }
 
-                event(new UserUpdated($user));
+        if (isset($input['password']) && !empty($input['password'])) {
+            $user->password = bcrypt($input['password']);
+        }
 
-                return true;
-            }
-
+        if (!$user->save()) {
             throw new GeneralException(trans('exceptions.backend.users.update'));
-        });
+        }
+
+        event(new UserUpdated($user));
 
         $roles = isset($input['roles']) ? $input['roles'] : [];
         $user->roles()->sync($roles);
@@ -152,15 +146,11 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
             throw new GeneralException(trans('exceptions.backend.users.first_user_cannot_be_destroyed'));
         }
 
-        DB::transaction(function () use ($user) {
-            if ($user->delete()) {
-                event(new UserDeleted($user));
-
-                return true;
-            }
-
+        if (!$user->delete()) {
             throw new GeneralException(trans('exceptions.backend.users.delete'));
-        });
+        }
+
+        event(new UserDeleted($user));
 
         return true;
     }
