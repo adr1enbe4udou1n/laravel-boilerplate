@@ -83,7 +83,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
         }
 
         if (empty($user->timezone)) {
-            $user->timezone = $this->config->get('app.default_timezone');
+            $user->timezone = $this->config->get('app.timezone');
         }
 
         DB::transaction(function () use ($user) {
