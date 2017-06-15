@@ -8,9 +8,16 @@ return [
         'all_rights_reserved' => 'All rights reserved.',
     ],
     'password_reset' => [
+        'subject' => 'Password reset',
         'intro' => 'You are receiving this email because we received a password reset request for your account.',
         'action' => 'Reset Password',
         'outro' => 'If you did not request a password reset, no further action is required.',
+    ],
+    'email_confirmation' => [
+        'subject' => 'Email confirmation',
+        'intro' => 'Email confirmation is required in order to unleash your account.',
+        'action' => 'Confirm my email',
+        'outro' => 'Your account will be limited as long as your email remains not confirmed.',
     ],
     'contact' => [
         'subject' => 'New contact message',

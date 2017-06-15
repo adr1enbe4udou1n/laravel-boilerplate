@@ -7,6 +7,7 @@
 
         <div class="content-wrapper">
             @include('partials.logged-as')
+            @include('partials.not-confirmed')
 
             <section class="content-header">
                 <h1>

@@ -60,9 +60,9 @@
                 name: 'email',
                 width: 150,
             }, {
-                title: '{{ trans('validation.attributes.active') }}',
-                data: 'active',
-                name: 'active',
+                title: '{{ trans('validation.attributes.confirmed') }}',
+                data: 'confirmed',
+                name: 'confirmed',
                 orderable: false,
                 searchable: false,
                 width: 50,
@@ -78,6 +78,14 @@
                 data: 'last_access_at',
                 name: 'last_access_at',
                 width: 100,
+                className: 'text-center'
+            }, {
+                title: '{{ trans('validation.attributes.active') }}',
+                data: 'active',
+                name: 'active',
+                orderable: false,
+                searchable: false,
+                width: 50,
                 className: 'text-center'
             }, {
                 title: '{{ trans('labels.created_at') }}',

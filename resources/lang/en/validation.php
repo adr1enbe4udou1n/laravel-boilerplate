@@ -153,6 +153,7 @@ return [
         'roles' => 'Roles',
         'permissions' => 'Permissions',
         'active' => 'Active',
+        'confirmed' => 'Confirmed',
         'message' => 'Message',
         'g-recaptcha-response' => 'Captcha',
         'locale' => 'Localization',

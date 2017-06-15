@@ -8,9 +8,16 @@ return [
         'all_rights_reserved' => 'Tous droits réservés.',
     ],
     'password_reset' => [
-        'intro' => 'Vous recevez ce mail car vous avez effectué une demande de réinitialisation de mot de passe.',
+        'subject' => 'Réinitialisation de mon mot de passe',
+        'intro' => 'Vous recevez cet email car vous avez effectué une demande de réinitialisation de mot de passe.',
         'action' => 'Réinitialiser le mot de passe',
-        'outro' => 'Si vous n\'avez pas fais cette demande de réinitialisation, aucune action n\'est requise.',
+        'outro' => 'Si vous n\'avez pas fait cette demande de réinitialisation, aucune action n\'est requise.',
+    ],
+    'email_confirmation' => [
+        'subject' => 'Confirmation de mon email',
+        'intro' => 'La confirmation de votre email est requise pour débrider votre compte.',
+        'action' => 'Confirmer mon email',
+        'outro' => 'Votre compte sera limité tant que votre email ne sera pas confirmé.',
     ],
     'contact' => [
         'subject' => 'Nouveau message de contact',

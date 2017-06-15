@@ -75,6 +75,8 @@ return [
         'member_since' => 'Membre depuis le :date',
         'profile_updated' => 'Profil modifié avec succès.',
         'password_updated' => 'Mot de passe modifié avec succès.',
+        'email_confirmation_sended' => 'Mail de confirmation envoyé.',
+        'email_confirmed' => 'Email confirmé avec succès.',
         'super_admin' => 'Super admin',
 
         'account_delete' => '<p>Cette action supprimera définitivement votre compte de ce site ainsi que toutes vos données associées.</p>',
@@ -86,9 +88,12 @@ return [
         ],
     ],
 
-    'backend' => [
-        'login-as' => 'Vous êtes actuellement connecté en tant que <strong>:name</strong>, vous pouvez à tout moment vous reconnecter en tant que <a href=":route">:admin</a>.',
+    'alerts' => [
+        'login_as' => 'Vous êtes actuellement connecté en tant que <strong>:name</strong>, vous pouvez à tout moment vous reconnecter en tant que <a href=":route">:admin</a>.',
+        'not_confirmed' => 'Votre compte sera en mode limité tant que votre email ne sera pas confirmé. <a href=":route">Cliquez ici</a> pour relancer l\'envoie du mail de confirmation.',
+    ],
 
+    'backend' => [
         'sidebar' => [
             'forms' => 'Gestion des formulaires',
             'access' => 'Gestion des accès',

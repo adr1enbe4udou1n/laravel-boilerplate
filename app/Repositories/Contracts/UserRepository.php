@@ -18,9 +18,11 @@ interface UserRepository extends BaseRepository
     /**
      * @param array $input
      *
+     * @param bool  $withConfirm
+     *
      * @return mixed
      */
-    public function store(array $input);
+    public function store(array $input, $withConfirm = true);
 
     /**
      * @param User  $user
@@ -72,6 +74,18 @@ interface UserRepository extends BaseRepository
      * @return mixed
      */
     public function changePassword($oldPassword, $newPassword);
+
+    /**
+     * @return string
+     */
+    public function sendConfirmation();
+
+    /**
+     * @param $token
+     *
+     * @return string
+     */
+    public function confirmEmail($token);
 
     /**
      * @return mixed

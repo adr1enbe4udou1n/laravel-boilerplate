@@ -7,6 +7,7 @@ use App\Events\UserDeleted;
 use App\Events\UserUpdated;
 use App\Exceptions\GeneralException;
 use App\Models\User;
+use App\Notifications\SendConfirmation;
 use App\Repositories\Contracts\UserRepository;
 use App\Repositories\Traits\HtmlActionsButtons;
 use Carbon\Carbon;
@@ -16,6 +17,7 @@ use Illuminate\Contracts\Config\Repository;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Mcamara\LaravelLocalization\LaravelLocalization;
 
 /**
@@ -59,6 +61,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
             'name',
             'email',
             'active',
+            'confirmed',
             'last_access_at',
             'created_at',
             'updated_at',
@@ -68,11 +71,13 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
     /**
      * @param array $input
      *
-     * @return \App\Models\User
+     * @param bool  $withConfirm
      *
-     * @throws \Exception|\Throwable
+     * @return \App\Models\User
+     * @throws \Throwable
+     * @throws \Exception
      */
-    public function store(array $input)
+    public function store(array $input, $withConfirm = true)
     {
         /** @var User $user */
         $user = $this->make($input);
@@ -98,6 +103,10 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
 
         $roles = isset($input['roles']) ? $input['roles'] : [];
         $user->roles()->sync($roles);
+
+        if ($withConfirm) {
+            $this->sendConfirmationToUser($user);
+        }
 
         return $user;
     }
@@ -276,6 +285,50 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
         }
 
         throw new GeneralException(trans('exceptions.frontend.user.password_mismatch'));
+    }
+
+    /**
+     * Send mail confirmation
+     */
+    public function sendConfirmation()
+    {
+        $user = auth()->user();
+
+        /** @var User $user */
+        $user = $this->query()->find($user->id);
+
+        $this->sendConfirmationToUser($user);
+    }
+
+    /**
+     * @param \App\Models\User $user
+     */
+    private function sendConfirmationToUser(User $user)
+    {
+        $user->confirmation_token = Str::random(60);
+        $user->save();
+
+        $user->notify(new SendConfirmation($user->confirmation_token));
+    }
+
+    /**
+     * Send mail confirmation
+     *
+     * @param $token
+     *
+     * @return string|void
+     */
+    public function confirmEmail($token)
+    {
+        $user = auth()->user();
+
+        /** @var User $user */
+        $user = $this->query()->find($user->id);
+
+        if ($user->confirmation_token === $token) {
+            $user->confirmed = true;
+            $user->save();
+        }
     }
 
     /**

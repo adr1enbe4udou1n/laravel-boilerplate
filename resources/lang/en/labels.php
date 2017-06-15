@@ -75,6 +75,8 @@ return [
         'member_since' => 'Member since :date',
         'profile_updated' => 'Profile successfully updated.',
         'password_updated' => 'Password successfully updated.',
+        'email_confirmation_sended' => 'Mail confirmation sended.',
+        'email_confirmed' => 'Email successfully confirmed.',
         'super_admin' => 'Super administrateur',
 
         'account_delete' => '<p>This action will delete entirely your account from this site as well as all associated data.</p>',
@@ -86,9 +88,12 @@ return [
         ],
     ],
 
-    'backend' => [
-        'login-as' => 'You are actually logged as <strong>:name</strong>, you can logout as <a href=":route">:admin</a>.',
+    'alerts' => [
+        'login_as' => 'You are actually logged as <strong>:name</strong>, you can logout as <a href=":route">:admin</a>.',
+        'not_confirmed' => 'Your account will be in limited mode as long as your email remains not confirmed. <a href=":route">Click here</a> in order to resend mail confirmation.',
+    ],
 
+    'backend' => [
         'sidebar' => [
             'forms' => 'Form management',
             'access' => 'Access management',

@@ -64,6 +64,8 @@ class UserController extends Controller
 
             return $query->editColumn('email', function (User $user) {
                 return link_to_route('admin.user.edit', $user->email, $user);
+            })->editColumn('confirmed', function (User $user) {
+                return boolean_html_label($user->confirmed);
             })->editColumn('active', function (User $user) {
                 return boolean_html_label($user->active);
             })->editColumn('roles', function (User $user) {
@@ -77,7 +79,7 @@ class UserController extends Controller
             })->addColumn('updated_at', function (User $user) use ($request) {
                 return $user->updated_at->setTimezone($request->user()->timezone);
             })
-                ->rawColumns(['active', 'actions'])
+                ->rawColumns(['confirmed', 'active', 'actions'])
                 ->make(true);
         }
     }

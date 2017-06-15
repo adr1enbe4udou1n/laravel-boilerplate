@@ -34,6 +34,7 @@
 
     <div id="app">
         @include('partials.logged-as')
+        @include('partials.not-confirmed')
         @include('frontend.partials.header')
         @yield('highlight')
 

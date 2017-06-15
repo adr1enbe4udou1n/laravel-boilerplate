@@ -4,14 +4,16 @@ namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class ResetPassword extends Notification
+class SendConfirmation extends Notification
 {
+
     use Queueable;
 
     /**
-     * The password reset token.
+     * The mail confirmation token.
      *
      * @var string
      */
@@ -30,7 +32,7 @@ class ResetPassword extends Notification
     /**
      * Get the notification's delivery channels.
      *
-     * @param mixed $notifiable
+     * @param  mixed $notifiable
      *
      * @return array
      */
@@ -42,16 +44,16 @@ class ResetPassword extends Notification
     /**
      * Get the mail representation of the notification.
      *
-     * @param mixed $notifiable
+     * @param  mixed $notifiable
      *
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage())
-            ->subject(trans('mails.password_reset.subject'))
-            ->line(trans('mails.password_reset.intro'))
-            ->action(trans('mails.password_reset.action'), route('password.reset', $this->token))
-            ->line(trans('mails.password_reset.outro'));
+        return (new MailMessage)
+            ->subject(trans('mails.email_confirmation.subject'))
+            ->line(trans('mails.email_confirmation.intro'))
+            ->action(trans('mails.email_confirmation.action'), route('user.email.confirm', $this->token))
+            ->line(trans('mails.email_confirmation.outro'));
     }
 }
