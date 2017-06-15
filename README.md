@@ -1,9 +1,7 @@
 # Laravel Boilerplate
-> This is a lite boilerplate site with backend based on Laravel 5.4.
+> This is a lite boilerplate site with backend based on Laravel 5.4
 
 [![Build Status](https://travis-ci.org/adr1enbe4udou1n/laravel-boilerplate.svg)](https://travis-ci.org/adr1enbe4udou1n/laravel-boilerplate)
-[![Total Downloads](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/downloads)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
-[![Latest Stable Version](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/v/stable)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 [![License](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/license)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 
 This boilerplate is heavily inspired by the most popular [Laravel 5 Boilerplate](https://github.com/rappasoft/laravel-5-boilerplate).
@@ -15,8 +13,8 @@ This boilerplate is heavily inspired by the most popular [Laravel 5 Boilerplate]
 * Bootstrap Frontend with basic home-about-contact and legal mentions pages
 * [Slick carousel](http://kenwheeler.github.io/slick/) and [Cookie Consent](https://cookieconsent.insites.com/) integrated
 * Intervention image cache for dynamic optimized images
-* Login throttle by recaptcha.
-* Frontend user space and profile management. Registration can be disabled by environment parameter
+* Login throttle by recaptcha
+* Frontend user space and profile management. Email validation included. Registration can be disabled by environment parameter
 
 ### Backend
 
@@ -112,7 +110,7 @@ For your info, this webpack setup is a direct recovery from my other little side
 - [x] <s>Export Datatables to CSV/Excel buttons</s>
 - [x] <s>Own account deletion</s>
 - [x] <s>Account language & timezone selection</s>
-- [ ] Account mail confirmation
+- [x] <s>Account mail confirmation</s>
 - [ ] Account avatar
 - [ ] Facebook/Twitter/Google Sign in with socialite package
 - [ ] Inclusion of unit/featured/browser tests
