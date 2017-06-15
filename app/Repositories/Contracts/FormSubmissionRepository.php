@@ -5,7 +5,7 @@ namespace App\Repositories\Contracts;
 use App\Models\FormSubmission;
 
 /**
- * Class EloquentFormSubmissionRepository.
+ * Interface FormSubmissionRepository.
  */
 interface FormSubmissionRepository extends BaseRepository
 {

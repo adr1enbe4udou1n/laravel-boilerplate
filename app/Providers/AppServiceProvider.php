@@ -2,12 +2,14 @@
 
 namespace App\Providers;
 
+use App\Repositories\Contracts\AccountRepository;
 use App\Repositories\Contracts\FormSettingRepository;
 use App\Repositories\Contracts\FormSubmissionRepository;
 use App\Repositories\Contracts\MetaRepository;
 use App\Repositories\Contracts\RedirectionRepository;
 use App\Repositories\Contracts\RoleRepository;
 use App\Repositories\Contracts\UserRepository;
+use App\Repositories\EloquentAccountRepository;
 use App\Repositories\EloquentFormSettingRepository;
 use App\Repositories\EloquentFormSubmissionRepository;
 use App\Repositories\EloquentMetaRepository;
@@ -81,6 +83,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             UserRepository::class,
             EloquentUserRepository::class
+        );
+
+        $this->app->bind(
+            AccountRepository::class,
+            EloquentAccountRepository::class
         );
 
         $this->app->bind(

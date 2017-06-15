@@ -5,7 +5,7 @@ namespace App\Repositories\Contracts;
 use App\Models\FormSetting;
 
 /**
- * Class EloquentFormSettingRepository.
+ * Interface FormSettingRepository.
  */
 interface FormSettingRepository extends BaseRepository
 {

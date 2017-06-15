@@ -97,8 +97,6 @@ class EloquentFormSettingRepository extends EloquentBaseRepository implements Fo
 
         DB::transaction(function () use ($formSetting, $input) {
             if ($formSetting->update($input)) {
-                $formSetting->save();
-
                 return true;
             }
 

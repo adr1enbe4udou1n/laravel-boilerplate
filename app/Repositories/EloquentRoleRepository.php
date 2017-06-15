@@ -83,8 +83,6 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
     {
         DB::transaction(function () use ($role, $input) {
             if ($role->update($input)) {
-                $role->save();
-
                 return true;
             }
 

@@ -3,18 +3,17 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\Contracts\UserRepository;
+use App\Repositories\Contracts\AccountRepository;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\View;
 use Mcamara\LaravelLocalization\LaravelLocalization;
 
 class AccountController extends Controller
 {
     /**
-     * @var UserRepository
+     * @var AccountRepository
      */
-    protected $users;
+    protected $account;
 
     /**
      * @var \Mcamara\LaravelLocalization\LaravelLocalization
@@ -24,15 +23,15 @@ class AccountController extends Controller
     /**
      * RegisterController constructor.
      *
-     * @param UserRepository                                   $users
+     * @param AccountRepository                                   $account
      * @param \Mcamara\LaravelLocalization\LaravelLocalization $localization
      * @param \Illuminate\Contracts\View\Factory               $view
      *
      * @throws \Mcamara\LaravelLocalization\Exceptions\SupportedLocalesNotDefined
      */
-    public function __construct(UserRepository $users, LaravelLocalization $localization, Factory $view)
+    public function __construct(AccountRepository $account, LaravelLocalization $localization, Factory $view)
     {
-        $this->users = $users;
+        $this->account = $account;
         $this->localization = $localization;
 
         $view->composer('*', function (\Illuminate\View\View $view) {
@@ -74,7 +73,7 @@ class AccountController extends Controller
             'email' => 'required|email|unique:users,email,'.$user->id,
         ]);
 
-        $this->users->updateAccount($request->input());
+        $this->account->update($request->input());
 
         return redirect()->route('user.account')
             ->withFlashSuccess(trans('labels.user.profile_updated'));
@@ -85,7 +84,7 @@ class AccountController extends Controller
      */
     public function sendConfirmation()
     {
-        $this->users->sendConfirmation();
+        $this->account->sendConfirmation();
 
         return redirect()->back()
             ->withFlashSuccess(trans('labels.user.email_confirmation_sended'));
@@ -100,7 +99,7 @@ class AccountController extends Controller
      */
     public function confirmEmail($token)
     {
-        $this->users->confirmEmail($token);
+        $this->account->confirmEmail($token);
 
         return redirect()->route('user.account')
             ->withFlashSuccess(trans('labels.user.email_confirmed'));
@@ -120,7 +119,7 @@ class AccountController extends Controller
             'password' => 'required|min:6|confirmed',
         ]);
 
-        $this->users->changePassword(
+        $this->account->changePassword(
             $request->get('old_password'),
             $request->get('password')
         );
@@ -137,7 +136,7 @@ class AccountController extends Controller
      */
     public function delete(Request $request)
     {
-        $this->users->deleteAccount();
+        $this->account->delete();
 
         auth()->logout();
         $request->session()->flush();

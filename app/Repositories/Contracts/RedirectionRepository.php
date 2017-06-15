@@ -5,7 +5,7 @@ namespace App\Repositories\Contracts;
 use App\Models\Redirection;
 
 /**
- * Class EloquentRedirectionRepository.
+ * Interface RedirectionRepository.
  */
 interface RedirectionRepository extends BaseRepository
 {

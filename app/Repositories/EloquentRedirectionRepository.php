@@ -98,8 +98,6 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
 
         DB::transaction(function () use ($redirection, $input) {
             if ($redirection->update($input)) {
-                $redirection->save();
-
                 return true;
             }
 

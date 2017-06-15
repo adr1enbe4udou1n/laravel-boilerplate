@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Contracts\Auth\Authenticatable;
 
 /**
- * Class EloquentUserRepository.
+ * Interface UserRepository.
  */
 interface UserRepository extends BaseRepository
 {
@@ -22,7 +22,7 @@ interface UserRepository extends BaseRepository
      *
      * @return mixed
      */
-    public function store(array $input, $withConfirm = true);
+    public function store(array $input);
 
     /**
      * @param User  $user
@@ -59,38 +59,6 @@ interface UserRepository extends BaseRepository
      * @return mixed
      */
     public function batchDisable(array $ids);
-
-    /**
-     * @param $input
-     *
-     * @return mixed
-     */
-    public function updateAccount($input);
-
-    /**
-     * @param $oldPassword
-     * @param $newPassword
-     *
-     * @return mixed
-     */
-    public function changePassword($oldPassword, $newPassword);
-
-    /**
-     * @return string
-     */
-    public function sendConfirmation();
-
-    /**
-     * @param $token
-     *
-     * @return string
-     */
-    public function confirmEmail($token);
-
-    /**
-     * @return mixed
-     */
-    public function deleteAccount();
 
     /**
      * @param \Illuminate\Contracts\Auth\Authenticatable $user

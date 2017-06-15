@@ -3,7 +3,7 @@
 namespace App\Repositories\Contracts;
 
 /**
- * Class EloquentMetaRepository.
+ * Interface BaseRepository.
  */
 interface BaseRepository
 {

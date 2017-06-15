@@ -5,7 +5,7 @@ namespace App\Repositories\Contracts;
 use App\Models\Meta;
 
 /**
- * Class EloquentMetaRepository.
+ * Interface MetaRepository.
  */
 interface MetaRepository extends BaseRepository
 {

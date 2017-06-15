@@ -96,8 +96,6 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
 
         DB::transaction(function () use ($meta, $input) {
             if ($meta->update($input)) {
-                $meta->save();
-
                 return true;
             }
 
