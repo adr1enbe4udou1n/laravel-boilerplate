@@ -11,14 +11,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 interface UserRepository extends BaseRepository
 {
     /**
-     * @return mixed
-     */
-    public function get();
-
-    /**
      * @param array $input
-     *
-     * @param bool  $withConfirm
      *
      * @return mixed
      */
@@ -67,13 +60,6 @@ interface UserRepository extends BaseRepository
      * @return mixed
      */
     public function hasPermission(Authenticatable $user, $name);
-
-    /**
-     * @param User $user
-     *
-     * @return mixed
-     */
-    public function login(User $user);
 
     /**
      * @param User $user

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
-use App\Repositories\Contracts\UserRepository;
+use App\Repositories\Contracts\AccountRepository;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -24,16 +24,16 @@ class RegisterController extends Controller
     use RegistersUsers;
 
     /**
-     * @var UserRepository
+     * @var \App\Repositories\Contracts\AccountRepository
      */
     protected $users;
 
     /**
      * RegisterController constructor.
      *
-     * @param UserRepository $users
+     * @param AccountRepository $users
      */
-    public function __construct(UserRepository $users)
+    public function __construct(AccountRepository $users)
     {
         $this->middleware('guest');
 
@@ -69,11 +69,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        if ($user = $this->users->store($data)) {
-            $this->users->login($user);
-
-            return $user;
-        }
-        return null;
+        return $this->users->register($data);
     }
 }

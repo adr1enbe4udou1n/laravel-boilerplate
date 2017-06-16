@@ -7,7 +7,9 @@ use App\Models\User;
 use App\Notifications\SendConfirmation;
 use App\Repositories\Contracts\AccountRepository;
 use App\Repositories\Contracts\UserRepository;
+use Carbon\Carbon;
 use Exception;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -49,6 +51,28 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
         $user = $this->users->store(Arr::only($input, ['name', 'email', 'password']));
 
         $this->sendConfirmationToUser($user);
+        return $user;
+    }
+
+    /**
+     * @param Authenticatable $user
+     *
+     * @return \App\Models\User
+     * @throws \App\Exceptions\GeneralException
+     */
+    public function login(Authenticatable $user)
+    {
+        /** @var User $user */
+        $user = $this->query()->find($user->id);
+
+        $user->last_access_at = Carbon::now();
+
+        if (!$user->save()) {
+            throw new GeneralException(trans('exceptions.backend.users.update'));
+        }
+
+        session(['permissions' => $user->getPermissions()]);
+
         return $user;
     }
 

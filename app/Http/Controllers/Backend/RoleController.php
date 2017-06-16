@@ -51,7 +51,14 @@ class RoleController extends Controller
     {
         if ($request->isXmlHttpRequest()) {
             /** @var EloquentEngine $collection */
-            $query = Datatables::of($this->roles->get());
+            $query = Datatables::of($this->roles->select([
+                'id',
+                'name',
+                'display_name',
+                'description',
+                'created_at',
+                'updated_at',
+            ]));
 
             return $query->editColumn('name', function (Role $role) {
                 return link_to_route('admin.role.edit', $role->name, $role);

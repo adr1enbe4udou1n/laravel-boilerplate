@@ -10,11 +10,6 @@ use App\Models\Meta;
 interface MetaRepository extends BaseRepository
 {
     /**
-     * @return \Illuminate\Database\Query\Builder
-     */
-    public function get();
-
-    /**
      * @param $route
      *
      * @return Meta

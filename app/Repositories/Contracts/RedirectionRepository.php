@@ -10,11 +10,6 @@ use App\Models\Redirection;
 interface RedirectionRepository extends BaseRepository
 {
     /**
-     * @return \Illuminate\Database\Query\Builder
-     */
-    public function get();
-
-    /**
      * @param $source
      *
      * @return Redirection

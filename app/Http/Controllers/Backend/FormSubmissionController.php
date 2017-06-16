@@ -49,7 +49,13 @@ class FormSubmissionController extends Controller
     {
         if ($request->isXmlHttpRequest()) {
             /** @var EloquentEngine $collection */
-            $query = Datatables::of($this->formSubmissions->get());
+            $query = Datatables::of($this->formSubmissions->select([
+                'id',
+                'type',
+                'data',
+                'created_at',
+                'updated_at',
+            ]));
 
             return $query->editColumn('type', function (FormSubmission $formSubmission) {
                 return trans("forms.{$formSubmission->type}.display_name");

@@ -28,20 +28,6 @@ class EloquentFormSubmissionRepository extends EloquentBaseRepository implements
     }
 
     /**
-     * @return mixed
-     */
-    public function get()
-    {
-        return $this->query()->select([
-            'id',
-            'type',
-            'data',
-            'created_at',
-            'updated_at',
-        ]);
-    }
-
-    /**
      * @param string $type
      * @param array  $input
      *

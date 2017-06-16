@@ -55,7 +55,12 @@ class MetaController extends Controller
     {
         if ($request->isXmlHttpRequest()) {
             /** @var EloquentEngine $collection */
-            $query = Datatables::of($this->metas->get());
+            $query = Datatables::of($this->metas->select([
+                'id',
+                'route',
+                'created_at',
+                'updated_at',
+            ]));
 
             return $query->editColumn('route', function (Meta $meta) {
                 return trans("routes.{$meta->route}");

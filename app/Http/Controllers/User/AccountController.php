@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateAccountRequest;
 use App\Repositories\Contracts\AccountRepository;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
@@ -58,20 +59,13 @@ class AccountController extends Controller
     }
 
     /**
-     * @param \Illuminate\Http\Request $request
+     * @param \App\Http\Requests\UpdateAccountRequest $request
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request)
+    public function update(UpdateAccountRequest $request)
     {
-        $user = auth()->user();
-
         $request->headers->set('referer', route('user.account').'#edit');
-
-        $this->validate($request, [
-            'name' => 'required|max:191',
-            'email' => 'required|email|unique:users,email,'.$user->id,
-        ]);
 
         $this->account->update($request->input());
 

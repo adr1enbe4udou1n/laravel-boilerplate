@@ -107,7 +107,7 @@
                 width: 75,
             }],
             select: {style: 'os'},
-            order: [[1, 'asc']],
+            order: [[7, 'desc']],
             rowId: 'id'
         });
     </script>

@@ -10,11 +10,6 @@ use App\Models\FormSubmission;
 interface FormSubmissionRepository extends BaseRepository
 {
     /**
-     * @return \Illuminate\Database\Query\Builder
-     */
-    public function get();
-
-    /**
      * @param string $type
      * @param array  $input
      *

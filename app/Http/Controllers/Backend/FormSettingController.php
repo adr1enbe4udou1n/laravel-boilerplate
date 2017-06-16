@@ -53,7 +53,13 @@ class FormSettingController extends Controller
     {
         if ($request->isXmlHttpRequest()) {
             /** @var EloquentEngine $collection */
-            $query = Datatables::of($this->formSettings->get());
+            $query = Datatables::of($this->formSettings->select([
+                'id',
+                'name',
+                'recipients',
+                'created_at',
+                'updated_at',
+            ]));
 
             return $query->editColumn('name', function (FormSetting $formSetting) {
                 return trans("forms.{$formSetting->name}.display_name");

@@ -27,20 +27,6 @@ class EloquentFormSettingRepository extends EloquentBaseRepository implements Fo
     }
 
     /**
-     * @return mixed
-     */
-    public function get()
-    {
-        return $this->query()->select([
-            'id',
-            'name',
-            'recipients',
-            'created_at',
-            'updated_at',
-        ]);
-    }
-
-    /**
      * @param $name
      *
      * @return FormSetting

@@ -127,17 +127,6 @@ class LoginController extends Controller
     }
 
     /**
-     * The user has been authenticated.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param mixed                    $user
-     */
-    protected function authenticated(Request $request, $user)
-    {
-        $this->users->login($user);
-    }
-
-    /**
      * Log the user out of the application.
      *
      * @param Request $request

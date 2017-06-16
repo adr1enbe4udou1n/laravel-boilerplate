@@ -10,11 +10,6 @@ use App\Models\FormSetting;
 interface FormSettingRepository extends BaseRepository
 {
     /**
-     * @return \Illuminate\Database\Query\Builder
-     */
-    public function get();
-
-    /**
      * @param $name
      *
      * @return FormSetting

@@ -27,21 +27,6 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
     }
 
     /**
-     * @return mixed
-     */
-    public function get()
-    {
-        return $this->query()->select([
-            'id',
-            'name',
-            'display_name',
-            'description',
-            'created_at',
-            'updated_at',
-        ])->orderBy('name');
-    }
-
-    /**
      * @param array $input
      *
      * @return \App\Models\Role

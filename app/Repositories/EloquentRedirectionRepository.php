@@ -27,22 +27,6 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
     }
 
     /**
-     * @return mixed
-     */
-    public function get()
-    {
-        return $this->query()->select([
-            'id',
-            'source',
-            'active',
-            'target',
-            'type',
-            'created_at',
-            'updated_at',
-        ]);
-    }
-
-    /**
      * @param $source
      *
      * @return Redirection

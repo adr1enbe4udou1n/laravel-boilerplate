@@ -10,11 +10,6 @@ use App\Models\Role;
 interface RoleRepository extends BaseRepository
 {
     /**
-     * @return \Illuminate\Database\Query\Builder
-     */
-    public function get();
-
-    /**
      * @param array $input
      *
      * @return mixed

@@ -55,7 +55,15 @@ class RedirectionController extends Controller
     {
         if ($request->isXmlHttpRequest()) {
             /** @var EloquentEngine $collection */
-            $query = Datatables::of($this->redirections->get());
+            $query = Datatables::of($this->redirections->select([
+                'id',
+                'source',
+                'active',
+                'target',
+                'type',
+                'created_at',
+                'updated_at',
+            ]));
 
             return $query->editColumn('active', function (Redirection $redirection) {
                 return boolean_html_label($redirection->active);

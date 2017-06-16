@@ -60,7 +60,16 @@ class UserController extends Controller
     {
         if ($request->isXmlHttpRequest()) {
             /** @var EloquentEngine $collection */
-            $query = Datatables::of($this->users->get());
+            $query = Datatables::of($this->users->select([
+                'id',
+                'name',
+                'email',
+                'active',
+                'confirmed',
+                'last_access_at',
+                'created_at',
+                'updated_at',
+            ])->with('roles'));
 
             return $query->editColumn('email', function (User $user) {
                 return link_to_route('admin.user.edit', $user->email, $user);
@@ -89,7 +98,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('backend.user.create')->withRoles($this->roles->get());
+        return view('backend.user.create')->withRoles($this->roles->select());
     }
 
     /**
@@ -113,7 +122,7 @@ class UserController extends Controller
     {
         return view('backend.user.edit')
             ->withUser($user)
-            ->withRoles($this->roles->get());
+            ->withRoles($this->roles->select());
     }
 
     /**

@@ -18,6 +18,13 @@ interface AccountRepository extends BaseRepository
     public function register(array $input);
 
     /**
+     * @param Authenticatable $user
+     *
+     * @return mixed
+     */
+    public function login(Authenticatable $user);
+
+    /**
      * @param $input
      *
      * @return mixed

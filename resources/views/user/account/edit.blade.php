@@ -15,6 +15,7 @@
 ]) !!}
 
 {!! form_row('select', 'locale', [
+    'required' => true,
     'title' => trans('validation.attributes.locale'),
     'label_class' => 'col-md-4',
     'field_wrapper_class' => 'col-md-6',
@@ -23,6 +24,7 @@
 ]) !!}
 
 {!! form_row('select', 'timezone', [
+    'required' => true,
     'title' => trans('validation.attributes.timezone'),
     'label_class' => 'col-md-4',
     'field_wrapper_class' => 'col-md-6',

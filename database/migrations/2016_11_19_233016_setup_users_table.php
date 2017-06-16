@@ -6,6 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class SetupUsersTable extends Migration
 {
+
     /**
      * Run the migrations.
      */
@@ -14,14 +15,22 @@ class SetupUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->boolean('active')->after('password')->default(true);
 
-            $table->string('confirmation_token', 100)->after('active')->nullable();
-            $table->boolean('confirmed')->after('confirmation_token')->default(false);
+            $table->string('confirmation_token', 100)->after('active')
+                ->nullable();
+            $table->boolean('confirmed')->after('confirmation_token')
+                ->default(false);
 
-            $table->string('locale')->after('remember_token')->nullable();
-            $table->string('timezone')->after('locale')->nullable();
+            $table->string('locale')->after('remember_token')->default('');
+            $table->string('timezone')->after('locale')->default('');
 
-            $table->string('slug')->after('timezone')->unique();
-            $table->timestamp('last_access_at')->after('slug');
+            $table->string('slug')->after('timezone')->default('')->unique();
+            $table->timestamp('last_access_at')->after('slug')->nullable();
+        });
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('locale')->default(null)->change();
+            $table->string('timezone')->default(null)->change();
+            $table->string('slug')->default(null)->change();
         });
     }
 
@@ -31,13 +40,15 @@ class SetupUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('active');
-            $table->dropColumn('confirmed');
-            $table->dropColumn('confirmation_token');
-            $table->dropColumn('locale');
-            $table->dropColumn('timezone');
-            $table->dropColumn('slug');
-            $table->dropColumn('last_access_at');
+            $table->dropColumn([
+                'active',
+                'confirmed',
+                'confirmation_token',
+                'locale',
+                'timezone',
+                'slug',
+                'last_access_at',
+            ]);
         });
     }
 }

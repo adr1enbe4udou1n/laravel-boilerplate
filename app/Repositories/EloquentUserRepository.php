@@ -9,7 +9,6 @@ use App\Exceptions\GeneralException;
 use App\Models\User;
 use App\Repositories\Contracts\UserRepository;
 use App\Repositories\Traits\HtmlActionsButtons;
-use Carbon\Carbon;
 use Exception;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Config\Repository;
@@ -49,26 +48,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
     }
 
     /**
-     * @return mixed
-     */
-    public function get()
-    {
-        return $this->query()->select([
-            'id',
-            'name',
-            'email',
-            'active',
-            'confirmed',
-            'last_access_at',
-            'created_at',
-            'updated_at',
-        ])->with('roles');
-    }
-
-    /**
      * @param array $input
-     *
-     * @param bool  $withConfirm
      *
      * @return \App\Models\User
      * @throws \Throwable
@@ -222,14 +202,6 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
 
     /**
      * @param \Illuminate\Contracts\Auth\Authenticatable $user
-     */
-    private function loadPermissions(Authenticatable $user)
-    {
-        session(['permissions' => $user->getPermissions()]);
-    }
-
-    /**
-     * @param \Illuminate\Contracts\Auth\Authenticatable $user
      * @param                                            $name
      *
      * @return bool
@@ -277,25 +249,6 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
     }
 
     /**
-     * @param \App\Models\User $user
-     *
-     * @return \App\Models\User
-     * @throws \App\Exceptions\GeneralException
-     */
-    public function login(User $user)
-    {
-        $user->last_access_at = Carbon::now();
-
-        if (!$user->save()) {
-            throw new GeneralException(trans('exceptions.backend.users.update'));
-        }
-
-        $this->loadPermissions($user);
-
-        return $user;
-    }
-
-    /**
      * @param User $user
      *
      * @return \Illuminate\Http\RedirectResponse
@@ -320,7 +273,6 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
 
         //Login user
         auth()->loginUsingId($user->id);
-        $this->loadPermissions($user);
 
         return redirect(home_route());
     }
@@ -332,8 +284,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
     {
         if ($admin_id = session()->get('admin_user_id')) {
             $this->flushTempSession();
-            $user = auth()->loginUsingId((int) $admin_id);
-            $this->loadPermissions($user);
+            auth()->loginUsingId((int) $admin_id);
         }
 
         return redirect()->route('admin.home');

@@ -31,6 +31,16 @@ class EloquentBaseRepository implements BaseRepository
     }
 
     /**
+     * @param array $columns
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function select(array $columns = ['*'])
+    {
+        return $this->query()->select($columns);
+    }
+
+    /**
      * @param array $attributes
      *
      * @return Model
