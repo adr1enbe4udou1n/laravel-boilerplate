@@ -5118,9 +5118,9 @@ requires-port@1.0.x, requires-port@1.x.x:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
 
-resolve-url-loader@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/resolve-url-loader/-/resolve-url-loader-2.0.2.tgz#c465e97ea0a4791f3961f766cea775ff2e3ceb8c"
+resolve-url-loader@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/resolve-url-loader/-/resolve-url-loader-2.0.3.tgz#f54cd1b040e8f0ab72b2cb32c9fbb8544152d9e9"
   dependencies:
     adjust-sourcemap-loader "^1.1.0"
     camelcase "^4.0.0"

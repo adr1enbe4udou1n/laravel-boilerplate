@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ config('app.locale') }}">
+<html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,9 +32,9 @@
     <script src="{{ assets('js/vendor.js') }}"></script>
     <script src="{{ assets('js/backend.js') }}"></script>
 
-    @if (config('app.locale') !== 'en')
-    <script src="{{ assets('i18n/moment.' . config('app.locale') . '.js') }}"></script>
-    <script src="{{ assets('i18n/select2.' . config('app.locale') . '.js') }}"></script>
+    @if (app()->getLocale() !== 'en')
+        <script src="{{ assets('i18n/moment.' . app()->getLocale() . '.js') }}"></script>
+        <script src="{{ assets('i18n/select2.' . app()->getLocale() . '.js') }}"></script>
     @endif
 
     @yield('scripts')
