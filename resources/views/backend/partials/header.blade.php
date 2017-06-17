@@ -36,14 +36,16 @@
                     <li class="dropdown user user-menu">
                         <!-- Menu Toggle Button -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="{{ $logged_in_user->avatar }}" class="user-image" alt="@lang('labels.user.avatar')">
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                            <span class="hidden-xs">{{ auth()->user()->name }}</span>
+                            <span class="hidden-xs">{{ $logged_in_user->name }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
                             <li class="user-header">
+                                <img src="{{ $logged_in_user->avatar }}" class="img-circle" alt="@lang('labels.user.avatar')">
                                 <p>
-                                    {{ auth()->user()->name }}
+                                    {{ $logged_in_user->name }}
                                     <small>@lang('labels.user.member_since', ['date' => auth()->user()->created_at->format('d-m-Y')])</small>
                                 </p>
                             </li>

@@ -3,6 +3,15 @@
 
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="{{ $logged_in_user->avatar }}" class="img-circle" alt="@lang('labels.user.avatar')">
+            </div>
+            <div class="pull-left info">
+                <p>{{ $logged_in_user->name }}</p>
+                {{ $logged_in_user->formatted_roles }}
+            </div>
+        </div>
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">

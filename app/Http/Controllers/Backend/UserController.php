@@ -78,7 +78,7 @@ class UserController extends Controller
             })->editColumn('active', function (User $user) {
                 return boolean_html_label($user->active);
             })->editColumn('roles', function (User $user) {
-                return $user->getFormattedRoles();
+                return $user->formatted_roles;
             })->addColumn('actions', function (User $user) {
                 return $this->users->getActionButtons($user);
             })->addColumn('last_access_at', function (User $user) use ($request) {

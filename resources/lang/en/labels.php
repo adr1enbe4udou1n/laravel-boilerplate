@@ -72,6 +72,8 @@ return [
         'space' => 'My space',
         'account' => 'My account',
         'profile' => 'My profile',
+        'avatar' => 'Avatar',
+        'online' => 'Online',
         'edit_profile' => 'Edit my profile',
         'change_password' => 'Change my password',
         'delete' => 'Delete my account',

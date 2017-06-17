@@ -72,6 +72,8 @@ return [
         'space' => 'Mon espace',
         'account' => 'Mon compte',
         'profile' => 'Mon profil',
+        'avatar' => 'Avatar',
+        'online' => 'En ligne',
         'edit_profile' => 'Mettre à jour mon profil',
         'change_password' => 'Changer mon mot de passe',
         'delete' => 'Supprimer mon compte',

@@ -46,6 +46,8 @@ use App\Notifications\ResetPassword as ResetPasswordNotification;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereUpdatedAt($value)
  * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SocialLogin[] $providers
+ * @property-read mixed $avatar
+ * @property-read mixed $formatted_roles
  */
 class User extends Authenticatable
 {
@@ -105,7 +107,7 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class);
     }
 
-    public function getFormattedRoles()
+    public function getFormattedRolesAttribute()
     {
         return $this->is_super_admin
             ? trans('labels.user.super_admin')
@@ -167,6 +169,15 @@ class User extends Authenticatable
     public function providers()
     {
         return $this->hasMany(SocialLogin::class);
+    }
+
+    /**
+     * Get user avatar from gravatar
+     */
+    public function getAvatarAttribute()
+    {
+        $hash = md5($this->email);
+        return "https://secure.gravatar.com/avatar/{$hash}?size=100&d=mm&r=g";
     }
 
     /**

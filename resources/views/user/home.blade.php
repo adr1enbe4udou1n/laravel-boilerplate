@@ -18,6 +18,9 @@
 
                             <ul class="media-list">
                                 <li class="media">
+                                    <div class="media-left">
+                                        <img class="media-object profile-picture" src="{{ $logged_in_user->avatar }}" alt="@lang('labels.user.avatar')">
+                                    </div>
                                     <div class="media-body">
                                         <h4 class="media-heading">
                                             {{ $logged_in_user->name }}<br/>
