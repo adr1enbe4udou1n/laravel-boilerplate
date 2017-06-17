@@ -16,12 +16,18 @@
 @import "node_modules/cookieconsent/build/cookieconsent.min";
 @import "node_modules/intl-tel-input/src/css/intlTelInput.scss";
 
-// App
+// Components
 @import "../buttons";
+
+// Sections
 @import "footer";
 
 [v-cloak] {
   display: none;
+}
+
+.form-group.has-error {
+  background: none;
 }
 
 .intl-tel-input {

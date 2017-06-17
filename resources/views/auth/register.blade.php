@@ -26,6 +26,7 @@
 
                         {!! form_row('password', 'password', [
                             'required' => true,
+                            'strength_meter' => true,
                             'title' => trans('validation.attributes.password'),
                             'label_class' => 'col-md-4',
                             'field_wrapper_class' => 'col-md-6',

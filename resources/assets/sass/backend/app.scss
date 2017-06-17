@@ -13,11 +13,17 @@
 @import "node_modules/intl-tel-input/src/css/intlTelInput.scss";
 
 // Datatables
-@import "../buttons";
 @import "datatables";
+
+// Components
+@import "../buttons";
 
 [v-cloak] {
   display: none;
+}
+
+.form-group.has-error {
+  background: none;
 }
 
 .intl-tel-input {

@@ -13,17 +13,10 @@ require('datatables.net-buttons-bs');
 
 // Plugins
 require('./../plugins');
+require('./../vue');
 
 require('icheck');
 require('admin-lte');
-
-// Vue
-
-window.Vue = require('vue');
-
-const app = new Vue({
-    el: '#app'
-});
 
 $(function () {
     $('input').iCheck({

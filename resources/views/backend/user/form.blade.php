@@ -21,10 +21,10 @@
     ]) !!}
 
     {!! form_row('password', 'password', [
+        'strength_meter' => true,
         'title' => trans('validation.attributes.password'),
         'label_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-9',
-        'input_group_prefix' => '<i class="fa fa-key"></i>',
     ]) !!}
 
     {!! form_row('password', 'password_confirmation', [

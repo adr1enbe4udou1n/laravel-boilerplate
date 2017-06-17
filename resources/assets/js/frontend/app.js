@@ -1,5 +1,6 @@
 require('./../bootstrap');
 require('./../plugins');
+require('./../vue');
 require('cookieconsent');
 require('slick-carousel');
 
@@ -11,16 +12,6 @@ WebFont.load({
     google: {
         families: ['Roboto']
     }
-});
-
-// Vue
-
-window.Vue = require('vue');
-
-Vue.component('panel', require('./components/Panel.vue'));
-
-const app = new Vue({
-    el: '#app'
 });
 
 // Slider

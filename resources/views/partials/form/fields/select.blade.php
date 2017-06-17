@@ -1,7 +1,7 @@
 @if(!isset($attributes))
     @php($attributes = [])
 @endif
-@if (isset($required))
+@if (isset($required) && $required)
     @php($attributes += ['required'])
 @endif
 @if (isset($tooltip))
