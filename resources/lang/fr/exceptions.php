@@ -49,5 +49,9 @@ return [
             'password_mismatch' => 'L\'ancien mot de passe est incorrect.',
             'delete_account' => 'Erreur lors de la suppression de votre compte.',
         ],
+
+        'auth' => [
+            'registration_disabled' => 'L\'enregistrement d\'utilisateurs est désactivé.'
+        ],
     ],
 ];

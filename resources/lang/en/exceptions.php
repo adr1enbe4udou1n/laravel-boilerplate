@@ -49,5 +49,9 @@ return [
             'password_mismatch' => 'That is not your old password.',
             'delete_account' => 'Error on account deletion.',
         ],
+
+        'auth' => [
+            'registration_disabled' => 'Registration is disabled.'
+        ],
     ],
 ];

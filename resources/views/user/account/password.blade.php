@@ -1,7 +1,6 @@
 {{ Form::open(['route' => ['user.password.change'], 'class' => 'form-horizontal', 'method' => 'PATCH']) }}
 
 {!! form_row('password', 'old_password', [
-    'required' => true,
     'title' => trans('validation.attributes.old_password'),
     'label_class' => 'col-md-4',
     'field_wrapper_class' => 'col-md-6',

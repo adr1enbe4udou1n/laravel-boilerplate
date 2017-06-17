@@ -59,6 +59,9 @@ Route::group([
             Route::post('login', 'LoginController@login');
             Route::get('logout', 'LoginController@logout')->name('logout');
 
+            Route::get('login/{provider}', 'LoginController@redirectToProvider')->name('social.login');
+            Route::get('login/{provider}/callback', 'LoginController@handleProviderCallback')->name('social.callback');
+
             Route::group(
                 ['middleware' => ['can:impersonate users']],
                 function () {

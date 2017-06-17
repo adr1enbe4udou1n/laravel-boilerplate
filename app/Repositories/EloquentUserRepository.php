@@ -49,16 +49,20 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
 
     /**
      * @param array $input
+     * @param bool  $confirmed
      *
      * @return \App\Models\User
-     * @throws \Throwable
-     * @throws \Exception
+     * @throws \App\Exceptions\GeneralException
      */
-    public function store(array $input)
+    public function store(array $input, $confirmed = false)
     {
         /** @var User $user */
-        $user = $this->make($input);
-        $user->password = bcrypt($input['password']);
+        $user = $this->make(Arr::only($input, ['name', 'email', 'active']));
+
+        if (isset($input['password'])) {
+            $user->password = bcrypt($input['password']);
+        }
+        $user->confirmed = $confirmed;
 
         if (empty($user->locale)) {
             $user->locale = $this->localization->getDefaultLocale();
@@ -246,58 +250,6 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
         $authenticatedUser = auth()->user();
 
         return !$user->is_super_admin && $user->id !== $authenticatedUser->id;
-    }
-
-    /**
-     * @param User $user
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     *
-     * @throws Exception
-     */
-    public function loginAs(User $user)
-    {
-        $authenticatedUser = auth()->user();
-
-        if ($authenticatedUser->id === $user->id
-            || session()->get('admin_user_id') === $user->id
-        ) {
-            return redirect()->route('admin.home');
-        }
-
-        if (!session()->get('admin_user_id')) {
-            session(['admin_user_id' => $authenticatedUser->id]);
-            session(['admin_user_name' => $authenticatedUser->name]);
-            session(['temp_user_id' => $user->id]);
-        }
-
-        //Login user
-        auth()->loginUsingId($user->id);
-
-        return redirect(home_route());
-    }
-
-    /**
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function logoutAs()
-    {
-        if ($admin_id = session()->get('admin_user_id')) {
-            $this->flushTempSession();
-            auth()->loginUsingId((int) $admin_id);
-        }
-
-        return redirect()->route('admin.home');
-    }
-
-    /**
-     * Remove old session variables from admin logging in as user.
-     */
-    private function flushTempSession()
-    {
-        session()->forget('admin_user_id');
-        session()->forget('admin_user_name');
-        session()->forget('temp_user_id');
     }
 
     /**

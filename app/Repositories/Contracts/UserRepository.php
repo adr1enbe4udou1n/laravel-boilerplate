@@ -10,12 +10,14 @@ use Illuminate\Contracts\Auth\Authenticatable;
  */
 interface UserRepository extends BaseRepository
 {
+
     /**
      * @param array $input
+     * @param bool  $confirmed
      *
      * @return mixed
      */
-    public function store(array $input);
+    public function store(array $input, $confirmed = false);
 
     /**
      * @param User  $user
@@ -60,18 +62,6 @@ interface UserRepository extends BaseRepository
      * @return mixed
      */
     public function hasPermission(Authenticatable $user, $name);
-
-    /**
-     * @param User $user
-     *
-     * @return mixed
-     */
-    public function loginAs(User $user);
-
-    /**
-     * @return mixed
-     */
-    public function logoutAs();
 
     /**
      * @param \App\Models\User $user

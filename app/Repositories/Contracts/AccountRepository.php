@@ -4,6 +4,7 @@ namespace App\Repositories\Contracts;
 
 use App\Models\User;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Laravel\Socialite\AbstractUser;
 
 /**
  * Interface AccountRepository.
@@ -23,6 +24,26 @@ interface AccountRepository extends BaseRepository
      * @return mixed
      */
     public function login(Authenticatable $user);
+
+    /**
+     * @param               $provider
+     * @param AbstractUser $data
+     *
+     * @return User
+     */
+    public function findOrCreateSocial($provider, AbstractUser $data);
+
+    /**
+     * @param User $user
+     *
+     * @return mixed
+     */
+    public function loginAs(User $user);
+
+    /**
+     * @return mixed
+     */
+    public function logoutAs();
 
     /**
      * @param $input

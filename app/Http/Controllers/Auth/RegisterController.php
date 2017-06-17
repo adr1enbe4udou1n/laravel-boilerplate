@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use App\Repositories\Contracts\AccountRepository;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -26,21 +27,18 @@ class RegisterController extends Controller
     /**
      * @var \App\Repositories\Contracts\AccountRepository
      */
-    protected $users;
+    protected $account;
 
     /**
      * RegisterController constructor.
      *
-     * @param AccountRepository $users
+     * @param AccountRepository $account
      */
-    public function __construct(AccountRepository $users)
+    public function __construct(AccountRepository $account)
     {
         $this->middleware('guest');
 
-        // Where to redirect users after registering
-        $this->redirectTo = route('user.home');
-
-        $this->users = $users;
+        $this->account = $account;
     }
 
     /**
@@ -69,6 +67,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return $this->users->register($data);
+        return $this->account->register($data);
+    }
+
+    /**
+     * The user has been registered.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function registered(Request $request, $user)
+    {
+        return redirect(home_route());
     }
 }

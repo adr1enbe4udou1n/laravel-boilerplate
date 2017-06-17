@@ -16,6 +16,10 @@ return [
     'no_value' => 'Aucune valeur',
     'all_rights_reserved' => 'Tous droits réservés.',
 
+    'auth' => [
+        'disabled' => 'Votre compte a été désactivé.'
+    ],
+
     'http' => [
         '403' => [
             'title' => 'Accès non autorisé',

@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Exceptions\GeneralException;
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Repositories\Contracts\UserRepository;
+use App\Repositories\Contracts\AccountRepository;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Laravel\Socialite\AbstractUser;
+use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
+
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -25,20 +29,20 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
-     * @var UserRepository
+     * @var \App\Repositories\Contracts\AccountRepository
      */
-    protected $users;
+    protected $account;
 
     /**
      * RegisterController constructor.
      *
-     * @param UserRepository $users
+     * @param AccountRepository $account
      */
-    public function __construct(UserRepository $users)
+    public function __construct(AccountRepository $account)
     {
         $this->middleware('guest')->except('logout', 'loginAs', 'logoutAs');
 
-        $this->users = $users;
+        $this->account = $account;
     }
 
     /**
@@ -62,7 +66,9 @@ class LoginController extends Controller
      */
     public function showLoginForm(Request $request)
     {
-        return view('auth.login')->withIsLocked($this->hasTooManyLoginAttempts($request));
+        return view('auth.login')
+            ->withIsLocked($this->hasTooManyLoginAttempts($request))
+            ->withSocialiteLinks(self::getSocialLinks());
     }
 
     /**
@@ -74,7 +80,38 @@ class LoginController extends Controller
      */
     public function showAdminLoginForm(Request $request)
     {
-        return view('auth.admin.login')->withIsLocked($this->hasTooManyLoginAttempts($request));
+        return view('auth.admin.login')
+            ->withIsLocked($this->hasTooManyLoginAttempts($request))
+            ->withSocialiteLinks(self::getSocialLinks());
+    }
+
+    /**
+     * Generates social login links based on what is enabled.
+     *
+     * @return string
+     */
+    private static function getSocialLinks()
+    {
+        $socialiteLinks = [];
+        $socialiteHtml = '';
+
+        foreach (config('services') as $name => $service) {
+            if (isset($service['client_id'])) {
+                $socialiteLinks[] = link_to(
+                    route('social.login', $name),
+                    '<i class="fa fa-' . $name . ' fa-lg"></i> ' . ucfirst($name),
+                    ['class' => "btn btn-default btn-$name"],
+                    null, false
+                );
+            }
+        }
+
+        foreach ($socialiteLinks as $socialiteLink) {
+            $socialiteHtml .= ($socialiteHtml !== '' ? '&nbsp;' : '')
+                .$socialiteLink;
+        }
+
+        return $socialiteHtml;
     }
 
     /**
@@ -152,7 +189,7 @@ class LoginController extends Controller
      */
     public function loginAs(User $user)
     {
-        return $this->users->loginAs($user);
+        return $this->account->loginAs($user);
     }
 
     /**
@@ -160,11 +197,47 @@ class LoginController extends Controller
      */
     public function logoutAs()
     {
-        return $this->users->logoutAs();
+        return $this->account->logoutAs();
     }
 
     protected function redirectTo()
     {
         return home_route();
+    }
+
+    /**
+     * @param                          $provider
+     * @param \Illuminate\Http\Request $request
+     */
+    public function redirectToProvider($provider, Request $request)
+    {
+        return Socialite::driver($provider)->redirect();
+    }
+
+    /**
+     * @param                          $provider
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function handleProviderCallback($provider, Request $request)
+    {
+        /** @var AbstractUser $user */
+        $data = Socialite::driver($provider)->user();
+
+        try {
+            /** @var User $user */
+            $user = $this->account->findOrCreateSocial($provider, $data);
+        } catch (GeneralException $e) {
+            return redirect()->route('login')->withFlashError($e->getMessage());
+        }
+
+        if (! $user->active) {
+            return redirect()->route('login')->withFlashError(trans('labels.auth.disabled'));
+        }
+
+        auth()->login($user, true);
+
+        return redirect()->intended(home_route());
     }
 }

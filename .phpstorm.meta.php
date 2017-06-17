@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2017-06-15.
+    * Generated on 2017-06-17.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -60,6 +60,7 @@ namespace PHPSTORM_META {
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
             'App\Repositories\Contracts\UserRepository' instanceof \App\Repositories\EloquentUserRepository,
+            'App\Repositories\Contracts\AccountRepository' instanceof \App\Repositories\EloquentAccountRepository,
             'App\Repositories\Contracts\RoleRepository' instanceof \App\Repositories\EloquentRoleRepository,
             'App\Repositories\Contracts\MetaRepository' instanceof \App\Repositories\EloquentMetaRepository,
             'App\Repositories\Contracts\FormSettingRepository' instanceof \App\Repositories\EloquentFormSettingRepository,
@@ -153,6 +154,7 @@ namespace PHPSTORM_META {
             'auth.password' instanceof \Illuminate\Auth\Passwords\PasswordBrokerManager,
             'auth.password.broker' instanceof \Illuminate\Auth\Passwords\PasswordBroker,
             'command.tinker' instanceof \Laravel\Tinker\Console\TinkerCommand,
+            'Laravel\Socialite\Contracts\Factory' instanceof \Laravel\Socialite\SocialiteManager,
             'sitemap' instanceof \Roumen\Sitemap\Sitemap,
         ],
         \Illuminate\Contracts\Container\Container::make('') => [
@@ -206,6 +208,7 @@ namespace PHPSTORM_META {
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
             'App\Repositories\Contracts\UserRepository' instanceof \App\Repositories\EloquentUserRepository,
+            'App\Repositories\Contracts\AccountRepository' instanceof \App\Repositories\EloquentAccountRepository,
             'App\Repositories\Contracts\RoleRepository' instanceof \App\Repositories\EloquentRoleRepository,
             'App\Repositories\Contracts\MetaRepository' instanceof \App\Repositories\EloquentMetaRepository,
             'App\Repositories\Contracts\FormSettingRepository' instanceof \App\Repositories\EloquentFormSettingRepository,
@@ -299,6 +302,7 @@ namespace PHPSTORM_META {
             'auth.password' instanceof \Illuminate\Auth\Passwords\PasswordBrokerManager,
             'auth.password.broker' instanceof \Illuminate\Auth\Passwords\PasswordBroker,
             'command.tinker' instanceof \Laravel\Tinker\Console\TinkerCommand,
+            'Laravel\Socialite\Contracts\Factory' instanceof \Laravel\Socialite\SocialiteManager,
             'sitemap' instanceof \Roumen\Sitemap\Sitemap,
         ],
         \App::make('') => [
@@ -352,6 +356,7 @@ namespace PHPSTORM_META {
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
             'App\Repositories\Contracts\UserRepository' instanceof \App\Repositories\EloquentUserRepository,
+            'App\Repositories\Contracts\AccountRepository' instanceof \App\Repositories\EloquentAccountRepository,
             'App\Repositories\Contracts\RoleRepository' instanceof \App\Repositories\EloquentRoleRepository,
             'App\Repositories\Contracts\MetaRepository' instanceof \App\Repositories\EloquentMetaRepository,
             'App\Repositories\Contracts\FormSettingRepository' instanceof \App\Repositories\EloquentFormSettingRepository,
@@ -445,6 +450,7 @@ namespace PHPSTORM_META {
             'auth.password' instanceof \Illuminate\Auth\Passwords\PasswordBrokerManager,
             'auth.password.broker' instanceof \Illuminate\Auth\Passwords\PasswordBroker,
             'command.tinker' instanceof \Laravel\Tinker\Console\TinkerCommand,
+            'Laravel\Socialite\Contracts\Factory' instanceof \Laravel\Socialite\SocialiteManager,
             'sitemap' instanceof \Roumen\Sitemap\Sitemap,
         ],
         \app('') => [
@@ -498,6 +504,7 @@ namespace PHPSTORM_META {
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
             'App\Repositories\Contracts\UserRepository' instanceof \App\Repositories\EloquentUserRepository,
+            'App\Repositories\Contracts\AccountRepository' instanceof \App\Repositories\EloquentAccountRepository,
             'App\Repositories\Contracts\RoleRepository' instanceof \App\Repositories\EloquentRoleRepository,
             'App\Repositories\Contracts\MetaRepository' instanceof \App\Repositories\EloquentMetaRepository,
             'App\Repositories\Contracts\FormSettingRepository' instanceof \App\Repositories\EloquentFormSettingRepository,
@@ -591,6 +598,7 @@ namespace PHPSTORM_META {
             'auth.password' instanceof \Illuminate\Auth\Passwords\PasswordBrokerManager,
             'auth.password.broker' instanceof \Illuminate\Auth\Passwords\PasswordBroker,
             'command.tinker' instanceof \Laravel\Tinker\Console\TinkerCommand,
+            'Laravel\Socialite\Contracts\Factory' instanceof \Laravel\Socialite\SocialiteManager,
             'sitemap' instanceof \Roumen\Sitemap\Sitemap,
         ],
     ];

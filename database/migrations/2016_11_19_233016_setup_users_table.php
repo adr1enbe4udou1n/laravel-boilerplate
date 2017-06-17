@@ -28,6 +28,7 @@ class SetupUsersTable extends Migration
         });
 
         Schema::table('users', function (Blueprint $table) {
+            $table->string('password')->nullable()->change();
             $table->string('locale')->default(null)->change();
             $table->string('timezone')->default(null)->change();
             $table->string('slug')->default(null)->change();

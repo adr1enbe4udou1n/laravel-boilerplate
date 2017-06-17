@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Exceptions\GeneralException;
+use App\Models\SocialLogin;
 use App\Models\User;
 use App\Notifications\SendConfirmation;
 use App\Repositories\Contracts\AccountRepository;
@@ -13,12 +14,15 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Laravel\Socialite\AbstractUser;
 
 /**
  * Class EloquentAccountRepository.
  */
-class EloquentAccountRepository extends EloquentBaseRepository implements AccountRepository
+class EloquentAccountRepository extends EloquentBaseRepository implements
+    AccountRepository
 {
+
     /**
      * @var UserRepository
      */
@@ -30,7 +34,8 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
      * @param User                                       $user
      * @param \App\Repositories\Contracts\UserRepository $users
      *
-     * @internal param \Mcamara\LaravelLocalization\LaravelLocalization $localization
+     * @internal param \Mcamara\LaravelLocalization\LaravelLocalization
+     *           $localization
      * @internal param \Illuminate\Contracts\Config\Repository $config
      */
     public function __construct(User $user, UserRepository $users)
@@ -48,9 +53,11 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
      */
     public function register(array $input)
     {
-        $user = $this->users->store(Arr::only($input, ['name', 'email', 'password']));
+        $user = $this->users->store(Arr::only($input,
+            ['name', 'email', 'password']));
 
         $this->sendConfirmationToUser($user);
+
         return $user;
     }
 
@@ -74,6 +81,98 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
         session(['permissions' => $user->getPermissions()]);
 
         return $user;
+    }
+
+    /**
+     * @param                             $provider
+     * @param AbstractUser                $data
+     *
+     * @return User
+     * @throws \App\Exceptions\GeneralException
+     */
+    public function findOrCreateSocial($provider, AbstractUser $data)
+    {
+        // Email can be not provided, so set default provider email.
+        $user_email = $data->getEmail() ?: "{$data->getId()}@{$provider}.com";
+
+        // Get user with this email or create new one.
+        /** @var User $user */
+        $user = $this->users->query()->whereEmail($user_email)->first();
+
+        if (!$user) {
+            // Registration is not enabled
+            if (!config('app.registration')) {
+                throw new GeneralException(trans('exceptions.frontend.auth.registration_disabled'));
+            }
+
+            $user = $this->users->store([
+                'name' => $data->getName(),
+                'email' => $user_email,
+                'active' => true,
+            ], true);
+        }
+
+        // Save new provider if needed
+        if (!$user->getProvider($provider)) {
+            $user->providers()->save(new SocialLogin([
+                'provider' => $provider,
+                'provider_id' => $data->getId(),
+            ]));
+        }
+
+        return $user;
+    }
+
+    /**
+     * @param User $user
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     *
+     * @throws Exception
+     */
+    public function loginAs(User $user)
+    {
+        $authenticatedUser = auth()->user();
+
+        if ($authenticatedUser->id === $user->id
+            || session()->get('admin_user_id') === $user->id
+        ) {
+            return redirect()->route('admin.home');
+        }
+
+        if (!session()->get('admin_user_id')) {
+            session(['admin_user_id' => $authenticatedUser->id]);
+            session(['admin_user_name' => $authenticatedUser->name]);
+            session(['temp_user_id' => $user->id]);
+        }
+
+        //Login user
+        auth()->loginUsingId($user->id);
+
+        return redirect(home_route());
+    }
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function logoutAs()
+    {
+        if ($admin_id = session()->get('admin_user_id')) {
+            $this->flushTempSession();
+            auth()->loginUsingId((int)$admin_id);
+        }
+
+        return redirect()->route('admin.home');
+    }
+
+    /**
+     * Remove old session variables from admin logging in as user.
+     */
+    private function flushTempSession()
+    {
+        session()->forget('admin_user_id');
+        session()->forget('admin_user_name');
+        session()->forget('temp_user_id');
     }
 
     /**
@@ -121,7 +220,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
         /** @var User $user */
         $user = $this->query()->find($user->id);
 
-        if (Hash::check($oldPassword, $user->password)) {
+        if (empty($user->password) || Hash::check($oldPassword, $user->password)) {
             $user->password = bcrypt($newPassword);
 
             return $user->save();

@@ -109,7 +109,6 @@ class AccountController extends Controller
         $request->headers->set('referer', route('user.account').'#password');
 
         $this->validate($request, [
-            'old_password' => 'required',
             'password' => 'required|min:6|confirmed',
         ]);
 

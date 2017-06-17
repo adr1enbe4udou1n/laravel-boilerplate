@@ -45,6 +45,7 @@ use App\Notifications\ResetPassword as ResetPasswordNotification;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereTimezone($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SocialLogin[] $providers
  */
 class User extends Authenticatable
 {
@@ -146,6 +147,26 @@ class User extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPasswordNotification($token));
+    }
+
+    /**
+     * @param $provider
+     *
+     * @return bool
+     */
+    public function getProvider($provider)
+    {
+        return $this->providers->first(function (SocialLogin $item) use ($provider) {
+            return $item->provider === $provider;
+        });
+    }
+
+    /**
+     * @return mixed
+     */
+    public function providers()
+    {
+        return $this->hasMany(SocialLogin::class);
     }
 
     /**
