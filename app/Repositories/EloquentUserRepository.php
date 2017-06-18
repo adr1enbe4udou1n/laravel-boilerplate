@@ -19,8 +19,10 @@ use Mcamara\LaravelLocalization\LaravelLocalization;
 /**
  * Class EloquentUserRepository.
  */
-class EloquentUserRepository extends EloquentBaseRepository implements UserRepository
+class EloquentUserRepository extends EloquentBaseRepository implements
+    UserRepository
 {
+
     use HtmlActionsButtons;
 
     /**
@@ -40,8 +42,11 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
      * @param \Mcamara\LaravelLocalization\LaravelLocalization $localization
      * @param \Illuminate\Contracts\Config\Repository          $config
      */
-    public function __construct(User $user, LaravelLocalization $localization, Repository $config)
-    {
+    public function __construct(
+        User $user,
+        LaravelLocalization $localization,
+        Repository $config
+    ) {
         parent::__construct($user);
         $this->localization = $localization;
         $this->config = $config;
@@ -106,7 +111,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
      */
     public function update(User $user, array $input)
     {
-        if ($this->canEdit($user)) {
+        if (!$this->canEdit($user)) {
             throw new GeneralException(trans('exceptions.backend.users.first_user_cannot_be_edited'));
         }
 
@@ -141,7 +146,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
      */
     public function destroy(User $user)
     {
-        if ($user->is_super_admin) {
+        if (!$this->canDelete($user)) {
             throw new GeneralException(trans('exceptions.backend.users.first_user_cannot_be_destroyed'));
         }
 
@@ -280,10 +285,12 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
         }
 
         if ($this->canImpersonate($user)) {
-            $title = '<i class="fa fa-lock" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.login-as', ['name' => $user->name]).'"></i>';
+            $title
+                = '<i class="fa fa-lock" data-toggle="tooltip" data-placement="top" title="'
+                .trans('buttons.login-as', ['name' => $user->name]).'"></i>';
             $buttons .= link_to(route('login-as', $user), $title, [
-                'class' => 'btn btn-xs btn-warning',
-            ], false, false).' ';
+                    'class' => 'btn btn-xs btn-warning',
+                ], false, false).' ';
         }
 
         if ($this->canDelete($user)) {
