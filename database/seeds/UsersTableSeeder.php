@@ -36,8 +36,14 @@ class UsersTableSeeder extends Seeder
     {
         $this->roles->store([
             'name' => 'administrator',
-            'display_name' => 'Administrator',
-            'description' => 'This role allow user to access to mostly web features',
+            'en' => [
+                'display_name' => 'Administrator',
+                'description' => 'This role allow user to access to mostly web features',
+            ],
+            'fr' => [
+                'display_name' => 'Administrateur',
+                'description' => 'Ce rôle permet à l\'utilisateur d\'accéder à la plupart des fonctionnalités du site',
+            ],
         ]);
 
         /* @var \Illuminate\Database\Eloquent\Collection $users */

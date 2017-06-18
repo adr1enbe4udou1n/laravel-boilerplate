@@ -18,7 +18,7 @@
     @endif
     <div class="checkbox icheck">
         @if(isset($choice_tooltip))
-            <label data-toggle="tooltip" data-placement="{{ $choice_tooltip['position'] }}" title="{{ trans(is_array($choice) ? $choice[$choice_tooltip['title']] : $choice->$choice_tooltip['title']) }}">
+            <label data-toggle="tooltip" data-placement="{{ $choice_tooltip['position'] }}" title="{{ trans(is_array($choice) ? $choice[$choice_tooltip['title']] : $choice->{$choice_tooltip['title']}) }}">
         @else
             <label>
         @endif
