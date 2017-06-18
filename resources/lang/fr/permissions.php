@@ -1,6 +1,13 @@
 <?php
 
 return [
+    'categories' => [
+        'blog' => 'Blog',
+        'form' => 'Formulaires',
+        'access' => 'Accès',
+        'seo' => 'SEO',
+    ],
+
     'access' => [
         'backend' => [
             'display_name' => 'Accès au backoffice',
@@ -37,6 +44,18 @@ return [
         'redirections' => [
             'display_name' => 'Administrer les redirections',
             'description' => 'Possibilité de gérer la liste des redirections (création, mise à jour, suppression).',
+        ],
+
+        'posts' => [
+            'display_name' => 'Administrer les articles',
+            'description' => 'Possibilité de gérer l\'ensemble des articles (création, mise à jour, suppression).',
+        ],
+
+        'own' => [
+            'posts' => [
+                'display_name' => 'Gérer ses propres articles',
+                'description' => 'Possibilité de gérer ses propres articles (création, mise à jour, suppression).',
+            ],
         ],
     ],
 

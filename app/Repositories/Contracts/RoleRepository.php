@@ -12,7 +12,7 @@ interface RoleRepository extends BaseRepository
     /**
      * @param array $input
      *
-     * @return mixed
+     * @return mixed|Role
      */
     public function store(array $input);
 
@@ -20,7 +20,7 @@ interface RoleRepository extends BaseRepository
      * @param Role  $role
      * @param array $input
      *
-     * @return mixed
+     * @return mixed|Role
      */
     public function update(Role $role, array $input);
 

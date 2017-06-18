@@ -44,12 +44,20 @@
                 title: '{{ trans('validation.attributes.name') }}',
                 data: 'name',
                 name: 'name',
+                orderable: false,
                 width: 150,
+            }, {
+                title: '{{ trans('validation.attributes.order') }}',
+                data: 'order',
+                name: 'order',
+                width: 120,
+                className: 'text-right'
             }, {
                 title: '{{ trans('validation.attributes.display_name') }}',
                 data: 'display_name',
                 name: 'display_name',
                 defaultContent: '{{ trans('labels.no_value') }}',
+                orderable: false,
                 width: 150,
             }, {
                 title: '{{ trans('validation.attributes.description') }}',
@@ -76,7 +84,7 @@
                 orderable: false,
                 width: 50,
             }],
-            order: [[0, 'asc']]
+            order: [[1, 'asc']]
         });
     </script>
 @endsection

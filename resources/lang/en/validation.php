@@ -166,5 +166,6 @@ return [
         'target_path' => 'Target path',
         'redirect_type' => 'Redirect type',
         'timezone' => 'Timezone',
+        'order' => 'Display order',
     ],
 ];

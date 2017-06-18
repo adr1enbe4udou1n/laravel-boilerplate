@@ -45,14 +45,14 @@ class FormSettingController extends Controller
      *
      * @param Request $request
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      *
      * @throws \Exception
      */
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            /** @var EloquentEngine $collection */
+            /** @var EloquentEngine $query */
             $query = Datatables::of($this->formSettings->select([
                 'id',
                 'name',
@@ -65,9 +65,9 @@ class FormSettingController extends Controller
                 return trans("forms.{$formSetting->name}.display_name");
             })->addColumn('actions', function (FormSetting $formSetting) {
                 return $this->formSettings->getActionButtons($formSetting);
-            })->addColumn('created_at', function (FormSetting $formSetting) use ($request) {
+            })->editColumn('created_at', function (FormSetting $formSetting) use ($request) {
                 return $formSetting->created_at->setTimezone($request->user()->timezone);
-            })->addColumn('updated_at', function (FormSetting $formSetting) use ($request) {
+            })->editColumn('updated_at', function (FormSetting $formSetting) use ($request) {
                 return $formSetting->updated_at->setTimezone($request->user()->timezone);
             })
                 ->rawColumns(['actions'])

@@ -166,5 +166,6 @@ return [
         'target_path' => 'Chemin cible',
         'redirect_type' => 'Type de redirection',
         'timezone' => 'Fuseau horaire',
+        'order' => 'Ordre d\'affichage',
     ],
 ];

@@ -133,6 +133,10 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
      */
     public function loginAs(User $user)
     {
+        if ($user->is_super_admin) {
+            throw new GeneralException(trans('exceptions.backend.users.first_user_cannot_be_impersonated'));
+        }
+
         $authenticatedUser = auth()->user();
 
         if ($authenticatedUser->id === $user->id

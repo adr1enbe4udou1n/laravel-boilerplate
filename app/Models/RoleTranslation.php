@@ -19,6 +19,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\RoleTranslation whereLocale($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\RoleTranslation whereRoleId($value)
  * @mixin \Eloquent
+ *
+ * @property int $order
+ *
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\RoleTranslation whereOrder($value)
  */
 class RoleTranslation extends Model
 {

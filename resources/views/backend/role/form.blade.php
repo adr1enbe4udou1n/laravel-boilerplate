@@ -2,31 +2,48 @@
     {!! form_row('text', 'name', [
         'required' => true,
         'title' => trans('validation.attributes.name'),
-        'label_class' => 'col-lg-3',
-        'field_wrapper_class' => 'col-lg-9',
+        'label_class' => 'col-lg-2',
+        'field_wrapper_class' => 'col-lg-10',
     ]) !!}
 
     {!! form_row('text', 'display_name', [
         'title' => trans('validation.attributes.display_name'),
-        'label_class' => 'col-lg-3',
-        'field_wrapper_class' => 'col-lg-9',
+        'label_class' => 'col-lg-2',
+        'field_wrapper_class' => 'col-lg-10',
     ]) !!}
 
     {!! form_row('text', 'description', [
         'title' => trans('validation.attributes.description'),
-        'label_class' => 'col-lg-3',
-        'field_wrapper_class' => 'col-lg-9'
+        'label_class' => 'col-lg-2',
+        'field_wrapper_class' => 'col-lg-10'
     ]) !!}
 
-    {!! form_row('checkboxes', 'permissions', [
-        'title' => trans('validation.attributes.permissions'),
-        'label_class' => 'col-lg-3',
-        'field_wrapper_class' => 'col-lg-9',
-        'choices' => $permissions,
-        'choice_label' => 'display_name',
-        'choice_tooltip' => [
-            'position' => 'right',
-            'title' => 'description',
-        ]
+    {!! form_row('number', 'order', [
+        'title' => trans('validation.attributes.order'),
+        'label_class' => 'col-lg-2',
+        'field_wrapper_class' => 'col-lg-10'
     ]) !!}
+
+    <div class="form-group">
+        {{ Form::label('permissions', trans('validation.attributes.permissions'), ['class' =>  'col-lg-2 control-label']) }}
+        <div class="col-lg-10">
+        @foreach($permissions->chunk(4) as $chunk)
+            <div class="row">
+            @foreach($chunk as $category => $permissions)
+                <div class="col-md-3">
+                    <h4>@lang($category)</h4>
+                    {!! form_field('checkboxes', 'permissions', [
+                        'choices' => $permissions,
+                        'choice_label' => 'display_name',
+                        'choice_tooltip' => [
+                            'position' => 'right',
+                            'title' => 'description',
+                        ]
+                    ]) !!}
+                </div>
+            @endforeach
+            </div>
+        @endforeach
+        </div>
+    </div>
 </div>

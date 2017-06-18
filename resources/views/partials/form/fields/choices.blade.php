@@ -18,7 +18,14 @@
     @endif
     <div class="checkbox icheck">
         @if(isset($choice_tooltip))
-            <label data-toggle="tooltip" data-placement="{{ $choice_tooltip['position'] }}" title="{{ trans(is_array($choice) ? $choice[$choice_tooltip['title']] : $choice->{$choice_tooltip['title']}) }}">
+            @if(is_string($choice))
+                @php($description = $choice)
+            @elseif(is_array($choice))
+                @php($description = $choice[$choice_tooltip['title']])
+            @else
+                @php($description = $choice->{$choice_tooltip['title']})
+            @endif
+            <label data-toggle="tooltip" data-placement="{{ $choice_tooltip['position'] }}" title="{{ trans($description) }}">
         @else
             <label>
         @endif

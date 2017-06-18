@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use App\Repositories\Contracts\RoleRepository;
 use App\Repositories\Contracts\UserRepository;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
@@ -29,11 +30,16 @@ class UserController extends Controller
      *
      * @param UserRepository                             $users
      * @param \App\Repositories\Contracts\RoleRepository $roles
+     * @param \Illuminate\Contracts\View\Factory         $view
      */
-    public function __construct(UserRepository $users, RoleRepository $roles)
+    public function __construct(UserRepository $users, RoleRepository $roles, Factory $view)
     {
         $this->users = $users;
         $this->roles = $roles;
+
+        $view->composer('*', function (\Illuminate\View\View $view) {
+            $view->withRoles($this->roles->select()->orderBy('order'));
+        });
     }
 
     /**
@@ -51,14 +57,14 @@ class UserController extends Controller
      *
      * @param Request $request
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      *
      * @throws \Exception
      */
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            /** @var EloquentEngine $collection */
+            /** @var EloquentEngine $query */
             $query = Datatables::of($this->users->select([
                 'id',
                 'name',
@@ -82,9 +88,9 @@ class UserController extends Controller
                 return $this->users->getActionButtons($user);
             })->addColumn('last_access_at', function (User $user) use ($request) {
                 return $user->last_access_at ? $user->last_access_at->setTimezone($request->user()->timezone) : null;
-            })->addColumn('created_at', function (User $user) use ($request) {
+            })->editColumn('created_at', function (User $user) use ($request) {
                 return $user->created_at->setTimezone($request->user()->timezone);
-            })->addColumn('updated_at', function (User $user) use ($request) {
+            })->editColumn('updated_at', function (User $user) use ($request) {
                 return $user->updated_at->setTimezone($request->user()->timezone);
             })
                 ->rawColumns(['confirmed', 'active', 'actions'])
@@ -97,7 +103,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('backend.user.create')->withRoles($this->roles->select());
+        return view('backend.user.create');
     }
 
     /**
@@ -119,9 +125,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('backend.user.edit')
-            ->withUser($user)
-            ->withRoles($this->roles->select());
+        return view('backend.user.edit')->withUser($user);
     }
 
     /**

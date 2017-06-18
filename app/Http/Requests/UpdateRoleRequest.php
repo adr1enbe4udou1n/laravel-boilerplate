@@ -27,6 +27,7 @@ class UpdateRoleRequest extends FormRequest
 
         return [
             'name' => 'required|unique:roles,name,'.$role->id,
+            'order' => 'integer',
         ];
     }
 }

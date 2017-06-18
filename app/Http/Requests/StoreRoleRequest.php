@@ -25,6 +25,7 @@ class StoreRoleRequest extends FormRequest
     {
         return [
             'name' => 'required|unique:roles',
+            'order' => 'integer',
         ];
     }
 }

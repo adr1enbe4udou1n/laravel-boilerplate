@@ -7,6 +7,7 @@ use App\Models\Role;
 use App\Repositories\Contracts\RoleRepository;
 use App\Repositories\Traits\HtmlActionsButtons;
 use Exception;
+use Illuminate\Support\Arr;
 
 /**
  * Class EloquentRoleRepository.
@@ -35,7 +36,7 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
     public function store(array $input)
     {
         /** @var Role $role */
-        $role = $this->make($input);
+        $role = $this->make(Arr::except($input, ['permissions']));
 
         if (!$role->save()) {
             throw new GeneralException(trans('exceptions.backend.roles.create'));
@@ -61,7 +62,7 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
      */
     public function update(Role $role, array $input)
     {
-        if (!$role->update($input)) {
+        if (!$role->update(Arr::except($input, ['permissions']))) {
             throw new GeneralException(trans('exceptions.backend.roles.update'));
         }
 

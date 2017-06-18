@@ -6,7 +6,7 @@
 @section('content')
     <div class="row">
         <!-- left column -->
-        <div class="col-md-4 col-md-offset-4">
+        <div class="col-md-8 col-md-offset-2">
             <!-- Horizontal Form -->
             <div class="box box-info">
                 <div class="box-header with-border">

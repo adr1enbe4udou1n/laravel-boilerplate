@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int $id
  * @property string $name
+ * @property int $order
  * @property string $display_name
  * @property string $description
  * @property \Carbon\Carbon $created_at
@@ -26,6 +27,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereOrder($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereTranslation($key, $value, $locale = null)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereTranslationLike($key, $value, $locale = null)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereUpdatedAt($value)
@@ -46,8 +48,7 @@ class Role extends Model
     protected $fillable
         = [
             'name',
-            'display_name',
-            'description',
+            'order',
         ];
 
     protected $with = ['translations'];

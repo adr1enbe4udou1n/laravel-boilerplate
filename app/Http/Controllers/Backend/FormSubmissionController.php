@@ -41,14 +41,14 @@ class FormSubmissionController extends Controller
      *
      * @param Request $request
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      *
      * @throws \Exception
      */
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            /** @var EloquentEngine $collection */
+            /** @var EloquentEngine $query */
             $query = Datatables::of($this->formSubmissions->select([
                 'id',
                 'type',
@@ -61,9 +61,9 @@ class FormSubmissionController extends Controller
                 return trans("forms.{$formSubmission->type}.display_name");
             })->addColumn('actions', function (FormSubmission $formSubmission) {
                 return $this->formSubmissions->getActionButtons($formSubmission);
-            })->addColumn('created_at', function (FormSubmission $formSubmission) use ($request) {
+            })->editColumn('created_at', function (FormSubmission $formSubmission) use ($request) {
                 return $formSubmission->created_at->setTimezone($request->user()->timezone);
-            })->addColumn('updated_at', function (FormSubmission $formSubmission) use ($request) {
+            })->editColumn('updated_at', function (FormSubmission $formSubmission) use ($request) {
                 return $formSubmission->updated_at->setTimezone($request->user()->timezone);
             })
                 ->rawColumns(['actions'])

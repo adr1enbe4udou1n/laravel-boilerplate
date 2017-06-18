@@ -47,14 +47,14 @@ class MetaController extends Controller
      *
      * @param Request $request
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      *
      * @throws \Exception
      */
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            /** @var EloquentEngine $collection */
+            /** @var EloquentEngine $query */
             $query = Datatables::of($this->metas->select([
                 'id',
                 'route',
@@ -66,9 +66,9 @@ class MetaController extends Controller
                 return trans("routes.{$meta->route}");
             })->addColumn('actions', function (Meta $meta) {
                 return $this->metas->getActionButtons($meta);
-            })->addColumn('created_at', function (Meta $meta) use ($request) {
+            })->editColumn('created_at', function (Meta $meta) use ($request) {
                 return $meta->created_at->setTimezone($request->user()->timezone);
-            })->addColumn('updated_at', function (Meta $meta) use ($request) {
+            })->editColumn('updated_at', function (Meta $meta) use ($request) {
                 return $meta->updated_at->setTimezone($request->user()->timezone);
             })
                 ->rawColumns(['actions'])

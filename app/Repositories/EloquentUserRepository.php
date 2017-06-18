@@ -106,6 +106,10 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
      */
     public function update(User $user, array $input)
     {
+        if ($user->is_super_admin && auth()->user()->id !== 1) {
+            throw new GeneralException(trans('exceptions.backend.users.first_user_cannot_be_edited'));
+        }
+
         $user->fill(Arr::except($input, 'password'));
 
         if ($user->is_super_admin && !$user->active) {
@@ -270,7 +274,12 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
      */
     public function getActionButtons(User $user)
     {
-        $buttons = $this->getEditButtonHtml('admin.user.edit', $user);
+        $buttons = '';
+
+        // Only super admin user can edit first user
+        if ($user->is_super_admin && auth()->user()->id === 1) {
+            $buttons .= $this->getEditButtonHtml('admin.user.edit', $user);
+        }
 
         if ($this->canImpersonate($user)) {
             $title = '<i class="fa fa-lock" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.login-as', ['name' => $user->name]).'"></i>';
