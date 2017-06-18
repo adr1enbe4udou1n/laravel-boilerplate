@@ -23,7 +23,7 @@
                        data-toggle="tab">@lang('labels.user.change_password')</a>
                 </li>
 
-                @if (has_access('user.account.delete'))
+                @if (config('account.can_delete'))
                 <li role="presentation">
                     <a href="#delete" aria-controls="delete" role="tab"
                        data-toggle="tab">@lang('labels.user.delete')</a>
@@ -45,7 +45,7 @@
                     @include('user.account.password')
                 </div>
 
-                @if (has_access('user.account.delete'))
+                @if (config('account.can_delete'))
                 <div role="tabpanel" class="tab-pane" id="delete">
                     @include('user.account.delete')
                 </div>

@@ -46,7 +46,7 @@
                     @endif
                     @if (Auth::guest())
                         <li><a href="{{ route('login') }}">@lang('labels.user.login')</a></li>
-                        @if (has_access('register'))
+                        @if (config('account.can_register'))
                             <li><a href="{{ route('register') }}">@lang('labels.user.register')</a></li>
                         @endif
                     @else
