@@ -111,8 +111,8 @@ For your info, this webpack setup is a direct recovery from my other little side
 - [x] <s>Own account deletion</s>
 - [x] <s>Account language & timezone selection</s>
 - [x] <s>Account mail confirmation</s>
-- [x] <s>Account avatar<s>
-- [x] <s>Facebook/Twitter/Google Sign in with socialite package<s>
+- [x] <s>Account avatar</s>
+- [x] <s>Facebook/Twitter/Google Sign in with socialite package</s>
 - [ ] Inclusion of unit/featured/browser tests
 - [ ] Blog system (posts, publication date, multilangue, HTML wysiwyg, tags, featured image, medias, public user profile)
 
