@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-4 col-md-offset-4">
             <div class="box box-info">
                 <div class="box-header with-border">
                     <h3 class="box-title">@lang('labels.backend.roles.titles.edit')</h3>

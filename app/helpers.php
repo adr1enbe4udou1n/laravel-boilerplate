@@ -92,6 +92,19 @@ if (!function_exists('boolean_html_label')) {
     }
 }
 
+if (!function_exists('image_template_url')) {
+    /**
+     * @param $template
+     * @param $image_path
+     *
+     * @return string
+     */
+    function image_template_url($template, $image_path)
+    {
+        return url(config('imagecache.route') . "/$template/$image_path");
+    }
+}
+
 if (!function_exists('form_field')) {
     function form_field($type, $name, $options)
     {

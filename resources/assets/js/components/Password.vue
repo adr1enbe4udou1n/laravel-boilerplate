@@ -27,7 +27,7 @@
 
     .Password__badge {
         text-align: center;
-        bottom: 29px;
+        bottom: 28px;
         height: auto;
     }
 

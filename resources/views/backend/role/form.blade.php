@@ -15,7 +15,7 @@
     {!! form_row('text', 'description', [
         'title' => trans('validation.attributes.description'),
         'label_class' => 'col-lg-3',
-        'field_wrapper_class' => 'col-lg-9',
+        'field_wrapper_class' => 'col-lg-9'
     ]) !!}
 
     {!! form_row('checkboxes', 'permissions', [

@@ -96,16 +96,6 @@ window.locale = $('html').attr('lang');
     });
 
     /**
-     * Bind all bootstrap tooltips
-     */
-    $('[data-toggle="tooltip"]').tooltip();
-
-    /**
-     * Bind all bootstrap popovers
-     */
-    $('[data-toggle="popover"]').popover();
-
-    /**
      * This closes the popover when its clicked away from
      */
     $('body').on('click', function (e) {
@@ -140,24 +130,34 @@ window.locale = $('html').attr('lang');
     }
 
     /**
-     * Autosubmit
-     */
-    $('.auto-submit').change(function () {
-        $(this).closest("form").submit();
-    });
-
-    /**
-     * Datetimepicker
-     */
-    $.fn.datetimepicker = require('eonasdan-bootstrap-datetimepicker');
-    $('[data-toggle="datetimepicker"]').datetimepicker({
-        locale: locale
-    });
-
-    /**
      * Plugins to load after DOM is ready
      */
     $(function() {
+        /**
+         * Bind all bootstrap tooltips
+         */
+        $('[data-toggle="tooltip"]').tooltip();
+
+        /**
+         * Bind all bootstrap popovers
+         */
+        $('[data-toggle="popover"]').popover();
+
+        /**
+         * Autosubmit
+         */
+        $('.auto-submit').change(function () {
+            $(this).closest("form").submit();
+        });
+
+        /**
+         * Datetimepicker
+         */
+        $.fn.datetimepicker = require('eonasdan-bootstrap-datetimepicker');
+        $('[data-toggle="datetimepicker"]').datetimepicker({
+            locale: locale
+        });
+
         /**
          * Bind all swal confirm buttons
          */
