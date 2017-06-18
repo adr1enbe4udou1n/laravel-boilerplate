@@ -20,5 +20,5 @@ use Illuminate\Database\Eloquent\Model;
 class FormSettingTranslation extends Model
 {
     public $timestamps = false;
-    protected $fillable = ['message'];
+    protected $fillable = ['title'];
 }

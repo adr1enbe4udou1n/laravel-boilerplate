@@ -152,6 +152,10 @@ if (!function_exists('has_access')) {
         $routes = \Illuminate\Support\Facades\Route::getRoutes();
         $route = $routes->getByName($route_name);
 
+        if (!$route) {
+            return false;
+        }
+
         foreach ($route->gatherMiddleware() as $middleware) {
             if (starts_with($middleware, 'can:')) {
                 $ability = explode(':', $middleware);

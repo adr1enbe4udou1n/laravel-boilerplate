@@ -48,6 +48,16 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
     }
 
     /**
+     * @param string $slug
+     *
+     * @return User
+     */
+    public function findBySlug($slug)
+    {
+        return $this->query()->whereSlug($slug)->first();
+    }
+
+    /**
      * @param array $input
      * @param bool  $confirmed
      *

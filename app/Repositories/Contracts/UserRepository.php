@@ -12,6 +12,13 @@ interface UserRepository extends BaseRepository
 {
 
     /**
+     * @param string $slug
+     *
+     * @return User
+     */
+    public function findBySlug($slug);
+
+    /**
      * @param array $input
      * @param bool  $confirmed
      *

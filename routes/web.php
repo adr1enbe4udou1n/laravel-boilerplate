@@ -45,7 +45,7 @@ Route::group([
     Route::group(
         ['namespace' => 'Auth'],
         function () {
-            if (config('app.registration')) {
+            if (config('account.can_register')) {
                 // Registration Routes...
                 Route::get('register',
                     'RegisterController@showRegistrationForm')
@@ -136,7 +136,7 @@ Route::group([
              */
             Route::get('email/confirm/{token}', 'AccountController@confirmEmail')->name('email.confirm');
 
-            if (config('auth.account.can_delete')) {
+            if (config('account.can_delete')) {
                 /*
                  * Account delete
                  */

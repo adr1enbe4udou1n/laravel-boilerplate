@@ -97,8 +97,4 @@ return [
             'expire' => 60,
         ],
     ],
-
-    'account' => [
-        'can_delete' => env('AUTH_CAN_DELETE_ACCOUNT', true)
-    ],
 ];

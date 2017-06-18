@@ -101,7 +101,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements
 
         if (!$user) {
             // Registration is not enabled
-            if (!config('app.registration')) {
+            if (!config('account.can_register')) {
                 throw new GeneralException(trans('exceptions.frontend.auth.registration_disabled'));
             }
 
