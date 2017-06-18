@@ -76,8 +76,11 @@ class UserController extends Controller
                 'updated_at',
             ])->with('roles'));
 
-            return $query->editColumn('email', function (User $user) {
-                return link_to_route('admin.user.edit', $user->email, $user);
+            return $query->editColumn('name', function (User $user) {
+                if ($this->users->canEdit($user)) {
+                    return link_to_route('admin.user.edit', $user->name, $user);
+                }
+                return $user->name;
             })->editColumn('confirmed', function (User $user) {
                 return boolean_html_label($user->confirmed);
             })->editColumn('active', function (User $user) {
@@ -125,6 +128,10 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        if (!$this->users->canEdit($user)) {
+            // Only Super admin can edit himself
+            abort(403);
+        }
         return view('backend.user.edit')->withUser($user);
     }
 

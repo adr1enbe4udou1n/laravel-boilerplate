@@ -106,7 +106,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
      */
     public function update(User $user, array $input)
     {
-        if ($user->is_super_admin && auth()->user()->id !== 1) {
+        if ($this->canEdit($user)) {
             throw new GeneralException(trans('exceptions.backend.users.first_user_cannot_be_edited'));
         }
 
@@ -255,11 +255,14 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
         return false;
     }
 
-    private function canDelete(User $user)
+    public function canEdit(User $user)
     {
-        $authenticatedUser = auth()->user();
+        return !$user->is_super_admin || auth()->user()->id === 1;
+    }
 
-        return !$user->is_super_admin && $user->id !== $authenticatedUser->id;
+    public function canDelete(User $user)
+    {
+        return !$user->is_super_admin && $user->id !== auth()->user()->id;
     }
 
     /**
@@ -271,8 +274,8 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
     {
         $buttons = '';
 
-        // Only super admin user can edit first user
-        if (!$user->is_super_admin || auth()->user()->id === 1) {
+        // Only super admin user can edit himself
+        if ($this->canEdit($user)) {
             $buttons .= $this->getEditButtonHtml('admin.user.edit', $user);
         }
 

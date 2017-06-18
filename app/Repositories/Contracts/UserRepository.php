@@ -74,5 +74,19 @@ interface UserRepository extends BaseRepository
      *
      * @return mixed
      */
+    public function canEdit(User $user);
+
+    /**
+     * @param \App\Models\User $user
+     *
+     * @return mixed
+     */
+    public function canDelete(User $user);
+
+    /**
+     * @param \App\Models\User $user
+     *
+     * @return mixed
+     */
     public function getActionButtons(User $user);
 }
