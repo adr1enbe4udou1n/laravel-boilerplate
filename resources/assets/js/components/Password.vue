@@ -14,7 +14,7 @@
             }
         },
         mounted() {
-            $(this.$el).prev().hide();
+            $(this.$el).prev().remove();
         }
     }
 </script>

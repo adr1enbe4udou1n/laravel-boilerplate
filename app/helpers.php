@@ -101,7 +101,7 @@ if (!function_exists('image_template_url')) {
      */
     function image_template_url($template, $image_path)
     {
-        return url(config('imagecache.route') . "/$template/$image_path");
+        return url(config('imagecache.route')."/$template/$image_path");
     }
 }
 
@@ -155,7 +155,7 @@ if (!function_exists('menu_item_access')) {
 
         $route = link_to(route($route_name), $title, $parameters, [], false);
 
-        if (!in_array($route_name, $active_route_patterns, TRUE)) {
+        if (!in_array($route_name, $active_route_patterns, true)) {
             $active_route_patterns[] = $route_name;
         }
 

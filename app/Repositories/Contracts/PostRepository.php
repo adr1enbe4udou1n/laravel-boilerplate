@@ -9,7 +9,6 @@ use App\Models\Post;
  */
 interface PostRepository extends BaseRepository
 {
-
     /**
      * @param string $slug
      *

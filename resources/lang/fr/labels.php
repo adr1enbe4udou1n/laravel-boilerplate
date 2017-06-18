@@ -17,7 +17,7 @@ return [
     'all_rights_reserved' => 'Tous droits réservés.',
 
     'auth' => [
-        'disabled' => 'Votre compte a été désactivé.'
+        'disabled' => 'Votre compte a été désactivé.',
     ],
 
     'http' => [

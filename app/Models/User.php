@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\ResetPassword as ResetPasswordNotification;
 
 /**
- * App\Models\User
+ * App\Models\User.
  *
  * @property int $id
  * @property string $name
@@ -25,9 +25,10 @@ use App\Notifications\ResetPassword as ResetPasswordNotification;
  * @property \Carbon\Carbon $last_access_at
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property-read mixed $is_super_admin
- * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Role[] $roles
+ * @property mixed $is_super_admin
+ * @property \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Role[] $roles
+ *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User actives()
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User findSimilarSlugs(\Illuminate\Database\Eloquent\Model $model, $attribute, $config, $slug)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereActive($value)
@@ -45,9 +46,10 @@ use App\Notifications\ResetPassword as ResetPasswordNotification;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereTimezone($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereUpdatedAt($value)
  * @mixin \Eloquent
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SocialLogin[] $providers
- * @property-read mixed $avatar
- * @property-read mixed $formatted_roles
+ *
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Models\SocialLogin[] $providers
+ * @property mixed $avatar
+ * @property mixed $formatted_roles
  */
 class User extends Authenticatable
 {
@@ -172,11 +174,12 @@ class User extends Authenticatable
     }
 
     /**
-     * Get user avatar from gravatar
+     * Get user avatar from gravatar.
      */
     public function getAvatarAttribute()
     {
         $hash = md5($this->email);
+
         return "https://secure.gravatar.com/avatar/{$hash}?size=100&d=mm&r=g";
     }
 

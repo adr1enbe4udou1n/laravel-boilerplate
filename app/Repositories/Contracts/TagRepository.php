@@ -9,7 +9,6 @@ use App\Models\Tag;
  */
 interface TagRepository extends BaseRepository
 {
-
     /**
      * @param string $slug
      *

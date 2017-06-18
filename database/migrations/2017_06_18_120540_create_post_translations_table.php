@@ -8,8 +8,6 @@ class CreatePostTranslationsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
@@ -32,8 +30,6 @@ class CreatePostTranslationsTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

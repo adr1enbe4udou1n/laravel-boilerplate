@@ -8,7 +8,6 @@ use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use App\Repositories\Contracts\RoleRepository;
 use App\Repositories\Contracts\UserRepository;
-use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;

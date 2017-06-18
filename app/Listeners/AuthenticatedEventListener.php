@@ -7,7 +7,6 @@ use Illuminate\Auth\Events\Authenticated;
 
 class AuthenticatedEventListener
 {
-
     /**
      * @var \App\Repositories\Contracts\AccountRepository
      */
@@ -27,8 +26,6 @@ class AuthenticatedEventListener
      * Handle the event.
      *
      * @param \Illuminate\Auth\Events\Authenticated $event
-     *
-     * @return void
      */
     public function handle(Authenticated $event)
     {

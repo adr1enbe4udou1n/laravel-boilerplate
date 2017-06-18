@@ -19,6 +19,6 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
-        'active' => true
+        'active' => true,
     ];
 });

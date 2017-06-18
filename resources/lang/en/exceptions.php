@@ -51,7 +51,7 @@ return [
         ],
 
         'auth' => [
-            'registration_disabled' => 'Registration is disabled.'
+            'registration_disabled' => 'Registration is disabled.',
         ],
     ],
 ];

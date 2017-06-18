@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
     /**
      * Create a new controller instance.
      *
-     * @param UserRepository  $users
+     * @param UserRepository $users
      * @param RoleRepository $roles
      */
     public function __construct(UserRepository $users, RoleRepository $roles)
@@ -37,14 +37,14 @@ class UsersTableSeeder extends Seeder
         $this->roles->store([
             'name' => 'administrator',
             'display_name' => 'Administrator',
-            'description' => 'This role allow user to access to mostly web features'
+            'description' => 'This role allow user to access to mostly web features',
         ]);
 
-        /** @var \Illuminate\Database\Eloquent\Collection $users */
-        $users = factory(User::class)->times(5)->raw();
+        /* @var \Illuminate\Database\Eloquent\Collection $users */
+        /*$users = factory(User::class)->times(5)->raw();
 
         foreach($users as $attributes) {
             $this->users->store($attributes, true);
-        }
+        }*/
     }
 }

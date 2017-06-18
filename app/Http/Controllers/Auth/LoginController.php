@@ -14,7 +14,6 @@ use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
-
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -99,7 +98,7 @@ class LoginController extends Controller
             if (isset($service['client_id'])) {
                 $socialiteLinks[] = link_to(
                     route('social.login', $name),
-                    '<i class="fa fa-' . $name . ' fa-lg"></i> ' . ucfirst($name),
+                    '<i class="fa fa-'.$name.' fa-lg"></i> '.ucfirst($name),
                     ['class' => "btn btn-default btn-$name"],
                     null, false
                 );
@@ -169,6 +168,7 @@ class LoginController extends Controller
      * @param Request $request
      *
      * @return \Illuminate\Http\Response
+     *
      * @throws \RuntimeException
      */
     public function logout(Request $request)
@@ -232,7 +232,7 @@ class LoginController extends Controller
             return redirect()->route('login')->withFlashError($e->getMessage());
         }
 
-        if (! $user->active) {
+        if (!$user->active) {
             return redirect()->route('login')->withFlashError(trans('labels.auth.disabled'));
         }
 

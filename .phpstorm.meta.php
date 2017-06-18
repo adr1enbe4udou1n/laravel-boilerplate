@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2017-06-17.
+    * Generated on 2017-06-18.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -66,6 +66,8 @@ namespace PHPSTORM_META {
             'App\Repositories\Contracts\FormSettingRepository' instanceof \App\Repositories\EloquentFormSettingRepository,
             'App\Repositories\Contracts\FormSubmissionRepository' instanceof \App\Repositories\EloquentFormSubmissionRepository,
             'App\Repositories\Contracts\RedirectionRepository' instanceof \App\Repositories\EloquentRedirectionRepository,
+            'App\Repositories\Contracts\PostRepository' instanceof \App\Repositories\EloquentPostRepository,
+            'App\Repositories\Contracts\TagRepository' instanceof \App\Repositories\EloquentTagRepository,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'validation.presence' instanceof \Illuminate\Validation\DatabasePresenceVerifier,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
@@ -214,6 +216,8 @@ namespace PHPSTORM_META {
             'App\Repositories\Contracts\FormSettingRepository' instanceof \App\Repositories\EloquentFormSettingRepository,
             'App\Repositories\Contracts\FormSubmissionRepository' instanceof \App\Repositories\EloquentFormSubmissionRepository,
             'App\Repositories\Contracts\RedirectionRepository' instanceof \App\Repositories\EloquentRedirectionRepository,
+            'App\Repositories\Contracts\PostRepository' instanceof \App\Repositories\EloquentPostRepository,
+            'App\Repositories\Contracts\TagRepository' instanceof \App\Repositories\EloquentTagRepository,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'validation.presence' instanceof \Illuminate\Validation\DatabasePresenceVerifier,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
@@ -362,6 +366,8 @@ namespace PHPSTORM_META {
             'App\Repositories\Contracts\FormSettingRepository' instanceof \App\Repositories\EloquentFormSettingRepository,
             'App\Repositories\Contracts\FormSubmissionRepository' instanceof \App\Repositories\EloquentFormSubmissionRepository,
             'App\Repositories\Contracts\RedirectionRepository' instanceof \App\Repositories\EloquentRedirectionRepository,
+            'App\Repositories\Contracts\PostRepository' instanceof \App\Repositories\EloquentPostRepository,
+            'App\Repositories\Contracts\TagRepository' instanceof \App\Repositories\EloquentTagRepository,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'validation.presence' instanceof \Illuminate\Validation\DatabasePresenceVerifier,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,
@@ -510,6 +516,8 @@ namespace PHPSTORM_META {
             'App\Repositories\Contracts\FormSettingRepository' instanceof \App\Repositories\EloquentFormSettingRepository,
             'App\Repositories\Contracts\FormSubmissionRepository' instanceof \App\Repositories\EloquentFormSubmissionRepository,
             'App\Repositories\Contracts\RedirectionRepository' instanceof \App\Repositories\EloquentRedirectionRepository,
+            'App\Repositories\Contracts\PostRepository' instanceof \App\Repositories\EloquentPostRepository,
+            'App\Repositories\Contracts\TagRepository' instanceof \App\Repositories\EloquentTagRepository,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
             'validation.presence' instanceof \Illuminate\Validation\DatabasePresenceVerifier,
             'translation.loader' instanceof \Illuminate\Translation\FileLoader,

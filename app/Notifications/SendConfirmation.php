@@ -4,12 +4,10 @@ namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
 class SendConfirmation extends Notification
 {
-
     use Queueable;
 
     /**
@@ -32,7 +30,7 @@ class SendConfirmation extends Notification
     /**
      * Get the notification's delivery channels.
      *
-     * @param  mixed $notifiable
+     * @param mixed $notifiable
      *
      * @return array
      */
@@ -44,13 +42,13 @@ class SendConfirmation extends Notification
     /**
      * Get the mail representation of the notification.
      *
-     * @param  mixed $notifiable
+     * @param mixed $notifiable
      *
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
+        return (new MailMessage())
             ->subject(trans('mails.email_confirmation.subject'))
             ->line(trans('mails.email_confirmation.intro'))
             ->action(trans('mails.email_confirmation.action'), route('user.email.confirm', $this->token))

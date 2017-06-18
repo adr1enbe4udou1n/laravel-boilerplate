@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -14,16 +15,29 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Permission[] $permissions
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Models\RoleTranslation[] $translations
+ *
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Role listsTranslations($translationField)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Role notTranslatedIn($locale = null)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Role orWhereTranslation($key, $value, $locale = null)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Role orWhereTranslationLike($key, $value, $locale = null)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Role translated()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Role translatedIn($locale = null)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereDescription($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereDisplayName($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereTranslation($key, $value, $locale = null)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereTranslationLike($key, $value, $locale = null)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Role withTranslation()
  * @mixin \Eloquent
  */
 class Role extends Model
 {
+    use Translatable;
+
+    public $translatedAttributes = ['display_name', 'description'];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -36,6 +50,8 @@ class Role extends Model
             'description',
         ];
 
+    protected $with = ['translations'];
+
     /**
      * Many-to-Many relations with Role.
      *
@@ -44,6 +60,11 @@ class Role extends Model
     public function permissions()
     {
         return $this->hasMany(Permission::class);
+    }
+
+    public function getPermissionsAttribute()
+    {
+        return $this->permissions()->getResults()->pluck('name')->toArray();
     }
 
     /**

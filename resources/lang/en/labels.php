@@ -17,7 +17,7 @@ return [
     'all_rights_reserved' => 'All rights reserved.',
 
     'auth' => [
-        'disabled' => 'Your account has been disabled.'
+        'disabled' => 'Your account has been disabled.',
     ],
 
     'http' => [

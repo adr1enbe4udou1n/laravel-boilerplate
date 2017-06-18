@@ -26,7 +26,7 @@ interface AccountRepository extends BaseRepository
     public function login(Authenticatable $user);
 
     /**
-     * @param               $provider
+     * @param              $provider
      * @param AbstractUser $data
      *
      * @return User

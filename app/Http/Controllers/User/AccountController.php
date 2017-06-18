@@ -24,7 +24,7 @@ class AccountController extends Controller
     /**
      * RegisterController constructor.
      *
-     * @param AccountRepository                                   $account
+     * @param AccountRepository                                $account
      * @param \Mcamara\LaravelLocalization\LaravelLocalization $localization
      * @param \Illuminate\Contracts\View\Factory               $view
      *
@@ -74,7 +74,7 @@ class AccountController extends Controller
     }
 
     /**
-     *  Send mail confirmation
+     *  Send mail confirmation.
      */
     public function sendConfirmation()
     {
@@ -85,7 +85,7 @@ class AccountController extends Controller
     }
 
     /**
-     *  Confirm email
+     *  Confirm email.
      *
      * @param $token
      *
@@ -125,6 +125,7 @@ class AccountController extends Controller
      * @param \Illuminate\Http\Request $request
      *
      * @return mixed
+     *
      * @throws \RuntimeException
      */
     public function delete(Request $request)

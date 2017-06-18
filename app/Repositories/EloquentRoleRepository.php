@@ -7,7 +7,6 @@ use App\Models\Role;
 use App\Repositories\Contracts\RoleRepository;
 use App\Repositories\Traits\HtmlActionsButtons;
 use Exception;
-use Illuminate\Support\Facades\DB;
 
 /**
  * Class EloquentRoleRepository.

@@ -10,7 +10,6 @@ use Illuminate\Contracts\Auth\Authenticatable;
  */
 interface UserRepository extends BaseRepository
 {
-
     /**
      * @param string $slug
      *

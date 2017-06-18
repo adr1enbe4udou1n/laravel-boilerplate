@@ -19,10 +19,8 @@ use Laravel\Socialite\AbstractUser;
 /**
  * Class EloquentAccountRepository.
  */
-class EloquentAccountRepository extends EloquentBaseRepository implements
-    AccountRepository
+class EloquentAccountRepository extends EloquentBaseRepository implements AccountRepository
 {
-
     /**
      * @var UserRepository
      */
@@ -48,6 +46,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements
      * @param array $input
      *
      * @return \App\Models\User
+     *
      * @throws \Throwable
      * @throws \Exception
      */
@@ -65,6 +64,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements
      * @param Authenticatable $user
      *
      * @return \App\Models\User
+     *
      * @throws \App\Exceptions\GeneralException
      */
     public function login(Authenticatable $user)
@@ -84,10 +84,11 @@ class EloquentAccountRepository extends EloquentBaseRepository implements
     }
 
     /**
-     * @param                             $provider
-     * @param AbstractUser                $data
+     * @param              $provider
+     * @param AbstractUser $data
      *
      * @return User
+     *
      * @throws \App\Exceptions\GeneralException
      */
     public function findOrCreateSocial($provider, AbstractUser $data)
@@ -159,7 +160,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements
     {
         if ($admin_id = session()->get('admin_user_id')) {
             $this->flushTempSession();
-            auth()->loginUsingId((int)$admin_id);
+            auth()->loginUsingId((int) $admin_id);
         }
 
         return redirect()->route('admin.home');
@@ -179,8 +180,8 @@ class EloquentAccountRepository extends EloquentBaseRepository implements
      * @param $input
      *
      * @return mixed
-     * @throws \Illuminate\Database\Eloquent\MassAssignmentException
      *
+     * @throws \Illuminate\Database\Eloquent\MassAssignmentException
      * @throws \App\Exceptions\GeneralException
      */
     public function update(array $input)
@@ -230,7 +231,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements
     }
 
     /**
-     * Send mail confirmation
+     * Send mail confirmation.
      */
     public function sendConfirmation()
     {
@@ -254,7 +255,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements
     }
 
     /**
-     * Send mail confirmation
+     * Send mail confirmation.
      *
      * @param $token
      *
@@ -275,6 +276,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements
 
     /**
      * @return mixed
+     *
      * @throws \App\Exceptions\GeneralException|Exception
      */
     public function delete()

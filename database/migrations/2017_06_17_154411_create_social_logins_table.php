@@ -8,8 +8,6 @@ class CreateSocialLoginsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
@@ -27,8 +25,6 @@ class CreateSocialLoginsTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

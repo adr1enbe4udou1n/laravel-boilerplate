@@ -51,7 +51,7 @@ return [
         ],
 
         'auth' => [
-            'registration_disabled' => 'L\'enregistrement d\'utilisateurs est désactivé.'
+            'registration_disabled' => 'L\'enregistrement d\'utilisateurs est désactivé.',
         ],
     ],
 ];

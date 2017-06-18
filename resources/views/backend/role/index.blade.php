@@ -49,11 +49,13 @@
                 title: '{{ trans('validation.attributes.display_name') }}',
                 data: 'display_name',
                 name: 'display_name',
+                defaultContent: '{{ trans('labels.no_value') }}',
                 width: 150,
             }, {
                 title: '{{ trans('validation.attributes.description') }}',
                 data: 'description',
                 name: 'description',
+                defaultContent: '{{ trans('labels.no_value') }}',
                 orderable: false,
             }, {
                 title: '{{ trans('labels.created_at') }}',

@@ -62,6 +62,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
      * @param bool  $confirmed
      *
      * @return \App\Models\User
+     *
      * @throws \App\Exceptions\GeneralException
      */
     public function store(array $input, $confirmed = false)

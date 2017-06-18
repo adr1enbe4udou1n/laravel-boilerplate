@@ -7,7 +7,6 @@ use App\Models\FormSetting;
 use App\Repositories\Contracts\FormSettingRepository;
 use App\Repositories\Traits\HtmlActionsButtons;
 use Exception;
-use Illuminate\Support\Facades\DB;
 
 /**
  * Class EloquentFormSettingRepository.

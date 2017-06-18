@@ -6,12 +6,13 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\Tag
+ * App\Models\Tag.
  *
  * @property int $id
  * @property string $locale
  * @property string $name
  * @property string $slug
+ *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Tag findSimilarSlugs(\Illuminate\Database\Eloquent\Model $model, $attribute, $config, $slug)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Tag whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Tag whereLocale($value)

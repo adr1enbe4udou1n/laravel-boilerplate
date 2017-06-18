@@ -17,7 +17,7 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         Authenticated::class => [
-            AuthenticatedEventListener::class
+            AuthenticatedEventListener::class,
         ],
     ];
 

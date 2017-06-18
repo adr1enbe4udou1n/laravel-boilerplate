@@ -6,7 +6,7 @@ use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\Article
+ * App\Models\Article.
  *
  * @property int                                                                         $id
  * @property int                                                                         $user_id
@@ -22,7 +22,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string                                                                      $published_at
  * @property \Carbon\Carbon                                                              $created_at
  * @property \Carbon\Carbon                                                              $updated_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\PostTranslation[] $translations
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Models\PostTranslation[] $translations
+ *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post listsTranslations($translationField)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post notTranslatedIn($locale = null)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post orWhereTranslation($key, $value, $locale = null)
@@ -42,7 +43,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereUserId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post withTranslation()
  * @mixin \Eloquent
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Tag[] $tags
+ *
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Tag[] $tags
  */
 class Post extends Model
 {

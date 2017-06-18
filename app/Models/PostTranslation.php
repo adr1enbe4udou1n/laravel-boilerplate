@@ -6,7 +6,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\ArticleTranslation
+ * App\Models\ArticleTranslation.
  *
  * @property int $id
  * @property int $post_id
@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $summary
  * @property string $body
  * @property string $slug
+ *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\PostTranslation findSimilarSlugs(\Illuminate\Database\Eloquent\Model $model, $attribute, $config, $slug)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\PostTranslation whereArticleId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\PostTranslation whereBody($value)
@@ -24,6 +25,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\PostTranslation whereSummary($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\PostTranslation whereTitle($value)
  * @mixin \Eloquent
+ *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\PostTranslation wherePostId($value)
  */
 class PostTranslation extends Model

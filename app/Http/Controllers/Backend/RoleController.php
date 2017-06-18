@@ -54,8 +54,6 @@ class RoleController extends Controller
             $query = Datatables::of($this->roles->select([
                 'id',
                 'name',
-                'display_name',
-                'description',
                 'created_at',
                 'updated_at',
             ]));
@@ -101,8 +99,6 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        $role->permissions = $role->permissions->pluck('name')->toArray();
-
         return view('backend.role.edit')->withRole($role)->withPermissions(config('permissions'));
     }
 
