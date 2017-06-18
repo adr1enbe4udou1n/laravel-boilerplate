@@ -12,7 +12,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $locale
  * @property string $name
  * @property string $slug
- *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Tag findSimilarSlugs(\Illuminate\Database\Eloquent\Model $model, $attribute, $config, $slug)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Tag whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Tag whereLocale($value)

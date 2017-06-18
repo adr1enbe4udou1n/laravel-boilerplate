@@ -30,7 +30,7 @@ class RoleController extends Controller
         $this->roles = $roles;
 
         $view->composer('*', function (\Illuminate\View\View $view) {
-            $permissions = collect(config('permissions'))->groupBy('category');
+            $permissions = collect(config('permissions'))->groupBy('category', true);
             $view->withPermissions($permissions);
         });
     }

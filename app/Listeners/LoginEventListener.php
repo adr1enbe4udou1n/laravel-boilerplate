@@ -3,9 +3,9 @@
 namespace App\Listeners;
 
 use App\Repositories\Contracts\AccountRepository;
-use Illuminate\Auth\Events\Authenticated;
+use Illuminate\Auth\Events\Login;
 
-class AuthenticatedEventListener
+class LoginEventListener
 {
     /**
      * @var \App\Repositories\Contracts\AccountRepository
@@ -27,7 +27,7 @@ class AuthenticatedEventListener
      *
      * @param \Illuminate\Auth\Events\Authenticated $event
      */
-    public function handle(Authenticated $event)
+    public function handle(Login $event)
     {
         $this->users->login($event->user);
     }

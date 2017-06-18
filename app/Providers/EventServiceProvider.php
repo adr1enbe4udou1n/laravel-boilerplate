@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use App\Listeners\AuthenticatedEventListener;
+use App\Listeners\LoginEventListener;
 use App\Listeners\FormSubmissionEventListener;
 use App\Listeners\UserEventListener;
-use Illuminate\Auth\Events\Authenticated;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
 class EventServiceProvider extends ServiceProvider
@@ -16,8 +16,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        Authenticated::class => [
-            AuthenticatedEventListener::class,
+        Login::class => [
+            LoginEventListener::class,
         ],
     ];
 

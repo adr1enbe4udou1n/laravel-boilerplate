@@ -23,7 +23,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon                                                              $created_at
  * @property \Carbon\Carbon                                                              $updated_at
  * @property \Illuminate\Database\Eloquent\Collection|\App\Models\PostTranslation[] $translations
- *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post listsTranslations($translationField)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post notTranslatedIn($locale = null)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post orWhereTranslation($key, $value, $locale = null)
@@ -43,7 +42,6 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereUserId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post withTranslation()
  * @mixin \Eloquent
- *
  * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Tag[] $tags
  */
 class Post extends Model

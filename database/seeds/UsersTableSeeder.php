@@ -38,7 +38,7 @@ class UsersTableSeeder extends Seeder
         $this->users->store([
             'name' => 'Super admin',
             'email' => 'superadmin@example.com',
-            'password' => bcrypt('secret'),
+            'password' => 'secret',
             'active' => true,
         ], true);
 
@@ -146,7 +146,7 @@ class UsersTableSeeder extends Seeder
         $this->users->store([
             'name' => 'Administrator',
             'email' => 'admin@example.com',
-            'password' => bcrypt('secret'),
+            'password' => 'secret',
             'active' => true,
             'roles' => [
                 $administratorRole->id,
@@ -157,7 +157,7 @@ class UsersTableSeeder extends Seeder
         $this->users->store([
             'name' => 'Supervisor',
             'email' => 'supervisor@example.com',
-            'password' => bcrypt('secret'),
+            'password' => 'secret',
             'active' => true,
             'roles' => [
                 $supervisorRole->id,
@@ -168,7 +168,7 @@ class UsersTableSeeder extends Seeder
         $this->users->store([
             'name' => 'Seo consultant',
             'email' => 'seo@example.com',
-            'password' => bcrypt('secret'),
+            'password' => 'secret',
             'active' => true,
             'roles' => [
                 $seoConsultantRole->id,
@@ -180,7 +180,7 @@ class UsersTableSeeder extends Seeder
         $this->users->store([
             'name' => 'Editor',
             'email' => 'editor@example.com',
-            'password' => bcrypt('secret'),
+            'password' => 'secret',
             'active' => true,
             'roles' => [
                 $editorRole->id,
@@ -192,7 +192,7 @@ class UsersTableSeeder extends Seeder
             $this->users->store([
                 'name' => "Redactor $i",
                 'email' => "redactor-$i@example.com",
-                'password' => bcrypt('secret'),
+                'password' => 'secret',
                 'active' => true,
                 'roles' => [
                     $redactorRole->id,

@@ -232,19 +232,14 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
             return true;
         }
 
+        /** @var \Illuminate\Support\Collection $permissions */
         $permissions = session()->get('permissions');
 
-        if (empty($permissions)) {
+        if ($permissions->isEmpty()) {
             return false;
         }
 
-        foreach ($permissions as $permission) {
-            if (str_is($name, $permission)) {
-                return true;
-            }
-        }
-
-        return false;
+        return $permissions->contains($name);
     }
 
     private function canImpersonate(User $user)
@@ -277,7 +272,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
         $buttons = '';
 
         // Only super admin user can edit first user
-        if ($user->is_super_admin && auth()->user()->id === 1) {
+        if (!$user->is_super_admin || auth()->user()->id === 1) {
             $buttons .= $this->getEditButtonHtml('admin.user.edit', $user);
         }
 
