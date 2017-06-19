@@ -7,7 +7,6 @@ use App\Models\Role;
 use App\Repositories\Contracts\RoleRepository;
 use App\Repositories\Traits\HtmlActionsButtons;
 use Exception;
-use Illuminate\Support\Arr;
 
 /**
  * Class EloquentRoleRepository.
@@ -36,7 +35,7 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
     public function store(array $input)
     {
         /** @var Role $role */
-        $role = $this->make(Arr::except($input, ['permissions']));
+        $role = $this->make($input);
 
         if (!$role->save()) {
             throw new GeneralException(trans('exceptions.backend.roles.create'));
@@ -62,7 +61,7 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
      */
     public function update(Role $role, array $input)
     {
-        if (!$role->update(Arr::except($input, ['permissions']))) {
+        if (!$role->update($input)) {
             throw new GeneralException(trans('exceptions.backend.roles.update'));
         }
 
@@ -94,7 +93,7 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
     }
 
     /**
-     * Get only roles than current can attribute to the others
+     * Get only roles than current can attribute to the others.
      */
     public function getAllowedRoles()
     {
@@ -110,13 +109,15 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
         $permissions = $authenticatedUser->getPermissions();
 
         $roles = $roles->filter(function (Role $role) use ($permissions) {
-            foreach($role->permissions as $permission) {
+            foreach ($role->permissions as $permission) {
                 if ($permissions->search($permission, true) === false) {
                     return false;
                 }
             }
+
             return true;
         });
+
         return $roles;
     }
 

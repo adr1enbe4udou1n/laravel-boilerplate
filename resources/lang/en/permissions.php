@@ -59,6 +59,13 @@ return [
         ],
     ],
 
+    'publish' => [
+        'posts' => [
+            'display_name' => 'Publish posts',
+            'description' => 'Can manage posts publication.',
+        ],
+    ],
+
     'impersonate' => [
         'display_name' => 'Impersonate user',
         'description' => 'Can take ownership of others user identities. Useful for tests.',

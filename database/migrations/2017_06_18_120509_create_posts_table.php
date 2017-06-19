@@ -16,7 +16,7 @@ class CreatePostsTable extends Migration
             $table->integer('user_id')->nullable()->unsigned();
 
             $table->string('image');
-            $table->boolean('published')->default(false);
+            $table->tinyInteger('status')->default(false);
             $table->boolean('promoted')->default(false);
             $table->boolean('pinned')->default(false);
 

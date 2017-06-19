@@ -193,6 +193,14 @@ return [
                 'description' => 'File must have 2 columns with "source" and "target" as heading, redirection will be permanent by default',
             ],
         ],
+
+        'posts' => [
+            'statuses' => [
+                'draft' => 'Draft',
+                'pending' => 'Pending',
+                'published' => 'Published',
+            ],
+        ],
     ],
 
     'frontend' => [

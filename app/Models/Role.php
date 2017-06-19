@@ -6,7 +6,7 @@ use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\Role
+ * App\Models\Role.
  *
  * @property int $id
  * @property string $name
@@ -15,8 +15,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $description
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property-read array $permissions
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\RoleTranslation[] $translations
+ * @property array $permissions
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Models\RoleTranslation[] $translations
+ *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role listsTranslations($translationField)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role notTranslatedIn($locale = null)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role orWhereTranslation($key, $value, $locale = null)

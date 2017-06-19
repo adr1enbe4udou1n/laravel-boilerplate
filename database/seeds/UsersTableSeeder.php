@@ -1,49 +1,33 @@
 <?php
 
+use App\Models\Role;
 use App\Models\User;
-use App\Repositories\Contracts\RoleRepository;
-use App\Repositories\Contracts\UserRepository;
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
 {
-    /**
-     * @var UserRepository
-     */
-    protected $users;
-
-    /**
-     * @var RoleRepository
-     */
-    protected $roles;
-
-    /**
-     * Create a new controller instance.
-     *
-     * @param UserRepository $users
-     * @param RoleRepository $roles
-     */
-    public function __construct(UserRepository $users, RoleRepository $roles)
-    {
-        $this->users = $users;
-        $this->roles = $roles;
-    }
-
     /**
      * Run the database seeds.
      */
     public function run()
     {
         // Create super admin user
-        $this->users->store([
+        User::create([
             'name' => 'Super admin',
             'email' => 'superadmin@example.com',
-            'password' => 'secret',
+            'password' => bcrypt('secret'),
             'active' => true,
-        ], true);
+            'confirmed' => true,
+            'locale' => app()->getLocale(),
+            'timezone' => config('app.timezone'),
+        ]);
 
-        // Create roles
-        $administratorRole = $this->roles->store([
+        /*
+         * Create roles
+         */
+
+        /** @var Role $administratorRole */
+        $administratorRole = Role::create([
             'name' => 'administrator',
             'en' => [
                 'display_name' => 'Administrator',
@@ -54,21 +38,26 @@ class UsersTableSeeder extends Seeder
                 'description' => 'Accès à la plupart des fonctionnalités du site',
             ],
             'order' => 0,
-            'permissions' => [
-                'access backend',
-                'manage posts',
-                'manage own posts',
-                'manage form_settings',
-                'manage form_submissions',
-                'manage users',
-                'impersonate users',
-                'manage roles',
-                'manage metas',
-                'manage redirections',
-            ],
         ]);
 
-        $supervisorRole = $this->roles->store([
+        foreach ([
+            'access backend',
+            'manage posts',
+            'manage own posts',
+            'publish posts',
+            'manage form_settings',
+            'manage form_submissions',
+            'manage users',
+            'impersonate users',
+            'manage roles',
+            'manage metas',
+            'manage redirections',
+        ] as $name) {
+            $administratorRole->permissions()->create(['name' => $name]);
+        }
+
+        /** @var Role $supervisorRole */
+        $supervisorRole = Role::create([
             'name' => 'supervisor',
             'en' => [
                 'display_name' => 'Supervisor',
@@ -79,17 +68,22 @@ class UsersTableSeeder extends Seeder
                 'description' => 'Accès à l\'ensemble des fonctionnalités non critiques du site (exclusion de la gestion des accès et seo)',
             ],
             'order' => 1,
-            'permissions' => [
-                'access backend',
-                'manage posts',
-                'manage own posts',
-                'manage form_settings',
-                'manage form_submissions',
-                'manage users',
-            ],
         ]);
 
-        $seoConsultantRole = $this->roles->store([
+        foreach ([
+            'access backend',
+            'manage posts',
+            'manage own posts',
+            'publish posts',
+            'manage form_settings',
+            'manage form_submissions',
+            'manage users',
+        ] as $name) {
+            $supervisorRole->permissions()->create(['name' => $name]);
+        }
+
+        /** @var Role $seoConsultantRole */
+        $seoConsultantRole = Role::create([
             'name' => 'seo consultant',
             'en' => [
                 'display_name' => 'SEO consultant',
@@ -100,14 +94,18 @@ class UsersTableSeeder extends Seeder
                 'description' => 'Accès à la gestion des metatags et redirections.',
             ],
             'order' => 2,
-            'permissions' => [
-                'access backend',
-                'manage metas',
-                'manage redirections',
-            ],
         ]);
 
-        $editorRole = $this->roles->store([
+        foreach ([
+            'access backend',
+            'manage metas',
+            'manage redirections',
+        ] as $name) {
+            $seoConsultantRole->permissions()->create(['name' => $name]);
+        }
+
+        /** @var Role $editorRole */
+        $editorRole = Role::create([
             'name' => 'editor',
             'en' => [
                 'display_name' => 'Editor',
@@ -118,14 +116,19 @@ class UsersTableSeeder extends Seeder
                 'description' => 'Accès à l\'ensemble des fonctions de rédaction du site',
             ],
             'order' => 3,
-            'permissions' => [
-                'access backend',
-                'manage posts',
-                'manage own posts',
-            ],
         ]);
 
-        $redactorRole = $this->roles->store([
+        foreach ([
+            'access backend',
+            'manage posts',
+            'manage own posts',
+            'publish posts',
+        ] as $name) {
+            $editorRole->permissions()->create(['name' => $name]);
+        }
+
+        /** @var Role $redactorRole */
+        $redactorRole = Role::create([
             'name' => 'redactor',
             'en' => [
                 'display_name' => 'Redactor',
@@ -136,76 +139,89 @@ class UsersTableSeeder extends Seeder
                 'description' => 'Accès aux fonctions de rédaction du site, avec possibilité d\'éditer uniquement ses propres articles',
             ],
             'order' => 3,
-            'permissions' => [
-                'access backend',
-                'manage own posts',
-            ],
         ]);
 
+        foreach ([
+            'access backend',
+            'manage own posts',
+        ] as $name) {
+            $redactorRole->permissions()->create(['name' => $name]);
+        }
+
         // 1 administrator
-        $this->users->store([
+        /** @var User $administrator */
+        $administrator = User::create([
             'name' => 'Administrator',
             'email' => 'admin@example.com',
-            'password' => 'secret',
+            'password' => bcrypt('secret'),
             'active' => true,
-            'roles' => [
-                $administratorRole->id,
-            ],
-        ], true);
+            'confirmed' => true,
+            'locale' => app()->getLocale(),
+            'timezone' => config('app.timezone'),
+        ]);
+
+        $administrator->roles()->save($administratorRole);
 
         // 1 supervisor
-        $this->users->store([
+        /** @var User $supervisor */
+        $supervisor = User::create([
             'name' => 'Supervisor',
             'email' => 'supervisor@example.com',
-            'password' => 'secret',
+            'password' => bcrypt('secret'),
             'active' => true,
-            'roles' => [
-                $supervisorRole->id,
-            ],
-        ], true);
+            'confirmed' => true,
+            'locale' => app()->getLocale(),
+            'timezone' => config('app.timezone'),
+        ]);
+
+        $supervisor->roles()->save($supervisorRole);
 
         // 1 seo consultant
-        $this->users->store([
+        /** @var User $seoConsultant */
+        $seoConsultant = User::create([
             'name' => 'Seo consultant',
             'email' => 'seo@example.com',
-            'password' => 'secret',
+            'password' => bcrypt('secret'),
             'active' => true,
-            'roles' => [
-                $seoConsultantRole->id,
-                $editorRole->id,
-            ],
-        ], true);
+            'confirmed' => true,
+            'locale' => app()->getLocale(),
+            'timezone' => config('app.timezone'),
+        ]);
+
+        $seoConsultant->roles()->save($seoConsultantRole);
+        $seoConsultant->roles()->save($editorRole);
 
         // 1 editor
-        $this->users->store([
+        /** @var User $editor */
+        $editor = User::create([
             'name' => 'Editor',
             'email' => 'editor@example.com',
-            'password' => 'secret',
+            'password' => bcrypt('secret'),
             'active' => true,
-            'roles' => [
-                $editorRole->id,
-            ],
-        ], true);
+            'confirmed' => true,
+            'locale' => app()->getLocale(),
+            'timezone' => config('app.timezone'),
+        ]);
+
+        $editor->roles()->save($editorRole);
 
         // 5 redactors
         for ($i = 1; $i <= 5; ++$i) {
-            $this->users->store([
+            /** @var User $redactor */
+            $redactor = User::create([
                 'name' => "Redactor $i",
                 'email' => "redactor-$i@example.com",
-                'password' => 'secret',
+                'password' => bcrypt('secret'),
                 'active' => true,
-                'roles' => [
-                    $redactorRole->id,
-                ],
-            ], true);
+                'confirmed' => true,
+                'locale' => app()->getLocale(),
+                'timezone' => config('app.timezone'),
+            ]);
+
+            $redactor->roles()->save($redactorRole);
         }
 
         // 10 random client users
-        /* @var \Illuminate\Database\Eloquent\Collection $users */
-        $users = factory(User::class)->times(10)->raw();
-
-        foreach ($users as $attributes) {
-            $this->users->store($attributes, true);
-        }
+        factory(User::class)->times(10)->create();
     }
 }

@@ -80,6 +80,7 @@ class UserController extends Controller
                 if ($this->users->canEdit($user)) {
                     return link_to_route('admin.user.edit', $user->name, $user);
                 }
+
                 return $user->name;
             })->editColumn('confirmed', function (User $user) {
                 return boolean_html_label($user->confirmed);
@@ -132,6 +133,7 @@ class UserController extends Controller
             // Only Super admin can edit himself
             abort(403);
         }
+
         return view('backend.user.edit')->withUser($user);
     }
 

@@ -20,10 +20,8 @@ use Mcamara\LaravelLocalization\LaravelLocalization;
 /**
  * Class EloquentUserRepository.
  */
-class EloquentUserRepository extends EloquentBaseRepository implements
-    UserRepository
+class EloquentUserRepository extends EloquentBaseRepository implements UserRepository
 {
-
     use HtmlActionsButtons;
 
     /**
@@ -81,8 +79,6 @@ class EloquentUserRepository extends EloquentBaseRepository implements
      */
     public function store(array $input, $confirmed = false)
     {
-        $allowedRoles = $this->roles->getAllowedRoles();
-
         /** @var User $user */
         $user = $this->make(Arr::only($input, ['name', 'email', 'active']));
 
@@ -148,7 +144,6 @@ class EloquentUserRepository extends EloquentBaseRepository implements
 
     /**
      * @param \App\Models\User $user
-     *
      * @param array            $roles
      *
      * @throws \App\Exceptions\GeneralException
@@ -161,7 +156,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements
 
         $allowedRoles = $this->roles->getAllowedRoles()->keyBy('id');
 
-        foreach($roles as $id) {
+        foreach ($roles as $id) {
             if (!$allowedRoles->has($id)) {
                 throw new GeneralException(trans('exceptions.backend.users.cannot_set_superior_roles'));
             }

@@ -193,6 +193,14 @@ return [
                 'description' => 'Le fichier doit avoir 2 colonnes avec en-têtes de colonne "source" et "target", la redirection sera du type permanent par défaut',
             ],
         ],
+
+        'posts' => [
+            'statuses' => [
+                'draft' => 'Brouillon',
+                'pending' => 'En attente de modération',
+                'published' => 'Publié',
+            ],
+        ],
     ],
 
     'frontend' => [

@@ -25,6 +25,12 @@ return [
         'category' => 'permissions.categories.blog',
     ],
 
+    'publish posts' => [
+        'display_name' => 'permissions.publish.posts.display_name',
+        'description' => 'permissions.publish.posts.description',
+        'category' => 'permissions.categories.blog',
+    ],
+
     'manage form_settings' => [
         'display_name' => 'permissions.manage.form_settings.display_name',
         'description' => 'permissions.manage.form_settings.description',

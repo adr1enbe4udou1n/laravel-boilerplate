@@ -59,6 +59,13 @@ return [
         ],
     ],
 
+    'publish' => [
+        'posts' => [
+            'display_name' => 'Publier les articles',
+            'description' => 'Possibilité de gérer la publication des articles.',
+        ],
+    ],
+
     'impersonate' => [
         'display_name' => 'Usurpation d\'utilisateur',
         'description' => 'Permet de prendre l\'identité d\'un autre utilisateur. Utile pour les tests.',
