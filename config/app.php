@@ -207,6 +207,7 @@ return [
         Dimsav\Translatable\TranslatableServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
+        Plank\Mediable\MediableServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -275,5 +276,6 @@ return [
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
         'LaravelLocalization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+        'MediaUploader' => Plank\Mediable\MediaUploaderFacade::class,
     ],
 ];

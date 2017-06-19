@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2017-06-18.
+    * Generated on 2017-06-19.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -54,6 +54,10 @@ namespace PHPSTORM_META {
             'excel.writer' instanceof \Maatwebsite\Excel\Writers\LaravelExcelWriter,
             'excel' instanceof \Maatwebsite\Excel\Excel,
             'Cviebrock\EloquentSluggable\SluggableObserver' instanceof \Cviebrock\EloquentSluggable\SluggableObserver,
+            'mediable.source.factory' instanceof \Plank\Mediable\SourceAdapters\SourceAdapterFactory,
+            'mediable.uploader' instanceof \Plank\Mediable\MediaUploader,
+            'mediable.mover' instanceof \Plank\Mediable\MediaMover,
+            'mediable.url.factory' instanceof \Plank\Mediable\UrlGenerators\UrlGeneratorFactory,
             'debugbar' instanceof \Barryvdh\Debugbar\LaravelDebugbar,
             'command.debugbar.clear' instanceof \Barryvdh\Debugbar\Console\ClearCommand,
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
@@ -204,6 +208,10 @@ namespace PHPSTORM_META {
             'excel.writer' instanceof \Maatwebsite\Excel\Writers\LaravelExcelWriter,
             'excel' instanceof \Maatwebsite\Excel\Excel,
             'Cviebrock\EloquentSluggable\SluggableObserver' instanceof \Cviebrock\EloquentSluggable\SluggableObserver,
+            'mediable.source.factory' instanceof \Plank\Mediable\SourceAdapters\SourceAdapterFactory,
+            'mediable.uploader' instanceof \Plank\Mediable\MediaUploader,
+            'mediable.mover' instanceof \Plank\Mediable\MediaMover,
+            'mediable.url.factory' instanceof \Plank\Mediable\UrlGenerators\UrlGeneratorFactory,
             'debugbar' instanceof \Barryvdh\Debugbar\LaravelDebugbar,
             'command.debugbar.clear' instanceof \Barryvdh\Debugbar\Console\ClearCommand,
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
@@ -354,6 +362,10 @@ namespace PHPSTORM_META {
             'excel.writer' instanceof \Maatwebsite\Excel\Writers\LaravelExcelWriter,
             'excel' instanceof \Maatwebsite\Excel\Excel,
             'Cviebrock\EloquentSluggable\SluggableObserver' instanceof \Cviebrock\EloquentSluggable\SluggableObserver,
+            'mediable.source.factory' instanceof \Plank\Mediable\SourceAdapters\SourceAdapterFactory,
+            'mediable.uploader' instanceof \Plank\Mediable\MediaUploader,
+            'mediable.mover' instanceof \Plank\Mediable\MediaMover,
+            'mediable.url.factory' instanceof \Plank\Mediable\UrlGenerators\UrlGeneratorFactory,
             'debugbar' instanceof \Barryvdh\Debugbar\LaravelDebugbar,
             'command.debugbar.clear' instanceof \Barryvdh\Debugbar\Console\ClearCommand,
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,
@@ -504,6 +516,10 @@ namespace PHPSTORM_META {
             'excel.writer' instanceof \Maatwebsite\Excel\Writers\LaravelExcelWriter,
             'excel' instanceof \Maatwebsite\Excel\Excel,
             'Cviebrock\EloquentSluggable\SluggableObserver' instanceof \Cviebrock\EloquentSluggable\SluggableObserver,
+            'mediable.source.factory' instanceof \Plank\Mediable\SourceAdapters\SourceAdapterFactory,
+            'mediable.uploader' instanceof \Plank\Mediable\MediaUploader,
+            'mediable.mover' instanceof \Plank\Mediable\MediaMover,
+            'mediable.url.factory' instanceof \Plank\Mediable\UrlGenerators\UrlGeneratorFactory,
             'debugbar' instanceof \Barryvdh\Debugbar\LaravelDebugbar,
             'command.debugbar.clear' instanceof \Barryvdh\Debugbar\Console\ClearCommand,
             'command.ide-helper.generate' instanceof \Barryvdh\LaravelIdeHelper\Console\GeneratorCommand,

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use Plank\Mediable\Mediable;
 
 /**
  * App\Models\Article.
@@ -15,7 +16,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string                                                                      $summary
  * @property string                                                                      $body
  * @property string                                                                      $slug
- * @property string                                                                      $image
  * @property bool                                                                        $status
  * @property bool                                                                        $promoted
  * @property bool                                                                        $pinned
@@ -50,6 +50,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Post extends Model
 {
+    use Mediable;
     use Translatable;
 
     public $translatedAttributes = ['title', 'summary', 'body', 'slug'];

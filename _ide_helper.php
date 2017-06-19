@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.27 on 2017-06-18.
+ * Generated for Laravel 5.4.27 on 2017-06-19.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -14263,6 +14263,357 @@ namespace Maatwebsite\Excel\Facades {
     }         
 }
     
+namespace Plank\Mediable {
+
+    class MediaUploaderFacade {
+        
+        /**
+         * Set the source for the file.
+         *
+         * @param mixed $source
+         * @return static 
+         * @static 
+         */
+        public static function fromSource($source)
+        {
+            return \Plank\Mediable\MediaUploader::fromSource($source);
+        }
+        
+        /**
+         * Set the source for the string data.
+         *
+         * @param string $source
+         * @return static 
+         * @static 
+         */
+        public static function fromString($source)
+        {
+            return \Plank\Mediable\MediaUploader::fromString($source);
+        }
+        
+        /**
+         * Set the filesystem disk and relative directory where the file will be saved.
+         *
+         * @param string $disk
+         * @param string $directory
+         * @return static 
+         * @static 
+         */
+        public static function toDestination($disk, $directory)
+        {
+            return \Plank\Mediable\MediaUploader::toDestination($disk, $directory);
+        }
+        
+        /**
+         * Set the filesystem disk on which the file will be saved.
+         *
+         * @param string $disk
+         * @return static 
+         * @static 
+         */
+        public static function toDisk($disk)
+        {
+            return \Plank\Mediable\MediaUploader::toDisk($disk);
+        }
+        
+        /**
+         * Set the directory relative to the filesystem disk at which the file will be saved.
+         *
+         * @param string $directory
+         * @return static 
+         * @static 
+         */
+        public static function toDirectory($directory)
+        {
+            return \Plank\Mediable\MediaUploader::toDirectory($directory);
+        }
+        
+        /**
+         * Specify the filename to copy to the file to.
+         *
+         * @param string $filename
+         * @return static 
+         * @static 
+         */
+        public static function useFilename($filename)
+        {
+            return \Plank\Mediable\MediaUploader::useFilename($filename);
+        }
+        
+        /**
+         * Indicates to the uploader to generate a filename using the file's MD5 hash.
+         *
+         * @return static 
+         * @static 
+         */
+        public static function useHashForFilename()
+        {
+            return \Plank\Mediable\MediaUploader::useHashForFilename();
+        }
+        
+        /**
+         * Restore the default behaviour of using the source file's filename.
+         *
+         * @return static 
+         * @static 
+         */
+        public static function useOriginalFilename()
+        {
+            return \Plank\Mediable\MediaUploader::useOriginalFilename();
+        }
+        
+        /**
+         * Change the class to use for generated Media.
+         *
+         * @param string $class
+         * @return static 
+         * @throws \Plank\Mediable\Exceptions\MediaUpload\ConfigurationException if $class does not extend Plank\Mediable\Media
+         * @static 
+         */
+        public static function setModelClass($class)
+        {
+            return \Plank\Mediable\MediaUploader::setModelClass($class);
+        }
+        
+        /**
+         * Change the maximum allowed filesize.
+         *
+         * @param int $size
+         * @return static 
+         * @static 
+         */
+        public static function setMaximumSize($size)
+        {
+            return \Plank\Mediable\MediaUploader::setMaximumSize($size);
+        }
+        
+        /**
+         * Change the behaviour for when a file already exists at the destination.
+         *
+         * @param string $behavior
+         * @return static 
+         * @static 
+         */
+        public static function setOnDuplicateBehavior($behavior)
+        {
+            return \Plank\Mediable\MediaUploader::setOnDuplicateBehavior($behavior);
+        }
+        
+        /**
+         * Get current behavior when duplicate file is uploaded.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getOnDuplicateBehavior()
+        {
+            return \Plank\Mediable\MediaUploader::getOnDuplicateBehavior();
+        }
+        
+        /**
+         * Throw an exception when file already exists at the destination.
+         *
+         * @return static 
+         * @static 
+         */
+        public static function onDuplicateError()
+        {
+            return \Plank\Mediable\MediaUploader::onDuplicateError();
+        }
+        
+        /**
+         * Append incremented counter to file name when file already exists at destination.
+         *
+         * @return static 
+         * @static 
+         */
+        public static function onDuplicateIncrement()
+        {
+            return \Plank\Mediable\MediaUploader::onDuplicateIncrement();
+        }
+        
+        /**
+         * Overwrite existing file when file already exists at destination.
+         *
+         * @return static 
+         * @static 
+         */
+        public static function onDuplicateReplace()
+        {
+            return \Plank\Mediable\MediaUploader::onDuplicateReplace();
+        }
+        
+        /**
+         * Change whether both the MIME type and extensions must match the same aggregate type.
+         *
+         * @param bool $strict
+         * @return static 
+         * @static 
+         */
+        public static function setStrictTypeChecking($strict)
+        {
+            return \Plank\Mediable\MediaUploader::setStrictTypeChecking($strict);
+        }
+        
+        /**
+         * Change whether files not matching any aggregate types are allowed.
+         *
+         * @param bool $allow
+         * @return static 
+         * @static 
+         */
+        public static function setAllowUnrecognizedTypes($allow)
+        {
+            return \Plank\Mediable\MediaUploader::setAllowUnrecognizedTypes($allow);
+        }
+        
+        /**
+         * Add or update the definition of a aggregate type.
+         *
+         * @param string $type the name of the type
+         * @param array $mime_types list of MIME types recognized
+         * @param array $extensions list of file extensions recognized
+         * @return static 
+         * @static 
+         */
+        public static function setTypeDefinition($type, $mime_types, $extensions)
+        {
+            return \Plank\Mediable\MediaUploader::setTypeDefinition($type, $mime_types, $extensions);
+        }
+        
+        /**
+         * Set a list of MIME types that the source file must be restricted to.
+         *
+         * @param array $allowed_mimes
+         * @return static 
+         * @static 
+         */
+        public static function setAllowedMimeTypes($allowed_mimes)
+        {
+            return \Plank\Mediable\MediaUploader::setAllowedMimeTypes($allowed_mimes);
+        }
+        
+        /**
+         * Set a list of file extensions that the source file must be restricted to.
+         *
+         * @param array $allowed_extensions
+         * @return static 
+         * @static 
+         */
+        public static function setAllowedExtensions($allowed_extensions)
+        {
+            return \Plank\Mediable\MediaUploader::setAllowedExtensions($allowed_extensions);
+        }
+        
+        /**
+         * Set a list of aggregate types that the source file must be restricted to.
+         *
+         * @param array $allowed_types
+         * @return static 
+         * @static 
+         */
+        public static function setAllowedAggregateTypes($allowed_types)
+        {
+            return \Plank\Mediable\MediaUploader::setAllowedAggregateTypes($allowed_types);
+        }
+        
+        /**
+         * Determine the aggregate type of the file based on the MIME type and the extension.
+         *
+         * @param string $mime_type
+         * @param string $extension
+         * @return string 
+         * @throws \Plank\Mediable\Exceptions\MediaUpload\FileNotSupportedException If the file type is not recognized
+         * @throws \Plank\Mediable\Exceptions\MediaUpload\FileNotSupportedException If the file type is restricted
+         * @throws \Plank\Mediable\Exceptions\MediaUpload\FileNotSupportedException If the aggregate type is restricted
+         * @static 
+         */
+        public static function inferAggregateType($mime_type, $extension)
+        {
+            return \Plank\Mediable\MediaUploader::inferAggregateType($mime_type, $extension);
+        }
+        
+        /**
+         * Determine the aggregate type of the file based on the MIME type.
+         *
+         * @param string $mime
+         * @return string 
+         * @static 
+         */
+        public static function possibleAggregateTypesForMimeType($mime)
+        {
+            return \Plank\Mediable\MediaUploader::possibleAggregateTypesForMimeType($mime);
+        }
+        
+        /**
+         * Determine the aggregate type of the file based on the extension.
+         *
+         * @param string $extension
+         * @return string|null 
+         * @static 
+         */
+        public static function possibleAggregateTypesForExtension($extension)
+        {
+            return \Plank\Mediable\MediaUploader::possibleAggregateTypesForExtension($extension);
+        }
+        
+        /**
+         * Process the file upload.
+         * 
+         * Validates the source, then stores the file onto the disk and creates and stores a new Media instance.
+         *
+         * @return \Plank\Mediable\Media 
+         * @static 
+         */
+        public static function upload()
+        {
+            return \Plank\Mediable\MediaUploader::upload();
+        }
+        
+        /**
+         * Create a `Media` record for a file already on a disk.
+         *
+         * @param string $disk
+         * @param string $path Path to file, relative to disk root
+         * @return \Plank\Mediable\Media 
+         * @static 
+         */
+        public static function importPath($disk, $path)
+        {
+            return \Plank\Mediable\MediaUploader::importPath($disk, $path);
+        }
+        
+        /**
+         * Create a `Media` record for a file already on a disk.
+         *
+         * @param string $disk
+         * @param string $directory
+         * @param string $filename
+         * @param string $extension
+         * @return \Plank\Mediable\Media 
+         * @throws \Plank\Mediable\Exceptions\MediaUploadFileNotFoundException If the file does not exist
+         * @static 
+         */
+        public static function import($disk, $directory, $filename, $extension)
+        {
+            return \Plank\Mediable\MediaUploader::import($disk, $directory, $filename, $extension);
+        }
+        
+        /**
+         * Reanalyze a media record's file and adjust the aggregate type and size, if necessary.
+         *
+         * @param \Plank\Mediable\Media $media
+         * @return bool Whether the model was modified
+         * @static 
+         */
+        public static function update($media)
+        {
+            return \Plank\Mediable\MediaUploader::update($media);
+        }
+        
+    }         
+}
+    
     
 namespace {
 
@@ -16334,6 +16685,8 @@ namespace {
     class LaravelLocalization extends \Mcamara\LaravelLocalization\Facades\LaravelLocalization {}
     
     class Excel extends \Maatwebsite\Excel\Facades\Excel {}
+    
+    class MediaUploader extends \Plank\Mediable\MediaUploaderFacade {}
     
 }
 

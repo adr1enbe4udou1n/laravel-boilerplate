@@ -12,6 +12,8 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
+use App\Models\User;
+
 $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
@@ -21,5 +23,34 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
         'confirmed' => true,
         'locale' => app()->getLocale(),
         'timezone' => config('app.timezone'),
+    ];
+});
+
+$factory->define(App\Models\Tag::class, function (Faker\Generator $faker) {
+    return [
+        'locale' => app()->getLocale(),
+        'name' => $faker->word,
+    ];
+});
+
+$factory->define(App\Models\Post::class, function (Faker\Generator $faker) {
+    $count = User::count();
+
+    return [
+        'user_id' => $faker->numberBetween(1, $count - 1),
+        'en' => [
+            'title' => $faker->sentence,
+            'summary' => $faker->sentences(3, true),
+            'body' => '<p>' . implode('</p><p>', $faker->paragraphs) . '</p>',
+        ],
+        'fr' => [
+            'title' => $faker->sentence,
+            'summary' => $faker->sentences(3, true),
+            'body' => '<p>' . implode('</p><p>', $faker->paragraphs) . '</p>',
+        ],
+        'status' => $faker->numberBetween(0, 2),
+        'promoted' => $faker->boolean,
+        'pinned' => $faker->boolean,
+        'published_at' => $faker->dateTimeBetween('-2 days', '+2 days')
     ];
 });
