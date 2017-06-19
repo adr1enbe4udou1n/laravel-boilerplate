@@ -10,6 +10,7 @@ return [
             'first_user_cannot_be_disabled' => 'Super admin user cannot be disabled',
             'first_user_cannot_be_destroyed' => 'Super admin user cannot be deleted',
             'first_user_cannot_be_impersonated' => 'Super admin user cannot be impersonated',
+            'cannot_set_superior_roles' => 'You cannot attribute roles superior to yours',
         ],
 
         'roles' => [

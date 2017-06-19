@@ -94,6 +94,33 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
     }
 
     /**
+     * Get only roles than current can attribute to the others
+     */
+    public function getAllowedRoles()
+    {
+        $authenticatedUser = auth()->user();
+
+        $roles = $this->query()->with('permissions')->orderBy('order')->get();
+
+        if ($authenticatedUser->is_super_admin) {
+            return $roles;
+        }
+
+        /** @var \Illuminate\Support\Collection $permissions */
+        $permissions = $authenticatedUser->getPermissions();
+
+        $roles = $roles->filter(function (Role $role) use ($permissions) {
+            foreach($role->permissions as $permission) {
+                if ($permissions->search($permission, true) === false) {
+                    return false;
+                }
+            }
+            return true;
+        });
+        return $roles;
+    }
+
+    /**
      * @param \App\Models\Role $role
      *
      * @return mixed

@@ -20,8 +20,7 @@ class CreateTagsTable extends Migration
 
         Schema::create('taggables', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('taggable_id');
-            $table->string('taggable_type');
+            $table->morphs('taggable');
         });
     }
 

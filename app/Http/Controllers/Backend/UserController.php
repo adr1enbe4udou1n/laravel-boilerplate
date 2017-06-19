@@ -38,7 +38,7 @@ class UserController extends Controller
         $this->roles = $roles;
 
         $view->composer('*', function (\Illuminate\View\View $view) {
-            $view->withRoles($this->roles->select()->orderBy('order'));
+            $view->withRoles($this->roles->getAllowedRoles());
         });
     }
 

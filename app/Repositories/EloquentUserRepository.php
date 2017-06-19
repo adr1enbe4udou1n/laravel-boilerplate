@@ -7,6 +7,7 @@ use App\Events\UserDeleted;
 use App\Events\UserUpdated;
 use App\Exceptions\GeneralException;
 use App\Models\User;
+use App\Repositories\Contracts\RoleRepository;
 use App\Repositories\Contracts\UserRepository;
 use App\Repositories\Traits\HtmlActionsButtons;
 use Exception;
@@ -36,18 +37,26 @@ class EloquentUserRepository extends EloquentBaseRepository implements
     protected $config;
 
     /**
+     * @var RoleRepository
+     */
+    protected $roles;
+
+    /**
      * EloquentUserRepository constructor.
      *
      * @param User                                             $user
+     * @param \App\Repositories\Contracts\RoleRepository       $roles
      * @param \Mcamara\LaravelLocalization\LaravelLocalization $localization
      * @param \Illuminate\Contracts\Config\Repository          $config
      */
     public function __construct(
         User $user,
+        RoleRepository $roles,
         LaravelLocalization $localization,
         Repository $config
     ) {
         parent::__construct($user);
+        $this->roles = $roles;
         $this->localization = $localization;
         $this->config = $config;
     }
@@ -72,6 +81,8 @@ class EloquentUserRepository extends EloquentBaseRepository implements
      */
     public function store(array $input, $confirmed = false)
     {
+        $allowedRoles = $this->roles->getAllowedRoles();
+
         /** @var User $user */
         $user = $this->make(Arr::only($input, ['name', 'email', 'active']));
 
@@ -94,8 +105,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements
 
         event(new UserCreated($user));
 
-        $roles = isset($input['roles']) ? $input['roles'] : [];
-        $user->roles()->sync($roles);
+        $this->setRolesToUser($user, isset($input['roles']) ? $input['roles'] : []);
 
         return $user;
     }
@@ -131,10 +141,32 @@ class EloquentUserRepository extends EloquentBaseRepository implements
 
         event(new UserUpdated($user));
 
-        $roles = isset($input['roles']) ? $input['roles'] : [];
-        $user->roles()->sync($roles);
+        $this->setRolesToUser($user, isset($input['roles']) ? $input['roles'] : []);
 
         return $user;
+    }
+
+    /**
+     * @param \App\Models\User $user
+     *
+     * @param array            $roles
+     *
+     * @throws \App\Exceptions\GeneralException
+     */
+    private function setRolesToUser(User $user, array $roles)
+    {
+        if (empty($roles)) {
+            return;
+        }
+
+        $allowedRoles = $this->roles->getAllowedRoles()->keyBy('id');
+
+        foreach($roles as $id) {
+            if (!$allowedRoles->has($id)) {
+                throw new GeneralException(trans('exceptions.backend.users.cannot_set_superior_roles'));
+            }
+        }
+        $user->roles()->sync($roles);
     }
 
     /**

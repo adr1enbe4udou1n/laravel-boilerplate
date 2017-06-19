@@ -38,7 +38,7 @@
         'title' => trans('validation.attributes.roles'),
         'label_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-9',
-        'choices' => $roles->get(),
+        'choices' => $roles,
         'choice_tooltip' => [
             'position' => 'right',
             'title' => 'description',

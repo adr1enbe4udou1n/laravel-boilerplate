@@ -10,6 +10,7 @@ return [
             'first_user_cannot_be_disabled' => 'L\'utilisateur super admin ne peut pas être désactivé',
             'first_user_cannot_be_destroyed' => 'L\'utilisateur super admin ne peut pas être supprimé',
             'first_user_cannot_be_impersonated' => 'L\'utilisateur super admin ne peut pas être usurpé',
+            'cannot_set_superior_roles' => 'Vous ne pouvez pas attribuer de rôle supérieur au vôtre',
         ],
 
         'roles' => [

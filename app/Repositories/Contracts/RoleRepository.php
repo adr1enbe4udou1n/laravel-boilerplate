@@ -32,6 +32,11 @@ interface RoleRepository extends BaseRepository
     public function destroy(Role $role);
 
     /**
+     * @return \Illuminate\Support\Collection
+     */
+    public function getAllowedRoles();
+
+    /**
      * @param \App\Models\Role $role
      *
      * @return mixed
