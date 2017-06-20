@@ -27,14 +27,8 @@ class BlogController extends Controller
         return view('frontend.blog.index')->withPosts($this->posts->published()->paginate(10));
     }
 
-    public function show($slug)
+    public function show($post)
     {
-        $post = $this->posts->findBySlug($slug);
-
-        if (!$post) {
-            abort(404);
-        }
-
         return view('frontend.blog.show')->withPost($post);
     }
 }

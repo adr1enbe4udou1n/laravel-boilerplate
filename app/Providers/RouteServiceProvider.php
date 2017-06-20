@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Repositories\Contracts\PostRepository;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\URL;
@@ -35,6 +36,12 @@ class RouteServiceProvider extends ServiceProvider
             // Force Route URL (useful for multi-device development)
             URL::forceRootUrl(config('app.url'));
         }
+
+        Route::bind('post', function ($value) {
+            /** @var PostRepository $posts */
+            $posts = app(PostRepository::class);
+            return $posts->findBySlug($value);
+        });
     }
 
     /**
