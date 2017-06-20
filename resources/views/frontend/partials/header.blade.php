@@ -25,6 +25,10 @@
                                     class="fa fa-home"></i></a></li>
                     <li class="{{ active_class(if_route('about')) }}"><a
                                 href="{{ route('about') }}">@lang('labels.frontend.titles.about')</a></li>
+                    @if(config('blog.enabled'))
+                    <li class="{{ active_class(if_route('blog.*')) }}"><a
+                                href="{{ route('blog.index') }}">@lang('labels.frontend.titles.blog')</a></li>
+                    @endif
                     <li class="{{ active_class(if_route('contact')) }}"><a
                                 href="{{ route('contact') }}">@lang('labels.frontend.titles.contact')</a></li>
                 </ul>

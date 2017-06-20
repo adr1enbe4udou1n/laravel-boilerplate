@@ -27,17 +27,16 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Models\Tag::class, function (Faker\Generator $faker) {
+    $locales = ['en', 'fr'];
+
     return [
-        'locale' => app()->getLocale(),
-        'name' => $faker->word,
+        'locale' => $locales[array_rand($locales)],
+        'name' => $faker->unique()->word,
     ];
 });
 
 $factory->define(App\Models\Post::class, function (Faker\Generator $faker) {
-    $count = User::count();
-
     return [
-        'user_id' => $faker->numberBetween(1, $count - 1),
         'en' => [
             'title' => $faker->sentence,
             'summary' => $faker->sentences(3, true),

@@ -208,6 +208,7 @@ return [
             'home' => 'Home',
             'about' => 'About',
             'contact' => 'Contact',
+            'blog' => 'Blog',
             'message_sent' => 'Message sent',
             'legal_mentions' => 'Legal mentions',
         ],

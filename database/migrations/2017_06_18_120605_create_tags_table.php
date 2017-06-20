@@ -20,7 +20,10 @@ class CreateTagsTable extends Migration
 
         Schema::create('taggables', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('tag_id');
             $table->morphs('taggable');
+
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
         });
     }
 
@@ -29,7 +32,7 @@ class CreateTagsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tags');
         Schema::dropIfExists('taggables');
+        Schema::dropIfExists('tags');
     }
 }

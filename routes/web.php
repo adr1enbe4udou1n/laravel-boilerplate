@@ -39,6 +39,18 @@ Route::group([
                 ->name(
                     'legal-mentions'
                 );
+
+            if (config('blog.enabled')) {
+                Route::get('blog', 'BlogController@index')
+                    ->name(
+                        'blog.index'
+                    );
+
+                Route::get('blog/{post}', 'BlogController@show')
+                    ->name(
+                        'blog.post'
+                    );
+            }
         }
     );
 

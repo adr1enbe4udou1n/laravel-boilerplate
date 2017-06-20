@@ -208,6 +208,7 @@ return [
             'home' => 'Accueil',
             'about' => 'Qui sommes-nous ?',
             'contact' => 'Contact',
+            'blog' => 'Blog',
             'message_sent' => 'Message envoyé',
             'legal_mentions' => 'Mention légales',
         ],

@@ -11,6 +11,16 @@ Breadcrumbs::register('about', function (Generator $breadcrumbs) {
     $breadcrumbs->push(trans('labels.frontend.titles.about'), route('about'));
 });
 
+Breadcrumbs::register('blog.index', function (Generator $breadcrumbs) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push(trans('labels.frontend.titles.blog'), route('blog.index'));
+});
+
+Breadcrumbs::register('blog.post', function (Generator $breadcrumbs) {
+    $breadcrumbs->parent('blog');
+    $breadcrumbs->push(trans('labels.frontend.titles.blog'), route('blog.post'));
+});
+
 Breadcrumbs::register('contact', function (Generator $breadcrumbs) {
     $breadcrumbs->parent('home');
     $breadcrumbs->push(trans('labels.frontend.titles.contact'), route('contact'));
