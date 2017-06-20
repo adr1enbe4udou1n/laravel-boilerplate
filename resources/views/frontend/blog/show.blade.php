@@ -1,8 +1,8 @@
 @extends('layouts.frontend')
 
-@section('title', trans('labels.frontend.titles.blog'))
+@section('title', $post->title)
 
-@section('body_id', 'page-blog')
+@section('body_id', 'page-post')
 
 @section('highlight')
     @component('frontend.components.highlight')

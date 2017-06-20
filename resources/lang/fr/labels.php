@@ -221,5 +221,9 @@ return [
             'locale' => 'Sélectionnez votre langue',
             'timezone' => 'Sélectionnez votre fuseau horaire',
         ],
+
+        'blog' => [
+            'published_at' => 'Publié le :date',
+        ],
     ],
 ];

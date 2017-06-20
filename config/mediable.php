@@ -82,7 +82,7 @@ return [
                 'jpeg',
                 'png',
                 'gif',
-            ]
+            ],
         ],
         Plank\Mediable\Media::TYPE_IMAGE_VECTOR => [
             'mime_types' => [
@@ -90,7 +90,7 @@ return [
             ],
             'extensions' => [
                 'svg',
-            ]
+            ],
         ],
         Plank\Mediable\Media::TYPE_PDF => [
             'mime_types' => [
@@ -98,7 +98,7 @@ return [
             ],
             'extensions' => [
                 'pdf',
-            ]
+            ],
         ],
         Plank\Mediable\Media::TYPE_AUDIO => [
             'mime_types' => [
@@ -107,7 +107,7 @@ return [
                 'audio/mpeg',
                 'audio/mp3',
                 'audio/mpeg',
-                'audio/wav'
+                'audio/wav',
             ],
             'extensions' => [
                 'aac',
@@ -115,22 +115,22 @@ return [
                 'oga',
                 'mp3',
                 'wav',
-            ]
+            ],
         ],
         Plank\Mediable\Media::TYPE_VIDEO => [
             'mime_types' => [
                 'video/mp4',
                 'video/mpeg',
                 'video/ogg',
-                'video/webm'
+                'video/webm',
             ],
             'extensions' => [
                 'mp4',
                 'm4v',
                 'mov',
                 'ogv',
-                'webm'
-            ]
+                'webm',
+            ],
         ],
         Plank\Mediable\Media::TYPE_ARCHIVE => [
             'mime_types' => [
@@ -140,7 +140,7 @@ return [
             ],
             'extensions' => [
                 'zip',
-            ]
+            ],
         ],
         Plank\Mediable\Media::TYPE_DOCUMENT => [
             'mime_types' => [
@@ -150,7 +150,7 @@ return [
                 'text/json',
                 'application/json',
                 'application/msword',
-                'application/application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+                'application/application/vnd.openxmlformats-officedocument.wordprocessingml.document',
             ],
             'extensions' => [
                 'doc',
@@ -159,7 +159,7 @@ return [
                 'text',
                 'xml',
                 'json',
-            ]
+            ],
         ],
         Plank\Mediable\Media::TYPE_SPREADSHEET => [
             'mime_types' => [
@@ -169,21 +169,19 @@ return [
             'extensions' => [
                 'xls',
                 'xlsx',
-            ]
+            ],
         ],
         Plank\Mediable\Media::TYPE_PRESENTATION => [
-            'mime_types' =>
-            [
+            'mime_types' => [
                 'application/vnd.ms-powerpoint',
                 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
-                'application/vnd.openxmlformats-officedocument.presentationml.slideshow'
+                'application/vnd.openxmlformats-officedocument.presentationml.slideshow',
             ],
-            'extensions' =>
-            [
+            'extensions' => [
                 'ppt',
                 'pptx',
                 'ppsx',
-            ]
+            ],
         ],
     ],
 
@@ -201,7 +199,7 @@ return [
         'pattern' => [
             '^https?://' => Plank\Mediable\SourceAdapters\RemoteUrlAdapter::class,
             '^/' => Plank\Mediable\SourceAdapters\LocalPathAdapter::class,
-            '^[a-zA-Z]:\\' => Plank\Mediable\SourceAdapters\LocalPathAdapter::class
+            '^[a-zA-Z]:\\' => Plank\Mediable\SourceAdapters\LocalPathAdapter::class,
         ],
     ],
 
@@ -214,14 +212,14 @@ return [
         's3' => Plank\Mediable\UrlGenerators\S3UrlGenerator::class,
     ],
 
-    /**
+    /*
      * Should mediable instances automatically reload their media relationships after modification are made to a tag.
      *
      * If true, will automatically reload media the next time `getMedia()`, `getMediaMatchAll()` or `getAllMediaByTag()` are called.
      */
     'rehydrate_media' => true,
 
-    /**
+    /*
      * Detach associated media when mediable model is soft deleted.
      */
     'detach_on_soft_delete' => false,

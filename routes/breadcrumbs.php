@@ -1,5 +1,6 @@
 <?php
 
+use App\Repositories\Contracts\PostRepository;
 use \DaveJamesMiller\Breadcrumbs\Generator;
 
 Breadcrumbs::register('home', function (Generator $breadcrumbs) {
@@ -16,9 +17,13 @@ Breadcrumbs::register('blog.index', function (Generator $breadcrumbs) {
     $breadcrumbs->push(trans('labels.frontend.titles.blog'), route('blog.index'));
 });
 
-Breadcrumbs::register('blog.post', function (Generator $breadcrumbs) {
-    $breadcrumbs->parent('blog');
-    $breadcrumbs->push(trans('labels.frontend.titles.blog'), route('blog.post'));
+Breadcrumbs::register('blog.show', function (Generator $breadcrumbs, $slug) {
+    /** @var PostRepository $posts */
+    $posts = app(PostRepository::class);
+    $post = $posts->findBySlug($slug);
+
+    $breadcrumbs->parent('blog.index');
+    $breadcrumbs->push($post->title, route('blog.show', $slug));
 });
 
 Breadcrumbs::register('contact', function (Generator $breadcrumbs) {

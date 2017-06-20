@@ -50,6 +50,7 @@ use App\Notifications\ResetPassword as ResetPasswordNotification;
  * @property \Illuminate\Database\Eloquent\Collection|\App\Models\SocialLogin[] $providers
  * @property mixed $avatar
  * @property mixed $formatted_roles
+ * @property \Plank\Mediable\MediableCollection|\App\Models\Post[] $posts
  */
 class User extends Authenticatable
 {
@@ -182,6 +183,11 @@ class User extends Authenticatable
         $hash = md5($this->email);
 
         return "https://secure.gravatar.com/avatar/{$hash}?size=100&d=mm&r=g";
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 
     /**

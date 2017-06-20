@@ -221,5 +221,9 @@ return [
             'locale' => 'Select your language',
             'timezone' => 'Select your timezone',
         ],
+
+        'blog' => [
+            'published_at' => 'Published at :date',
+        ],
     ],
 ];

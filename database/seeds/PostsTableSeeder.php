@@ -8,7 +8,6 @@ use Illuminate\Support\Str;
 
 class PostsTableSeeder extends Seeder
 {
-
     /**
      * Run the database seeds.
      *
@@ -23,7 +22,7 @@ class PostsTableSeeder extends Seeder
 
         // 50 random posts
         /** @var \Illuminate\Database\Eloquent\Collection $posts */
-        $posts = factory(Post::class)->times(50)->create();
+        $posts = factory(Post::class)->times(200)->create();
 
         /** @var \Illuminate\Database\Eloquent\Collection $tags */
         $tags = factory(Tag::class)->times(20)->create();

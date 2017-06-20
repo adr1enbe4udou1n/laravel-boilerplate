@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Post;
+use App\Models\PostTranslation;
 use App\Repositories\Contracts\PostRepository;
 use App\Repositories\Traits\HtmlActionsButtons;
 use Illuminate\Contracts\Config\Repository;
@@ -40,13 +41,30 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     }
 
     /**
+     * @return mixed
+     */
+    public function published()
+    {
+        return $this->model
+            ->published()
+            ->orderByDesc('pinned')
+            ->orderByDesc('published_at');
+    }
+
+    /**
      * @param string $slug
      *
      * @return mixed
      */
     public function findBySlug($slug)
     {
-        return $this->query()->whereSlug($slug)->first();
+        /** @var PostTranslation $postTranslation */
+        $postTranslation = PostTranslation::whereSlug($slug)->first();
+
+        if ($postTranslation) {
+            return $postTranslation->post;
+        }
+        return null;
     }
 
     /**

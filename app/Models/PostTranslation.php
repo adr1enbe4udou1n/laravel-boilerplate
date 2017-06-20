@@ -27,6 +27,8 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin \Eloquent
  *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\PostTranslation wherePostId($value)
+ *
+ * @property \App\Models\Post $post
  */
 class PostTranslation extends Model
 {
@@ -45,5 +47,10 @@ class PostTranslation extends Model
                 'source' => 'title',
             ],
         ];
+    }
+
+    public function post()
+    {
+        return $this->belongsTo(Post::class);
     }
 }

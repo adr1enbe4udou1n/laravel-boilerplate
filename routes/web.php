@@ -46,9 +46,9 @@ Route::group([
                         'blog.index'
                     );
 
-                Route::get('blog/{post}', 'BlogController@show')
+                Route::get('blog/{slug}', 'BlogController@show')
                     ->name(
-                        'blog.post'
+                        'blog.show'
                     );
             }
         }

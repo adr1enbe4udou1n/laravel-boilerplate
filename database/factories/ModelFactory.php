@@ -12,8 +12,6 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-use App\Models\User;
-
 $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
@@ -40,16 +38,16 @@ $factory->define(App\Models\Post::class, function (Faker\Generator $faker) {
         'en' => [
             'title' => $faker->sentence,
             'summary' => $faker->sentences(3, true),
-            'body' => '<p>' . implode('</p><p>', $faker->paragraphs) . '</p>',
+            'body' => '<p>'.implode('</p><p>', $faker->paragraphs).'</p>',
         ],
         'fr' => [
             'title' => $faker->sentence,
             'summary' => $faker->sentences(3, true),
-            'body' => '<p>' . implode('</p><p>', $faker->paragraphs) . '</p>',
+            'body' => '<p>'.implode('</p><p>', $faker->paragraphs).'</p>',
         ],
         'status' => $faker->numberBetween(0, 2),
-        'promoted' => $faker->boolean,
-        'pinned' => $faker->boolean,
-        'published_at' => $faker->dateTimeBetween('-2 days', '+2 days')
+        'promoted' => $faker->boolean(10),
+        'pinned' => $faker->boolean(5),
+        'published_at' => $faker->dateTimeBetween('-2 days', '+2 days'),
     ];
 });

@@ -9,6 +9,12 @@ use App\Models\Post;
  */
 interface PostRepository extends BaseRepository
 {
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function published();
+
     /**
      * @param string $slug
      *

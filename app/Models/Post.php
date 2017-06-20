@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Dimsav\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Plank\Mediable\Mediable;
 
@@ -47,6 +48,17 @@ use Plank\Mediable\Mediable;
  * @property mixed $status_label
  *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereStatus($value)
+ *
+ * @property \Illuminate\Database\Eloquent\Collection|\Plank\Mediable\Media[] $media
+ *
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Post published()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereHasMedia($tags, $match_all = false)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereHasMediaMatchAll($tags)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Post withMedia($tags = array(), $match_all = false)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Post withMediaMatchAll($tags = array())
+ *
+ * @property mixed $featured_image_url
+ * @property \App\Models\User $owner
  */
 class Post extends Model
 {
@@ -73,7 +85,7 @@ class Post extends Model
             'published',
         ];
 
-    protected $with = ['translations'];
+    protected $with = ['translations', 'media'];
 
     const DRAFT = 0;
     const PENDING = 1;
@@ -93,11 +105,33 @@ class Post extends Model
         return self::getStatuses()[$this->status];
     }
 
+    public function getFeaturedImageUrlAttribute()
+    {
+        return $this->getMedia('featured image')->first()->getUrl();
+    }
+
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
     /**
      * Get all of the tags for the post.
      */
     public function tags()
     {
         return $this->morphToMany(Tag::class, 'taggable');
+    }
+
+    /**
+     * Scope a query to only include published articles.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopePublished(Builder $query)
+    {
+        return $query->where('status', '=', self::PUBLISHED);
     }
 }

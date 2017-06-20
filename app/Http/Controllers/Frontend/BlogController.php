@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Models\Post;
 use App\Repositories\Contracts\PostRepository;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class BlogController extends Controller
@@ -24,11 +22,19 @@ class BlogController extends Controller
         $this->posts = $posts;
     }
 
-    public function index() {
-        return view('frontend.blog.index');
+    public function index()
+    {
+        return view('frontend.blog.index')->withPosts($this->posts->published()->paginate(10));
     }
 
-    public function show(Post $post) {
-        return view('frontend.blog.index');
+    public function show($slug)
+    {
+        $post = $this->posts->findBySlug($slug);
+
+        if (!$post) {
+            abort(404);
+        }
+
+        return view('frontend.blog.show')->withPost($post);
     }
 }
