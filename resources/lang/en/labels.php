@@ -224,6 +224,7 @@ return [
 
         'blog' => [
             'published_at' => 'Published at :date',
+            'tags' => 'Tags',
         ],
     ],
 ];

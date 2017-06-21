@@ -208,6 +208,7 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Plank\Mediable\MediableServiceProvider::class,
+        Mews\Purifier\PurifierServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -277,5 +278,6 @@ return [
         'LaravelLocalization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'MediaUploader' => Plank\Mediable\MediaUploaderFacade::class,
+        'Purifier' => Mews\Purifier\Facades\Purifier::class,
     ],
 ];

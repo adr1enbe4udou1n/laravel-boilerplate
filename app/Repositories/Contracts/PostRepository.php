@@ -3,6 +3,7 @@
 namespace App\Repositories\Contracts;
 
 use App\Models\Post;
+use App\Models\Tag;
 
 /**
  * Interface PostRepository.
@@ -11,9 +12,11 @@ interface PostRepository extends BaseRepository
 {
 
     /**
+     * @param Tag $tag
+     *
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function published();
+    public function published(Tag $tag = null);
 
     /**
      * @param string $slug
@@ -21,13 +24,6 @@ interface PostRepository extends BaseRepository
      * @return Post
      */
     public function findBySlug($slug);
-
-    /**
-     * @param string $slug
-     *
-     * @return mixed
-     */
-    public function findByTagSlug($slug);
 
     /**
      * @param array $input

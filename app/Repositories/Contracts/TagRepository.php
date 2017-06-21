@@ -21,12 +21,12 @@ interface TagRepository extends BaseRepository
      *
      * @return mixed
      */
-    public function store($name);
+    public function findOrCreate($name);
 
     /**
-     * @param Tag $tag
+     * @param string $name
      *
      * @return mixed
      */
-    public function destroy(Tag $tag);
+    public function delete($name);
 }

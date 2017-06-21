@@ -15,7 +15,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $type
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Redirection actives()
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Redirection whereActive($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Redirection whereCreatedAt($value)

@@ -4,9 +4,11 @@ namespace App\Repositories;
 
 use App\Models\Post;
 use App\Models\PostTranslation;
+use App\Models\Tag;
 use App\Repositories\Contracts\PostRepository;
 use App\Repositories\Traits\HtmlActionsButtons;
 use Illuminate\Contracts\Config\Repository;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Mcamara\LaravelLocalization\LaravelLocalization;
 
 /**
@@ -41,12 +43,19 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     }
 
     /**
+     * @param Tag $tag
+     *
      * @return mixed
      */
-    public function published()
+    public function published(Tag $tag = null)
     {
-        return $this->model
-            ->published()
+        $query = $this->model->published();
+
+        if ($tag) {
+            $query->withTag($tag);
+        }
+
+        return $query
             ->orderByDesc('pinned')
             ->orderByDesc('published_at');
     }
@@ -62,19 +71,11 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
         $postTranslation = PostTranslation::whereSlug($slug)->first();
 
         if ($postTranslation) {
-            return $postTranslation->post;
+            return $postTranslation->post()->getQuery()->with(['tags' => function (MorphToMany $query) {
+                $query->where('locale', '=', $this->localization->getCurrentLocale());
+            }])->first();
         }
         return null;
-    }
-
-    /**
-     * @param string $slug
-     *
-     * @return mixed
-     */
-    public function findByTagSlug($slug)
-    {
-        // TODO: Implement findByTagSlug() method.
     }
 
     /**

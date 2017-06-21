@@ -50,6 +50,11 @@ Route::group([
                     ->name(
                         'blog.show'
                     );
+
+                Route::get('blog/tags/{tag}', 'BlogController@index')
+                    ->name(
+                        'blog.tag'
+                    );
             }
         }
     );

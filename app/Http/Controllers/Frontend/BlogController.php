@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Post;
+use App\Models\Tag;
 use App\Repositories\Contracts\PostRepository;
 
 class BlogController extends FrontendController
@@ -23,12 +25,14 @@ class BlogController extends FrontendController
         $this->posts = $posts;
     }
 
-    public function index()
+    public function index($tag = null)
     {
-        return view('frontend.blog.index')->withPosts($this->posts->published()->paginate(10));
+        return view('frontend.blog.index')->withPosts(
+            $this->posts->published($tag)->paginate(10)
+        );
     }
 
-    public function show($post)
+    public function show(Post $post)
     {
         $this->setTranslatable($post);
 

@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.27 on 2017-06-20.
+ * Generated for Laravel 5.4.27 on 2017-06-21.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -14614,6 +14614,37 @@ namespace Plank\Mediable {
     }         
 }
     
+namespace Mews\Purifier\Facades {
+
+    class Purifier {
+        
+        /**
+         * 
+         *
+         * @param $dirty
+         * @param null $config
+         * @return mixed 
+         * @static 
+         */
+        public static function clean($dirty, $config = null)
+        {
+            return \Mews\Purifier\Purifier::clean($dirty, $config);
+        }
+        
+        /**
+         * Get HTMLPurifier instance.
+         *
+         * @return \HTMLPurifier 
+         * @static 
+         */
+        public static function getInstance()
+        {
+            return \Mews\Purifier\Purifier::getInstance();
+        }
+        
+    }         
+}
+    
     
 namespace {
 
@@ -16687,6 +16718,8 @@ namespace {
     class Excel extends \Maatwebsite\Excel\Facades\Excel {}
     
     class MediaUploader extends \Plank\Mediable\MediaUploaderFacade {}
+    
+    class Purifier extends \Mews\Purifier\Facades\Purifier {}
     
 }
 

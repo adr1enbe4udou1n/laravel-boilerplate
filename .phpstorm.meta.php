@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2017-06-20.
+    * Generated on 2017-06-21.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -162,6 +162,7 @@ namespace PHPSTORM_META {
             'command.tinker' instanceof \Laravel\Tinker\Console\TinkerCommand,
             'Laravel\Socialite\Contracts\Factory' instanceof \Laravel\Socialite\SocialiteManager,
             'sitemap' instanceof \Roumen\Sitemap\Sitemap,
+            'purifier' instanceof \Mews\Purifier\Purifier,
         ],
         \Illuminate\Contracts\Container\Container::make('') => [
             '' == '@',
@@ -316,6 +317,7 @@ namespace PHPSTORM_META {
             'command.tinker' instanceof \Laravel\Tinker\Console\TinkerCommand,
             'Laravel\Socialite\Contracts\Factory' instanceof \Laravel\Socialite\SocialiteManager,
             'sitemap' instanceof \Roumen\Sitemap\Sitemap,
+            'purifier' instanceof \Mews\Purifier\Purifier,
         ],
         \App::make('') => [
             '' == '@',
@@ -470,6 +472,7 @@ namespace PHPSTORM_META {
             'command.tinker' instanceof \Laravel\Tinker\Console\TinkerCommand,
             'Laravel\Socialite\Contracts\Factory' instanceof \Laravel\Socialite\SocialiteManager,
             'sitemap' instanceof \Roumen\Sitemap\Sitemap,
+            'purifier' instanceof \Mews\Purifier\Purifier,
         ],
         \app('') => [
             '' == '@',
@@ -624,6 +627,7 @@ namespace PHPSTORM_META {
             'command.tinker' instanceof \Laravel\Tinker\Console\TinkerCommand,
             'Laravel\Socialite\Contracts\Factory' instanceof \Laravel\Socialite\SocialiteManager,
             'sitemap' instanceof \Roumen\Sitemap\Sitemap,
+            'purifier' instanceof \Mews\Purifier\Purifier,
         ],
     ];
 }

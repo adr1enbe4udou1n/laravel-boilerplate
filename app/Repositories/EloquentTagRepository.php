@@ -18,22 +18,15 @@ class EloquentTagRepository extends EloquentBaseRepository implements TagReposit
     protected $localization;
 
     /**
-     * @var \Illuminate\Contracts\Config\Repository
-     */
-    protected $config;
-
-    /**
      * EloquentUserRepository constructor.
      *
      * @param Tag                                              $tag
      * @param \Mcamara\LaravelLocalization\LaravelLocalization $localization
-     * @param \Illuminate\Contracts\Config\Repository          $config
      */
-    public function __construct(Tag $tag, LaravelLocalization $localization, Repository $config)
+    public function __construct(Tag $tag, LaravelLocalization $localization)
     {
         parent::__construct($tag);
         $this->localization = $localization;
-        $this->config = $config;
     }
 
     /**
@@ -43,7 +36,7 @@ class EloquentTagRepository extends EloquentBaseRepository implements TagReposit
      */
     public function findBySlug($slug)
     {
-        // TODO: Implement findBySlug() method.
+        return $this->query()->whereSlug($slug)->first();
     }
 
     /**
@@ -51,18 +44,22 @@ class EloquentTagRepository extends EloquentBaseRepository implements TagReposit
      *
      * @return mixed
      */
-    public function store($name)
+    public function findOrCreate($name)
     {
-        // TODO: Implement store() method.
+        return $this->query()->whereName($name)->firstOrCreate([
+            'locale' => $this->localization->getCurrentLocale(),
+            'name' => $name,
+        ]);
     }
 
     /**
-     * @param Tag $tag
+     * @param string $name
      *
-     * @return mixed
+     * @return bool
+     * @throws \Exception
      */
-    public function destroy(Tag $tag)
+    public function delete($name)
     {
-        // TODO: Implement destroy() method.
+        return $this->query()->whereName($name)->delete();
     }
 }

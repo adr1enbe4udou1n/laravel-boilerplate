@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Post;
+use App\Models\Tag;
 use App\Repositories\Contracts\PostRepository;
 use \DaveJamesMiller\Breadcrumbs\Generator;
 
@@ -21,6 +22,11 @@ Breadcrumbs::register('blog.index', function (Generator $breadcrumbs) {
 Breadcrumbs::register('blog.show', function (Generator $breadcrumbs, Post $post) {
     $breadcrumbs->parent('blog.index');
     $breadcrumbs->push($post->title, route('blog.show', $post->slug));
+});
+
+Breadcrumbs::register('blog.tag', function (Generator $breadcrumbs, Tag $tag) {
+    $breadcrumbs->parent('blog.index');
+    $breadcrumbs->push($tag->name, route('blog.tag', $tag->slug));
 });
 
 Breadcrumbs::register('contact', function (Generator $breadcrumbs) {

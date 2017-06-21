@@ -13,7 +13,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $provider_id
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\SocialLogin whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\SocialLogin whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\SocialLogin whereProvider($value)
