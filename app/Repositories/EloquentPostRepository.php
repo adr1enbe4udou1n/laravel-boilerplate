@@ -75,6 +75,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
                 $query->where('locale', '=', $this->localization->getCurrentLocale());
             }])->first();
         }
+
         return null;
     }
 

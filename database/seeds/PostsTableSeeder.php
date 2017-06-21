@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Meta;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
@@ -12,6 +13,7 @@ class PostsTableSeeder extends Seeder
      * Run the database seeds.
      *
      * @throws \InvalidArgumentException
+     * @throws \Illuminate\Database\Eloquent\MassAssignmentException
      */
     public function run()
     {
@@ -48,6 +50,9 @@ class PostsTableSeeder extends Seeder
 
             // Set tags
             $post->tags()->saveMany($tags->random($faker->numberBetween(1, 10)));
+
+            // Set metas
+            $post->meta()->save(factory(Meta::class)->make());
         });
     }
 }

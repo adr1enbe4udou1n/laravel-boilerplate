@@ -10,7 +10,6 @@ use App\Models\Tag;
  */
 interface PostRepository extends BaseRepository
 {
-
     /**
      * @param Tag $tag
      *

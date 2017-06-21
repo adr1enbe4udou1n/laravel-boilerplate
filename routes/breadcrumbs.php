@@ -2,7 +2,6 @@
 
 use App\Models\Post;
 use App\Models\Tag;
-use App\Repositories\Contracts\PostRepository;
 use \DaveJamesMiller\Breadcrumbs\Generator;
 
 Breadcrumbs::register('home', function (Generator $breadcrumbs) {

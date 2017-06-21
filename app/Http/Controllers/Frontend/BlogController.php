@@ -25,7 +25,14 @@ class BlogController extends FrontendController
         $this->posts = $posts;
     }
 
-    public function index($tag = null)
+    public function index()
+    {
+        return view('frontend.blog.index')->withPosts(
+            $this->posts->published()->paginate(10)
+        );
+    }
+
+    public function tag(Tag $tag)
     {
         return view('frontend.blog.index')->withPosts(
             $this->posts->published($tag)->paginate(10)

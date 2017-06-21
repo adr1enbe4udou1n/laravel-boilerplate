@@ -12,6 +12,8 @@
 
     @if (!empty($meta_title))
         <title>{{ $meta_title }} | {{ config('app.name') }}</title>
+    @elseif(View::hasSection('meta_title'))
+        <title>@yield('meta_title') | {{ config('app.name') }}</title>
     @elseif(View::hasSection('title'))
         <title>@yield('title') | {{ config('app.name') }}</title>
     @else
@@ -21,7 +23,7 @@
     @if (!empty($meta_description))
         <meta name="description" content="{{ $meta_description }}">
     @elseif(View::hasSection('description'))
-        <meta name="description" content="@yield('description')">
+        <meta name="description" content="@yield('meta_description')">
     @endif
     @include('partials.alternates')
     @yield('metas')

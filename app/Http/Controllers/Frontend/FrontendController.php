@@ -18,12 +18,14 @@ class FrontendController extends Controller
         Route::bind('post', function ($value) {
             /** @var PostRepository $posts */
             $posts = app(PostRepository::class);
+
             return $posts->findBySlug($value);
         });
 
         Route::bind('tag', function ($value) {
             /** @var PostRepository $posts */
             $tags = app(TagRepository::class);
+
             return $tags->findBySlug($value);
         });
     }
@@ -34,7 +36,7 @@ class FrontendController extends Controller
     }
 
     /**
-     * Push translatable object in order to correctly localize slugs
+     * Push translatable object in order to correctly localize slugs.
      *
      * @param $translatable
      */

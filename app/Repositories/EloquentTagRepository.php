@@ -4,7 +4,6 @@ namespace App\Repositories;
 
 use App\Models\Tag;
 use App\Repositories\Contracts\TagRepository;
-use Illuminate\Contracts\Config\Repository;
 use Mcamara\LaravelLocalization\LaravelLocalization;
 
 /**
@@ -56,6 +55,7 @@ class EloquentTagRepository extends EloquentBaseRepository implements TagReposit
      * @param string $name
      *
      * @return bool
+     *
      * @throws \Exception
      */
     public function delete($name)

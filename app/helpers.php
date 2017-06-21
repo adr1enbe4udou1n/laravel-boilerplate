@@ -180,6 +180,7 @@ if (!function_exists('localize_url')) {
 
             $url = route(Route::current()->getName(), ['post' => $slug]);
         }
+
         return LaravelLocalization::getLocalizedURL($locale, $url, [], true);
     }
 }

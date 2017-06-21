@@ -36,7 +36,21 @@ class SendConfirmation extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['database', 'mail'];
+    }
+
+    /**
+     * Get the array representation of the notification.
+     *
+     * @param mixed $notifiable
+     *
+     * @return array
+     */
+    public function toArray($notifiable)
+    {
+        return [
+            'token' => $this->token,
+        ];
     }
 
     /**

@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $locale
  * @property string $title
  * @property string $description
+ *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\MetaTranslation whereDescription($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\MetaTranslation whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\MetaTranslation whereLocale($value)

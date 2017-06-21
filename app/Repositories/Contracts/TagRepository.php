@@ -2,8 +2,6 @@
 
 namespace App\Repositories\Contracts;
 
-use App\Models\Tag;
-
 /**
  * Interface TagRepository.
  */

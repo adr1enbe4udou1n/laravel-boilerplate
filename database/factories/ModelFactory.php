@@ -24,6 +24,19 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Models\Meta::class, function (Faker\Generator $faker) {
+    return [
+        'en' => [
+            'title' => $faker->sentence,
+            'description' => $faker->sentences(3, true),
+        ],
+        'fr' => [
+            'title' => $faker->sentence,
+            'description' => $faker->sentences(3, true),
+        ],
+    ];
+});
+
 $factory->define(App\Models\Tag::class, function (Faker\Generator $faker) {
     $locales = ['en', 'fr'];
 
