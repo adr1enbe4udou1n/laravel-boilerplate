@@ -21,9 +21,10 @@
     @if (!empty($meta_description))
         <meta name="description" content="{{ $meta_description }}">
     @endif
+    @include('partials.alternates')
     @yield('metas')
 
-<!-- Styles -->
+    <!-- Styles -->
     @if (!$hmr)
         <link rel="stylesheet" href="{{ assets('css/frontend.css') }}">
     @endif

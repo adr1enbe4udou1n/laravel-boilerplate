@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Repositories\Contracts\PostRepository;
-use App\Http\Controllers\Controller;
 
-class BlogController extends Controller
+class BlogController extends FrontendController
 {
     /**
      * @var PostRepository
@@ -19,6 +18,8 @@ class BlogController extends Controller
      */
     public function __construct(PostRepository $posts)
     {
+        parent::__construct();
+
         $this->posts = $posts;
     }
 
@@ -29,6 +30,8 @@ class BlogController extends Controller
 
     public function show($post)
     {
+        $this->setTranslatable($post);
+
         return view('frontend.blog.show')->withPost($post);
     }
 }

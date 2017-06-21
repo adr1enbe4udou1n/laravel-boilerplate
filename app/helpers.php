@@ -1,5 +1,7 @@
 <?php
 
+use Dimsav\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\HtmlString;
 
 if (!function_exists('assets')) {
@@ -164,5 +166,20 @@ if (!function_exists('menu_item_access')) {
         $active_class = active_class(if_route_pattern($active_route_patterns));
 
         return "<li class=\"{$active_class}\">$route</li>";
+    }
+}
+
+if (!function_exists('localize_url')) {
+    function localize_url($locale = null, Model $translatable = null)
+    {
+        $url = null;
+
+        if ($translatable && method_exists($translatable, 'translate')) {
+            /** @var Translatable $translatable */
+            $slug = $translatable->translate($locale)->slug;
+
+            $url = route(Route::current()->getName(), ['post' => $slug]);
+        }
+        return LaravelLocalization::getLocalizedURL($locale, $url, [], true);
     }
 }

@@ -28,14 +28,14 @@ Route::group([
         ['namespace' => 'Frontend', 'middleware' => ['metas']],
         function () {
             Route::get('/', 'FrontendController@index')->name('home');
-            Route::get(LaravelLocalization::transRoute('routes.about'), 'FrontendController@about')->name('about');
+            Route::get(LaravelLocalization::transRoute('routes.about'), 'PagesController@about')->name('about');
             Route::match(['GET', 'POST'], LaravelLocalization::transRoute('routes.contact'),
-                'FrontendController@contact')
+                'PagesController@contact')
                 ->name('contact');
-            Route::get(LaravelLocalization::transRoute('routes.contact-sent'), 'FrontendController@contactSent')->name(
+            Route::get(LaravelLocalization::transRoute('routes.contact-sent'), 'PagesController@contactSent')->name(
                 'contact-sent'
             );
-            Route::get(LaravelLocalization::transRoute('routes.legal-mentions'), 'FrontendController@legalMentions')
+            Route::get(LaravelLocalization::transRoute('routes.legal-mentions'), 'PagesController@legalMentions')
                 ->name(
                     'legal-mentions'
                 );

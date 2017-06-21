@@ -36,12 +36,6 @@ class RouteServiceProvider extends ServiceProvider
             // Force Route URL (useful for multi-device development)
             URL::forceRootUrl(config('app.url'));
         }
-
-        Route::bind('post', function ($value) {
-            /** @var PostRepository $posts */
-            $posts = app(PostRepository::class);
-            return $posts->findBySlug($value);
-        });
     }
 
     /**
