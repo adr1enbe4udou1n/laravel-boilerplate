@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', trans('labels.frontend.titles.blog'))
+@section('title', $tag->name)
 
 @section('body_id', 'page-blog')
 

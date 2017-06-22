@@ -9,7 +9,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            @lang('labels.frontend.blog.published_at', ['date' => $post->published_at->formatLocalized('%A %d %B %Y')])
+            @include('frontend.blog.partials.publication-infos')
 
             <div class="pull-left">
                 <img src="{{ image_template_url('large', $post->featured_image_url) }}" alt="{{ $post->title }}">

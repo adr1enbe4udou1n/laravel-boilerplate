@@ -19,6 +19,7 @@ Route::get('/sitemap.xml', 'SeoController@sitemap');
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
     'middleware' => [
+        'localize',
         'localeSessionRedirect',
         'localizationRedirect',
         'localeViewPath',
@@ -40,13 +41,6 @@ Route::group([
                     'legal-mentions'
                 );
 
-            if (config('account.show_user_profile')) {
-                Route::get('user/{user}', 'UserController@show')
-                    ->name(
-                        'user.show'
-                    );
-            }
-
             if (config('blog.enabled')) {
                 Route::get('blog', 'BlogController@index')
                     ->name(
@@ -61,6 +55,11 @@ Route::group([
                 Route::get('blog/tags/{tag}', 'BlogController@tag')
                     ->name(
                         'blog.tag'
+                    );
+
+                Route::get(LaravelLocalization::transRoute('routes.redactors'), 'BlogController@owner')
+                    ->name(
+                        'blog.owner'
                     );
             }
         }

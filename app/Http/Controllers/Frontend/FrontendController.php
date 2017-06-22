@@ -44,6 +44,18 @@ class FrontendController extends Controller
     }
 
     /**
+     * Push attributes in order to correctly localize slugs.
+     *
+     * @param $attributes
+     */
+    protected function setLocalesAttributes($attributes)
+    {
+        View::composer(['partials.alternates', 'partials.locales'], function (\Illuminate\View\View $view) use ($attributes) {
+            $view->withAttributes($attributes);
+        });
+    }
+
+    /**
      * Push translatable object in order to correctly localize slugs.
      *
      * @param $translatable

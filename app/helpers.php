@@ -170,7 +170,7 @@ if (!function_exists('menu_item_access')) {
 }
 
 if (!function_exists('localize_url')) {
-    function localize_url($locale = null, Model $translatable = null)
+    function localize_url($locale = null, $attributes = [], Model $translatable = null)
     {
         $url = null;
 
@@ -181,6 +181,6 @@ if (!function_exists('localize_url')) {
             $url = route(Route::current()->getName(), ['post' => $slug]);
         }
 
-        return LaravelLocalization::getLocalizedURL($locale, $url, [], true);
+        return LaravelLocalization::getLocalizedURL($locale, $url, $attributes, true);
     }
 }

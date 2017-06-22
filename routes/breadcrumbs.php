@@ -29,9 +29,9 @@ Breadcrumbs::register('blog.tag', function (Generator $breadcrumbs, Tag $tag) {
     $breadcrumbs->push($tag->name, route('blog.tag', $tag->slug));
 });
 
-Breadcrumbs::register('user.show', function (Generator $breadcrumbs, User $user) {
-    $breadcrumbs->parent('home');
-    $breadcrumbs->push($user->name, route('user.show', $user->slug));
+Breadcrumbs::register('blog.owner', function (Generator $breadcrumbs, User $user) {
+    $breadcrumbs->parent('blog.index');
+    $breadcrumbs->push($user->name, route('blog.owner', $user->slug));
 });
 
 Breadcrumbs::register('contact', function (Generator $breadcrumbs) {

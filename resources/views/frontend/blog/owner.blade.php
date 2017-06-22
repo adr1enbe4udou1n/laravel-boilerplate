@@ -2,7 +2,7 @@
 
 @section('title', $user->name)
 
-@section('body_id', 'page-user')
+@section('body_id', 'page-blog')
 
 @section('content')
     <div class="row">
