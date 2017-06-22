@@ -6,7 +6,6 @@ use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
 use App\Repositories\Contracts\PostRepository;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class BlogController extends FrontendController
 {

@@ -27,8 +27,8 @@ interface PostRepository extends BaseRepository
      * @param \App\Models\User $user
      *
      * @return mixed
-     * @internal param \App\Models\Tag $tag
      *
+     * @internal param \App\Models\Tag $tag
      */
     public function publishedByOwner(User $user);
 

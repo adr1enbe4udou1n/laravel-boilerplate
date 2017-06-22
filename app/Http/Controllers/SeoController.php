@@ -107,7 +107,7 @@ class SeoController extends Controller
 
         $publishedPosts = $this->posts->published();
 
-        $publishedPosts->each(function(Post $post) use ($sitemap) {
+        $publishedPosts->each(function (Post $post) use ($sitemap) {
             $item = [
                 'loc' => route('blog.show', $post->slug),
                 'lastmod' => $post->published_at,
@@ -127,7 +127,7 @@ class SeoController extends Controller
 
         $tags = $this->tags->query()->get();
 
-        $tags->each(function(Tag $tag) use ($sitemap) {
+        $tags->each(function (Tag $tag) use ($sitemap) {
             $sitemap->addItem([
                 'loc' => route('blog.tag', $tag->slug),
                 'lastmod' => Carbon::now(),
@@ -139,7 +139,7 @@ class SeoController extends Controller
 
         $users = $this->users->query()->get();
 
-        $users->each(function(User $user) use ($sitemap) {
+        $users->each(function (User $user) use ($sitemap) {
             $sitemap->addItem([
                 'loc' => route('blog.owner', $user->slug),
                 'lastmod' => $user->created_at,
