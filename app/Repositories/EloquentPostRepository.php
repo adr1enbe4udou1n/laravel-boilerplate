@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\Post;
 use App\Models\PostTranslation;
 use App\Models\Tag;
+use App\Models\User;
 use App\Repositories\Contracts\PostRepository;
 use App\Repositories\Traits\HtmlActionsButtons;
 use Illuminate\Contracts\Config\Repository;
@@ -47,17 +48,35 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      *
      * @return mixed
      */
-    public function published(Tag $tag = null)
+    public function published()
     {
-        $query = $this->model->published();
-
-        if ($tag) {
-            $query->withTag($tag);
-        }
-
-        return $query
+        return $this->model
+            ->published()
+            ->with('owner')
             ->orderByDesc('pinned')
             ->orderByDesc('published_at');
+    }
+
+    /**
+     * @param Tag $tag
+     *
+     * @return mixed
+     */
+    public function publishedByTag(Tag $tag)
+    {
+        return $this->published()->withTag($tag);
+    }
+
+    /**
+     * @param \App\Models\User $user
+     *
+     * @return mixed
+     * @internal param \App\Models\Tag $tag
+     *
+     */
+    public function publishedByOwner(User $user)
+    {
+        return $this->published()->withOwner($user);
     }
 
     /**

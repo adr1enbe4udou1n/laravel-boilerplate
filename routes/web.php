@@ -40,6 +40,13 @@ Route::group([
                     'legal-mentions'
                 );
 
+            if (config('account.show_user_profile')) {
+                Route::get('user/{user}', 'UserController@show')
+                    ->name(
+                        'user.show'
+                    );
+            }
+
             if (config('blog.enabled')) {
                 Route::get('blog', 'BlogController@index')
                     ->name(

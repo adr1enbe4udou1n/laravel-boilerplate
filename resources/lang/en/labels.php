@@ -224,6 +224,8 @@ return [
 
         'blog' => [
             'published_at' => 'Published at :date',
+            'published_at_with_owner' => 'Published at :date by :name',
+            'published_at_with_owner_linkable' => 'Published at :date by <a href=":link">:name</a>',
             'tags' => 'Tags',
         ],
     ],

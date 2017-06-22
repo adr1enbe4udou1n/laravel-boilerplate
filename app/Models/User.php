@@ -28,7 +28,6 @@ use App\Notifications\ResetPassword as ResetPasswordNotification;
  * @property mixed $is_super_admin
  * @property \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Role[] $roles
- *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User actives()
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User findSimilarSlugs(\Illuminate\Database\Eloquent\Model $model, $attribute, $config, $slug)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereActive($value)
@@ -46,7 +45,6 @@ use App\Notifications\ResetPassword as ResetPasswordNotification;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereTimezone($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereUpdatedAt($value)
  * @mixin \Eloquent
- *
  * @property \Illuminate\Database\Eloquent\Collection|\App\Models\SocialLogin[] $providers
  * @property mixed $avatar
  * @property mixed $formatted_roles
@@ -200,5 +198,10 @@ class User extends Authenticatable
                 'source' => 'name',
             ],
         ];
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 }

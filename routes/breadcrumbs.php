@@ -2,6 +2,7 @@
 
 use App\Models\Post;
 use App\Models\Tag;
+use App\Models\User;
 use \DaveJamesMiller\Breadcrumbs\Generator;
 
 Breadcrumbs::register('home', function (Generator $breadcrumbs) {
@@ -26,6 +27,11 @@ Breadcrumbs::register('blog.show', function (Generator $breadcrumbs, Post $post)
 Breadcrumbs::register('blog.tag', function (Generator $breadcrumbs, Tag $tag) {
     $breadcrumbs->parent('blog.index');
     $breadcrumbs->push($tag->name, route('blog.tag', $tag->slug));
+});
+
+Breadcrumbs::register('user.show', function (Generator $breadcrumbs, User $user) {
+    $breadcrumbs->parent('home');
+    $breadcrumbs->push($user->name, route('user.show', $user->slug));
 });
 
 Breadcrumbs::register('contact', function (Generator $breadcrumbs) {
