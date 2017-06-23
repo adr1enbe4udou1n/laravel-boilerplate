@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
 
-class RoleController extends Controller
+class RoleController extends BackendController
 {
     /**
      * @var RoleRepository

@@ -44,6 +44,12 @@ return [
             'delete' => 'Erreur lors de la suppression de la redirection',
             'already_exist' => 'Il existe déjà une redirection pour ce chemin',
         ],
+
+        'posts' => [
+            'create' => 'Erreur lors de la création de l\'article',
+            'update' => 'Erreur lors de la mise à jour de l\'article',
+            'delete' => 'Erreur lors de la suppression de l\'article',
+        ],
     ],
 
     'frontend' => [

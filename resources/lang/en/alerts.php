@@ -45,6 +45,16 @@ return [
             'file_imported' => 'File successfully imported',
         ],
 
+        'posts' => [
+            'created' => 'Post created',
+            'updated' => 'Post updated',
+            'deleted' => 'Post deleted',
+            'bulk_destroyed' => 'Selected post deleted',
+            'bulk_published' => 'Selected post published',
+            'bulk_pinned' => 'Selected post pinned',
+            'bulk_promoted' => 'Selected post promoted',
+        ],
+
         'actions' => [
             'invalid' => 'Invalid action',
         ],

@@ -12,7 +12,7 @@ use Illuminate\Routing\Router;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
 
-class MetaController extends Controller
+class MetaController extends BackendController
 {
     /**
      * @var MetaRepository
@@ -23,11 +23,10 @@ class MetaController extends Controller
      * Create a new controller instance.
      *
      * @param MetaRepository             $metas
-     * @param \Illuminate\Routing\Router $router
      *
      * @throws \Mcamara\LaravelLocalization\Exceptions\SupportedLocalesNotDefined
      */
-    public function __construct(MetaRepository $metas, Router $router)
+    public function __construct(MetaRepository $metas)
     {
         $this->metas = $metas;
     }

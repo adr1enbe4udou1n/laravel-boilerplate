@@ -101,6 +101,7 @@ return [
 
     'backend' => [
         'sidebar' => [
+            'content' => 'Content management',
             'forms' => 'Form management',
             'access' => 'Access management',
             'seo' => 'SEO settings',
@@ -199,6 +200,20 @@ return [
                 'draft' => 'Draft',
                 'pending' => 'Pending',
                 'published' => 'Published',
+            ],
+
+            'titles' => [
+                'main' => 'Post management',
+                'index' => 'Post list',
+                'create' => 'Create post',
+                'edit' => 'Edit post',
+            ],
+
+            'actions' => [
+                'destroy' => 'Delete selected posts',
+                'publish' => 'Publish selected posts',
+                'pin' => 'Pin selected posts',
+                'promote' => 'Promote selected posts',
             ],
         ],
     ],

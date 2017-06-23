@@ -147,3 +147,18 @@ Breadcrumbs::register('admin.redirection.edit', function (Generator $breadcrumbs
     $breadcrumbs->parent('admin.redirection.index');
     $breadcrumbs->push(trans('labels.backend.redirections.titles.edit'), route('admin.redirection.edit', $id));
 });
+
+Breadcrumbs::register('admin.post.index', function (Generator $breadcrumbs) {
+    $breadcrumbs->parent('admin.home');
+    $breadcrumbs->push(trans('labels.backend.posts.titles.main'), route('admin.post.index'));
+});
+
+Breadcrumbs::register('admin.post.create', function (Generator $breadcrumbs) {
+    $breadcrumbs->parent('admin.post.index');
+    $breadcrumbs->push(trans('labels.backend.posts.titles.create'), route('admin.post.create'));
+});
+
+Breadcrumbs::register('admin.post.edit', function (Generator $breadcrumbs, $id) {
+    $breadcrumbs->parent('admin.post.index');
+    $breadcrumbs->push(trans('labels.backend.posts.titles.edit'), route('admin.post.edit', $id));
+});

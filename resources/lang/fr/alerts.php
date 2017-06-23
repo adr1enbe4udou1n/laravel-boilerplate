@@ -44,6 +44,16 @@ return [
             'file_imported' => 'Fichier importé avec succès',
         ],
 
+        'posts' => [
+            'created' => 'Article créé',
+            'updated' => 'Article mis à jour',
+            'deleted' => 'Article supprimé',
+            'bulk_destroyed' => 'Articles sélectionnés supprimés',
+            'bulk_published' => 'Articles sélectionnés publiés',
+            'bulk_pinned' => 'Articles sélectionnés épinglé',
+            'bulk_promoted' => 'Articles sélectionnés mis en avant',
+        ],
+
         'actions' => [
             'invalid' => 'Action invalide',
         ],

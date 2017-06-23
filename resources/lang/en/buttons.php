@@ -34,4 +34,8 @@ return [
         'create' => 'Create redirection',
         'import' => 'Import CSV/Excel',
     ],
+
+    'posts' => [
+        'create' => 'Create post',
+    ],
 ];

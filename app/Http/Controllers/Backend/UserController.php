@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
 
-class UserController extends Controller
+class UserController extends BackendController
 {
     /**
      * @var UserRepository

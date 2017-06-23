@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
 
-class FormSettingController extends Controller
+class FormSettingController extends BackendController
 {
     /**
      * @var FormSettingRepository

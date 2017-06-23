@@ -4,7 +4,7 @@
     'data-target' => "#$table_id",
 ])}}
 <div class="form-group form-group-sm">
-    {{ Form::select('action', $actions, null, ['class' => 'form-control']) }}
+    {{ Form::select('action', $options, null, ['class' => 'form-control']) }}
 </div>
 {{ Form::submit(trans('buttons.apply'), [
     'class' => 'btn btn-danger btn-sm',

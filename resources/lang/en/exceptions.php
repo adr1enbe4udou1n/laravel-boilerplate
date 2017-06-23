@@ -44,6 +44,12 @@ return [
             'delete' => 'Error on redirection deletion',
             'already_exist' => 'There is already a redirection for this path',
         ],
+
+        'posts' => [
+            'create' => 'Error on post creation',
+            'update' => 'Error on post updating',
+            'delete' => 'Error on post deletion',
+        ],
     ],
 
     'frontend' => [

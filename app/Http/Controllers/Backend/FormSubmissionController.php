@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
 
-class FormSubmissionController extends Controller
+class FormSubmissionController extends BackendController
 {
     /**
      * @var FormSubmissionRepository

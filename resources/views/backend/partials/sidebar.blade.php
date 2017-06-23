@@ -19,6 +19,12 @@
             <!-- Optionally, you can add icons to the links -->
             <li class="{{ active_class(if_route_pattern('admin.home')) }}"><a href="{{ route('admin.home') }}"><i class="fa fa-tachometer"></i> <span>@lang('labels.backend.titles.dashboard')</span></a></li>
 
+            @if(Gate::check('manage posts'))
+                <li class="header">@lang('labels.backend.sidebar.content')</li>
+                {!! menu_item_access('admin.post.create', '<i class="fa fa-plus"></i><span>' . trans('labels.backend.posts.titles.create') . '</span>', [], 'manage posts') !!}
+                {!! menu_item_access('admin.post.index', '<i class="fa fa-newspaper-o"></i><span>' . trans('labels.backend.posts.titles.main') . '</span>', [], 'manage posts', [], 'admin.post.edit') !!}
+            @endif
+
             @if(Gate::check('manage form_submissions') || Gate::check('manage form_settings'))
             <li class="header">@lang('labels.backend.sidebar.forms')</li>
             {!! menu_item_access('admin.form_submission.index', '<i class="fa fa-id-card-o"></i><span>' . trans('labels.backend.form_submissions.titles.main') . '</span>', [], 'manage form_submissions', [], 'admin.form_submission.*') !!}

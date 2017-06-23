@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
 
-class RedirectionController extends Controller
+class RedirectionController extends BackendController
 {
     /**
      * @var RedirectionRepository

@@ -144,9 +144,21 @@ if (!function_exists('form_row')) {
 }
 
 if (!function_exists('form_batch_action')) {
-    function form_batch_action($route, $table_id, $actions)
+    function form_batch_action($route, $table_id, array $actions)
     {
-        return view('backend.partials.form.batch-action', compact('route', 'table_id', 'actions'));
+        $options = [];
+        foreach($actions as $name => $action) {
+            if (is_string($action)) {
+                $options[$name] = $action;
+                continue;
+            }
+
+            if ($action['active']) {
+                $options[$name] = $action['title'];
+            }
+        }
+
+        return view('backend.partials.form.batch-action', compact('route', 'table_id', 'options'));
     }
 }
 

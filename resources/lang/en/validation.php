@@ -145,6 +145,7 @@ return [
         'title' => 'Title',
         'content' => 'Content',
         'description' => 'Description',
+        'summary' => 'Summary',
         'excerpt' => 'Excerpt',
         'date' => 'Date',
         'time' => 'Time',

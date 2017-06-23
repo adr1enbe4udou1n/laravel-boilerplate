@@ -101,6 +101,7 @@ return [
 
     'backend' => [
         'sidebar' => [
+            'content' => 'Gestion de contenu',
             'forms' => 'Gestion des formulaires',
             'access' => 'Gestion des accès',
             'seo' => 'Paramétrages SEO',
@@ -199,6 +200,20 @@ return [
                 'draft' => 'Brouillon',
                 'pending' => 'En attente de modération',
                 'published' => 'Publié',
+            ],
+
+            'titles' => [
+                'main' => 'Gestion des articles',
+                'index' => 'Liste des articles',
+                'create' => 'Créer un article',
+                'edit' => 'Editer un article',
+            ],
+
+            'actions' => [
+                'destroy' => 'Supprimer les articles sélectionnés',
+                'publish' => 'Publier les articles sélectionnés',
+                'pin' => 'Epingler les articles sélectionnés',
+                'promote' => 'Mettre en avant les articles sélectionnés',
             ],
         ],
     ],
