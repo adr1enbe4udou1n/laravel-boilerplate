@@ -44,8 +44,6 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     }
 
     /**
-     * @param Tag $tag
-     *
      * @return mixed
      */
     public function published()
@@ -71,8 +69,6 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      * @param \App\Models\User $user
      *
      * @return mixed
-     *
-     * @internal param \App\Models\Tag $tag
      */
     public function publishedByOwner(User $user)
     {

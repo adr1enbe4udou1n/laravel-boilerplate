@@ -10,6 +10,7 @@ return [
     'no' => 'Non',
     'more_info' => 'Plus d\'info',
     'last_access_at' => 'Dernier accès le',
+    'published_at' => 'Publié le',
     'created_at' => 'Créé le',
     'updated_at' => 'Modifié le',
     'deleted_at' => 'Supprimé le',
@@ -109,6 +110,7 @@ return [
 
         'titles' => [
             'dashboard' => 'Tableau de bord',
+            'metas' => 'Gestion des metas',
         ],
 
         'users' => [
@@ -198,7 +200,7 @@ return [
         'posts' => [
             'statuses' => [
                 'draft' => 'Brouillon',
-                'pending' => 'En attente de modération',
+                'pending' => 'En attente',
                 'published' => 'Publié',
             ],
 

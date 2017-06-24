@@ -168,5 +168,10 @@ return [
         'redirect_type' => 'Redirect type',
         'timezone' => 'Timezone',
         'order' => 'Display order',
+        'image' => 'Image',
+        'status' => 'Status',
+        'pinned' => 'Pinned',
+        'promoted' => 'Promoted',
+        'body' => 'Body',
     ],
 ];

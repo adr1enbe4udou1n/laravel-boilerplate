@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Traits\Metable;
+use Carbon\Carbon;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -22,7 +23,7 @@ use Plank\Mediable\Mediable;
  * @property bool                                                                        $status
  * @property bool                                                                        $promoted
  * @property bool                                                                        $pinned
- * @property string                                                                      $published_at
+ * @property \Carbon\Carbon                                                              $published_at
  * @property \Carbon\Carbon                                                              $created_at
  * @property \Carbon\Carbon                                                              $updated_at
  * @property \Illuminate\Database\Eloquent\Collection|\App\Models\PostTranslation[] $translations
@@ -48,6 +49,7 @@ use Plank\Mediable\Mediable;
  *
  * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Tag[] $tags
  * @property mixed $status_label
+ * @property mixed $state
  *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereStatus($value)
  *
@@ -110,9 +112,23 @@ class Post extends Model
         ];
     }
 
+    public static function getStates()
+    {
+        return [
+            self::DRAFT => 'danger',
+            self::PENDING => 'warning',
+            self::PUBLISHED => 'success',
+        ];
+    }
+
     public function getStatusLabelAttribute()
     {
         return self::getStatuses()[$this->status];
+    }
+
+    public function getStateAttribute()
+    {
+        return self::getStates()[$this->status];
     }
 
     public function getFeaturedImageUrlAttribute()
@@ -144,7 +160,9 @@ class Post extends Model
      */
     public function scopePublished(Builder $query)
     {
-        return $query->where('status', '=', self::PUBLISHED);
+        return $query
+            ->where('status', '=', self::PUBLISHED)
+            ->where('published_at', '<', Carbon::now());
     }
 
     /**

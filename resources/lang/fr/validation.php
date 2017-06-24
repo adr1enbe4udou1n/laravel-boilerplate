@@ -168,5 +168,10 @@ return [
         'redirect_type' => 'Type de redirection',
         'timezone' => 'Fuseau horaire',
         'order' => 'Ordre d\'affichage',
+        'image' => 'Image',
+        'status' => 'Statut',
+        'pinned' => 'Epinglé',
+        'promoted' => 'Mis en avant',
+        'body' => 'Corps',
     ],
 ];

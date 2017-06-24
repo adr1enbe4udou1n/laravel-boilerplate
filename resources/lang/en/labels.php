@@ -10,6 +10,7 @@ return [
     'no' => 'No',
     'more_info' => 'More info',
     'last_access_at' => 'Last access at',
+    'published_at' => 'Published at',
     'created_at' => 'Created at',
     'updated_at' => 'Updated at',
     'deleted_at' => 'Deleted at',
@@ -109,6 +110,7 @@ return [
 
         'titles' => [
             'dashboard' => 'Dashboard',
+            'metas' => 'Metas management',
         ],
 
         'users' => [

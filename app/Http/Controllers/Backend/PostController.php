@@ -53,18 +53,38 @@ class PostController extends BackendController
             /** @var EloquentEngine $query */
             $query = Datatables::of($this->posts->select([
                 'id',
+                'status',
+                'pinned',
+                'promoted',
+                'published_at',
                 'created_at',
                 'updated_at',
             ]));
 
             return $query->addColumn('actions', function (Post $post) {
                 return $this->posts->getActionButtons($post);
+            })->addColumn('image', function (Post $post) {
+                return link_to(
+                    route('admin.post.edit', $post),
+                    image_template_html('small', $post->featured_image_url, $post->title),
+                    [], null, false
+                );
+            })->editColumn('title', function (Post $post) {
+                return link_to_route('admin.post.edit', $post->title, $post);
+            })->editColumn('status', function (Post $post) {
+                return state_html_label($post->state, trans($post->status_label));
+            })->editColumn('pinned', function (Post $post) {
+                return boolean_html_label($post->pinned);
+            })->editColumn('promoted', function (Post $post) {
+                return boolean_html_label($post->promoted);
+            })->editColumn('published_at', function (Post $post) use ($request) {
+                return $post->published_at->setTimezone($request->user()->timezone);
             })->editColumn('created_at', function (Post $post) use ($request) {
                 return $post->created_at->setTimezone($request->user()->timezone);
             })->editColumn('updated_at', function (Post $post) use ($request) {
                 return $post->updated_at->setTimezone($request->user()->timezone);
             })
-                ->rawColumns(['actions'])
+                ->rawColumns(['image', 'actions'])
                 ->make(true);
         }
     }

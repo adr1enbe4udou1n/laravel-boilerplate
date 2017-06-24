@@ -54,11 +54,38 @@
                 width: 15,
                 className: 'select-checkbox'
             }, {
+                title: '{{ trans('validation.attributes.image') }}',
+                data: 'image',
+                name: 'image',
+                orderable: false,
+                searchable: false,
+            }, {
                 title: '{{ trans('validation.attributes.title') }}',
                 data: 'title',
                 name: 'title',
                 defaultContent: '{{ trans('labels.no_value') }}',
-                width: 200,
+                width: 150,
+            }, {
+                title: '{{ trans('validation.attributes.status') }}',
+                data: 'status',
+                name: 'status',
+                searchable: false,
+                className: 'text-center',
+                width: 75,
+            }, {
+                title: '{{ trans('validation.attributes.pinned') }}',
+                data: 'pinned',
+                name: 'pinned',
+                searchable: false,
+                className: 'text-center',
+                width: 50,
+            }, {
+                title: '{{ trans('validation.attributes.promoted') }}',
+                data: 'promoted',
+                name: 'promoted',
+                searchable: false,
+                className: 'text-center',
+                width: 100,
             }, {
                 title: '{{ trans('validation.attributes.summary') }}',
                 data: 'summary',
@@ -66,16 +93,22 @@
                 defaultContent: '{{ trans('labels.no_value') }}',
                 orderable: false,
             }, {
+                title: '{{ trans('labels.published_at') }}',
+                data: 'published_at',
+                name: 'published_at',
+                width: 125,
+                className: 'text-center'
+            }, {
                 title: '{{ trans('labels.created_at') }}',
                 data: 'created_at',
                 name: 'created_at',
-                width: 100,
+                width: 125,
                 className: 'text-center'
             }, {
                 title: '{{ trans('labels.updated_at') }}',
                 data: 'updated_at',
                 name: 'updated_at',
-                width: 100,
+                width: 125,
                 className: 'text-center'
             }, {
                 title: '{{ trans('labels.actions') }}',
@@ -85,7 +118,7 @@
                 width: 50,
             }],
             select: {style: 'os'},
-            order: [[3, 'desc']],
+            order: [[8, 'desc']],
             rowId: 'id'
         });
     </script>

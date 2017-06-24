@@ -86,11 +86,24 @@ if (!function_exists('boolean_html_label')) {
      */
     function boolean_html_label($boolean)
     {
-        if ($boolean) {
-            return "<label class='label label-success'>".trans('labels.yes').'</label>';
-        }
+        return state_html_label(
+            $boolean ? 'success' : 'danger',
+            $boolean ? trans('labels.yes') : trans('labels.no')
+        );
+    }
+}
 
-        return "<label class='label label-danger'>".trans('labels.no').'</label>';
+if (!function_exists('state_html_label')) {
+    /**
+     *
+     * @param $state
+     * @param $label
+     *
+     * @return string
+     */
+    function state_html_label($state, $label)
+    {
+        return "<label class='label label-$state'>$label</label>";
     }
 }
 
@@ -106,6 +119,22 @@ if (!function_exists('image_template_url')) {
         $image_path = str_replace(config('filesystems.disks.public.url'), '', $image_path);
 
         return url(config('imagecache.route')."/$template/$image_path");
+    }
+}
+
+if (!function_exists('image_template_html')) {
+    /**
+     * @param $template
+     * @param $image_path
+     *
+     * @param $alt
+     *
+     * @return string
+     */
+    function image_template_html($template, $image_path, $alt = null)
+    {
+        $url = image_template_url($template, $image_path);
+        return "<img src=\"$url\" alt=\"$alt\">";
     }
 }
 
