@@ -141,6 +141,8 @@ if (!function_exists('image_template_html')) {
 if (!function_exists('form_field')) {
     function form_field($type, $name, $options)
     {
+        $viewName = 'partials.form.fields.input';
+
         $widgetsLookup = [
             'checkbox' => 'checkbox',
             'textarea' => 'textarea',
@@ -152,14 +154,14 @@ if (!function_exists('form_field')) {
         ];
 
         if (isset($widgetsLookup[$type])) {
-            return view("partials.form.fields.{$widgetsLookup[$type]}", $options)
-                ->withType($type)
-                ->withName($name);
+            $viewName = "partials.form.fields.{$widgetsLookup[$type]}";
         }
 
-        return view('partials.form.fields.input', $options)
-            ->withType($type)
-            ->withName($name);
+        if (View::exists("partials.form.fields.{$type}")) {
+            $viewName = "partials.form.fields.{$type}";
+        }
+
+        return view($viewName, $options)->withType($type)->withName($name);
     }
 }
 

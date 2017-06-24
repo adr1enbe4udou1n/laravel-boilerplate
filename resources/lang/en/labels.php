@@ -15,6 +15,7 @@ return [
     'updated_at' => 'Updated at',
     'deleted_at' => 'Deleted at',
     'no_value' => 'No value',
+    'select_image' => 'Select image',
     'all_rights_reserved' => 'All rights reserved.',
 
     'auth' => [
@@ -41,8 +42,9 @@ return [
         'fr' => 'French',
     ],
 
-    'placeholder' => [
+    'placeholders' => [
         'route' => 'Select a valid internal route',
+        'tags' => 'Select or create a tag',
     ],
 
     'cookieconsent' => [

@@ -28,8 +28,8 @@
     ])
 @endif
 
-@if(isset($multiple))
-    @php($attributes += ['multiple' => $multiple])
+@if(isset($multiple) && $multiple)
+    {{ Form::select($name, $options, isset($selected) ? $selected : null, ['class' => isset($field_class) ? "$field_class form-control" : 'form-control', 'multiple' => true, 'data-placeholder' => isset($placeholder) ? $placeholder : $title] + $attributes) }}
+@else
+    {{ Form::select($name, $options, isset($selected) ? $selected : null, ['class' => isset($field_class) ? "$field_class form-control" : 'form-control', 'placeholder' => isset($placeholder) ? $placeholder : $title] + $attributes) }}
 @endif
-
-{{ Form::select($name, $options, null, ['class' => isset($field_class) ? "$field_class form-control" : 'form-control', 'placeholder' => isset($placeholder) ? $placeholder : $title] + $attributes) }}

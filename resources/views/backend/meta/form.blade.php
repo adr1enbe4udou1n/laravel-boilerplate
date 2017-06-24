@@ -8,6 +8,7 @@
     {!! form_row('autocomplete', 'route', [
         'required' => true,
         'title' => trans('validation.attributes.route'),
+        'placeholder' => trans('labels.placeholders.route'),
         'label_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-9',
         'options' => $route_list,

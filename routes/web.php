@@ -182,6 +182,8 @@ Route::group([
                 ->name('home');
             Route::get('/route/search', 'AjaxController@routeSearch')
                 ->name('route.search');
+            Route::get('/tag/search', 'AjaxController@tagSearch')
+                ->name('tag.search');
 
             Route::group(
                 ['middleware' => ['can:manage form_settings']],

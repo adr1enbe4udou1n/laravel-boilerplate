@@ -173,5 +173,6 @@ return [
         'pinned' => 'Pinned',
         'promoted' => 'Promoted',
         'body' => 'Body',
+        'tags' => 'Tags',
     ],
 ];

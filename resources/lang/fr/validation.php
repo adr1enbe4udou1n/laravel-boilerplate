@@ -173,5 +173,6 @@ return [
         'pinned' => 'Epinglé',
         'promoted' => 'Mis en avant',
         'body' => 'Corps',
+        'tags' => 'Etiquettes',
     ],
 ];
