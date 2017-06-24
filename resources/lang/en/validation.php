@@ -174,5 +174,6 @@ return [
         'promoted' => 'Promoted',
         'body' => 'Body',
         'tags' => 'Tags',
+        'publish_at' => 'Publish at',
     ],
 ];

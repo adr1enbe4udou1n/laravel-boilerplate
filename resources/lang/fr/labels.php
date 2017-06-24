@@ -211,6 +211,7 @@ return [
                 'index' => 'Liste des articles',
                 'create' => 'Créer un article',
                 'edit' => 'Editer un article',
+                'publication' => 'Options de publication',
             ],
 
             'actions' => [

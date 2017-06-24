@@ -11,6 +11,9 @@ return [
             'native' => 'English',
             'regional' => 'en_US',
             'locale_win' => 'English_United States.1252',
+            'date_formats' => [
+                'default' => 'm/d/Y h:i:s A',
+            ],
         ],
         'fr' => [
             'name' => 'labels.localization.fr',
@@ -18,6 +21,9 @@ return [
             'native' => 'Français',
             'regional' => 'fr_FR',
             'locale_win' => 'French_France.1252',
+            'date_formats' => [
+                'default' => 'd/m/Y h:i:s',
+            ],
         ],
     ],
 

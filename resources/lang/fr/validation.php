@@ -174,5 +174,6 @@ return [
         'promoted' => 'Mis en avant',
         'body' => 'Corps',
         'tags' => 'Etiquettes',
+        'publish_at' => 'Publier le',
     ],
 ];

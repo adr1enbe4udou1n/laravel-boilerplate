@@ -48,6 +48,31 @@
     ]) !!}
 
     <fieldset>
+        <legend>@lang('labels.backend.posts.titles.publication')</legend>
+        {!! form_row('radios', 'status', [
+            'required' => true,
+            'title' => trans('validation.attributes.status'),
+            'label_class' => 'col-lg-2',
+            'field_wrapper_class' => 'col-lg-10',
+            'choices' => App\Models\Post::getStatuses(),
+        ]) !!}
+        {!! form_row('datetime', 'published_at', [
+            'title' => trans('validation.attributes.publish_at'),
+            'format' => 'YYYY-MM-DD hh:mm',
+            'label_class' => 'col-lg-2',
+            'field_wrapper_class' => 'col-lg-10',
+        ]) !!}
+        {!! form_row('checkbox', 'pinned', [
+            'label' => trans('validation.attributes.pinned'),
+            'field_wrapper_class' => 'col-lg-offset-2 col-lg-10',
+        ]) !!}
+        {!! form_row('checkbox', 'promoted', [
+            'label' => trans('validation.attributes.promoted'),
+            'field_wrapper_class' => 'col-lg-offset-2 col-lg-10',
+        ]) !!}
+    </fieldset>
+
+    <fieldset>
         <legend>@lang('labels.backend.titles.metas')</legend>
         {!! form_row('text', 'meta[title]', [
             'title' => trans('validation.attributes.title'),

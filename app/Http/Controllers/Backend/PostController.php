@@ -6,6 +6,7 @@ use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
 use App\Repositories\Contracts\PostRepository;
+use Html;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Engines\EloquentEngine;
 use Yajra\Datatables\Facades\Datatables;

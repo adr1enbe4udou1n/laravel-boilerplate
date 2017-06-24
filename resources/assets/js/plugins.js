@@ -154,8 +154,12 @@ window.locale = $('html').attr('lang');
          * Datetimepicker
          */
         $.fn.datetimepicker = require('eonasdan-bootstrap-datetimepicker');
-        $('[data-toggle="datetimepicker"]').datetimepicker({
-            locale: locale
+        $('[data-toggle="datetimepicker"]').each(function () {
+            let dateFormat = $(this).data('date-format');
+            $(this).datetimepicker({
+                locale: locale,
+                format: dateFormat,
+            });
         });
 
         /**

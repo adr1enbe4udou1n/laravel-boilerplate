@@ -211,6 +211,7 @@ return [
                 'index' => 'Post list',
                 'create' => 'Create post',
                 'edit' => 'Edit post',
+                'publication' => 'Publication options',
             ],
 
             'descriptions' => [

@@ -15,13 +15,9 @@
 @endif
 
 @if ($type === 'autocomplete')
-    @if(!isset($ajax_query))
-        @php($ajax_query = [])
-    @endif
     @php($attributes += [
         'data-toggle' => $type,
         'data-ajax-url' => $ajax_url,
-        'data-ajax-query' => json_encode((object) $ajax_query),
         'data-minimum-input-length' => $minimum_input_length,
         'data-item-value' => $item_value,
         'data-item-label' => $item_label
@@ -29,7 +25,13 @@
 @endif
 
 @if(isset($multiple) && $multiple)
-    {{ Form::select($name, $options, isset($selected) ? $selected : null, ['class' => isset($field_class) ? "$field_class form-control" : 'form-control', 'multiple' => true, 'data-placeholder' => isset($placeholder) ? $placeholder : $title] + $attributes) }}
+    @php($attributes += [
+        'multiple' => true,
+    ])
 @else
-    {{ Form::select($name, $options, isset($selected) ? $selected : null, ['class' => isset($field_class) ? "$field_class form-control" : 'form-control', 'placeholder' => isset($placeholder) ? $placeholder : $title] + $attributes) }}
+    @php($attributes += [
+        'placeholder' => isset($placeholder) ? $placeholder : $title
+    ])
 @endif
+
+{{ Form::select($name, $options, null, ['class' => isset($field_class) ? "$field_class form-control" : 'form-control', 'data-placeholder' => isset($placeholder) ? $placeholder : $title] + $attributes) }}

@@ -31,19 +31,16 @@ class SetLocale
     public function handle($request, Closure $next)
     {
         $currentLocale = $this->localization->getCurrentLocale();
-        $supportedLocales = $this->localization->getSupportedLocales();
-
-        $localeRegional = $supportedLocales[$currentLocale]['regional'];
-        $localeWin = $supportedLocales[$currentLocale]['locale_win'];
+        $supportedLocale = $this->localization->getSupportedLocales()[$currentLocale];
 
         /*
          * setLocale for php. Enables localized dates, format numbers, etc.
          */
         setlocale(LC_ALL,
-            $localeRegional,
-            "${localeRegional}.utf-8",
-            "${localeRegional}.iso-8859-1",
-            $localeWin
+            $supportedLocale['regional'],
+            "{$supportedLocale['regional']}.utf-8",
+            "{$supportedLocale['regional']}.iso-8859-1",
+            $supportedLocale['locale_win']
         );
 
         /*
