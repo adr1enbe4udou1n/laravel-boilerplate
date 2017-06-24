@@ -24,6 +24,12 @@
     ])
 @endif
 
+@if(isset($tags) && $tags)
+    @php($attributes += [
+        'data-tags' => 'true',
+    ])
+@endif
+
 @if(isset($multiple) && $multiple)
     @php($attributes += [
         'multiple' => true,

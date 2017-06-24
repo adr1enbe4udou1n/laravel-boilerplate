@@ -3,11 +3,28 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Repositories\Contracts\TagRepository;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 
 class AjaxController extends Controller
 {
+
+    /**
+     * @var \App\Repositories\Contracts\TagRepository
+     */
+    protected $tags;
+
+    /**
+     * AjaxController constructor.
+     *
+     * @param \App\Repositories\Contracts\TagRepository $tags
+     */
+    public function __construct(TagRepository $tags)
+    {
+        $this->tags = $tags;
+    }
+
     /**
      * Search internal transatables routes.
      *
@@ -17,7 +34,7 @@ class AjaxController extends Controller
      *
      * @throws \InvalidArgumentException
      */
-    public function routeSearch(Request $request)
+    public function routesSearch(Request $request)
     {
         $query = $request->get('q');
 
@@ -39,6 +56,27 @@ class AjaxController extends Controller
 
         return [
             'items' => $items,
+        ];
+    }
+
+    /**
+     * Search tags.
+     *
+     * @param Request $request
+     *
+     * @return array
+     *
+     * @throws \InvalidArgumentException
+     */
+    public function tagsSearch(Request $request)
+    {
+        $query = $request->get('q');
+        //$tags = $this->tags->query()->whereLocal
+
+        return [
+            'items' => [
+
+            ],
         ];
     }
 }

@@ -36,12 +36,13 @@
 
             {!! form_row('autocomplete', 'tags[]', [
                 'multiple' => true,
+                'tags' => true,
                 'title' => trans('validation.attributes.tags'),
                 'placeholder' => trans('labels.placeholders.tags'),
                 'label_class' => 'col-lg-2',
                 'field_wrapper_class' => 'col-lg-10',
                 'options' => isset($tags) ? $tags : [],
-                'ajax_url' => route('admin.tag.search'),
+                'ajax_url' => route('admin.tags.search'),
                 'minimum_input_length' => 2,
                 'item_value' => 'id',
                 'item_label' => 'name',

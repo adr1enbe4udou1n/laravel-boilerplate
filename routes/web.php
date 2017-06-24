@@ -180,10 +180,10 @@ Route::group([
         function () {
             Route::get('/', 'BackendController@index')
                 ->name('home');
-            Route::get('/route/search', 'AjaxController@routeSearch')
-                ->name('route.search');
-            Route::get('/tag/search', 'AjaxController@tagSearch')
-                ->name('tag.search');
+            Route::get('/routes/search', 'AjaxController@routesSearch')
+                ->name('routes.search');
+            Route::get('/tags/search', 'AjaxController@tagsSearch')
+                ->name('tags.search');
 
             Route::group(
                 ['middleware' => ['can:manage form_settings']],
