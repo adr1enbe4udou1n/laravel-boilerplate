@@ -280,8 +280,6 @@ window.locale = $('html').attr('lang');
                     processResults: function (data, params) {
                         return {
                             results: $.map(data.items, function (item, key) {
-                                console.log(item);
-
                                 return {
                                     id: item[itemValue],
                                     text: item[itemLabel],
