@@ -53,14 +53,7 @@ return [
     ],
 
     'descriptions' => [
-        'metas' => [
-            'route' => 'Value should correspond to an valid route name',
-        ],
-
-        'form_settings' => [
-            'recipients' => 'Example: \'webmaster@example.com\' or \'sales@example.com,support@example.com\' . To specify multiple recipients, separate each email address with a comma.',
-            'message' => 'The message to display to the user after submission of this form. Leave blank for no message.',
-        ],
+        'allowed_image_types' => 'Allowed types: png gif jpg jpeg.',
     ],
 
     'user' => [
@@ -171,6 +164,11 @@ return [
                 'create' => 'Form setting creation',
                 'edit' => 'Form setting modification',
             ],
+
+            'descriptions' => [
+                'recipients' => 'Example: \'webmaster@example.com\' or \'sales@example.com,support@example.com\' . To specify multiple recipients, separate each email address with a comma.',
+                'message' => 'The message to display to the user after submission of this form. Leave blank for no message.',
+            ],
         ],
 
         'redirections' => [
@@ -220,6 +218,7 @@ return [
             ],
 
             'placeholders' => [
+                'body' => 'Write your content...',
                 'meta_title' => 'Article\'s title.',
                 'meta_description' => 'Article\'s summary.',
             ],

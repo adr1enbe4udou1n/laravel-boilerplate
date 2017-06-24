@@ -53,7 +53,11 @@ module.exports = {
             'datatables.net',
             'select2',
             'sweetalert2',
-            'slick-carousel'
+            'slick-carousel',
+            'eonasdan-bootstrap-datetimepicker',
+            'bootstrap-slider',
+            'intl-tel-input',
+            'quill'
         ]
     },
     output: {
@@ -97,7 +101,7 @@ module.exports = {
             },
             {
                 test: /\.jsx?$/,
-                exclude: /(node_modules|bower_components)/,
+                exclude: /(node_modules(?!\/quill)|bower_components)/,
                 use: 'babel-loader?cacheDirectory'
             },
             {

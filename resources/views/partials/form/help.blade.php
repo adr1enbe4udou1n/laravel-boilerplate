@@ -4,7 +4,7 @@
     </span>
 @elseif(isset($description))
     <span class="help-block" v-show="!errors.has('{{ $name }}')">
-        <strong>{{ $description }}</strong>
+        {{ $description }}
     </span>
 @endif
 

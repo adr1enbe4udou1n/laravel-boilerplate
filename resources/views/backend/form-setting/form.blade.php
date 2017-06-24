@@ -10,7 +10,7 @@
 
     {!! form_row('textarea', 'recipients', [
         'title' => trans('validation.attributes.recipients'),
-        'description' => trans('labels.descriptions.form_settings.recipients'),
+        'description' => trans('labels.backend.form_settings.descriptions.recipients'),
         'label_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-9',
         'attributes' => [
@@ -20,7 +20,7 @@
 
     {!! form_row('textarea', 'message', [
         'title' => trans('validation.attributes.message'),
-        'description' => trans('labels.descriptions.form_settings.message'),
+        'description' => trans('labels.backend.form_settings.descriptions.message'),
         'label_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-9',
         'attributes' => [

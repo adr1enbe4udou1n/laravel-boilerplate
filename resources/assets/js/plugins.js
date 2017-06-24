@@ -2,9 +2,11 @@ require('select2');
 window.swal = require('sweetalert2');
 
 window.moment = require('moment');
-require('bootstrap-slider');
 
+require('bootstrap-slider');
 require('intl-tel-input');
+
+window.Quill = require('quill');
 
 window.locale = $('html').attr('lang');
 
@@ -162,10 +164,46 @@ window.locale = $('html').attr('lang');
             });
         });
 
+        /**
+         * Submit support for dropdown buttons
+         */
         $('[data-toggle="submit-link"]').click(function () {
             let $form = $(this).closest('form');
             $form.find($(this).data('target')).val($(this).data('value'));
-            //$form.submit();
+            $form.submit();
+        });
+
+        /**
+         * HTML editor with quill
+         */
+        $('[data-toggle="editor"]').each(function () {
+            let toolbarOptions = [
+                [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+                ['bold', 'italic', 'underline', 'strike'],
+                ['blockquote', 'code-block'],
+
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                [{ 'script': 'sub' }, { 'script': 'super' }],
+
+                ['link', 'image', 'video', 'formula']
+            ];
+
+            let container = $(this).get(0);
+            let editor = new Quill(container, {
+                modules: {
+                    toolbar: toolbarOptions
+                },
+                placeholder: $(this).data('placeholder'),
+                theme: 'snow'
+            });
+
+            $textarea = $(this).next();
+            editor.clipboard.dangerouslyPasteHTML($textarea.val());
+
+            editor.on('text-change', function() {
+                $textarea.val(editor.root.innerHTML);
+            });
         });
 
         /**

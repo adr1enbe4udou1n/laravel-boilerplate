@@ -1,4 +1,4 @@
-<div class="col-md-6">
+<div class="col-md-8">
     <div class="box box-primary">
         <div class="box-header with-border">
             <h3 class="box-title">{{ $title }}</h3>
@@ -20,10 +20,12 @@
                 ],
             ]) !!}
 
-            {!! form_row('textarea', 'body', [
+            {!! form_row('editor', 'body', [
                 'title' => trans('validation.attributes.body'),
+                'placeholder' => trans('labels.backend.posts.placeholders.body'),
                 'label_class' => 'col-lg-2',
                 'field_wrapper_class' => 'col-lg-10',
+                'height' => 300,
             ]) !!}
 
             @if(old('tags'))
@@ -73,7 +75,7 @@
         </div>
     </div>
 </div>
-<div class="col-md-6">
+<div class="col-md-4">
     <div class="box-group" id="accordion">
         <div class="panel box box-danger">
             <div class="box-header with-border">
@@ -88,7 +90,7 @@
                     @isset($post)
                     <div class="form-group">
                         <label class="control-label col-lg-2">@lang('validation.attributes.status')</label>
-                        <div class="col-lg-3">
+                        <div class="col-lg-10">
                             <label class="control-label">{!! state_html_label($post->state, trans($post->status_label)) !!}</label>
                         </div>
                     </div>
@@ -97,15 +99,15 @@
                         'title' => trans('validation.attributes.publish_at'),
                         'format' => 'YYYY-MM-DD hh:mm',
                         'label_class' => 'col-lg-2',
-                        'field_wrapper_class' => 'col-lg-3',
+                        'field_wrapper_class' => 'col-lg-10',
                     ]) !!}
                     {!! form_row('checkbox', 'pinned', [
                         'label' => trans('validation.attributes.pinned'),
-                        'field_wrapper_class' => 'col-lg-offset-2 col-lg-3',
+                        'field_wrapper_class' => 'col-lg-offset-2 col-lg-10',
                     ]) !!}
                     {!! form_row('checkbox', 'promoted', [
                         'label' => trans('validation.attributes.promoted'),
-                        'field_wrapper_class' => 'col-lg-offset-2 col-lg-3',
+                        'field_wrapper_class' => 'col-lg-offset-2 col-lg-10',
                     ]) !!}
                 </div>
             </div>
@@ -134,9 +136,6 @@
                         'placeholder' => trans('labels.backend.posts.placeholders.meta_description'),
                         'label_class' => 'col-lg-2',
                         'field_wrapper_class' => 'col-lg-10',
-                        'attributes' => [
-                            'rows' => 5
-                        ],
                     ]) !!}
                 </div>
             </div>
