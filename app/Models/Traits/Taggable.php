@@ -4,12 +4,32 @@ namespace App\Models\Traits;
 
 use App\Models\Tag;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /**
  * Trait Taggable.
  */
 trait Taggable
 {
+    /**
+     * Filter Tags to current locale.
+     *
+     * @return \Closure
+     * @throws \InvalidArgumentException
+     */
+    public static function applyLocaleTags()
+    {
+        return function(Builder $builder) {
+            $builder->with([
+                'tags' => function (MorphToMany $query) {
+                    $query->where('locale', '=',
+                        LaravelLocalization::getCurrentLocale());
+                }
+            ]);
+        };
+    }
+
     /**
      * Get all of the tags for the post.
      *

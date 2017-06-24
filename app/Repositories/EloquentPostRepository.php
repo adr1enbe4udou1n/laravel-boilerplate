@@ -86,9 +86,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
         $postTranslation = PostTranslation::whereSlug($slug)->first();
 
         if ($postTranslation) {
-            return $postTranslation->post()->getQuery()->with(['tags' => function (MorphToMany $query) {
-                $query->where('locale', '=', $this->localization->getCurrentLocale());
-            }])->first();
+            return $postTranslation->post;
         }
 
         return null;

@@ -99,6 +99,19 @@ class Post extends Model
 
     protected $with = ['translations', 'media'];
 
+    /**
+     * The "booting" method of the model.
+     *
+     * @return void
+     * @throws \InvalidArgumentException
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope(Taggable::applyLocaleTags());
+    }
+
     const DRAFT = 0;
     const PENDING = 1;
     const PUBLISHED = 2;

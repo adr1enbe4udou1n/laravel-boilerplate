@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\TagRepository;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
+use Mcamara\LaravelLocalization\LaravelLocalization;
 
 class AjaxController extends Controller
 {
@@ -16,13 +17,20 @@ class AjaxController extends Controller
     protected $tags;
 
     /**
+     * @var \Mcamara\LaravelLocalization\LaravelLocalization
+     */
+    protected $localization;
+
+    /**
      * AjaxController constructor.
      *
-     * @param \App\Repositories\Contracts\TagRepository $tags
+     * @param \App\Repositories\Contracts\TagRepository        $tags
+     * @param \Mcamara\LaravelLocalization\LaravelLocalization $localization
      */
-    public function __construct(TagRepository $tags)
+    public function __construct(TagRepository $tags, LaravelLocalization $localization)
     {
         $this->tags = $tags;
+        $this->localization = $localization;
     }
 
     /**
@@ -71,12 +79,13 @@ class AjaxController extends Controller
     public function tagsSearch(Request $request)
     {
         $query = $request->get('q');
-        //$tags = $this->tags->query()->whereLocal
+        $tags = $this->tags->query()
+            ->whereLocale($this->localization->getCurrentLocale())
+            ->where('name', 'like', "%$query%")
+            ->get();
 
         return [
-            'items' => [
-
-            ],
+            'items' => $tags,
         ];
     }
 }
