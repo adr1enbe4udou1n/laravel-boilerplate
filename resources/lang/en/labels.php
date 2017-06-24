@@ -211,6 +211,16 @@ return [
                 'edit' => 'Edit post',
             ],
 
+            'descriptions' => [
+                'meta_title' => 'If leave empty, title will be that of article\' title by default.',
+                'meta_description' => 'If leave empty, description will be that of article\'s summary by default.',
+            ],
+
+            'placeholders' => [
+                'meta_title' => 'Article\'s title.',
+                'meta_description' => 'Article\'s summary.',
+            ],
+
             'actions' => [
                 'destroy' => 'Delete selected posts',
                 'publish' => 'Publish selected posts',

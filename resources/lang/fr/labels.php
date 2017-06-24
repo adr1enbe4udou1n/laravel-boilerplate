@@ -217,6 +217,16 @@ return [
                 'pin' => 'Epingler les articles sélectionnés',
                 'promote' => 'Mettre en avant les articles sélectionnés',
             ],
+
+            'descriptions' => [
+                'meta_title' => 'Si vide, le titre par défaut sera celui de l\'article.',
+                'meta_description' => 'Si vide, la description par défaut sera le résumé de l\'article.',
+            ],
+
+            'placeholders' => [
+                'meta_title' => 'Titre de l\'article.',
+                'meta_description' => 'Résumé de l\'article.',
+            ],
         ],
     ],
 
