@@ -37,5 +37,7 @@ return [
 
     'posts' => [
         'create' => 'Create post',
+        'save_and_publish' => 'Save and publish',
+        'save_as_draft' => 'Save as draft',
     ],
 ];

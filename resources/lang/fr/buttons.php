@@ -37,5 +37,7 @@ return [
 
     'posts' => [
         'create' => 'Créer un article',
+        'save_and_publish' => 'Enregistrer et publier',
+        'save_as_draft' => 'Enregistrer en tant que brouillon',
     ],
 ];

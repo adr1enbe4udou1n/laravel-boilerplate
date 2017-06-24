@@ -162,6 +162,12 @@ window.locale = $('html').attr('lang');
             });
         });
 
+        $('[data-toggle="submit-link"]').click(function () {
+            let $form = $(this).closest('form');
+            $form.find($(this).data('target')).val($(this).data('value'));
+            //$form.submit();
+        });
+
         /**
          * Bind all swal confirm buttons
          */
