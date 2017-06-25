@@ -5,7 +5,7 @@
     </div>
     @endif
     <div class="media-body">
-        <h4 class="media-heading">@lang('labels.select_image')</h4>
+        <h4 class="media-heading">@lang('labels.upload_image')</h4>
         @include('partials.form.fields.file')
         <span class="help-block">
             @lang('labels.descriptions.allowed_image_types')

@@ -16,7 +16,7 @@ return [
     'updated_at' => 'Modifié le',
     'deleted_at' => 'Supprimé le',
     'no_value' => 'Aucune valeur',
-    'select_image' => 'Sélectionner une image',
+    'upload_image' => 'Transférer une image',
     'all_rights_reserved' => 'Tous droits réservés.',
 
     'morphs' => [
