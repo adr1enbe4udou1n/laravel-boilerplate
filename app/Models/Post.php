@@ -93,6 +93,15 @@ class Post extends Model
 
     protected $with = ['translations', 'media', 'owner'];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleted(function (Post $post) {
+            $post->meta->delete();
+        });
+    }
+
     const DRAFT = 0;
     const PENDING = 1;
     const PUBLISHED = 2;

@@ -150,6 +150,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      * @param \Illuminate\Http\UploadedFile $image
      *
      * @return mixed
+     * @throws \Illuminate\Database\Eloquent\MassAssignmentException
      * @throws \Throwable
      * @throws \App\Exceptions\GeneralException|\Exception
      */
@@ -176,8 +177,12 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
 
             // Metas
             if (isset($input['meta'])) {
-                $post->meta = new Meta($input['meta']);
-                $post->meta->save();
+                if (!$post->meta) {
+                    $post->meta()->create($input['meta']);
+                }
+                else {
+                    $post->meta->update($input['meta']);
+                }
             }
 
             // Tags

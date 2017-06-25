@@ -22,7 +22,7 @@
 
     @if (!empty($meta_description))
         <meta name="description" content="{{ $meta_description }}">
-    @elseif(View::hasSection('description'))
+    @elseif(View::hasSection('meta_description'))
         <meta name="description" content="@yield('meta_description')">
     @endif
     @include('partials.alternates')
