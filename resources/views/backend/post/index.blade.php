@@ -62,7 +62,7 @@
             }, {
                 title: '{{ trans('validation.attributes.title') }}',
                 data: 'title',
-                name: 'title',
+                name: 'translations.title',
                 defaultContent: '{{ trans('labels.no_value') }}',
                 width: 150,
             }, {
@@ -89,7 +89,7 @@
             }, {
                 title: '{{ trans('validation.attributes.summary') }}',
                 data: 'summary',
-                name: 'summary',
+                name: 'translations.summary',
                 defaultContent: '{{ trans('labels.no_value') }}',
                 orderable: false,
             }, {

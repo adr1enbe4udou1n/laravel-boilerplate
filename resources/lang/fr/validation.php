@@ -158,7 +158,7 @@ return [
         'message' => 'Message',
         'g-recaptcha-response' => 'Captcha',
         'locale' => 'Localisation',
-        'route' => 'Route interne',
+        'route' => 'Route',
         'url' => 'Alias URL',
         'form_type' => 'Type de formulaire',
         'form_data' => 'Données du formulaire',
@@ -175,5 +175,6 @@ return [
         'body' => 'Corps',
         'tags' => 'Etiquettes',
         'publish_at' => 'Publier le',
+        'metable_type' => 'Entité',
     ],
 ];

@@ -8,6 +8,8 @@ return [
     'are_you_sure' => 'Etes-vous sûr ?',
     'yes' => 'Oui',
     'no' => 'Non',
+    'post' => 'Article',
+    'user' => 'Utilisateur',
     'more_info' => 'Plus d\'info',
     'last_access_at' => 'Dernier accès le',
     'published_at' => 'Publié le',

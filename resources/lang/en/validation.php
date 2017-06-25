@@ -158,7 +158,7 @@ return [
         'message' => 'Message',
         'g-recaptcha-response' => 'Captcha',
         'locale' => 'Localization',
-        'route' => 'Internal route',
+        'route' => 'Route',
         'url' => 'URL alias',
         'form_type' => 'Form type',
         'form_data' => 'Form data',
@@ -175,5 +175,6 @@ return [
         'body' => 'Body',
         'tags' => 'Tags',
         'publish_at' => 'Publish at',
+        'metable_type' => 'Entity',
     ],
 ];

@@ -8,6 +8,8 @@ return [
     'are_you_sure' => 'Are you sure ?',
     'yes' => 'Yes',
     'no' => 'No',
+    'post' => 'Post',
+    'user' => 'User',
     'more_info' => 'More info',
     'last_access_at' => 'Last access at',
     'published_at' => 'Published at',

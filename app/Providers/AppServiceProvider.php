@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Post;
+use App\Models\User;
 use App\Repositories\Contracts\AccountRepository;
 use App\Repositories\Contracts\FormSettingRepository;
 use App\Repositories\Contracts\FormSubmissionRepository;
@@ -20,6 +22,7 @@ use App\Repositories\EloquentRedirectionRepository;
 use App\Repositories\EloquentRoleRepository;
 use App\Repositories\EloquentTagRepository;
 use App\Repositories\EloquentUserRepository;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -33,6 +36,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+
+        Relation::morphMap([
+            'post' => Post::class,
+            'user' => User::class,
+        ]);
 
         /*
          * Share hot mode for views

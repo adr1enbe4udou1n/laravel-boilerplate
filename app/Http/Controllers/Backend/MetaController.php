@@ -57,12 +57,13 @@ class MetaController extends BackendController
             $query = Datatables::of($this->metas->select([
                 'id',
                 'route',
+                'metable_type',
                 'created_at',
                 'updated_at',
             ]));
 
-            return $query->editColumn('route', function (Meta $meta) {
-                return trans("routes.{$meta->route}");
+            return $query->editColumn('metable_type', function (Meta $meta) {
+                return $meta->metable_type ? trans("labels.{$meta->metable_type}") : null;
             })->addColumn('actions', function (Meta $meta) {
                 return $this->metas->getActionButtons($meta);
             })->editColumn('created_at', function (Meta $meta) use ($request) {

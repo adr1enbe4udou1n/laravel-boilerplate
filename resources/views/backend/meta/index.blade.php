@@ -51,17 +51,24 @@
                 title: '{{ trans('validation.attributes.route') }}',
                 data: 'route',
                 name: 'route',
-                width: 150,
+                defaultContent: '{{ trans('labels.no_value') }}',
+                width: 75,
+            }, {
+                title: '{{ trans('validation.attributes.metable_type') }}',
+                data: 'metable_type',
+                name: 'metable_type',
+                defaultContent: '{{ trans('labels.no_value') }}',
+                width: 75,
             }, {
                 title: '{{ trans('validation.attributes.title') }}',
                 data: 'title',
-                name: 'title',
+                name: 'translations.title',
                 defaultContent: '{{ trans('labels.no_value') }}',
                 width: 150,
             }, {
                 title: '{{ trans('validation.attributes.description') }}',
                 data: 'description',
-                name: 'description',
+                name: 'translations.description',
                 defaultContent: '{{ trans('labels.no_value') }}',
                 orderable: false,
             }, {
@@ -84,7 +91,7 @@
                 width: 50,
             }],
             select: {style: 'os'},
-            order: [[1, 'asc']],
+            order: [[5, 'desc']],
             rowId: 'id'
         });
     </script>
