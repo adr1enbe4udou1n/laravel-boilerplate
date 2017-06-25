@@ -92,10 +92,7 @@ class PostController extends BackendController
             })->editColumn('promoted', function (Post $post) {
                 return boolean_html_label($post->promoted);
             })->editColumn('published_at', function (Post $post) use ($request) {
-                if ($post->published_at) {
-                    return $post->published_at->setTimezone($request->user()->timezone);
-                }
-                return null;
+                return $post->published_at->setTimezone($request->user()->timezone);
             })->editColumn('created_at', function (Post $post) use ($request) {
                 return $post->created_at->setTimezone($request->user()->timezone);
             })->editColumn('updated_at', function (Post $post) use ($request) {

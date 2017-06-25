@@ -100,7 +100,6 @@
                 title: '{{ trans('labels.published_at') }}',
                 data: 'published_at',
                 name: 'published_at',
-                defaultContent: '{{ trans('labels.no_value') }}',
                 width: 75,
                 className: 'text-center'
             }, {

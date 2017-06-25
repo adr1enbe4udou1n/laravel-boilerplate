@@ -164,7 +164,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
             $post->user_id = auth()->id();
         }
 
-        if ($post->status = Post::PUBLISHED && !Gate::check('publish posts')) {
+        if ($post->status === Post::PUBLISHED && !Gate::check('publish posts')) {
             // User with no publish permissions must go to moderation awaiting
             $post->status = Post::PENDING;
         }

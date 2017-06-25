@@ -90,31 +90,33 @@
                 <div class="box-body">
                     @isset($post)
                     <div class="form-group">
-                        <label class="control-label col-lg-2">@lang('validation.attributes.status')</label>
-                        <div class="col-lg-10">
+                        <label class="control-label col-lg-3">@lang('validation.attributes.status')</label>
+                        <div class="col-lg-9">
                             <label class="control-label">{!! state_html_label($post->state, trans($post->status_label)) !!}</label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label col-lg-2">@lang('labels.author')</label>
-                        <div class="col-lg-10">
+                        <label class="control-label col-lg-3">@lang('labels.author')</label>
+                        <div class="col-lg-9">
                             <label class="control-label">{{ $post->owner }}</label>
                         </div>
                     </div>
                     @endisset
                     {!! form_row('datetime', 'published_at', [
+                        'required' => true,
+                        'value' => \Carbon\Carbon::now(),
                         'title' => trans('validation.attributes.publish_at'),
                         'format' => 'YYYY-MM-DD hh:mm',
-                        'label_class' => 'col-lg-2',
-                        'field_wrapper_class' => 'col-lg-10',
+                        'label_class' => 'col-lg-3',
+                        'field_wrapper_class' => 'col-lg-9',
                     ]) !!}
                     {!! form_row('checkbox', 'pinned', [
                         'label' => trans('validation.attributes.pinned'),
-                        'field_wrapper_class' => 'col-lg-offset-2 col-lg-10',
+                        'field_wrapper_class' => 'col-lg-offset-3 col-lg-9',
                     ]) !!}
                     {!! form_row('checkbox', 'promoted', [
                         'label' => trans('validation.attributes.promoted'),
-                        'field_wrapper_class' => 'col-lg-offset-2 col-lg-10',
+                        'field_wrapper_class' => 'col-lg-offset-3 col-lg-9',
                     ]) !!}
                 </div>
             </div>

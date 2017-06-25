@@ -82,9 +82,6 @@ class Post extends Model
 
     protected $dates = [
         'published_at',
-        'created_at',
-        'updated_at',
-        'deleted_at',
     ];
 
     /**
@@ -92,7 +89,7 @@ class Post extends Model
      *
      * @var array
      */
-    protected $fillable = ['published_at', 'pinned', 'promoted', 'meta'];
+    protected $fillable = ['status', 'published_at', 'pinned', 'promoted'];
 
     protected $with = ['translations', 'media', 'owner'];
 
@@ -134,7 +131,7 @@ class Post extends Model
         if ($media = $this->getMedia('featured image')->first()) {
             return $media->getUrl();
         }
-        return null;
+        return '/placeholder.png';
     }
 
     public function getMetaTitleAttribute()
@@ -154,8 +151,11 @@ class Post extends Model
 
     public function setPublishedAtAttribute($value)
     {
-        if ($value) {
+        if (is_string($value)) {
             $this->attributes['published_at'] = Carbon::createFromFormat('Y-m-d H:i', $value);
+        }
+        else {
+            $this->attributes['published_at'] = $value;
         }
     }
 

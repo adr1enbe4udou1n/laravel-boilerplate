@@ -219,9 +219,14 @@ if (!function_exists('localize_url')) {
 
         if ($translatable && method_exists($translatable, 'translate')) {
             /** @var Translatable $translatable */
-            $slug = $translatable->translate($locale)->slug;
+            if ($translation = $translatable->translate($locale)) {
+                $slug = $translation->slug;
 
-            $url = route(Route::current()->getName(), ['post' => $slug]);
+                $url = route(Route::current()->getName(), ['post' => $slug]);
+            }
+            else {
+                $url = route('home');
+            }
         }
 
         return LaravelLocalization::getLocalizedURL($locale, $url, $attributes, true);

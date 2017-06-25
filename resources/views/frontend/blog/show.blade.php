@@ -11,11 +11,15 @@
         <div class="col-md-12">
             @include('frontend.blog.partials.publication-infos')
 
-            <div class="pull-left">
-                <img src="{{ image_template_url('large', $post->featured_image_url) }}" alt="{{ $post->title }}">
-            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="pull-left">
+                        <img src="{{ image_template_url('large', $post->featured_image_url) }}" alt="{{ $post->title }}">
+                    </div>
 
-            {!! clean($post->body) !!}
+                    {!! clean($post->body) !!}
+                </div>
+            </div>
 
             <nav class="navbar navbar-default">
                 <div class="navbar-header">

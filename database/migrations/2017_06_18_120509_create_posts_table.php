@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->boolean('promoted')->default(false);
             $table->boolean('pinned')->default(false);
 
-            $table->dateTime('published_at')->nullable();
+            $table->dateTime('published_at');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
