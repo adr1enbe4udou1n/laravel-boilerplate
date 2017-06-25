@@ -13,31 +13,14 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 trait Taggable
 {
     /**
-     * Filter Tags to current locale.
-     *
-     * @return \Closure
-     * @throws \InvalidArgumentException
-     */
-    public static function applyLocaleTags()
-    {
-        return function(Builder $builder) {
-            $builder->with([
-                'tags' => function (MorphToMany $query) {
-                    $query->where('locale', '=',
-                        LaravelLocalization::getCurrentLocale());
-                }
-            ]);
-        };
-    }
-
-    /**
      * Get all of the tags for the post.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphToMany|Tag[]
      */
     public function tags()
     {
-        return $this->morphToMany(Tag::class, 'taggable');
+        return $this->morphToMany(Tag::class, 'taggable')->where('locale', '=',
+            LaravelLocalization::getCurrentLocale());
     }
 
     /**

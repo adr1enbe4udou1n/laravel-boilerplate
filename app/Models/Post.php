@@ -8,6 +8,7 @@ use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Traits\Taggable;
+use Plank\Mediable\Media;
 use Plank\Mediable\Mediable;
 
 /**
@@ -91,26 +92,9 @@ class Post extends Model
      *
      * @var array
      */
-    protected $fillable
-        = [
-            'image',
-            'published',
-        ];
+    protected $fillable = ['published_at', 'pinned', 'promoted', 'meta'];
 
     protected $with = ['translations', 'media', 'owner'];
-
-    /**
-     * The "booting" method of the model.
-     *
-     * @return void
-     * @throws \InvalidArgumentException
-     */
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::addGlobalScope(Taggable::applyLocaleTags());
-    }
 
     const DRAFT = 0;
     const PENDING = 1;
@@ -164,6 +148,11 @@ class Post extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function setPublishedAtAttribute($value)
+    {
+        return $this->attributes['published_at'] = Carbon::createFromFormat('Y-m-d H:i', $value);
+    }
+
     /**
      * Scope a query to only include published articles.
      *
@@ -191,10 +180,14 @@ class Post extends Model
 
     /**
      * Delete media physically.
+     *
      * @return void
+     * @throws \Exception
      */
-    protected function handleMediableDeletion()
+    public function handleMediableDeletion()
     {
-        $this->media()->first()->delete();
+        $this->getMedia('featured image')->each(function(Media $media) {
+            $media->delete();
+        });
     }
 }

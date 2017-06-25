@@ -7,8 +7,8 @@
     <div class="media-body">
         <h4 class="media-heading">@lang('labels.select_image')</h4>
         @include('partials.form.fields.file')
-        @include('partials.form.help', [
-            'description' => trans('labels.descriptions.allowed_image_types')
-        ])
+        <span class="help-block">
+            @lang('labels.descriptions.allowed_image_types')
+        </span>
     </div>
 </div>

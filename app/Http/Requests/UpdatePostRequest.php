@@ -23,10 +23,13 @@ class UpdatePostRequest extends FormRequest
      */
     public function rules()
     {
-        $post = $this->route('post');
-
         return [
-
+            'title' => 'required',
+            'featured_image' => 'mimes:jpeg,jpg,png,gif',
+            'status' => 'in:publish,draft',
+            'published_at' => 'date',
+            'pinned' => 'boolean',
+            'promoted' => 'boolean',
         ];
     }
 }

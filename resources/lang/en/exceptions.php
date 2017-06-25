@@ -48,6 +48,7 @@ return [
         'posts' => [
             'create' => 'Error on post creation',
             'update' => 'Error on post updating',
+            'save' => 'Error on post saving',
             'delete' => 'Error on post deletion',
         ],
     ],

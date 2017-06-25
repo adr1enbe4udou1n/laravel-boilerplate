@@ -23,6 +23,14 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
     use Sluggable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['locale', 'name'];
+
     public $timestamps = false;
 
     /**

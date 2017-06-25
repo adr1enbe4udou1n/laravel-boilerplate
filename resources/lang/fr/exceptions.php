@@ -48,6 +48,7 @@ return [
         'posts' => [
             'create' => 'Erreur lors de la création de l\'article',
             'update' => 'Erreur lors de la mise à jour de l\'article',
+            'save' => 'Erreur lors de l\'enregistrement de l\'article',
             'delete' => 'Erreur lors de la suppression de l\'article',
         ],
     ],

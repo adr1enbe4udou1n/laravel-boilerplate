@@ -47,6 +47,6 @@ class EloquentBaseRepository implements BaseRepository
      */
     public function make(array $attributes = [])
     {
-        return $this->query()->newModelInstance($attributes);
+        return $this->query()->make($attributes);
     }
 }

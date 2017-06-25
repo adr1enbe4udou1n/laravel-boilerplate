@@ -118,7 +118,16 @@ class PostController extends BackendController
      */
     public function store(StorePostRequest $request)
     {
-        $this->posts->store($request->input());
+        /** @var Post $post */
+        $post = $this->posts->make(
+            $request->only('title', 'summary', 'body', 'published_at', 'pinned', 'promoted', 'meta')
+        );
+
+        if ($request->input('status') === 'publish') {
+            $this->posts->saveAndPublish($post, $request->input(), $request->file('featured_image'));
+        } else {
+            $this->posts->saveAsDraft($post, $request->input(), $request->file('featured_image'));
+        }
 
         return redirect()->route('admin.post.index')->withFlashSuccess(trans('alerts.backend.posts.created'));
     }
@@ -138,10 +147,19 @@ class PostController extends BackendController
      * @param UpdatePostRequest $request
      *
      * @return mixed
+     * @throws \Illuminate\Database\Eloquent\MassAssignmentException
      */
     public function update(Post $post, UpdatePostRequest $request)
     {
-        $this->posts->update($post, $request->input());
+        $post->fill(
+            $request->only('title', 'summary', 'body', 'published_at', 'pinned', 'promoted')
+        );
+
+        if ($request->input('status') === 'publish') {
+            $this->posts->saveAndPublish($post, $request->input(), $request->file('featured_image'));
+        } else {
+            $this->posts->saveAsDraft($post, $request->input(), $request->file('featured_image'));
+        }
 
         return redirect()->route('admin.post.index')->withFlashSuccess(trans('alerts.backend.posts.updated'));
     }

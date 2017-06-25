@@ -24,7 +24,12 @@ class StorePostRequest extends FormRequest
     public function rules()
     {
         return [
-
+            'title' => 'required',
+            'featured_image' => 'mimes:jpeg,jpg,png,gif',
+            'status' => 'in:publish,draft',
+            'published_at' => 'date',
+            'pinned' => 'boolean',
+            'promoted' => 'boolean',
         ];
     }
 }

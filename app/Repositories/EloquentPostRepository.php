@@ -8,17 +8,20 @@ use App\Models\PostTranslation;
 use App\Models\Tag;
 use App\Models\User;
 use App\Repositories\Contracts\PostRepository;
+use App\Repositories\Contracts\TagRepository;
 use App\Repositories\Traits\HtmlActionsButtons;
 use Illuminate\Contracts\Config\Repository;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Str;
 use Mcamara\LaravelLocalization\LaravelLocalization;
+use Plank\Mediable\MediaUploader;
 
 /**
  * Class EloquentPostRepository.
  */
-class EloquentPostRepository extends EloquentBaseRepository implements
-    PostRepository
+class EloquentPostRepository extends EloquentBaseRepository implements PostRepository
 {
 
     use HtmlActionsButtons;
@@ -29,25 +32,33 @@ class EloquentPostRepository extends EloquentBaseRepository implements
     protected $localization;
 
     /**
-     * @var \Illuminate\Contracts\Config\Repository
+     * @var \App\Repositories\Contracts\TagRepository
      */
-    protected $config;
+    protected $tags;
+
+    /**
+     * @var \Plank\Mediable\MediaUploader
+     */
+    protected $mediaUploader;
 
     /**
      * EloquentUserRepository constructor.
      *
      * @param Post                                             $post
      * @param \Mcamara\LaravelLocalization\LaravelLocalization $localization
-     * @param \Illuminate\Contracts\Config\Repository          $config
+     * @param TagRepository                                    $tags
+     * @param \Plank\Mediable\MediaUploader                    $mediaUploader
      */
     public function __construct(
         Post $post,
         LaravelLocalization $localization,
-        Repository $config
+        TagRepository $tags,
+        MediaUploader $mediaUploader
     ) {
         parent::__construct($post);
         $this->localization = $localization;
-        $this->config = $config;
+        $this->tags = $tags;
+        $this->mediaUploader = $mediaUploader;
     }
 
     /**
@@ -100,24 +111,108 @@ class EloquentPostRepository extends EloquentBaseRepository implements
     }
 
     /**
-     * @param array $input
+     * @param Post                          $post
+     * @param array                         $input
+     *
+     * @param \Illuminate\Http\UploadedFile $image
      *
      * @return mixed
+     * @throws \Throwable
+     * @throws \App\Exceptions\GeneralException|\Exception
      */
-    public function store(array $input)
+    public function save(Post $post, array $input, UploadedFile $image = null)
     {
-        // TODO: Implement store() method.
+        if ($post->exists) {
+            if (!Gate::check('update', $post)) {
+                throw new GeneralException(trans('exceptions.backend.posts.save'));
+            }
+        }
+        else {
+            $post->user_id = auth()->id();
+        }
+
+        DB::transaction(function () use ($post, $input, $image) {
+            if (!$post->save()) {
+                throw new GeneralException(trans('exceptions.backend.posts.save'));
+            }
+
+            // Metas
+            if (isset($input['meta'])) {
+                $post->meta->title = $input['meta']['title'];
+                $post->meta->description = $input['meta']['description'];
+                $post->meta->save();
+            }
+
+            // Tags
+            if (isset($input['tags'])) {
+                // No sync because no where support (localized tags)
+                $ids = $post->tags->pluck('id')->toArray();
+                $post->tags()->detach($ids);
+
+                foreach ($input['tags'] as $tag) {
+                    if (!is_numeric($tag)) {
+                        // New tag to create
+                        if ($tag = $this->tags->findOrCreate($tag)) {
+                            $post->tags()->attach($tag->id);
+                        }
+                        continue;
+                    }
+
+                    $post->tags()->attach($tag);
+                }
+            }
+
+            // Featured image
+            if ($image) {
+                $media = $this->mediaUploader->fromSource($image)
+                    ->toDestination('public', 'posts')
+                    ->useFilename(Str::random(32))
+                    ->upload();
+
+                $post->handleMediableDeletion();
+                $post->attachMedia($media, 'featured image');
+            }
+
+            return true;
+        });
+
+        return true;
     }
 
     /**
-     * @param Post  $post
-     * @param array $input
+     * @param Post                          $post
+     * @param array                         $input
+     *
+     * @param \Illuminate\Http\UploadedFile $image
      *
      * @return mixed
+     * @throws \App\Exceptions\GeneralException|\Exception|\Throwable
      */
-    public function update(Post $post, array $input)
+    public function saveAndPublish(Post $post, array $input, UploadedFile $image = null)
     {
-        // TODO: Implement update() method.
+        if (Gate::check('manage posts')) {
+            $post->status = Post::PUBLISHED;
+        }
+        else {
+            $post->status = Post::PENDING;
+        }
+
+        return $this->save($post, $input, $image);
+    }
+
+    /**
+     * @param Post                          $post
+     * @param array                         $input
+     *
+     * @param \Illuminate\Http\UploadedFile $image
+     *
+     * @return mixed
+     * @throws \App\Exceptions\GeneralException|\Exception|\Throwable
+     */
+    public function saveAsDraft(Post $post, array $input, UploadedFile $image = null)
+    {
+        $post->status = Post::DRAFT;
+        return $this->save($post, $input, $image);
     }
 
     /**
