@@ -71,10 +71,12 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
      */
     public function update(Meta $meta, array $input)
     {
-        if (($existingMeta = $this->find($meta->route))
-            && $existingMeta->id !== $meta->id
-        ) {
-            throw new GeneralException(trans('exceptions.backend.metas.already_exist'));
+        if ($meta->route) {
+            $existingMeta = $this->find($meta->route);
+
+            if ($existingMeta->id !== $meta->id) {
+                throw new GeneralException(trans('exceptions.backend.metas.already_exist'));
+            }
         }
 
         if (!$meta->update($input)) {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Meta;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateMetaRequest extends FormRequest
@@ -23,10 +24,14 @@ class UpdateMetaRequest extends FormRequest
      */
     public function rules()
     {
+        /** @var Meta $meta */
         $meta = $this->route('meta');
 
-        return [
-            'route' => "required|unique:metas,route,{$meta->id}",
-        ];
+        if (!$meta->metable_type) {
+            return [
+                'route' => "required|unique:metas,route,{$meta->id}",
+            ];
+        }
+        return [];
     }
 }

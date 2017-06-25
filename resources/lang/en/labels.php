@@ -8,8 +8,6 @@ return [
     'are_you_sure' => 'Are you sure ?',
     'yes' => 'Yes',
     'no' => 'No',
-    'post' => 'Post',
-    'user' => 'User',
     'more_info' => 'More info',
     'last_access_at' => 'Last access at',
     'published_at' => 'Published at',
@@ -19,6 +17,11 @@ return [
     'no_value' => 'No value',
     'select_image' => 'Select image',
     'all_rights_reserved' => 'All rights reserved.',
+
+    'morphs' => [
+        'post' => 'Post, identity :id',
+        'user' => 'User, identity :id',
+    ],
 
     'auth' => [
         'disabled' => 'Your account has been disabled.',

@@ -58,12 +58,13 @@ class MetaController extends BackendController
                 'id',
                 'route',
                 'metable_type',
+                'metable_id',
                 'created_at',
                 'updated_at',
             ]));
 
             return $query->editColumn('metable_type', function (Meta $meta) {
-                return $meta->metable_type ? trans("labels.{$meta->metable_type}") : null;
+                return $meta->metable_type ? trans("labels.morphs.{$meta->metable_type}", ['id' => $meta->metable_id]) : null;
             })->addColumn('actions', function (Meta $meta) {
                 return $this->metas->getActionButtons($meta);
             })->editColumn('created_at', function (Meta $meta) use ($request) {
