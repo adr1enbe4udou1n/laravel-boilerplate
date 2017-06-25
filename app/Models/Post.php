@@ -97,7 +97,7 @@ class Post extends Model
             'published',
         ];
 
-    protected $with = ['translations', 'media'];
+    protected $with = ['translations', 'media', 'owner'];
 
     /**
      * The "booting" method of the model.
@@ -187,5 +187,14 @@ class Post extends Model
     public function scopeWithOwner(Builder $query, User $user)
     {
         return $query->where('user_id', '=', $user->id);
+    }
+
+    /**
+     * Delete media physically.
+     * @return void
+     */
+    protected function handleMediableDeletion()
+    {
+        $this->media()->first()->delete();
     }
 }

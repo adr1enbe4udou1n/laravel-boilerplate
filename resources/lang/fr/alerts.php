@@ -50,6 +50,7 @@ return [
             'deleted' => 'Article supprimé',
             'bulk_destroyed' => 'Articles sélectionnés supprimés',
             'bulk_published' => 'Articles sélectionnés publiés',
+            'bulk_pending' => 'Articles sélectionnés en attente de modération',
             'bulk_pinned' => 'Articles sélectionnés épinglé',
             'bulk_promoted' => 'Articles sélectionnés mis en avant',
         ],

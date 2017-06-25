@@ -289,12 +289,12 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
 
     public function canEdit(User $user)
     {
-        return !$user->is_super_admin || auth()->user()->id === 1;
+        return !$user->is_super_admin || auth()->id() === 1;
     }
 
     public function canDelete(User $user)
     {
-        return !$user->is_super_admin && $user->id !== auth()->user()->id;
+        return !$user->is_super_admin && $user->id !== auth()->id();
     }
 
     /**

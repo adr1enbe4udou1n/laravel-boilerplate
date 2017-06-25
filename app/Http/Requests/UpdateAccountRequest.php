@@ -23,11 +23,9 @@ class UpdateAccountRequest extends FormRequest
      */
     public function rules()
     {
-        $user = auth()->user();
-
         return [
             'name' => 'required|max:191',
-            'email' => 'required|email|unique:users,email,'.$user->id,
+            'email' => 'required|email|unique:users,email,'.auth()->id(),
             'locale' => 'required',
             'timezone' => 'required',
         ];

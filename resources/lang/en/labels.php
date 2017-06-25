@@ -9,6 +9,7 @@ return [
     'yes' => 'Yes',
     'no' => 'No',
     'more_info' => 'More info',
+    'author' => 'Author',
     'last_access_at' => 'Last access at',
     'published_at' => 'Published at',
     'created_at' => 'Created at',

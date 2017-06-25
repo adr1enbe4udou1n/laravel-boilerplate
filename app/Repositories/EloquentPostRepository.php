@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Exceptions\GeneralException;
 use App\Models\Post;
 use App\Models\PostTranslation;
 use App\Models\Tag;
@@ -9,14 +10,17 @@ use App\Models\User;
 use App\Repositories\Contracts\PostRepository;
 use App\Repositories\Traits\HtmlActionsButtons;
 use Illuminate\Contracts\Config\Repository;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 use Mcamara\LaravelLocalization\LaravelLocalization;
 
 /**
  * Class EloquentPostRepository.
  */
-class EloquentPostRepository extends EloquentBaseRepository implements PostRepository
+class EloquentPostRepository extends EloquentBaseRepository implements
+    PostRepository
 {
+
     use HtmlActionsButtons;
 
     /**
@@ -36,8 +40,11 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      * @param \Mcamara\LaravelLocalization\LaravelLocalization $localization
      * @param \Illuminate\Contracts\Config\Repository          $config
      */
-    public function __construct(Post $post, LaravelLocalization $localization, Repository $config)
-    {
+    public function __construct(
+        Post $post,
+        LaravelLocalization $localization,
+        Repository $config
+    ) {
         parent::__construct($post);
         $this->localization = $localization;
         $this->config = $config;
@@ -117,50 +124,125 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      * @param Post $post
      *
      * @return mixed
+     * @throws \Exception
      */
     public function destroy(Post $post)
     {
-        // TODO: Implement destroy() method.
+        if (!$post->delete()) {
+            throw new GeneralException(trans('exceptions.backend.posts.delete'));
+        }
+
+        return true;
+    }
+
+    /**
+     * @param array $ids
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    private function batchQuery(array $ids) {
+        $query = $this->query()->whereIn('id', $ids);
+
+        if (!Gate::check('manage posts')) {
+            // Filter to only current user's posts
+            $query->whereUserId(auth()->id());
+        }
+
+        return $query;
     }
 
     /**
      * @param array $ids
      *
      * @return mixed
+     * @throws \Exception|\Throwable
      */
     public function batchDestroy(array $ids)
     {
-        // TODO: Implement batchDestroy() method.
+        DB::transaction(function () use ($ids) {
+            /** @var Post[] $posts */
+            $posts = $this->batchQuery($ids)->get();
+
+            foreach ($posts as $post) {
+                $this->destroy($post);
+            }
+
+            return true;
+        });
+
+        return true;
     }
 
     /**
      * @param array $ids
      *
      * @return mixed
+     * @throws \Throwable
+     * @throws \Exception
      */
     public function batchPublish(array $ids)
     {
-        // TODO: Implement batchPublish() method.
+        DB::transaction(function () use ($ids) {
+            $query = $this->batchQuery($ids);
+
+            if (Gate::check('publish posts')) {
+                if ($query->update(['status' => Post::PUBLISHED])) {
+                    return true;
+                }
+            }
+            else {
+                // Set to moderation pending if no right to publish
+                if ($query->update(['status' => Post::PENDING])) {
+                    return true;
+                }
+            }
+
+            throw new GeneralException(trans('exceptions.backend.posts.update'));
+        });
     }
 
     /**
      * @param array $ids
      *
      * @return mixed
-     */
-    public function batchPromote(array $ids)
-    {
-        // TODO: Implement batchPromote() method.
-    }
-
-    /**
-     * @param array $ids
-     *
-     * @return mixed
+     * @throws \Throwable
+     * @throws \Exception
      */
     public function batchPin(array $ids)
     {
-        // TODO: Implement batchPin() method.
+        DB::transaction(function () use ($ids) {
+            $query = $this->batchQuery($ids);
+
+            if ($query->update(['pinned' => true])) {
+                return true;
+            }
+
+            throw new GeneralException(trans('exceptions.backend.posts.update'));
+        });
+
+        return true;
+    }
+
+    /**
+     * @param array $ids
+     *
+     * @return mixed
+     * @throws \Throwable
+     * @throws \Exception
+     */
+    public function batchPromote(array $ids)
+    {
+        DB::transaction(function () use ($ids) {
+            $query = $this->batchQuery($ids);
+
+            if ($query->update(['promoted' => true])) {
+                return true;
+            }
+
+            throw new GeneralException(trans('exceptions.backend.posts.update'));
+        });
+
+        return true;
     }
 
     /**

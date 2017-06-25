@@ -18,10 +18,7 @@
                     <table class="table table-bordered table-hover" id="dataTableBuilder" width="100%"></table>
                     {!! form_batch_action('admin.post.batch-action', 'dataTableBuilder', [
                         'destroy' => trans('labels.backend.posts.actions.destroy'),
-                        'publish' => [
-                            'title' => trans('labels.backend.posts.actions.publish'),
-                            'active' => Gate::check('publish posts'),
-                        ],
+                        'publish' => trans('labels.backend.posts.actions.publish'),
                         'pin' => trans('labels.backend.posts.actions.pin'),
                         'promote' => trans('labels.backend.posts.actions.promote'),
                     ]) !!}
@@ -93,22 +90,29 @@
                 defaultContent: '{{ trans('labels.no_value') }}',
                 orderable: false,
             }, {
+                title: '{{ trans('labels.author') }}',
+                data: 'owner.name',
+                name: 'owner.name',
+                orderable: false,
+                width: 100,
+                className: 'text-center'
+            }, {
                 title: '{{ trans('labels.published_at') }}',
                 data: 'published_at',
                 name: 'published_at',
-                width: 125,
+                width: 75,
                 className: 'text-center'
             }, {
                 title: '{{ trans('labels.created_at') }}',
                 data: 'created_at',
                 name: 'created_at',
-                width: 125,
+                width: 75,
                 className: 'text-center'
             }, {
                 title: '{{ trans('labels.updated_at') }}',
                 data: 'updated_at',
                 name: 'updated_at',
-                width: 125,
+                width: 75,
                 className: 'text-center'
             }, {
                 title: '{{ trans('labels.actions') }}',
@@ -118,7 +122,7 @@
                 width: 50,
             }],
             select: {style: 'os'},
-            order: [[8, 'desc']],
+            order: [[9, 'desc']],
             rowId: 'id'
         });
     </script>

@@ -320,7 +320,7 @@ Route::group([
             );
 
             Route::group(
-                ['middleware' => ['can:manage posts']],
+                ['middleware' => ['can:manage own posts']],
                 function () {
                     Route::get('post', 'PostController@index')
                         ->name('post.index');
@@ -329,11 +329,14 @@ Route::group([
                     Route::post('post', 'PostController@store')
                         ->name('post.store');
                     Route::get('post/{post}/edit', 'PostController@edit')
-                        ->name('post.edit');
+                        ->name('post.edit')
+                        ->middleware('can:update,post');
                     Route::match(['PUT', 'PATCH'], 'post/{post}',
-                        'PostController@update')->name('post.update');
+                        'PostController@update')->name('post.update')
+                        ->middleware('can:update,post');
                     Route::delete('post/{post}', 'PostController@destroy')
-                        ->name('post.destroy');
+                        ->name('post.destroy')
+                        ->middleware('can:update,post');
 
                     Route::post('post/search', 'PostController@search')->name(
                         'post.search'

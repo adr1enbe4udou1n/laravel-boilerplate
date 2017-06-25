@@ -7,7 +7,9 @@ use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
 use App\Repositories\Contracts\PostRepository;
 use Html;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Yajra\Datatables\Engines\EloquentEngine;
 use Yajra\Datatables\Facades\Datatables;
 
@@ -23,6 +25,8 @@ class PostController extends BackendController
      *
      *
      * @param \App\Repositories\Contracts\PostRepository $posts
+     *
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function __construct(PostRepository $posts)
     {
@@ -51,16 +55,25 @@ class PostController extends BackendController
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            /** @var EloquentEngine $query */
-            $query = Datatables::of($this->posts->select([
+            /** @var Builder $query */
+            $query = $this->posts->select([
                 'id',
+                'user_id',
                 'status',
                 'pinned',
                 'promoted',
                 'published_at',
                 'created_at',
                 'updated_at',
-            ]));
+            ]);
+
+            if (!Gate::check('manage posts')) {
+                // Filter to only current user's posts
+                $query->whereUserId(auth()->id());
+            }
+
+            /** @var EloquentEngine $query */
+            $query = Datatables::of($query);
 
             return $query->addColumn('actions', function (Post $post) {
                 return $this->posts->getActionButtons($post);
@@ -160,17 +173,23 @@ class PostController extends BackendController
 
                 return redirect()->back()->withFlashSuccess(trans('alerts.backend.posts.bulk_destroyed'));
                 break;
-            case 'published':
+            case 'publish':
                 $this->posts->batchPublish($ids);
 
-                return redirect()->back()->withFlashSuccess(trans('alerts.backend.posts.bulk_published'));
+                if (Gate::check('publish posts')) {
+                    return redirect()->back()
+                        ->withFlashSuccess(trans('alerts.backend.posts.bulk_published'));
+                }
+
+                return redirect()->back()
+                    ->withFlashWarning(trans('alerts.backend.posts.bulk_pending'));
                 break;
-            case 'pinned':
+            case 'pin':
                 $this->posts->batchPin($ids);
 
                 return redirect()->back()->withFlashSuccess(trans('alerts.backend.posts.bulk_pinned'));
                 break;
-            case 'promoted':
+            case 'promote':
                 $this->posts->batchPromote($ids);
 
                 return redirect()->back()->withFlashSuccess(trans('alerts.backend.posts.bulk_promoted'));

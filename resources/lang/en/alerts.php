@@ -49,10 +49,11 @@ return [
             'created' => 'Post created',
             'updated' => 'Post updated',
             'deleted' => 'Post deleted',
-            'bulk_destroyed' => 'Selected post deleted',
-            'bulk_published' => 'Selected post published',
-            'bulk_pinned' => 'Selected post pinned',
-            'bulk_promoted' => 'Selected post promoted',
+            'bulk_destroyed' => 'Selected posts deleted',
+            'bulk_published' => 'Selected posts published',
+            'bulk_pending' => 'Selected posts are awaiting moderation',
+            'bulk_pinned' => 'Selected posts pinned',
+            'bulk_promoted' => 'Selected posts promoted',
         ],
 
         'actions' => [

@@ -95,6 +95,12 @@
                             <label class="control-label">{!! state_html_label($post->state, trans($post->status_label)) !!}</label>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-2">@lang('labels.author')</label>
+                        <div class="col-lg-10">
+                            <label class="control-label">{{ $post->owner }}</label>
+                        </div>
+                    </div>
                     @endisset
                     {!! form_row('datetime', 'published_at', [
                         'title' => trans('validation.attributes.publish_at'),
