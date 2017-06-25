@@ -41,19 +41,7 @@ interface PostRepository extends BaseRepository
     public function findBySlug($slug);
 
     /**
-     * @param Post                          $post
-     *
-     * @param array                         $input
-     *
-     * @param \Illuminate\Http\UploadedFile $image
-     *
-     * @return mixed
-     */
-    public function save(Post $post, array $input, UploadedFile $image = null);
-
-    /**
-     * @param Post                          $post
-     *
+     * @param \App\Models\Post              $post
      * @param array                         $input
      *
      * @param \Illuminate\Http\UploadedFile $image

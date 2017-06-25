@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Exceptions\GeneralException;
+use App\Models\Meta;
 use App\Models\Post;
 use App\Models\PostTranslation;
 use App\Models\Tag;
@@ -12,6 +13,7 @@ use App\Repositories\Contracts\TagRepository;
 use App\Repositories\Traits\HtmlActionsButtons;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
@@ -117,10 +119,41 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      * @param \Illuminate\Http\UploadedFile $image
      *
      * @return mixed
+     * @throws \Illuminate\Database\Eloquent\MassAssignmentException
+     * @throws \App\Exceptions\GeneralException|\Exception|\Throwable
+     */
+    public function saveAndPublish(Post $post, array $input, UploadedFile $image = null)
+    {
+        $post->status = Post::PUBLISHED;
+        return $this->save($post, $input, $image);
+    }
+
+    /**
+     * @param Post                          $post
+     * @param array                         $input
+     *
+     * @param \Illuminate\Http\UploadedFile $image
+     *
+     * @return mixed
+     * @throws \App\Exceptions\GeneralException|\Exception|\Throwable
+     */
+    public function saveAsDraft(Post $post, array $input, UploadedFile $image = null)
+    {
+        $post->status = Post::DRAFT;
+        return $this->save($post, $input, $image);
+    }
+
+    /**
+     * @param Post                          $post
+     * @param array                         $input
+     *
+     * @param \Illuminate\Http\UploadedFile $image
+     *
+     * @return mixed
      * @throws \Throwable
      * @throws \App\Exceptions\GeneralException|\Exception
      */
-    public function save(Post $post, array $input, UploadedFile $image = null)
+    private function save(Post $post, array $input, UploadedFile $image = null)
     {
         if ($post->exists) {
             if (!Gate::check('update', $post)) {
@@ -131,6 +164,11 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
             $post->user_id = auth()->id();
         }
 
+        if ($post->status = Post::PUBLISHED && !Gate::check('publish posts')) {
+            // User with no publish permissions must go to moderation awaiting
+            $post->status = Post::PENDING;
+        }
+
         DB::transaction(function () use ($post, $input, $image) {
             if (!$post->save()) {
                 throw new GeneralException(trans('exceptions.backend.posts.save'));
@@ -138,8 +176,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
 
             // Metas
             if (isset($input['meta'])) {
-                $post->meta->title = $input['meta']['title'];
-                $post->meta->description = $input['meta']['description'];
+                $post->meta = new Meta($input['meta']);
                 $post->meta->save();
             }
 
@@ -177,42 +214,6 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
         });
 
         return true;
-    }
-
-    /**
-     * @param Post                          $post
-     * @param array                         $input
-     *
-     * @param \Illuminate\Http\UploadedFile $image
-     *
-     * @return mixed
-     * @throws \App\Exceptions\GeneralException|\Exception|\Throwable
-     */
-    public function saveAndPublish(Post $post, array $input, UploadedFile $image = null)
-    {
-        if (Gate::check('manage posts')) {
-            $post->status = Post::PUBLISHED;
-        }
-        else {
-            $post->status = Post::PENDING;
-        }
-
-        return $this->save($post, $input, $image);
-    }
-
-    /**
-     * @param Post                          $post
-     * @param array                         $input
-     *
-     * @param \Illuminate\Http\UploadedFile $image
-     *
-     * @return mixed
-     * @throws \App\Exceptions\GeneralException|\Exception|\Throwable
-     */
-    public function saveAsDraft(Post $post, array $input, UploadedFile $image = null)
-    {
-        $post->status = Post::DRAFT;
-        return $this->save($post, $input, $image);
     }
 
     /**

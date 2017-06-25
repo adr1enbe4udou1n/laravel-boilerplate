@@ -37,14 +37,8 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
         /** @var Role $role */
         $role = $this->make($input);
 
-        if (!$role->save()) {
+        if (!$this->save($role, $input)) {
             throw new GeneralException(trans('exceptions.backend.roles.create'));
-        }
-
-        $permissions = isset($input['permissions']) ? $input['permissions'] : [];
-
-        foreach ($permissions as $name) {
-            $role->permissions()->create(['name' => $name]);
         }
 
         return $role;
@@ -61,8 +55,26 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
      */
     public function update(Role $role, array $input)
     {
-        if (!$role->update($input)) {
+        $role->fill($input);
+
+        if (!$this->save($role, $input)) {
             throw new GeneralException(trans('exceptions.backend.roles.update'));
+        }
+
+        return $role;
+    }
+
+    /**
+     * @param \App\Models\Role $role
+     * @param array            $input
+     *
+     * @return bool
+     * @throws \App\Exceptions\GeneralException
+     */
+    private function save(Role $role, array $input)
+    {
+        if (!$role->save($input)) {
+            return false;
         }
 
         $role->permissions()->delete();
@@ -73,7 +85,7 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
             $role->permissions()->create(['name' => $name]);
         }
 
-        return $role;
+        return true;
     }
 
     /**

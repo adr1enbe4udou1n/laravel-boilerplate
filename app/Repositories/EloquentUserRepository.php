@@ -95,13 +95,11 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
             $user->timezone = $this->config->get('app.timezone');
         }
 
-        if (!$user->save()) {
+        if (!$this->save($user, $input)) {
             throw new GeneralException(trans('exceptions.backend.users.create'));
         }
 
         event(new UserCreated($user));
-
-        $this->setRolesToUser($user, isset($input['roles']) ? $input['roles'] : []);
 
         return $user;
     }
@@ -127,41 +125,47 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
             throw new GeneralException(trans('exceptions.backend.users.first_user_cannot_be_disabled'));
         }
 
-        if (isset($input['password']) && !empty($input['password'])) {
-            $user->password = bcrypt($input['password']);
-        }
-
-        if (!$user->save()) {
+        if (!$this->save($user, $input)) {
             throw new GeneralException(trans('exceptions.backend.users.update'));
         }
 
         event(new UserUpdated($user));
-
-        $this->setRolesToUser($user, isset($input['roles']) ? $input['roles'] : []);
 
         return $user;
     }
 
     /**
      * @param \App\Models\User $user
-     * @param array            $roles
+     * @param array            $input
      *
+     * @return bool
      * @throws \App\Exceptions\GeneralException
+     *
      */
-    private function setRolesToUser(User $user, array $roles)
+    private function save(User $user, array $input)
     {
-        if (empty($roles)) {
-            return;
+        if (isset($input['password']) && !empty($input['password'])) {
+            $user->password = bcrypt($input['password']);
+        }
+
+        if (!$user->save()) {
+            return false;
+        }
+
+        if (empty($input['roles'])) {
+            return true;
         }
 
         $allowedRoles = $this->roles->getAllowedRoles()->keyBy('id');
 
-        foreach ($roles as $id) {
+        foreach ($input['roles'] as $id) {
             if (!$allowedRoles->has($id)) {
                 throw new GeneralException(trans('exceptions.backend.users.cannot_set_superior_roles'));
             }
         }
-        $user->roles()->sync($roles);
+        $user->roles()->sync($input['roles']);
+
+        return true;
     }
 
     /**

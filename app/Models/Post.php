@@ -130,7 +130,11 @@ class Post extends Model
 
     public function getFeaturedImageUrlAttribute()
     {
-        return $this->getMedia('featured image')->first()->getUrl();
+        /** @var Media $media */
+        if ($media = $this->getMedia('featured image')->first()) {
+            return $media->getUrl();
+        }
+        return null;
     }
 
     public function getMetaTitleAttribute()
@@ -150,7 +154,9 @@ class Post extends Model
 
     public function setPublishedAtAttribute($value)
     {
-        return $this->attributes['published_at'] = Carbon::createFromFormat('Y-m-d H:i', $value);
+        if ($value) {
+            $this->attributes['published_at'] = Carbon::createFromFormat('Y-m-d H:i', $value);
+        }
     }
 
     /**
