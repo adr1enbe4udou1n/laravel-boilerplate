@@ -10,7 +10,6 @@ use Mcamara\LaravelLocalization\LaravelLocalization;
 
 class AjaxController extends Controller
 {
-
     /**
      * @var \App\Repositories\Contracts\TagRepository
      */

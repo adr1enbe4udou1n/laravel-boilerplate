@@ -11,9 +11,7 @@ use App\Models\User;
 use App\Repositories\Contracts\PostRepository;
 use App\Repositories\Contracts\TagRepository;
 use App\Repositories\Traits\HtmlActionsButtons;
-use Illuminate\Contracts\Config\Repository;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
@@ -25,7 +23,6 @@ use Plank\Mediable\MediaUploader;
  */
 class EloquentPostRepository extends EloquentBaseRepository implements PostRepository
 {
-
     use HtmlActionsButtons;
 
     /**
@@ -115,41 +112,43 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     /**
      * @param Post                          $post
      * @param array                         $input
-     *
      * @param \Illuminate\Http\UploadedFile $image
      *
      * @return mixed
+     *
      * @throws \Illuminate\Database\Eloquent\MassAssignmentException
      * @throws \App\Exceptions\GeneralException|\Exception|\Throwable
      */
     public function saveAndPublish(Post $post, array $input, UploadedFile $image = null)
     {
         $post->status = Post::PUBLISHED;
+
         return $this->save($post, $input, $image);
     }
 
     /**
      * @param Post                          $post
      * @param array                         $input
-     *
      * @param \Illuminate\Http\UploadedFile $image
      *
      * @return mixed
+     *
      * @throws \App\Exceptions\GeneralException|\Exception|\Throwable
      */
     public function saveAsDraft(Post $post, array $input, UploadedFile $image = null)
     {
         $post->status = Post::DRAFT;
+
         return $this->save($post, $input, $image);
     }
 
     /**
      * @param Post                          $post
      * @param array                         $input
-     *
      * @param \Illuminate\Http\UploadedFile $image
      *
      * @return mixed
+     *
      * @throws \Illuminate\Database\Eloquent\MassAssignmentException
      * @throws \Throwable
      * @throws \App\Exceptions\GeneralException|\Exception
@@ -160,8 +159,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
             if (!Gate::check('update', $post)) {
                 throw new GeneralException(trans('exceptions.backend.posts.save'));
             }
-        }
-        else {
+        } else {
             $post->user_id = auth()->id();
         }
 
@@ -179,8 +177,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
             if (isset($input['meta'])) {
                 if (!$post->meta) {
                     $post->meta()->create($input['meta']);
-                }
-                else {
+                } else {
                     $post->meta->update($input['meta']);
                 }
             }
@@ -225,6 +222,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      * @param Post $post
      *
      * @return mixed
+     *
      * @throws \Exception
      */
     public function destroy(Post $post)
@@ -241,7 +239,8 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    private function batchQuery(array $ids) {
+    private function batchQuery(array $ids)
+    {
         $query = $this->query()->whereIn('id', $ids);
 
         if (!Gate::check('manage posts')) {
@@ -256,6 +255,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      * @param array $ids
      *
      * @return mixed
+     *
      * @throws \Exception|\Throwable
      */
     public function batchDestroy(array $ids)
@@ -278,6 +278,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      * @param array $ids
      *
      * @return mixed
+     *
      * @throws \Throwable
      * @throws \Exception
      */
@@ -290,8 +291,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
                 if ($query->update(['status' => Post::PUBLISHED])) {
                     return true;
                 }
-            }
-            else {
+            } else {
                 // Set to moderation pending if no right to publish
                 if ($query->update(['status' => Post::PENDING])) {
                     return true;
@@ -306,6 +306,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      * @param array $ids
      *
      * @return mixed
+     *
      * @throws \Throwable
      * @throws \Exception
      */
@@ -328,6 +329,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      * @param array $ids
      *
      * @return mixed
+     *
      * @throws \Throwable
      * @throws \Exception
      */

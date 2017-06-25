@@ -8,7 +8,6 @@ use App\Http\Requests\UpdateMetaRequest;
 use App\Models\Meta;
 use App\Repositories\Contracts\MetaRepository;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Router;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
 
@@ -22,7 +21,7 @@ class MetaController extends BackendController
     /**
      * Create a new controller instance.
      *
-     * @param MetaRepository             $metas
+     * @param MetaRepository $metas
      *
      * @throws \Mcamara\LaravelLocalization\Exceptions\SupportedLocalesNotDefined
      */

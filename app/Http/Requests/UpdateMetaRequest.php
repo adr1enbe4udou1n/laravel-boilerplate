@@ -32,6 +32,7 @@ class UpdateMetaRequest extends FormRequest
                 'route' => "required|unique:metas,route,{$meta->id}",
             ];
         }
+
         return [];
     }
 }

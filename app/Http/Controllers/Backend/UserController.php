@@ -142,6 +142,7 @@ class UserController extends BackendController
      * @param UpdateUserRequest $request
      *
      * @return mixed
+     *
      * @throws \Illuminate\Database\Eloquent\MassAssignmentException
      */
     public function update(User $user, UpdateUserRequest $request)

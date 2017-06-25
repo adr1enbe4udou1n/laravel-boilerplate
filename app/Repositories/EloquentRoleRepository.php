@@ -69,6 +69,7 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
      * @param array            $input
      *
      * @return bool
+     *
      * @throws \App\Exceptions\GeneralException
      */
     private function save(Role $role, array $input)

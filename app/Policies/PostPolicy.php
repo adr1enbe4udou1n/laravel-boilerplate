@@ -24,8 +24,8 @@ class PostPolicy
      * @param \App\Models\Post $post
      *
      * @return mixed
-     * @internal param \App\Models\User $user
      *
+     * @internal param \App\Models\User $user
      */
     public function update(User $authenticatedUser, Post $post)
     {

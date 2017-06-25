@@ -140,6 +140,7 @@ class Post extends Model
         if ($media = $this->getMedia('featured image')->first()) {
             return $media->getUrl();
         }
+
         return '/placeholder.png';
     }
 
@@ -162,8 +163,7 @@ class Post extends Model
     {
         if (is_string($value)) {
             $this->attributes['published_at'] = Carbon::createFromFormat('Y-m-d H:i', $value);
-        }
-        else {
+        } else {
             $this->attributes['published_at'] = $value;
         }
     }
@@ -196,12 +196,11 @@ class Post extends Model
     /**
      * Delete media physically.
      *
-     * @return void
      * @throws \Exception
      */
     public function handleMediableDeletion()
     {
-        $this->getMedia('featured image')->each(function(Media $media) {
+        $this->getMedia('featured image')->each(function (Media $media) {
             $media->delete();
         });
     }

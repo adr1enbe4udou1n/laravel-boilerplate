@@ -6,7 +6,6 @@ use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
 use App\Repositories\Contracts\PostRepository;
-use Html;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -147,6 +146,7 @@ class PostController extends BackendController
      * @param UpdatePostRequest $request
      *
      * @return mixed
+     *
      * @throws \Illuminate\Database\Eloquent\MassAssignmentException
      */
     public function update(Post $post, UpdatePostRequest $request)

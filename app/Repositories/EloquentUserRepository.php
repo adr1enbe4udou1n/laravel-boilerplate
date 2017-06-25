@@ -139,8 +139,8 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
      * @param array            $input
      *
      * @return bool
-     * @throws \App\Exceptions\GeneralException
      *
+     * @throws \App\Exceptions\GeneralException
      */
     private function save(User $user, array $input)
     {

@@ -95,7 +95,6 @@ if (!function_exists('boolean_html_label')) {
 
 if (!function_exists('state_html_label')) {
     /**
-     *
      * @param $state
      * @param $label
      *
@@ -126,7 +125,6 @@ if (!function_exists('image_template_html')) {
     /**
      * @param $template
      * @param $image_path
-     *
      * @param $alt
      *
      * @return string
@@ -134,6 +132,7 @@ if (!function_exists('image_template_html')) {
     function image_template_html($template, $image_path, $alt = null)
     {
         $url = image_template_url($template, $image_path);
+
         return "<img src=\"$url\" alt=\"$alt\">";
     }
 }
@@ -178,7 +177,7 @@ if (!function_exists('form_batch_action')) {
     function form_batch_action($route, $table_id, array $actions)
     {
         $options = [];
-        foreach($actions as $name => $action) {
+        foreach ($actions as $name => $action) {
             if (is_string($action)) {
                 $options[$name] = $action;
                 continue;
@@ -227,8 +226,7 @@ if (!function_exists('localize_url')) {
                 $slug = $translation->slug;
 
                 $url = route(Route::current()->getName(), ['post' => $slug]);
-            }
-            else {
+            } else {
                 $url = route('home');
             }
         }

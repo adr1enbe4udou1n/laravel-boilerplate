@@ -43,7 +43,6 @@ interface PostRepository extends BaseRepository
     /**
      * @param \App\Models\Post              $post
      * @param array                         $input
-     *
      * @param \Illuminate\Http\UploadedFile $image
      *
      * @return mixed
@@ -52,9 +51,7 @@ interface PostRepository extends BaseRepository
 
     /**
      * @param Post                          $post
-     *
      * @param array                         $input
-     *
      * @param \Illuminate\Http\UploadedFile $image
      *
      * @return mixed

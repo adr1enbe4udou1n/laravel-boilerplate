@@ -4,7 +4,6 @@ namespace App\Models\Traits;
 
 use App\Models\Tag;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /**

@@ -51,7 +51,7 @@
     "slick-carousel": "^1.6.0",
     "style-loader": "^0.18.2",
     "sweetalert2": "^6.6.5",
-    "uglify-js": "^3.0.19",
+    "uglify-js": "^3.0.20",
     "vee-validate": "^2.0.0-rc.6",
     "vue": "^2.3.4",
     "vue-loader": "^12.2.1",
