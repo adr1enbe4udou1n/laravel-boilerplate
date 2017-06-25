@@ -194,10 +194,14 @@ if (!function_exists('form_batch_action')) {
 }
 
 if (!function_exists('menu_item_access')) {
-    function menu_item_access($route_name, $title, $parameters = [], $ability = null, $ability_arguments = [], ...$active_route_patterns)
+    function menu_item_access($route_name, $title, $icon = null, $parameters = [], $ability = null, $ability_arguments = [], ...$active_route_patterns)
     {
         if ($ability && !\Illuminate\Support\Facades\Gate::check($ability, $ability_arguments)) {
             return null;
+        }
+
+        if ($icon) {
+            $title = "<i class=\"$icon\"></i><span>{$title}</span>";
         }
 
         $route = link_to(route($route_name), $title, $parameters, [], false);

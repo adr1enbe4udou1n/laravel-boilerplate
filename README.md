@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/adr1enbe4udou1n/laravel-boilerplate.svg)](https://travis-ci.org/adr1enbe4udou1n/laravel-boilerplate)
 [![License](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/license)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 
-This boilerplate is heavily inspired by the most popular [Laravel 5 Boilerplate](https://github.com/rappasoft/laravel-5-boilerplate).
+This boilerplate is inspired by the most popular [Laravel 5 Boilerplate](https://github.com/rappasoft/laravel-5-boilerplate).
 
 ## Features
 
@@ -62,7 +62,7 @@ php artisan migrate --force
 composer install
 php artisan key:generate
 php artisan storage:link
-php artisan migrate
+php artisan migrate [--seed]
 ```
 
 ### Backend access
@@ -99,7 +99,7 @@ For your info, this webpack setup is a direct recovery from my other little side
 
 ## TODO
 
-- [ ] Data seeds
+- [x] <s>Data seeds</s>
 - [x] <s>Batch actions</s>
 - [x] <s>Form & menu access helpers</s>
 - [x] <s>Metas management</s>
@@ -113,8 +113,10 @@ For your info, this webpack setup is a direct recovery from my other little side
 - [x] <s>Account mail confirmation</s>
 - [x] <s>Account avatar</s>
 - [x] <s>Facebook/Twitter/Google Sign in with socialite package</s>
+- [x] <s>Blog system (posts, publication date, multilangue, HTML wysiwyg, tags, featured image, medias, public user profile)</s>
+- [ ] Dashboard
+- [ ] Refactor & debug
 - [ ] Inclusion of unit/featured/browser tests
-- [ ] Blog system (posts, publication date, multilangue, HTML wysiwyg, tags, featured image, medias, public user profile)
 
 ## License
 

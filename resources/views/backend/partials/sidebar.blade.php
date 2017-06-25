@@ -19,30 +19,30 @@
             <!-- Optionally, you can add icons to the links -->
             <li class="{{ active_class(if_route_pattern('admin.home')) }}"><a href="{{ route('admin.home') }}"><i class="fa fa-tachometer"></i> <span>@lang('labels.backend.titles.dashboard')</span></a></li>
 
-            @if(Gate::check('manage own posts'))
+            @if(config('blog.enabled') && Gate::check('manage own posts'))
             <li class="header">@lang('labels.backend.sidebar.content')</li>
-            {!! menu_item_access('admin.post.create', '<i class="fa fa-plus"></i><span>' . trans('labels.backend.posts.titles.create') . '</span>') !!}
-            {!! menu_item_access('admin.post.index', '<i class="fa fa-newspaper-o"></i><span>' . trans('labels.backend.posts.titles.main') . '</span>', [], null, [], 'admin.post.edit') !!}
+            {!! menu_item_access('admin.post.create', trans('labels.backend.posts.titles.create'), 'fa fa-plus') !!}
+            {!! menu_item_access('admin.post.index', trans('labels.backend.posts.titles.main'), 'fa fa-newspaper-o', [], null, [], 'admin.post.edit') !!}
             @endif
 
             @if(Gate::check('manage form_submissions') || Gate::check('manage form_settings'))
             <li class="header">@lang('labels.backend.sidebar.forms')</li>
-            {!! menu_item_access('admin.form_submission.index', '<i class="fa fa-id-card-o"></i><span>' . trans('labels.backend.form_submissions.titles.main') . '</span>', [], 'manage form_submissions', [], 'admin.form_submission.*') !!}
-            {!! menu_item_access('admin.form_setting.index', '<i class="fa fa-wrench"></i><span>' . trans('labels.backend.form_settings.titles.main') . '</span>', [], 'manage form_settings', [], 'admin.form_setting.*') !!}
+            {!! menu_item_access('admin.form_submission.index', trans('labels.backend.form_submissions.titles.main'), 'fa fa-id-card-o', [], 'manage form_submissions', [], 'admin.form_submission.*') !!}
+            {!! menu_item_access('admin.form_setting.index', trans('labels.backend.form_settings.titles.main'), 'fa fa-wrench', [], 'manage form_settings', [], 'admin.form_setting.*') !!}
             @endif
 
             @if(Gate::check('manage users') || Gate::check('manage roles'))
             <li class="header">@lang('labels.backend.sidebar.access')</li>
-            {!! menu_item_access('admin.user.create', '<i class="fa fa-plus"></i><span>' . trans('labels.backend.users.titles.create') . '</span>', [], 'manage users') !!}
-            {!! menu_item_access('admin.user.index', '<i class="fa fa-users"></i><span>' . trans('labels.backend.users.titles.main') . '</span>', [], 'manage users', [], 'admin.user.edit') !!}
-            {!! menu_item_access('admin.role.index', '<i class="fa fa-shield"></i><span>' . trans('labels.backend.roles.titles.main') . '</span>', [], 'manage roles', [], 'admin.role.*') !!}
+            {!! menu_item_access('admin.user.create', trans('labels.backend.users.titles.create'), 'fa fa-plus', [], 'manage users') !!}
+            {!! menu_item_access('admin.user.index', trans('labels.backend.users.titles.main'), 'fa fa-users', [], 'manage users', [], 'admin.user.edit') !!}
+            {!! menu_item_access('admin.role.index', trans('labels.backend.roles.titles.main'), 'fa fa-shield', [], 'manage roles', [], 'admin.role.*') !!}
             @endif
 
             @if(Gate::check('manage metas') || Gate::check('manage redirections'))
             <li class="header">@lang('labels.backend.sidebar.seo')</li>
-            {!! menu_item_access('admin.meta.create', '<i class="fa fa-plus"></i><span>' . trans('labels.backend.metas.titles.create') . '</span>', [], 'manage metas') !!}
-            {!! menu_item_access('admin.meta.index', '<i class="fa fa-tags"></i><span>' . trans('labels.backend.metas.titles.main') . '</span>', [], 'manage metas', [], 'admin.meta.edit') !!}
-            {!! menu_item_access('admin.redirection.index', '<i class="fa fa-forward"></i><span>' . trans('labels.backend.redirections.titles.main') . '</span>', [], 'manage redirections', [], 'admin.redirection.*') !!}
+            {!! menu_item_access('admin.meta.create', trans('labels.backend.metas.titles.create'), 'fa fa-plus', [], 'manage metas') !!}
+            {!! menu_item_access('admin.meta.index', trans('labels.backend.metas.titles.main'), 'fa fa-tags', [], 'manage metas', [], 'admin.meta.edit') !!}
+            {!! menu_item_access('admin.redirection.index', trans('labels.backend.redirections.titles.main'), 'fa fa-forward', [], 'manage redirections', [], 'admin.redirection.*') !!}
             @endif
         </ul>
         <!-- /.sidebar-menu -->

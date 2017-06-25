@@ -319,35 +319,38 @@ Route::group([
                 }
             );
 
-            Route::group(
-                ['middleware' => ['can:manage own posts']],
-                function () {
-                    Route::get('post', 'PostController@index')
-                        ->name('post.index');
-                    Route::get('post/create', 'PostController@create')
-                        ->name('post.create');
-                    Route::post('post', 'PostController@store')
-                        ->name('post.store');
-                    Route::get('post/{post}/edit', 'PostController@edit')
-                        ->name('post.edit')
-                        ->middleware('can:update,post');
-                    Route::match(['PUT', 'PATCH'], 'post/{post}',
-                        'PostController@update')->name('post.update')
-                        ->middleware('can:update,post');
-                    Route::delete('post/{post}', 'PostController@destroy')
-                        ->name('post.destroy')
-                        ->middleware('can:update,post');
+            if (config('blog.enabled')) {
+                Route::group(
+                    ['middleware' => ['can:manage own posts']],
+                    function () {
+                        Route::get('post', 'PostController@index')
+                            ->name('post.index');
+                        Route::get('post/create', 'PostController@create')
+                            ->name('post.create');
+                        Route::post('post', 'PostController@store')
+                            ->name('post.store');
+                        Route::get('post/{post}/edit', 'PostController@edit')
+                            ->name('post.edit')
+                            ->middleware('can:update,post');
+                        Route::match(['PUT', 'PATCH'], 'post/{post}',
+                            'PostController@update')->name('post.update')
+                            ->middleware('can:update,post');
+                        Route::delete('post/{post}', 'PostController@destroy')
+                            ->name('post.destroy')
+                            ->middleware('can:update,post');
 
-                    Route::post('post/search', 'PostController@search')->name(
-                        'post.search'
-                    );
+                        Route::post('post/search', 'PostController@search')
+                            ->name(
+                                'post.search'
+                            );
 
-                    Route::post('post/batch-action',
-                        'PostController@batchAction')->name(
-                        'post.batch-action'
-                    );
-                }
-            );
+                        Route::post('post/batch-action',
+                            'PostController@batchAction')->name(
+                            'post.batch-action'
+                        );
+                    }
+                );
+            }
         }
     );
 });
