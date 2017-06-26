@@ -34,6 +34,7 @@
                 <div class="col-md-3">
                     <h4>@lang($category)</h4>
                     {{ Form::bsChoices('permissions', [
+                        'form_group' => false,
                         'multiple' => true,
                         'choices' => $permissions,
                         'choice_label' => 'display_name',

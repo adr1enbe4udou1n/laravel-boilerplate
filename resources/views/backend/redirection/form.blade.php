@@ -23,7 +23,6 @@
     {{ Form::bsChoices('type', [
         'required' => true,
         'title' => trans('validation.attributes.redirect_type'),
-        'multiple' => true,
         'label_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-9',
         'choices' => config('redirections'),

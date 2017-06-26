@@ -17,7 +17,7 @@ class FormServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer('components.form.*', function (\Illuminate\View\View $view) {
+        View::composer('components.field', function (\Illuminate\View\View $view) {
             $data = $view->getData();
 
             $attributes = [];
@@ -26,8 +26,8 @@ class FormServiceProvider extends ServiceProvider
 
             $parameters = array_merge(['name' => $data['name']], $parameters);
 
-            switch ($view->name()) {
-                case 'components.form.text':
+            switch ($data['type']) {
+                case 'text':
                     if (!isset($parameters['type'])) {
                         $parameters['type'] = 'text';
                     }
@@ -38,14 +38,14 @@ class FormServiceProvider extends ServiceProvider
                             break;
                     }
                     break;
-                case 'components.form.select':
+                case 'select':
                     if (!isset($parameters['type'])) {
                         $parameters['type'] = 'select';
                     }
 
                     $attributes['data-toggle'] = $parameters['type'];
 
-                    if ($parameters['type']) {
+                    if ($parameters['type'] === 'autocomplete') {
                         $attributes = array_merge([
                             'data-ajax-url' => $parameters['ajax_url'],
                             'data-minimum-input-length' => $parameters['minimum_input_length'],
@@ -58,8 +58,12 @@ class FormServiceProvider extends ServiceProvider
                         $attributes['data-tags'] = 'true';
                     }
                     break;
-                case 'components.form.choices':
-                    $parameters['type'] = isset($parameters['multiple']) && $parameters['multiple']
+                case 'choices':
+                    if (!isset($parameters['multiple'])) {
+                        $parameters['multiple'] = false;
+                    }
+
+                    $parameters['type'] = $parameters['multiple']
                         ? 'checkboxes'
                         : 'radios';
                     break;
@@ -96,19 +100,23 @@ class FormServiceProvider extends ServiceProvider
 
             $parameters['attributes'] = $attributes;
 
-            $view->with($parameters)->withParameters($parameters);
+            if (!isset($parameters['form_group'])) {
+                $parameters['form_group'] = true;
+            }
+
+            $view->with($parameters)->withField($data['type'])->withParameters($parameters);
         });
 
-        Form::component('bsText', 'components.form.text', ['name', 'parameters' => []]);
-        Form::component('bsPassword', 'components.form.password', ['name', 'parameters' => []]);
-        Form::component('bsTextarea', 'components.form.textarea', ['name', 'parameters' => []]);
-        Form::component('bsSelect', 'components.form.select', ['name', 'parameters' => []]);
-        Form::component('bsCheckbox', 'components.form.checkbox', ['name', 'parameters' => []]);
-        Form::component('bsChoices', 'components.form.choices', ['name', 'parameters' => []]);
-        Form::component('bsFile', 'components.form.file', ['name', 'parameters' => []]);
-        Form::component('bsImage', 'components.form.image', ['name', 'parameters' => []]);
-        Form::component('bsDatetime', 'components.form.datetime', ['name', 'parameters' => []]);
-        Form::component('bsEditor', 'components.form.editor', ['name', 'parameters' => []]);
+        Form::component('bsText', 'components.field', ['name', 'parameters' => [], 'type' => 'text']);
+        Form::component('bsPassword', 'components.field', ['name', 'parameters' => [], 'type' => 'password']);
+        Form::component('bsTextarea', 'components.field', ['name', 'parameters' => [], 'type' => 'textarea']);
+        Form::component('bsSelect', 'components.field', ['name', 'parameters' => [], 'type' => 'select']);
+        Form::component('bsCheckbox', 'components.field', ['name', 'parameters' => [], 'type' => 'checkbox']);
+        Form::component('bsChoices', 'components.field', ['name', 'parameters' => [], 'type' => 'choices']);
+        Form::component('bsFile', 'components.field', ['name', 'parameters' => [], 'type' => 'file']);
+        Form::component('bsImage', 'components.field', ['name', 'parameters' => [], 'type' => 'image']);
+        Form::component('bsDatetime', 'components.field', ['name', 'parameters' => [], 'type' => 'datetime']);
+        Form::component('bsEditor', 'components.field', ['name', 'parameters' => [], 'type' => 'editor']);
     }
 
     /**
