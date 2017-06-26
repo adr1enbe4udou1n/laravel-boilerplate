@@ -137,42 +137,6 @@ if (!function_exists('image_template_html')) {
     }
 }
 
-if (!function_exists('form_field')) {
-    function form_field($type, $name, $options)
-    {
-        $viewName = 'partials.form.fields.input';
-
-        $widgetsLookup = [
-            'checkbox' => 'checkbox',
-            'textarea' => 'textarea',
-            'checkboxes' => 'choices',
-            'radios' => 'choices',
-            'select' => 'select',
-            'select2' => 'select',
-            'autocomplete' => 'select',
-        ];
-
-        if (isset($widgetsLookup[$type])) {
-            $viewName = "partials.form.fields.{$widgetsLookup[$type]}";
-        }
-
-        if (View::exists("partials.form.fields.{$type}")) {
-            $viewName = "partials.form.fields.{$type}";
-        }
-
-        return view($viewName, $options)->withType($type)->withName($name);
-    }
-}
-
-if (!function_exists('form_row')) {
-    function form_row($type, $name, $options)
-    {
-        $field = form_field($type, $name, $options)->render();
-
-        return view('partials.form.row', $options)->withName($name)->withField($field);
-    }
-}
-
 if (!function_exists('form_batch_action')) {
     function form_batch_action($route, $table_id, array $actions)
     {

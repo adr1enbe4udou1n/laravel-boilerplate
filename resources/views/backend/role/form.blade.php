@@ -1,28 +1,29 @@
 <div class="box-body">
-    {!! form_row('text', 'name', [
+    {{ Form::bsText('name', [
         'required' => true,
         'title' => trans('validation.attributes.name'),
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',
-    ]) !!}
+    ]) }}
 
-    {!! form_row('text', 'display_name', [
+    {{ Form::bsText('display_name', [
         'title' => trans('validation.attributes.display_name'),
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',
-    ]) !!}
+    ]) }}
 
-    {!! form_row('text', 'description', [
+    {{ Form::bsText('description', [
         'title' => trans('validation.attributes.description'),
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10'
-    ]) !!}
+    ]) }}
 
-    {!! form_row('number', 'order', [
+    {{ Form::bsText('order', [
+        'type' => 'number',
         'title' => trans('validation.attributes.order'),
         'label_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10'
-    ]) !!}
+    ]) }}
 
     <div class="form-group">
         {{ Form::label('permissions', trans('validation.attributes.permissions'), ['class' =>  'col-lg-2 control-label']) }}
@@ -32,14 +33,15 @@
             @foreach($chunk as $category => $permissions)
                 <div class="col-md-3">
                     <h4>@lang($category)</h4>
-                    {!! form_field('checkboxes', 'permissions', [
+                    {{ Form::bsChoices('permissions', [
+                        'multiple' => true,
                         'choices' => $permissions,
                         'choice_label' => 'display_name',
                         'choice_tooltip' => [
                             'position' => 'right',
                             'title' => 'description',
                         ]
-                    ]) !!}
+                    ]) }}
                 </div>
             @endforeach
             </div>

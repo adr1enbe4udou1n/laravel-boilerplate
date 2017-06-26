@@ -13,14 +13,14 @@
                 <div class="box-body">
                     {{ Form::open(['route' => 'admin.redirection.import', 'class' => 'form-inline', 'method' => 'POST', 'files' => true]) }}
 
-                    {!! form_row('file', 'import', [
+                    {{ Form::bsFile('import', [
                         'required' => true,
                         'title' => trans('labels.backend.redirections.import.title'),
                         'tooltip' => [
                             'position' => 'bottom',
                             'title' => trans('labels.backend.redirections.import.description'),
                         ],
-                    ]) !!}
+                    ]) }}
 
                     {{ Form::submit(trans('buttons.redirections.import'), ['class' => 'btn btn-warning btn-sm']) }}
                     {{ Form::close() }}

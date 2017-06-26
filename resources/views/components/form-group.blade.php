@@ -8,7 +8,7 @@
             @endif
 
             {{ $slot }}
-            @include('partials.form.help')
+            @include('partials.help')
 
             @if (isset($field_wrapper_class))
         </div>

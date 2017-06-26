@@ -13,7 +13,8 @@
             @php($route_list = isset($meta) && $meta->route ? [$meta->route => trans('routes.' . $meta->route)] : [])
         @endif
 
-        {!! form_row('autocomplete', 'route', [
+        {{ Form::bsSelect('route', [
+            'type' => 'autocomplete',
             'title' => trans('validation.attributes.route'),
             'placeholder' => trans('labels.placeholders.route'),
             'label_class' => 'col-lg-3',
@@ -23,18 +24,18 @@
             'minimum_input_length' => 2,
             'item_value' => 'name',
             'item_label' => 'uri',
-        ]) !!}
+        ]) }}
     @endif
 
-    {!! form_row('text', 'title', [
+    {{ Form::bsText('title', [
         'title' => trans('validation.attributes.title'),
         'label_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-9',
-    ]) !!}
+    ]) }}
 
-    {!! form_row('textarea', 'description', [
+    {{ Form::bsTextarea('description', [
         'title' => trans('validation.attributes.description'),
         'label_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-9',
-    ]) !!}
+    ]) }}
 </div>

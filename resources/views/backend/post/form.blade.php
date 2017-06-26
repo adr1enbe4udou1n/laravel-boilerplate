@@ -4,29 +4,29 @@
             <h3 class="box-title">{{ $title }}</h3>
         </div>
         <div class="box-body">
-            {!! form_row('text', 'title', [
+            {{ Form::bsText('title', [
                 'required' => true,
                 'title' => trans('validation.attributes.title'),
                 'label_class' => 'col-lg-2',
                 'field_wrapper_class' => 'col-lg-10',
-            ]) !!}
+            ]) }}
 
-            {!! form_row('textarea', 'summary', [
+            {{ Form::bsTextarea('summary', [
                 'title' => trans('validation.attributes.summary'),
                 'label_class' => 'col-lg-2',
                 'field_wrapper_class' => 'col-lg-10',
                 'attributes' => [
                     'rows' => 5
                 ],
-            ]) !!}
+            ]) }}
 
-            {!! form_row('editor', 'body', [
+            {{ Form::bsEditor('body', [
                 'title' => trans('validation.attributes.body'),
                 'placeholder' => trans('labels.backend.posts.placeholders.body'),
                 'label_class' => 'col-lg-2',
                 'field_wrapper_class' => 'col-lg-10',
                 'height' => 300,
-            ]) !!}
+            ]) }}
 
             @if(old('tags'))
                 @php($tags = old('tags'))
@@ -34,7 +34,8 @@
                 @php($tags = isset($post) ? $post->tags->pluck('name', 'id') : old('tags'))
             @endif
 
-            {!! form_row('autocomplete', 'tags[]', [
+            {{ Form::bsSelect('tags[]', [
+                'type' => 'autocomplete',
                 'multiple' => true,
                 'tags' => true,
                 'title' => trans('validation.attributes.tags'),
@@ -46,14 +47,14 @@
                 'minimum_input_length' => 2,
                 'item_value' => 'id',
                 'item_label' => 'name',
-            ]) !!}
+            ]) }}
 
-            {!! form_row('image', 'featured_image', [
+            {{ Form::bsImage('featured_image', [
                 'title' => trans('validation.attributes.image'),
                 'label_class' => 'col-lg-2',
                 'field_wrapper_class' => 'col-lg-10',
                 'url' => isset($post) ? $post->featured_image_url : null
-            ]) !!}
+            ]) }}
         </div>
 
         <div class="box-footer">
@@ -102,22 +103,22 @@
                         </div>
                     </div>
                     @endisset
-                    {!! form_row('datetime', 'published_at', [
+                    {{ Form::bsDatetime('published_at', [
                         'required' => true,
                         'value' => \Carbon\Carbon::now(),
                         'title' => trans('validation.attributes.publish_at'),
                         'format' => 'YYYY-MM-DD hh:mm',
                         'label_class' => 'col-lg-3',
                         'field_wrapper_class' => 'col-lg-9',
-                    ]) !!}
-                    {!! form_row('checkbox', 'pinned', [
+                    ]) }}
+                    {{ Form::bsCheckbox('pinned', [
                         'label' => trans('validation.attributes.pinned'),
                         'field_wrapper_class' => 'col-lg-offset-3 col-lg-9',
-                    ]) !!}
-                    {!! form_row('checkbox', 'promoted', [
+                    ]) }}
+                    {{ Form::bsCheckbox('promoted', [
                         'label' => trans('validation.attributes.promoted'),
                         'field_wrapper_class' => 'col-lg-offset-3 col-lg-9',
-                    ]) !!}
+                    ]) }}
                 </div>
             </div>
         </div>
@@ -131,21 +132,21 @@
             </div>
             <div id="collapseTwo" class="panel-collapse collapse" aria-expanded="false">
                 <div class="box-body">
-                    {!! form_row('text', 'meta[title]', [
+                    {{ Form::bsText('meta[title]', [
                         'title' => trans('validation.attributes.title'),
                         'description' => trans('labels.backend.posts.descriptions.meta_title'),
                         'placeholder' => trans('labels.backend.posts.placeholders.meta_title'),
                         'label_class' => 'col-lg-2',
                         'field_wrapper_class' => 'col-lg-10',
-                    ]) !!}
+                    ]) }}
 
-                    {!! form_row('textarea', 'meta[description]', [
+                    {{ Form::bsTextarea('meta[description]', [
                         'title' => trans('validation.attributes.description'),
                         'description' => trans('labels.backend.posts.descriptions.meta_description'),
                         'placeholder' => trans('labels.backend.posts.placeholders.meta_description'),
                         'label_class' => 'col-lg-2',
                         'field_wrapper_class' => 'col-lg-10',
-                    ]) !!}
+                    ]) }}
                 </div>
             </div>
         </div>
