@@ -20,26 +20,27 @@
 
                         <input type="hidden" name="token" value="{{ $token }}">
 
-                        {!! form_row('email', 'email', [
+                        {{ Form::bsText('email', [
                             'required' => true,
+                            'type' => 'email',
                             'title' => trans('validation.attributes.email'),
                             'label_class' => 'col-md-4',
                             'field_wrapper_class' => 'col-md-6',
-                        ]) !!}
+                        ]) }}
 
-                        {!! form_row('password', 'password', [
+                        {{ Form::bsPassword('password', [
                             'required' => true,
                             'title' => trans('validation.attributes.password'),
                             'label_class' => 'col-md-4',
                             'field_wrapper_class' => 'col-md-6',
-                        ]) !!}
+                        ]) }}
 
-                        {!! form_row('password', 'password_confirmation', [
+                        {{ Form::bsPassword('password_confirmation', [
                             'required' => true,
                             'title' => trans('validation.attributes.password_confirmation'),
                             'label_class' => 'col-md-4',
                             'field_wrapper_class' => 'col-md-6',
-                        ]) !!}
+                        ]) }}
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

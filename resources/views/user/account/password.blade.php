@@ -1,24 +1,24 @@
 {{ Form::open(['route' => ['user.password.change'], 'class' => 'form-horizontal', 'method' => 'PATCH']) }}
 
-{!! form_row('password', 'old_password', [
+{{ Form::bsPassword('old_password', [
     'title' => trans('validation.attributes.old_password'),
     'label_class' => 'col-md-4',
     'field_wrapper_class' => 'col-md-6',
-]) !!}
+]) }}
 
-{!! form_row('password', 'password', [
+{{ Form::bsPassword('password', [
     'required' => true,
     'title' => trans('validation.attributes.new_password'),
     'label_class' => 'col-md-4',
     'field_wrapper_class' => 'col-md-6',
-]) !!}
+]) }}
 
-{!! form_row('password', 'password_confirmation', [
+{{ Form::bsPassword('password_confirmation', [
     'required' => true,
     'title' => trans('validation.attributes.new_password_confirmation'),
     'label_class' => 'col-md-4',
     'field_wrapper_class' => 'col-md-6',
-]) !!}
+]) }}
 
 <div class="form-group">
     <div class="col-md-6 col-md-offset-4">

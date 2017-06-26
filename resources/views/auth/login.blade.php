@@ -11,19 +11,20 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
-                        {!! form_row('email', 'email', [
+                        {{ Form::bsText('email', [
                             'required' => true,
                             'title' => trans('validation.attributes.email'),
+                            'type' => 'email',
                             'label_class' => 'col-md-4',
                             'field_wrapper_class' => 'col-md-6',
-                        ]) !!}
+                        ]) }}
 
-                        {!! form_row('password', 'password', [
+                        {{ Form::bsPassword('password', [
                             'required' => true,
                             'title' => trans('validation.attributes.password'),
                             'label_class' => 'col-md-4',
                             'field_wrapper_class' => 'col-md-6',
-                        ]) !!}
+                        ]) }}
 
                         @if($is_locked)
                         <div class="form-group">

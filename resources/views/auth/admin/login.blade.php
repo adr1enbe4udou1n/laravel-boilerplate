@@ -8,17 +8,18 @@
             <form action="{{ route('login') }}" method="post">
                 {{ csrf_field() }}
 
-                {!! form_row('email', 'email', [
+                {{ Form::bsText('email', [
                     'required' => true,
+                    'type' => 'email',
                     'placeholder' => trans('validation.attributes.email'),
                     'feedback_class' => 'glyphicon glyphicon-envelope',
-                ]) !!}
+                ]) }}
 
-                {!! form_row('password', 'password', [
+                {{ Form::bsPassword('password', [
                     'required' => true,
                     'placeholder' => trans('validation.attributes.password'),
                     'feedback_class' => 'glyphicon glyphicon-lock',
-                ]) !!}
+                ]) }}
 
                 @if($is_locked)
                 <div class="form-group">

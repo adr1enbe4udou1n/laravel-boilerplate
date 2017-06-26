@@ -15,16 +15,18 @@
             <form action="{{ route('password.email') }}" method="post">
                 {{ csrf_field() }}
 
-                {!! form_row('email', 'email', [
+                {{ Form::bsText('email', [
                     'required' => true,
+                    'type' => 'email',
                     'placeholder' => trans('validation.attributes.email'),
                     'feedback_class' => 'glyphicon glyphicon-envelope',
-                ]) !!}
+                ]) }}
 
                 <div class="row">
                     <!-- /.col -->
                     <div class="col-xs-12">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">@lang('labels.user.send_password_link')</button>
+                        <button type="submit"
+                                class="btn btn-primary btn-block btn-flat">@lang('labels.user.send_password_link')</button>
                     </div>
                     <!-- /.col -->
                 </div>

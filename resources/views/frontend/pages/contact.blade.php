@@ -15,46 +15,48 @@
             <form action="{{ route('contact') }}" method="POST">
                 {{ csrf_field() }}
 
-                {!! form_row('text', 'name', [
+                {{ Form::bsText('name', [
                     'required' => true,
                     'title' => trans('validation.attributes.name'),
-                ]) !!}
+                ]) }}
 
                 <div class="row">
                     <div class="col-sm-6">
-                        {!! form_row('text', 'postal_code', [
+                        {{ Form::bsText('postal_code', [
                             'title' => trans('validation.attributes.postal_code'),
-                        ]) !!}
+                        ]) }}
                     </div>
                     <div class="col-sm-6">
-                        {!! form_row('text', 'city', [
+                        {{ Form::bsText('city', [
                             'title' => trans('validation.attributes.city'),
-                        ]) !!}
+                        ]) }}
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-sm-6">
-                        {!! form_row('email', 'email', [
+                        {{ Form::bsText('email', [
                             'required' => true,
+                            'type' => 'email',
                             'title' => trans('validation.attributes.email'),
                             'input_group_prefix' => '<i class="fa fa-envelope"></i>',
-                        ]) !!}
+                        ]) }}
                     </div>
                     <div class="col-sm-6">
-                        {!! form_row('tel', 'phone', [
+                        {{ Form::bsText('phone', [
+                            'type' => 'tel',
                             'title' => trans('validation.attributes.phone'),
-                        ]) !!}
+                        ]) }}
                     </div>
                 </div>
 
-                {!! form_row('textarea', 'message', [
+                {{ Form::bsTextarea('message', [
                     'required' => true,
                     'title' => trans('validation.attributes.message'),
                     'attributes' => [
                         'rows' => 5
                     ],
-                ]) !!}
+                ]) }}
 
                 <div class="form-group">
                     {!! Captcha::display() !!}

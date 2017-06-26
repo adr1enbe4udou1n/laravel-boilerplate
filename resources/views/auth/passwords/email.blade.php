@@ -18,12 +18,13 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('password.email') }}">
                         {{ csrf_field() }}
 
-                        {!! form_row('email', 'email', [
+                        {{ Form::bsText('email', [
                             'required' => true,
+                            'type' => 'email',
                             'title' => trans('validation.attributes.email'),
                             'label_class' => 'col-md-4',
                             'field_wrapper_class' => 'col-md-6',
-                        ]) !!}
+                        ]) }}
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
