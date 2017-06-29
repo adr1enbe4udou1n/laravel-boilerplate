@@ -23,4 +23,9 @@ return [
         'subject' => 'Nouveau message de contact',
         'new_contact' => 'Vous avez reçu un nouveau message de contact. Détail de la soumission :',
     ],
+    'alert' => [
+        'subject' => '[:app_name] Exception error',
+        'message' => 'Une exception serveur non prévue a été levée dont le message est : :message.',
+        'trace' => 'Trace complète :',
+    ],
 ];

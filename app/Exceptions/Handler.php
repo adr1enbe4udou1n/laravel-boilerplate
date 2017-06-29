@@ -2,9 +2,11 @@
 
 namespace App\Exceptions;
 
+use App\Mail\ExceptionOccurred;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Mail;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class Handler extends ExceptionHandler
@@ -32,6 +34,13 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
+        if ($this->shouldReport($exception)) {
+            // Send mail error to editor if production
+            if (app()->environment('production') && $mail = config('app.editor_alert_mail')) {
+                Mail::to($mail)->send(new ExceptionOccurred($exception));
+            }
+        }
+
         parent::report($exception);
     }
 

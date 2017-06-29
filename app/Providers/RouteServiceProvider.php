@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\URL;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class RouteServiceProvider extends ServiceProvider
@@ -20,22 +19,10 @@ class RouteServiceProvider extends ServiceProvider
 
     /**
      * Define your route model bindings, pattern filters, etc.
-     *
-     * @throws \Mcamara\LaravelLocalization\Exceptions\SupportedLocalesNotDefined
      */
     public function boot()
     {
         parent::boot();
-
-        if (config('app.force_ssl')) {
-            // Force SSL (useful for production)
-            URL::forceScheme('https');
-        }
-
-        if (config('app.force_app_url')) {
-            // Force Route URL (useful for multi-device development)
-            URL::forceRootUrl(config('app.url'));
-        }
     }
 
     /**

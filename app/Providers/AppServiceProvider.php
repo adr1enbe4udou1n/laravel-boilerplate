@@ -24,6 +24,7 @@ use App\Repositories\EloquentTagRepository;
 use App\Repositories\EloquentUserRepository;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Dusk\DuskServiceProvider;
 
@@ -40,6 +41,16 @@ class AppServiceProvider extends ServiceProvider
             'post' => Post::class,
             'user' => User::class,
         ]);
+
+        if (config('app.url_force_https')) {
+            // Force SSL if isSecure does not detect HTTPS
+            URL::forceScheme('https');
+        }
+
+        if ($root = config('app.url_root')) {
+            // Force Route URL (useful for multi-device development)
+            URL::forceRootUrl($root);
+        }
     }
 
     /**

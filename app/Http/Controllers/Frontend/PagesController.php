@@ -34,6 +34,7 @@ class PagesController extends FrontendController
 
     public function about()
     {
+        throw new \Exception('fuck');
         return view('frontend.pages.about')->withFlashMessage('Hey ! I\'m a flash message !');
     }
 

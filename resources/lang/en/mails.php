@@ -23,4 +23,9 @@ return [
         'subject' => 'New contact message',
         'new_contact' => 'You\'ve got a new contact message. Submission detail :',
     ],
+    'alert' => [
+        'subject' => '[:app_name] Exception error',
+        'message' => 'You\'ve got unexpected server exception error which message is : :message.',
+        'trace' => 'All trace detail :',
+    ],
 ];
