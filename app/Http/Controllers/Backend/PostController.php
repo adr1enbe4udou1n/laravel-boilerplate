@@ -97,7 +97,7 @@ class PostController extends BackendController
             })->editColumn('updated_at', function (Post $post) use ($request) {
                 return $post->updated_at->setTimezone($request->user()->timezone);
             })
-                ->rawColumns(['image', 'actions'])
+                ->rawColumns(['image', 'status', 'pinned', 'promoted', 'actions'])
                 ->make(true);
         }
     }

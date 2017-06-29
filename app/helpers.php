@@ -102,7 +102,7 @@ if (!function_exists('state_html_label')) {
      */
     function state_html_label($state, $label)
     {
-        return "<label class='label label-$state'>$label</label>";
+        return "<label class=\"label label-$state\">$label</label>";
     }
 }
 
