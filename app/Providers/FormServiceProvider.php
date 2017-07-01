@@ -43,6 +43,10 @@ class FormServiceProvider extends ServiceProvider
                         $parameters['type'] = 'select';
                     }
 
+                    if (isset($parameters['multiple']) && $parameters['multiple']) {
+                        $attributes['multiple'] = true;
+                    }
+
                     $attributes['data-toggle'] = $parameters['type'];
 
                     if ($parameters['type'] === 'autocomplete') {
