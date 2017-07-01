@@ -114,7 +114,7 @@
                                         <th>@lang('validation.attributes.status')</th>
                                         <th>@lang('validation.attributes.pinned')</th>
                                         <th>@lang('validation.attributes.summary')</th>
-                                        <th class="text-center">@lang('labels.published_at')</th>
+                                        <th class="text-center" style="width: 100px">@lang('labels.published_at')</th>
                                     </tr>
                                     </thead>
                                     <tbody>
