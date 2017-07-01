@@ -35,7 +35,7 @@ class Redirect
      */
     public function handle($request, Closure $next)
     {
-        $redirection = $this->redirections->find($request->getPathInfo());
+        $redirection = $this->redirections->find($request->getRequestUri());
 
         if ($redirection && $redirection->active) {
             return redirect($redirection->target, $redirection->type);
