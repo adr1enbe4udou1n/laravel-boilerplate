@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
 use App\Repositories\Contracts\PostRepository;
+use Artesaos\SEOTools\Facades\SEOMeta;
 
 class BlogController extends FrontendController
 {
@@ -51,6 +52,9 @@ class BlogController extends FrontendController
 
     public function show(Post $post)
     {
+        SEOMeta::setTitle($post->meta_title);
+        SEOMeta::setDescription($post->meta_description);
+
         $this->setTranslatable($post);
 
         return view('frontend.blog.show')->withPost($post);

@@ -10,21 +10,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    @if (!empty($meta_title))
-        <title>{{ $meta_title }} | {{ config('app.name') }}</title>
-    @elseif(View::hasSection('meta_title'))
-        <title>@yield('meta_title') | {{ config('app.name') }}</title>
-    @elseif(View::hasSection('title'))
-        <title>@yield('title') | {{ config('app.name') }}</title>
-    @else
-        <title>{{ config('app.name') }}</title>
-    @endif
+    {!! SEOMeta::generate() !!}
 
-    @if (!empty($meta_description))
-        <meta name="description" content="{{ $meta_description }}">
-    @elseif(View::hasSection('meta_description'))
-        <meta name="description" content="@yield('meta_description')">
-    @endif
     @if (count(config('laravellocalization.supportedLocales')) > 1)
     @include('partials.alternates')
     @endif

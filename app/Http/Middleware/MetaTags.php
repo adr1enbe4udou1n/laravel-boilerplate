@@ -3,8 +3,8 @@
 namespace App\Http\Middleware;
 
 use App\Repositories\Contracts\MetaRepository;
+use Artesaos\SEOTools\Facades\SEOMeta;
 use Closure;
-use Illuminate\Support\Facades\View;
 
 class MetaTags
 {
@@ -16,7 +16,7 @@ class MetaTags
     /**
      * Create a new controller instance.
      *
-     * @param MetaRepository $metas
+     * @param MetaRepository             $metas
      */
     public function __construct(MetaRepository $metas)
     {
@@ -38,15 +38,8 @@ class MetaTags
         $meta = $this->metas->find($routeName);
 
         if ($meta) {
-            View::composer('*',
-                function (\Illuminate\View\View $view) use ($meta) {
-                    $view->with('meta_title', $meta->title);
-                });
-
-            View::composer('*',
-                function (\Illuminate\View\View $view) use ($meta) {
-                    $view->with('meta_description', $meta->description);
-                });
+            SEOMeta::setTitle($meta->title);
+            SEOMeta::setDescription($meta->description);
         }
 
         return $next($request);

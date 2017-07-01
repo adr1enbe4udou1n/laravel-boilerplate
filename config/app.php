@@ -219,6 +219,7 @@ return [
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Plank\Mediable\MediableServiceProvider::class,
         Mews\Purifier\PurifierServiceProvider::class,
+        Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -291,5 +292,6 @@ return [
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'MediaUploader' => Plank\Mediable\MediaUploaderFacade::class,
         'Purifier' => Mews\Purifier\Facades\Purifier::class,
+        'SEOMeta' => Artesaos\SEOTools\Facades\SEOMeta::class,
     ],
 ];

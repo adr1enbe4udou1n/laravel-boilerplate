@@ -1,8 +1,5 @@
 @extends('layouts.frontend')
 
-@section('meta_title', $post->meta_title)
-@section('meta_description', $post->meta_description)
-
 @section('body_class', 'page-post')
 
 @section('highlight')

@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.27 on 2017-06-29.
+ * Generated for Laravel 5.4.28 on 2017-07-01.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -14668,6 +14668,319 @@ namespace Mews\Purifier\Facades {
  
 }
 
+namespace Artesaos\SEOTools\Facades { 
+
+    class SEOMeta {
+        
+        /**
+         * Generates meta tags.
+         *
+         * @param bool $minify
+         * @return string 
+         * @static 
+         */ 
+        public static function generate($minify = false)
+        {
+            return \Artesaos\SEOTools\SEOMeta::generate($minify);
+        }
+        
+        /**
+         * Sets the title.
+         *
+         * @param string $title
+         * @param bool $appendDefault
+         * @return \Artesaos\SEOTools\MetaTagsContract 
+         * @static 
+         */ 
+        public static function setTitle($title, $appendDefault = true)
+        {
+            return \Artesaos\SEOTools\SEOMeta::setTitle($title, $appendDefault);
+        }
+        
+        /**
+         * Sets the default title tag.
+         *
+         * @param string $default
+         * @return \Artesaos\SEOTools\MetaTagsContract 
+         * @static 
+         */ 
+        public static function setTitleDefault($default)
+        {
+            return \Artesaos\SEOTools\SEOMeta::setTitleDefault($default);
+        }
+        
+        /**
+         * Sets the separator for the title tag.
+         *
+         * @param string $separator
+         * @return \Artesaos\SEOTools\MetaTagsContract 
+         * @static 
+         */ 
+        public static function setTitleSeparator($separator)
+        {
+            return \Artesaos\SEOTools\SEOMeta::setTitleSeparator($separator);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $description
+         * @return \Artesaos\SEOTools\MetaTagsContract 
+         * @static 
+         */ 
+        public static function setDescription($description)
+        {
+            return \Artesaos\SEOTools\SEOMeta::setDescription($description);
+        }
+        
+        /**
+         * Sets the list of keywords, you can send an array or string separated with commas
+         * also clears the previously set keywords.
+         *
+         * @param string|array $keywords
+         * @return \Artesaos\SEOTools\MetaTagsContract 
+         * @static 
+         */ 
+        public static function setKeywords($keywords)
+        {
+            return \Artesaos\SEOTools\SEOMeta::setKeywords($keywords);
+        }
+        
+        /**
+         * Add a keyword.
+         *
+         * @param string|array $keyword
+         * @return \Artesaos\SEOTools\MetaTagsContract 
+         * @static 
+         */ 
+        public static function addKeyword($keyword)
+        {
+            return \Artesaos\SEOTools\SEOMeta::addKeyword($keyword);
+        }
+        
+        /**
+         * Remove a metatag.
+         *
+         * @param string $key
+         * @return \Artesaos\SEOTools\MetaTagsContract 
+         * @static 
+         */ 
+        public static function removeMeta($key)
+        {
+            return \Artesaos\SEOTools\SEOMeta::removeMeta($key);
+        }
+        
+        /**
+         * Add a custom meta tag.
+         *
+         * @param string|array $meta
+         * @param string $value
+         * @param string $name
+         * @return \Artesaos\SEOTools\MetaTagsContract 
+         * @static 
+         */ 
+        public static function addMeta($meta, $value = null, $name = 'name')
+        {
+            return \Artesaos\SEOTools\SEOMeta::addMeta($meta, $value, $name);
+        }
+        
+        /**
+         * Sets the canonical URL.
+         *
+         * @param string $url
+         * @return \Artesaos\SEOTools\MetaTagsContract 
+         * @static 
+         */ 
+        public static function setCanonical($url)
+        {
+            return \Artesaos\SEOTools\SEOMeta::setCanonical($url);
+        }
+        
+        /**
+         * Sets the prev URL.
+         *
+         * @param string $url
+         * @return \Artesaos\SEOTools\MetaTagsContract 
+         * @static 
+         */ 
+        public static function setPrev($url)
+        {
+            return \Artesaos\SEOTools\SEOMeta::setPrev($url);
+        }
+        
+        /**
+         * Sets the next URL.
+         *
+         * @param string $url
+         * @return \Artesaos\SEOTools\MetaTagsContract 
+         * @static 
+         */ 
+        public static function setNext($url)
+        {
+            return \Artesaos\SEOTools\SEOMeta::setNext($url);
+        }
+        
+        /**
+         * Add an alternate language.
+         *
+         * @param string $lang language code in ISO 639-1 format
+         * @param string $url
+         * @return \Artesaos\SEOTools\MetaTagsContract 
+         * @static 
+         */ 
+        public static function addAlternateLanguage($lang, $url)
+        {
+            return \Artesaos\SEOTools\SEOMeta::addAlternateLanguage($lang, $url);
+        }
+        
+        /**
+         * Add alternate languages.
+         *
+         * @param array $languages
+         * @return \Artesaos\SEOTools\MetaTagsContract 
+         * @static 
+         */ 
+        public static function addAlternateLanguages($languages)
+        {
+            return \Artesaos\SEOTools\SEOMeta::addAlternateLanguages($languages);
+        }
+        
+        /**
+         * Takes the title formatted for display.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getTitle()
+        {
+            return \Artesaos\SEOTools\SEOMeta::getTitle();
+        }
+        
+        /**
+         * Takes the default title.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getDefaultTitle()
+        {
+            return \Artesaos\SEOTools\SEOMeta::getDefaultTitle();
+        }
+        
+        /**
+         * takes the title that was set.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getTitleSession()
+        {
+            return \Artesaos\SEOTools\SEOMeta::getTitleSession();
+        }
+        
+        /**
+         * takes the title that was set.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getTitleSeparator()
+        {
+            return \Artesaos\SEOTools\SEOMeta::getTitleSeparator();
+        }
+        
+        /**
+         * Get the Meta keywords.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getKeywords()
+        {
+            return \Artesaos\SEOTools\SEOMeta::getKeywords();
+        }
+        
+        /**
+         * Get all metatags.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getMetatags()
+        {
+            return \Artesaos\SEOTools\SEOMeta::getMetatags();
+        }
+        
+        /**
+         * Get the Meta description.
+         *
+         * @return string|null 
+         * @static 
+         */ 
+        public static function getDescription()
+        {
+            return \Artesaos\SEOTools\SEOMeta::getDescription();
+        }
+        
+        /**
+         * Get the canonical URL.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getCanonical()
+        {
+            return \Artesaos\SEOTools\SEOMeta::getCanonical();
+        }
+        
+        /**
+         * Get the prev URL.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getPrev()
+        {
+            return \Artesaos\SEOTools\SEOMeta::getPrev();
+        }
+        
+        /**
+         * Get the next URL.
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getNext()
+        {
+            return \Artesaos\SEOTools\SEOMeta::getNext();
+        }
+        
+        /**
+         * Get alternate languages.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getAlternateLanguages()
+        {
+            return \Artesaos\SEOTools\SEOMeta::getAlternateLanguages();
+        }
+        
+        /**
+         * Reset all data.
+         *
+         * @return void 
+         * @static 
+         */ 
+        public static function reset()
+        {
+            \Artesaos\SEOTools\SEOMeta::reset();
+        }
+         
+    }
+ 
+}
+
 
 namespace  { 
 
@@ -15060,7 +15373,7 @@ namespace  {
              * Save a new model and return the instance.
              *
              * @param array $attributes
-             * @return \Illuminate\Database\Eloquent\Model 
+             * @return \Illuminate\Database\Eloquent\Model|$this 
              * @static 
              */ 
             public static function create($attributes = array())
@@ -15072,7 +15385,7 @@ namespace  {
              * Save a new model and return the instance. Allow mass-assignment.
              *
              * @param array $attributes
-             * @return \Illuminate\Database\Eloquent\Model 
+             * @return \Illuminate\Database\Eloquent\Model|$this 
              * @static 
              */ 
             public static function forceCreate($attributes)
@@ -15281,6 +15594,20 @@ namespace  {
             public static function when($value, $callback, $default = null)
             {    
                 return \Illuminate\Database\Eloquent\Builder::when($value, $callback, $default);
+            }
+         
+            /**
+             * Apply the callback's query changes if the given "value" is false.
+             *
+             * @param mixed $value
+             * @param callable $callback
+             * @param callable $default
+             * @return mixed 
+             * @static 
+             */ 
+            public static function unless($value, $callback, $default = null)
+            {    
+                return \Illuminate\Database\Eloquent\Builder::unless($value, $callback, $default);
             }
          
             /**
@@ -16743,6 +17070,8 @@ namespace  {
     class MediaUploader extends \Plank\Mediable\MediaUploaderFacade {}
 
     class Purifier extends \Mews\Purifier\Facades\Purifier {}
+
+    class SEOMeta extends \Artesaos\SEOTools\Facades\SEOMeta {}
  
 }
 

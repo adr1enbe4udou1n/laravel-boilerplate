@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2017-06-29.
+    * Generated on 2017-07-01.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -162,6 +162,14 @@ namespace PHPSTORM_META {
         'Laravel\Socialite\Contracts\Factory' => Laravel\Socialite\SocialiteManager::class,
         'sitemap' => Roumen\Sitemap\Sitemap::class,
         'purifier' => Mews\Purifier\Purifier::class,
+        'seotools.metatags' => Artesaos\SEOTools\SEOMeta::class,
+        'seotools.opengraph' => Artesaos\SEOTools\OpenGraph::class,
+        'seotools.twitter' => Artesaos\SEOTools\TwitterCards::class,
+        'seotools' => Artesaos\SEOTools\SEOTools::class,
+        'Artesaos\SEOTools\Contracts\MetaTags' => Artesaos\SEOTools\SEOMeta::class,
+        'Artesaos\SEOTools\Contracts\OpenGraph' => Artesaos\SEOTools\OpenGraph::class,
+        'Artesaos\SEOTools\Contracts\TwitterCards' => Artesaos\SEOTools\TwitterCards::class,
+        'Artesaos\SEOTools\Contracts\SEOTools' => Artesaos\SEOTools\SEOTools::class,
     ]));
     override(\Illuminate\Contracts\Container\Container::make(0), map([
         '' => '@',
@@ -317,6 +325,14 @@ namespace PHPSTORM_META {
         'Laravel\Socialite\Contracts\Factory' => Laravel\Socialite\SocialiteManager::class,
         'sitemap' => Roumen\Sitemap\Sitemap::class,
         'purifier' => Mews\Purifier\Purifier::class,
+        'seotools.metatags' => Artesaos\SEOTools\SEOMeta::class,
+        'seotools.opengraph' => Artesaos\SEOTools\OpenGraph::class,
+        'seotools.twitter' => Artesaos\SEOTools\TwitterCards::class,
+        'seotools' => Artesaos\SEOTools\SEOTools::class,
+        'Artesaos\SEOTools\Contracts\MetaTags' => Artesaos\SEOTools\SEOMeta::class,
+        'Artesaos\SEOTools\Contracts\OpenGraph' => Artesaos\SEOTools\OpenGraph::class,
+        'Artesaos\SEOTools\Contracts\TwitterCards' => Artesaos\SEOTools\TwitterCards::class,
+        'Artesaos\SEOTools\Contracts\SEOTools' => Artesaos\SEOTools\SEOTools::class,
     ]));
     override(\Illuminate\Contracts\Container\Container::makeWith(0), map([
         '' => '@',
@@ -472,6 +488,14 @@ namespace PHPSTORM_META {
         'Laravel\Socialite\Contracts\Factory' => Laravel\Socialite\SocialiteManager::class,
         'sitemap' => Roumen\Sitemap\Sitemap::class,
         'purifier' => Mews\Purifier\Purifier::class,
+        'seotools.metatags' => Artesaos\SEOTools\SEOMeta::class,
+        'seotools.opengraph' => Artesaos\SEOTools\OpenGraph::class,
+        'seotools.twitter' => Artesaos\SEOTools\TwitterCards::class,
+        'seotools' => Artesaos\SEOTools\SEOTools::class,
+        'Artesaos\SEOTools\Contracts\MetaTags' => Artesaos\SEOTools\SEOMeta::class,
+        'Artesaos\SEOTools\Contracts\OpenGraph' => Artesaos\SEOTools\OpenGraph::class,
+        'Artesaos\SEOTools\Contracts\TwitterCards' => Artesaos\SEOTools\TwitterCards::class,
+        'Artesaos\SEOTools\Contracts\SEOTools' => Artesaos\SEOTools\SEOTools::class,
     ]));
     override(\App::make(0), map([
         '' => '@',
@@ -627,6 +651,14 @@ namespace PHPSTORM_META {
         'Laravel\Socialite\Contracts\Factory' => Laravel\Socialite\SocialiteManager::class,
         'sitemap' => Roumen\Sitemap\Sitemap::class,
         'purifier' => Mews\Purifier\Purifier::class,
+        'seotools.metatags' => Artesaos\SEOTools\SEOMeta::class,
+        'seotools.opengraph' => Artesaos\SEOTools\OpenGraph::class,
+        'seotools.twitter' => Artesaos\SEOTools\TwitterCards::class,
+        'seotools' => Artesaos\SEOTools\SEOTools::class,
+        'Artesaos\SEOTools\Contracts\MetaTags' => Artesaos\SEOTools\SEOMeta::class,
+        'Artesaos\SEOTools\Contracts\OpenGraph' => Artesaos\SEOTools\OpenGraph::class,
+        'Artesaos\SEOTools\Contracts\TwitterCards' => Artesaos\SEOTools\TwitterCards::class,
+        'Artesaos\SEOTools\Contracts\SEOTools' => Artesaos\SEOTools\SEOTools::class,
     ]));
     override(\App::makeWith(0), map([
         '' => '@',
@@ -782,6 +814,14 @@ namespace PHPSTORM_META {
         'Laravel\Socialite\Contracts\Factory' => Laravel\Socialite\SocialiteManager::class,
         'sitemap' => Roumen\Sitemap\Sitemap::class,
         'purifier' => Mews\Purifier\Purifier::class,
+        'seotools.metatags' => Artesaos\SEOTools\SEOMeta::class,
+        'seotools.opengraph' => Artesaos\SEOTools\OpenGraph::class,
+        'seotools.twitter' => Artesaos\SEOTools\TwitterCards::class,
+        'seotools' => Artesaos\SEOTools\SEOTools::class,
+        'Artesaos\SEOTools\Contracts\MetaTags' => Artesaos\SEOTools\SEOMeta::class,
+        'Artesaos\SEOTools\Contracts\OpenGraph' => Artesaos\SEOTools\OpenGraph::class,
+        'Artesaos\SEOTools\Contracts\TwitterCards' => Artesaos\SEOTools\TwitterCards::class,
+        'Artesaos\SEOTools\Contracts\SEOTools' => Artesaos\SEOTools\SEOTools::class,
     ]));
     override(\app(0), map([
         '' => '@',
@@ -937,6 +977,14 @@ namespace PHPSTORM_META {
         'Laravel\Socialite\Contracts\Factory' => Laravel\Socialite\SocialiteManager::class,
         'sitemap' => Roumen\Sitemap\Sitemap::class,
         'purifier' => Mews\Purifier\Purifier::class,
+        'seotools.metatags' => Artesaos\SEOTools\SEOMeta::class,
+        'seotools.opengraph' => Artesaos\SEOTools\OpenGraph::class,
+        'seotools.twitter' => Artesaos\SEOTools\TwitterCards::class,
+        'seotools' => Artesaos\SEOTools\SEOTools::class,
+        'Artesaos\SEOTools\Contracts\MetaTags' => Artesaos\SEOTools\SEOMeta::class,
+        'Artesaos\SEOTools\Contracts\OpenGraph' => Artesaos\SEOTools\OpenGraph::class,
+        'Artesaos\SEOTools\Contracts\TwitterCards' => Artesaos\SEOTools\TwitterCards::class,
+        'Artesaos\SEOTools\Contracts\SEOTools' => Artesaos\SEOTools\SEOTools::class,
     ]));
     override(\resolve(0), map([
         '' => '@',
@@ -1092,6 +1140,14 @@ namespace PHPSTORM_META {
         'Laravel\Socialite\Contracts\Factory' => Laravel\Socialite\SocialiteManager::class,
         'sitemap' => Roumen\Sitemap\Sitemap::class,
         'purifier' => Mews\Purifier\Purifier::class,
+        'seotools.metatags' => Artesaos\SEOTools\SEOMeta::class,
+        'seotools.opengraph' => Artesaos\SEOTools\OpenGraph::class,
+        'seotools.twitter' => Artesaos\SEOTools\TwitterCards::class,
+        'seotools' => Artesaos\SEOTools\SEOTools::class,
+        'Artesaos\SEOTools\Contracts\MetaTags' => Artesaos\SEOTools\SEOMeta::class,
+        'Artesaos\SEOTools\Contracts\OpenGraph' => Artesaos\SEOTools\OpenGraph::class,
+        'Artesaos\SEOTools\Contracts\TwitterCards' => Artesaos\SEOTools\TwitterCards::class,
+        'Artesaos\SEOTools\Contracts\SEOTools' => Artesaos\SEOTools\SEOTools::class,
     ]));
 
     override(\Illuminate\Support\Arr::add(0), type(0));
