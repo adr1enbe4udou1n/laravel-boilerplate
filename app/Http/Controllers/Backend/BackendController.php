@@ -3,16 +3,20 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Post;
+use App\Repositories\Contracts\PostRepository;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\View\View;
 
 class BackendController extends Controller
 {
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\View\View
-     */
-    public function index()
+    public function __construct(Factory $view)
     {
-        return view('backend.home');
+        $view->composer('backend.partials.sidebar', function (View $view) {
+            $posts = app(PostRepository::class)->make();
+
+            $view->with('new_posts_count', $posts->whereStatus(Post::DRAFT)->count());
+            $view->with('pending_posts_count', $posts->whereStatus(Post::PENDING)->count());
+        });
     }
 }

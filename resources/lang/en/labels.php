@@ -102,6 +102,19 @@ return [
     ],
 
     'backend' => [
+        'dashboard' => [
+            'new_posts' => 'New posts',
+            'pending_posts' => 'Pending posts',
+            'published_posts' => 'Published posts',
+            'active_users' => 'Active users',
+            'form_submissions' => 'Submissions',
+            'last_posts' => 'Last posts',
+            'last_published_posts' => 'Last publications',
+            'last_pending_posts' => 'Last pending posts',
+            'last_new_posts' => 'Last new posts',
+            'all_posts' => 'All posts',
+        ],
+
         'sidebar' => [
             'content' => 'Content management',
             'forms' => 'Form management',

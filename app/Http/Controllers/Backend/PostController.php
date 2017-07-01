@@ -6,6 +6,7 @@ use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
 use App\Repositories\Contracts\PostRepository;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -25,10 +26,11 @@ class PostController extends BackendController
      *
      * @param \App\Repositories\Contracts\PostRepository $posts
      *
-     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @param \Illuminate\Contracts\View\Factory         $view
      */
-    public function __construct(PostRepository $posts)
+    public function __construct(PostRepository $posts, Factory $view)
     {
+        parent::__construct($view);
         $this->posts = $posts;
     }
 

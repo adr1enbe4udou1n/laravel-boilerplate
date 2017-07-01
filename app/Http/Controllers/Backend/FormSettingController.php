@@ -7,6 +7,7 @@ use App\Http\Requests\StoreFormSettingRequest;
 use App\Http\Requests\UpdateFormSettingRequest;
 use App\Models\FormSetting;
 use App\Repositories\Contracts\FormSettingRepository;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
@@ -21,12 +22,13 @@ class FormSettingController extends BackendController
     /**
      * Create a new controller instance.
      *
-     * @param FormSettingRepository $formSettings
+     * @param \Illuminate\Contracts\View\Factory $view
+     * @param FormSettingRepository              $formSettings
      *
-     * @throws \Mcamara\LaravelLocalization\Exceptions\SupportedLocalesNotDefined
      */
-    public function __construct(FormSettingRepository $formSettings)
+    public function __construct(FormSettingRepository $formSettings, Factory $view)
     {
+        parent::__construct($view);
         $this->formSettings = $formSettings;
     }
 

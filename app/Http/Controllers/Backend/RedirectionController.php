@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateRedirectionRequest;
 use App\Imports\RedirectionListImport;
 use App\Models\Redirection;
 use App\Repositories\Contracts\RedirectionRepository;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
@@ -23,12 +24,13 @@ class RedirectionController extends BackendController
     /**
      * Create a new controller instance.
      *
-     * @param RedirectionRepository $redirections
+     * @param RedirectionRepository              $redirections
      *
-     * @throws \Mcamara\LaravelLocalization\Exceptions\SupportedLocalesNotDefined
+     * @param \Illuminate\Contracts\View\Factory $view
      */
-    public function __construct(RedirectionRepository $redirections)
+    public function __construct(RedirectionRepository $redirections, Factory $view)
     {
+        parent::__construct($view);
         $this->redirections = $redirections;
     }
 

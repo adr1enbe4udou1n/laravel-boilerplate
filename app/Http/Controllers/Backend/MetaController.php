@@ -7,6 +7,7 @@ use App\Http\Requests\StoreMetaRequest;
 use App\Http\Requests\UpdateMetaRequest;
 use App\Models\Meta;
 use App\Repositories\Contracts\MetaRepository;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
@@ -21,12 +22,13 @@ class MetaController extends BackendController
     /**
      * Create a new controller instance.
      *
-     * @param MetaRepository $metas
+     * @param MetaRepository                     $metas
      *
-     * @throws \Mcamara\LaravelLocalization\Exceptions\SupportedLocalesNotDefined
+     * @param \Illuminate\Contracts\View\Factory $view
      */
-    public function __construct(MetaRepository $metas)
+    public function __construct(MetaRepository $metas, Factory $view)
     {
+        parent::__construct($view);
         $this->metas = $metas;
     }
 

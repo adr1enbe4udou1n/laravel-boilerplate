@@ -22,7 +22,19 @@
             @if(config('blog.enabled') && Gate::check('manage own posts'))
             <li class="header">@lang('labels.backend.sidebar.content')</li>
             {!! menu_item_access('admin.post.create', trans('labels.backend.posts.titles.create'), 'fa fa-plus') !!}
-            {!! menu_item_access('admin.post.index', trans('labels.backend.posts.titles.main'), 'fa fa-newspaper-o', [], null, [], 'admin.post.edit') !!}
+            <li class="{{ active_class(if_route_pattern(['admin.post.index', 'admin.post.edit'])) }}">
+                <a href="{{ route('admin.post.index') }}">
+                    <i class="fa fa-newspaper-o"></i><span>@lang('labels.backend.posts.titles.main')</span>
+                    <span class="pull-right-container">
+                        @if($new_posts_count > 0)
+                            <small class="label pull-right bg-red" title="@lang('labels.backend.dashboard.new_posts')">{{ $new_posts_count }}</small>
+                        @endif
+                        @if($pending_posts_count > 0)
+                            <small class="label pull-right bg-yellow" title="@lang('labels.backend.dashboard.pending_posts')">{{ $pending_posts_count }}</small>
+                        @endif
+                    </span>
+                </a>
+            </li>
             @endif
 
             @if(Gate::check('manage form_submissions') || Gate::check('manage form_settings'))

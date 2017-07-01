@@ -8,7 +8,7 @@ Route::group(
         'middleware' => ['auth', 'can:access backend'],
     ],
     function () {
-        Route::get('/', 'BackendController@index')
+        Route::get('/', 'DashboardController@index')
             ->name('home');
         Route::get('/routes/search', 'AjaxController@routesSearch')
             ->name('routes.search');

@@ -102,6 +102,19 @@ return [
     ],
 
     'backend' => [
+        'dashboard' => [
+            'new_posts' => 'Nouveaux articles',
+            'pending_posts' => 'Articles en attente de publication',
+            'published_posts' => 'Articles publiés',
+            'active_users' => 'Utilisateurs actifs',
+            'form_submissions' => 'Soumissions',
+            'last_posts' => 'Dernier articles',
+            'last_published_posts' => 'Dernières publications',
+            'last_pending_posts' => 'Derniers articles en attente de publication',
+            'last_new_posts' => 'Derniers nouveaux articles',
+            'all_posts' => 'Voir tous les articles',
+        ],
+
         'sidebar' => [
             'content' => 'Gestion de contenu',
             'forms' => 'Gestion des formulaires',

@@ -27,6 +27,7 @@ class RoleController extends BackendController
      */
     public function __construct(RoleRepository $roles, Factory $view)
     {
+        parent::__construct($view);
         $this->roles = $roles;
 
         $view->composer('*', function (\Illuminate\View\View $view) {

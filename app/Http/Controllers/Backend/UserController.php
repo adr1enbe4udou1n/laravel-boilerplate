@@ -10,6 +10,7 @@ use App\Repositories\Contracts\RoleRepository;
 use App\Repositories\Contracts\UserRepository;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
 
@@ -34,10 +35,11 @@ class UserController extends BackendController
      */
     public function __construct(UserRepository $users, RoleRepository $roles, Factory $view)
     {
+        parent::__construct($view);
         $this->users = $users;
         $this->roles = $roles;
 
-        $view->composer('*', function (\Illuminate\View\View $view) {
+        $view->composer('*', function (View $view) {
             $view->withRoles($this->roles->getAllowedRoles());
         });
     }
