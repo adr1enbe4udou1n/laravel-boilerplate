@@ -94,6 +94,17 @@ class FormServiceProvider extends ServiceProvider
                 ], $attributes);
             }
 
+            if(isset($parameters['editor'])) {
+                $options = $parameters['editor'];
+                $data['type'] = 'textarea';
+
+                $attributes['data-toggle'] = 'editor';
+                if (isset($options['upload_url'])) {
+                    $attributes['data-upload-url'] = $options['upload_url'];
+                }
+            }
+
+            // Merge attributes and view variables
             if (isset($parameters['attributes'])) {
                 $attributes = array_merge($attributes, $parameters['attributes']);
             }

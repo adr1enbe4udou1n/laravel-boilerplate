@@ -6,7 +6,8 @@ window.moment = require('moment');
 require('bootstrap-slider');
 require('intl-tel-input');
 
-window.Quill = require('quill');
+require('ckeditor');
+require('ckeditor/adapters/jquery');
 
 window.locale = $('html').attr('lang');
 
@@ -53,7 +54,7 @@ window.locale = $('html').attr('lang');
             confirmButtonColor: "#dd4b39",
             confirmButtonText: $(button).attr('data-trans-button-confirm')
         }).then(
-            function() {
+            function () {
                 if (form) {
                     return form.submit();
                 }
@@ -134,7 +135,7 @@ window.locale = $('html').attr('lang');
     /**
      * Plugins to load after DOM is ready
      */
-    $(function() {
+    $(function () {
         /**
          * Bind all bootstrap tooltips
          */
@@ -174,35 +175,32 @@ window.locale = $('html').attr('lang');
         });
 
         /**
-         * HTML editor with quill
+         * HTML editor with ckeditor
          */
         $('[data-toggle="editor"]').each(function () {
-            let toolbarOptions = [
-                [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+            let plugins = ['autogrow', 'image2'];
 
-                ['bold', 'italic', 'underline', 'strike'],
-                ['blockquote', 'code-block'],
+            let uploadUrl = $(this).data('upload-url');
+            if (uploadUrl) {
+                plugins.push('uploadimage')
+            }
 
-                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-                [{ 'script': 'sub' }, { 'script': 'super' }],
-
-                ['link', 'image', 'video', 'formula']
-            ];
-
-            let container = $(this).get(0);
-            let editor = new Quill(container, {
-                modules: {
-                    toolbar: toolbarOptions
-                },
-                placeholder: $(this).data('placeholder'),
-                theme: 'snow'
-            });
-
-            $textarea = $(this).next();
-            editor.clipboard.dangerouslyPasteHTML($textarea.val());
-
-            editor.on('text-change', function() {
-                $textarea.val(editor.root.innerHTML);
+            $(this).ckeditor({
+                extraPlugins: plugins.join(','),
+                removePlugins: 'resize',
+                language: locale,
+                toolbar: [
+                    {name: 'basicstyles', items: ['Bold', 'Italic']},
+                    {name: 'links', items: ['Link', 'Unlink']},
+                    {name: 'paragraph', items: ['NumberedList', 'BulletedList']},
+                    {name: 'insert', items: ['Blockquote', 'Image']},
+                    {name: 'styles', items: ['Format']},
+                    {name: 'document', items: ['Source']},
+                ],
+                uploadUrl: uploadUrl,
+                autoGrow_minHeight: 200,
+                autoGrow_maxHeight: 600,
+                autoGrow_onStartup: true
             });
         });
 
@@ -224,10 +222,10 @@ window.locale = $('html').attr('lang');
             let dataTableId = $(this).data('target');
             let dataTable = $(dataTableId).DataTable();
 
-            $.each(dataTable.rows({ selected: true }).ids(), function(index, value){
+            $.each(dataTable.rows({selected: true}).ids(), function (index, value) {
                 let input = $('<input>').attr({
-                    'type':'hidden',
-                    'name':'ids[]'
+                    'type': 'hidden',
+                    'name': 'ids[]'
                 }).val(value);
                 $form.prepend(input);
             });
@@ -252,7 +250,7 @@ window.locale = $('html').attr('lang');
         /**
          * Select2
          */
-        $('[data-toggle="select2"]').each(function() {
+        $('[data-toggle="select2"]').each(function () {
             $(this).select2({
                 width: '100%'
             });
@@ -261,7 +259,7 @@ window.locale = $('html').attr('lang');
         /**
          * Autocomplete select2
          */
-        $('[data-toggle="autocomplete"]').each(function() {
+        $('[data-toggle="autocomplete"]').each(function () {
             let itemValue = $(this).data('item-value');
             let itemLabel = $(this).data('item-label');
 

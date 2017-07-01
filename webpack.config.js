@@ -1,5 +1,6 @@
 require('dotenv').config();
 const fs = require('fs');
+const _ = require('lodash');
 const path = require('path');
 const webpack = require('webpack');
 
@@ -9,6 +10,7 @@ const WebpackNotifierPlugin = require('webpack-notifier');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const production = process.env.NODE_ENV === 'production';
 const hmr = process.argv.includes('--hot');
@@ -34,6 +36,58 @@ const extractSass = new ExtractTextPlugin({
     disable: hmr
 });
 
+let ckeditorLocales = ['en', 'fr'];
+let ckeditorPlugins = ['a11yhelp', 'about', 'autogrow', 'dialog', 'filetools', 'image', 'image2', 'lineutils', 'link', 'magicline', 'notificationaggregator', 'pastefromword', 'scayt', 'specialchar', 'table', 'tableselection', 'tabletools', 'uploadimage', 'uploadwidget', 'widget', 'widgetselection', 'wsc'];
+
+// Locales to exclude from ckeditor core, including plugins
+let ckeditorIgnoredLanguages = [];
+
+fs.readdirSync('node_modules/ckeditor/lang').forEach(file => {
+    if (_.some(ckeditorLocales, function (locale) {
+            return file === `${locale}.js`;
+        }) === false) {
+        ckeditorIgnoredLanguages.push(file);
+    }
+});
+
+let ckeditorCopyPatterns = [
+    {
+        from: `node_modules/ckeditor/lang`,
+        to: 'vendor/ckeditor/lang'
+    },
+    {
+        from: 'node_modules/ckeditor/plugins/icons.png',
+        to: 'vendor/ckeditor/plugins'
+    },
+    {
+        from: 'node_modules/ckeditor/plugins/icons_hidpi.png',
+        to: 'vendor/ckeditor/plugins'
+    },
+    {
+        from: 'node_modules/ckeditor/skins/moono-lisa',
+        to: 'vendor/ckeditor/skins/moono-lisa'
+    },
+    {
+        from: 'node_modules/ckeditor/config.js',
+        to: 'vendor/ckeditor'
+    },
+    {
+        from: 'node_modules/ckeditor/contents.css',
+        to: 'vendor/ckeditor'
+    },
+    {
+        from: 'node_modules/ckeditor/styles.js',
+        to: 'vendor/ckeditor'
+    }
+];
+
+ckeditorPlugins.forEach(function(plugin) {
+    ckeditorCopyPatterns.push({
+        from: `node_modules/ckeditor/plugins/${plugin}`,
+        to: `vendor/ckeditor/plugins/${plugin}`
+    })
+});
+
 module.exports = {
     entry: {
         frontend: [
@@ -57,7 +111,7 @@ module.exports = {
             'eonasdan-bootstrap-datetimepicker',
             'bootstrap-slider',
             'intl-tel-input',
-            'quill'
+            'ckeditor'
         ]
     },
     output: {
@@ -101,7 +155,7 @@ module.exports = {
             },
             {
                 test: /\.jsx?$/,
-                exclude: /(node_modules(?!\/quill)|bower_components)/,
+                exclude: /(node_modules|bower_components)/,
                 use: 'babel-loader?cacheDirectory'
             },
             {
@@ -151,6 +205,10 @@ module.exports = {
             jQuery: 'jquery',
             $: 'jquery'
         }),
+        new CopyWebpackPlugin(ckeditorCopyPatterns,
+            {
+                ignore: ckeditorIgnoredLanguages,
+            }),
         new FriendlyErrorsWebpackPlugin(),
         new webpack.LoaderOptionsPlugin({
             minimize: production,

@@ -25,7 +25,9 @@
                 'placeholder' => trans('labels.backend.posts.placeholders.body'),
                 'label_class' => 'col-lg-2',
                 'field_wrapper_class' => 'col-lg-10',
-                'height' => 300,
+                'editor' => [
+                    'upload_url' => route('admin.images.upload'),
+                ]
             ]) }}
 
             @if(old('tags'))
