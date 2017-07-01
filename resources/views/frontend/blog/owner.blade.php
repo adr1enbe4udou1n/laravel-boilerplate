@@ -2,10 +2,8 @@
 
 @section('title', $user->name)
 
-@section('body_id', 'page-blog')
+@section('body_class', 'page-blog')
 
 @section('content')
-    <div class="row">
-        @include('frontend.blog.partials.published-posts', ['hide_owner' => true])
-    </div>
+    @include('frontend.blog.partials.published-posts', ['hide_owner' => true])
 @endsection

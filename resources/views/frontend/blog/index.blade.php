@@ -2,10 +2,8 @@
 
 @section('title', trans('labels.frontend.titles.blog'))
 
-@section('body_id', 'page-blog')
+@section('body_class', 'page-blog')
 
 @section('content')
-    <div class="row">
-        @include('frontend.blog.partials.published-posts')
-    </div>
+    @include('frontend.blog.partials.published-posts')
 @endsection

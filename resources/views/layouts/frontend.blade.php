@@ -25,7 +25,9 @@
     @elseif(View::hasSection('meta_description'))
         <meta name="description" content="@yield('meta_description')">
     @endif
+    @if (count(config('laravellocalization.supportedLocales')) > 1)
     @include('partials.alternates')
+    @endif
     @yield('metas')
 
     <!-- Styles -->
@@ -34,14 +36,18 @@
     @endif
     @yield('styles')
 </head>
-<body id="@yield('body_id')" class="@yield('body_class')">
+<body class="@yield('body_class')">
     @include('frontend.scripts.gtmiframe')
 
     <div id="app">
         @include('partials.logged-as')
         @include('partials.not-confirmed')
         @include('frontend.partials.header')
-        @yield('highlight')
+        @hasSection('highlight')
+            <section class="highlight">
+                @yield('highlight')
+            </section>
+        @endif
 
         @if(Breadcrumbs::exists())
             <section class="breadcrumb">
@@ -56,7 +62,10 @@
                 <h1>@yield('title')</h1>
             @endif
             @include('partials.messages')
-            @yield('content')
+
+            <div class="content">
+                @yield('content')
+            </div>
         </div>
     </div>
 

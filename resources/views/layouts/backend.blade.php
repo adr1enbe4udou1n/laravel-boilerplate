@@ -17,7 +17,7 @@
     @endif
     @yield('styles')
 </head>
-<body id="@yield('body_id')" class="hold-transition skin-blue sidebar-mini @yield('body_class')">
+<body class="hold-transition skin-blue sidebar-mini @yield('body_class')">
     <div id="app">
         @yield('body')
     </div>

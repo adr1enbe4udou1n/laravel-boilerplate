@@ -2,7 +2,7 @@
 
 @section('title', trans('labels.frontend.titles.legal_mentions'))
 
-@section('body_id', 'page-legal-mentions')
+@section('body_class', 'page-legal-mentions')
 
 @section('content')
     <p>Etiam ut purus mattis mauris sodales aliquam. Curabitur ullamcorper ultricies nisi. Quisque rutrum. Proin faucibus arcu quis ante. Sed cursus turpis vitae tortor.</p>

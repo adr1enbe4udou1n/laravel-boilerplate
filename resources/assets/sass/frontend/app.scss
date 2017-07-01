@@ -23,6 +23,9 @@
 // Sections
 @import "footer";
 
+// Pages
+@import "blog";
+
 [v-cloak] {
   display: none;
 }
@@ -45,6 +48,10 @@ iframe {
   margin-bottom: 0;
 }
 
+.highlight {
+  position: relative;
+}
+
 .highlight .jumbotron {
   margin-bottom: 0;
 }
@@ -54,8 +61,8 @@ iframe {
 }
 
 .main-container {
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: $line-height-computed;
+  padding-bottom: $line-height-computed;
 }
 
 h1 {

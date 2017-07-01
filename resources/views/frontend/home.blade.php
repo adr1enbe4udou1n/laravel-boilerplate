@@ -1,11 +1,13 @@
 @extends('layouts.frontend')
 
-@section('body_id', 'page-home')
+@section('body_class', 'page-home')
 
 @section('highlight')
-    @component('frontend.components.highlight')
-        @include('frontend.partials.slider')
-    @endcomponent
+    <div class="jumbotron">
+        <div class="container">
+            @include('frontend.partials.slider')
+        </div>
+    </div>
 @endsection
 
 @section('content')

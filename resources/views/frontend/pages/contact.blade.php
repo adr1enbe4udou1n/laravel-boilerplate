@@ -2,7 +2,7 @@
 
 @section('title', trans('labels.frontend.titles.contact'))
 
-@section('body_id', 'page-contact')
+@section('body_class', 'page-contact')
 
 @section('content')
 
