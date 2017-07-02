@@ -7,6 +7,8 @@ use App\Models\Tag;
 use App\Models\User;
 use App\Repositories\Contracts\PostRepository;
 use Artesaos\SEOTools\Facades\SEOMeta;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class BlogController extends FrontendController
 {
@@ -50,8 +52,13 @@ class BlogController extends FrontendController
             ->withPosts($this->posts->publishedByOwner($user)->paginate(10));
     }
 
-    public function show(Post $post)
+    public function show(Post $post, Request $request)
     {
+        // If not published, only user with edit access can see it
+        if (! $post->is_published && ! Gate::check('update', $post)) {
+            abort(404);
+        }
+
         SEOMeta::setTitle($post->meta_title);
         SEOMeta::setDescription($post->meta_description);
 

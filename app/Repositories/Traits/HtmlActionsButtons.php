@@ -28,6 +28,22 @@ trait HtmlActionsButtons
      *
      * @return string
      */
+    public function getPreviewButtonHtml($route, $parameters)
+    {
+        $title = '<i class="fa fa-eye" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.preview').'"></i>';
+
+        return link_to(route($route, $parameters), $title, [
+                'class' => 'btn btn-xs btn-success',
+                'target' => '_blank',
+            ], false, false).' ';
+    }
+
+    /**
+     * @param $route
+     * @param $parameters
+     *
+     * @return string
+     */
     public function getEditButtonHtml($route, $parameters)
     {
         $title = '<i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.edit').'"></i>';

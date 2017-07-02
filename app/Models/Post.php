@@ -28,7 +28,6 @@ use Plank\Mediable\Mediable;
  * @property \Carbon\Carbon                                                              $created_at
  * @property \Carbon\Carbon                                                              $updated_at
  * @property \Illuminate\Database\Eloquent\Collection|\App\Models\PostTranslation[] $translations
- *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post listsTranslations($translationField)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post notTranslatedIn($locale = null)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post orWhereTranslation($key, $value, $locale = null)
@@ -47,29 +46,24 @@ use Plank\Mediable\Mediable;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereUserId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post withTranslation()
  * @mixin \Eloquent
- *
  * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Tag[] $tags
  * @property mixed $status_label
  * @property mixed $state
- *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereStatus($value)
- *
  * @property \Illuminate\Database\Eloquent\Collection|\Plank\Mediable\Media[] $media
- *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post published()
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereHasMedia($tags, $match_all = false)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereHasMediaMatchAll($tags)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post withMedia($tags = array(), $match_all = false)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post withMediaMatchAll($tags = array())
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post withTag(\App\Models\Tag $tag)
- *
  * @property mixed $featured_image_url
  * @property \App\Models\User $owner
  * @property \App\Models\Meta $meta
  * @property mixed $meta_description
  * @property mixed $meta_title
- *
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post withOwner(\App\Models\User $user)
+ * @property-read mixed $is_published
  */
 class Post extends Model
 {
@@ -132,6 +126,11 @@ class Post extends Model
     public function getStateAttribute()
     {
         return self::getStates()[$this->status];
+    }
+
+    public function getIsPublishedAttribute()
+    {
+        return $this->status === self::PUBLISHED;
     }
 
     public function getFeaturedImageUrlAttribute()

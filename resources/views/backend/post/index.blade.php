@@ -119,7 +119,7 @@
                 data: 'actions',
                 name: 'actions',
                 orderable: false,
-                width: 50,
+                width: 80,
             }],
             select: {style: 'os'},
             order: [[9, 'desc']],

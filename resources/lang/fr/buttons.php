@@ -9,6 +9,7 @@ return [
     'edit' => 'Editer',
     'update' => 'Mettre à jour',
     'view' => 'Voir',
+    'preview' => 'Prévisualiser',
     'back' => 'Retour',
     'send' => 'Envoyer',
     'login-as' => 'Se loguer en tant que :name',

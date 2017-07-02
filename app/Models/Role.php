@@ -17,7 +17,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon $updated_at
  * @property array $permissions
  * @property \Illuminate\Database\Eloquent\Collection|\App\Models\RoleTranslation[] $translations
- *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role listsTranslations($translationField)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role notTranslatedIn($locale = null)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Role orWhereTranslation($key, $value, $locale = null)

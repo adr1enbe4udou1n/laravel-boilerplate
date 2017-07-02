@@ -3254,9 +3254,9 @@ interpret@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.0.3.tgz#cbc35c62eeee73f19ab7b10a801511401afc0f90"
 
-intl-tel-input@^11.0.16:
-  version "11.0.16"
-  resolved "https://registry.yarnpkg.com/intl-tel-input/-/intl-tel-input-11.0.16.tgz#2437286a7758e385c4b1d68affb5aa0d2a4d830f"
+intl-tel-input@^11.1.0:
+  version "11.1.0"
+  resolved "https://registry.yarnpkg.com/intl-tel-input/-/intl-tel-input-11.1.0.tgz#fb738aa724225835c71cfd6bee5a01c61716955c"
 
 invariant@^2.2.0, invariant@^2.2.2:
   version "2.2.2"
@@ -6203,9 +6203,9 @@ ua-parser-js@0.7.12:
   version "0.7.12"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.12.tgz#04c81a99bdd5dc52263ea29d24c6bf8d4818a4bb"
 
-uglify-js@3.0.x, uglify-js@^3.0.22:
-  version "3.0.22"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.0.22.tgz#0a4d957cf381b38c3f40e9295c442043f04f5805"
+uglify-js@3.0.x, uglify-js@^3.0.23:
+  version "3.0.23"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.0.23.tgz#a58c6b97e6d6763d94dbc265fe8e8c1725e64666"
   dependencies:
     commander "~2.9.0"
     source-map "~0.5.1"
