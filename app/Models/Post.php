@@ -63,7 +63,7 @@ use Plank\Mediable\Mediable;
  * @property mixed $meta_description
  * @property mixed $meta_title
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post withOwner(\App\Models\User $user)
- * @property-read mixed $is_published
+ * @property-read mixed $published
  */
 class Post extends Model
 {
@@ -128,7 +128,7 @@ class Post extends Model
         return self::getStates()[$this->status];
     }
 
-    public function getIsPublishedAttribute()
+    public function getPublishedAttribute()
     {
         return $this->status === self::PUBLISHED;
     }
