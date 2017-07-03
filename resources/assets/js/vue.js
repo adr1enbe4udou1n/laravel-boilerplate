@@ -20,8 +20,10 @@ VeeValidate.Validator.extend('phone', (value, [inputId]) => {
 });
 
 // Components
-Vue.component('panel', require('./components/Panel.vue'));
-Vue.component('password-strength-meter', require('./components/Password.vue'));
+import Panel from './components/Panel.vue';
+import Password from './components/Password.vue';
+Vue.component('panel', Panel);
+Vue.component('password-strength-meter', Password);
 
 const app = new Vue({
     el: '#app',

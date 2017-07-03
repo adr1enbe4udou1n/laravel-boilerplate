@@ -202,13 +202,11 @@ module.exports = {
     },
     plugins: [
         new webpack.ProvidePlugin({
-            jQuery: 'jquery',
-            $: 'jquery'
+            jquery: ['$', 'window.jQuery']
         }),
-        new CopyWebpackPlugin(ckeditorCopyPatterns,
-            {
-                ignore: ckeditorIgnoredLanguages,
-            }),
+        new CopyWebpackPlugin(ckeditorCopyPatterns, {
+            ignore: ckeditorIgnoredLanguages
+        }),
         new FriendlyErrorsWebpackPlugin(),
         new webpack.LoaderOptionsPlugin({
             minimize: production,
@@ -250,7 +248,7 @@ module.exports = {
     ],
     resolve: {
         alias: {
-            'vue$': 'vue/dist/vue.common.js'
+            'vue$': 'vue/dist/vue.esm.js'
         }
     },
     performance: {

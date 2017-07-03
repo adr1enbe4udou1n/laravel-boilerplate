@@ -18,7 +18,7 @@
     "bootstrap-sass": "^3.3.7",
     "bootstrap-slider": "^9.8.0",
     "browser-sync": "^2.18.12",
-    "browser-sync-webpack-plugin": "^1.1.4",
+    "browser-sync-webpack-plugin": "^1.2.0",
     "ckeditor": "^4.7.1",
     "clean-webpack-plugin": "^0.1.16",
     "cookieconsent": "^3.0.4",
