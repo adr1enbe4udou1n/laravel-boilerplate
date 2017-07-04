@@ -100,7 +100,6 @@ class FormServiceProvider extends ServiceProvider
 
             if(isset($parameters['editor'])) {
                 $options = $parameters['editor'];
-                $data['type'] = 'textarea';
 
                 $attributes['data-toggle'] = 'editor';
                 if (isset($options['upload_url'])) {
@@ -131,7 +130,6 @@ class FormServiceProvider extends ServiceProvider
         Form::component('bsFile', 'components.field', ['name', 'parameters' => [], 'type' => 'file']);
         Form::component('bsImage', 'components.field', ['name', 'parameters' => [], 'type' => 'image']);
         Form::component('bsDatetime', 'components.field', ['name', 'parameters' => [], 'type' => 'datetime']);
-        Form::component('bsEditor', 'components.field', ['name', 'parameters' => [], 'type' => 'editor']);
     }
 
     /**

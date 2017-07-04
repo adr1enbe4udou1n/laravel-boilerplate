@@ -20,7 +20,7 @@
                 ],
             ]) }}
 
-            {{ Form::bsEditor('body', [
+            {{ Form::bsTextarea('body', [
                 'title' => trans('validation.attributes.body'),
                 'placeholder' => trans('labels.backend.posts.placeholders.body'),
                 'label_class' => 'col-lg-2',
