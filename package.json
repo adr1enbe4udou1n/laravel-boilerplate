@@ -14,7 +14,7 @@
     "axios": "^0.16.2",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
-    "babel-preset-env": "^1.5.2",
+    "babel-preset-env": "^1.6.0",
     "bootstrap-sass": "^3.3.7",
     "bootstrap-slider": "^9.8.0",
     "browser-sync": "^2.18.12",
