@@ -4,7 +4,7 @@
 
 @section('highlight')
     <div class="cover">
-        <img src="{{ $post->featured_image_url }}" alt="{{ $post->title }}" class="img-responsive">
+        <img src="{{ $post->featured_image_url }}" alt="{{ $post->title }}" class="img-fluid">
     </div>
     <div class="post-title">
         <h1>{{ $post->title }}</h1>
@@ -13,21 +13,15 @@
 @endsection
 
 @section('content')
-    <nav class="navbar navbar-default navbar-tags">
-        <div class="navbar-header">
-            <span class="navbar-brand">@lang('labels.frontend.blog.tags')</span>
-        </div>
-
-        <div>
-            <ul class="nav navbar-nav">
-                @foreach($post->tags as $tag)
-                    <li><a href="{{ route('blog.tag', $tag->slug) }}">{{ $tag->name }}</a></li>
-                @endforeach
-            </ul>
-        </div>
-    </nav>
-
     <div class="post-body">
         {!! clean($post->body) !!}
     </div>
+
+    <nav class="nav">
+        <span class="navbar-brand">@lang('labels.frontend.blog.tags')</span>
+
+        @foreach($post->tags as $tag)
+        <a class="nav-link" href="{{ route('blog.tag', $tag->slug) }}">{{ $tag->name }}</a>
+        @endforeach
+    </nav>
 @endsection

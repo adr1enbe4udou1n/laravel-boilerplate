@@ -3,7 +3,7 @@
 {{ Form::bsText('name', [
     'required' => true,
     'title' => trans('validation.attributes.name'),
-    'label_class' => 'col-md-4',
+    'label_col_class' => 'col-md-4',
     'field_wrapper_class' => 'col-md-6',
 ]) }}
 
@@ -11,14 +11,14 @@
     'required' => true,
     'type' => 'email',
     'title' => trans('validation.attributes.email'),
-    'label_class' => 'col-md-4',
+    'label_col_class' => 'col-md-4',
     'field_wrapper_class' => 'col-md-6',
 ]) }}
 
 {{ Form::bsSelect('locale', [
     'required' => true,
     'title' => trans('validation.attributes.locale'),
-    'label_class' => 'col-md-4',
+    'label_col_class' => 'col-md-4',
     'field_wrapper_class' => 'col-md-6',
     'placeholder' => trans('labels.frontend.placeholders.locale'),
     'options' => $locales,
@@ -27,14 +27,14 @@
 {{ Form::bsSelect('timezone', [
     'required' => true,
     'title' => trans('validation.attributes.timezone'),
-    'label_class' => 'col-md-4',
+    'label_col_class' => 'col-md-4',
     'field_wrapper_class' => 'col-md-6',
     'placeholder' => trans('labels.frontend.placeholders.timezone'),
     'options' => array_combine(array_values($timezones), $timezones),
 ]) }}
 
-<div class="form-group">
-    <div class="col-md-6 col-md-offset-4">
+<div class="form-group row">
+    <div class="col-md-6 offset-md-4">
         {{ Form::submit(trans('buttons.update'), ['class' => 'btn btn-primary', 'id' => 'update-profile']) }}
     </div>
 </div>

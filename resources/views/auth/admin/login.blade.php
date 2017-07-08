@@ -12,13 +12,13 @@
                     'required' => true,
                     'type' => 'email',
                     'placeholder' => trans('validation.attributes.email'),
-                    'feedback_class' => 'glyphicon glyphicon-envelope',
+                    'feedback_class' => 'fa fa-envelope',
                 ]) }}
 
                 {{ Form::bsPassword('password', [
                     'required' => true,
                     'placeholder' => trans('validation.attributes.password'),
-                    'feedback_class' => 'glyphicon glyphicon-lock',
+                    'feedback_class' => 'fa fa-lock',
                 ]) }}
 
                 @if($is_locked)

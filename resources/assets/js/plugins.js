@@ -3,7 +3,7 @@ window.swal = require('sweetalert2');
 
 window.moment = require('moment');
 
-require('bootstrap-slider');
+require('flatpickr');
 require('intl-tel-input');
 
 require('ckeditor');
@@ -151,18 +151,6 @@ window.locale = $('html').attr('lang');
          */
         $('.auto-submit').change(function () {
             $(this).closest("form").submit();
-        });
-
-        /**
-         * Datetimepicker
-         */
-        $.fn.datetimepicker = require('eonasdan-bootstrap-datetimepicker');
-        $('[data-toggle="datetimepicker"]').each(function () {
-            let dateFormat = $(this).data('date-format');
-            $(this).datetimepicker({
-                locale: locale,
-                format: dateFormat,
-            });
         });
 
         /**

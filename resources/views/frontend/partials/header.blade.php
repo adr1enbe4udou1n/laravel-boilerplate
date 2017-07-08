@@ -1,77 +1,59 @@
-<header class="header">
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
+<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+    <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsMain" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="{{ route('home') }}">{{ config('app.name', 'Laravel') }}</a>
 
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ route('home') }}">
-                    {{ config('app.name', 'Laravel') }}
+        <div class="collapse navbar-collapse" id="navbarsMain">
+            <div class="navbar-nav mr-auto">
+                <a class="nav-link {{ active_class(if_route('home')) }}" href="{{ route('home') }}">
+                    <i class="fa fa-home"></i>
                 </a>
+                <a class="nav-link {{ active_class(if_route('about')) }}"
+                   href="{{ route('about') }}">@lang('labels.frontend.titles.about')</a>
+                @if(config('blog.enabled'))
+                    <a class="nav-link {{ active_class(if_route('blog.*')) }}"
+                       href="{{ route('blog.index') }}">@lang('labels.frontend.titles.blog')</a>
+                @endif
+                    <a class="nav-link {{ active_class(if_route('contact')) }}"
+                       href="{{ route('contact') }}">@lang('labels.frontend.titles.contact')</a>
             </div>
 
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    <li class="{{ active_class(if_route('home')) }}"><a href="{{ route('home') }}"><i
-                                    class="fa fa-home"></i></a></li>
-                    <li class="{{ active_class(if_route('about')) }}"><a
-                                href="{{ route('about') }}">@lang('labels.frontend.titles.about')</a></li>
-                    @if(config('blog.enabled'))
-                    <li class="{{ active_class(if_route('blog.*')) }}"><a
-                                href="{{ route('blog.index') }}">@lang('labels.frontend.titles.blog')</a></li>
-                    @endif
-                    <li class="{{ active_class(if_route('contact')) }}"><a
-                                href="{{ route('contact') }}">@lang('labels.frontend.titles.contact')</a></li>
-                </ul>
+            <div class="navbar-nav">
+                @if (count(config('laravellocalization.supportedLocales')) > 1)
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ trans('labels.language') }}
+                        </a>
 
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    @if (count(config('laravellocalization.supportedLocales')) > 1)
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-expanded="false">
-                                {{ trans('labels.language') }}
-                                <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                @include('partials.locales')
-                            </ul>
-                        </li>
+                        <div class="dropdown-menu" aria-labelledby="dropdown01">
+                            @include('partials.locales')
+                        </div>
+                    </div>
+                @endif
+                @if (Auth::guest())
+                    <a class="nav-link" href="{{ route('login') }}">@lang('labels.user.login')</a>
+                    @if (config('account.can_register'))
+                        <a class="nav-link" href="{{ route('register') }}">@lang('labels.user.register')</a>
                     @endif
-                    @if (Auth::guest())
-                        <li><a href="{{ route('login') }}">@lang('labels.user.login')</a></li>
-                        @if (config('account.can_register'))
-                            <li><a href="{{ route('register') }}">@lang('labels.user.register')</a></li>
-                        @endif
-                    @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-expanded="false">
-                                {{ $logged_in_user->name }} <span class="caret"></span>
-                            </a>
+                @else
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ $logged_in_user->name }}
+                        </a>
 
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ route('user.home') }}">@lang('labels.user.space')</a></li>
-                                <li><a href="{{ route('user.account') }}">@lang('labels.user.account')</a></li>
-                                @can('access backend')
-                                    <li><a href="{{ route('admin.home') }}">@lang('labels.user.administration')</a></li>
-                                @endcan
-                                <li><a href="{{ route('logout') }}">@lang('labels.user.logout')</a></li>
-                            </ul>
-                        </li>
-                    @endif
-                </ul>
+                        <div class="dropdown-menu" aria-labelledby="dropdown02">
+                            <a class="dropdown-item" href="{{ route('user.home') }}">@lang('labels.user.space')</a>
+                            <a class="dropdown-item" href="{{ route('user.account') }}">@lang('labels.user.account')</a>
+                            @can('access backend')
+                                <a class="dropdown-item" href="{{ route('admin.home') }}">@lang('labels.user.administration')</a>
+                            @endcan
+                            <a class="dropdown-item" href="{{ route('logout') }}">@lang('labels.user.logout')</a>
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
-    </nav>
-</header>
+    </div>
+</nav>

@@ -108,8 +108,7 @@ module.exports = {
             'select2',
             'sweetalert2',
             'slick-carousel',
-            'eonasdan-bootstrap-datetimepicker',
-            'bootstrap-slider',
+            'flatpickr',
             'intl-tel-input',
             'ckeditor'
         ]

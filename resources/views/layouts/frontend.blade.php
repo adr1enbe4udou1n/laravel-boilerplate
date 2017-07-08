@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -37,7 +37,7 @@
         @endif
 
         @if(Breadcrumbs::exists())
-            <section class="breadcrumb">
+            <section class="nav-breadcrumb bg-inverse">
                 <div class="container">
                     {!! Breadcrumbs::render() !!}
                 </div>
@@ -46,7 +46,7 @@
 
         <div class="main-container container">
             @hasSection('title')
-                <h1>@yield('title')</h1>
+                <h1 class="mb-4">@yield('title')</h1>
             @endif
             @include('partials.messages')
 

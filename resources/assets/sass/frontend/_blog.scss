@@ -2,7 +2,7 @@
 .page-blog {
   .content {
     .media {
-      height: 120px;
+      height: 10rem;
     }
   }
 }
@@ -24,7 +24,7 @@
     }
   }
 
-  .img-responsive {
+  .img-fluid {
     position: absolute;
     width: 100%;
     top: 50%;
@@ -40,19 +40,9 @@
     text-align: center;
 
     h1 {
-      padding: $line-height-computed 0;
-      border: solid 2px #fff;
+      border: solid 0.2rem #fff;
       border-left: 0;
       border-right: 0;
-      margin-bottom: $line-height-computed;
     }
-  }
-
-  .navbar-tags {
-    margin-bottom: $line-height-computed;
-  }
-
-  .post-body {
-
   }
 }

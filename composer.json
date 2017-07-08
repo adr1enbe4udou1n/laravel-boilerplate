@@ -11,6 +11,7 @@
         "cviebrock/eloquent-sluggable": "^4.2",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
         "dimsav/laravel-translatable": "^7.2",
+        "doctrine/dbal": "^2.5",
         "guzzlehttp/guzzle": "^6.2",
         "hieu-le/active": "^3.3",
         "intervention/image": "^2.3",
@@ -30,7 +31,6 @@
     "require-dev": {
         "barryvdh/laravel-debugbar": "^2.3",
         "barryvdh/laravel-ide-helper": "^2.2",
-        "doctrine/dbal": "^2.5",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~6.0"

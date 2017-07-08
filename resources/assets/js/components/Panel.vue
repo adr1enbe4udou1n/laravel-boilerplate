@@ -1,8 +1,8 @@
 <template>
-    <div class="panel panel-default">
-        <div class="panel-heading">{{ title }}</div>
+    <div class="card mb-3">
+        <div class="card-header">{{ title }}</div>
 
-        <div class="panel-body">
+        <div class="card-block">
             <slot></slot>
         </div>
     </div>

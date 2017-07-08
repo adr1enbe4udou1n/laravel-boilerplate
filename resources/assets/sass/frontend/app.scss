@@ -3,9 +3,7 @@
 @import "variables";
 
 // Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-@import "node_modules/bootstrap-slider/src/sass/bootstrap-slider";
-@import "node_modules/eonasdan-bootstrap-datetimepicker/src/sass/bootstrap-datetimepicker-build";
+@import "node_modules/bootstrap/scss/bootstrap";
 
 // Vendor
 @import "node_modules/font-awesome/scss/font-awesome";
@@ -24,6 +22,31 @@
 
 // Pages
 @import "blog";
+
+body {
+  padding-top: 3.5rem;
+}
+
+.highlight {
+  position: relative;
+}
+
+.jumbotron {
+  margin-bottom: 0;
+
+  @include media-breakpoint-up(sm) {
+    padding: $jumbotron-padding $jumbotron-padding / 2;
+  }
+}
+
+.breadcrumb {
+  padding: 1rem 0;
+  background-color: transparent;
+}
+
+.breadcrumb-item.active {
+  color: $white;
+}
 
 [v-cloak] {
   display: none;
@@ -47,27 +70,6 @@ iframe {
   margin-bottom: 0;
 }
 
-.highlight {
-  position: relative;
-}
-
-.highlight .jumbotron {
-  margin-bottom: 0;
-}
-
-.breadcrumb {
-  margin-bottom: 0;
-}
-
-.main-container {
-  padding-top: $line-height-computed;
-  padding-bottom: $line-height-computed;
-}
-
-h1 {
-  margin-top: 0;
-}
-
 .slick-list {
   .slick-loading & {
     background: none;
@@ -78,9 +80,9 @@ h1 {
   text-align: center;
 
   h3 {
-    line-height: 200px;
+    line-height: 15rem;
     background-color: #fff;
-    margin: 0 10px;
+    margin: 0 0.5rem;
   }
 }
 

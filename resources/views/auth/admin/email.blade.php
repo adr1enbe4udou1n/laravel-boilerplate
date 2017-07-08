@@ -19,7 +19,7 @@
                     'required' => true,
                     'type' => 'email',
                     'placeholder' => trans('validation.attributes.email'),
-                    'feedback_class' => 'glyphicon glyphicon-envelope',
+                    'feedback_class' => 'fa fa-envelope',
                 ]) }}
 
                 <div class="row">

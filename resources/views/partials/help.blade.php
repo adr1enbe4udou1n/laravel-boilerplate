@@ -1,13 +1,13 @@
 @if ($errors->has($name))
-    <span class="help-block" v-show="!errors.has('{{ $name }}')">
-        <strong>{{ $errors->first($name) }}</strong>
-    </span>
-@elseif(isset($description))
-    <span class="help-block" v-show="!errors.has('{{ $name }}')">
-        {{ $description }}
-    </span>
+    <div class="form-control-feedback" v-show="!errors.has('{{ $name }}')">
+        {{ $errors->first($name) }}
+    </div>
 @endif
-
-<span v-show="errors.has('{{ $name }}')" class="help-block" v-cloak>
-    <strong>@{{ errors.first('{{{ $name }}}') }}</strong>
-</span>
+<div class="form-control-feedback" v-show="errors.has('{{ $name }}')" v-cloak>
+    @{{ errors.first('{{{ $name }}}') }}
+</div>
+@if(isset($description))
+    <p class="form-text text-muted" v-show="!errors.has('{{ $name }}')">
+        {{ $description }}
+    </p>
+@endif
