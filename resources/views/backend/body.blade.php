@@ -1,31 +1,27 @@
 @extends('layouts.backend')
 
+@section('body_class', 'header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden')
+
 @section('body')
-    <div class="wrapper">
-        @include('backend.partials.header')
+    @include('backend.partials.header')
+    <div id="app" class="app-body">
         @include('backend.partials.sidebar')
 
-        <div class="content-wrapper">
-            @include('partials.logged-as')
-            @include('partials.not-confirmed')
+        <main class="main">
+            {!! Breadcrumbs::renderIfExists() !!}
 
-            <section class="content-header">
-                <h1>
-                    @yield('header_title')
-                    <small>@yield('header_description')</small>
-                </h1>
+            <div class="container-fluid">
+                @include('partials.logged-as')
+                @include('partials.not-confirmed')
 
-                {!! Breadcrumbs::renderIfExists() !!}
-            </section>
-
-            <section class="content">
-                <!-- Your Page Content Here -->
-                @include('partials.messages')
-                @yield('content')
-            </section>
-        </div>
-
-        @include('backend.partials.footer')
+                <div class="animated fadeIn">
+                    <!-- Your Page Content Here -->
+                    @include('partials.messages')
+                    @yield('content')
+                </div>
+            </div>
+        </main>
     </div>
-    <!-- ./wrapper -->
+
+    @include('backend.partials.footer')
 @endsection

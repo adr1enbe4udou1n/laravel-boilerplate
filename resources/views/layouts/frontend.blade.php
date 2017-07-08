@@ -19,7 +19,7 @@
 
     <!-- Styles -->
     @if (!$hmr)
-        <link rel="stylesheet" href="{{ assets('css/frontend.css') }}">
+    <link rel="stylesheet" href="{{ assets('css/frontend.css') }}">
     @endif
     @yield('styles')
 </head>

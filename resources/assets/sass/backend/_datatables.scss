@@ -1,8 +1,8 @@
-@import "node_modules/datatables.net-bs/css/dataTables.bootstrap";
-@import "node_modules/datatables.net-select-bs/css/select.bootstrap";
-@import "node_modules/datatables.net-buttons-bs/css/buttons.bootstrap";
+@import "node_modules/datatables.net-bs4/css/dataTables.bootstrap4";
+@import "node_modules/datatables.net-select-bs4/css/select.bootstrap4";
+@import "node_modules/datatables.net-buttons-bs4/css/buttons.bootstrap4";
 
-table.dataTable tbody > tr.selected, table.dataTable tbody > tr > .selected {
+/*table.dataTable tbody > tr.selected, table.dataTable tbody > tr > .selected {
   background-color: $gray-lighter;
 }
 
@@ -24,4 +24,4 @@ table.dataTable tr.selected td.select-checkbox:after, table.dataTable tr.selecte
 
 div.dataTables_wrapper div.dataTables_paginate {
   text-align: center;
-}
+}*/

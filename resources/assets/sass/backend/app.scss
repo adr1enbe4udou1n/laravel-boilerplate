@@ -1,13 +1,14 @@
 // Variables
 @import "variables";
 
+// Init coreui admin
+@import "../../vendor/coreui/scss/bootstrap-variables";
 @import "node_modules/bootstrap/scss/bootstrap";
+@import "../../vendor/coreui/scss/style";
+
 @import "node_modules/font-awesome/scss/font-awesome";
 @import "node_modules/sweetalert2/src/sweetalert2";
 @import "node_modules/select2/src/scss/core";
-@import "node_modules/admin-lte/dist/css/AdminLTE";
-@import "node_modules/admin-lte/dist/css/skins/skin-blue";
-@import "node_modules/icheck/skins/square/blue";
 @import "node_modules/intl-tel-input/src/css/intlTelInput.scss";
 
 // Datatables

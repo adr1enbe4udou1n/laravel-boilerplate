@@ -3,13 +3,16 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    @hasSection('title')
+    <title>@yield('title') | {{ config('app.name') }}</title>
+    @else
     <title>Administration | {{ config('app.name') }}</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    @endif
 
     <!-- Custom Styles -->
     @if (!$hmr)
@@ -17,10 +20,8 @@
     @endif
     @yield('styles')
 </head>
-<body class="hold-transition skin-blue sidebar-mini @yield('body_class')">
-    <div id="app">
-        @yield('body')
-    </div>
+<body class="app @yield('body_class')">
+    @yield('body')
 
     <!-- JS settings -->
     <script type="application/json" data-settings-selector="settings-json">

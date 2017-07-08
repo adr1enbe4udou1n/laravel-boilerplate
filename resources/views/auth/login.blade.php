@@ -17,6 +17,7 @@
                             'type' => 'email',
                             'label_col_class' => 'col-sm-4',
                             'field_wrapper_class' => 'col-sm-6',
+                            'input_group_prefix' => '<i class="fa fa-envelope"></i>',
                         ]) }}
 
                         {{ Form::bsPassword('password', [

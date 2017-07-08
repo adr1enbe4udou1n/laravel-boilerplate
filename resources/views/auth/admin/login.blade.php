@@ -1,52 +1,63 @@
 @extends('layouts.backend')
 
-@section('body_class', 'login-page')
+@section('body_class', 'flex-row align-items-center')
 
 @section('body')
-    <div class="login-box">
-        <div class="login-box-body">
-            <form action="{{ route('login') }}" method="post">
-                {{ csrf_field() }}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card-group mb-0">
+                    <div class="card p-4">
+                        <div class="card-block">
+                            <h1 class="mb-4">@lang('labels.user.login')</h1>
 
-                {{ Form::bsText('email', [
-                    'required' => true,
-                    'type' => 'email',
-                    'placeholder' => trans('validation.attributes.email'),
-                    'feedback_class' => 'fa fa-envelope',
-                ]) }}
+                            <form action="{{ route('login') }}" method="post">
+                                {{ csrf_field() }}
 
-                {{ Form::bsPassword('password', [
-                    'required' => true,
-                    'placeholder' => trans('validation.attributes.password'),
-                    'feedback_class' => 'fa fa-lock',
-                ]) }}
+                                {{ Form::bsText('email', [
+                                    'required' => true,
+                                    'type' => 'email',
+                                    'placeholder' => trans('validation.attributes.email'),
+                                    'input_group_prefix' => '<i class="fa fa-envelope"></i>',
+                                ]) }}
 
-                @if($is_locked)
-                <div class="form-group">
-                    {!! Captcha::display() !!}
-                </div>
-                @endif
-                <div class="row">
-                    <div class="col-xs-7">
-                        <div class="checkbox icheck">
-                            <label>
-                                <input type="checkbox" name="remember"> @lang('labels.user.remember')
-                            </label>
+                                {{ Form::bsPassword('password', [
+                                    'required' => true,
+                                    'placeholder' => trans('validation.attributes.password'),
+                                    'input_group_prefix' => '<i class="fa fa-lock"></i>',
+                                ]) }}
+
+                                @if($is_locked)
+                                    <div class="form-group">
+                                        {!! Captcha::display() !!}
+                                    </div>
+                                @endif
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        <label class="custom-control custom-checkbox">
+                                            <input type="checkbox" name="remember" class="custom-control-input">
+                                            <span class="custom-control-indicator"></span>
+                                            <span class="custom-control-description">@lang('labels.user.remember')</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <button type="submit" class="btn btn-primary">@lang('labels.user.login')</button>
+                                    </div>
+                                    <div class="col-8 text-right">
+                                        <a class="btn btn-link" href="{{ route('admin.password.request') }}">
+                                            @lang('labels.user.password_forgot')
+                                        </a>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                    <!-- /.col -->
-                    <div class="col-xs-5">
-                        <button type="submit" class="btn btn-primary btn-block btn-flat">@lang('labels.user.login')</button>
-                    </div>
-                    <!-- /.col -->
                 </div>
-            </form>
-
-            <a href="{{ route('admin.password.request') }}">@lang('labels.user.password_forgot')</a>
+            </div>
         </div>
-        <!-- /.login-box-body -->
     </div>
-    <!-- /.login-box -->
 @endsection
 
 @section('scripts')

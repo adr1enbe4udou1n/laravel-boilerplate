@@ -9,7 +9,7 @@
         @php($value = isset($choice_value) ? $choice->$choice_value : $choice->id)
         @php($label = isset($choice_label) ? $choice->$choice_label : $choice->__toString())
     @endif
-    <div class="checkbox icheck">
+    <div class="checkbox">
         @if(isset($choice_tooltip))
             @if(is_string($choice))
                 @php($description = $choice)

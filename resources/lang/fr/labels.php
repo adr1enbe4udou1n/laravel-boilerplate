@@ -65,7 +65,7 @@ return [
     'user' => [
         'dashboard' => 'Tableau de bord',
         'remember' => 'Se souvenir',
-        'login' => 'Se connecter',
+        'login' => 'Connexion',
         'logout' => 'Déconnexion',
         'password_forgot' => 'Mot de passe oublié ?',
         'send_password_link' => 'Envoyer le mot de passe de réinitialisation',

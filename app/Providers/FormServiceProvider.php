@@ -38,6 +38,10 @@ class FormServiceProvider extends ServiceProvider
                             break;
                     }
                     break;
+                case 'password':
+                    $data['type'] = 'text';
+                    $parameters['type'] = 'password';
+                    break;
                 case 'select':
                     if (!isset($parameters['type'])) {
                         $parameters['type'] = 'select';

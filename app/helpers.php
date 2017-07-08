@@ -102,7 +102,7 @@ if (!function_exists('state_html_label')) {
      */
     function state_html_label($state, $label)
     {
-        return "<label class=\"label label-$state\">$label</label>";
+        return "<span class=\"badge badge-{$state}\">{$label}</span>";
     }
 }
 
@@ -157,25 +157,25 @@ if (!function_exists('form_batch_action')) {
 }
 
 if (!function_exists('menu_item_access')) {
-    function menu_item_access($route_name, $title, $icon = null, $parameters = [], $ability = null, $ability_arguments = [], ...$active_route_patterns)
+    function menu_item_access($route_name, $title, $icon = null, $ability = null, $ability_arguments = [], ...$active_route_patterns)
     {
         if ($ability && !\Illuminate\Support\Facades\Gate::check($ability, $ability_arguments)) {
             return null;
         }
 
         if ($icon) {
-            $title = "<i class=\"$icon\"></i><span>{$title}</span>";
+            $title = "<i class=\"$icon\"></i> {$title}";
         }
 
-        $route = link_to(route($route_name), $title, $parameters, [], false);
+        $route = link_to(route($route_name), $title, [
+            'class' => 'nav-link ' . active_class(if_route_pattern($active_route_patterns))
+        ], null, false);
 
         if (!in_array($route_name, $active_route_patterns, true)) {
             $active_route_patterns[] = $route_name;
         }
 
-        $active_class = active_class(if_route_pattern($active_route_patterns));
-
-        return "<li class=\"{$active_class}\">$route</li>";
+        return "<li class=\"nav-item\">{$route}</li>";
     }
 }
 
