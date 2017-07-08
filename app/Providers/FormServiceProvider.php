@@ -111,6 +111,14 @@ class FormServiceProvider extends ServiceProvider
                 }
             }
 
+            if (!isset($parameters['label_class'])) {
+                $parameters['label_class'] = '';
+            }
+
+            if (!isset($parameters['field_class'])) {
+                $parameters['field_class'] = '';
+            }
+
             // Merge attributes and view variables
             if (isset($parameters['attributes'])) {
                 $attributes = array_merge($attributes, $parameters['attributes']);

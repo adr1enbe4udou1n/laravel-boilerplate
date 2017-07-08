@@ -1,6 +1,6 @@
 @extends('backend.body')
 
-@section('header_title', trans('labels.backend.roles.titles.main'))
+@section('title', trans('labels.backend.roles.titles.main'))
 @section('header_description', trans('labels.backend.roles.titles.create'))
 
 @section('content')

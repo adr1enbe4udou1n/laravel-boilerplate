@@ -1,15 +1,15 @@
-<div class="box-body">
+<div class="card-block">
     {{ Form::bsText('name', [
         'required' => true,
         'title' => trans('validation.attributes.name'),
-        'label_class' => 'col-lg-3',
+        'label_col_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-9',
     ]) }}
 
     {{ Form::bsText('email', [
         'required' => true,
         'title' => trans('validation.attributes.email'),
-        'label_class' => 'col-lg-3',
+        'label_col_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-9',
         'input_group_prefix' => '<i class="fa fa-envelope"></i>',
     ]) }}
@@ -23,13 +23,13 @@
     {{ Form::bsPassword('password', [
         'strength_meter' => true,
         'title' => trans('validation.attributes.password'),
-        'label_class' => 'col-lg-3',
+        'label_col_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-9',
     ]) }}
 
     {{ Form::bsPassword('password_confirmation', [
         'title' => trans('validation.attributes.password_confirmation'),
-        'label_class' => 'col-lg-3',
+        'label_col_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-9',
         'input_group_prefix' => '<i class="fa fa-key"></i>',
     ]) }}
@@ -37,7 +37,7 @@
     {{ Form::bsChoices('roles', [
         'title' => trans('validation.attributes.roles'),
         'multiple' => true,
-        'label_class' => 'col-lg-3',
+        'label_col_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-9',
         'choices' => $roles,
         'choice_tooltip' => [

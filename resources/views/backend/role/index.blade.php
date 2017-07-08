@@ -1,29 +1,21 @@
 @extends('backend.body')
 
-@section('header_title', trans('labels.backend.roles.titles.main'))
-@section('header_description', trans('labels.backend.roles.titles.index'))
+@section('title', trans('labels.backend.roles.titles.index'))
 
 @section('content')
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="box">
-                <div class="box-header">
-                    <div class="pull-right">
-                        <a href="{{ route('admin.role.create') }}" class="btn btn-success btn-sm">@lang('buttons.roles.create')</a>
-                    </div>
-                    <h3 class="box-title">@lang('labels.backend.roles.titles.index')</h3>
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                    <table class="table table-bordered table-hover" id="dataTableBuilder" width="100%"></table>
-                </div>
-                <!-- /.box-body -->
+    <div class="card">
+        <div class="card-header">
+            <div class="pull-right">
+                <a href="{{ route('admin.role.create') }}" class="btn btn-success btn-sm">@lang('buttons.roles.create')</a>
             </div>
-            <!-- /.box -->
+            <h3 class="box-title">@lang('labels.backend.roles.titles.index')</h3>
         </div>
-        <!-- /.col -->
+        <!-- /.box-header -->
+        <div class="card-block">
+            <table id="dataTableBuilder" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%"></table>
+        </div>
+        <!-- /.box-body -->
     </div>
-    <!-- /.row -->
 @endsection
 
 @section('scripts')
@@ -82,7 +74,7 @@
                 data: 'actions',
                 name: 'actions',
                 orderable: false,
-                width: 50,
+                width: 75,
             }],
             order: [[1, 'asc']]
         });

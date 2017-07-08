@@ -37,9 +37,10 @@ window.locale = $('html').attr('lang');
             else
                 return "";
         })
-            .removeAttr('href')
-            .attr('style', 'cursor:pointer;')
-            .attr('onclick', '$(this).find("form").submit();');
+            .click(function (e) {
+                e.preventDefault();
+                $(this).find("form").submit();
+            });
     }
 
     /**
@@ -118,9 +119,10 @@ window.locale = $('html').attr('lang');
             buttons: [
                 'csvHtml5', 'excelHtml5'
             ],
-            dom: "<'row'<'col-sm-6'l><'col-sm-6'f>>" +
+            dom:
+            "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
             "<'row'<'col-sm-12'tr>>" +
-            "<'row'<'col-sm-4'i><'col-sm-4 text-center'p><'col-sm-4 text-right'B>>",
+            "<'row'<'col-sm-12 col-md-4'i><'col-sm-12 col-md-4'p><'col-sm-12 col-md-4 text-right'B>>",
         };
 
         if (locale !== 'en') {
@@ -130,6 +132,14 @@ window.locale = $('html').attr('lang');
         }
 
         $.extend(true, $.fn.dataTable.defaults, dataTableOptions);
+
+        $.extend($.fn.dataTable.ext.classes, {
+            sWrapper:      "dataTables_wrapper dt-bootstrap4",
+            sFilterInput:  "form-control input-sm",
+            sLengthSelect: "form-control input-sm",
+            sProcessing:   "dataTables_processing panel panel-default",
+            sPageButton:   "paginate_button page-item"
+        });
     }
 
     /**

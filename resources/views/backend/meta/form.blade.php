@@ -1,4 +1,4 @@
-<div class="box-body">
+<div class="card-block">
     @if (isset($meta) && $meta->metable_type)
         <div class="form-group">
             <label class="control-label col-lg-3">@lang('validation.attributes.metable_type')</label>
@@ -17,7 +17,7 @@
             'type' => 'autocomplete',
             'title' => trans('validation.attributes.route'),
             'placeholder' => trans('labels.placeholders.route'),
-            'label_class' => 'col-lg-3',
+            'label_col_class' => 'col-lg-3',
             'field_wrapper_class' => 'col-lg-9',
             'options' => $route_list,
             'ajax_url' => route('admin.routes.search'),
@@ -29,13 +29,13 @@
 
     {{ Form::bsText('title', [
         'title' => trans('validation.attributes.title'),
-        'label_class' => 'col-lg-3',
+        'label_col_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-9',
     ]) }}
 
     {{ Form::bsTextarea('description', [
         'title' => trans('validation.attributes.description'),
-        'label_class' => 'col-lg-3',
+        'label_col_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-9',
     ]) }}
 </div>

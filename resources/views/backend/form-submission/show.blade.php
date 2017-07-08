@@ -1,6 +1,6 @@
 @extends('backend.body')
 
-@section('header_title', trans('labels.backend.form_submissions.titles.main'))
+@section('title', trans('labels.backend.form_submissions.titles.main'))
 @section('header_description', trans('labels.backend.form_submissions.titles.show'))
 
 @section('content')
@@ -13,7 +13,7 @@
                     <h3 class="box-title">@lang('labels.backend.form_submissions.titles.show')</h3>
                 </div>
                 <!-- /.box-header -->
-                <div class="box-body">
+                <div class="card-block">
                     <table class="table table-striped table-hover">
                         @foreach($form_submission->formatted_data as $name => $value)
                         <tr>

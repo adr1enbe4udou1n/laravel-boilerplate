@@ -1,34 +1,24 @@
 @extends('backend.body')
 
-@section('header_title', trans('labels.backend.users.titles.main'))
-@section('header_description', trans('labels.backend.users.titles.index'))
+@section('title', trans('labels.backend.users.titles.index'))
 
 @section('content')
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="box">
-                <div class="box-header">
-                    <div class="pull-right">
-                        <a href="{{ route('admin.user.create') }}" class="btn btn-success btn-sm">@lang('buttons.users.create')</a>
-                    </div>
-                    <h3 class="box-title">@lang('labels.backend.users.titles.index')</h3>
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                    <table class="table table-bordered table-hover" id="dataTableBuilder" width="100%"></table>
-                    {!! form_batch_action('admin.user.batch-action', 'dataTableBuilder', [
-                        'destroy' => trans('labels.backend.users.actions.destroy'),
-                        'enable' => trans('labels.backend.users.actions.enable'),
-                        'disable' => trans('labels.backend.users.actions.disable')
-                    ]) !!}
-                </div>
-                <!-- /.box-body -->
+    <div class="card">
+        <div class="card-header">
+            <div class="pull-right">
+                <a href="{{ route('admin.user.create') }}" class="btn btn-success btn-sm">@lang('buttons.users.create')</a>
             </div>
-            <!-- /.box -->
+            <h3 class="box-title">@lang('labels.backend.users.titles.index')</h3>
         </div>
-        <!-- /.col -->
+        <div class="card-block">
+            <table id="dataTableBuilder" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%"></table>
+            {!! form_batch_action('admin.user.batch-action', 'dataTableBuilder', [
+                'destroy' => trans('labels.backend.users.actions.destroy'),
+                'enable' => trans('labels.backend.users.actions.enable'),
+                'disable' => trans('labels.backend.users.actions.disable')
+            ]) !!}
+        </div>
     </div>
-    <!-- /.row -->
 @endsection
 
 @section('scripts')
@@ -77,7 +67,7 @@
                 title: '{{ trans('labels.last_access_at') }}',
                 data: 'last_access_at',
                 name: 'last_access_at',
-                width: 100,
+                width: 125,
                 className: 'text-center'
             }, {
                 title: '{{ trans('validation.attributes.active') }}',
@@ -104,7 +94,7 @@
                 data: 'actions',
                 name: 'actions',
                 orderable: false,
-                width: 75,
+                width: 100,
             }],
             select: {style: 'os'},
             order: [[7, 'desc']],

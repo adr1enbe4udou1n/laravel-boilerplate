@@ -1,7 +1,6 @@
 @extends('backend.body')
 
-@section('header_title', trans('labels.backend.roles.titles.main'))
-@section('header_description', trans('labels.backend.roles.titles.edit'))
+@section('title', trans('labels.backend.roles.titles.edit'))
 
 @section('content')
     <div class="row">

@@ -1,35 +1,25 @@
 @extends('backend.body')
 
-@section('header_title', trans('labels.backend.posts.titles.main'))
-@section('header_description', trans('labels.backend.posts.titles.index'))
+@section('title', trans('labels.backend.posts.titles.index'))
 
 @section('content')
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="box">
-                <div class="box-header">
-                    <div class="pull-right">
-                        <a href="{{ route('admin.post.create') }}" class="btn btn-success btn-sm">@lang('buttons.posts.create')</a>
-                    </div>
-                    <h3 class="box-title">@lang('labels.backend.posts.titles.index')</h3>
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                    <table class="table table-bordered table-hover" id="dataTableBuilder" width="100%"></table>
-                    {!! form_batch_action('admin.post.batch-action', 'dataTableBuilder', [
-                        'destroy' => trans('labels.backend.posts.actions.destroy'),
-                        'publish' => trans('labels.backend.posts.actions.publish'),
-                        'pin' => trans('labels.backend.posts.actions.pin'),
-                        'promote' => trans('labels.backend.posts.actions.promote'),
-                    ]) !!}
-                </div>
-                <!-- /.box-body -->
+    <div class="card">
+        <div class="card-header">
+            <div class="pull-right">
+                <a href="{{ route('admin.post.create') }}" class="btn btn-success btn-sm">@lang('buttons.posts.create')</a>
             </div>
-            <!-- /.box -->
+            <h3 class="box-title">@lang('labels.backend.posts.titles.index')</h3>
         </div>
-        <!-- /.col -->
+        <div class="card-block">
+            <table id="dataTableBuilder" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%"></table>
+            {!! form_batch_action('admin.post.batch-action', 'dataTableBuilder', [
+                'destroy' => trans('labels.backend.posts.actions.destroy'),
+                'publish' => trans('labels.backend.posts.actions.publish'),
+                'pin' => trans('labels.backend.posts.actions.pin'),
+                'promote' => trans('labels.backend.posts.actions.promote'),
+            ]) !!}
+        </div>
     </div>
-    <!-- /.row -->
 @endsection
 
 @section('scripts')
@@ -119,7 +109,7 @@
                 data: 'actions',
                 name: 'actions',
                 orderable: false,
-                width: 80,
+                width: 125,
             }],
             select: {style: 'os'},
             order: [[9, 'desc']],

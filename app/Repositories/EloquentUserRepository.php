@@ -320,7 +320,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
                 = '<i class="fa fa-lock" data-toggle="tooltip" data-placement="top" title="'
                 .trans('buttons.login-as', ['name' => $user->name]).'"></i>';
             $buttons .= link_to(route('login-as', $user), $title, [
-                    'class' => 'btn btn-xs btn-warning',
+                    'class' => 'btn btn-sm btn-warning',
                 ], false, false).' ';
         }
 

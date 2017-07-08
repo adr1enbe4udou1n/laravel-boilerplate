@@ -1,27 +1,27 @@
-<div class="box-body">
+<div class="card-block">
     {{ Form::bsText('name', [
         'required' => true,
         'title' => trans('validation.attributes.name'),
-        'label_class' => 'col-lg-2',
+        'label_col_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',
     ]) }}
 
     {{ Form::bsText('display_name', [
         'title' => trans('validation.attributes.display_name'),
-        'label_class' => 'col-lg-2',
+        'label_col_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10',
     ]) }}
 
     {{ Form::bsText('description', [
         'title' => trans('validation.attributes.description'),
-        'label_class' => 'col-lg-2',
+        'label_col_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10'
     ]) }}
 
     {{ Form::bsText('order', [
         'type' => 'number',
         'title' => trans('validation.attributes.order'),
-        'label_class' => 'col-lg-2',
+        'label_col_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10'
     ]) }}
 

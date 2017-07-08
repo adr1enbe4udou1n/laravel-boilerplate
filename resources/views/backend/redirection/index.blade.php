@@ -1,59 +1,53 @@
 @extends('backend.body')
 
-@section('header_title', trans('labels.backend.redirections.titles.main'))
-@section('header_description', trans('labels.backend.redirections.titles.index'))
+@section('title', trans('labels.backend.redirections.titles.index'))
 
 @section('content')
     <div class="row">
         <div class="col-sm-6">
-            <div class="box">
-                <div class="box-header">
+            <div class="card">
+                <div class="card-header">
                     <h3 class="box-title">@lang('labels.backend.redirections.import.title')</h3>
                 </div>
-                <div class="box-body">
+                <div class="card-block">
                     {{ Form::open(['route' => 'admin.redirection.import', 'class' => 'form-inline', 'method' => 'POST', 'files' => true]) }}
 
                     {{ Form::bsFile('import', [
                         'required' => true,
                         'title' => trans('labels.backend.redirections.import.title'),
+                        'form_group' => false,
                         'tooltip' => [
                             'position' => 'bottom',
                             'title' => trans('labels.backend.redirections.import.description'),
                         ],
+                        'label_class' => 'mr-1',
+                        'field_class' => 'mr-1'
                     ]) }}
 
-                    {{ Form::submit(trans('buttons.redirections.import'), ['class' => 'btn btn-warning btn-sm']) }}
+                    {{ Form::submit(trans('buttons.redirections.import'), ['class' => 'btn btn-warning btn-md']) }}
                     {{ Form::close() }}
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="box">
-                <div class="box-header">
-                    <div class="pull-right">
-                        <a href="{{ route('admin.redirection.create') }}" class="btn btn-success btn-sm">@lang('buttons.redirections.create')</a>
-                    </div>
-                    <h3 class="box-title">@lang('labels.backend.redirections.titles.index')</h3>
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                    <table class="table table-bordered table-hover" id="dataTableBuilder" width="100%"></table>
-                    {!! form_batch_action('admin.redirection.batch-action', 'dataTableBuilder', [
-                        'destroy' => trans('labels.backend.redirections.actions.destroy'),
-                        'enable' => trans('labels.backend.redirections.actions.enable'),
-                        'disable' => trans('labels.backend.redirections.actions.disable')
-                    ]) !!}
-                </div>
-                <!-- /.box-body -->
+    <div class="card">
+        <div class="card-header">
+            <div class="pull-right">
+                <a href="{{ route('admin.redirection.create') }}" class="btn btn-success btn-sm">@lang('buttons.redirections.create')</a>
             </div>
-            <!-- /.box -->
+            <h3 class="box-title">@lang('labels.backend.redirections.titles.index')</h3>
         </div>
-        <!-- /.col -->
+        <!-- /.box-header -->
+        <div class="card-block">
+            <table id="dataTableBuilder" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%"></table>
+            {!! form_batch_action('admin.redirection.batch-action', 'dataTableBuilder', [
+                'destroy' => trans('labels.backend.redirections.actions.destroy'),
+                'enable' => trans('labels.backend.redirections.actions.enable'),
+                'disable' => trans('labels.backend.redirections.actions.disable')
+            ]) !!}
+        </div>
     </div>
-    <!-- /.row -->
 @endsection
 
 @section('scripts')
@@ -111,7 +105,7 @@
                 data: 'actions',
                 name: 'actions',
                 orderable: false,
-                width: 50,
+                width: 75,
             }],
             select: {style: 'os'},
             order: [[1, 'asc']],

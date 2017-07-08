@@ -1,7 +1,6 @@
 @extends('backend.body')
 
-@section('header_title', trans('labels.backend.redirections.titles.main'))
-@section('header_description', trans('labels.backend.redirections.titles.edit'))
+@section('title', trans('labels.backend.redirections.titles.edit'))
 
 @section('content')
     <div class="row">

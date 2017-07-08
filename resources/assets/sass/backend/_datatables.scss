@@ -2,7 +2,7 @@
 @import "node_modules/datatables.net-select-bs4/css/select.bootstrap4";
 @import "node_modules/datatables.net-buttons-bs4/css/buttons.bootstrap4";
 
-/*table.dataTable tbody > tr.selected, table.dataTable tbody > tr > .selected {
+table.dataTable tbody > tr.selected, table.dataTable tbody > tr > .selected {
   background-color: $gray-lighter;
 }
 
@@ -22,6 +22,6 @@ table.dataTable tr.selected td.select-checkbox:after, table.dataTable tr.selecte
   text-shadow: none;
 }
 
-div.dataTables_wrapper div.dataTables_paginate {
-  text-align: center;
-}*/
+div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+  justify-content: center;
+}

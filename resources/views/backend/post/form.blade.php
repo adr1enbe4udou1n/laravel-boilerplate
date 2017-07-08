@@ -3,17 +3,17 @@
         <div class="box-header with-border">
             <h3 class="box-title">{{ $title }}</h3>
         </div>
-        <div class="box-body">
+        <div class="card-block">
             {{ Form::bsText('title', [
                 'required' => true,
                 'title' => trans('validation.attributes.title'),
-                'label_class' => 'col-lg-2',
+                'label_col_class' => 'col-lg-2',
                 'field_wrapper_class' => 'col-lg-10',
             ]) }}
 
             {{ Form::bsTextarea('summary', [
                 'title' => trans('validation.attributes.summary'),
-                'label_class' => 'col-lg-2',
+                'label_col_class' => 'col-lg-2',
                 'field_wrapper_class' => 'col-lg-10',
                 'attributes' => [
                     'rows' => 5
@@ -23,7 +23,7 @@
             {{ Form::bsTextarea('body', [
                 'title' => trans('validation.attributes.body'),
                 'placeholder' => trans('labels.backend.posts.placeholders.body'),
-                'label_class' => 'col-lg-2',
+                'label_col_class' => 'col-lg-2',
                 'field_wrapper_class' => 'col-lg-10',
                 'editor' => [
                     'upload_url' => route('admin.images.upload'),
@@ -42,7 +42,7 @@
                 'tags' => true,
                 'title' => trans('validation.attributes.tags'),
                 'placeholder' => trans('labels.placeholders.tags'),
-                'label_class' => 'col-lg-2',
+                'label_col_class' => 'col-lg-2',
                 'field_wrapper_class' => 'col-lg-10',
                 'options' => isset($tags) ? $tags : [],
                 'ajax_url' => route('admin.tags.search'),
@@ -53,7 +53,7 @@
 
             {{ Form::bsImage('featured_image', [
                 'title' => trans('validation.attributes.image'),
-                'label_class' => 'col-lg-2',
+                'label_col_class' => 'col-lg-2',
                 'field_wrapper_class' => 'col-lg-10',
                 'url' => isset($post) ? $post->featured_image_url : null
             ]) }}
@@ -90,7 +90,7 @@
                 </h4>
             </div>
             <div id="collapseOne" class="panel-collapse collapse in" aria-expanded="true">
-                <div class="box-body">
+                <div class="card-block">
                     @isset($post)
                     <div class="form-group">
                         <label class="control-label col-lg-3">@lang('validation.attributes.status')</label>
@@ -110,7 +110,7 @@
                         'value' => \Carbon\Carbon::now(),
                         'title' => trans('validation.attributes.publish_at'),
                         'format' => 'YYYY-MM-DD hh:mm',
-                        'label_class' => 'col-lg-3',
+                        'label_col_class' => 'col-lg-3',
                         'field_wrapper_class' => 'col-lg-9',
                     ]) }}
                     {{ Form::bsCheckbox('pinned', [
@@ -133,12 +133,12 @@
                 </h4>
             </div>
             <div id="collapseTwo" class="panel-collapse collapse" aria-expanded="false">
-                <div class="box-body">
+                <div class="card-block">
                     {{ Form::bsText('meta[title]', [
                         'title' => trans('validation.attributes.title'),
                         'description' => trans('labels.backend.posts.descriptions.meta_title'),
                         'placeholder' => trans('labels.backend.posts.placeholders.meta_title'),
-                        'label_class' => 'col-lg-2',
+                        'label_col_class' => 'col-lg-2',
                         'field_wrapper_class' => 'col-lg-10',
                     ]) }}
 
@@ -146,7 +146,7 @@
                         'title' => trans('validation.attributes.description'),
                         'description' => trans('labels.backend.posts.descriptions.meta_description'),
                         'placeholder' => trans('labels.backend.posts.placeholders.meta_description'),
-                        'label_class' => 'col-lg-2',
+                        'label_col_class' => 'col-lg-2',
                         'field_wrapper_class' => 'col-lg-10',
                     ]) }}
                 </div>

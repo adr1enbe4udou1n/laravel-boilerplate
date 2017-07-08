@@ -1,29 +1,19 @@
 @extends('backend.body')
 
-@section('header_title', trans('labels.backend.form_submissions.titles.main'))
-@section('header_description', trans('labels.backend.form_submissions.titles.index'))
+@section('title', trans('labels.backend.form_submissions.titles.index'))
 
 @section('content')
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="box">
-                <div class="box-header">
-                    <h3 class="box-title">@lang('labels.backend.form_submissions.titles.index')</h3>
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                    <table class="table table-bordered table-hover" id="dataTableBuilder" width="100%"></table>
-                    {!! form_batch_action('admin.form_submission.batch-action', 'dataTableBuilder', [
-                        'destroy' => trans('labels.backend.form_submissions.actions.destroy'),
-                    ]) !!}
-                </div>
-                <!-- /.box-body -->
-            </div>
-            <!-- /.box -->
+    <div class="card">
+        <div class="card-header">
+            <h3 class="box-title">@lang('labels.backend.form_submissions.titles.index')</h3>
         </div>
-        <!-- /.col -->
+        <div class="card-block">
+            <table id="dataTableBuilder" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%"></table>
+            {!! form_batch_action('admin.form_submission.batch-action', 'dataTableBuilder', [
+                'destroy' => trans('labels.backend.form_submissions.actions.destroy'),
+            ]) !!}
+        </div>
     </div>
-    <!-- /.row -->
 @endsection
 
 @section('scripts')
