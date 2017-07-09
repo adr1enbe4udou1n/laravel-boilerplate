@@ -8,7 +8,7 @@
         <div class="col-md-8 offset-md-2">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="box-title">@lang('labels.backend.roles.titles.create')</h3>
+                    <h4>@lang('labels.backend.roles.titles.create')</h4>
                 </div>
                 {{ Form::open(['route' => 'admin.role.store', 'role' => 'form', 'method' => 'POST']) }}
                     @include('backend.role.form')

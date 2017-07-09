@@ -60,6 +60,7 @@ Breadcrumbs::register('user.account', function (Generator $breadcrumbs) {
 });
 
 Breadcrumbs::register('admin.home', function (Generator $breadcrumbs) {
+    $breadcrumbs->parent('home');
     $breadcrumbs->push(trans('labels.backend.titles.dashboard'), route('admin.home'));
 });
 

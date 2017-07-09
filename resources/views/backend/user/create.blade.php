@@ -7,7 +7,7 @@
         <div class="col-md-6 offset-md-3">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="box-title">@lang('labels.backend.users.titles.create')</h3>
+                    <h4>@lang('labels.backend.users.titles.create')</h4>
                 </div>
                 {{ Form::open(['route' => 'admin.user.store', 'role' => 'form', 'method' => 'POST']) }}
                     @include('backend.user.form')

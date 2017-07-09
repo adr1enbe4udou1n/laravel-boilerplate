@@ -7,7 +7,7 @@
         <div class="col-md-6 offset-md-3">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="box-title">@lang('labels.backend.form_settings.titles.edit')</h3>
+                    <h4>@lang('labels.backend.form_settings.titles.edit')</h4>
                 </div>
                 {{ Form::model($form_setting, ['route' => ['admin.form_setting.update', $form_setting], 'form_setting' => 'form', 'method' => 'PATCH']) }}
                     @include('backend.form-setting.form')

@@ -58,7 +58,7 @@
         <div class="col-lg-6 col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <h3>@lang('labels.backend.dashboard.last_posts')</h3>
+                    <h4>@lang('labels.backend.dashboard.last_posts')</h4>
                 </div>
                 <div class="card-block">
                     <table class="table">

@@ -1,7 +1,7 @@
 <div class="col-md-8">
     <div class="card">
         <div class="card-header">
-            <h3>{{ $title }}</h3>
+            <h4>{{ $title }}</h4>
         </div>
         <div class="card-block">
             {{ Form::bsText('title', [
@@ -85,23 +85,23 @@
     <div id="accordion" role="tablist" aria-multiselectable="true">
         <div class="card mb-0">
             <div class="card-header" role="tab" id="headingOne">
-                <h4>
+                <h5>
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true">
                         @lang('labels.backend.posts.titles.publication')
                     </a>
-                </h4>
+                </h5>
             </div>
             <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
                 <div class="card-block">
                     @isset($post)
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label">@lang('validation.attributes.status')</label>
+                        <label class="col-lg-3 text-right col-form-label">@lang('validation.attributes.status')</label>
                         <div class="col-lg-9">
                             <label class="col-form-label">{!! state_html_label($post->state, trans($post->status_label)) !!}</label>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label">@lang('labels.author')</label>
+                        <label class="col-lg-3 text-right col-form-label">@lang('labels.author')</label>
                         <div class="col-lg-9">
                             <label class="col-form-label">{{ $post->owner }}</label>
                         </div>
@@ -127,11 +127,11 @@
         </div>
         <div class="card">
             <div class="card-header" role="tab" id="headingTwo">
-                <h4>
+                <h5>
                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false">
                         @lang('labels.backend.titles.metas')
                     </a>
-                </h4>
+                </h5>
             </div>
             <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
                 <div class="card-block">

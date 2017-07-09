@@ -7,7 +7,7 @@
         <img src="{{ $post->featured_image_url }}" alt="{{ $post->title }}" class="img-fluid">
     </div>
     <div class="post-title">
-        <h1>{{ $post->title }}</h1>
+        <h1 class="pb-3 pt-2">{{ $post->title }}</h1>
         @include('frontend.blog.partials.publication-infos')
     </div>
 @endsection

@@ -4,16 +4,16 @@
 
 @section('body')
     @include('backend.partials.header')
+
     <div id="app" class="app-body">
         @include('backend.partials.sidebar')
 
         <main class="main">
+            @include('partials.logged-as')
+            @include('partials.not-confirmed')
             {!! Breadcrumbs::renderIfExists() !!}
 
             <div class="container-fluid">
-                @include('partials.logged-as')
-                @include('partials.not-confirmed')
-
                 @include('partials.messages')
                 @yield('content')
             </div>

@@ -5,7 +5,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h3 class="box-title">@lang('labels.backend.form_submissions.titles.index')</h3>
+            <h4>@lang('labels.backend.form_submissions.titles.index')</h4>
         </div>
         <div class="card-block">
             <table id="dataTableBuilder" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%"></table>
@@ -61,7 +61,7 @@
                 data: 'actions',
                 name: 'actions',
                 orderable: false,
-                width: 50,
+                width: 75,
             }],
             select: {style: 'os'},
             order: [[3, 'desc']],

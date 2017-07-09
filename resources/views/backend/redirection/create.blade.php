@@ -7,7 +7,7 @@
         <div class="col-md-6 offset-md-3">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="box-title">@lang('labels.backend.redirections.titles.create')</h3>
+                    <h4>@lang('labels.backend.redirections.titles.create')</h4>
                 </div>
                 {{ Form::open(['route' => 'admin.redirection.store', 'redirection' => 'form', 'method' => 'POST']) }}
                     @include('backend.redirection.form')

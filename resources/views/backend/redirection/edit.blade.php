@@ -7,7 +7,7 @@
         <div class="col-md-6 offset-md-3">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="box-title">@lang('labels.backend.redirections.titles.edit')</h3>
+                    <h4>@lang('labels.backend.redirections.titles.edit')</h4>
                 </div>
                 {{ Form::model($redirection, ['route' => ['admin.redirection.update', $redirection], 'redirection' => 'form', 'method' => 'PATCH']) }}
                     @include('backend.redirection.form')

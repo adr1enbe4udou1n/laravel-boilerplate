@@ -7,7 +7,7 @@
         <div class="col-md-6 offset-md-3">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="box-title">@lang('labels.backend.metas.titles.create')</h3>
+                    <h4>@lang('labels.backend.metas.titles.create')</h4>
                 </div>
                 {{ Form::open(['route' => 'admin.meta.store', 'meta' => 'form', 'method' => 'POST']) }}
                     @include('backend.meta.form')

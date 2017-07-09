@@ -5,14 +5,11 @@
 
 @section('content')
     <div class="row">
-        <!-- left column -->
         <div class="col-md-6 offset-md-3">
-            <!-- Horizontal Form -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="box-title">@lang('labels.backend.form_submissions.titles.show')</h3>
+                    <h4>@lang('labels.backend.form_submissions.titles.show')</h4>
                 </div>
-                <!-- /.box-header -->
                 <div class="card-block">
                     <table class="table table-striped table-hover">
                         @foreach($form_submission->formatted_data as $name => $value)
@@ -28,8 +25,6 @@
                     </table>
                 </div>
             </div>
-            <!-- /.box -->
         </div>
-        <!--/.col (right) -->
     </div>
 @endsection

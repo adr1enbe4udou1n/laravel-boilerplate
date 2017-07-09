@@ -8,13 +8,11 @@
             <div class="pull-right">
                 <a href="{{ route('admin.role.create') }}" class="btn btn-success btn-sm">@lang('buttons.roles.create')</a>
             </div>
-            <h3 class="box-title">@lang('labels.backend.roles.titles.index')</h3>
+            <h4>@lang('labels.backend.roles.titles.index')</h4>
         </div>
-        <!-- /.box-header -->
         <div class="card-block">
             <table id="dataTableBuilder" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%"></table>
         </div>
-        <!-- /.box-body -->
     </div>
 @endsection
 

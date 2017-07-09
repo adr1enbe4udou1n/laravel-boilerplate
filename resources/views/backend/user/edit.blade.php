@@ -7,7 +7,7 @@
         <div class="col-md-4 offset-md-4">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="box-title">@lang('labels.backend.users.titles.edit')</h3>
+                    <h4>@lang('labels.backend.users.titles.edit')</h4>
                 </div>
                 {{ Form::model($user, ['route' => ['admin.user.update', $user], 'role' => 'form', 'method' => 'PATCH']) }}
                     @include('backend.user.form')

@@ -8,7 +8,7 @@
             <div class="pull-right">
                 <a href="{{ route('admin.meta.create') }}" class="btn btn-success btn-sm">@lang('buttons.metas.create')</a>
             </div>
-            <h3 class="box-title">@lang('labels.backend.metas.titles.index')</h3>
+            <h4>@lang('labels.backend.metas.titles.index')</h4>
         </div>
         <div class="card-block">
             <table id="dataTableBuilder" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%"></table>

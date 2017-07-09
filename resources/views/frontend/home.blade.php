@@ -13,7 +13,7 @@
 @section('content')
     <div class="card mb-3">
         <div class="card-header">
-            <i class="fa fa-home"></i> @lang('labels.frontend.titles.home')
+            @lang('labels.frontend.titles.home')
         </div>
 
         <div class="card-block">
@@ -33,7 +33,7 @@
     </div>
 
     <div class="card mb-3">
-        <div class="card-header"><i class="fa fa-home"></i> Font Awesome</div>
+        <div class="card-header"></i> Font Awesome</div>
 
         <div class="card-block">
             <i class="fa fa-home"></i>

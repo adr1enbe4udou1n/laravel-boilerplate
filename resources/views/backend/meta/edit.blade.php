@@ -7,7 +7,7 @@
         <div class="col-md-6 offset-md-3">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="box-title">@lang('labels.backend.metas.titles.edit')</h3>
+                    <h4>@lang('labels.backend.metas.titles.edit')</h4>
                 </div>
                 {{ Form::model($meta, ['route' => ['admin.meta.update', $meta], 'meta' => 'form', 'method' => 'PATCH']) }}
                     @include('backend.meta.form')

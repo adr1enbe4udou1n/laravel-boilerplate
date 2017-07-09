@@ -57,9 +57,13 @@ class PagesController extends FrontendController
 
     public function contactSent()
     {
-        $formSetting = $this->formSettings->find('contact');
+        $message = null;
 
-        return view('frontend.pages.contact-sent')->withMessage($formSetting->html_message);
+        if ($formSetting = $this->formSettings->find('contact')) {
+            $message = $formSetting->html_message;
+        }
+
+        return view('frontend.pages.contact-sent', compact('message'));
     }
 
     public function legalMentions()
