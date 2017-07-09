@@ -100,7 +100,6 @@ module.exports = {
         ],
         vendor: [
             'lodash',
-            'moment',
             'jquery',
             'vue',
             'axios',

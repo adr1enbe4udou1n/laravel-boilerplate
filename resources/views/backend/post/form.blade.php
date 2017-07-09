@@ -1,7 +1,7 @@
 <div class="col-md-8">
-    <div class="box box-primary">
+    <div class="card">
         <div class="card-header">
-            <h3 class="box-title">{{ $title }}</h3>
+            <h3>{{ $title }}</h3>
         </div>
         <div class="card-block">
             {{ Form::bsText('title', [
@@ -60,58 +60,59 @@
         </div>
 
         <div class="card-footer">
-            <div class="col-md-6">
-                <a href="{{ route('admin.post.index') }}"
-                   class="btn btn-danger btn-sm">@lang('buttons.back')</a>
-            </div>
-            <div class="pull-right">
-                {{ Form::hidden('status', 'publish') }}
-                <div class="btn-group">
-                    {{ Form::submit(trans('buttons.posts.save_and_publish'), ['class' => 'btn btn-success btn-sm pull-right']) }}
-                    <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a data-toggle="submit-link" data-target="[name=&quot;status&quot;]" data-value="draft" href="javascript:void(0);">@lang('buttons.posts.save_as_draft')</a></li>
-                    </ul>
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="{{ route('admin.post.index') }}"
+                       class="btn btn-danger btn-sm">@lang('buttons.back')</a>
+                </div>
+                <div class="col-md-6">
+                    {{ Form::hidden('status', 'publish') }}
+                    <div class="btn-group pull-right">
+                        {{ Form::submit(trans('buttons.posts.save_and_publish'), ['class' => 'btn btn-success btn-sm pull-right']) }}
+                        <button type="button" class="btn btn-success btn-sm dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="sr-only"></span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" data-toggle="submit-link" data-target="[name=&quot;status&quot;]" data-value="draft" href="javascript:void(0);">@lang('buttons.posts.save_as_draft')</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <div class="col-md-4">
-    <div class="box-group" id="accordion">
-        <div class="panel box box-danger">
-            <div class="card-header">
-                <h4 class="box-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" class="">
+    <div id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="card mb-0">
+            <div class="card-header" role="tab" id="headingOne">
+                <h4>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true">
                         @lang('labels.backend.posts.titles.publication')
                     </a>
                 </h4>
             </div>
-            <div id="collapseOne" class="panel-collapse collapse in" aria-expanded="true">
+            <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
                 <div class="card-block">
                     @isset($post)
-                    <div class="form-group">
-                        <label class="control-label col-lg-3">@lang('validation.attributes.status')</label>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label">@lang('validation.attributes.status')</label>
                         <div class="col-lg-9">
-                            <label class="control-label">{!! state_html_label($post->state, trans($post->status_label)) !!}</label>
+                            <label class="col-form-label">{!! state_html_label($post->state, trans($post->status_label)) !!}</label>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="control-label col-lg-3">@lang('labels.author')</label>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label">@lang('labels.author')</label>
                         <div class="col-lg-9">
-                            <label class="control-label">{{ $post->owner }}</label>
+                            <label class="col-form-label">{{ $post->owner }}</label>
                         </div>
                     </div>
                     @endisset
                     {{ Form::bsDatetime('published_at', [
                         'required' => true,
-                        'value' => \Carbon\Carbon::now(),
+                        'value' => isset($post) ? null : \Carbon\Carbon::now(),
                         'title' => trans('validation.attributes.publish_at'),
-                        'format' => 'YYYY-MM-DD hh:mm',
                         'label_col_class' => 'col-lg-3',
-                        'field_wrapper_class' => 'col-lg-9',
+                        'field_wrapper_class' => 'col-lg-7',
                     ]) }}
                     {{ Form::bsCheckbox('pinned', [
                         'label' => trans('validation.attributes.pinned'),
@@ -124,15 +125,15 @@
                 </div>
             </div>
         </div>
-        <div class="panel box box-info">
-            <div class="card-header">
-                <h4 class="box-title">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed" aria-expanded="false">
+        <div class="card">
+            <div class="card-header" role="tab" id="headingTwo">
+                <h4>
+                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false">
                         @lang('labels.backend.titles.metas')
                     </a>
                 </h4>
             </div>
-            <div id="collapseTwo" class="panel-collapse collapse" aria-expanded="false">
+            <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
                 <div class="card-block">
                     {{ Form::bsText('meta[title]', [
                         'title' => trans('validation.attributes.title'),

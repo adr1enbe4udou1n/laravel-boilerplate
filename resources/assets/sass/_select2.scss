@@ -4,14 +4,15 @@
 // Since there is no official Bootstrap 4 theme for Select 2 this is a good fallback.
 
 $s2bs-input-border: $input-border-color !default;
-$s2bs-clear-selection-hover-color: $btn-secondary-color !default;
-$s2bs-remove-choice-hover-color: $btn-secondary-color !default;
+$s2bs-clear-selection-hover-color: $btn-primary-color !default;
+$s2bs-remove-choice-color: white !default;
+$s2bs-remove-choice-hover-color: $btn-primary-color !default;
 $s2bs-border-radius-base: $border-radius !default;
 $s2bs-border-radius-large: $border-radius-lg !default;
 $s2bs-border-radius-small: $border-radius-sm !default;
-$s2bs-btn-default-bg: $btn-secondary-bg !default;
-$s2bs-btn-default-border: $btn-secondary-border !default;
-$s2bs-btn-default-color: $btn-secondary-color !default;
+$s2bs-btn-default-bg: $btn-primary-bg !default;
+$s2bs-btn-default-border: $btn-primary-border !default;
+$s2bs-btn-default-color: $btn-primary-color !default;
 $s2bs-caret-width-base: .25rem !default; // 4px
 $s2bs-caret-width-large: .3125rem !default; // 5px
 $s2bs-font-size-base: $font-size-base !default;
@@ -39,6 +40,7 @@ $s2bs-selection-choice-border-radius: $border-radius !default;
   .select2-selection--multiple {
     .select2-selection__choice {
       margin-top: 0.3rem;
+      color: white;
     }
 
     .select2-search--inline .select2-search__field {

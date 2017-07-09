@@ -5,7 +5,7 @@
                 <div class="col-md-6">
                     <div class="media">
                         <a href="{{ route('blog.show', ['post' => $post->slug]) }}" class="mr-3">
-                            <img class="media-object" src="{{ image_template_url('small', $post->featured_image_url) }}" alt="{{ $post->title }}">
+                            <img src="{{ image_template_url('small', $post->featured_image_url) }}" alt="{{ $post->title }}">
                         </a>
                         <div class="media-body">
                             <h5 class="mt-0">

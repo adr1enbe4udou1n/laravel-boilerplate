@@ -1,15 +1,18 @@
 require('select2');
 window.swal = require('sweetalert2');
 
-window.moment = require('moment');
+const flatpickr = require('flatpickr');
 
-require('flatpickr');
 require('intl-tel-input');
 
 require('ckeditor');
 require('ckeditor/adapters/jquery');
 
 window.locale = $('html').attr('lang');
+
+if (locale !== 'en') {
+    flatpickr.localize(require(`flatpickr/dist/l10n/${locale}`)[locale]);
+}
 
 /**
  * Place any jQuery/helper plugins in here.
@@ -161,6 +164,18 @@ window.locale = $('html').attr('lang');
          */
         $('.auto-submit').change(function () {
             $(this).closest("form").submit();
+        });
+
+        /**
+         * Datetimepicker
+         */
+        $('[data-toggle="datetimepicker"]').each(function () {
+            flatpickr(this, {
+                wrap: true,
+                time_24hr: true,
+                enableTime: true,
+                dateFormat: $(this).data('date-format'),
+            });
         });
 
         /**
