@@ -14,11 +14,8 @@
                 @include('partials.logged-as')
                 @include('partials.not-confirmed')
 
-                <div class="animated fadeIn">
-                    <!-- Your Page Content Here -->
-                    @include('partials.messages')
-                    @yield('content')
-                </div>
+                @include('partials.messages')
+                @yield('content')
             </div>
         </main>
     </div>
