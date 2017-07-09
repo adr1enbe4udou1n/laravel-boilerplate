@@ -250,7 +250,8 @@ window.locale = $('html').attr('lang');
          */
         $('[data-toggle="select2"]').each(function () {
             $(this).select2({
-                width: '100%'
+                width: '100%',
+                theme: "bootstrap"
             });
         });
 
@@ -263,6 +264,7 @@ window.locale = $('html').attr('lang');
 
             $(this).select2({
                 width: '100%',
+                theme: "bootstrap",
                 minimumInputLength: $(this).data('minimum-input-length'),
                 ajax: {
                     url: $(this).data('ajax-url'),

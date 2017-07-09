@@ -21,7 +21,7 @@
             @php($label_attributes = [
                 'data-toggle' => 'tooltip',
                 'data-placement' => $choice_tooltip['position'],
-                'title' => $description
+                'title' => trans($description)
             ])
         @endif
         @if($type === 'checkboxes')
@@ -30,7 +30,7 @@
         @if($type === 'radios')
             @php($type = 'radio')
         @endif
-        <label class="custom-control custom-{{ $type }}" {{ Html::attributes(isset($label_attributes) ? $label_attributes : []) }}>
+        <label class="custom-control custom-{{ $type }}" {!! Html::attributes(isset($label_attributes) ? $label_attributes : []) !!}>
 
             {{ Form::$type($multiple ? "{$name}[]" : $name, $value, null, array_merge(['class' => 'custom-control-input'], $attributes)) }}
             <span class="custom-control-indicator"></span>

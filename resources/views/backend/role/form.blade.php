@@ -25,8 +25,8 @@
         'field_wrapper_class' => 'col-lg-10'
     ]) }}
 
-    <div class="form-group">
-        {{ Form::label('permissions', trans('validation.attributes.permissions'), ['class' =>  'col-lg-2 control-label']) }}
+    <div class="form-group row">
+        {{ Form::label('permissions', trans('validation.attributes.permissions'), ['class' =>  'col-lg-2 text-right col-form-label']) }}
         <div class="col-lg-10">
         @foreach($permissions->chunk(4) as $chunk)
             <div class="row">

@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-4 offset-md-4">
+        <div class="col-md-6 offset-md-3">
             <div class="card">
                 <div class="card-header">
                     <h3 class="box-title">@lang('labels.backend.users.titles.create')</h3>

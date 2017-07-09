@@ -10,12 +10,12 @@
 @import "node_modules/sweetalert2/src/sweetalert2";
 @import "node_modules/slick-carousel/slick/slick.scss";
 @import "node_modules/slick-carousel/slick/slick-theme.scss";
-@import "node_modules/select2/src/scss/core";
 @import "node_modules/cookieconsent/build/cookieconsent.min";
 @import "node_modules/intl-tel-input/src/css/intlTelInput.scss";
 
 // Components
 @import "../buttons";
+@import "../select2";
 
 // Sections
 @import "footer";
