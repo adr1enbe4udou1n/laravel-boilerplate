@@ -1,6 +1,6 @@
 <div class="col-md-8">
     <div class="box box-primary">
-        <div class="box-header with-border">
+        <div class="card-header">
             <h3 class="box-title">{{ $title }}</h3>
         </div>
         <div class="card-block">
@@ -59,15 +59,15 @@
             ]) }}
         </div>
 
-        <div class="box-footer">
-            <div class="pull-left">
+        <div class="card-footer">
+            <div class="col-md-6">
                 <a href="{{ route('admin.post.index') }}"
                    class="btn btn-danger btn-sm">@lang('buttons.back')</a>
             </div>
             <div class="pull-right">
                 {{ Form::hidden('status', 'publish') }}
                 <div class="btn-group">
-                    {{ Form::submit(trans('buttons.posts.save_and_publish'), ['class' => 'btn btn-success btn-sm']) }}
+                    {{ Form::submit(trans('buttons.posts.save_and_publish'), ['class' => 'btn btn-success btn-sm pull-right']) }}
                     <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                         <span class="caret"></span>
                     </button>
@@ -82,7 +82,7 @@
 <div class="col-md-4">
     <div class="box-group" id="accordion">
         <div class="panel box box-danger">
-            <div class="box-header with-border">
+            <div class="card-header">
                 <h4 class="box-title">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" class="">
                         @lang('labels.backend.posts.titles.publication')
@@ -115,17 +115,17 @@
                     ]) }}
                     {{ Form::bsCheckbox('pinned', [
                         'label' => trans('validation.attributes.pinned'),
-                        'field_wrapper_class' => 'col-lg-offset-3 col-lg-9',
+                        'field_wrapper_class' => 'offset-lg-3 col-lg-9',
                     ]) }}
                     {{ Form::bsCheckbox('promoted', [
                         'label' => trans('validation.attributes.promoted'),
-                        'field_wrapper_class' => 'col-lg-offset-3 col-lg-9',
+                        'field_wrapper_class' => 'offset-lg-3 col-lg-9',
                     ]) }}
                 </div>
             </div>
         </div>
         <div class="panel box box-info">
-            <div class="box-header with-border">
+            <div class="card-header">
                 <h4 class="box-title">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed" aria-expanded="false">
                         @lang('labels.backend.titles.metas')

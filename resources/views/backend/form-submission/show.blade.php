@@ -6,10 +6,10 @@
 @section('content')
     <div class="row">
         <!-- left column -->
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-6 offset-md-3">
             <!-- Horizontal Form -->
-            <div class="box box-info">
-                <div class="box-header with-border">
+            <div class="card">
+                <div class="card-header">
                     <h3 class="box-title">@lang('labels.backend.form_submissions.titles.show')</h3>
                 </div>
                 <!-- /.box-header -->

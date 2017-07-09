@@ -16,7 +16,7 @@
 
     {{ Form::bsCheckbox('active', [
         'label' => trans('validation.attributes.active'),
-        'field_wrapper_class' => 'col-lg-offset-3 col-lg-9',
+        'field_wrapper_class' => 'offset-lg-3 col-lg-9',
         'checked' => isset($user) ? $user->active : true
     ]) }}
 

@@ -6,6 +6,5 @@
             <span class="custom-control-indicator"></span>
             <span class="custom-control-description">{{ $label }}</span>
         </label>
-
     </label>
 </div>
