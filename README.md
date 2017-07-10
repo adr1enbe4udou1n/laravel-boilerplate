@@ -1,5 +1,5 @@
 # Laravel Boilerplate
-> This is a starter kit site with account space and full backend based on Laravel 5.4, inspired by the popular [Laravel 5 Boilerplate](https://github.com/rappasoft/laravel-5-boilerplate). Unit & feature tests are not integrated yet, therefore this project isn't rock-solid for now. 
+> This is a Bootstrap 4 starter kit site with full user account registration/management and backend based on Laravel 5.4, inspired by the popular [Laravel 5 Boilerplate](https://github.com/rappasoft/laravel-5-boilerplate). Unit & feature tests are not integrated yet, therefore this project isn't rock-solid for now. 
 
 [![Build Status](https://travis-ci.org/adr1enbe4udou1n/laravel-boilerplate.svg)](https://travis-ci.org/adr1enbe4udou1n/laravel-boilerplate)
 [![License](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/license)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
@@ -8,7 +8,7 @@
 
 ### Frontend
 
-* Bootstrap Frontend with basic home-about-contact and legal mentions pages.
+* Bootstrap 4 Frontend with basic home-about-contact and legal mentions pages.
 * [Slick carousel](http://kenwheeler.github.io/slick/) and [Cookie Consent](https://cookieconsent.insites.com/) integrated.
 * Blog section, including navigation by tags & authors.
 * Intervention image cache for dynamic optimized images.
@@ -18,19 +18,19 @@
 
 ### Backend
 
-* Backend with AdminLTE theme and some plugins (datatables, SweetAlert2, Select2, etc.).
-* Batch actions integrated within datatables.
+* Backend based on Bootstrap 4 [CoreUI](https://github.com/mrholek/CoreUI-Free-Bootstrap-Admin-Template) theme with some essential plugins (DataTables, SweetAlert2, Select2, Flatpickr, CKEditor, etc.).
+* Batch actions integrated within DataTables.
 * User and permissions management (classic users <-> roles <-> permissions structure).
 * Impersonation feature for quick user context testing.
 * Frontend forms module, including settings (recipients and translatable message confirmation) & submissions management. Note for developer, forms are configured on specific laravel config file. This boilerplate include just one "contact form" type.
-* Posts management for frontend blog, with granular publication permissions (classic draft-pending-published workflow). Posts include title, summary, html body with ckeditor, tags, featured image, metas. They can be published at specific datetime and pinned if needed. Specific user can be limited to modify own posts only, according to his permissions.
+* Posts management for frontend blog, with granular publication permissions (classic draft-pending-published workflow). Posts include title, summary, html body, tags, featured image, metas. They can be published at specific datetime and pinned if needed. Specific user can be limited to modify own posts only, according to his permissions.
 
 ### Localization & SEO
 
 * Multilingual ready thanks to awesome [Laravel Localization](https://github.com/mcamara/laravel-localization) package. Each routes are prefixed by locale in URL for best SEO support. For this boilerplate, EN & FR locales are 100% supported, including translated routes.
 * Model Field Translatable support thanks to very cool [Laravel Translatable](https://github.com/dimsav/laravel-translatable), used for contact form confirmed message, metatags and posts.
 * Robots and Sitemap integrated, including multilingual alternates.
-* Full Metatags manager interface. Translatable title & description are supported. Meta entity can be either linked to route or specific entity (as post for this boilerplate).
+* Full Metatags manager interface with translatable title & description. Meta entity can be either linked to route or specific entity like post.
 * 301/302 redirections manager interface, with CSV/XLSX import feature.
 
 ### Developer Tools
@@ -117,6 +117,7 @@ For your info, this webpack setup is a direct recovery from my other little side
 - [x] <s>Facebook/Twitter/Google Sign in with socialite package</s>
 - [x] <s>Blog system (posts, publication date, multilangue, HTML wysiwyg, tags, featured image, medias, public user profile)</s>
 - [x] <s>Dashboard</s>
+- [x] <s>Switch to full Bootstrap 4 for both Frontend & Backend</s>
 - [ ] Refactor & debug
 - [ ] Inclusion of unit/featured/browser tests
 
