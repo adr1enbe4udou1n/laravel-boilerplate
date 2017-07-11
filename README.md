@@ -24,6 +24,7 @@
 * Impersonation feature for quick user context testing.
 * Frontend forms module, including settings (recipients and translatable message confirmation) & submissions management. Note for developer, forms are configured on specific laravel config file. This boilerplate include just one "contact form" type.
 * Posts management for frontend blog, with granular publication permissions (classic draft-pending-published workflow). Posts include title, summary, html body, tags, featured image, metas. They can be published at specific datetime and pinned if needed. Specific user can be limited to modify own posts only, according to his permissions.
+* No media manager interface included with this boilerplate (i prefer keep it simple), but "uploadimage" CKEditor plugin is installed in order to support direct drag & drop image files.
 
 ### Localization & SEO
 
@@ -33,9 +34,10 @@
 * Full Metatags manager interface with translatable title & description. Meta entity can be either linked to route or specific entity like post.
 * 301/302 redirections manager interface, with CSV/XLSX import feature.
 
-### Developer Tools
+### Developer Specific
 
 * Many form components bootstrap helpers with basic client side validation by vee-validate.
+* Usage of [Laravel-Mediable](https://github.com/plank/laravel-mediable) package for orderable media model management, used for featured image on posts.
 * Permissions configuration based on config file rather than database.
 * Form types defined on config file for settings & submission support.
 * Custom webpack integration rather than laravel mix, for better flexibility (cf bellow).
@@ -120,6 +122,9 @@ For your info, this webpack setup is a direct recovery from my other little side
 - [x] <s>Switch to full Bootstrap 4 for both Frontend & Backend</s>
 - [ ] Refactor & debug
 - [ ] Inclusion of unit/featured/browser tests
+- Only if i'm motivated :
+    - [ ] Change classic server-side Form Helpers by client-side Form Vue components
+    - [ ] With previous task done, then why not consider 100% client-side Vue backend with vue-route ? Will be nice but seems a lot to do...
 
 ## License
 

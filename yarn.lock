@@ -233,7 +233,7 @@ async@1.5.2, async@^1.5.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
 
-async@^2.1.2, async@^2.1.5:
+async@^2.1.2, async@^2.1.5, async@^2.4.1:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/async/-/async-2.5.0.tgz#843190fd6b7357a0b9e1c956edddd5ec8462b54d"
   dependencies:
@@ -2402,12 +2402,12 @@ extglob@^0.3.1:
   dependencies:
     is-extglob "^1.0.0"
 
-extract-text-webpack-plugin@^2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/extract-text-webpack-plugin/-/extract-text-webpack-plugin-2.1.2.tgz#756ef4efa8155c3681833fbc34da53b941746d6c"
+extract-text-webpack-plugin@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/extract-text-webpack-plugin/-/extract-text-webpack-plugin-3.0.0.tgz#90caa7907bc449f335005e3ac7532b41b00de612"
   dependencies:
-    async "^2.1.2"
-    loader-utils "^1.0.2"
+    async "^2.4.1"
+    loader-utils "^1.1.0"
     schema-utils "^0.3.0"
     webpack-sources "^1.0.1"
 
@@ -3265,9 +3265,9 @@ interpret@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.0.3.tgz#cbc35c62eeee73f19ab7b10a801511401afc0f90"
 
-intl-tel-input@^11.1.1:
-  version "11.1.1"
-  resolved "https://registry.yarnpkg.com/intl-tel-input/-/intl-tel-input-11.1.1.tgz#5fd7385640072bf10424085a915f414c3bfeb946"
+intl-tel-input@^11.1.2:
+  version "11.1.2"
+  resolved "https://registry.yarnpkg.com/intl-tel-input/-/intl-tel-input-11.1.2.tgz#f8e53607b8147fd8fdd05f7fa25a564ed6c48dc1"
 
 invariant@^2.2.0, invariant@^2.2.2:
   version "2.2.2"
@@ -6071,9 +6071,9 @@ svgo@^0.7.0:
     sax "~1.2.1"
     whet.extend "~0.9.9"
 
-sweetalert2@^6.6.5:
-  version "6.6.5"
-  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-6.6.5.tgz#ffffc1064711ff7870bc8aefe1678f95ecc290db"
+sweetalert2@^6.6.6:
+  version "6.6.6"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-6.6.6.tgz#3630279d98f04fb8b89f2e8b098fc42f03bcb555"
 
 tapable@^0.2.5, tapable@~0.2.5:
   version "0.2.6"
@@ -6392,9 +6392,9 @@ vary@~1.1.0, vary@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.1.tgz#67535ebb694c1d52257457984665323f587e8d37"
 
-vee-validate@^2.0.0-rc.6:
-  version "2.0.0-rc.6"
-  resolved "https://registry.yarnpkg.com/vee-validate/-/vee-validate-2.0.0-rc.6.tgz#572905b3825bf04459510d7303792867fac30803"
+vee-validate@^2.0.0-rc.7:
+  version "2.0.0-rc.7"
+  resolved "https://registry.yarnpkg.com/vee-validate/-/vee-validate-2.0.0-rc.7.tgz#b3191ed25f7903d3b7408361f0e862f32cdf40ef"
 
 vendors@^1.0.0:
   version "1.0.1"
