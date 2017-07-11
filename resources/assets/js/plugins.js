@@ -5,9 +5,6 @@ const flatpickr = require('flatpickr');
 
 require('intl-tel-input');
 
-require('ckeditor');
-require('ckeditor/adapters/jquery');
-
 window.locale = $('html').attr('lang');
 
 if (locale !== 'en') {

@@ -15,7 +15,3 @@
         @if (isset($input_group_prefix) || isset($input_group_suffix))
     </div>
 @endif
-
-@if (isset($strength_meter) && $strength_meter)
-    <password-strength-meter v-model="password" :required="{{ (isset($required) && $required) ? 'true' : 'false' }}" placeholder="@if(isset($placeholder)){{ $placeholder }}@else{{ $title }}@endif"></password-strength-meter>
-@endif

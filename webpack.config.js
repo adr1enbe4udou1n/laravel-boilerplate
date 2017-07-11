@@ -103,12 +103,13 @@ module.exports = {
             'jquery',
             'vue',
             'axios',
-            'datatables.net',
             'select2',
             'sweetalert2',
             'slick-carousel',
             'flatpickr',
             'intl-tel-input',
+        ],
+        ckeditor: [
             'ckeditor'
         ]
     },
@@ -215,7 +216,7 @@ module.exports = {
         }),
         new WebpackNotifierPlugin(),
         new webpack.optimize.CommonsChunkPlugin({
-            names: ['vendor', 'manifest'],
+            names: ['vendor', 'ckeditor', 'manifest'],
             minChunks: Infinity
         }),
         extractSass,

@@ -34,6 +34,7 @@
     </script>
     <script src="{{ assets('js/manifest.js') }}"></script>
     <script src="{{ assets('js/vendor.js') }}"></script>
+    <script src="{{ assets('js/ckeditor.js') }}"></script>
     <script src="{{ assets('js/backend.js') }}"></script>
 
     @if (app()->getLocale() !== 'en')

@@ -21,7 +21,6 @@
     ]) }}
 
     {{ Form::bsPassword('password', [
-        'strength_meter' => true,
         'title' => trans('validation.attributes.password'),
         'label_col_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-6',

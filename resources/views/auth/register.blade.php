@@ -27,7 +27,6 @@
 
                             {{ Form::bsPassword('password', [
                                 'required' => true,
-                                'strength_meter' => true,
                                 'title' => trans('validation.attributes.password'),
                                 'label_col_class' => 'col-md-4',
                                 'field_wrapper_class' => 'col-md-6',
