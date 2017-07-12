@@ -19,12 +19,13 @@
 ### Backend
 
 * Backend based on Bootstrap 4 [CoreUI](https://github.com/mrholek/CoreUI-Free-Bootstrap-Admin-Template) theme with some essential plugins (DataTables, SweetAlert2, Select2, Flatpickr, CKEditor, etc.).
-* Batch actions integrated within DataTables.
+* Batch actions integrated within DataTables thanks to select plugin.
+* Client-side CSV / Excel export feature included by buttons DataTable plugin.
 * User and permissions management (classic users <-> roles <-> permissions structure).
 * Impersonation feature for quick user context testing.
 * Frontend forms module, including settings (recipients and translatable message confirmation) & submissions management. Note for developer, forms are configured on specific laravel config file. This boilerplate include just one "contact form" type.
 * Posts management for frontend blog, with granular publication permissions (classic draft-pending-published workflow). Posts include title, summary, html body, tags, featured image, metas. They can be published at specific datetime and pinned if needed. Specific user can be limited to modify own posts only, according to his permissions.
-* No media manager interface included with this boilerplate (i prefer keep it simple), but "uploadimage" CKEditor plugin is installed in order to support direct drag & drop image files.
+* No media manager interface included with this boilerplate, but the "uploadimage" CKEditor plugin is installed in order to support direct drag & drop image files.
 
 ### Localization & SEO
 
