@@ -16,7 +16,7 @@ class MetaTags
     /**
      * Create a new controller instance.
      *
-     * @param MetaRepository             $metas
+     * @param MetaRepository $metas
      */
     public function __construct(MetaRepository $metas)
     {

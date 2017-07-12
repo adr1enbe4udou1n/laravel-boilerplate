@@ -7,12 +7,9 @@ use App\Repositories\Contracts\FormSubmissionRepository;
 use App\Repositories\Contracts\PostRepository;
 use App\Repositories\Contracts\UserRepository;
 use Illuminate\Contracts\View\Factory;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class DashboardController extends BackendController
 {
-
     /**
      * @var \App\Repositories\Contracts\PostRepository
      */

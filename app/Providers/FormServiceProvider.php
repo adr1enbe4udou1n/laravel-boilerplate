@@ -8,11 +8,9 @@ use Illuminate\Support\ServiceProvider;
 
 class FormServiceProvider extends ServiceProvider
 {
-
     /**
      * Bootstrap the application services.
      *
-     * @return void
      * @throws \Throwable
      */
     public function boot()
@@ -32,7 +30,7 @@ class FormServiceProvider extends ServiceProvider
                         $parameters['type'] = 'text';
                     }
 
-                    switch($parameters['type']) {
+                    switch ($parameters['type']) {
                         case 'email':
                             $rules[] = 'email';
                             break;
@@ -41,6 +39,10 @@ class FormServiceProvider extends ServiceProvider
                 case 'password':
                     $data['type'] = 'text';
                     $parameters['type'] = 'password';
+
+                    if (isset($parameters['strength_meter']) && $parameters['strength_meter']) {
+                        $attributes['data-toggle'] = 'password-strength-meter';
+                    }
                     break;
                 case 'select':
                     if (!isset($parameters['type'])) {
@@ -58,11 +60,11 @@ class FormServiceProvider extends ServiceProvider
                             'data-ajax-url' => $parameters['ajax_url'],
                             'data-minimum-input-length' => $parameters['minimum_input_length'],
                             'data-item-value' => $parameters['item_value'],
-                            'data-item-label' => $parameters['item_label']
+                            'data-item-label' => $parameters['item_label'],
                         ], $attributes);
                     }
 
-                    if(isset($parameters['tags']) && $parameters['tags']) {
+                    if (isset($parameters['tags']) && $parameters['tags']) {
                         $attributes['data-tags'] = 'true';
                     }
                     break;
@@ -83,7 +85,7 @@ class FormServiceProvider extends ServiceProvider
             }
 
             if (!empty($rules)) {
-                $attributes['v-validate'] = "'" . implode('|', $rules) . "'";
+                $attributes['v-validate'] = "'".implode('|', $rules)."'";
             }
 
             if (!isset($parameters['multiple'])) {
@@ -98,11 +100,11 @@ class FormServiceProvider extends ServiceProvider
                 $attributes = array_merge([
                     'data-toggle' => 'tooltip',
                     'data-placement' => $parameters['tooltip']['position'],
-                    'title' => $parameters['tooltip']['title']
+                    'title' => $parameters['tooltip']['title'],
                 ], $attributes);
             }
 
-            if(isset($parameters['editor'])) {
+            if (isset($parameters['editor'])) {
                 $options = $parameters['editor'];
 
                 $attributes['data-toggle'] = 'editor';
@@ -146,11 +148,8 @@ class FormServiceProvider extends ServiceProvider
 
     /**
      * Register the application services.
-     *
-     * @return void
      */
     public function register()
     {
-        //
     }
 }

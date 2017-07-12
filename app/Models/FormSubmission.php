@@ -12,12 +12,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $data
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
+ *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSubmission whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSubmission whereData($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSubmission whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSubmission whereType($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\FormSubmission whereUpdatedAt($value)
  * @mixin \Eloquent
+ *
  * @property array $formatted_data
  */
 class FormSubmission extends Model

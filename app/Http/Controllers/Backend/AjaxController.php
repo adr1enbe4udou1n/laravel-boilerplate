@@ -96,7 +96,8 @@ class AjaxController extends Controller
      *
      * @return array
      */
-    public function imageUpload(Request $request) {
+    public function imageUpload(Request $request)
+    {
         /** @var \Illuminate\Http\UploadedFile $uploadedImage */
         $uploadedImage = $request->file('upload');
 

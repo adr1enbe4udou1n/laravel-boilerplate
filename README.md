@@ -12,7 +12,7 @@
 * [Slick carousel](http://kenwheeler.github.io/slick/) and [Cookie Consent](https://cookieconsent.insites.com/) integrated.
 * Blog section, including navigation by tags & authors.
 * Intervention image cache for dynamic optimized images.
-* Login throttle by recaptcha.
+* Login throttle by recaptcha & password strength meter.
 * Frontend user space and profile management. Email validation included. Registration can be disabled by environment parameter.
 * Social login with all supported socialite providers (facebook/twitter/linkedin/github/bitbucket).
 

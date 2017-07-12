@@ -25,7 +25,6 @@ class PostController extends BackendController
      *
      *
      * @param \App\Repositories\Contracts\PostRepository $posts
-     *
      * @param \Illuminate\Contracts\View\Factory         $view
      */
     public function __construct(PostRepository $posts, Factory $view)

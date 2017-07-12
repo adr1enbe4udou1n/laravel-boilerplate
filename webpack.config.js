@@ -103,6 +103,7 @@ module.exports = {
             'jquery',
             'vue',
             'axios',
+            'i18next',
             'select2',
             'sweetalert2',
             'slick-carousel',
@@ -203,6 +204,7 @@ module.exports = {
         new webpack.ProvidePlugin({
             jquery: ['$', 'window.jQuery']
         }),
+        new webpack.IgnorePlugin(/jsdom$/),
         new CopyWebpackPlugin(ckeditorCopyPatterns, {
             ignore: ckeditorIgnoredLanguages
         }),

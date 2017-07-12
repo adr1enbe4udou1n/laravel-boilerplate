@@ -25,7 +25,6 @@ class RedirectionController extends BackendController
      * Create a new controller instance.
      *
      * @param RedirectionRepository              $redirections
-     *
      * @param \Illuminate\Contracts\View\Factory $view
      */
     public function __construct(RedirectionRepository $redirections, Factory $view)

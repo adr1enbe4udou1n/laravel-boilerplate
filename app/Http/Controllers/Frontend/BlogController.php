@@ -55,7 +55,7 @@ class BlogController extends FrontendController
     public function show(Post $post, Request $request)
     {
         // If not published, only user with edit access can see it
-        if (! $post->published && ! Gate::check('update', $post)) {
+        if (!$post->published && !Gate::check('update', $post)) {
             abort(404);
         }
 

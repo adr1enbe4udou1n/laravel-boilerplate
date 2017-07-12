@@ -12,13 +12,16 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $locale
  * @property string $display_name
  * @property string $description
+ *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\RoleTranslation whereDescription($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\RoleTranslation whereDisplayName($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\RoleTranslation whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\RoleTranslation whereLocale($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\RoleTranslation whereRoleId($value)
  * @mixin \Eloquent
+ *
  * @property int $order
+ *
  * @method static \Illuminate\Database\Query\Builder|\App\Models\RoleTranslation whereOrder($value)
  */
 class RoleTranslation extends Model

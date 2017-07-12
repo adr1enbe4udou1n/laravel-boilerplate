@@ -1,15 +1,31 @@
-require('select2');
-window.swal = require('sweetalert2');
-
-const flatpickr = require('flatpickr');
-
-require('intl-tel-input');
 
 window.locale = $('html').attr('lang');
+
+import i18next from 'i18next';
+
+window.i18next = i18next.init({
+    lng: locale,
+    resources: {
+        en: {
+            translation: require('pwstrength-bootstrap/locales/en.json')
+        },
+        fr: {
+            translation: require('pwstrength-bootstrap/locales/fr.json')
+        }
+    }
+});
+
+const flatpickr = require('flatpickr');
 
 if (locale !== 'en') {
     flatpickr.localize(require(`flatpickr/dist/l10n/${locale}`)[locale]);
 }
+
+require('select2');
+require('intl-tel-input');
+require('pwstrength-bootstrap/dist/pwstrength-bootstrap');
+
+window.swal = require('sweetalert2');
 
 /**
  * Place any jQuery/helper plugins in here.
@@ -255,6 +271,14 @@ if (locale !== 'en') {
 
         $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
             window.location.hash = e.target.hash;
+        });
+
+        $('[data-toggle="password-strength-meter"]').each(function () {
+            $(this).pwstrength({
+                ui: {
+                    bootstrap4: true
+                }
+            });
         });
 
         /**

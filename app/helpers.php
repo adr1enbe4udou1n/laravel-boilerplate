@@ -168,7 +168,7 @@ if (!function_exists('menu_item_access')) {
         }
 
         $route = link_to(route($route_name), $title, [
-            'class' => 'nav-link ' . active_class(if_route_pattern($active_route_patterns))
+            'class' => 'nav-link '.active_class(if_route_pattern($active_route_patterns)),
         ], null, false);
 
         if (!in_array($route_name, $active_route_patterns, true)) {
