@@ -50,7 +50,7 @@ class Handler extends ExceptionHandler
      * @param \Illuminate\Http\Request $request
      * @param \Exception               $exception
      *
-     * @return \Illuminate\Http\Response
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function render($request, Exception $exception)
     {
@@ -58,7 +58,14 @@ class Handler extends ExceptionHandler
          * All instances of GeneralException redirect back with a flash message to show a bootstrap alert-error
          */
         if ($exception instanceof GeneralException) {
-            return redirect()->back()->withInput()->withFlashDanger($exception->getMessage());
+            if ($request->wantsJson()) {
+                return response()->json([
+                  'status' => 'error',
+                  'message' => $exception->getMessage(),
+                ]);
+            }
+
+            return redirect()->back()->withInput()->withFlashError($exception->getMessage());
         }
 
         return parent::render($request, $exception);

@@ -96,11 +96,13 @@ class FormSubmissionController extends BackendController
     {
         $this->formSubmissions->destroy($form_submission);
 
-        return redirect()->back()->withFlashSuccess(trans('alerts.backend.form_submissions.deleted'));
+        return $this->RedirectResponse($request, trans('alerts.backend.form_submissions.deleted'));
     }
 
     /**
      * @param \Illuminate\Http\Request $request
+     *
+     * @return array|\Illuminate\Http\RedirectResponse
      */
     public function batchAction(Request $request)
     {
@@ -111,10 +113,10 @@ class FormSubmissionController extends BackendController
             case 'destroy':
                 $this->formSubmissions->batchDestroy($ids);
 
-                return redirect()->back()->withFlashSuccess(trans('alerts.backend.form_submissions.bulk_destroyed'));
+                return $this->RedirectResponse($request, trans('alerts.backend.form_submissions.bulk_destroyed'));
                 break;
         }
 
-        return redirect()->back()->withFlashError(trans('alerts.backend.actions.invalid'));
+        return $this->RedirectResponse($request, trans('alerts.backend.actions.invalid'), 'error');
     }
 }

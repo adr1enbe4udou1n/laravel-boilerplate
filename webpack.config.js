@@ -109,6 +109,7 @@ module.exports = {
             'slick-carousel',
             'flatpickr',
             'intl-tel-input',
+            'toastr',
         ],
         ckeditor: [
             'ckeditor'

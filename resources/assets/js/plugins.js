@@ -25,63 +25,13 @@ require('select2');
 require('intl-tel-input');
 require('pwstrength-bootstrap/dist/pwstrength-bootstrap');
 
+window.toastr = require('toastr');
 window.swal = require('sweetalert2');
 
 /**
  * Place any jQuery/helper plugins in here.
  */
 (function ($) {
-
-    /**
-     * Allows you to add data-method="METHOD to links to automatically inject a form
-     * with the method on click
-     *
-     * Example: <a href="{{route('customers.destroy', $customer->id)}}"
-     * data-method="delete" name="delete_item">Delete</a>
-     *
-     * Injects a form with that's fired on click of the link with a DELETE request.
-     * Good because you don't have to dirty your HTML with delete forms everywhere.
-     */
-    function addDeleteForms() {
-        $('[data-method]').append(function () {
-            if (!$(this).find('form').length > 0)
-                return "\n" +
-                    "<form action='" + $(this).attr('href') + "' method='POST' name='delete_item' style='display:none'>\n" +
-                    "   <input type='hidden' name='_method' value='" + $(this).attr('data-method') + "'>\n" +
-                    "   <input type='hidden' name='_token' value='" + $('meta[name="csrf-token"]').attr('content') + "'>\n" +
-                    "</form>\n";
-            else
-                return "";
-        })
-            .click(function (e) {
-                e.preventDefault();
-                $(this).find("form").submit();
-            });
-    }
-
-    /**
-     * Swal confirm dialog
-     */
-    function confirmSwal(button, form = null) {
-        swal({
-            title: $(button).attr('data-trans-title'),
-            type: "warning",
-            showCancelButton: true,
-            cancelButtonText: $(button).attr('data-trans-button-cancel'),
-            confirmButtonColor: "#dd4b39",
-            confirmButtonText: $(button).attr('data-trans-button-confirm')
-        }).then(
-            function () {
-                if (form) {
-                    return form.submit();
-                }
-                $(button).closest('form').submit();
-            },
-            function (dismiss) {
-
-            }
-        );
-    }
 
     /**
      * Place the CSRF token as a header on all pages for access in AJAX requests
@@ -93,27 +43,21 @@ window.swal = require('sweetalert2');
     });
 
     /**
-     * Add the data-method="delete" forms to all delete links
+     * Swal confirm dialog
      */
-    addDeleteForms();
-
-    /**
-     * This is for delete buttons that are loaded via AJAX in datatables, they will not work right
-     * without this block of code
-     */
-    $(document).ajaxComplete(function () {
-        addDeleteForms();
-    });
-
-    /**
-     * Generic confirm form delete using Sweet Alert
-     */
-    $('body').on('submit', 'form[name=delete_item]', function (e) {
-        e.preventDefault();
-
-        let link = $('a[data-method="delete"]');
-        confirmSwal(link, this);
-    });
+    function confirmSwal(button, callback) {
+        swal({
+            title: $(button).attr('data-trans-title'),
+            type: "warning",
+            showCancelButton: true,
+            cancelButtonText: $(button).attr('data-trans-button-cancel'),
+            confirmButtonColor: "#dd4b39",
+            confirmButtonText: $(button).attr('data-trans-button-confirm')
+        }).then(
+            callback,
+            function (dismiss) {}
+        );
+    }
 
     /**
      * This closes the popover when its clicked away from
@@ -201,32 +145,26 @@ window.swal = require('sweetalert2');
         });
 
         /**
-         * HTML editor with ckeditor
+         * This is for delete buttons that are loaded via AJAX in datatables, they will not work right
+         * without this block of code
          */
-        $('[data-toggle="editor"]').each(function () {
-            let plugins = ['autogrow', 'image2'];
+        $(document).ajaxComplete(function () {
+            $('[data-toggle="delete-row"]').click(function (e) {
+                e.preventDefault();
+                let url = $(this).attr('href');
+                let dataTable = $(this).closest('table').DataTable();
 
-            let uploadUrl = $(this).data('upload-url');
-            if (uploadUrl) {
-                plugins.push('uploadimage')
-            }
-
-            $(this).ckeditor({
-                extraPlugins: plugins.join(','),
-                removePlugins: 'resize',
-                language: locale,
-                toolbar: [
-                    {name: 'basicstyles', items: ['Bold', 'Italic']},
-                    {name: 'links', items: ['Link', 'Unlink']},
-                    {name: 'paragraph', items: ['NumberedList', 'BulletedList']},
-                    {name: 'insert', items: ['Blockquote', 'Image']},
-                    {name: 'styles', items: ['Format']},
-                    {name: 'document', items: ['Source']},
-                ],
-                uploadUrl: uploadUrl,
-                autoGrow_minHeight: 200,
-                autoGrow_maxHeight: 600,
-                autoGrow_onStartup: true
+                confirmSwal(this, function () {
+                    $.ajax({
+                        method: 'DELETE',
+                        url: url,
+                        dataType: 'json'
+                    }).done(function(data) {
+                        // Reload Datatables and keep current pager
+                        toastr[data.status](data.message);
+                        dataTable.ajax.reload(null, false);
+                    });
+                });
             });
         });
 
@@ -235,25 +173,33 @@ window.swal = require('sweetalert2');
          */
         $('[data-toggle="confirm"]').click(function (e) {
             e.preventDefault();
-            confirmSwal(e.target);
+
+            confirmSwal(e.target, function () {
+                $(e.target).closest('form').submit();
+            });
         });
 
         /**
          * Bulk forms
          */
         $('[data-toggle="bulk-form"]').submit(function (e) {
-            let $form = $(this);
-            $form.find('[name="ids[]"]').remove();
+            e.preventDefault();
 
             let dataTableId = $(this).data('target');
             let dataTable = $(dataTableId).DataTable();
 
-            $.each(dataTable.rows({selected: true}).ids(), function (index, value) {
-                let input = $('<input>').attr({
-                    'type': 'hidden',
-                    'name': 'ids[]'
-                }).val(value);
-                $form.prepend(input);
+            $.ajax({
+                method: 'POST',
+                url: $(this).attr('action'),
+                dataType: 'json',
+                data: {
+                    action: $(this).find('[name="action"]').val(),
+                    ids: dataTable.rows({selected: true}).ids().toArray()
+                }
+            }).done(function(data) {
+                // Reload Datatables and keep current pager
+                toastr[data.status](data.message);
+                dataTable.ajax.reload(null, false);
             });
         });
 
@@ -331,6 +277,36 @@ window.swal = require('sweetalert2');
             utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.14/js/utils.js',
             initialCountry: locale === 'en' ? 'us' : locale,
             preferredCountries: ['us', 'gb', 'fr']
+        });
+
+        /**
+         * HTML editor with ckeditor
+         */
+        $('[data-toggle="editor"]').each(function () {
+            let plugins = ['autogrow', 'image2'];
+
+            let uploadUrl = $(this).data('upload-url');
+            if (uploadUrl) {
+                plugins.push('uploadimage')
+            }
+
+            $(this).ckeditor({
+                extraPlugins: plugins.join(','),
+                removePlugins: 'resize',
+                language: locale,
+                toolbar: [
+                    {name: 'basicstyles', items: ['Bold', 'Italic']},
+                    {name: 'links', items: ['Link', 'Unlink']},
+                    {name: 'paragraph', items: ['NumberedList', 'BulletedList']},
+                    {name: 'insert', items: ['Blockquote', 'Image']},
+                    {name: 'styles', items: ['Format']},
+                    {name: 'document', items: ['Source']},
+                ],
+                uploadUrl: uploadUrl,
+                autoGrow_minHeight: 200,
+                autoGrow_maxHeight: 600,
+                autoGrow_onStartup: true
+            });
         });
     });
 })(jQuery);

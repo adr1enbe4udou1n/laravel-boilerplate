@@ -64,7 +64,7 @@ trait HtmlActionsButtons
         $title = '<i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.delete').'"></i>';
 
         return link_to(route($route, $parameters), $title, [
-            'data-method' => 'delete',
+            'data-toggle' => 'delete-row',
             'data-trans-button-cancel' => trans('buttons.cancel'),
             'data-trans-button-confirm' => trans('buttons.delete'),
             'data-trans-title' => trans('labels.are_you_sure'),

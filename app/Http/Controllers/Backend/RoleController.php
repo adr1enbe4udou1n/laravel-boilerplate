@@ -134,6 +134,6 @@ class RoleController extends BackendController
     {
         $this->roles->destroy($role);
 
-        return redirect()->back()->withFlashSuccess(trans('alerts.backend.roles.deleted'));
+        return $this->RedirectResponse($request, trans('alerts.backend.roles.deleted'));
     }
 }

@@ -130,11 +130,13 @@ class MetaController extends BackendController
     {
         $this->metas->destroy($meta);
 
-        return redirect()->back()->withFlashSuccess(trans('alerts.backend.metas.deleted'));
+        return $this->RedirectResponse($request, trans('alerts.backend.metas.deleted'));
     }
 
     /**
      * @param \Illuminate\Http\Request $request
+     *
+     * @return array|\Illuminate\Http\RedirectResponse
      */
     public function batchAction(Request $request)
     {
@@ -145,10 +147,10 @@ class MetaController extends BackendController
             case 'destroy':
                 $this->metas->batchDestroy($ids);
 
-                return redirect()->back()->withFlashSuccess(trans('alerts.backend.metas.bulk_destroyed'));
+                return $this->RedirectResponse($request, trans('alerts.backend.metas.bulk_destroyed'));
                 break;
         }
 
-        return redirect()->back()->withFlashError(trans('alerts.backend.actions.invalid'));
+        return $this->RedirectResponse($request, trans('alerts.backend.actions.invalid'), 'error');
     }
 }

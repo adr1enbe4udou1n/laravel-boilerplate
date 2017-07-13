@@ -175,11 +175,13 @@ class PostController extends BackendController
     {
         $this->posts->destroy($post);
 
-        return redirect()->back()->withFlashSuccess(trans('alerts.backend.posts.deleted'));
+        return $this->RedirectResponse($request, trans('alerts.backend.posts.deleted'));
     }
 
     /**
      * @param \Illuminate\Http\Request $request
+     *
+     * @return array|\Illuminate\Http\RedirectResponse
      */
     public function batchAction(Request $request)
     {
@@ -190,31 +192,29 @@ class PostController extends BackendController
             case 'destroy':
                 $this->posts->batchDestroy($ids);
 
-                return redirect()->back()->withFlashSuccess(trans('alerts.backend.posts.bulk_destroyed'));
+                return $this->RedirectResponse($request, trans('alerts.backend.posts.bulk_destroyed'));
                 break;
             case 'publish':
                 $this->posts->batchPublish($ids);
 
                 if (Gate::check('publish posts')) {
-                    return redirect()->back()
-                        ->withFlashSuccess(trans('alerts.backend.posts.bulk_published'));
+                    return $this->RedirectResponse($request, trans('alerts.backend.posts.bulk_published'));
                 }
 
-                return redirect()->back()
-                    ->withFlashWarning(trans('alerts.backend.posts.bulk_pending'));
+                return $this->RedirectResponse($request, trans('alerts.backend.posts.bulk_pending', 'warning'));
                 break;
             case 'pin':
                 $this->posts->batchPin($ids);
 
-                return redirect()->back()->withFlashSuccess(trans('alerts.backend.posts.bulk_pinned'));
+                return $this->RedirectResponse($request, trans('alerts.backend.posts.bulk_pinned'));
                 break;
             case 'promote':
                 $this->posts->batchPromote($ids);
 
-                return redirect()->back()->withFlashSuccess(trans('alerts.backend.posts.bulk_promoted'));
+                return $this->RedirectResponse($request, trans('alerts.backend.posts.bulk_promoted'));
                 break;
         }
 
-        return redirect()->back()->withFlashError(trans('alerts.backend.actions.invalid'));
+        return $this->RedirectResponse($request, trans('alerts.backend.actions.invalid'), 'error');
     }
 }

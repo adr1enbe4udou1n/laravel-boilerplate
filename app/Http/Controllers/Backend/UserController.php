@@ -164,7 +164,7 @@ class UserController extends BackendController
     {
         $this->users->destroy($user);
 
-        return redirect()->back()->withFlashSuccess(trans('alerts.backend.users.deleted'));
+        return $this->RedirectResponse($request, trans('alerts.backend.users.deleted'));
     }
 
     /**
@@ -179,20 +179,20 @@ class UserController extends BackendController
             case 'destroy':
                 $this->users->batchDestroy($ids);
 
-                return redirect()->back()->withFlashSuccess(trans('alerts.backend.users.bulk_destroyed'));
+                return $this->RedirectResponse($request, trans('alerts.backend.users.bulk_destroyed'));
                 break;
             case 'enable':
                 $this->users->batchEnable($ids);
 
-                return redirect()->back()->withFlashSuccess(trans('alerts.backend.users.bulk_enabled'));
+                return $this->RedirectResponse($request, trans('alerts.backend.users.bulk_enabled'));
                 break;
             case 'disable':
                 $this->users->batchDisable($ids);
 
-                return redirect()->back()->withFlashSuccess(trans('alerts.backend.users.bulk_disabled'));
+                return $this->RedirectResponse($request, trans('alerts.backend.users.bulk_disabled'));
                 break;
         }
 
-        return redirect()->back()->withFlashError(trans('alerts.backend.actions.invalid'));
+        return $this->RedirectResponse($request, trans('alerts.backend.actions.invalid'), 'error');
     }
 }

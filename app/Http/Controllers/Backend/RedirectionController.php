@@ -133,11 +133,13 @@ class RedirectionController extends BackendController
     {
         $this->redirections->destroy($redirection);
 
-        return redirect()->back()->withFlashSuccess(trans('alerts.backend.redirections.deleted'));
+        return $this->RedirectResponse($request, trans('alerts.backend.redirections.deleted'));
     }
 
     /**
      * @param \Illuminate\Http\Request $request
+     *
+     * @return array|\Illuminate\Http\RedirectResponse
      */
     public function batchAction(Request $request)
     {
@@ -148,21 +150,21 @@ class RedirectionController extends BackendController
             case 'destroy':
                 $this->redirections->batchDestroy($ids);
 
-                return redirect()->back()->withFlashSuccess(trans('alerts.backend.redirections.bulk_destroyed'));
+                return $this->RedirectResponse($request, trans('alerts.backend.redirections.bulk_destroyed'));
                 break;
             case 'enable':
                 $this->redirections->batchEnable($ids);
 
-                return redirect()->back()->withFlashSuccess(trans('alerts.backend.redirections.bulk_enabled'));
+                return $this->RedirectResponse($request, trans('alerts.backend.redirections.bulk_enabled'));
                 break;
             case 'disable':
                 $this->redirections->batchDisable($ids);
 
-                return redirect()->back()->withFlashSuccess(trans('alerts.backend.redirections.bulk_disabled'));
+                return $this->RedirectResponse($request, trans('alerts.backend.redirections.bulk_disabled'));
                 break;
         }
 
-        return redirect()->back()->withFlashError(trans('alerts.backend.actions.invalid'));
+        return $this->RedirectResponse($request, trans('alerts.backend.actions.invalid'), 'error');
     }
 
     /**

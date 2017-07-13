@@ -6,7 +6,9 @@
 @import "node_modules/bootstrap/scss/bootstrap";
 @import "../../vendor/coreui/scss/style";
 
+// Plugins
 @import "node_modules/font-awesome/scss/font-awesome";
+@import "node_modules/toastr/toastr.scss";
 @import "node_modules/sweetalert2/src/sweetalert2";
 @import "node_modules/flatpickr/dist/flatpickr";
 

@@ -141,6 +141,6 @@ class FormSettingController extends BackendController
     {
         $this->formSettings->destroy($formSetting);
 
-        return redirect()->back()->withFlashSuccess(trans('alerts.backend.form_settings.deleted'));
+        return $this->RedirectResponse($request, trans('alerts.backend.form_settings.deleted'));
     }
 }
