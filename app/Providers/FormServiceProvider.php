@@ -140,6 +140,7 @@ class FormServiceProvider extends ServiceProvider
         Form::component('bsTextarea', 'components.field', ['name', 'parameters' => [], 'type' => 'textarea']);
         Form::component('bsSelect', 'components.field', ['name', 'parameters' => [], 'type' => 'select']);
         Form::component('bsCheckbox', 'components.field', ['name', 'parameters' => [], 'type' => 'checkbox']);
+        Form::component('bsToggle', 'components.field', ['name', 'parameters' => [], 'type' => 'toggle']);
         Form::component('bsChoices', 'components.field', ['name', 'parameters' => [], 'type' => 'choices']);
         Form::component('bsFile', 'components.field', ['name', 'parameters' => [], 'type' => 'file']);
         Form::component('bsImage', 'components.field', ['name', 'parameters' => [], 'type' => 'image']);

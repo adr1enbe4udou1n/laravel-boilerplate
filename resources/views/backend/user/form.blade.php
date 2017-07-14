@@ -14,9 +14,10 @@
         'input_group_prefix' => '<i class="fa fa-envelope"></i>',
     ]) }}
 
-    {{ Form::bsCheckbox('active', [
-        'label' => trans('validation.attributes.active'),
-        'field_wrapper_class' => 'offset-lg-3 col-lg-6',
+    {{ Form::bsToggle('active', [
+        'title' => trans('validation.attributes.active'),
+        'label_col_class' => 'col-lg-3',
+        'field_wrapper_class' => 'col-lg-6',
         'checked' => isset($user) ? $user->active : true
     ]) }}
 
