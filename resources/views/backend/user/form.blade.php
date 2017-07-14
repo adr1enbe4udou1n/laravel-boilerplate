@@ -40,6 +40,7 @@
         'multiple' => true,
         'label_col_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-6',
+        'stacked' => true,
         'choices' => $roles,
         'choice_tooltip' => [
             'position' => 'right',

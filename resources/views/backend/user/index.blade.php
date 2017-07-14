@@ -5,10 +5,10 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <div class="pull-right">
-                <a href="{{ route('admin.user.create') }}" class="btn btn-success btn-sm">@lang('buttons.users.create')</a>
+            <div class="pull-right mt-2">
+                <a href="{{ route('admin.user.create') }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> @lang('buttons.users.create')</a>
             </div>
-            <h4>@lang('labels.backend.users.titles.index')</h4>
+            <h4 class="mt-1">@lang('labels.backend.users.titles.index')</h4>
         </div>
         <div class="card-block">
             <table id="dataTableBuilder" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%"></table>

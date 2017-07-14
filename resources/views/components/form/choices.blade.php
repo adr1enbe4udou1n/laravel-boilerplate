@@ -9,7 +9,9 @@
         @php($value = isset($choice_value) ? $choice->$choice_value : $choice->id)
         @php($label = isset($choice_label) ? $choice->$choice_label : $choice->__toString())
     @endif
-    <div class="checkbox">
+    @if(isset($stacked) && $stacked)
+    <div class="custom-controls-stacked">
+    @endif
         @if(isset($choice_tooltip))
             @if(is_string($choice))
                 @php($description = $choice)
@@ -36,5 +38,7 @@
             <span class="custom-control-indicator"></span>
             <span class="custom-control-description">{{ trans($label) }}</span>
         </label>
+    @if(isset($stacked) && $stacked)
     </div>
+    @endif
 @endforeach

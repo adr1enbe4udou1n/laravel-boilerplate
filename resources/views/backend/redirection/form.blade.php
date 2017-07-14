@@ -26,6 +26,7 @@
         'title' => trans('validation.attributes.redirect_type'),
         'label_col_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-9',
+        'stacked' => true,
         'choices' => config('redirections'),
     ]) }}
 </div>

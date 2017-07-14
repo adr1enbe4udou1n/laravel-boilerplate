@@ -36,6 +36,7 @@
                     {{ Form::bsChoices('permissions', [
                         'form_group' => false,
                         'multiple' => true,
+                        'stacked' => true,
                         'choices' => $permissions,
                         'choice_label' => 'display_name',
                         'choice_tooltip' => [
