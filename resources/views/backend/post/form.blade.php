@@ -114,13 +114,15 @@
                         'label_col_class' => 'col-lg-3',
                         'field_wrapper_class' => 'col-lg-7',
                     ]) }}
-                    {{ Form::bsCheckbox('pinned', [
-                        'label' => trans('validation.attributes.pinned'),
-                        'field_wrapper_class' => 'offset-lg-3 col-lg-9',
+                    {{ Form::bsToggle('pinned', [
+                        'title' => trans('validation.attributes.pinned'),
+                        'label_col_class' => 'col-lg-3',
+                        'field_wrapper_class' => 'col-lg-9',
                     ]) }}
-                    {{ Form::bsCheckbox('promoted', [
-                        'label' => trans('validation.attributes.promoted'),
-                        'field_wrapper_class' => 'offset-lg-3 col-lg-9',
+                    {{ Form::bsToggle('promoted', [
+                        'title' => trans('validation.attributes.promoted'),
+                        'label_col_class' => 'col-lg-3',
+                        'field_wrapper_class' => 'col-lg-9',
                     ]) }}
                 </div>
             </div>

@@ -47,6 +47,7 @@
     "resolve-url-loader": "^2.1.0",
     "sass-loader": "^6.0.6",
     "select2": "^4.0.3",
+    "simple-line-icons": "^2.4.1",
     "slick-carousel": "^1.6.0",
     "style-loader": "^0.18.2",
     "sweetalert2": "^6.6.6",

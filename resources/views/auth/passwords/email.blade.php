@@ -24,6 +24,7 @@
                             'title' => trans('validation.attributes.email'),
                             'label_col_class' => 'col-md-4',
                             'field_wrapper_class' => 'col-md-6',
+                            'input_group_prefix' => '<i class="icon-envelope"></i>',
                         ]) }}
 
                         <div class="form-group row">

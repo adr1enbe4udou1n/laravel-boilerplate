@@ -15,7 +15,7 @@ trait HtmlActionsButtons
      */
     public function getShowButtonHtml($route, $parameters)
     {
-        $title = '<i class="fa fa-search" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.view').'"></i>';
+        $title = '<i class="icon-magnifier" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.view').'"></i>';
 
         return link_to(route($route, $parameters), $title, [
             'class' => 'btn btn-sm btn-success',
@@ -30,7 +30,7 @@ trait HtmlActionsButtons
      */
     public function getPreviewButtonHtml($route, $parameters)
     {
-        $title = '<i class="fa fa-eye" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.preview').'"></i>';
+        $title = '<i class="icon-eye" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.preview').'"></i>';
 
         return link_to(route($route, $parameters), $title, [
                 'class' => 'btn btn-sm btn-success',
@@ -46,7 +46,7 @@ trait HtmlActionsButtons
      */
     public function getEditButtonHtml($route, $parameters)
     {
-        $title = '<i class="fa fa-pencil" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.edit').'"></i>';
+        $title = '<i class="icon-pencil" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.edit').'"></i>';
 
         return link_to(route($route, $parameters), $title, [
             'class' => 'btn btn-sm btn-primary',
@@ -61,7 +61,7 @@ trait HtmlActionsButtons
      */
     public function getDeleteButtonHtml($route, $parameters)
     {
-        $title = '<i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.delete').'"></i>';
+        $title = '<i class="icon-trash" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.delete').'"></i>';
 
         return link_to(route($route, $parameters), $title, [
             'data-toggle' => 'delete-row',

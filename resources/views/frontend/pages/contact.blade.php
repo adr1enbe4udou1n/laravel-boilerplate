@@ -39,7 +39,7 @@
                             'required' => true,
                             'type' => 'email',
                             'title' => trans('validation.attributes.email'),
-                            'input_group_prefix' => '<i class="fa fa-envelope"></i>',
+                            'input_group_prefix' => '<i class="icon-envelope"></i>',
                         ]) }}
                     </div>
                     <div class="col-sm-6">

@@ -26,8 +26,8 @@
                     <strong>Settings</strong>
                 </div>
 
-                <a class="dropdown-item" href="{{ route('user.account') }}"><i class="fa fa-user"></i> @lang('labels.user.profile')</a>
-                <a class="dropdown-item" href="{{ route('logout') }}"><i class="fa fa-lock"></i> @lang('labels.user.logout')</a>
+                <a class="dropdown-item" href="{{ route('user.account') }}"><i class="icon-user"></i> @lang('labels.user.profile')</a>
+                <a class="dropdown-item" href="{{ route('logout') }}"><i class="icon-logout"></i> @lang('labels.user.logout')</a>
             </div>
         </li>
         @endif

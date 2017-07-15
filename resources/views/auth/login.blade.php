@@ -17,7 +17,7 @@
                             'type' => 'email',
                             'label_col_class' => 'col-sm-4',
                             'field_wrapper_class' => 'col-sm-6',
-                            'input_group_prefix' => '<i class="fa fa-envelope"></i>',
+                            'input_group_prefix' => '<i class="icon-user"></i>',
                         ]) }}
 
                         {{ Form::bsPassword('password', [
@@ -25,7 +25,7 @@
                             'title' => trans('validation.attributes.password'),
                             'label_col_class' => 'col-sm-4',
                             'field_wrapper_class' => 'col-sm-6',
-                            'input_group_prefix' => '<i class="fa fa-key"></i>',
+                            'input_group_prefix' => '<i class="icon-lock"></i>',
                         ]) }}
 
                         @if($is_locked)

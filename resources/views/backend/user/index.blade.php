@@ -94,7 +94,7 @@
                 data: 'actions',
                 name: 'actions',
                 orderable: false,
-                width: 100,
+                width: 110,
             }],
             select: {style: 'os'},
             order: [[7, 'desc']],

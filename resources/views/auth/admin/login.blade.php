@@ -7,7 +7,7 @@
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card-group mb-0">
-                    <div class="card p-4">
+                    <div class="card p-2">
                         <div class="card-block">
                             <h1 class="mb-4">@lang('labels.user.login')</h1>
 
@@ -18,13 +18,13 @@
                                     'required' => true,
                                     'type' => 'email',
                                     'placeholder' => trans('validation.attributes.email'),
-                                    'input_group_prefix' => '<i class="fa fa-envelope"></i>',
+                                    'input_group_prefix' => '<i class="icon-user"></i>',
                                 ]) }}
 
                                 {{ Form::bsPassword('password', [
                                     'required' => true,
                                     'placeholder' => trans('validation.attributes.password'),
-                                    'input_group_prefix' => '<i class="fa fa-lock"></i>',
+                                    'input_group_prefix' => '<i class="icon-lock"></i>',
                                 ]) }}
 
                                 @if($is_locked)
@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-4">
-                                        <button type="submit" class="btn btn-primary">@lang('labels.user.login')</button>
+                                        <button type="submit" class="btn btn-primary"><i class="icon-login"></i> @lang('labels.user.login')</button>
                                     </div>
                                     <div class="col-8 text-right">
                                         <a class="btn btn-link" href="{{ route('admin.password.request') }}">
