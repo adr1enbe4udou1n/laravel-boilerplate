@@ -239,7 +239,6 @@ module.exports = {
                 files: [
                     'app/**/*.php',
                     'resources/views/**/*.php',
-                    'public/js/**/*.js',
                     'public/css/**/*.css'
                 ]
             },
