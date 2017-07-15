@@ -11,7 +11,7 @@
         'title' => trans('validation.attributes.email'),
         'label_col_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-6',
-        'input_group_prefix' => '<i class="fa fa-envelope"></i>',
+        'input_group_prefix' => '<i class="icon-envelope"></i>',
     ]) }}
 
     {{ Form::bsToggle('active', [
@@ -32,7 +32,6 @@
         'title' => trans('validation.attributes.password_confirmation'),
         'label_col_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-6',
-        'input_group_prefix' => '<i class="fa fa-key"></i>',
     ]) }}
 
     {{ Form::bsChoices('roles', [

@@ -6,7 +6,7 @@
     <div class="card">
         <div class="card-header">
             <div class="pull-right mt-2">
-                <a href="{{ route('admin.form_setting.create') }}" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> @lang('buttons.form_settings.create')</a>
+                <a href="{{ route('admin.form_setting.create') }}" class="btn btn-success btn-sm"><i class="icon-plus"></i> @lang('buttons.form_settings.create')</a>
             </div>
             <h4 class="mt-1">@lang('labels.backend.form_settings.titles.index')</h4>
         </div>

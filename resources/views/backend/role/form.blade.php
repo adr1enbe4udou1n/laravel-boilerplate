@@ -3,13 +3,13 @@
         'required' => true,
         'title' => trans('validation.attributes.name'),
         'label_col_class' => 'col-lg-2',
-        'field_wrapper_class' => 'col-lg-10',
+        'field_wrapper_class' => 'col-lg-4',
     ]) }}
 
     {{ Form::bsText('display_name', [
         'title' => trans('validation.attributes.display_name'),
         'label_col_class' => 'col-lg-2',
-        'field_wrapper_class' => 'col-lg-10',
+        'field_wrapper_class' => 'col-lg-4',
     ]) }}
 
     {{ Form::bsText('description', [
@@ -22,7 +22,7 @@
         'type' => 'number',
         'title' => trans('validation.attributes.order'),
         'label_col_class' => 'col-lg-2',
-        'field_wrapper_class' => 'col-lg-10'
+        'field_wrapper_class' => 'col-lg-2'
     ]) }}
 
     <div class="form-group row">
