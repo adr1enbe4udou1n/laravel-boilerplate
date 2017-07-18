@@ -58,11 +58,8 @@ class Handler extends ExceptionHandler
          * All instances of GeneralException redirect back with a flash message to show a bootstrap alert-error
          */
         if ($exception instanceof GeneralException) {
-            if ($request->wantsJson()) {
-                return response()->json([
-                  'status' => 'error',
-                  'message' => $exception->getMessage(),
-                ]);
+            if ($request->expectsJson()) {
+                return response()->json(['error' => $exception->getMessage()], 422);
             }
 
             return redirect()->back()->withInput()->withFlashError($exception->getMessage());

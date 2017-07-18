@@ -24,10 +24,10 @@ class BackendController extends Controller
     protected function RedirectResponse(Request $request, $message, $type = 'success')
     {
         if ($request->wantsJson()) {
-            return [
+            return response()->json([
               'status' => $type,
               'message' => $message,
-            ];
+            ]);
         }
 
         return redirect()->back()->with("flash_{$type}", $message);

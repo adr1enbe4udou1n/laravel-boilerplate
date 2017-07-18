@@ -60,17 +60,6 @@ window.swal = require('sweetalert2');
     }
 
     /**
-     * This closes the popover when its clicked away from
-     */
-    $('body').on('click', function (e) {
-        $('[data-toggle="popover"]').each(function () {
-            if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
-                $(this).popover('hide');
-            }
-        });
-    });
-
-    /**
      * Datatable config
      */
     if ($.fn.dataTable) {
@@ -155,15 +144,16 @@ window.swal = require('sweetalert2');
                 let dataTable = $(this).closest('table').DataTable();
 
                 confirmSwal(this, function () {
-                    $.ajax({
-                        method: 'DELETE',
-                        url: url,
-                        dataType: 'json'
-                    }).done(function(data) {
-                        // Reload Datatables and keep current pager
-                        toastr[data.status](data.message);
-                        dataTable.ajax.reload(null, false);
-                    });
+                    axios.delete(url)
+                        .then(function (response) {
+                            // Reload Datatables and keep current pager
+                            dataTable.ajax.reload(null, false);
+                            toastr[response.data.status](response.data.message);
+                        })
+                        .catch(function (error) {
+                            toastr.error(error.response.data.error);
+                        }
+                    );
                 });
             });
         });
@@ -188,18 +178,15 @@ window.swal = require('sweetalert2');
             let dataTableId = $(this).data('target');
             let dataTable = $(dataTableId).DataTable();
 
-            $.ajax({
-                method: 'POST',
-                url: $(this).attr('action'),
-                dataType: 'json',
-                data: {
-                    action: $(this).find('[name="action"]').val(),
-                    ids: dataTable.rows({selected: true}).ids().toArray()
-                }
-            }).done(function(data) {
+            axios.post($(this).attr('action'), {
+                action: $(this).find('[name="action"]').val(),
+                ids: dataTable.rows({selected: true}).ids().toArray()
+            }).then(function (response) {
                 // Reload Datatables and keep current pager
-                toastr[data.status](data.message);
                 dataTable.ajax.reload(null, false);
+                toastr[response.data.status](response.data.message);
+            }).catch(function (error) {
+                toastr.error(error.response.data.error);
             });
         });
 
