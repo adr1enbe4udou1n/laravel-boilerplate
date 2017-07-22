@@ -1,32 +1,52 @@
 <div class="card-block">
+    @component('components.fieldset', [
+        'name' => 'name',
+        'title' => trans('validation.attributes.name'),
+        'horizontal' => true,
+        'label_cols' => 2
+    ])
     {{ Form::bsInput('name', [
         'required' => true,
-        'title' => trans('validation.attributes.name'),
-        'label_col_class' => 'col-lg-2',
-        'field_wrapper_class' => 'col-lg-4',
+        'placeholder' => trans('validation.attributes.name'),
     ]) }}
+    @endcomponent
 
-    {{ Form::bsInput('display_name', [
+    @component('components.fieldset', [
+        'name' => 'display_name',
         'title' => trans('validation.attributes.display_name'),
-        'label_col_class' => 'col-lg-2',
-        'field_wrapper_class' => 'col-lg-4',
+        'horizontal' => true,
+        'label_cols' => 2
+    ])
+    {{ Form::bsInput('display_name', [
+        'placeholder' => trans('validation.attributes.display_name'),
     ]) }}
+    @endcomponent
 
-    {{ Form::bsInput('description', [
+    @component('components.fieldset', [
+        'name' => 'description',
         'title' => trans('validation.attributes.description'),
-        'label_col_class' => 'col-lg-2',
-        'field_wrapper_class' => 'col-lg-10'
+        'horizontal' => true,
+        'label_cols' => 2
+    ])
+    {{ Form::bsInput('description', [
+        'placeholder' => trans('validation.attributes.description'),
     ]) }}
+    @endcomponent
 
+    @component('components.fieldset', [
+        'name' => 'order',
+        'title' => trans('validation.attributes.order'),
+        'horizontal' => true,
+        'label_cols' => 2
+    ])
     {{ Form::bsInput('order', [
         'type' => 'number',
-        'title' => trans('validation.attributes.order'),
-        'label_col_class' => 'col-lg-2',
-        'field_wrapper_class' => 'col-lg-2'
+        'placeholder' => trans('validation.attributes.order'),
     ]) }}
+    @endcomponent
 
     <div class="form-group row">
-        {{ Form::label('permissions', trans('validation.attributes.permissions'), ['class' =>  'col-lg-2 text-right col-form-label']) }}
+        {{ Form::label('permissions', trans('validation.attributes.permissions'), ['class' =>  'col-lg-2 col-form-label']) }}
         <div class="col-lg-10">
         @foreach($permissions->chunk(4) as $chunk)
             <div class="row">
@@ -34,7 +54,6 @@
                 <div class="col-md-3">
                     <h4>@lang($category)</h4>
                     {{ Form::bsChoices('permissions', [
-                        'form_group' => false,
                         'multiple' => true,
                         'stacked' => true,
                         'choices' => $permissions,

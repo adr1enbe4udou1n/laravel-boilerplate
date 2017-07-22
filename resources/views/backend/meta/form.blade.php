@@ -1,5 +1,5 @@
 <div class="card-block">
-    @if (isset($meta) && $meta->metable_type)
+    @if(isset($meta) && $meta->metable_type)
         <div class="form-group">
             <label class="control-label col-lg-3">@lang('validation.attributes.metable_type')</label>
             <div class="col-lg-9">
@@ -13,29 +13,43 @@
             @php($route_list = isset($meta) && $meta->route ? [$meta->route => trans('routes.' . $meta->route)] : [])
         @endif
 
+        @component('components.fieldset', [
+            'name' => 'route',
+            'title' => trans('validation.attributes.route'),
+            'horizontal' => true,
+            'label_cols' => 3
+        ])
         {{ Form::bsSelect('route', [
             'type' => 'autocomplete',
-            'title' => trans('validation.attributes.route'),
             'placeholder' => trans('labels.placeholders.route'),
-            'label_col_class' => 'col-lg-3',
-            'field_wrapper_class' => 'col-lg-9',
             'options' => $route_list,
             'ajax_url' => route('admin.routes.search'),
             'minimum_input_length' => 2,
             'item_value' => 'name',
             'item_label' => 'uri',
         ]) }}
+        @endcomponent
     @endif
 
-    {{ Form::bsInput('title', [
+    @component('components.fieldset', [
+        'name' => 'title',
         'title' => trans('validation.attributes.title'),
-        'label_col_class' => 'col-lg-3',
-        'field_wrapper_class' => 'col-lg-9',
+        'horizontal' => true,
+        'label_cols' => 3
+    ])
+    {{ Form::bsInput('title', [
+        'placeholder' => trans('validation.attributes.title'),
     ]) }}
+    @endcomponent
 
-    {{ Form::bsTextarea('description', [
+    @component('components.fieldset', [
+        'name' => 'description',
         'title' => trans('validation.attributes.description'),
-        'label_col_class' => 'col-lg-3',
-        'field_wrapper_class' => 'col-lg-9',
+        'horizontal' => true,
+        'label_cols' => 3
+    ])
+    {{ Form::bsTextarea('description', [
+        'placeholder' => trans('validation.attributes.description'),
     ]) }}
+    @endcomponent
 </div>

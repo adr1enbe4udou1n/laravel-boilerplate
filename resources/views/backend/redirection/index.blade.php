@@ -14,15 +14,13 @@
 
                     {{ Form::bsFile('import', [
                         'required' => true,
-                        'title' => trans('labels.backend.redirections.import.title'),
-                        'form_group' => false,
                         'tooltip' => [
                             'position' => 'bottom',
                             'title' => trans('labels.backend.redirections.import.description'),
                         ],
                     ]) }}
 
-                    {{ Form::submit(trans('buttons.redirections.import'), ['class' => 'btn btn-warning btn-md']) }}
+                    {{ Form::submit(trans('buttons.redirections.import'), ['class' => 'btn btn-warning btn-md ml-1']) }}
                     {{ Form::close() }}
                 </div>
             </div>

@@ -4,31 +4,45 @@
             <h4>{{ $title }}</h4>
         </div>
         <div class="card-block">
-            {{ Form::bsInput('title', [
-                'required' => true,
+            @component('components.fieldset', [
+                'name' => 'title',
                 'title' => trans('validation.attributes.title'),
-                'label_col_class' => 'col-lg-2',
-                'field_wrapper_class' => 'col-lg-10',
-            ]) }}
+                'horizontal' => true,
+                'label_cols' => 2
+            ])
+                {{ Form::bsInput('title', [
+                    'required' => true,
+                    'placeholder' => trans('validation.attributes.title'),
+                ]) }}
+            @endcomponent
 
-            {{ Form::bsTextarea('summary', [
+            @component('components.fieldset', [
+                'name' => 'summary',
                 'title' => trans('validation.attributes.summary'),
-                'label_col_class' => 'col-lg-2',
-                'field_wrapper_class' => 'col-lg-10',
+                'horizontal' => true,
+                'label_cols' => 2
+            ])
+            {{ Form::bsTextarea('summary', [
+                'placeholder' => trans('validation.attributes.summary'),
                 'attributes' => [
                     'rows' => 5
                 ],
             ]) }}
+            @endcomponent
 
-            {{ Form::bsTextarea('body', [
+            @component('components.fieldset', [
+                'name' => 'body',
                 'title' => trans('validation.attributes.body'),
+                'horizontal' => true,
+                'label_cols' => 2
+            ])
+            {{ Form::bsTextarea('body', [
                 'placeholder' => trans('labels.backend.posts.placeholders.body'),
-                'label_col_class' => 'col-lg-2',
-                'field_wrapper_class' => 'col-lg-10',
                 'editor' => [
                     'upload_url' => route('admin.images.upload'),
                 ]
             ]) }}
+            @endcomponent
 
             @if(old('tags'))
                 @php($tags = old('tags'))
@@ -36,27 +50,35 @@
                 @php($tags = isset($post) ? $post->tags->pluck('name', 'id') : old('tags'))
             @endif
 
+            @component('components.fieldset', [
+                'name' => 'tags[]',
+                'title' => trans('validation.attributes.tags'),
+                'horizontal' => true,
+                'label_cols' => 2
+            ])
             {{ Form::bsSelect('tags[]', [
                 'type' => 'autocomplete',
                 'multiple' => true,
                 'tags' => true,
-                'title' => trans('validation.attributes.tags'),
                 'placeholder' => trans('labels.placeholders.tags'),
-                'label_col_class' => 'col-lg-2',
-                'field_wrapper_class' => 'col-lg-10',
                 'options' => isset($tags) ? $tags : [],
                 'ajax_url' => route('admin.tags.search'),
                 'minimum_input_length' => 2,
                 'item_value' => 'id',
                 'item_label' => 'name',
             ]) }}
+            @endcomponent
 
-            {{ Form::bsImage('featured_image', [
+            @component('components.fieldset', [
+                'name' => 'featured_image',
                 'title' => trans('validation.attributes.image'),
-                'label_col_class' => 'col-lg-2',
-                'field_wrapper_class' => 'col-lg-10',
+                'horizontal' => true,
+                'label_cols' => 2
+            ])
+            {{ Form::bsImage('featured_image', [
                 'url' => isset($post) ? $post->featured_image_url : null
             ]) }}
+            @endcomponent
         </div>
 
         <div class="card-footer">
@@ -107,23 +129,33 @@
                         </div>
                     </div>
                     @endisset
+                    @component('components.fieldset', [
+                        'name' => 'published_at',
+                        'title' => trans('validation.attributes.publish_at'),
+                        'horizontal' => true,
+                        'label_cols' => 3
+                    ])
                     {{ Form::bsDatetime('published_at', [
                         'required' => true,
                         'value' => isset($post) ? null : \Carbon\Carbon::now(),
-                        'title' => trans('validation.attributes.publish_at'),
-                        'label_col_class' => 'col-lg-3',
-                        'field_wrapper_class' => 'col-lg-7',
                     ]) }}
-                    {{ Form::bsToggle('pinned', [
+                    @endcomponent
+                    @component('components.fieldset', [
+                        'name' => 'pinned',
                         'title' => trans('validation.attributes.pinned'),
-                        'label_col_class' => 'col-lg-3',
-                        'field_wrapper_class' => 'col-lg-9',
-                    ]) }}
-                    {{ Form::bsToggle('promoted', [
+                        'horizontal' => true,
+                        'label_cols' => 3
+                    ])
+                    {{ Form::bsToggle('pinned') }}
+                    @endcomponent
+                    @component('components.fieldset', [
+                        'name' => 'promoted',
                         'title' => trans('validation.attributes.promoted'),
-                        'label_col_class' => 'col-lg-3',
-                        'field_wrapper_class' => 'col-lg-9',
-                    ]) }}
+                        'horizontal' => true,
+                        'label_cols' => 3
+                    ])
+                    {{ Form::bsToggle('promoted') }}
+                    @endcomponent
                 </div>
             </div>
         </div>
@@ -137,21 +169,29 @@
             </div>
             <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
                 <div class="card-block">
-                    {{ Form::bsInput('meta[title]', [
+                    @component('components.fieldset', [
+                        'name' => 'meta[title]',
                         'title' => trans('validation.attributes.title'),
+                        'horizontal' => true,
+                        'label_cols' => 2
+                    ])
+                    {{ Form::bsInput('meta[title]', [
                         'description' => trans('labels.backend.posts.descriptions.meta_title'),
                         'placeholder' => trans('labels.backend.posts.placeholders.meta_title'),
-                        'label_col_class' => 'col-lg-2',
-                        'field_wrapper_class' => 'col-lg-10',
                     ]) }}
+                    @endcomponent
 
-                    {{ Form::bsTextarea('meta[description]', [
+                    @component('components.fieldset', [
+                        'name' => 'meta[description]',
                         'title' => trans('validation.attributes.description'),
+                        'horizontal' => true,
+                        'label_cols' => 2
+                    ])
+                    {{ Form::bsTextarea('meta[description]', [
                         'description' => trans('labels.backend.posts.descriptions.meta_description'),
                         'placeholder' => trans('labels.backend.posts.placeholders.meta_description'),
-                        'label_col_class' => 'col-lg-2',
-                        'field_wrapper_class' => 'col-lg-10',
                     ]) }}
+                    @endcomponent
                 </div>
             </div>
         </div>

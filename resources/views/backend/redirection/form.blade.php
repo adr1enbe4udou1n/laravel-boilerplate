@@ -1,32 +1,50 @@
 <div class="card-block">
 
+    @component('components.fieldset', [
+        'name' => 'source',
+        'title' => trans('validation.attributes.source_path'),
+        'horizontal' => true,
+        'label_cols' => 3
+    ])
     {{ Form::bsInput('source', [
         'required' => true,
-        'title' => trans('validation.attributes.source_path'),
-        'label_col_class' => 'col-lg-3',
-        'field_wrapper_class' => 'col-lg-9',
+        'placeholder' => trans('validation.attributes.source_path'),
     ]) }}
+    @endcomponent
 
-    {{ Form::bsToggle('active', [
+    @component('components.fieldset', [
+        'name' => 'active',
         'title' => trans('validation.attributes.active'),
-        'label_col_class' => 'col-lg-3',
-        'field_wrapper_class' => 'col-lg-9',
+        'horizontal' => true,
+        'label_cols' => 3
+    ])
+    {{ Form::bsToggle('active', [
         'checked' => isset($redirection) ? $redirection->active : true
     ]) }}
+    @endcomponent
 
+    @component('components.fieldset', [
+        'name' => 'target',
+        'title' => trans('validation.attributes.target_path'),
+        'horizontal' => true,
+        'label_cols' => 3
+    ])
     {{ Form::bsInput('target', [
         'required' => true,
-        'title' => trans('validation.attributes.target_path'),
-        'label_col_class' => 'col-lg-3',
-        'field_wrapper_class' => 'col-lg-9',
+        'placeholder' => trans('validation.attributes.target_path'),
     ]) }}
+    @endcomponent
 
+    @component('components.fieldset', [
+        'name' => 'type',
+        'title' => trans('validation.attributes.redirect_type'),
+        'horizontal' => true,
+        'label_cols' => 3
+    ])
     {{ Form::bsChoices('type', [
         'required' => true,
-        'title' => trans('validation.attributes.redirect_type'),
-        'label_col_class' => 'col-lg-3',
-        'field_wrapper_class' => 'col-lg-9',
         'stacked' => true,
         'choices' => config('redirections'),
     ]) }}
+    @endcomponent
 </div>

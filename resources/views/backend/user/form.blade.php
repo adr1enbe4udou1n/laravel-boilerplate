@@ -1,46 +1,76 @@
 <div class="card-block">
+    @component('components.fieldset', [
+        'name' => 'name',
+        'title' => trans('validation.attributes.name'),
+        'horizontal' => true,
+        'label_cols' => 3
+    ])
     {{ Form::bsInput('name', [
         'required' => true,
-        'title' => trans('validation.attributes.name'),
-        'label_col_class' => 'col-lg-3',
-        'field_wrapper_class' => 'col-lg-6',
+        'placeholder' => trans('validation.attributes.name'),
     ]) }}
+    @endcomponent
 
+    @component('components.fieldset', [
+        'name' => 'email',
+        'title' => trans('validation.attributes.email'),
+        'horizontal' => true,
+        'label_cols' => 3
+    ])
+    @component('components.input-group', [
+        'left' => '<i class="icon-envelope"></i>'
+    ])
     {{ Form::bsInput('email', [
         'required' => true,
-        'title' => trans('validation.attributes.email'),
-        'label_col_class' => 'col-lg-3',
-        'field_wrapper_class' => 'col-lg-6',
-        'input_group_prefix' => '<i class="icon-envelope"></i>',
+        'placeholder' => trans('validation.attributes.email'),
     ]) }}
+    @endcomponent
+    @endcomponent
 
-    {{ Form::bsToggle('active', [
+    @component('components.fieldset', [
+        'name' => 'active',
         'title' => trans('validation.attributes.active'),
-        'label_col_class' => 'col-lg-3',
-        'field_wrapper_class' => 'col-lg-6',
+        'horizontal' => true,
+        'label_cols' => 3
+    ])
+    {{ Form::bsToggle('active', [
         'checked' => isset($user) ? $user->active : true
     ]) }}
+    @endcomponent
 
-    {{ Form::bsInput('password', [
+    @component('components.fieldset', [
+        'name' => 'password',
         'title' => trans('validation.attributes.password'),
+        'horizontal' => true,
+        'label_cols' => 3
+    ])
+    {{ Form::bsInput('password', [
+        'placeholder' => trans('validation.attributes.password'),
         'type' => 'password',
         'strength_meter' => true,
-        'label_col_class' => 'col-lg-3',
-        'field_wrapper_class' => 'col-lg-6',
     ]) }}
+    @endcomponent
 
-    {{ Form::bsInput('password_confirmation', [
+    @component('components.fieldset', [
+        'name' => 'password_confirmation',
         'title' => trans('validation.attributes.password_confirmation'),
+        'horizontal' => true,
+        'label_cols' => 3
+    ])
+    {{ Form::bsInput('password_confirmation', [
+        'placeholder' => trans('validation.attributes.password_confirmation'),
         'type' => 'password',
-        'label_col_class' => 'col-lg-3',
-        'field_wrapper_class' => 'col-lg-6',
     ]) }}
+    @endcomponent
 
-    {{ Form::bsChoices('roles', [
+    @component('components.fieldset', [
+        'name' => 'roles',
         'title' => trans('validation.attributes.roles'),
+        'horizontal' => true,
+        'label_cols' => 3
+    ])
+    {{ Form::bsChoices('roles', [
         'multiple' => true,
-        'label_col_class' => 'col-lg-3',
-        'field_wrapper_class' => 'col-lg-6',
         'stacked' => true,
         'choices' => $roles,
         'choice_tooltip' => [
@@ -48,4 +78,5 @@
             'title' => 'description',
         ]
     ]) }}
+    @endcomponent
 </div>
