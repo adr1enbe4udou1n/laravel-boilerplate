@@ -52,13 +52,9 @@
                                     </div>
                                 @endif
                                 <div class="form-group">
-                                    <div class="checkbox">
-                                        <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" name="remember" class="custom-control-input">
-                                            <span class="custom-control-indicator"></span>
-                                            <span class="custom-control-description">@lang('labels.user.remember')</span>
-                                        </label>
-                                    </div>
+                                    <b-form-checkbox name="remember">
+                                        @lang('labels.user.remember')
+                                    </b-form-checkbox>
                                 </div>
                                 <div class="row">
                                     <div class="col-4">

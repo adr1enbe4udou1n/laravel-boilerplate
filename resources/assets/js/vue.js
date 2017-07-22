@@ -27,11 +27,15 @@ Vue.component('panel', Panel);
 import BootstrapVue from 'bootstrap-vue';
 Vue.use(BootstrapVue);
 
+import FormToggle from './components/FormToggle.vue';
+Vue.component('b-form-toggle', FormToggle);
+
 const app = new Vue({
     el: '#app',
     data: {
         iconUser: '<i class="icon-user"></i>',
         iconEnvelope: '<i class="icon-envelope"></i>',
-        iconLock: '<i class="icon-lock"></i>'
+        iconLock: '<i class="icon-lock"></i>',
+        iconCalendar: '<i class="icon-calendar"></i>'
     }
 });

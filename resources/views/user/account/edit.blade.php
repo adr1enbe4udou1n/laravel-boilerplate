@@ -16,7 +16,7 @@
                 name="name"
                 :required="true"
                 placeholder="@lang('validation.attributes.name')"
-                value="{{ $logged_in_user->name }}"
+                value="{{ old('name', $logged_in_user->name) }}"
         ></b-form-input>
     </b-input-group>
 </b-form-fieldset>
@@ -38,7 +38,7 @@
                 type="email"
                 :required="true"
                 placeholder="@lang('validation.attributes.email')"
-                value="{{ $logged_in_user->email }}"
+                value="{{ old('email', $logged_in_user->email) }}"
         ></b-form-input>
     </b-input-group>
 </b-form-fieldset>
@@ -59,7 +59,7 @@
             :required="true"
             placeholder="@lang('validation.attributes.locale')"
             :options="{{ json_encode($locales) }}"
-            value="{{ $logged_in_user->locale }}"
+            value="{{ old('locale', $logged_in_user->locale) }}"
     ></b-form-select>
 </b-form-fieldset>
 
@@ -79,7 +79,7 @@
             :required="true"
             placeholder="@lang('validation.attributes.timezone')"
             :options="{{ json_encode(array_combine(array_values($timezones), $timezones)) }}"
-            value="{{ $logged_in_user->timezone }}"
+            value="{{ old('timezone', $logged_in_user->timezone) }}"
     ></b-form-select>
 </b-form-fieldset>
 

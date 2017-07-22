@@ -10,6 +10,7 @@ use App\Imports\RedirectionListImport;
 use App\Models\Redirection;
 use App\Repositories\Contracts\RedirectionRepository;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
@@ -31,6 +32,15 @@ class RedirectionController extends BackendController
     {
         parent::__construct($view);
         $this->redirections = $redirections;
+
+        $view->composer('*', function (View $view) {
+            $redirections = config('redirections');
+
+            array_walk($redirections, function(&$item) {
+                $item = trans($item);
+            });
+            $view->withRedirectionTypes($redirections);
+        });
     }
 
     /**

@@ -4,81 +4,115 @@
             <h4>{{ $title }}</h4>
         </div>
         <div class="card-block">
-            @component('components.fieldset', [
-                'name' => 'title',
-                'title' => trans('validation.attributes.title'),
-                'horizontal' => true,
-                'label_cols' => 2
-            ])
-                {{ Form::bsInput('title', [
-                    'required' => true,
-                    'placeholder' => trans('validation.attributes.title'),
-                ]) }}
-            @endcomponent
+            <b-form-fieldset
+                    @if($errors->has('title'))
+                    state="danger"
+                    feedback="{{ $errors->first('title') }}"
+                    @endif
+                    label-for="title"
+                    label="@lang('validation.attributes.title')"
+                    :horizontal="true"
+                    :label-cols="2"
+            >
+                <b-form-input
+                        id="title"
+                        name="title"
+                        :required="true"
+                        placeholder="@lang('validation.attributes.title')"
+                        value="{{ old('title', isset($post) ? $post->title : null) }}"
+                ></b-form-input>
+            </b-form-fieldset>
 
-            @component('components.fieldset', [
-                'name' => 'summary',
-                'title' => trans('validation.attributes.summary'),
-                'horizontal' => true,
-                'label_cols' => 2
-            ])
-            {{ Form::bsTextarea('summary', [
-                'placeholder' => trans('validation.attributes.summary'),
-                'attributes' => [
-                    'rows' => 5
-                ],
-            ]) }}
-            @endcomponent
+            <b-form-fieldset
+                    @if($errors->has('summary'))
+                    state="danger"
+                    feedback="{{ $errors->first('summary') }}"
+                    @endif
+                    label-for="summary"
+                    label="@lang('validation.attributes.summary')"
+                    :horizontal="true"
+                    :label-cols="2"
+            >
+                <b-form-input
+                        id="summary"
+                        name="summary"
+                        :textarea="true"
+                        :rows="5"
+                        placeholder="@lang('validation.attributes.summary')"
+                        value="{{ old('summary', isset($post) ? $post->summary : null) }}"
+                ></b-form-input>
+            </b-form-fieldset>
 
-            @component('components.fieldset', [
-                'name' => 'body',
-                'title' => trans('validation.attributes.body'),
-                'horizontal' => true,
-                'label_cols' => 2
-            ])
-            {{ Form::bsTextarea('body', [
-                'placeholder' => trans('labels.backend.posts.placeholders.body'),
-                'editor' => [
-                    'upload_url' => route('admin.images.upload'),
-                ]
-            ]) }}
-            @endcomponent
+            <b-form-fieldset
+                    @if($errors->has('body'))
+                    state="danger"
+                    feedback="{{ $errors->first('body') }}"
+                    @endif
+                    label-for="body"
+                    label="@lang('validation.attributes.body')"
+                    :horizontal="true"
+                    :label-cols="2"
+            >
+                <b-form-input
+                        id="body"
+                        name="body"
+                        :textarea="true"
+                        :rows="5"
+                        value="{{ old('body', isset($post) ? $post->body : null) }}"
+                        data-toggle="editor"
+                        data-upload-url="{{ route('admin.images.upload') }}"
+                ></b-form-input>
+            </b-form-fieldset>
 
-            @if(old('tags'))
-                @php($tags = old('tags'))
-            @else
-                @php($tags = isset($post) ? $post->tags->pluck('name', 'id') : old('tags'))
-            @endif
+            <b-form-fieldset
+                    @if($errors->has('tags'))
+                    state="danger"
+                    feedback="{{ $errors->first('tags') }}"
+                    @endif
+                    label-for="tags"
+                    label="@lang('validation.attributes.tags')"
+                    :horizontal="true"
+                    :label-cols="2"
+            >
+                <b-form-select
+                        id="tags"
+                        name="tags"
+                        :required="true"
+                        :options="{{ json_encode(old('tags', isset($post) ? $post->tags->pluck('name', 'id') : [])) }}"
+                        value="{{ old('tags', isset($post) ? $post->tags : null) }}"
+                        data-toggle="autocomplete"
+                        data-tags="true"
+                        data-placeholder="@lang('labels.placeholders.tags')"
+                        data-ajax-url="{{ route('admin.tags.search') }}"
+                        :data-minimum_input_length="2"
+                        data-item-value="id"
+                        data-item-label="name"
+                ></b-form-select>
+            </b-form-fieldset>
 
-            @component('components.fieldset', [
-                'name' => 'tags[]',
-                'title' => trans('validation.attributes.tags'),
-                'horizontal' => true,
-                'label_cols' => 2
-            ])
-            {{ Form::bsSelect('tags[]', [
-                'type' => 'autocomplete',
-                'multiple' => true,
-                'tags' => true,
-                'placeholder' => trans('labels.placeholders.tags'),
-                'options' => isset($tags) ? $tags : [],
-                'ajax_url' => route('admin.tags.search'),
-                'minimum_input_length' => 2,
-                'item_value' => 'id',
-                'item_label' => 'name',
-            ]) }}
-            @endcomponent
-
-            @component('components.fieldset', [
-                'name' => 'featured_image',
-                'title' => trans('validation.attributes.image'),
-                'horizontal' => true,
-                'label_cols' => 2
-            ])
-            {{ Form::bsImage('featured_image', [
-                'url' => isset($post) ? $post->featured_image_url : null
-            ]) }}
-            @endcomponent
+            <b-form-fieldset
+                    @if($errors->has('featured_image'))
+                    state="danger"
+                    feedback="{{ $errors->first('featured_image') }}"
+                    @endif
+                    label-for="featured_image"
+                    label="@lang('validation.attributes.image')"
+                    :horizontal="true"
+                    :label-cols="2"
+            >
+                <div class="media">
+                    @if(isset($post) && $post->featured_image_url)
+                        <img class="mr-2" src="{{ image_template_url('small', $post->featured_image_url) }}" alt="">
+                    @endif
+                    <div class="media-body">
+                        <h6>@lang('labels.upload_image')</h6>
+                        <input id="featured_image" name="featured_image" type="file" class="form-control">
+                        <p class="form-text text-muted">
+                            @lang('labels.descriptions.allowed_image_types')
+                        </p>
+                    </div>
+                </div>
+            </b-form-fieldset>
         </div>
 
         <div class="card-footer">
@@ -88,7 +122,7 @@
                        class="btn btn-danger btn-sm">@lang('buttons.back')</a>
                 </div>
                 <div class="col-md-6">
-                    {{ Form::hidden('status', 'publish') }}
+                    <input name="status" type="hidden" value="publish">
                     <div class="btn-group pull-right">
                         {{ Form::submit(trans('buttons.posts.save_and_publish'), ['class' => 'btn btn-success btn-sm pull-right']) }}
                         <button type="button" class="btn btn-success btn-sm dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -129,33 +163,56 @@
                         </div>
                     </div>
                     @endisset
-                    @component('components.fieldset', [
-                        'name' => 'published_at',
-                        'title' => trans('validation.attributes.publish_at'),
-                        'horizontal' => true,
-                        'label_cols' => 3
-                    ])
-                    {{ Form::bsDatetime('published_at', [
-                        'required' => true,
-                        'value' => isset($post) ? null : \Carbon\Carbon::now(),
-                    ]) }}
-                    @endcomponent
-                    @component('components.fieldset', [
-                        'name' => 'pinned',
-                        'title' => trans('validation.attributes.pinned'),
-                        'horizontal' => true,
-                        'label_cols' => 3
-                    ])
-                    {{ Form::bsToggle('pinned') }}
-                    @endcomponent
-                    @component('components.fieldset', [
-                        'name' => 'promoted',
-                        'title' => trans('validation.attributes.promoted'),
-                        'horizontal' => true,
-                        'label_cols' => 3
-                    ])
-                    {{ Form::bsToggle('promoted') }}
-                    @endcomponent
+
+                    <b-form-fieldset
+                            label-for="published_at"
+                            label="@lang('validation.attributes.publish_at')"
+                            :horizontal="true"
+                            :label-cols="3"
+                    >
+                        <div data-toggle="datetimepicker" data-date-format="{{ $format ?? 'Y-m-d H:i' }}">
+                            <b-input-group :right="iconCalendar" data-toggle>
+                                <b-form-input
+                                        id="published_at"
+                                        name="published_at"
+                                        :required="true"
+                                        class="text-right"
+                                        value="{{ old('published_at', isset($user) ? $user->published_at : \Carbon\Carbon::now()) }}"
+                                        data-input
+                                ></b-form-input>
+                            </b-input-group>
+                        </div>
+                    </b-form-fieldset>
+
+                    <b-form-fieldset
+                            label-for="pinned"
+                            label="@lang('validation.attributes.pinned')"
+                            :horizontal="true"
+                            :label-cols="3"
+                    >
+                        <input name="pinned" type="hidden" value="0">
+                        <b-form-toggle
+                                id="pinned"
+                                name="pinned"
+                                value="1"
+                                checked="{{ old('pinned', isset($post) ? $post->pinned : null) }}"
+                        ></b-form-toggle>
+                    </b-form-fieldset>
+
+                    <b-form-fieldset
+                            label-for="promoted"
+                            label="@lang('validation.attributes.promoted')"
+                            :horizontal="true"
+                            :label-cols="3"
+                    >
+                        <input name="promoted" type="hidden" value="0">
+                        <b-form-toggle
+                                id="promoted"
+                                name="promoted"
+                                value="1"
+                                checked="{{ old('promoted', isset($post) ? $post->promoted : null) }}"
+                        ></b-form-toggle>
+                    </b-form-fieldset>
                 </div>
             </div>
         </div>
@@ -169,29 +226,45 @@
             </div>
             <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
                 <div class="card-block">
-                    @component('components.fieldset', [
-                        'name' => 'meta[title]',
-                        'title' => trans('validation.attributes.title'),
-                        'horizontal' => true,
-                        'label_cols' => 2
-                    ])
-                    {{ Form::bsInput('meta[title]', [
-                        'description' => trans('labels.backend.posts.descriptions.meta_title'),
-                        'placeholder' => trans('labels.backend.posts.placeholders.meta_title'),
-                    ]) }}
-                    @endcomponent
+                    <b-form-fieldset
+                            @if($errors->has('meta[title]'))
+                            state="danger"
+                            feedback="{{ $errors->first('meta[title]') }}"
+                            @endif
+                            label-for="title"
+                            label="@lang('validation.attributes.title')"
+                            description="@lang('labels.backend.posts.descriptions.meta_title')"
+                            :horizontal="true"
+                            :label-cols="2"
+                    >
+                        <b-form-input
+                                id="title"
+                                name="meta[title]"
+                                placeholder="@lang('labels.backend.posts.placeholders.meta_title')"
+                                value="{{ old('title', isset($post) ? $post->title : null) }}"
+                        ></b-form-input>
+                    </b-form-fieldset>
 
-                    @component('components.fieldset', [
-                        'name' => 'meta[description]',
-                        'title' => trans('validation.attributes.description'),
-                        'horizontal' => true,
-                        'label_cols' => 2
-                    ])
-                    {{ Form::bsTextarea('meta[description]', [
-                        'description' => trans('labels.backend.posts.descriptions.meta_description'),
-                        'placeholder' => trans('labels.backend.posts.placeholders.meta_description'),
-                    ]) }}
-                    @endcomponent
+                    <b-form-fieldset
+                            @if($errors->has('meta[description]'))
+                            state="danger"
+                            feedback="{{ $errors->first('meta[description]') }}"
+                            @endif
+                            label-for="description"
+                            label="@lang('validation.attributes.description')"
+                            description="@lang('labels.backend.posts.descriptions.meta_description')"
+                            :horizontal="true"
+                            :label-cols="2"
+                    >
+                        <b-form-input
+                                id="description"
+                                name="meta[description]"
+                                :textarea="true"
+                                :rows="5"
+                                placeholder="@lang('labels.backend.posts.placeholders.meta_description')"
+                                value="{{ old('description', isset($post) ? $post->description : null) }}"
+                        ></b-form-input>
+                    </b-form-fieldset>
                 </div>
             </div>
         </div>

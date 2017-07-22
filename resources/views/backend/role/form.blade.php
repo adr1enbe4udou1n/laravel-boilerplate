@@ -1,68 +1,99 @@
 <div class="card-block">
-    @component('components.fieldset', [
-        'name' => 'name',
-        'title' => trans('validation.attributes.name'),
-        'horizontal' => true,
-        'label_cols' => 2
-    ])
-    {{ Form::bsInput('name', [
-        'required' => true,
-        'placeholder' => trans('validation.attributes.name'),
-    ]) }}
-    @endcomponent
 
-    @component('components.fieldset', [
-        'name' => 'display_name',
-        'title' => trans('validation.attributes.display_name'),
-        'horizontal' => true,
-        'label_cols' => 2
-    ])
-    {{ Form::bsInput('display_name', [
-        'placeholder' => trans('validation.attributes.display_name'),
-    ]) }}
-    @endcomponent
+    <b-form-fieldset
+            @if($errors->has('name'))
+            state="danger"
+            feedback="{{ $errors->first('name') }}"
+            @endif
+            label-for="name"
+            label="@lang('validation.attributes.name')"
+            :horizontal="true"
+            :label-cols="2"
+    >
+        <b-form-input
+                id="name"
+                name="name"
+                :required="true"
+                placeholder="@lang('validation.attributes.name')"
+                value="{{ old('name', isset($role) ? $role->name : null) }}"
+        ></b-form-input>
+    </b-form-fieldset>
 
-    @component('components.fieldset', [
-        'name' => 'description',
-        'title' => trans('validation.attributes.description'),
-        'horizontal' => true,
-        'label_cols' => 2
-    ])
-    {{ Form::bsInput('description', [
-        'placeholder' => trans('validation.attributes.description'),
-    ]) }}
-    @endcomponent
+    <b-form-fieldset
+            @if($errors->has('display_name'))
+            state="danger"
+            feedback="{{ $errors->first('display_name') }}"
+            @endif
+            label-for="display_name"
+            label="@lang('validation.attributes.display_name')"
+            :horizontal="true"
+            :label-cols="2"
+    >
+        <b-form-input
+                id="display_name"
+                name="display_name"
+                :required="true"
+                placeholder="@lang('validation.attributes.display_name')"
+                value="{{ old('display_name', isset($role) ? $role->display_name : null) }}"
+        ></b-form-input>
+    </b-form-fieldset>
 
-    @component('components.fieldset', [
-        'name' => 'order',
-        'title' => trans('validation.attributes.order'),
-        'horizontal' => true,
-        'label_cols' => 2
-    ])
-    {{ Form::bsInput('order', [
-        'type' => 'number',
-        'placeholder' => trans('validation.attributes.order'),
-    ]) }}
-    @endcomponent
+    <b-form-fieldset
+            @if($errors->has('description'))
+            state="danger"
+            feedback="{{ $errors->first('description') }}"
+            @endif
+            label-for="description"
+            label="@lang('validation.attributes.description')"
+            :horizontal="true"
+            :label-cols="2"
+    >
+        <b-form-input
+                id="description"
+                name="description"
+                placeholder="@lang('validation.attributes.description')"
+                value="{{ old('description', isset($role) ? $role->description : null) }}"
+        ></b-form-input>
+    </b-form-fieldset>
+
+    <b-form-fieldset
+            @if($errors->has('order'))
+            state="danger"
+            feedback="{{ $errors->first('order') }}"
+            @endif
+            label-for="order"
+            label="@lang('validation.attributes.order')"
+            :horizontal="true"
+            :label-cols="2"
+    >
+        <b-form-input
+                id="order"
+                name="order"
+                type="number"
+                :required="true"
+                placeholder="@lang('validation.attributes.order')"
+                value="{{ old('order', isset($role) ? $role->order : null) }}"
+        ></b-form-input>
+    </b-form-fieldset>
 
     <div class="form-group row">
-        {{ Form::label('permissions', trans('validation.attributes.permissions'), ['class' =>  'col-lg-2 col-form-label']) }}
+        <label class="col-lg-2 col-form-label">@lang('validation.attributes.permissions')</label>
         <div class="col-lg-10">
         @foreach($permissions->chunk(4) as $chunk)
             <div class="row">
             @foreach($chunk as $category => $permissions)
                 <div class="col-md-3">
                     <h4>@lang($category)</h4>
-                    {{ Form::bsChoices('permissions', [
-                        'multiple' => true,
-                        'stacked' => true,
-                        'choices' => $permissions,
-                        'choice_label' => 'display_name',
-                        'choice_tooltip' => [
-                            'position' => 'right',
-                            'title' => 'description',
-                        ]
-                    ]) }}
+                    <div class="custom-controls-stacked">
+                        @foreach($permissions as $key => $permission)
+                            <b-form-checkbox
+                                    name="permissions[]"
+                                    :checked="{{ json_encode(old('permissions', isset($role) ? $role->permissions : [])) }}"
+                                    value="{{ $key }}" v-cloak>
+                                @lang($permission['display_name'])
+                            </b-form-checkbox>
+                        @endforeach
+                    </div>
                 </div>
             @endforeach
             </div>

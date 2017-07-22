@@ -28,6 +28,7 @@
                             name="name"
                             :required="true"
                             placeholder="@lang('validation.attributes.name')"
+                            value="{{ old('name') }}"
                     ></b-form-input>
                 </b-form-fieldset>
                 
@@ -45,6 +46,7 @@
                                     id="postal_code"
                                     name="postal_code"
                                     placeholder="@lang('validation.attributes.postal_code')"
+                                    value="{{ old('postal_code') }}"
                             ></b-form-input>
                         </b-form-fieldset>
                     </div>
@@ -61,6 +63,7 @@
                                     id="city"
                                     name="city"
                                     placeholder="@lang('validation.attributes.city')"
+                                    value="{{ old('city') }}"
                             ></b-form-input>
                         </b-form-fieldset>
                     </div>
@@ -83,6 +86,7 @@
                                         type="email"
                                         :required="true"
                                         placeholder="@lang('validation.attributes.email')"
+                                        value="{{ old('email') }}"
                                 ></b-form-input>
                             </b-input-group>
                         </b-form-fieldset>
@@ -101,6 +105,7 @@
                                     name="phone"
                                     type="tel"
                                     placeholder="@lang('validation.attributes.phone')"
+                                    value="{{ old('phone') }}"
                             ></b-form-input>
                         </b-form-fieldset>
                     </div>
@@ -117,10 +122,11 @@
                     <b-form-input
                             id="message"
                             name="message"
-                            type="textarea"
+                            :textarea="true"
                             :required="true"
                             placeholder="@lang('validation.attributes.message')"
                             :rows="5"
+                            value="{{ old('message') }}"
                     ></b-form-input>
                 </b-form-fieldset>
 

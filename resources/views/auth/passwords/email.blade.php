@@ -35,6 +35,7 @@
                                         type="email"
                                         :required="true"
                                         placeholder="@lang('validation.attributes.email')"
+                                        value="{{ old('email') }}"
                                 ></b-form-input>
                             </b-input-group>
                         </b-form-fieldset>
