@@ -4,7 +4,7 @@
     @endif
     <div class="media-body">
         <h6>@lang('labels.upload_image')</h6>
-        {{ Form::file($name, array_merge(['id' => $name, 'class' => "form-control $field_class"], $attributes)) }}
+        {{ Form::file($name, array_merge(['id' => $name, 'class' => 'form-control'], $attributes)) }}
         <p class="form-text text-muted" v-show="!errors.has('{{ $name }}')">
             @lang('labels.descriptions.allowed_image_types')
         </p>

@@ -1,37 +1,57 @@
 {{ Form::model($logged_in_user, ['route' => 'user.account.update', 'class' => 'form-horizontal', 'method' => 'PATCH']) }}
 
-{{ Form::bsInput('name', [
-    'required' => true,
+@component('components.fieldset', [
+    'name' => 'name',
     'title' => trans('validation.attributes.name'),
-    'label_col_class' => 'col-md-4',
-    'field_wrapper_class' => 'col-md-6',
-]) }}
+    'horizontal' => true,
+    'label_cols' => 4
+])
+    {{ Form::bsInput('name', [
+        'required' => true,
+        'placeholder' => trans('validation.attributes.name'),
+    ]) }}
+@endcomponent
 
-{{ Form::bsInput('email', [
-    'required' => true,
-    'type' => 'email',
+@component('components.fieldset', [
+    'name' => 'email',
     'title' => trans('validation.attributes.email'),
-    'label_col_class' => 'col-md-4',
-    'field_wrapper_class' => 'col-md-6',
-]) }}
+    'horizontal' => true,
+    'label_cols' => 4
+])
+    {{ Form::bsInput('email', [
+        'required' => true,
+        'type' => 'email',
+        'title' => trans('validation.attributes.email'),
+        'label_col_class' => 'col-md-4',
+        'field_wrapper_class' => 'col-md-6',
+    ]) }}
+@endcomponent
 
-{{ Form::bsSelect('locale', [
-    'required' => true,
+@component('components.fieldset', [
+    'name' => 'locale',
     'title' => trans('validation.attributes.locale'),
-    'label_col_class' => 'col-md-4',
-    'field_wrapper_class' => 'col-md-6',
-    'placeholder' => trans('labels.frontend.placeholders.locale'),
-    'options' => $locales,
-]) }}
+    'horizontal' => true,
+    'label_cols' => 4
+])
+    {{ Form::bsSelect('locale', [
+        'required' => true,
+        'placeholder' => trans('labels.frontend.placeholders.locale'),
+        'options' => $locales,
+    ]) }}
+@endcomponent
 
-{{ Form::bsSelect('timezone', [
-    'required' => true,
+@component('components.fieldset', [
+    'name' => 'timezone',
     'title' => trans('validation.attributes.timezone'),
-    'label_col_class' => 'col-md-4',
-    'field_wrapper_class' => 'col-md-6',
-    'placeholder' => trans('labels.frontend.placeholders.timezone'),
-    'options' => array_combine(array_values($timezones), $timezones),
-]) }}
+    'horizontal' => true,
+    'label_cols' => 4
+])
+    {{ Form::bsSelect('timezone', [
+        'required' => true,
+        'placeholder' => trans('labels.frontend.placeholders.timezone'),
+        'options' => array_combine(array_values($timezones), $timezones),
+    ]) }}
+@endcomponent
 
 <div class="form-group row">
     <div class="col-md-6 offset-md-4">

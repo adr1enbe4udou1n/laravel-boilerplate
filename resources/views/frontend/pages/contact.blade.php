@@ -15,48 +15,81 @@
             <form action="{{ route('contact') }}" method="POST">
                 {{ csrf_field() }}
 
-                {{ Form::bsInput('name', [
-                    'required' => true,
+                @component('components.fieldset', [
+                    'name' => 'name',
                     'title' => trans('validation.attributes.name'),
-                ]) }}
+                ])
+                    {{ Form::bsInput('name', [
+                        'required' => true,
+                        'placeholder' => trans('validation.attributes.name'),
+                    ]) }}
+                @endcomponent
 
                 <div class="row">
                     <div class="col-sm-6">
-                        {{ Form::bsInput('postal_code', [
+                        @component('components.fieldset', [
+                            'name' => 'postal_code',
                             'title' => trans('validation.attributes.postal_code'),
-                        ]) }}
+                        ])
+                            {{ Form::bsInput('postal_code', [
+                                'placeholder' => trans('validation.attributes.postal_code'),
+                            ]) }}
+                        @endcomponent
                     </div>
                     <div class="col-sm-6">
-                        {{ Form::bsInput('city', [
+                        @component('components.fieldset', [
+                            'name' => 'city',
                             'title' => trans('validation.attributes.city'),
-                        ]) }}
+                        ])
+                            {{ Form::bsInput('city', [
+                                'placeholder' => trans('validation.attributes.city'),
+                            ]) }}
+                        @endcomponent
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-sm-6">
-                        {{ Form::bsInput('email', [
-                            'required' => true,
-                            'type' => 'email',
+                        @component('components.fieldset', [
+                            'name' => 'email',
                             'title' => trans('validation.attributes.email'),
-                            'input_group_prefix' => '<i class="icon-envelope"></i>',
-                        ]) }}
+                        ])
+                            @component('components.input-group', [
+                                'left' => '<i class="icon-envelope"></i>'
+                            ])
+                                {{ Form::bsInput('email', [
+                                    'required' => true,
+                                    'type' => 'email',
+                                    'placeholder' => trans('validation.attributes.email'),
+                                ]) }}
+                            @endcomponent
+                        @endcomponent
                     </div>
                     <div class="col-sm-6">
-                        {{ Form::bsInput('phone', [
-                            'type' => 'tel',
+                        @component('components.fieldset', [
+                            'name' => 'phone',
                             'title' => trans('validation.attributes.phone'),
-                        ]) }}
+                        ])
+                            {{ Form::bsInput('phone', [
+                                'type' => 'tel',
+                                'placeholder' => trans('validation.attributes.phone'),
+                            ]) }}
+                        @endcomponent
                     </div>
                 </div>
 
-                {{ Form::bsTextarea('message', [
-                    'required' => true,
+                @component('components.fieldset', [
+                    'name' => 'message',
                     'title' => trans('validation.attributes.message'),
-                    'attributes' => [
-                        'rows' => 5
-                    ],
-                ]) }}
+                ])
+                    {{ Form::bsTextarea('message', [
+                        'required' => true,
+                        'placeholder' => trans('validation.attributes.message'),
+                        'attributes' => [
+                            'rows' => 5
+                        ],
+                    ]) }}
+                @endcomponent
 
                 <div class="form-group">
                     {!! Captcha::display() !!}

@@ -4,30 +4,46 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-8 offset-md-2 mt-4">
+        <div class="col-md-12 col-lg-6 offset-lg-3 mt-4">
             <div class="card">
                 <div class="card-header">@lang('labels.user.login')</div>
                 <div class="card-block">
                     <form method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
-                        {{ Form::bsInput('email', [
-                            'required' => true,
+                        @component('components.fieldset', [
+                            'name' => 'email',
                             'title' => trans('validation.attributes.email'),
-                            'type' => 'email',
-                            'label_col_class' => 'col-sm-4',
-                            'field_wrapper_class' => 'col-sm-6',
-                            'input_group_prefix' => '<i class="icon-user"></i>',
-                        ]) }}
+                            'horizontal' => true,
+                            'label_cols' => 4
+                        ])
+                            @component('components.input-group', [
+                                'left' => '<i class="icon-user"></i>'
+                            ])
+                                {{ Form::bsInput('email', [
+                                    'type' => 'email',
+                                    'required' => true,
+                                    'placeholder' => trans('validation.attributes.email'),
+                                ]) }}
+                            @endcomponent
+                        @endcomponent
 
-                        {{ Form::bsInput('password', [
-                            'required' => true,
+                        @component('components.fieldset', [
+                            'name' => 'password',
                             'title' => trans('validation.attributes.password'),
-                            'type' => 'password',
-                            'label_col_class' => 'col-sm-4',
-                            'field_wrapper_class' => 'col-sm-6',
-                            'input_group_prefix' => '<i class="icon-lock"></i>',
-                        ]) }}
+                            'horizontal' => true,
+                            'label_cols' => 4
+                        ])
+                            @component('components.input-group', [
+                                'left' => '<i class="icon-lock"></i>'
+                            ])
+                                {{ Form::bsInput('password', [
+                                    'type' => 'password',
+                                    'required' => true,
+                                    'placeholder' => trans('validation.attributes.password'),
+                                ]) }}
+                            @endcomponent
+                        @endcomponent
 
                         @if($is_locked)
                         <div class="form-group row">
@@ -37,14 +53,17 @@
                         </div>
                         @endif
 
-                        {{ Form::bsCheckbox('remember', [
-                            'label' => trans('labels.user.remember'),
-                            'field_wrapper_class' => 'col-md-6 offset-md-4',
-                        ]) }}
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                                {{ Form::bsCheckbox('remember', [
+                                    'label' => trans('labels.user.remember'),
+                                ]) }}
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button  class="btn btn-primary">
                                     @lang('labels.user.login')
                                 </button>
 

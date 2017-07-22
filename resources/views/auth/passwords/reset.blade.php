@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-8 offset-md-2 mt-4">
+        <div class="col-md-12 col-lg-6 offset-lg-3 mt-4">
             <div class="card">
                 <div class="card-header">@lang('labels.user.password_reset')</div>
 
@@ -20,35 +20,53 @@
 
                         <input type="hidden" name="token" value="{{ $token }}">
 
-                        {{ Form::bsInput('email', [
-                            'required' => true,
-                            'type' => 'email',
+                        @component('components.fieldset', [
+                            'name' => 'email',
                             'title' => trans('validation.attributes.email'),
-                            'label_col_class' => 'col-md-4',
-                            'field_wrapper_class' => 'col-md-6',
-                            'input_group_prefix' => '<i class="icon-envelope"></i>',
-                        ]) }}
+                            'horizontal' => true,
+                            'label_cols' => 4
+                        ])
+                            @component('components.input-group', [
+                                'left' => '<i class="icon-user"></i>'
+                            ])
+                                {{ Form::bsInput('email', [
+                                    'type' => 'email',
+                                    'required' => true,
+                                    'placeholder' => trans('validation.attributes.email'),
+                                ]) }}
+                            @endcomponent
+                        @endcomponent
 
-                        {{ Form::bsInput('password', [
-                            'required' => true,
-                            'title' => trans('validation.attributes.password'),
-                            'type' => 'password',
-                            'strength_meter' => true,
-                            'label_col_class' => 'col-md-4',
-                            'field_wrapper_class' => 'col-md-6',
-                        ]) }}
+                        @component('components.fieldset', [
+                                'name' => 'password',
+                                'title' => trans('validation.attributes.password'),
+                                'horizontal' => true,
+                                'label_cols' => 4
+                            ])
+                            {{ Form::bsInput('password', [
+                                'type' => 'password',
+                                'required' => true,
+                                'placeholder' => trans('validation.attributes.password'),
+                                'strength_meter' => true,
+                            ]) }}
+                        @endcomponent
 
-                        {{ Form::bsInput('password_confirmation', [
-                            'required' => true,
+                        @component('components.fieldset', [
+                            'name' => 'password_confirmation',
                             'title' => trans('validation.attributes.password_confirmation'),
-                            'type' => 'password',
-                            'label_col_class' => 'col-md-4',
-                            'field_wrapper_class' => 'col-md-6',
-                        ]) }}
+                            'horizontal' => true,
+                            'label_cols' => 4
+                        ])
+                            {{ Form::bsInput('password_confirmation', [
+                                'type' => 'password',
+                                'required' => true,
+                                'placeholder' => trans('validation.attributes.password_confirmation'),
+                            ]) }}
+                        @endcomponent
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button  class="btn btn-primary">
                                     @lang('labels.user.password_reset')
                                 </button>
                             </div>

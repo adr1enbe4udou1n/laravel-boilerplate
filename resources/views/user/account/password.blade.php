@@ -1,28 +1,43 @@
 {{ Form::open(['route' => ['user.password.change'], 'class' => 'form-horizontal', 'method' => 'PATCH']) }}
 
-{{ Form::bsInput('old_password', [
+@component('components.fieldset', [
+    'name' => 'old_password',
     'title' => trans('validation.attributes.old_password'),
-    'type' => 'password',
-    'label_col_class' => 'col-md-4',
-    'field_wrapper_class' => 'col-md-6',
-]) }}
+    'horizontal' => true,
+    'label_cols' => 4
+])
+    {{ Form::bsInput('old_password', [
+        'placeholder' => trans('validation.attributes.old_password'),
+        'type' => 'password',
+    ]) }}
+@endcomponent
 
-{{ Form::bsInput('password', [
-    'required' => true,
+@component('components.fieldset', [
+    'name' => 'password',
     'title' => trans('validation.attributes.new_password'),
-    'type' => 'password',
-    'strength_meter' => true,
-    'label_col_class' => 'col-md-4',
-    'field_wrapper_class' => 'col-md-6',
-]) }}
+    'horizontal' => true,
+    'label_cols' => 4
+])
+    {{ Form::bsInput('password', [
+        'required' => true,
+        'placeholder' => trans('validation.attributes.new_password'),
+        'type' => 'password',
+        'strength_meter' => true,
+    ]) }}
+@endcomponent
 
-{{ Form::bsInput('password_confirmation', [
-    'required' => true,
+@component('components.fieldset', [
+    'name' => 'password_confirmation',
     'title' => trans('validation.attributes.new_password_confirmation'),
-    'type' => 'password',
-    'label_col_class' => 'col-md-4',
-    'field_wrapper_class' => 'col-md-6',
-]) }}
+    'horizontal' => true,
+    'label_cols' => 4
+])
+    {{ Form::bsInput('password_confirmation', [
+        'required' => true,
+        'placeholder' => trans('validation.attributes.new_password_confirmation'),
+        'type' => 'password',
+    ]) }}
+@endcomponent
 
 <div class="form-group row">
     <div class="col-md-6 offset-md-4">

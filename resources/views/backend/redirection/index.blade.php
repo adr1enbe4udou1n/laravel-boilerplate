@@ -20,8 +20,6 @@
                             'position' => 'bottom',
                             'title' => trans('labels.backend.redirections.import.description'),
                         ],
-                        'label_class' => 'mr-1',
-                        'field_class' => 'mr-1'
                     ]) }}
 
                     {{ Form::submit(trans('buttons.redirections.import'), ['class' => 'btn btn-warning btn-md']) }}

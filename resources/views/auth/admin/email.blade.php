@@ -15,16 +15,22 @@
                             <form action="{{ route('login') }}" method="post">
                                 {{ csrf_field() }}
 
-                                {{ Form::bsInput('email', [
-                                    'required' => true,
-                                    'type' => 'email',
-                                    'placeholder' => trans('validation.attributes.email'),
-                                    'input_group_prefix' => '<i class="icon-envelope"></i>',
-                                ]) }}
+                                @component('components.fieldset', [
+                                    'name' => 'email',
+                                ])
+                                    @component('components.input-group', [
+                                        'left' => '<i class="icon-user"></i>'
+                                    ])
+                                        {{ Form::bsInput('email', [
+                                            'type' => 'email',
+                                            'required' => true,
+                                            'placeholder' => trans('validation.attributes.email'),
+                                        ]) }}
+                                    @endcomponent
+                                @endcomponent
 
                                 <div class="form-group">
-                                    <button type="submit"
-                                            class="btn btn-primary btn-block btn-flat">@lang('labels.user.send_password_link')</button>
+                                    <button class="btn btn-primary btn-block btn-flat">@lang('labels.user.send_password_link')</button>
                                 </div>
                             </form>
                         </div>

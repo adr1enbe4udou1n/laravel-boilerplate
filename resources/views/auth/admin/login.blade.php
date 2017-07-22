@@ -14,19 +14,33 @@
                             <form action="{{ route('login') }}" method="post">
                                 {{ csrf_field() }}
 
-                                {{ Form::bsInput('email', [
-                                    'required' => true,
-                                    'type' => 'email',
-                                    'placeholder' => trans('validation.attributes.email'),
-                                    'input_group_prefix' => '<i class="icon-user"></i>',
-                                ]) }}
+                                @component('components.fieldset', [
+                                    'name' => 'email',
+                                ])
+                                    @component('components.input-group', [
+                                        'left' => '<i class="icon-user"></i>'
+                                    ])
+                                        {{ Form::bsInput('email', [
+                                            'type' => 'email',
+                                            'required' => true,
+                                            'placeholder' => trans('validation.attributes.email'),
+                                        ]) }}
+                                    @endcomponent
+                                @endcomponent
 
-                                {{ Form::bsInput('password', [
-                                    'required' => true,
-                                    'placeholder' => trans('validation.attributes.password'),
-                                    'type' => 'password',
-                                    'input_group_prefix' => '<i class="icon-lock"></i>',
-                                ]) }}
+                                @component('components.fieldset', [
+                                    'name' => 'password',
+                                ])
+                                    @component('components.input-group', [
+                                        'left' => '<i class="icon-lock"></i>'
+                                    ])
+                                        {{ Form::bsInput('password', [
+                                            'type' => 'password',
+                                            'required' => true,
+                                            'placeholder' => trans('validation.attributes.password'),
+                                        ]) }}
+                                    @endcomponent
+                                @endcomponent
 
                                 @if($is_locked)
                                     <div class="form-group">
@@ -44,7 +58,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-4">
-                                        <button type="submit" class="btn btn-primary"><i class="icon-login"></i> @lang('labels.user.login')</button>
+                                        <button  class="btn btn-primary"><i class="icon-login"></i> @lang('labels.user.login')</button>
                                     </div>
                                     <div class="col-8 text-right">
                                         <a class="btn btn-link" href="{{ route('admin.password.request') }}">
