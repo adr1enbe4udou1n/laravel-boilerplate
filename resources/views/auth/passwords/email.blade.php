@@ -18,22 +18,26 @@
                     <form method="POST" action="{{ route('password.email') }}">
                         {{ csrf_field() }}
 
-                        @component('components.fieldset', [
-                            'name' => 'email',
-                            'title' => trans('validation.attributes.email'),
-                            'horizontal' => true,
-                            'label_cols' => 4
-                        ])
-                            @component('components.input-group', [
-                                'left' => '<i class="icon-user"></i>'
-                            ])
-                                {{ Form::bsInput('email', [
-                                    'type' => 'email',
-                                    'required' => true,
-                                    'placeholder' => trans('validation.attributes.email'),
-                                ]) }}
-                            @endcomponent
-                        @endcomponent
+                        <b-form-fieldset
+                                @if($errors->has('email'))
+                                state="danger"
+                                feedback="{{ $errors->first('email') }}"
+                                @endif
+                                label-for="email"
+                                label="@lang('validation.attributes.email')"
+                                :horizontal="true"
+                                :label-cols="4"
+                        >
+                            <b-input-group :left="iconEnvelope">
+                                <b-form-input
+                                        id="email"
+                                        name="email"
+                                        type="email"
+                                        :required="true"
+                                        placeholder="@lang('validation.attributes.email')"
+                                ></b-form-input>
+                            </b-input-group>
+                        </b-form-fieldset>
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">

@@ -11,59 +11,67 @@
                     <form method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
-                        @component('components.fieldset', [
-                            'name' => 'email',
-                            'title' => trans('validation.attributes.email'),
-                            'horizontal' => true,
-                            'label_cols' => 4
-                        ])
-                            @component('components.input-group', [
-                                'left' => '<i class="icon-user"></i>'
-                            ])
-                                {{ Form::bsInput('email', [
-                                    'type' => 'email',
-                                    'required' => true,
-                                    'placeholder' => trans('validation.attributes.email'),
-                                ]) }}
-                            @endcomponent
-                        @endcomponent
+                        <b-form-fieldset
+                                @if($errors->has('email'))
+                                state="danger"
+                                feedback="{{ $errors->first('email') }}"
+                                @endif
+                                label-for="email"
+                                label="@lang('validation.attributes.email')"
+                                :horizontal="true"
+                                :label-cols="4"
+                        >
+                            <b-input-group :left="iconEnvelope">
+                                <b-form-input
+                                        id="email"
+                                        name="email"
+                                        type="email"
+                                        :required="true"
+                                        placeholder="@lang('validation.attributes.email')"
+                                ></b-form-input>
+                            </b-input-group>
+                        </b-form-fieldset>
 
-                        @component('components.fieldset', [
-                            'name' => 'password',
-                            'title' => trans('validation.attributes.password'),
-                            'horizontal' => true,
-                            'label_cols' => 4
-                        ])
-                            @component('components.input-group', [
-                                'left' => '<i class="icon-lock"></i>'
-                            ])
-                                {{ Form::bsInput('password', [
-                                    'type' => 'password',
-                                    'required' => true,
-                                    'placeholder' => trans('validation.attributes.password'),
-                                ]) }}
-                            @endcomponent
-                        @endcomponent
+                        <b-form-fieldset
+                                @if($errors->has('password'))
+                                state="danger"
+                                feedback="{{ $errors->first('password') }}"
+                                @endif
+                                label-for="password"
+                                label="@lang('validation.attributes.password')"
+                                :horizontal="true"
+                                :label-cols="4"
+                        >
+                            <b-input-group :left="iconLock">
+                                <b-form-input
+                                        id="password"
+                                        name="password"
+                                        type="password"
+                                        :required="true"
+                                        placeholder="@lang('validation.attributes.password')"
+                                ></b-form-input>
+                            </b-input-group>
+                        </b-form-fieldset>
 
                         @if($is_locked)
-                        <div class="form-group row">
-                            <div class="col-md-2 col-sm-12 offset-md-4">
-                                {!! Captcha::display() !!}
+                            <div class="form-group row">
+                                <div class="col-md-2 col-sm-12 offset-md-4">
+                                    {!! Captcha::display() !!}
+                                </div>
                             </div>
-                        </div>
                         @endif
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
-                                {{ Form::bsCheckbox('remember', [
-                                    'label' => trans('labels.user.remember'),
-                                ]) }}
+                                <b-form-checkbox name="remember">
+                                    @lang('labels.user.remember')
+                                </b-form-checkbox>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <div class="col-md-8 offset-md-4">
-                                <button  class="btn btn-primary">
+                                <button class="btn btn-primary">
                                     @lang('labels.user.login')
                                 </button>
 

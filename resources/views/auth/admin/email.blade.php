@@ -4,7 +4,7 @@
 
 <!-- Main Content -->
 @section('body')
-    <div class="container">
+    <div id="app" class="container">
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="card-group mb-0">
@@ -15,19 +15,21 @@
                             <form action="{{ route('login') }}" method="post">
                                 {{ csrf_field() }}
 
-                                @component('components.fieldset', [
-                                    'name' => 'email',
-                                ])
-                                    @component('components.input-group', [
-                                        'left' => '<i class="icon-user"></i>'
-                                    ])
-                                        {{ Form::bsInput('email', [
-                                            'type' => 'email',
-                                            'required' => true,
-                                            'placeholder' => trans('validation.attributes.email'),
-                                        ]) }}
-                                    @endcomponent
-                                @endcomponent
+                                <b-form-fieldset
+                                        @if($errors->has('email'))
+                                        state="danger"
+                                        feedback="{{ $errors->first('email') }}"
+                                        @endif
+                                >
+                                    <b-input-group :left="iconEnvelope">
+                                        <b-form-input
+                                                name="email"
+                                                type="email"
+                                                :required="true"
+                                                placeholder="@lang('validation.attributes.email')"
+                                        ></b-form-input>
+                                    </b-input-group>
+                                </b-form-fieldset>
 
                                 <div class="form-group">
                                     <button class="btn btn-primary btn-block btn-flat">@lang('labels.user.send_password_link')</button>

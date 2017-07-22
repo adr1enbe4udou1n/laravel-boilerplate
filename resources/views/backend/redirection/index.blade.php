@@ -12,12 +12,12 @@
                 <div class="card-block">
                     {{ Form::open(['route' => 'admin.redirection.import', 'class' => 'form-inline', 'method' => 'POST', 'files' => true]) }}
 
-                    {{ Form::bsFile('import', [
+                    {{ Form::file('import', [
+                        'class' => 'form-control',
                         'required' => true,
-                        'tooltip' => [
-                            'position' => 'bottom',
-                            'title' => trans('labels.backend.redirections.import.description'),
-                        ],
+                        'data-toggle' => 'tooltip',
+                        'data-placement' => 'bottom',
+                        'title' => trans('labels.backend.redirections.import.description'),
                     ]) }}
 
                     {{ Form::submit(trans('buttons.redirections.import'), ['class' => 'btn btn-warning btn-md ml-1']) }}

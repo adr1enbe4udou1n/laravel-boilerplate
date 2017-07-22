@@ -1,57 +1,87 @@
 {{ Form::model($logged_in_user, ['route' => 'user.account.update', 'class' => 'form-horizontal', 'method' => 'PATCH']) }}
 
-@component('components.fieldset', [
-    'name' => 'name',
-    'title' => trans('validation.attributes.name'),
-    'horizontal' => true,
-    'label_cols' => 4
-])
-    {{ Form::bsInput('name', [
-        'required' => true,
-        'placeholder' => trans('validation.attributes.name'),
-    ]) }}
-@endcomponent
+<b-form-fieldset
+        @if($errors->has('name'))
+        state="danger"
+        feedback="{{ $errors->first('name') }}"
+        @endif
+        label-for="name"
+        label="@lang('validation.attributes.name')"
+        :horizontal="true"
+        :label-cols="4"
+>
+    <b-input-group :left="iconUser">
+        <b-form-input
+                id="name"
+                name="name"
+                :required="true"
+                placeholder="@lang('validation.attributes.name')"
+                value="{{ $logged_in_user->name }}"
+        ></b-form-input>
+    </b-input-group>
+</b-form-fieldset>
 
-@component('components.fieldset', [
-    'name' => 'email',
-    'title' => trans('validation.attributes.email'),
-    'horizontal' => true,
-    'label_cols' => 4
-])
-    {{ Form::bsInput('email', [
-        'required' => true,
-        'type' => 'email',
-        'title' => trans('validation.attributes.email'),
-        'label_col_class' => 'col-md-4',
-        'field_wrapper_class' => 'col-md-6',
-    ]) }}
-@endcomponent
+<b-form-fieldset
+        @if($errors->has('email'))
+        state="danger"
+        feedback="{{ $errors->first('email') }}"
+        @endif
+        label-for="email"
+        label="@lang('validation.attributes.email')"
+        :horizontal="true"
+        :label-cols="4"
+>
+    <b-input-group :left="iconEnvelope">
+        <b-form-input
+                id="email"
+                name="email"
+                type="email"
+                :required="true"
+                placeholder="@lang('validation.attributes.email')"
+                value="{{ $logged_in_user->email }}"
+        ></b-form-input>
+    </b-input-group>
+</b-form-fieldset>
 
-@component('components.fieldset', [
-    'name' => 'locale',
-    'title' => trans('validation.attributes.locale'),
-    'horizontal' => true,
-    'label_cols' => 4
-])
-    {{ Form::bsSelect('locale', [
-        'required' => true,
-        'placeholder' => trans('labels.frontend.placeholders.locale'),
-        'options' => $locales,
-    ]) }}
-@endcomponent
+<b-form-fieldset
+        @if($errors->has('locale'))
+        state="danger"
+        feedback="{{ $errors->first('locale') }}"
+        @endif
+        label-for="locale"
+        label="@lang('validation.attributes.locale')"
+        :horizontal="true"
+        :label-cols="4"
+>
+    <b-form-select
+            id="locale"
+            name="locale"
+            :required="true"
+            placeholder="@lang('validation.attributes.locale')"
+            :options="{{ json_encode($locales) }}"
+            value="{{ $logged_in_user->locale }}"
+    ></b-form-select>
+</b-form-fieldset>
 
-@component('components.fieldset', [
-    'name' => 'timezone',
-    'title' => trans('validation.attributes.timezone'),
-    'horizontal' => true,
-    'label_cols' => 4
-])
-    {{ Form::bsSelect('timezone', [
-        'required' => true,
-        'placeholder' => trans('labels.frontend.placeholders.timezone'),
-        'options' => array_combine(array_values($timezones), $timezones),
-    ]) }}
-@endcomponent
+<b-form-fieldset
+        @if($errors->has('timezone'))
+        state="danger"
+        feedback="{{ $errors->first('timezone') }}"
+        @endif
+        label-for="timezone"
+        label="@lang('validation.attributes.timezone')"
+        :horizontal="true"
+        :label-cols="4"
+>
+    <b-form-select
+            id="timezone"
+            name="timezone"
+            :required="true"
+            placeholder="@lang('validation.attributes.timezone')"
+            :options="{{ json_encode(array_combine(array_values($timezones), $timezones)) }}"
+            value="{{ $logged_in_user->timezone }}"
+    ></b-form-select>
+</b-form-fieldset>
 
 <div class="form-group row">
     <div class="col-md-6 offset-md-4">

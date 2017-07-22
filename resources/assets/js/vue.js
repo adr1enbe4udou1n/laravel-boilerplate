@@ -22,6 +22,16 @@ VeeValidate.Validator.extend('phone', (value, [inputId]) => {
 // Components
 import Panel from './components/Panel.vue';
 Vue.component('panel', Panel);
+
+// Bootstrap
+import BootstrapVue from 'bootstrap-vue';
+Vue.use(BootstrapVue);
+
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+        iconUser: '<i class="icon-user"></i>',
+        iconEnvelope: '<i class="icon-envelope"></i>',
+        iconLock: '<i class="icon-lock"></i>'
+    }
 });
