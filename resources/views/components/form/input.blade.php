@@ -7,7 +7,7 @@
         @if ($type === 'password')
             {{ Form::password($name, array_merge(['id' => $name, 'class' => "form-control $field_class"], $attributes)) }}
         @else
-            {{ Form::$type($name, isset($value) ? $value : null, array_merge(['id' => $name, 'class' => "form-control $field_class"], $attributes)) }}
+            {{ Form::$type($name, $value ?? null, array_merge(['id' => $name, 'class' => "form-control $field_class"], $attributes)) }}
         @endif
         @if (isset($input_group_suffix))
             <span class="input-group-addon">{!! $input_group_suffix !!}</span>

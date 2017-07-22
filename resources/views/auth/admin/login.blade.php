@@ -14,16 +14,17 @@
                             <form action="{{ route('login') }}" method="post">
                                 {{ csrf_field() }}
 
-                                {{ Form::bsText('email', [
+                                {{ Form::bsInput('email', [
                                     'required' => true,
                                     'type' => 'email',
                                     'placeholder' => trans('validation.attributes.email'),
                                     'input_group_prefix' => '<i class="icon-user"></i>',
                                 ]) }}
 
-                                {{ Form::bsPassword('password', [
+                                {{ Form::bsInput('password', [
                                     'required' => true,
                                     'placeholder' => trans('validation.attributes.password'),
+                                    'type' => 'password',
                                     'input_group_prefix' => '<i class="icon-lock"></i>',
                                 ]) }}
 

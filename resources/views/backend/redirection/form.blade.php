@@ -1,6 +1,6 @@
 <div class="card-block">
 
-    {{ Form::bsText('source', [
+    {{ Form::bsInput('source', [
         'required' => true,
         'title' => trans('validation.attributes.source_path'),
         'label_col_class' => 'col-lg-3',
@@ -14,7 +14,7 @@
         'checked' => isset($redirection) ? $redirection->active : true
     ]) }}
 
-    {{ Form::bsText('target', [
+    {{ Form::bsInput('target', [
         'required' => true,
         'title' => trans('validation.attributes.target_path'),
         'label_col_class' => 'col-lg-3',

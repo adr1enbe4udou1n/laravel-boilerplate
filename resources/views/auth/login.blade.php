@@ -8,10 +8,10 @@
             <div class="card">
                 <div class="card-header">@lang('labels.user.login')</div>
                 <div class="card-block">
-                    <form role="form" method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
-                        {{ Form::bsText('email', [
+                        {{ Form::bsInput('email', [
                             'required' => true,
                             'title' => trans('validation.attributes.email'),
                             'type' => 'email',
@@ -20,9 +20,10 @@
                             'input_group_prefix' => '<i class="icon-user"></i>',
                         ]) }}
 
-                        {{ Form::bsPassword('password', [
+                        {{ Form::bsInput('password', [
                             'required' => true,
                             'title' => trans('validation.attributes.password'),
+                            'type' => 'password',
                             'label_col_class' => 'col-sm-4',
                             'field_wrapper_class' => 'col-sm-6',
                             'input_group_prefix' => '<i class="icon-lock"></i>',

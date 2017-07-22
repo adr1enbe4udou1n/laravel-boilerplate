@@ -4,7 +4,7 @@
             <h4>{{ $title }}</h4>
         </div>
         <div class="card-block">
-            {{ Form::bsText('title', [
+            {{ Form::bsInput('title', [
                 'required' => true,
                 'title' => trans('validation.attributes.title'),
                 'label_col_class' => 'col-lg-2',
@@ -137,7 +137,7 @@
             </div>
             <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
                 <div class="card-block">
-                    {{ Form::bsText('meta[title]', [
+                    {{ Form::bsInput('meta[title]', [
                         'title' => trans('validation.attributes.title'),
                         'description' => trans('labels.backend.posts.descriptions.meta_title'),
                         'placeholder' => trans('labels.backend.posts.placeholders.meta_title'),

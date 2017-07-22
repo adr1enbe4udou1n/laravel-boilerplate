@@ -1,22 +1,25 @@
 {{ Form::open(['route' => ['user.password.change'], 'class' => 'form-horizontal', 'method' => 'PATCH']) }}
 
-{{ Form::bsPassword('old_password', [
+{{ Form::bsInput('old_password', [
     'title' => trans('validation.attributes.old_password'),
+    'type' => 'password',
     'label_col_class' => 'col-md-4',
     'field_wrapper_class' => 'col-md-6',
 ]) }}
 
-{{ Form::bsPassword('password', [
+{{ Form::bsInput('password', [
     'required' => true,
     'title' => trans('validation.attributes.new_password'),
+    'type' => 'password',
     'strength_meter' => true,
     'label_col_class' => 'col-md-4',
     'field_wrapper_class' => 'col-md-6',
 ]) }}
 
-{{ Form::bsPassword('password_confirmation', [
+{{ Form::bsInput('password_confirmation', [
     'required' => true,
     'title' => trans('validation.attributes.new_password_confirmation'),
+    'type' => 'password',
     'label_col_class' => 'col-md-4',
     'field_wrapper_class' => 'col-md-6',
 ]) }}

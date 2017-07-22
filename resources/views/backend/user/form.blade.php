@@ -1,12 +1,12 @@
 <div class="card-block">
-    {{ Form::bsText('name', [
+    {{ Form::bsInput('name', [
         'required' => true,
         'title' => trans('validation.attributes.name'),
         'label_col_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-6',
     ]) }}
 
-    {{ Form::bsText('email', [
+    {{ Form::bsInput('email', [
         'required' => true,
         'title' => trans('validation.attributes.email'),
         'label_col_class' => 'col-lg-3',
@@ -21,15 +21,17 @@
         'checked' => isset($user) ? $user->active : true
     ]) }}
 
-    {{ Form::bsPassword('password', [
+    {{ Form::bsInput('password', [
         'title' => trans('validation.attributes.password'),
+        'type' => 'password',
         'strength_meter' => true,
         'label_col_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-6',
     ]) }}
 
-    {{ Form::bsPassword('password_confirmation', [
+    {{ Form::bsInput('password_confirmation', [
         'title' => trans('validation.attributes.password_confirmation'),
+        'type' => 'password',
         'label_col_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-6',
     ]) }}

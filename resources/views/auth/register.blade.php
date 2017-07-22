@@ -7,17 +7,17 @@
                 <div class="card">
                     <div class="card-header">@lang('labels.user.register')</div>
                     <div class="card-block">
-                        <form role="form" method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('register') }}">
                             {{ csrf_field() }}
 
-                            {{ Form::bsText('name', [
+                            {{ Form::bsInput('name', [
                                 'required' => true,
                                 'title' => trans('validation.attributes.name'),
                                 'label_col_class' => 'col-md-4',
                                 'field_wrapper_class' => 'col-md-6',
                             ]) }}
 
-                            {{ Form::bsText('email', [
+                            {{ Form::bsInput('email', [
                                 'required' => true,
                                 'type' => 'email',
                                 'title' => trans('validation.attributes.email'),
@@ -25,17 +25,19 @@
                                 'field_wrapper_class' => 'col-md-6',
                             ]) }}
 
-                            {{ Form::bsPassword('password', [
+                            {{ Form::bsInput('password', [
                                 'required' => true,
                                 'title' => trans('validation.attributes.password'),
+                                'type' => 'password',
                                 'strength_meter' => true,
                                 'label_col_class' => 'col-md-4',
                                 'field_wrapper_class' => 'col-md-6',
                             ]) }}
 
-                            {{ Form::bsPassword('password_confirmation', [
+                            {{ Form::bsInput('password_confirmation', [
                                 'required' => true,
                                 'title' => trans('validation.attributes.password_confirmation'),
+                                'type' => 'password',
                                 'label_col_class' => 'col-md-4',
                                 'field_wrapper_class' => 'col-md-6',
                             ]) }}

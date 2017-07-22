@@ -1,13 +1,13 @@
 {{ Form::model($logged_in_user, ['route' => 'user.account.update', 'class' => 'form-horizontal', 'method' => 'PATCH']) }}
 
-{{ Form::bsText('name', [
+{{ Form::bsInput('name', [
     'required' => true,
     'title' => trans('validation.attributes.name'),
     'label_col_class' => 'col-md-4',
     'field_wrapper_class' => 'col-md-6',
 ]) }}
 
-{{ Form::bsText('email', [
+{{ Form::bsInput('email', [
     'required' => true,
     'type' => 'email',
     'title' => trans('validation.attributes.email'),

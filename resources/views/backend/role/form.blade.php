@@ -1,24 +1,24 @@
 <div class="card-block">
-    {{ Form::bsText('name', [
+    {{ Form::bsInput('name', [
         'required' => true,
         'title' => trans('validation.attributes.name'),
         'label_col_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-4',
     ]) }}
 
-    {{ Form::bsText('display_name', [
+    {{ Form::bsInput('display_name', [
         'title' => trans('validation.attributes.display_name'),
         'label_col_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-4',
     ]) }}
 
-    {{ Form::bsText('description', [
+    {{ Form::bsInput('description', [
         'title' => trans('validation.attributes.description'),
         'label_col_class' => 'col-lg-2',
         'field_wrapper_class' => 'col-lg-10'
     ]) }}
 
-    {{ Form::bsText('order', [
+    {{ Form::bsInput('order', [
         'type' => 'number',
         'title' => trans('validation.attributes.order'),
         'label_col_class' => 'col-lg-2',

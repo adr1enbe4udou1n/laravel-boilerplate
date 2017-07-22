@@ -27,7 +27,7 @@
         ]) }}
     @endif
 
-    {{ Form::bsText('title', [
+    {{ Form::bsInput('title', [
         'title' => trans('validation.attributes.title'),
         'label_col_class' => 'col-lg-3',
         'field_wrapper_class' => 'col-lg-9',

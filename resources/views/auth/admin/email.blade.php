@@ -15,7 +15,7 @@
                             <form action="{{ route('login') }}" method="post">
                                 {{ csrf_field() }}
 
-                                {{ Form::bsText('email', [
+                                {{ Form::bsInput('email', [
                                     'required' => true,
                                     'type' => 'email',
                                     'placeholder' => trans('validation.attributes.email'),

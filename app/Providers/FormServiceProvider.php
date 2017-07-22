@@ -24,8 +24,8 @@ class FormServiceProvider extends ServiceProvider
 
             $parameters = array_merge(['name' => $data['name']], $parameters);
 
-            switch ($data['type']) {
-                case 'text':
+            switch ($data['field']) {
+                case 'input':
                     if (!isset($parameters['type'])) {
                         $parameters['type'] = 'text';
                     }
@@ -34,14 +34,6 @@ class FormServiceProvider extends ServiceProvider
                         case 'email':
                             $rules[] = 'email';
                             break;
-                    }
-                    break;
-                case 'password':
-                    $data['type'] = 'text';
-                    $parameters['type'] = 'password';
-
-                    if (isset($parameters['strength_meter']) && $parameters['strength_meter']) {
-                        $attributes['data-toggle'] = 'password-strength-meter';
                     }
                     break;
                 case 'select':
@@ -88,6 +80,10 @@ class FormServiceProvider extends ServiceProvider
                 $attributes['v-validate'] = "'".implode('|', $rules)."'";
             }
 
+            if (isset($parameters['strength_meter']) && $parameters['strength_meter']) {
+                $attributes['data-toggle'] = 'password-strength-meter';
+            }
+
             if (!isset($parameters['multiple'])) {
                 if (isset($parameters['placeholder'])) {
                     $attributes['placeholder'] = $parameters['placeholder'];
@@ -132,19 +128,18 @@ class FormServiceProvider extends ServiceProvider
                 $parameters['form_group'] = true;
             }
 
-            $view->with($parameters)->withField($data['type'])->withParameters($parameters);
+            $view->with($parameters)->withField($data['field'])->withParameters($parameters);
         });
 
-        Form::component('bsText', 'components.field', ['name', 'parameters' => [], 'type' => 'text']);
-        Form::component('bsPassword', 'components.field', ['name', 'parameters' => [], 'type' => 'password']);
-        Form::component('bsTextarea', 'components.field', ['name', 'parameters' => [], 'type' => 'textarea']);
-        Form::component('bsSelect', 'components.field', ['name', 'parameters' => [], 'type' => 'select']);
-        Form::component('bsCheckbox', 'components.field', ['name', 'parameters' => [], 'type' => 'checkbox']);
-        Form::component('bsToggle', 'components.field', ['name', 'parameters' => [], 'type' => 'toggle']);
-        Form::component('bsChoices', 'components.field', ['name', 'parameters' => [], 'type' => 'choices']);
-        Form::component('bsFile', 'components.field', ['name', 'parameters' => [], 'type' => 'file']);
-        Form::component('bsImage', 'components.field', ['name', 'parameters' => [], 'type' => 'image']);
-        Form::component('bsDatetime', 'components.field', ['name', 'parameters' => [], 'type' => 'datetime']);
+        Form::component('bsInput', 'components.field', ['name', 'parameters' => [], 'field' => 'input']);
+        Form::component('bsTextarea', 'components.field', ['name', 'parameters' => [], 'field' => 'textarea']);
+        Form::component('bsSelect', 'components.field', ['name', 'parameters' => [], 'field' => 'select']);
+        Form::component('bsCheckbox', 'components.field', ['name', 'parameters' => [], 'field' => 'checkbox']);
+        Form::component('bsToggle', 'components.field', ['name', 'parameters' => [], 'field' => 'toggle']);
+        Form::component('bsChoices', 'components.field', ['name', 'parameters' => [], 'field' => 'choices']);
+        Form::component('bsFile', 'components.field', ['name', 'parameters' => [], 'field' => 'file']);
+        Form::component('bsImage', 'components.field', ['name', 'parameters' => [], 'field' => 'image']);
+        Form::component('bsDatetime', 'components.field', ['name', 'parameters' => [], 'field' => 'datetime']);
     }
 
     /**

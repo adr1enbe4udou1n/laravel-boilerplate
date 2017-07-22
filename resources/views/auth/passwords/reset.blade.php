@@ -15,12 +15,12 @@
                         </div>
                     @endif
 
-                    <form role="form" method="POST" action="{{ route('password.request') }}">
+                    <form method="POST" action="{{ route('password.request') }}">
                         {{ csrf_field() }}
 
                         <input type="hidden" name="token" value="{{ $token }}">
 
-                        {{ Form::bsText('email', [
+                        {{ Form::bsInput('email', [
                             'required' => true,
                             'type' => 'email',
                             'title' => trans('validation.attributes.email'),
@@ -29,17 +29,19 @@
                             'input_group_prefix' => '<i class="icon-envelope"></i>',
                         ]) }}
 
-                        {{ Form::bsPassword('password', [
+                        {{ Form::bsInput('password', [
                             'required' => true,
                             'title' => trans('validation.attributes.password'),
+                            'type' => 'password',
                             'strength_meter' => true,
                             'label_col_class' => 'col-md-4',
                             'field_wrapper_class' => 'col-md-6',
                         ]) }}
 
-                        {{ Form::bsPassword('password_confirmation', [
+                        {{ Form::bsInput('password_confirmation', [
                             'required' => true,
                             'title' => trans('validation.attributes.password_confirmation'),
+                            'type' => 'password',
                             'label_col_class' => 'col-md-4',
                             'field_wrapper_class' => 'col-md-6',
                         ]) }}

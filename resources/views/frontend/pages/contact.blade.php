@@ -15,19 +15,19 @@
             <form action="{{ route('contact') }}" method="POST">
                 {{ csrf_field() }}
 
-                {{ Form::bsText('name', [
+                {{ Form::bsInput('name', [
                     'required' => true,
                     'title' => trans('validation.attributes.name'),
                 ]) }}
 
                 <div class="row">
                     <div class="col-sm-6">
-                        {{ Form::bsText('postal_code', [
+                        {{ Form::bsInput('postal_code', [
                             'title' => trans('validation.attributes.postal_code'),
                         ]) }}
                     </div>
                     <div class="col-sm-6">
-                        {{ Form::bsText('city', [
+                        {{ Form::bsInput('city', [
                             'title' => trans('validation.attributes.city'),
                         ]) }}
                     </div>
@@ -35,7 +35,7 @@
 
                 <div class="row">
                     <div class="col-sm-6">
-                        {{ Form::bsText('email', [
+                        {{ Form::bsInput('email', [
                             'required' => true,
                             'type' => 'email',
                             'title' => trans('validation.attributes.email'),
@@ -43,7 +43,7 @@
                         ]) }}
                     </div>
                     <div class="col-sm-6">
-                        {{ Form::bsText('phone', [
+                        {{ Form::bsInput('phone', [
                             'type' => 'tel',
                             'title' => trans('validation.attributes.phone'),
                         ]) }}
