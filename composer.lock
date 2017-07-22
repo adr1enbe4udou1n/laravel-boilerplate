@@ -649,16 +649,16 @@
         },
         {
             "name": "doctrine/common",
-            "version": "v2.7.2",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "930297026c8009a567ac051fd545bf6124150347"
+                "reference": "4acb8f89626baafede6ee5475bc5844096eba8a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/930297026c8009a567ac051fd545bf6124150347",
-                "reference": "930297026c8009a567ac051fd545bf6124150347",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/4acb8f89626baafede6ee5475bc5844096eba8a9",
+                "reference": "4acb8f89626baafede6ee5475bc5844096eba8a9",
                 "shasum": ""
             },
             "require": {
@@ -718,7 +718,7 @@
                 "persistence",
                 "spl"
             ],
-            "time": "2017-01-13T14:02:13+00:00"
+            "time": "2017-07-22T08:35:12+00:00"
         },
         {
             "name": "doctrine/dbal",
@@ -3942,16 +3942,16 @@
         },
         {
             "name": "yajra/laravel-datatables-oracle",
-            "version": "v7.9.3",
+            "version": "v7.9.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables.git",
-                "reference": "97168bfeb4a3317bc27e61a579302d6a26380d5d"
+                "reference": "1d26b26863495b389808c21d178bbe6ad680ea7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/97168bfeb4a3317bc27e61a579302d6a26380d5d",
-                "reference": "97168bfeb4a3317bc27e61a579302d6a26380d5d",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/1d26b26863495b389808c21d178bbe6ad680ea7d",
+                "reference": "1d26b26863495b389808c21d178bbe6ad680ea7d",
                 "shasum": ""
             },
             "require": {
@@ -3999,22 +3999,22 @@
                 "jquery",
                 "laravel"
             ],
-            "time": "2017-07-12T02:33:08+00:00"
+            "time": "2017-07-21T00:47:56+00:00"
         }
     ],
     "packages-dev": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v2.4.1",
+            "version": "v2.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "af98b3a4ccac9364f2145fae974ff3392ec402b1"
+                "reference": "d7c88f08131f6404cb714f3f6cf0642f6afa3903"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/af98b3a4ccac9364f2145fae974ff3392ec402b1",
-                "reference": "af98b3a4ccac9364f2145fae974ff3392ec402b1",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/d7c88f08131f6404cb714f3f6cf0642f6afa3903",
+                "reference": "d7c88f08131f6404cb714f3f6cf0642f6afa3903",
                 "shasum": ""
             },
             "require": {
@@ -4024,19 +4024,6 @@
                 "symfony/finder": "~2.7|~3.0"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.4-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Barryvdh\\Debugbar\\ServiceProvider"
-                    ],
-                    "aliases": {
-                        "Debugbar": "Barryvdh\\Debugbar\\Facade"
-                    }
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Barryvdh\\Debugbar\\": "src/"
@@ -4063,7 +4050,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2017-06-14T07:44:44+00:00"
+            "time": "2017-07-21T11:56:48+00:00"
         },
         {
             "name": "barryvdh/laravel-ide-helper",
