@@ -1,7 +1,7 @@
 <div class="card-block">
 
     @component('components.fieldset', [
-        'name' => 'select2',
+        'name' => 'name',
         'title' => trans('validation.attributes.form_type'),
         'horizontal' => true,
         'label_cols' => 3
