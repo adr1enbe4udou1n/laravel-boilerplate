@@ -66,8 +66,8 @@ class FormServiceProvider extends ServiceProvider
                     }
 
                     $parameters['type'] = $parameters['multiple']
-                        ? 'checkboxes'
-                        : 'radios';
+                        ? 'checkbox'
+                        : 'radio';
                     break;
             }
 
@@ -84,8 +84,13 @@ class FormServiceProvider extends ServiceProvider
                 $attributes['data-toggle'] = 'password-strength-meter';
             }
 
-            if (isset($parameters['placeholder']) && !isset($parameters['multiple'])) {
-                $attributes['placeholder'] = $parameters['placeholder'];
+            if (isset($parameters['placeholder'])) {
+                if (!isset($parameters['multiple'])) {
+                    $attributes['placeholder'] = $parameters['placeholder'];
+                }
+                else {
+                    $attributes['data-placeholder'] = $parameters['placeholder'];
+                }
             }
 
             if (isset($parameters['tooltip'])) {

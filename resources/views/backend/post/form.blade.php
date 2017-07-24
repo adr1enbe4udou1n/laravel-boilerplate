@@ -11,7 +11,7 @@
                 'label_cols' => 2
             ])
                 {{ Form::bsInput('title', [
-                    'required' => true,
+                    //'required' => true,
                     'placeholder' => trans('validation.attributes.title'),
                 ]) }}
             @endcomponent
@@ -44,11 +44,11 @@
             ]) }}
             @endcomponent
 
-            @if(old('tags'))
-                @php($tags = old('tags'))
-            @else
-                @php($tags = isset($post) ? $post->tags->pluck('name', 'id') : old('tags'))
-            @endif
+            @php
+                if (!isset($tags)) {
+                    $tags = isset($post) ? $post->tags->pluck('name', 'name') : [];
+                }
+            @endphp
 
             @component('components.fieldset', [
                 'name' => 'tags[]',
@@ -61,10 +61,11 @@
                 'multiple' => true,
                 'tags' => true,
                 'placeholder' => trans('labels.placeholders.tags'),
-                'options' => isset($tags) ? $tags : [],
+                'options' => $tags,
+                'selected' => isset($post) ? $post->tags->pluck('name') : null,
                 'ajax_url' => route('admin.tags.search'),
                 'minimum_input_length' => 2,
-                'item_value' => 'id',
+                'item_value' => 'name',
                 'item_label' => 'name',
             ]) }}
             @endcomponent

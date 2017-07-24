@@ -189,15 +189,9 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
                 $post->tags()->detach($ids);
 
                 foreach ($input['tags'] as $tag) {
-                    if (!is_numeric($tag)) {
-                        // New tag to create
-                        if ($tag = $this->tags->findOrCreate($tag)) {
-                            $post->tags()->attach($tag->id);
-                        }
-                        continue;
+                    if ($tag = $this->tags->findOrCreate($tag)) {
+                        $post->tags()->attach($tag->id);
                     }
-
-                    $post->tags()->attach($tag);
                 }
             }
 
