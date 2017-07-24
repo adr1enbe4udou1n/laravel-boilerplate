@@ -6,7 +6,9 @@ use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
 use App\Repositories\Contracts\PostRepository;
+use App\Repositories\Contracts\TagRepository;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -21,16 +23,34 @@ class PostController extends BackendController
     protected $posts;
 
     /**
+     * @var TagRepository
+     */
+    protected $tags;
+
+    /**
      * Create a new controller instance.
      *
      *
      * @param \App\Repositories\Contracts\PostRepository $posts
-     * @param \Illuminate\Contracts\View\Factory         $view
+     * @param \App\Repositories\Contracts\TagRepository $tags
+     * @param \Illuminate\Contracts\View\Factory $view
      */
-    public function __construct(PostRepository $posts, Factory $view)
+    public function __construct(PostRepository $posts, TagRepository $tags, Factory $view)
     {
         parent::__construct($view);
         $this->posts = $posts;
+        $this->tags = $tags;
+
+        $view->composer('*', function (View $view) {
+            if ($oldTags = old('tags')) {
+                $tags = [];
+
+                foreach($oldTags as $tag) {
+                    $tags[$tag] = $tag;
+                }
+                $view->withTags($tags);
+            }
+        });
     }
 
     /**

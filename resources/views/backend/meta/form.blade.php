@@ -7,11 +7,14 @@
             </div>
         </div>
     @else
-        @if(old('route'))
-            @php($route_list = [old('route') => trans('routes.' . old('route'))])
-        @else
-            @php($route_list = isset($meta) && $meta->route ? [$meta->route => trans('routes.' . $meta->route)] : [])
-        @endif
+        @php
+            if(old('route')) {
+                $route_list = [old('route') => trans('routes.' . old('route'))];
+            }
+            else {
+                $route_list = isset($meta) && $meta->route ? [$meta->route => trans('routes.' . $meta->route)] : [];
+            }
+        @endphp
 
         <b-form-fieldset
                 label-for="route"
