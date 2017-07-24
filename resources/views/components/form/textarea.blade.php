@@ -1,0 +1,1 @@
+{{ Form::textarea($name, null, array_merge(['id' => $name, 'class' => 'form-control'], $attributes)) }}

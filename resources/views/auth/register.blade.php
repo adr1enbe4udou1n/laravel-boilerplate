@@ -10,85 +10,65 @@
                         <form method="POST" action="{{ route('register') }}">
                             {{ csrf_field() }}
 
-                            <b-form-fieldset
-                                    @if($errors->has('name'))
-                                    state="danger"
-                                    feedback="{{ $errors->first('name') }}"
-                                    @endif
-                                    label-for="name"
-                                    label="@lang('validation.attributes.name')"
-                                    :horizontal="true"
-                                    :label-cols="3"
-                            >
-                                <b-input-group :left="iconUser">
-                                    <b-form-input
-                                            id="name"
-                                            name="name"
-                                            :required="true"
-                                            placeholder="@lang('validation.attributes.name')"
-                                    ></b-form-input>
-                                </b-input-group>
-                            </b-form-fieldset>
+                            @component('components.fieldset', [
+                                'name' => 'name',
+                                'title' => trans('validation.attributes.name'),
+                                'horizontal' => true,
+                                'label_cols' => 3
+                            ])
+                                @component('components.input-group', [
+                                    'left' => '<i class="icon-user"></i>'
+                                ])
+                                    {{ Form::bsInput('name', [
+                                        'required' => true,
+                                        'placeholder' => trans('validation.attributes.name'),
+                                    ]) }}
+                                @endcomponent
+                            @endcomponent
 
-                            <b-form-fieldset
-                                    @if($errors->has('email'))
-                                    state="danger"
-                                    feedback="{{ $errors->first('email') }}"
-                                    @endif
-                                    label-for="email"
-                                    label="@lang('validation.attributes.email')"
-                                    :horizontal="true"
-                                    :label-cols="3"
-                            >
-                                <b-input-group :left="iconEnvelope">
-                                    <b-form-input
-                                            id="email"
-                                            name="email"
-                                            type="email"
-                                            :required="true"
-                                            placeholder="@lang('validation.attributes.email')"
-                                    ></b-form-input>
-                                </b-input-group>
-                            </b-form-fieldset>
+                            @component('components.fieldset', [
+                                'name' => 'email',
+                                'title' => trans('validation.attributes.email'),
+                                'horizontal' => true,
+                                'label_cols' => 3
+                            ])
+                                @component('components.input-group', [
+                                    'left' => '<i class="icon-envelope"></i>'
+                                ])
+                                    {{ Form::bsInput('email', [
+                                        'type' => 'email',
+                                        'required' => true,
+                                        'placeholder' => trans('validation.attributes.email'),
+                                    ]) }}
+                                @endcomponent
+                            @endcomponent
 
-                            <b-form-fieldset
-                                    @if($errors->has('password'))
-                                    state="danger"
-                                    feedback="{{ $errors->first('password') }}"
-                                    @endif
-                                    label-for="password"
-                                    label="@lang('validation.attributes.password')"
-                                    :horizontal="true"
-                                    :label-cols="3"
-                            >
-                                <b-form-input
-                                        id="password"
-                                        name="password"
-                                        type="password"
-                                        :required="true"
-                                        placeholder="@lang('validation.attributes.password')"
-                                        data-toggle="password-strength-meter"
-                                ></b-form-input>
-                            </b-form-fieldset>
+                            @component('components.fieldset', [
+                                'name' => 'password',
+                                'title' => trans('validation.attributes.password'),
+                                'horizontal' => true,
+                                'label_cols' => 3
+                            ])
+                                {{ Form::bsInput('password', [
+                                    'type' => 'password',
+                                    'required' => true,
+                                    'placeholder' => trans('validation.attributes.password'),
+                                    'strength_meter' => true,
+                                ]) }}
+                            @endcomponent
 
-                            <b-form-fieldset
-                                    @if($errors->has('password_confirmation'))
-                                    state="danger"
-                                    feedback="{{ $errors->first('password_confirmation') }}"
-                                    @endif
-                                    label-for="password_confirmation"
-                                    label="@lang('validation.attributes.password_confirmation')"
-                                    :horizontal="true"
-                                    :label-cols="3"
-                            >
-                                <b-form-input
-                                        id="password_confirmation"
-                                        name="password_confirmation"
-                                        type="password"
-                                        :required="true"
-                                        placeholder="@lang('validation.attributes.password_confirmation')"
-                                ></b-form-input>
-                            </b-form-fieldset>
+                            @component('components.fieldset', [
+                                'name' => 'password_confirmation',
+                                'title' => trans('validation.attributes.password_confirmation'),
+                                'horizontal' => true,
+                                'label_cols' => 3
+                            ])
+                                {{ Form::bsInput('password_confirmation', [
+                                    'type' => 'password',
+                                    'required' => true,
+                                    'placeholder' => trans('validation.attributes.password_confirmation'),
+                                ]) }}
+                            @endcomponent
 
                             <div class="form-group row">
                                 <div class="col-md-9 offset-md-3">

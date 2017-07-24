@@ -15,120 +15,81 @@
             <form action="{{ route('contact') }}" method="POST">
                 {{ csrf_field() }}
 
-                <b-form-fieldset
-                        @if($errors->has('name'))
-                        state="danger"
-                        feedback="{{ $errors->first('name') }}"
-                        @endif
-                        label-for="name"
-                        label="@lang('validation.attributes.name')"
-                >
-                    <b-form-input
-                            id="name"
-                            name="name"
-                            :required="true"
-                            placeholder="@lang('validation.attributes.name')"
-                            value="{{ old('name') }}"
-                    ></b-form-input>
-                </b-form-fieldset>
-                
+                @component('components.fieldset', [
+                    'name' => 'name',
+                    'title' => trans('validation.attributes.name'),
+                ])
+                    {{ Form::bsInput('name', [
+                        'required' => true,
+                        'placeholder' => trans('validation.attributes.name'),
+                    ]) }}
+                @endcomponent
+
                 <div class="row">
                     <div class="col-sm-6">
-                        <b-form-fieldset
-                                @if($errors->has('postal_code'))
-                                state="danger"
-                                feedback="{{ $errors->first('postal_code') }}"
-                                @endif
-                                label-for="postal_code"
-                                label="@lang('validation.attributes.postal_code')"
-                        >
-                            <b-form-input
-                                    id="postal_code"
-                                    name="postal_code"
-                                    placeholder="@lang('validation.attributes.postal_code')"
-                                    value="{{ old('postal_code') }}"
-                            ></b-form-input>
-                        </b-form-fieldset>
+                        @component('components.fieldset', [
+                            'name' => 'postal_code',
+                            'title' => trans('validation.attributes.postal_code'),
+                        ])
+                            {{ Form::bsInput('postal_code', [
+                                'placeholder' => trans('validation.attributes.postal_code'),
+                            ]) }}
+                        @endcomponent
                     </div>
                     <div class="col-sm-6">
-                        <b-form-fieldset
-                                @if($errors->has('city'))
-                                state="danger"
-                                feedback="{{ $errors->first('city') }}"
-                                @endif
-                                label-for="city"
-                                label="@lang('validation.attributes.city')"
-                        >
-                            <b-form-input
-                                    id="city"
-                                    name="city"
-                                    placeholder="@lang('validation.attributes.city')"
-                                    value="{{ old('city') }}"
-                            ></b-form-input>
-                        </b-form-fieldset>
+                        @component('components.fieldset', [
+                            'name' => 'city',
+                            'title' => trans('validation.attributes.city'),
+                        ])
+                            {{ Form::bsInput('city', [
+                                'placeholder' => trans('validation.attributes.city'),
+                            ]) }}
+                        @endcomponent
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-sm-6">
-                        <b-form-fieldset
-                                @if($errors->has('email'))
-                                state="danger"
-                                feedback="{{ $errors->first('email') }}"
-                                @endif
-                                label-for="email"
-                                label="@lang('validation.attributes.email')"
-                        >
-                            <b-input-group :left="iconEnvelope">
-                                <b-form-input
-                                        id="email"
-                                        name="email"
-                                        type="email"
-                                        :required="true"
-                                        placeholder="@lang('validation.attributes.email')"
-                                        value="{{ old('email') }}"
-                                ></b-form-input>
-                            </b-input-group>
-                        </b-form-fieldset>
+                        @component('components.fieldset', [
+                            'name' => 'email',
+                            'title' => trans('validation.attributes.email'),
+                        ])
+                            @component('components.input-group', [
+                                'left' => '<i class="icon-envelope"></i>'
+                            ])
+                                {{ Form::bsInput('email', [
+                                    'required' => true,
+                                    'type' => 'email',
+                                    'placeholder' => trans('validation.attributes.email'),
+                                ]) }}
+                            @endcomponent
+                        @endcomponent
                     </div>
                     <div class="col-sm-6">
-                        <b-form-fieldset
-                                @if($errors->has('phone'))
-                                state="danger"
-                                feedback="{{ $errors->first('phone') }}"
-                                @endif
-                                label-for="phone"
-                                label="@lang('validation.attributes.phone')"
-                        >
-                            <b-form-input
-                                    id="phone"
-                                    name="phone"
-                                    type="tel"
-                                    placeholder="@lang('validation.attributes.phone')"
-                                    value="{{ old('phone') }}"
-                            ></b-form-input>
-                        </b-form-fieldset>
+                        @component('components.fieldset', [
+                            'name' => 'phone',
+                            'title' => trans('validation.attributes.phone'),
+                        ])
+                            {{ Form::bsInput('phone', [
+                                'type' => 'tel',
+                                'placeholder' => trans('validation.attributes.phone'),
+                            ]) }}
+                        @endcomponent
                     </div>
                 </div>
 
-                <b-form-fieldset
-                        @if($errors->has('message'))
-                        state="danger"
-                        feedback="{{ $errors->first('message') }}"
-                        @endif
-                        label-for="message"
-                        label="@lang('validation.attributes.message')"
-                >
-                    <b-form-input
-                            id="message"
-                            name="message"
-                            :textarea="true"
-                            :required="true"
-                            placeholder="@lang('validation.attributes.message')"
-                            :rows="5"
-                            value="{{ old('message') }}"
-                    ></b-form-input>
-                </b-form-fieldset>
+                @component('components.fieldset', [
+                    'name' => 'message',
+                    'title' => trans('validation.attributes.message'),
+                ])
+                    {{ Form::bsTextarea('message', [
+                        'required' => true,
+                        'placeholder' => trans('validation.attributes.message'),
+                        'attributes' => [
+                            'rows' => 5
+                        ],
+                    ]) }}
+                @endcomponent
 
                 <div class="form-group">
                     {!! Captcha::display() !!}
