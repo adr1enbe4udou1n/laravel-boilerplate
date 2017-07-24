@@ -11,7 +11,7 @@
                 'label_cols' => 2
             ])
                 {{ Form::bsInput('title', [
-                    //'required' => true,
+                    'required' => true,
                     'placeholder' => trans('validation.attributes.title'),
                 ]) }}
             @endcomponent
