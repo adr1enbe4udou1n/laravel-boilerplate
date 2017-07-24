@@ -1,10 +1,6 @@
 <div class="card-block">
 
     <b-form-fieldset
-            @if($errors->has('name'))
-            state="danger"
-            feedback="{{ $errors->first('name') }}"
-            @endif
             label-for="name"
             label="@lang('validation.attributes.form_type')"
             :horizontal="true"
@@ -22,10 +18,6 @@
     </b-form-fieldset>
 
     <b-form-fieldset
-            @if($errors->has('recipients'))
-            state="danger"
-            feedback="{{ $errors->first('recipients') }}"
-            @endif
             label-for="recipients"
             label="@lang('validation.attributes.recipients')"
             description="@lang('labels.backend.form_settings.descriptions.recipients')"
@@ -44,10 +36,6 @@
     </b-form-fieldset>
 
     <b-form-fieldset
-            @if($errors->has('message'))
-            state="danger"
-            feedback="{{ $errors->first('message') }}"
-            @endif
             label-for="message"
             label="@lang('validation.attributes.message')"
             description="@lang('labels.backend.form_settings.descriptions.message')"

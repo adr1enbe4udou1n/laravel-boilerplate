@@ -1,10 +1,6 @@
 <div class="card-block">
 
     <b-form-fieldset
-            @if($errors->has('source'))
-            state="danger"
-            feedback="{{ $errors->first('source') }}"
-            @endif
             label-for="source"
             label="@lang('validation.attributes.source_path')"
             :horizontal="true"
@@ -35,10 +31,6 @@
     </b-form-fieldset>
 
     <b-form-fieldset
-            @if($errors->has('target'))
-            state="danger"
-            feedback="{{ $errors->first('target') }}"
-            @endif
             label-for="target"
             label="@lang('validation.attributes.target_path')"
             :horizontal="true"

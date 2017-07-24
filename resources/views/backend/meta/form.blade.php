@@ -14,10 +14,6 @@
         @endif
 
         <b-form-fieldset
-                @if($errors->has('route'))
-                state="danger"
-                feedback="{{ $errors->first('route') }}"
-                @endif
                 label-for="route"
                 label="@lang('validation.attributes.route')"
                 :horizontal="true"
@@ -40,10 +36,6 @@
     @endif
 
     <b-form-fieldset
-            @if($errors->has('title'))
-            state="danger"
-            feedback="{{ $errors->first('title') }}"
-            @endif
             label-for="title"
             label="@lang('validation.attributes.title')"
             :horizontal="true"
@@ -58,10 +50,6 @@
     </b-form-fieldset>
 
     <b-form-fieldset
-            @if($errors->has('description'))
-            state="danger"
-            feedback="{{ $errors->first('description') }}"
-            @endif
             label-for="description"
             label="@lang('validation.attributes.description')"
             :horizontal="true"

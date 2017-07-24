@@ -5,10 +5,6 @@
         </div>
         <div class="card-block">
             <b-form-fieldset
-                    @if($errors->has('title'))
-                    state="danger"
-                    feedback="{{ $errors->first('title') }}"
-                    @endif
                     label-for="title"
                     label="@lang('validation.attributes.title')"
                     :horizontal="true"
@@ -24,10 +20,6 @@
             </b-form-fieldset>
 
             <b-form-fieldset
-                    @if($errors->has('summary'))
-                    state="danger"
-                    feedback="{{ $errors->first('summary') }}"
-                    @endif
                     label-for="summary"
                     label="@lang('validation.attributes.summary')"
                     :horizontal="true"
@@ -44,10 +36,6 @@
             </b-form-fieldset>
 
             <b-form-fieldset
-                    @if($errors->has('body'))
-                    state="danger"
-                    feedback="{{ $errors->first('body') }}"
-                    @endif
                     label-for="body"
                     label="@lang('validation.attributes.body')"
                     :horizontal="true"
@@ -65,10 +53,6 @@
             </b-form-fieldset>
 
             <b-form-fieldset
-                    @if($errors->has('tags'))
-                    state="danger"
-                    feedback="{{ $errors->first('tags') }}"
-                    @endif
                     label-for="tags"
                     label="@lang('validation.attributes.tags')"
                     :horizontal="true"
@@ -91,10 +75,6 @@
             </b-form-fieldset>
 
             <b-form-fieldset
-                    @if($errors->has('featured_image'))
-                    state="danger"
-                    feedback="{{ $errors->first('featured_image') }}"
-                    @endif
                     label-for="featured_image"
                     label="@lang('validation.attributes.image')"
                     :horizontal="true"
@@ -227,10 +207,6 @@
             <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
                 <div class="card-block">
                     <b-form-fieldset
-                            @if($errors->has('meta[title]'))
-                            state="danger"
-                            feedback="{{ $errors->first('meta[title]') }}"
-                            @endif
                             label-for="title"
                             label="@lang('validation.attributes.title')"
                             description="@lang('labels.backend.posts.descriptions.meta_title')"
@@ -246,10 +222,6 @@
                     </b-form-fieldset>
 
                     <b-form-fieldset
-                            @if($errors->has('meta[description]'))
-                            state="danger"
-                            feedback="{{ $errors->first('meta[description]') }}"
-                            @endif
                             label-for="description"
                             label="@lang('validation.attributes.description')"
                             description="@lang('labels.backend.posts.descriptions.meta_description')"
