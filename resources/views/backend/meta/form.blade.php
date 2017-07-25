@@ -7,15 +7,6 @@
             </div>
         </div>
     @else
-        @php
-            if(old('route')) {
-                $route_list = [old('route') => trans('routes.' . old('route'))];
-            }
-            else {
-                $route_list = isset($meta) && $meta->route ? [$meta->route => trans('routes.' . $meta->route)] : [];
-            }
-        @endphp
-
         <b-form-fieldset
                 label-for="route"
                 label="@lang('validation.attributes.route')"
