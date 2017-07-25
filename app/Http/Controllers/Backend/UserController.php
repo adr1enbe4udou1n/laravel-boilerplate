@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
@@ -39,7 +38,7 @@ class UserController extends BackendController
         $this->users = $users;
         $this->roles = $roles;
 
-        $view->composer('*', function (View $view) {
+        $view->composer('backend.user.form', function (View $view) {
             $view->withRoles($this->roles->getAllowedRoles());
         });
     }

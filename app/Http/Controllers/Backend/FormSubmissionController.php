@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
 use App\Models\FormSubmission;
 use App\Repositories\Contracts\FormSubmissionRepository;
 use Illuminate\Contracts\View\Factory;

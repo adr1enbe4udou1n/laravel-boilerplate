@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\ImportRedirectionRequest;
 use App\Http\Requests\StoreRedirectionRequest;
 use App\Http\Requests\UpdateRedirectionRequest;

@@ -44,12 +44,6 @@
             ]) }}
             @endcomponent
 
-            @php
-                if (!isset($tags)) {
-                    $tags = isset($post) ? $post->tags->pluck('name', 'name') : [];
-                }
-            @endphp
-
             @component('components.fieldset', [
                 'name' => 'tags[]',
                 'title' => trans('validation.attributes.tags'),

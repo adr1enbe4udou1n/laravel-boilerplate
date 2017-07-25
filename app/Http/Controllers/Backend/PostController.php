@@ -8,7 +8,7 @@ use App\Models\Post;
 use App\Repositories\Contracts\PostRepository;
 use App\Repositories\Contracts\TagRepository;
 use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -41,15 +41,24 @@ class PostController extends BackendController
         $this->posts = $posts;
         $this->tags = $tags;
 
-        $view->composer('*', function (View $view) {
+        $view->composer('backend.post.form', function (View $view) {
+            $tags = [];
+            $data = $view->getData();
+
             if ($oldTags = old('tags')) {
                 $tags = [];
 
                 foreach($oldTags as $tag) {
                     $tags[$tag] = $tag;
                 }
-                $view->withTags($tags);
             }
+            elseif (isset($data['post'])) {
+                /** @var Post $post */
+                $post = $data['post'];
+                $tags = $post->tags->pluck('name', 'name');
+            }
+
+            $view->withTags($tags);
         });
     }
 

@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreMetaRequest;
 use App\Http\Requests\UpdateMetaRequest;
 use App\Models\Meta;
 use App\Repositories\Contracts\MetaRepository;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
 
@@ -29,6 +29,22 @@ class MetaController extends BackendController
     {
         parent::__construct($view);
         $this->metas = $metas;
+
+        $view->composer('backend.meta.form', function (View $view) {
+            $routes = [];
+            $data = $view->getData();
+
+            if($oldRoute = old('route')) {
+                $routes = [$oldRoute => trans('routes.' . $oldRoute)];
+            }
+            elseif (isset($data['meta'])) {
+                /** @var Meta $meta */
+                $meta = $data['meta'];
+                $routes = $meta->route ? [$meta->route => trans('routes.' . $meta->route)] : [];
+            }
+
+            $view->withRoutes($routes);
+        });
     }
 
     /**

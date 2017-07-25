@@ -7,15 +7,6 @@
             </div>
         </div>
     @else
-        @php
-            if(old('route')) {
-                $route_list = [old('route') => trans('routes.' . old('route'))];
-            }
-            else {
-                $route_list = isset($meta) && $meta->route ? [$meta->route => trans('routes.' . $meta->route)] : [];
-            }
-        @endphp
-
         @component('components.fieldset', [
             'name' => 'route',
             'title' => trans('validation.attributes.route'),
@@ -25,7 +16,7 @@
         {{ Form::bsSelect('route', [
             'type' => 'autocomplete',
             'placeholder' => trans('labels.placeholders.route'),
-            'options' => $route_list,
+            'options' => $routes,
             'ajax_url' => route('admin.routes.search'),
             'minimum_input_length' => 2,
             'item_value' => 'name',
