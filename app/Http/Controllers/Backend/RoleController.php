@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRoleRequest;
 use App\Http\Requests\UpdateRoleRequest;
 use App\Models\Role;
 use App\Repositories\Contracts\RoleRepository;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
 
@@ -30,7 +30,7 @@ class RoleController extends BackendController
         parent::__construct($view);
         $this->roles = $roles;
 
-        $view->composer('*', function (\Illuminate\View\View $view) {
+        $view->composer('backend.role.form', function (View $view) {
             $permissions = collect(config('permissions'))->groupBy('category', true);
             $view->withPermissions($permissions);
         });

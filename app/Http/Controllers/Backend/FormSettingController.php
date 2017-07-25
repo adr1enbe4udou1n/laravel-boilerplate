@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreFormSettingRequest;
 use App\Http\Requests\UpdateFormSettingRequest;
 use App\Models\FormSetting;
