@@ -57,6 +57,7 @@
     "uglify-js": "^3.0.26",
     "vee-validate": "^2.0.0-rc.7",
     "vue": "^2.4.2",
+    "vue-i18n": "^7.0.5",
     "vue-loader": "^13.0.2",
     "vue-template-compiler": "^2.4.2",
     "webfontloader": "^1.6.28",

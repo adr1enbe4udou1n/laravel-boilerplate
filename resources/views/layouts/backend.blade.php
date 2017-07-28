@@ -25,7 +25,9 @@
 
     <!-- JS settings -->
     <script type="application/json" data-settings-selector="settings-json">
-        {!! json_encode([]) !!}
+        {!! json_encode([
+            'blog' => config('blog')
+        ]) !!}
     </script>
 
     <!-- Scripts -->

@@ -220,6 +220,7 @@ return [
         Plank\Mediable\MediableServiceProvider::class,
         Mews\Purifier\PurifierServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
+        MartinLindhe\VueInternationalizationGenerator\GeneratorProvider::class,
 
         /*
          * Application Service Providers...
