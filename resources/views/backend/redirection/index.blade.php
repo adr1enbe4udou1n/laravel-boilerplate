@@ -87,13 +87,13 @@
                 title: '{{ trans('labels.created_at') }}',
                 data: 'created_at',
                 name: 'created_at',
-                width: 100,
+                width: 110,
                 className: 'text-center'
             }, {
                 title: '{{ trans('labels.updated_at') }}',
                 data: 'updated_at',
                 name: 'updated_at',
-                width: 100,
+                width: 110,
                 className: 'text-center'
             }, {
                 title: '{{ trans('labels.actions') }}',
