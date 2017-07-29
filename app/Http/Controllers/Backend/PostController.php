@@ -40,36 +40,6 @@ class PostController extends BackendController
         parent::__construct($view);
         $this->posts = $posts;
         $this->tags = $tags;
-
-        $view->composer('backend.post.form', function (View $view) {
-            $tags = [];
-            $data = $view->getData();
-
-            if ($oldTags = old('tags')) {
-                $tags = [];
-
-                foreach($oldTags as $tag) {
-                    $tags[$tag] = $tag;
-                }
-            }
-            elseif (isset($data['post'])) {
-                /** @var Post $post */
-                $post = $data['post'];
-                $tags = $post->tags->pluck('name', 'name');
-            }
-
-            $view->withTags($tags);
-        });
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('backend.post.index');
     }
 
     /**
@@ -133,14 +103,6 @@ class PostController extends BackendController
     }
 
     /**
-     * @return mixed
-     */
-    public function create()
-    {
-        return view('backend.post.create');
-    }
-
-    /**
      * @param StorePostRequest $request
      *
      * @return mixed
@@ -159,16 +121,6 @@ class PostController extends BackendController
         }
 
         return redirect()->route('admin.post.index')->withFlashSuccess(trans('alerts.backend.posts.created'));
-    }
-
-    /**
-     * @param Post $post
-     *
-     * @return mixed
-     */
-    public function edit(Post $post)
-    {
-        return view('backend.post.edit')->withPost($post);
     }
 
     /**

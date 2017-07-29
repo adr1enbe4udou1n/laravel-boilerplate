@@ -37,20 +37,6 @@ class UserController extends BackendController
         parent::__construct($view);
         $this->users = $users;
         $this->roles = $roles;
-
-        $view->composer('backend.user.form', function (View $view) {
-            $view->withRoles($this->roles->getAllowedRoles());
-        });
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('backend.user.index');
     }
 
     /**
@@ -104,14 +90,6 @@ class UserController extends BackendController
     }
 
     /**
-     * @return mixed
-     */
-    public function create()
-    {
-        return view('backend.user.create');
-    }
-
-    /**
      * @param StoreUserRequest $request
      *
      * @return mixed
@@ -121,21 +99,6 @@ class UserController extends BackendController
         $this->users->store($request->input());
 
         return redirect()->route('admin.user.index')->withFlashSuccess(trans('alerts.backend.users.created'));
-    }
-
-    /**
-     * @param User $user
-     *
-     * @return mixed
-     */
-    public function edit(User $user)
-    {
-        if (!$this->users->canEdit($user)) {
-            // Only Super admin can edit himself
-            abort(403);
-        }
-
-        return view('backend.user.edit')->withUser($user);
     }
 
     /**
@@ -168,6 +131,8 @@ class UserController extends BackendController
 
     /**
      * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
     public function batchAction(Request $request)
     {

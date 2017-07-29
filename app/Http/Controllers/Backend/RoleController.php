@@ -29,21 +29,6 @@ class RoleController extends BackendController
     {
         parent::__construct($view);
         $this->roles = $roles;
-
-        $view->composer('backend.role.form', function (View $view) {
-            $permissions = collect(config('permissions'))->groupBy('category', true);
-            $view->withPermissions($permissions);
-        });
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('backend.role.index');
     }
 
     /**
@@ -82,14 +67,6 @@ class RoleController extends BackendController
     }
 
     /**
-     * @return mixed
-     */
-    public function create()
-    {
-        return view('backend.role.create');
-    }
-
-    /**
      * @param StoreRoleRequest $request
      *
      * @return mixed
@@ -99,16 +76,6 @@ class RoleController extends BackendController
         $this->roles->store($request->input());
 
         return redirect()->route('admin.role.index')->withFlashSuccess(trans('alerts.backend.roles.created'));
-    }
-
-    /**
-     * @param Role $role
-     *
-     * @return mixed
-     */
-    public function edit(Role $role)
-    {
-        return view('backend.role.edit')->withRole($role);
     }
 
     /**

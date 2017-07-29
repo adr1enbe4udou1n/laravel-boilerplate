@@ -39,7 +39,7 @@ class LoginController extends Controller
      */
     public function __construct(AccountRepository $account)
     {
-        $this->middleware('guest')->except('logout', 'loginAs', 'logoutAs');
+        $this->middleware('guest')->except('logout', 'adminLogout', 'loginAs', 'logoutAs');
 
         $this->account = $account;
     }
@@ -162,6 +162,15 @@ class LoginController extends Controller
         }
     }
 
+    private function flushSession(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->flush();
+
+        $request->session()->regenerate();
+    }
+
     /**
      * Log the user out of the application.
      *
@@ -173,13 +182,25 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
-        $this->guard()->logout();
-
-        $request->session()->flush();
-
-        $request->session()->regenerate();
+        $this->flushSession($request);
 
         return redirect()->route('home');
+    }
+
+    /**
+     * Log the user out of the application.
+     *
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\Response
+     *
+     * @throws \RuntimeException
+     */
+    public function adminLogout(Request $request)
+    {
+        $this->flushSession($request);
+
+        return redirect()->route('admin.login');
     }
 
     /**

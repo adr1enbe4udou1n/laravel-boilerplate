@@ -1,6 +1,6 @@
 <?php
 
-Route::get('/', 'DashboardController@index')
+Route::get('/', 'BackendController@index')
     ->name('home');
 Route::get('/routes/search', 'AjaxController@routesSearch')
     ->name('routes.search');
@@ -12,14 +12,8 @@ Route::post('/images/upload', 'AjaxController@imageUpload')
 Route::group(
     ['middleware' => ['can:manage form_settings']],
     function () {
-        Route::get('form-setting', 'FormSettingController@index')
-            ->name('form_setting.index');
-        Route::get('form-setting/create', 'FormSettingController@create')
-            ->name('form_setting.create');
         Route::post('form-setting', 'FormSettingController@store')
             ->name('form_setting.store');
-        Route::get('form-setting/{form_setting}/edit', 'FormSettingController@edit')
-            ->name('form_setting.edit');
         Route::match(['PUT', 'PATCH'], 'form-setting/{form_setting}',
             'FormSettingController@update')->name('form_setting.update');
         Route::delete('form-setting/{form_setting}', 'FormSettingController@destroy')
@@ -34,10 +28,6 @@ Route::group(
 Route::group(
     ['middleware' => ['can:manage form_submissions']],
     function () {
-        Route::get('form-submission', 'FormSubmissionController@index')
-            ->name('form_submission.index');
-        Route::get('form-submission/{form_submission}', 'FormSubmissionController@show')
-            ->name('form_submission.show');
         Route::delete('form-submission/{form_submission}', 'FormSubmissionController@destroy')
             ->name('form_submission.destroy');
 
@@ -55,8 +45,12 @@ Route::group(
 Route::group(
     ['middleware' => ['can:manage users']],
     function () {
-        Route::resource('user', 'UserController',
-            ['except' => ['show']]);
+        Route::post('user', 'UserController@store')
+          ->name('user.store');
+        Route::match(['PUT', 'PATCH'], 'user/{user}',
+          'UserController@update')->name('user.update');
+        Route::delete('user/{user}', 'UserController@destroy')
+          ->name('user.destroy');
 
         Route::post('user/search', 'UserController@search')->name(
             'user.search'
@@ -77,8 +71,12 @@ Route::group(
 Route::group(
     ['middleware' => ['can:manage roles']],
     function () {
-        Route::resource('role', 'RoleController',
-            ['except' => ['show']]);
+        Route::post('role', 'RoleController@store')
+          ->name('role.store');
+        Route::match(['PUT', 'PATCH'], 'role/{role}',
+          'RoleController@update')->name('role.update');
+        Route::delete('role/{role}', 'RoleController@destroy')
+          ->name('role.destroy');
 
         Route::post('role/search', 'RoleController@search')->name(
             'role.search'
@@ -89,14 +87,8 @@ Route::group(
 Route::group(
     ['middleware' => ['can:manage metas']],
     function () {
-        Route::get('meta', 'MetaController@index')
-            ->name('meta.index');
-        Route::get('meta/create', 'MetaController@create')
-            ->name('meta.create');
         Route::post('meta', 'MetaController@store')
             ->name('meta.store');
-        Route::get('meta/{meta}/edit', 'MetaController@edit')
-            ->name('meta.edit');
         Route::match(['PUT', 'PATCH'], 'meta/{meta}',
             'MetaController@update')->name('meta.update');
         Route::delete('meta/{meta}', 'MetaController@destroy')
@@ -116,14 +108,8 @@ Route::group(
 Route::group(
     ['middleware' => ['can:manage redirections']],
     function () {
-        Route::get('redirection', 'RedirectionController@index')
-            ->name('redirection.index');
-        Route::get('redirection/create', 'RedirectionController@create')
-            ->name('redirection.create');
         Route::post('redirection', 'RedirectionController@store')
             ->name('redirection.store');
-        Route::get('redirection/{redirection}/edit', 'RedirectionController@edit')
-            ->name('redirection.edit');
         Route::match(['PUT', 'PATCH'], 'redirection/{redirection}',
             'RedirectionController@update')->name('redirection.update');
         Route::delete('redirection/{redirection}', 'RedirectionController@destroy')
@@ -147,15 +133,8 @@ if (config('blog.enabled')) {
     Route::group(
         ['middleware' => ['can:manage own posts']],
         function () {
-            Route::get('post', 'PostController@index')
-                ->name('post.index');
-            Route::get('post/create', 'PostController@create')
-                ->name('post.create');
             Route::post('post', 'PostController@store')
                 ->name('post.store');
-            Route::get('post/{post}/edit', 'PostController@edit')
-                ->name('post.edit')
-                ->middleware('can:update,post');
             Route::match(['PUT', 'PATCH'], 'post/{post}',
                 'PostController@update')->name('post.update')
                 ->middleware('can:update,post');

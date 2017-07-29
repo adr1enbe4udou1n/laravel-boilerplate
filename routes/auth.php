@@ -35,6 +35,7 @@ Route::group(
 
         // Admin specific login forms
         Route::get('admin/login', 'LoginController@showAdminLoginForm')->name('admin.login');
+        Route::get('admin/logout', 'LoginController@adminLogout')->name('admin.logout');
         Route::get('admin/password/reset', 'ForgotPasswordController@showAdminLinkRequestForm')->name('admin.password.request');
     }
 );

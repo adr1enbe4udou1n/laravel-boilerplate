@@ -31,25 +31,6 @@ class RedirectionController extends BackendController
     {
         parent::__construct($view);
         $this->redirections = $redirections;
-
-        $view->composer('*', function (View $view) {
-            $redirections = config('redirections');
-
-            array_walk($redirections, function(&$item) {
-                $item = trans($item);
-            });
-            $view->withRedirectionTypes($redirections);
-        });
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('backend.redirection.index');
     }
 
     /**
@@ -90,14 +71,6 @@ class RedirectionController extends BackendController
     }
 
     /**
-     * @return mixed
-     */
-    public function create()
-    {
-        return view('backend.redirection.create');
-    }
-
-    /**
      * @param StoreRedirectionRequest $request
      *
      * @return mixed
@@ -107,16 +80,6 @@ class RedirectionController extends BackendController
         $this->redirections->store($request->input());
 
         return redirect()->route('admin.redirection.index')->withFlashSuccess(trans('alerts.backend.redirections.created'));
-    }
-
-    /**
-     * @param Redirection $redirection
-     *
-     * @return mixed
-     */
-    public function edit(Redirection $redirection)
-    {
-        return view('backend.redirection.edit')->withRedirection($redirection);
     }
 
     /**

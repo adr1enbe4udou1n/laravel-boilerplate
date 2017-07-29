@@ -31,16 +31,6 @@ class FormSubmissionController extends BackendController
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('backend.form-submission.index');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
      * @param Request $request
      *
      * @return \Illuminate\Http\JsonResponse
@@ -71,18 +61,6 @@ class FormSubmissionController extends BackendController
                 ->rawColumns(['actions'])
                 ->make(true);
         }
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @param \App\Models\FormSubmission $form_submission
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function show(FormSubmission $form_submission)
-    {
-        return view('backend.form-submission.show')->withFormSubmission($form_submission);
     }
 
     /**

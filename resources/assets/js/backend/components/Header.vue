@@ -1,42 +1,81 @@
 <template>
-  <navbar>
-    <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button" @click="mobileSidebarToggle">&#9776;</button>    <a class="navbar-brand" href="#"></a>
-    <ul class="nav navbar-nav d-md-down-none mr-auto">
-      <li class="nav-item">
-        <a class="nav-link navbar-toggler sidebar-toggler" href="#" @click="sidebarToggle">&#9776;</a>
-      </li>
-    </ul>
-  </navbar>
+    <navbar>
+        <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button" @click="mobileSidebarToggle">
+            &#9776;
+        </button>
+        <a class="navbar-brand" href="#"></a>
+        <ul class="nav navbar-nav d-md-down-none mr-auto">
+            <li class="nav-item">
+                <a class="nav-link navbar-toggler sidebar-toggler" href="#" @click="sidebarToggle">&#9776;</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav ml-auto mr-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+                    <span class="d-md-down-none">{{ $t('labels.language') }}</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" rel="alternate" v-for="(locale, index) in locales" :hreflang="index"
+                       :href="'/' + index">
+                        {{ locale.native }}
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+                    <img :src="avatar" class="img-avatar" :alt="$t('labels.user.avatar')">
+                    <span class="d-md-down-none">{{ user.name }}</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <div class="dropdown-header text-center">
+                        <strong>Settings</strong>
+                    </div>
+
+                    <a class="dropdown-item" :href="routes.account"><i class="icon-user"></i>
+                        {{ $t('labels.user.profile') }}</a>
+                    <a class="dropdown-item" :href="routes.logout"><i class="icon-logout"></i>
+                        {{ $t('labels.user.logout') }}</a>
+                </div>
+            </li>
+        </ul>
+    </navbar>
 </template>
 <script>
+    import navbar from './Navbar.vue'
 
-import navbar from './Navbar.vue'
-
-export default {
-  name: 'header',
-  components: {
-    navbar
-  },
-  methods: {
-    click () {
-      // do nothing
-    },
-    sidebarToggle (e) {
-      e.preventDefault();
-      document.body.classList.toggle('sidebar-hidden');
-    },
-    sidebarMinimize (e) {
-      e.preventDefault();
-      document.body.classList.toggle('sidebar-minimized');
-    },
-    mobileSidebarToggle (e) {
-      e.preventDefault();
-      document.body.classList.toggle('sidebar-mobile-show');
-    },
-    asideToggle (e) {
-      e.preventDefault();
-      document.body.classList.toggle('aside-menu-hidden');
+    export default {
+        name: 'header',
+        components: {
+            navbar
+        },
+        data() {
+            return {
+                locales: window.settings.locales,
+                routes: window.settings.routes,
+                user: window.settings.user,
+                avatar: window.settings.avatar,
+            }
+        },
+        methods: {
+            click() {
+                // do nothing
+            },
+            sidebarToggle(e) {
+                e.preventDefault();
+                document.body.classList.toggle('sidebar-hidden');
+            },
+            sidebarMinimize(e) {
+                e.preventDefault();
+                document.body.classList.toggle('sidebar-minimized');
+            },
+            mobileSidebarToggle(e) {
+                e.preventDefault();
+                document.body.classList.toggle('sidebar-mobile-show');
+            },
+            asideToggle(e) {
+                e.preventDefault();
+                document.body.classList.toggle('aside-menu-hidden');
+            }
+        }
     }
-  }
-}
 </script>

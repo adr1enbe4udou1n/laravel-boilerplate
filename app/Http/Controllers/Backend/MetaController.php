@@ -29,32 +29,6 @@ class MetaController extends BackendController
     {
         parent::__construct($view);
         $this->metas = $metas;
-
-        $view->composer('backend.meta.form', function (View $view) {
-            $routes = [];
-            $data = $view->getData();
-
-            if($oldRoute = old('route')) {
-                $routes = [$oldRoute => trans('routes.' . $oldRoute)];
-            }
-            elseif (isset($data['meta'])) {
-                /** @var Meta $meta */
-                $meta = $data['meta'];
-                $routes = $meta->route ? [$meta->route => trans('routes.' . $meta->route)] : [];
-            }
-
-            $view->withRoutes($routes);
-        });
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('backend.meta.index');
     }
 
     /**
@@ -94,14 +68,6 @@ class MetaController extends BackendController
     }
 
     /**
-     * @return mixed
-     */
-    public function create()
-    {
-        return view('backend.meta.create');
-    }
-
-    /**
      * @param StoreMetaRequest $request
      *
      * @return mixed
@@ -111,16 +77,6 @@ class MetaController extends BackendController
         $this->metas->store($request->input());
 
         return redirect()->route('admin.meta.index')->withFlashSuccess(trans('alerts.backend.metas.created'));
-    }
-
-    /**
-     * @param Meta $meta
-     *
-     * @return mixed
-     */
-    public function edit(Meta $meta)
-    {
-        return view('backend.meta.edit')->withMeta($meta);
     }
 
     /**

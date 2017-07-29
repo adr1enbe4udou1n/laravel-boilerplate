@@ -33,16 +33,6 @@ class FormSettingController extends BackendController
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('backend.form-setting.index');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
      * @param Request $request
      *
      * @return \Illuminate\Http\JsonResponse
@@ -76,20 +66,6 @@ class FormSettingController extends BackendController
     }
 
     /**
-     * @return mixed
-     */
-    public function create()
-    {
-        $formTypes = collect(config('forms'));
-
-        $formTypes->transform(function ($item) {
-            return trans($item['display_name']);
-        });
-
-        return view('backend.form-setting.create')->withFormTypes($formTypes->toArray());
-    }
-
-    /**
      * @param StoreFormSettingRequest $request
      *
      * @return mixed
@@ -99,22 +75,6 @@ class FormSettingController extends BackendController
         $this->formSettings->store($request->input());
 
         return redirect()->route('admin.form_setting.index')->withFlashSuccess(trans('alerts.backend.form_settings.created'));
-    }
-
-    /**
-     * @param FormSetting $formSetting
-     *
-     * @return mixed
-     */
-    public function edit(FormSetting $formSetting)
-    {
-        $formTypes = collect(config('forms'));
-
-        $formTypes->transform(function ($item) {
-            return trans($item['display_name']);
-        });
-
-        return view('backend.form-setting.edit')->withFormSetting($formSetting)->withFormTypes($formTypes->toArray());
     }
 
     /**
