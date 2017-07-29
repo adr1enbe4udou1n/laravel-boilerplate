@@ -1,8 +1,23 @@
 require('./../bootstrap');
 require('./../plugins');
-require('./../vue');
 require('cookieconsent');
 require('slick-carousel');
+
+/**
+ * Vue
+ */
+import Vue from 'vue';
+require('./../vee-validate');
+const i18n = require('./../vue-i18n');
+
+// Components sample
+import Panel from '.././components/Panel.vue';
+Vue.component('panel', Panel);
+
+// Init
+new Vue({
+    i18n
+}).$mount('#app');
 
 // Font
 

@@ -18,7 +18,6 @@
     @if (!$hmr)
     <link rel="stylesheet" href="{{ assets('css/backend.css') }}">
     @endif
-    @yield('styles')
 </head>
 <body class="app @yield('body_class')">
     @yield('body')
