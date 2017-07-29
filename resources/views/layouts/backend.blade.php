@@ -31,7 +31,9 @@
                 'editor_site_url' => config('app.editor_site_url')
             ],
             'locales' => LaravelLocalization::getSupportedLocales(),
-            'user' => $logged_in_user,
+            'user' => auth()->user(),
+            'is_impersonation' => session()->has('admin_user_id') && session()->has('temp_user_id'),
+            'usurper_name' => session()->get('admin_user_name'),
             'blog' => [
                 'enabled' => config('blog.enabled')
             ]

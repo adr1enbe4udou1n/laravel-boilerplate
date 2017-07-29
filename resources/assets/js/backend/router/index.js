@@ -6,6 +6,7 @@ import Full from '../containers/Full.vue';
 
 // Views
 import Dashboard from '../views/Dashboard.vue';
+import PostCreate from '../views/post/PostCreate.vue';
 
 Vue.use(Router);
 
@@ -25,6 +26,11 @@ export default (i18n) => {
                         path: 'dashboard',
                         name: i18n.t('labels.backend.titles.dashboard'),
                         component: Dashboard
+                    },
+                    {
+                        path: 'post/create',
+                        name: i18n.t('labels.backend.posts.titles.create'),
+                        component: PostCreate
                     }
                 ]
             }
