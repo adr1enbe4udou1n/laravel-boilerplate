@@ -25,7 +25,14 @@
     <!-- JS settings -->
     <script type="application/json" data-settings-selector="settings-json">
         {!! json_encode([
-            'blog' => config('blog')
+            'app' => [
+                'name' => config('app.name'),
+                'editor_name' => config('app.editor_name'),
+                'editor_site_url' => config('app.editor_site_url')
+            ],
+            'blog' => [
+                'enabled' => config('blog.enabled')
+            ]
         ]) !!}
     </script>
 

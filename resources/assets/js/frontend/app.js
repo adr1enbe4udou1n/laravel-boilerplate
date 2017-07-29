@@ -4,14 +4,18 @@ require('cookieconsent');
 require('slick-carousel');
 
 /**
- * Vue
+ * Initialize Vue
  */
 import Vue from 'vue';
-require('./../vee-validate');
-const i18n = require('./../vue-i18n');
+import VueI18n from '../vue-i18n';
+const i18n = VueI18n(window.locale);
 
-// Components sample
-import Panel from '.././components/Panel.vue';
+// VeeValidate
+import VeeValidate from '../vee-validate';
+VeeValidate(window.locale);
+
+// Components
+import Panel from '../components/Panel.vue';
 Vue.component('panel', Panel);
 
 // Init
@@ -19,8 +23,9 @@ new Vue({
     i18n
 }).$mount('#app');
 
-// Font
-
+/**
+ * Font
+ */
 const WebFont = require('webfontloader');
 
 WebFont.load({
@@ -29,8 +34,9 @@ WebFont.load({
     }
 });
 
-// Slider
-
+/**
+ * Slick
+ */
 $('.slider').removeClass('hidden').slick({
     dots: true,
     infinite: true,
@@ -39,8 +45,9 @@ $('.slider').removeClass('hidden').slick({
     slidesToScroll: 1
 });
 
-// Cookie consent
-
+/**
+ * Cookie Consent
+ */
 window.addEventListener("load", function () {
     window.cookieconsent.initialise({
         "palette": {

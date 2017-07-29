@@ -12,7 +12,9 @@ import Locales from './vue-i18n-locales.generated.js';
 
 Vue.use(VueI18n);
 
-export const i18n = new VueI18n({
-    locale: window.locale,
-    messages: Locales
-});
+export default function(locale) {
+    return new VueI18n({
+        locale: locale,
+        messages: Locales
+    });
+}

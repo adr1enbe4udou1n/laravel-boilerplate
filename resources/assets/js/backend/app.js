@@ -23,8 +23,12 @@ require('./../plugins');
  * Vue
  */
 import Vue from 'vue';
-require('./../vee-validate');
-const i18n = require('./../vue-i18n');
+import VueI18n from '../vue-i18n';
+const i18n = VueI18n(window.locale);
+
+// VeeValidate
+import VeeValidate from '../vee-validate';
+VeeValidate(window.locale);
 
 // Bootstrap components
 import BootstrapVue from 'bootstrap-vue';
@@ -45,6 +49,7 @@ new Vue({
     template: '<App/>',
     components: { App },
     data: {
+        settings: window.settings,
         iconUser: '<i class="icon-user"></i>',
         iconEnvelope: '<i class="icon-envelope"></i>',
         iconLock: '<i class="icon-lock"></i>',
