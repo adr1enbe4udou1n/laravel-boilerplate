@@ -28,6 +28,11 @@ class FormSubmissionController extends BackendController
         $this->formSubmissions = $formSubmissions;
     }
 
+    public function getFormSubmissionCounter()
+    {
+        return $this->formSubmissions->query()->count();
+    }
+
     /**
      * Show the application dashboard.
      *

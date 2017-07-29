@@ -23,7 +23,7 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <img :src="avatar" class="img-avatar" :alt="$t('labels.user.avatar')">
+                    <img :src="user.avatar" class="img-avatar" :alt="$t('labels.user.avatar')">
                     <span class="d-md-down-none">{{ user.name }}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
@@ -31,9 +31,9 @@
                         <strong>Settings</strong>
                     </div>
 
-                    <a class="dropdown-item" :href="routes.account"><i class="icon-user"></i>
+                    <a class="dropdown-item" :href="routes['user.account']"><i class="icon-user"></i>
                         {{ $t('labels.user.profile') }}</a>
-                    <a class="dropdown-item" :href="routes.logout"><i class="icon-logout"></i>
+                    <a class="dropdown-item" :href="routes['admin.logout']"><i class="icon-logout"></i>
                         {{ $t('labels.user.logout') }}</a>
                 </div>
             </li>
@@ -53,7 +53,6 @@
                 locales: window.settings.locales,
                 routes: window.settings.routes,
                 user: window.settings.user,
-                avatar: window.settings.avatar,
             }
         },
         methods: {

@@ -31,12 +31,8 @@
                 'editor_site_url' => config('app.editor_site_url')
             ],
             'locales' => LaravelLocalization::getSupportedLocales(),
-            'routes' => [
-                'account' => route('user.account'),
-                'logout' => route('admin.logout'),
-            ],
+            'routes' => $routes,
             'user' => $logged_in_user,
-            'avatar' => $logged_in_user ? $logged_in_user->avatar : null,
             'blog' => [
                 'enabled' => config('blog.enabled')
             ]

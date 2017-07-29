@@ -2,11 +2,11 @@
 
 Route::get('/', 'BackendController@index')
     ->name('home');
-Route::get('/routes/search', 'AjaxController@routesSearch')
+Route::get('routes/search', 'AjaxController@routesSearch')
     ->name('routes.search');
-Route::get('/tags/search', 'AjaxController@tagsSearch')
+Route::get('tags/search', 'AjaxController@tagsSearch')
     ->name('tags.search');
-Route::post('/images/upload', 'AjaxController@imageUpload')
+Route::post('images/upload', 'AjaxController@imageUpload')
     ->name('images.upload');
 
 Route::group(
@@ -31,14 +31,17 @@ Route::group(
         Route::delete('form-submission/{form_submission}', 'FormSubmissionController@destroy')
             ->name('form_submission.destroy');
 
-        Route::post('form_submission/search', 'FormSubmissionController@search')->name(
+        Route::post('form-submission/search', 'FormSubmissionController@search')->name(
             'form_submission.search'
         );
 
-        Route::post('form_submission/batch-action',
+        Route::post('form-submission/batch-action',
             'FormSubmissionController@batchAction')->name(
             'form_submission.batch-action'
         );
+
+        Route::get('form-submission/counter', 'FormSubmissionController@getFormSubmissionCounter')
+          ->name('form_submission.counter');
     }
 );
 
@@ -65,6 +68,9 @@ Route::group(
             ->name(
                 'user.login-as'
             );
+
+        Route::get('user/active-counter', 'UserController@getActiveUserCounter')
+          ->name('user.active.counter');
     }
 );
 
@@ -151,6 +157,15 @@ if (config('blog.enabled')) {
                 'PostController@batchAction')->name(
                 'post.batch-action'
             );
+
+            Route::get('post/draft-counter', 'PostController@getDraftPostCounter')
+              ->name('post.draft.counter');
+            Route::get('post/pending-counter', 'PostController@getPendingPostCounter')
+              ->name('post.pending.counter');
+            Route::get('post/published-counter', 'PostController@getPublishedPostCounter')
+              ->name('post.published.counter');
+            Route::get('post/latest', 'Backend\PostController@getLastestPosts')
+              ->name('post.latest');
         }
     );
 }

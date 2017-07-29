@@ -42,6 +42,29 @@ class PostController extends BackendController
         $this->tags = $tags;
     }
 
+    public function getDraftPostCounter()
+    {
+        return $this->posts->query()->whereStatus(Post::DRAFT)->count();
+    }
+
+    public function getPendingPostCounter()
+    {
+        return $this->posts->query()->whereStatus(Post::PENDING)->count();
+    }
+
+    public function getPublishedPostCounter()
+    {
+        return $this->posts->query()->whereStatus(Post::PUBLISHED)->count();
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection|static[]
+     */
+    public function getLastestPosts()
+    {
+        return $this->posts->query()->orderByDesc('created_at')->limit(10)->get();
+    }
+
     /**
      * Show the application dashboard.
      *

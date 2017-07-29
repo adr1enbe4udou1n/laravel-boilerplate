@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -48,6 +49,19 @@ class ViewServiceProvider extends ServiceProvider
 
         View::composer('*', function (\Illuminate\View\View $view) {
             $view->with('logged_in_user', $logged_in_user = auth()->user());
+        });
+
+        View::composer('layouts/backend', function (\Illuminate\View\View $view) {
+            $route_names = [];
+            $routes = Route::getRoutes();
+
+            /** @var \Illuminate\Routing\Route $route */
+            foreach ($routes as $route)
+            {
+                $route_names[$route->getName()] = $route->uri();
+            }
+
+            $view->with('routes', $route_names);
         });
     }
 

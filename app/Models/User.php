@@ -90,6 +90,11 @@ class User extends Authenticatable
             'remember_token',
         ];
 
+    protected $appends = [
+      'avatar',
+      'can'
+    ];
+
     public function scopeActives(Builder $query)
     {
         return $query->where('active', '=', true);
@@ -143,6 +148,30 @@ class User extends Authenticatable
         }
 
         return collect($permissions);
+    }
+
+    /**
+     * Get all user permissions in a flat array.
+     *
+     * @return array
+     */
+    public function getCanAttribute()
+    {
+        $permissions = [];
+
+        /** @var Authenticatable $user */
+        if ($user = auth()->user()) {
+            $all_permissions = config('permissions');
+
+            foreach ($all_permissions as $name => $permission) {
+                if ($user->can($name)) {
+                    $permissions[$name] = true;
+                    continue;
+                }
+                $permissions[$name] = false;
+            }
+        }
+        return $permissions;
     }
 
     /**
