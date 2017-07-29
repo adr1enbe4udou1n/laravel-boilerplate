@@ -9,23 +9,25 @@ import Dashboard from '../views/Dashboard.vue';
 
 Vue.use(Router);
 
-export default new Router({
-    mode: 'hash',
-    linkActiveClass: 'open active',
-    scrollBehavior: () => ({y: 0}),
-    routes: [
-        {
-            path: '/',
-            redirect: '/dashboard',
-            name: 'Home',
-            component: Full,
-            children: [
-                {
-                    path: 'dashboard',
-                    name: 'Dashboard',
-                    component: Dashboard
-                }
-            ]
-        }
-    ]
-});
+export default (i18n) => {
+    return new Router({
+        mode: 'hash',
+        linkActiveClass: 'open active',
+        scrollBehavior: () => ({y: 0}),
+        routes: [
+            {
+                path: '/',
+                redirect: '/dashboard',
+                name: i18n.t('labels.frontend.titles.home'),
+                component: Full,
+                children: [
+                    {
+                        path: 'dashboard',
+                        name: i18n.t('labels.backend.titles.dashboard'),
+                        component: Dashboard
+                    }
+                ]
+            }
+        ]
+    });
+}

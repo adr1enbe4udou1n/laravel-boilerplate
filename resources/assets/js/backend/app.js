@@ -44,8 +44,8 @@ import router from './router';
 
 // Init
 new Vue({
-    router,
     i18n,
+    router: router(i18n),
     template: '<App/>',
     components: { App },
     data: {
