@@ -67,9 +67,15 @@
                             <tbody>
                             <template v-if="posts.length > 0">
                             <tr v-for="post in posts">
-                                <td valign="top" colspan="6"
-                                    class="text-center"> post ok
+                                <td>
+                                    <router-link :to="`/post/${post.id}/edit`">
+                                        {{ post.title }}
+                                    </router-link>
                                 </td>
+                                <td><b-badge :variant="post.state">{{ $t(post.status_label) }}</b-badge></td>
+                                <td><b-badge :variant="post.pinned ? 'success' : 'danger'">{{ post.pinned ? $t('labels.yes') : $t('labels.no') }}</b-badge></td>
+                                <td>{{ post.summary }}</td>
+                                <td class="text-center">{{ post.published_at }}</td>
                             </tr>
                             </template>
                             <tr v-else>
@@ -79,8 +85,9 @@
                             </tr>
                             </tbody>
                         </table>
-                        <a href="/admin/post/index"
-                           class="btn btn-primary pull-right">{{ $t('labels.backend.dashboard.all_posts') }}</a>
+                        <router-link to="/post/index" class="btn btn-primary pull-right">
+                            {{ $t('labels.backend.dashboard.all_posts') }}
+                        </router-link>
                     </div>
                 </div>
             </div>

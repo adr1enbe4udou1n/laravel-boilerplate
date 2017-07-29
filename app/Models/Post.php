@@ -86,6 +86,10 @@ class Post extends Model
         'published_at',
     ];
 
+    protected $appends = [
+      'state', 'status_label'
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
