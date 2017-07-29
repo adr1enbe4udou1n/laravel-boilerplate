@@ -1,6 +1,5 @@
 
 require('./../bootstrap');
-require('./../../vendor/coreui/js/app');
 
 window.JSZip = require('jszip');
 

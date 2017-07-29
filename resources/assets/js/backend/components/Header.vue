@@ -1,12 +1,12 @@
 <template>
-    <navbar>
+    <header class="app-header navbar">
         <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button" @click="mobileSidebarToggle">
             &#9776;
         </button>
         <a class="navbar-brand" href="#"></a>
         <ul class="nav navbar-nav d-md-down-none mr-auto">
             <li class="nav-item">
-                <a class="nav-link navbar-toggler sidebar-toggler" href="#" @click="sidebarToggle">&#9776;</a>
+                <a class="nav-link navbar-toggler sidebar-toggler" href="#" @click="sidebarMinimize">&#9776;</a>
             </li>
         </ul>
         <ul class="nav navbar-nav ml-auto mr-4">
@@ -38,16 +38,11 @@
                 </div>
             </li>
         </ul>
-    </navbar>
+    </header>
 </template>
 <script>
-    import navbar from './Navbar.vue'
-
     export default {
         name: 'header',
-        components: {
-            navbar
-        },
         data() {
             return {
                 locales: window.settings.locales,
