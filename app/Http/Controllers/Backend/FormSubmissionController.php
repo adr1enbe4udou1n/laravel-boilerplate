@@ -20,11 +20,9 @@ class FormSubmissionController extends BackendController
      * Create a new controller instance.
      *
      * @param FormSubmissionRepository           $formSubmissions
-     * @param \Illuminate\Contracts\View\Factory $view
      */
-    public function __construct(FormSubmissionRepository $formSubmissions, Factory $view)
+    public function __construct(FormSubmissionRepository $formSubmissions)
     {
-        parent::__construct($view);
         $this->formSubmissions = $formSubmissions;
     }
 

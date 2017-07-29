@@ -31,7 +31,6 @@
                 'editor_site_url' => config('app.editor_site_url')
             ],
             'locales' => LaravelLocalization::getSupportedLocales(),
-            'routes' => $routes,
             'user' => $logged_in_user,
             'blog' => [
                 'enabled' => config('blog.enabled')

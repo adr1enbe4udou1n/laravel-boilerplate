@@ -21,12 +21,10 @@ class FormSettingController extends BackendController
     /**
      * Create a new controller instance.
      *
-     * @param \Illuminate\Contracts\View\Factory $view
      * @param FormSettingRepository              $formSettings
      */
-    public function __construct(FormSettingRepository $formSettings, Factory $view)
+    public function __construct(FormSettingRepository $formSettings)
     {
-        parent::__construct($view);
         $this->formSettings = $formSettings;
     }
 

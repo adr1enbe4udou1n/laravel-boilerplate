@@ -31,9 +31,9 @@
                         <strong>Settings</strong>
                     </div>
 
-                    <a class="dropdown-item" :href="routes['user.account']"><i class="icon-user"></i>
+                    <a class="dropdown-item" href="/user/account"><i class="icon-user"></i>
                         {{ $t('labels.user.profile') }}</a>
-                    <a class="dropdown-item" :href="routes['admin.logout']"><i class="icon-logout"></i>
+                    <a class="dropdown-item" href="/admin/logout"><i class="icon-logout"></i>
                         {{ $t('labels.user.logout') }}</a>
                 </div>
             </li>
@@ -51,7 +51,6 @@
         data() {
             return {
                 locales: window.settings.locales,
-                routes: window.settings.routes,
                 user: window.settings.user,
             }
         },

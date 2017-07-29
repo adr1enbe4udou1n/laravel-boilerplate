@@ -30,11 +30,9 @@ class UserController extends BackendController
      *
      * @param UserRepository                             $users
      * @param \App\Repositories\Contracts\RoleRepository $roles
-     * @param \Illuminate\Contracts\View\Factory         $view
      */
-    public function __construct(UserRepository $users, RoleRepository $roles, Factory $view)
+    public function __construct(UserRepository $users, RoleRepository $roles)
     {
-        parent::__construct($view);
         $this->users = $users;
         $this->roles = $roles;
     }

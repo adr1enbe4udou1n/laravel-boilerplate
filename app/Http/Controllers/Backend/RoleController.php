@@ -23,11 +23,9 @@ class RoleController extends BackendController
      * Create a new controller instance.
      *
      * @param RoleRepository                     $roles
-     * @param \Illuminate\Contracts\View\Factory $view
      */
-    public function __construct(RoleRepository $roles, Factory $view)
+    public function __construct(RoleRepository $roles)
     {
-        parent::__construct($view);
         $this->roles = $roles;
     }
 

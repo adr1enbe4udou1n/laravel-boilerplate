@@ -23,11 +23,9 @@ class MetaController extends BackendController
      * Create a new controller instance.
      *
      * @param MetaRepository                     $metas
-     * @param \Illuminate\Contracts\View\Factory $view
      */
-    public function __construct(MetaRepository $metas, Factory $view)
+    public function __construct(MetaRepository $metas)
     {
-        parent::__construct($view);
         $this->metas = $metas;
     }
 

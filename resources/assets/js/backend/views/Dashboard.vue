@@ -6,7 +6,7 @@
                     <div class="col-lg-4 col-xs-6">
                         <div class="card card-inverse card-danger">
                             <div class="card-block pb-0">
-                                <h4 class="mb-0">{{ new_posts_count }}</h4>
+                                <h4 class="mb-0">{{ newPostsCount }}</h4>
                                 <p>{{ $t('labels.backend.dashboard.new_posts') }}</p>
                             </div>
                         </div>
@@ -14,7 +14,7 @@
                     <div class="col-lg-4 col-xs-6">
                         <div class="card card-inverse card-warning">
                             <div class="card-block pb-0">
-                                <h4 class="mb-0">{{ pending_posts_count }}</h4>
+                                <h4 class="mb-0">{{ pendingPostsCount }}</h4>
                                 <p>{{ $t('labels.backend.dashboard.pending_posts') }}</p>
                             </div>
                         </div>
@@ -22,7 +22,7 @@
                     <div class="col-lg-4 col-xs-6">
                         <div class="card card-inverse card-success">
                             <div class="card-block pb-0">
-                                <h4 class="mb-0">{{ published_posts_count }}</h4>
+                                <h4 class="mb-0">{{ publishedPostsCount }}</h4>
                                 <p>{{ $t('labels.backend.dashboard.published_posts') }}</p>
                             </div>
                         </div>
@@ -32,7 +32,7 @@
                     <div class="col-lg-6 col-xs-6" v-if="user.can['manage users']">
                         <div class="card card-inverse card-primary">
                             <div class="card-block pb-0">
-                                <h4 class="mb-0">{{ active_users_count }}</h4>
+                                <h4 class="mb-0">{{ activeUsersCount }}</h4>
                                 <p>{{ $t('labels.backend.dashboard.active_users') }}</p>
                             </div>
                         </div>
@@ -40,7 +40,7 @@
                     <div class="col-lg-6 col-xs-6" v-if="user.can['manage form_submissions']">
                         <div class="card card-inverse card-info">
                             <div class="card-block pb-0">
-                                <h4 class="mb-0">{{ form_submissions_count }}</h4>
+                                <h4 class="mb-0">{{ formSubmissionsCount }}</h4>
                                 <p>{{ $t('labels.backend.dashboard.form_submissions') }}</p>
                             </div>
                         </div>
@@ -79,7 +79,7 @@
                             </tr>
                             </tbody>
                         </table>
-                        <a href="admin.post.index"
+                        <a href="/admin/post/index"
                            class="btn btn-primary pull-right">{{ $t('labels.backend.dashboard.all_posts') }}</a>
                     </div>
                 </div>
@@ -94,17 +94,45 @@
         data() {
             return {
                 user: window.settings.user,
-                routes: window.settings.routes,
-                new_posts_count: 0,
-                pending_posts_count: 0,
-                published_posts_count: 0,
-                active_users_count: 0,
-                form_submissions_count: 0,
+                newPostsCount: 0,
+                pendingPostsCount: 0,
+                publishedPostsCount: 0,
+                activeUsersCount: 0,
+                formSubmissionsCount: 0,
                 posts: [],
             }
         },
-        mounted() {
-
+        created() {
+            axios
+                .get('/admin/post/draft-counter')
+                .then(response => {
+                    this.newPostsCount = response.data
+                });
+            axios
+                .get('/admin/post/pending-counter')
+                .then(response => {
+                    this.pendingPostsCount = response.data
+                });
+            axios
+                .get('/admin/post/published-counter')
+                .then(response => {
+                    this.publishedPostsCount = response.data
+                });
+            axios
+                .get('/admin/user/active-counter')
+                .then(response => {
+                    this.activeUsersCount = response.data
+                });
+            axios
+                .get('/admin/form-submission/counter')
+                .then(response => {
+                    this.formSubmissionsCount = response.data
+                });
+            axios
+                .get('/admin/post/latest')
+                .then(response => {
+                    this.posts = response.data
+                });
         }
     }
 </script>

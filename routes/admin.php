@@ -164,7 +164,7 @@ if (config('blog.enabled')) {
               ->name('post.pending.counter');
             Route::get('post/published-counter', 'PostController@getPublishedPostCounter')
               ->name('post.published.counter');
-            Route::get('post/latest', 'Backend\PostController@getLastestPosts')
+            Route::get('post/latest', 'PostController@getLastestPosts')
               ->name('post.latest');
         }
     );

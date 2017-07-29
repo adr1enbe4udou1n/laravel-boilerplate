@@ -33,11 +33,9 @@ class PostController extends BackendController
      *
      * @param \App\Repositories\Contracts\PostRepository $posts
      * @param \App\Repositories\Contracts\TagRepository $tags
-     * @param \Illuminate\Contracts\View\Factory $view
      */
-    public function __construct(PostRepository $posts, TagRepository $tags, Factory $view)
+    public function __construct(PostRepository $posts, TagRepository $tags)
     {
-        parent::__construct($view);
         $this->posts = $posts;
         $this->tags = $tags;
     }
