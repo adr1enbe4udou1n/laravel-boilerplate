@@ -6,7 +6,7 @@
 
 <script>
     export default {
-        name: 'metalist',
+        name: 'meta_list',
         data() {
             return {
 

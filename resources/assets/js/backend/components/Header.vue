@@ -16,7 +16,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" rel="alternate" v-for="(locale, index) in locales" :hreflang="index"
-                       :href="'/' + index">
+                       :href="`/${index}/admin`">
                         {{ locale.native }}
                     </a>
                 </div>

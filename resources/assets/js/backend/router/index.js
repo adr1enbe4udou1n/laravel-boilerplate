@@ -51,7 +51,9 @@ export default (i18n) => {
                         redirect: '/post/list',
                         name: 'post',
                         component: {
-                            render (c) { return c('router-view') }
+                            render(c) {
+                                return c('router-view')
+                            }
                         },
                         meta: {
                             title: i18n.t('labels.backend.posts.titles.main')
@@ -89,7 +91,9 @@ export default (i18n) => {
                         redirect: '/form-submission/list',
                         name: 'form_submissions',
                         component: {
-                            render (c) { return c('router-view') }
+                            render(c) {
+                                return c('router-view')
+                            }
                         },
                         meta: {
                             title: i18n.t('labels.backend.form_submissions.titles.main')
@@ -119,7 +123,9 @@ export default (i18n) => {
                         redirect: '/form-setting/list',
                         name: 'form_setting',
                         component: {
-                            render (c) { return c('router-view') }
+                            render(c) {
+                                return c('router-view')
+                            }
                         },
                         meta: {
                             title: i18n.t('labels.backend.form_settings.titles.main')
@@ -157,7 +163,9 @@ export default (i18n) => {
                         redirect: '/user/list',
                         name: 'user',
                         component: {
-                            render (c) { return c('router-view') }
+                            render(c) {
+                                return c('router-view')
+                            }
                         },
                         meta: {
                             title: i18n.t('labels.backend.users.titles.main')
@@ -195,7 +203,9 @@ export default (i18n) => {
                         redirect: '/role/list',
                         name: 'role',
                         component: {
-                            render (c) { return c('router-view') }
+                            render(c) {
+                                return c('router-view')
+                            }
                         },
                         meta: {
                             title: i18n.t('labels.backend.roles.titles.main')
@@ -233,7 +243,9 @@ export default (i18n) => {
                         redirect: '/meta/list',
                         name: 'meta',
                         component: {
-                            render (c) { return c('router-view') }
+                            render(c) {
+                                return c('router-view')
+                            }
                         },
                         meta: {
                             title: i18n.t('labels.backend.metas.titles.main')
@@ -271,7 +283,9 @@ export default (i18n) => {
                         redirect: '/redirection/list',
                         name: 'redirection',
                         component: {
-                            render (c) { return c('router-view') }
+                            render(c) {
+                                return c('router-view')
+                            }
                         },
                         meta: {
                             title: i18n.t('labels.backend.redirections.titles.main')

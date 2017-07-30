@@ -6,7 +6,7 @@
 
 <script>
     export default {
-        name: 'formsubmissionlist',
+        name: 'form_submission_list',
         data() {
             return {
 

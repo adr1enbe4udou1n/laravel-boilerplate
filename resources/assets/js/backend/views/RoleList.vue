@@ -19,12 +19,12 @@
 
 <script>
     export default {
-        name: 'rolelist',
+        name: 'role_list',
         data() {
             return {}
         },
         mounted() {
-            /*$('#dataTableBuilder').DataTable({
+            $('#dataTableBuilder').DataTable({
                 serverSide: true,
                 processing: true,
                 lengthChange: false,
@@ -78,10 +78,10 @@
                     data: 'actions',
                     name: 'actions',
                     orderable: false,
-                    width: 75,
+                    width: 75
                 }],
                 order: [[1, 'asc']]
-            });*/
+            });
         }
     }
 </script>

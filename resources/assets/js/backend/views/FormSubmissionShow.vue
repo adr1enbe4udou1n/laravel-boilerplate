@@ -6,7 +6,7 @@
 
 <script>
     export default {
-        name: 'formsubmissionform',
+        name: 'form_submission_form',
         props: ['id'],
         data() {
             return {

@@ -14,6 +14,7 @@ use Yajra\Datatables\Engines\EloquentEngine;
 
 class RoleController extends BackendController
 {
+
     /**
      * @var RoleRepository
      */
@@ -22,7 +23,7 @@ class RoleController extends BackendController
     /**
      * Create a new controller instance.
      *
-     * @param RoleRepository                     $roles
+     * @param RoleRepository $roles
      */
     public function __construct(RoleRepository $roles)
     {
@@ -43,15 +44,15 @@ class RoleController extends BackendController
         if ($request->isXmlHttpRequest()) {
             /** @var EloquentEngine $query */
             $query = Datatables::of($this->roles->select([
-                'id',
-                'name',
-                'order',
-                'created_at',
-                'updated_at',
+              'id',
+              'name',
+              'order',
+              'created_at',
+              'updated_at',
             ]));
 
             return $query->editColumn('name', function (Role $role) {
-                return link_to_route('admin.role.edit', $role->name, $role);
+                return link_to("#/role/{$role->id}/edit", $role->name);
             })->addColumn('actions', function (Role $role) {
                 return $this->roles->getActionButtons($role);
             })->editColumn('created_at', function (Role $role) use ($request) {
@@ -59,8 +60,8 @@ class RoleController extends BackendController
             })->editColumn('updated_at', function (Role $role) use ($request) {
                 return $role->updated_at->setTimezone($request->user()->timezone);
             })
-                ->rawColumns(['actions'])
-                ->make(true);
+              ->rawColumns(['actions'])
+              ->make(true);
         }
     }
 
@@ -73,11 +74,13 @@ class RoleController extends BackendController
     {
         $this->roles->store($request->input());
 
-        return redirect()->route('admin.role.index')->withFlashSuccess(trans('alerts.backend.roles.created'));
+        return redirect()
+          ->route('admin.role.index')
+          ->withFlashSuccess(trans('alerts.backend.roles.created'));
     }
 
     /**
-     * @param Role              $role
+     * @param Role $role
      * @param UpdateRoleRequest $request
      *
      * @return mixed
@@ -86,11 +89,13 @@ class RoleController extends BackendController
     {
         $this->roles->update($role, $request->input());
 
-        return redirect()->route('admin.role.index')->withFlashSuccess(trans('alerts.backend.roles.updated'));
+        return redirect()
+          ->route('admin.role.index')
+          ->withFlashSuccess(trans('alerts.backend.roles.updated'));
     }
 
     /**
-     * @param Role    $role
+     * @param Role $role
      * @param Request $request
      *
      * @return mixed
@@ -99,6 +104,7 @@ class RoleController extends BackendController
     {
         $this->roles->destroy($role);
 
-        return $this->RedirectResponse($request, trans('alerts.backend.roles.deleted'));
+        return $this->RedirectResponse($request,
+          trans('alerts.backend.roles.deleted'));
     }
 }

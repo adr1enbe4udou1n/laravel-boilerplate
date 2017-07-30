@@ -10,7 +10,7 @@
 
 <script>
     export default {
-        name: 'userform',
+        name: 'user_form',
         props: ['id'],
         data() {
             return {

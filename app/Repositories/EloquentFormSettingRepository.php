@@ -13,6 +13,7 @@ use Exception;
  */
 class EloquentFormSettingRepository extends EloquentBaseRepository implements FormSettingRepository
 {
+
     use HtmlActionsButtons;
 
     /**
@@ -61,7 +62,7 @@ class EloquentFormSettingRepository extends EloquentBaseRepository implements Fo
 
     /**
      * @param FormSetting $formSetting
-     * @param array       $input
+     * @param array $input
      *
      * @return \App\Models\FormSetting
      *
@@ -71,7 +72,7 @@ class EloquentFormSettingRepository extends EloquentBaseRepository implements Fo
     public function update(FormSetting $formSetting, array $input)
     {
         if (($existingFormSetting = $this->find($formSetting->name))
-            && $existingFormSetting->id !== $formSetting->id
+          && $existingFormSetting->id !== $formSetting->id
         ) {
             throw new GeneralException(trans('exceptions.backend.form_settings.already_exist'));
         }
@@ -106,8 +107,8 @@ class EloquentFormSettingRepository extends EloquentBaseRepository implements Fo
      */
     public function getActionButtons(FormSetting $formSetting)
     {
-        $buttons = $this->getEditButtonHtml('admin.form_setting.edit', $formSetting)
-            .$this->getDeleteButtonHtml('admin.form_setting.destroy', $formSetting);
+        $buttons = $this->getEditButtonHtml("#/form-setting/{$formSetting->id}/edit")
+          .$this->getDeleteButtonHtml("#/form-setting/{$formSetting->id}/destroy");
 
         return $buttons;
     }

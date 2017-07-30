@@ -312,7 +312,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
 
         // Only super admin user can edit himself
         if ($this->canEdit($user)) {
-            $buttons .= $this->getEditButtonHtml('admin.user.edit', $user);
+            $buttons .= $this->getEditButtonHtml("#/user/{$user->id}/edit");
         }
 
         if ($this->canImpersonate($user)) {
@@ -325,7 +325,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
         }
 
         if ($this->canDelete($user)) {
-            $buttons .= $this->getDeleteButtonHtml('admin.user.destroy', $user);
+            $buttons .= $this->getDeleteButtonHtml("#/user/{$user->id}/destroy");
         }
 
         return $buttons;

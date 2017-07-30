@@ -6,7 +6,7 @@
 
 <script>
     export default {
-        name: 'userlist',
+        name: 'user_list',
         data() {
             return {
 

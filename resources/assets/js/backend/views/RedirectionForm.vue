@@ -10,7 +10,7 @@
 
 <script>
     export default {
-        name: 'redirectionform',
+        name: 'redirection_form',
         props: ['id'],
         data() {
             return {

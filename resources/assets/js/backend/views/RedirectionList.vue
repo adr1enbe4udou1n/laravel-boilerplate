@@ -6,7 +6,7 @@
 
 <script>
     export default {
-        name: 'redirectionlist',
+        name: 'redirection_list',
         data() {
             return {
 

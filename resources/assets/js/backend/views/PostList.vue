@@ -6,7 +6,7 @@
 
 <script>
     export default {
-        name: 'postlist',
+        name: 'post_list',
         data() {
             return {
 

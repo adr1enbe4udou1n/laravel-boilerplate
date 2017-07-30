@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\DB;
  */
 class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepository
 {
+
     use HtmlActionsButtons;
 
     /**
@@ -61,7 +62,7 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
     }
 
     /**
-     * @param Meta  $meta
+     * @param Meta $meta
      * @param array $input
      *
      * @return \App\Models\Meta
@@ -130,8 +131,8 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
      */
     public function getActionButtons(Meta $meta)
     {
-        $buttons = $this->getEditButtonHtml('admin.meta.edit', $meta)
-            .$this->getDeleteButtonHtml('admin.meta.destroy', $meta);
+        $buttons = $this->getEditButtonHtml("#/meta/{$meta->id}/edit")
+          .$this->getDeleteButtonHtml("#/meta/{$meta->id}/destroy");
 
         return $buttons;
     }

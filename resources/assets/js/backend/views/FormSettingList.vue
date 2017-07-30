@@ -6,7 +6,7 @@
 
 <script>
     export default {
-        name: 'formsettinglist',
+        name: 'form_setting_list',
         data() {
             return {
 

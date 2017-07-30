@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\DB;
  */
 class EloquentRedirectionRepository extends EloquentBaseRepository implements RedirectionRepository
 {
+
     use HtmlActionsButtons;
 
     /**
@@ -61,7 +62,7 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
 
     /**
      * @param Redirection $redirection
-     * @param array       $input
+     * @param array $input
      *
      * @return \App\Models\Redirection
      *
@@ -71,7 +72,7 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
     public function update(Redirection $redirection, array $input)
     {
         if (($existingRedirection = $this->find($redirection->source))
-            && $existingRedirection->id !== $redirection->id
+          && $existingRedirection->id !== $redirection->id
         ) {
             throw new GeneralException(trans('exceptions.backend.redirections.already_exist'));
         }
@@ -131,7 +132,7 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
     {
         DB::transaction(function () use ($ids) {
             if ($this->query()->whereIn('id', $ids)
-                ->update(['active' => true])
+              ->update(['active' => true])
             ) {
                 return true;
             }
@@ -153,7 +154,7 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
     {
         DB::transaction(function () use ($ids) {
             if ($this->query()->whereIn('id', $ids)
-                ->update(['active' => false])
+              ->update(['active' => false])
             ) {
                 return true;
             }
@@ -171,8 +172,8 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
      */
     public function getActionButtons(Redirection $redirection)
     {
-        $buttons = $this->getEditButtonHtml('admin.redirection.edit', $redirection)
-            .$this->getDeleteButtonHtml('admin.redirection.destroy', $redirection);
+        $buttons = $this->getEditButtonHtml("#/redirection/{$redirection->id}/edit")
+          .$this->getDeleteButtonHtml("#/redirection/{$redirection->id}/destroy");
 
         return $buttons;
     }

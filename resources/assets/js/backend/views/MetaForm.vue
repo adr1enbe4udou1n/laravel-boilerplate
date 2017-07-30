@@ -10,7 +10,7 @@
 
 <script>
     export default {
-        name: 'metaform',
+        name: 'meta_form',
         props: ['id'],
         data() {
             return {

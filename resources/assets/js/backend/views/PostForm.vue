@@ -10,7 +10,7 @@
 
 <script>
     export default {
-        name: 'postform',
+        name: 'post_form',
         props: ['id'],
         data() {
             return {

@@ -10,7 +10,7 @@
 
 <script>
     export default {
-        name: 'roleform',
+        name: 'role_form',
         props: ['id'],
         data() {
             return {
