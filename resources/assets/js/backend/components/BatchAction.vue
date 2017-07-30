@@ -11,9 +11,7 @@
 
 <script>
     export default {
-        props: {
-            options: []
-        },
+        props: ['options'],
         methods: {
 
         }

@@ -99,12 +99,12 @@ class PostController extends BackendController
                 return $this->posts->getActionButtons($post);
             })->addColumn('image', function (Post $post) {
                 return link_to(
-                    route('admin.post.edit', $post),
+                    "#/post/{$post->id}/edit",
                     image_template_html('small', $post->featured_image_url, $post->title),
                     [], null, false
                 );
             })->editColumn('title', function (Post $post) {
-                return link_to_route('admin.post.edit', $post->title, $post);
+                return link_to("#/post/{$post->id}/edit", $post->title);
             })->editColumn('status', function (Post $post) {
                 return state_html_label($post->state, trans($post->status_label));
             })->editColumn('pinned', function (Post $post) {
