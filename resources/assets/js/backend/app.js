@@ -37,6 +37,9 @@ Vue.use(BootstrapVue);
 import FormToggle from '.././components/FormToggle.vue';
 Vue.component('b-form-toggle', FormToggle);
 
+import BatchAction from './components/BatchAction.vue';
+Vue.component('batch-action', BatchAction);
+
 // CoreUI
 import App from './App.vue';
 import Router from './router';

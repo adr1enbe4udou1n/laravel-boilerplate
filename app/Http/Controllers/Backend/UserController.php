@@ -68,9 +68,8 @@ class UserController extends BackendController
 
             return $query->editColumn('name', function (User $user) {
                 if ($this->users->canEdit($user)) {
-                    return link_to_route('admin.user.edit', $user->name, $user);
+                    return link_to("#/user/{$user->id}/edit", $user->name);
                 }
-
                 return $user->name;
             })->editColumn('confirmed', function (User $user) {
                 return boolean_html_label($user->confirmed);
