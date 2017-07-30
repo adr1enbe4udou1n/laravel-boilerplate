@@ -17,7 +17,7 @@
                         </router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link to="/post/index" class="nav-link">
+                        <router-link to="/post" class="nav-link">
                             <i class="icon-notebook"></i> {{ $t('labels.backend.posts.titles.main') }}
                             <span class="badge badge-danger" :title="$t('labels.backend.dashboard.new_posts')">{{ newPostsCount }}</span>
                             <span class="badge badge-warning" :title="$t('labels.backend.dashboard.pending_posts')">{{ pendingPostsCount }}</span>
@@ -28,12 +28,12 @@
                 <template v-if="user.can['manage form_submissions'] || user.can['manage form_settings']">
                     <li class="nav-title">{{ $t('labels.backend.sidebar.forms') }}</li>
                     <li class="nav-item" v-if="user.can['manage form_submissions']">
-                        <router-link to="/form-submission/index" class="nav-link">
+                        <router-link to="/form-submission" class="nav-link">
                             <i class="icon-list"></i> {{ $t('labels.backend.form_submissions.titles.main') }}
                         </router-link>
                     </li>
                     <li class="nav-item" v-if="user.can['manage form_settings']">
-                        <router-link to="/form-setting.index" class="nav-link">
+                        <router-link to="/form-setting" class="nav-link">
                             <i class="icon-equalizer"></i> {{ $t('labels.backend.form_settings.titles.main') }}
                         </router-link>
                     </li>
@@ -47,12 +47,12 @@
                         </router-link>
                     </li>
                     <li class="nav-item" v-if="user.can['manage users']">
-                        <router-link to="/user/index" class="nav-link">
+                        <router-link to="/user" class="nav-link">
                             <i class="icon-people"></i> {{ $t('labels.backend.users.titles.main') }}
                         </router-link>
                     </li>
                     <li class="nav-item" v-if="user.can['manage roles']">
-                        <router-link to="/role/index" class="nav-link">
+                        <router-link to="/role" class="nav-link">
                             <i class="icon-shield"></i> {{ $t('labels.backend.roles.titles.main') }}
                         </router-link>
                     </li>
@@ -66,12 +66,12 @@
                         </router-link>
                     </li>
                     <li class="nav-item" v-if="user.can['manage metas']">
-                        <router-link to="/meta/index" class="nav-link">
+                        <router-link to="/meta" class="nav-link">
                             <i class="icon-tag"></i> {{ $t('labels.backend.metas.titles.main') }}
                         </router-link>
                     </li>
                     <li class="nav-item" v-if="user.can['manage redirections']">
-                        <router-link to="/redirections/index" class="nav-link">
+                        <router-link to="/redirection" class="nav-link">
                             <i class="icon-control-forward"></i> {{ $t('labels.backend.redirections.titles.main') }}
                         </router-link>
                     </li>
@@ -96,12 +96,12 @@
             axios
                 .get('/admin/post/draft-counter')
                 .then(response => {
-                    this.newPostsCount = response.data
+                    this.newPostsCount = response.data;
                 });
             axios
                 .get('/admin/post/pending-counter')
                 .then(response => {
-                    this.pendingPostsCount = response.data
+                    this.pendingPostsCount = response.data;
                 });
         },
         methods: {

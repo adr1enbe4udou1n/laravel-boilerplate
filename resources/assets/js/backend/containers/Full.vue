@@ -43,11 +43,11 @@
         },
         computed: {
             name() {
-                return this.$route.name
+                return this.$route.name;
             },
 
             list() {
-                return this.$route.matched
+                return this.$route.matched;
             }
         }
     }

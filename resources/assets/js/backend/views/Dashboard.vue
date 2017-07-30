@@ -113,32 +113,32 @@
             axios
                 .get('/admin/post/draft-counter')
                 .then(response => {
-                    this.newPostsCount = response.data
+                    this.newPostsCount = response.data;
                 });
             axios
                 .get('/admin/post/pending-counter')
                 .then(response => {
-                    this.pendingPostsCount = response.data
+                    this.pendingPostsCount = response.data;
                 });
             axios
                 .get('/admin/post/published-counter')
                 .then(response => {
-                    this.publishedPostsCount = response.data
+                    this.publishedPostsCount = response.data;
                 });
             axios
                 .get('/admin/user/active-counter')
                 .then(response => {
-                    this.activeUsersCount = response.data
+                    this.activeUsersCount = response.data;
                 });
             axios
                 .get('/admin/form-submission/counter')
                 .then(response => {
-                    this.formSubmissionsCount = response.data
+                    this.formSubmissionsCount = response.data;
                 });
             axios
                 .get('/admin/post/latest')
                 .then(response => {
-                    this.posts = response.data
+                    this.posts = response.data;
                 });
         }
     }
