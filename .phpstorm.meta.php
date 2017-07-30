@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2017-07-28.
+    * Generated on 2017-07-30.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -77,6 +77,7 @@ namespace PHPSTORM_META {
         'translator' => \Illuminate\Translation\Translator::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
+        'vue-i18n.generate' => \MartinLindhe\VueInternationalizationGenerator\Commands\GenerateInclude::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
         'memcached.connector' => \Illuminate\Cache\MemcachedConnector::class,
@@ -240,6 +241,7 @@ namespace PHPSTORM_META {
         'translator' => \Illuminate\Translation\Translator::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
+        'vue-i18n.generate' => \MartinLindhe\VueInternationalizationGenerator\Commands\GenerateInclude::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
         'memcached.connector' => \Illuminate\Cache\MemcachedConnector::class,
@@ -403,6 +405,7 @@ namespace PHPSTORM_META {
         'translator' => \Illuminate\Translation\Translator::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
+        'vue-i18n.generate' => \MartinLindhe\VueInternationalizationGenerator\Commands\GenerateInclude::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
         'memcached.connector' => \Illuminate\Cache\MemcachedConnector::class,
@@ -566,6 +569,7 @@ namespace PHPSTORM_META {
         'translator' => \Illuminate\Translation\Translator::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
+        'vue-i18n.generate' => \MartinLindhe\VueInternationalizationGenerator\Commands\GenerateInclude::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
         'memcached.connector' => \Illuminate\Cache\MemcachedConnector::class,
@@ -729,6 +733,7 @@ namespace PHPSTORM_META {
         'translator' => \Illuminate\Translation\Translator::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
+        'vue-i18n.generate' => \MartinLindhe\VueInternationalizationGenerator\Commands\GenerateInclude::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
         'memcached.connector' => \Illuminate\Cache\MemcachedConnector::class,
@@ -892,6 +897,7 @@ namespace PHPSTORM_META {
         'translator' => \Illuminate\Translation\Translator::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
+        'vue-i18n.generate' => \MartinLindhe\VueInternationalizationGenerator\Commands\GenerateInclude::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
         'memcached.connector' => \Illuminate\Cache\MemcachedConnector::class,
@@ -1055,6 +1061,7 @@ namespace PHPSTORM_META {
         'translator' => \Illuminate\Translation\Translator::class,
         'html' => \Collective\Html\HtmlBuilder::class,
         'form' => \Collective\Html\FormBuilder::class,
+        'vue-i18n.generate' => \MartinLindhe\VueInternationalizationGenerator\Commands\GenerateInclude::class,
         'cache' => \Illuminate\Cache\CacheManager::class,
         'cache.store' => \Illuminate\Cache\Repository::class,
         'memcached.connector' => \Illuminate\Cache\MemcachedConnector::class,

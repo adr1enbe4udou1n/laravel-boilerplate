@@ -3227,9 +3227,9 @@ interpret@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.0.3.tgz#cbc35c62eeee73f19ab7b10a801511401afc0f90"
 
-intl-tel-input@^11.1.4:
-  version "11.1.4"
-  resolved "https://registry.yarnpkg.com/intl-tel-input/-/intl-tel-input-11.1.4.tgz#0fc0dc0a2e4844b2b5fd2d9395462b3684238d26"
+intl-tel-input@^12.0.0:
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/intl-tel-input/-/intl-tel-input-12.0.0.tgz#09afcfe563fd26ae02547f492505eff3980ab955"
 
 invariant@^2.2.0, invariant@^2.2.2:
   version "2.2.2"
@@ -3519,8 +3519,8 @@ js-tokens@^3.0.0:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
 
 js-yaml@^3.4.3:
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.9.0.tgz#4ffbbf25c2ac963b8299dc74da7e3740de1c18ce"
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.9.1.tgz#08775cebdfdd359209f0d2acd383c8f86a6904a0"
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"
@@ -6252,9 +6252,9 @@ ua-parser-js@0.7.12:
   version "0.7.12"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.12.tgz#04c81a99bdd5dc52263ea29d24c6bf8d4818a4bb"
 
-uglify-js@3.0.x, uglify-js@^3.0.26:
-  version "3.0.26"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.0.26.tgz#ba279ca597b13fe6c62c2d87dd5188e57a7a3233"
+uglify-js@3.0.x, uglify-js@^3.0.27:
+  version "3.0.27"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.0.27.tgz#a97db8c8ba6b9dba4e2f88d86aa9548fa6320034"
   dependencies:
     commander "~2.11.0"
     source-map "~0.5.1"
@@ -6479,9 +6479,9 @@ vue-hot-reload-api@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.1.0.tgz#9ca58a6e0df9078554ce1708688b6578754d86de"
 
-vue-i18n@^7.0.5:
-  version "7.0.5"
-  resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-7.0.5.tgz#f603962bff98a75f75ef1d46d26ecc8551ea68cf"
+vue-i18n@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-7.1.0.tgz#01b10bd1807647a4fd0fb1b9b7ac078ce04481b7"
 
 vue-loader@^13.0.2:
   version "13.0.2"
