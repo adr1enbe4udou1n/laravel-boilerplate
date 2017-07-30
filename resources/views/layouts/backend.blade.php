@@ -8,11 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    @hasSection('title')
-    <title>@yield('title') | {{ config('app.name') }}</title>
-    @else
     <title>Administration | {{ config('app.name') }}</title>
-    @endif
 
     <!-- Custom Styles -->
     @if (!$hmr)

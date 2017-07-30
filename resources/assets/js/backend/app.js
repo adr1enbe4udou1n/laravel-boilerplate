@@ -39,12 +39,19 @@ Vue.component('b-form-toggle', FormToggle);
 
 // CoreUI
 import App from './App.vue';
-import router from './router';
+import Router from './router';
+
+let router = Router(i18n);
+
+router.beforeEach((to, from, next) => {
+    document.title = `${to.meta.title} | ${window.settings.app.name}`;
+    next();
+});
 
 // Init
 new Vue({
     i18n,
-    router: router(i18n),
+    router,
     template: '<App/>',
     components: { App },
     data: {

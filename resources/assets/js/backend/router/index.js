@@ -32,132 +32,275 @@ export default (i18n) => {
             {
                 path: '/',
                 redirect: '/dashboard',
-                name: i18n.t('labels.frontend.titles.home'),
+                name: 'home',
                 component: Full,
+                meta: {
+                    title: i18n.t('labels.frontend.titles.home')
+                },
                 children: [
                     {
                         path: 'dashboard',
-                        name: i18n.t('labels.backend.titles.dashboard'),
-                        component: Dashboard
+                        name: 'dashboard',
+                        component: Dashboard,
+                        meta: {
+                            title: i18n.t('labels.backend.titles.dashboard')
+                        }
                     },
                     {
                         path: 'post',
-                        name: i18n.t('labels.backend.posts.titles.index'),
-                        component: PostList,
+                        redirect: '/post/list',
+                        name: 'post',
+                        component: {
+                            render (c) { return c('router-view') }
+                        },
+                        meta: {
+                            title: i18n.t('labels.backend.posts.titles.main')
+                        },
                         children: [
                             {
+                                path: 'list',
+                                name: 'post_list',
+                                component: PostList,
+                                meta: {
+                                    title: i18n.t('labels.backend.posts.titles.index')
+                                },
+                            },
+                            {
                                 path: 'create',
-                                name: i18n.t('labels.backend.posts.titles.create'),
-                                component: PostForm
+                                name: 'post_create',
+                                component: PostForm,
+                                meta: {
+                                    title: i18n.t('labels.backend.posts.titles.create')
+                                }
                             },
                             {
                                 path: ':id/edit',
-                                name: i18n.t('labels.backend.posts.titles.edit'),
+                                name: 'post_edit',
                                 component: PostForm,
-                                props: true
+                                props: true,
+                                meta: {
+                                    title: i18n.t('labels.backend.posts.titles.edit')
+                                }
                             }
                         ]
                     },
                     {
                         path: 'form-submission',
-                        name: i18n.t('labels.backend.form_submissions.titles.index'),
-                        component: FormSubmissionList,
+                        redirect: '/form-submission/list',
+                        name: 'form_submissions',
+                        component: {
+                            render (c) { return c('router-view') }
+                        },
+                        meta: {
+                            title: i18n.t('labels.backend.form_submissions.titles.main')
+                        },
                         children: [
                             {
+                                path: 'list',
+                                name: 'form_submission_list',
+                                component: FormSubmissionList,
+                                meta: {
+                                    title: i18n.t('labels.backend.form_submissions.titles.index')
+                                },
+                            },
+                            {
                                 path: ':id/show',
-                                name: i18n.t('labels.backend.form_submissions.titles.create'),
+                                name: 'form_submission_show',
                                 component: FormSubmissionShow,
-                                props: true
+                                props: true,
+                                meta: {
+                                    title: i18n.t('labels.backend.form_submissions.titles.show')
+                                }
                             }
                         ]
                     },
                     {
                         path: 'form-setting',
-                        name: i18n.t('labels.backend.form_settings.titles.index'),
-                        component: FormSettingList,
+                        redirect: '/form-setting/list',
+                        name: 'form_setting',
+                        component: {
+                            render (c) { return c('router-view') }
+                        },
+                        meta: {
+                            title: i18n.t('labels.backend.form_settings.titles.main')
+                        },
                         children: [
                             {
+                                path: 'list',
+                                name: 'form_setting_list',
+                                component: FormSettingList,
+                                meta: {
+                                    title: i18n.t('labels.backend.form_settings.titles.index')
+                                },
+                            },
+                            {
                                 path: 'create',
-                                name: i18n.t('labels.backend.form_settings.titles.create'),
-                                component: FormSettingForm
+                                name: 'form_setting_create',
+                                component: FormSettingForm,
+                                meta: {
+                                    title: i18n.t('labels.backend.form_settings.titles.create')
+                                }
                             },
                             {
                                 path: ':id/edit',
-                                name: i18n.t('labels.backend.form_settings.titles.edit'),
+                                name: 'form_setting_edit',
                                 component: FormSettingForm,
-                                props: true
+                                props: true,
+                                meta: {
+                                    title: i18n.t('labels.backend.form_settings.titles.edit')
+                                }
                             }
                         ]
                     },
                     {
                         path: 'user',
-                        name: i18n.t('labels.backend.users.titles.index'),
-                        component: UserList,
+                        redirect: '/user/list',
+                        name: 'user',
+                        component: {
+                            render (c) { return c('router-view') }
+                        },
+                        meta: {
+                            title: i18n.t('labels.backend.users.titles.main')
+                        },
                         children: [
                             {
+                                path: 'list',
+                                name: 'user_list',
+                                component: UserList,
+                                meta: {
+                                    title: i18n.t('labels.backend.users.titles.index')
+                                },
+                            },
+                            {
                                 path: 'create',
-                                name: i18n.t('labels.backend.users.titles.create'),
-                                component: UserForm
+                                name: 'user_create',
+                                component: UserForm,
+                                meta: {
+                                    title: i18n.t('labels.backend.users.titles.create')
+                                }
                             },
                             {
                                 path: ':id/edit',
-                                name: i18n.t('labels.backend.users.titles.edit'),
+                                name: 'user_edit',
                                 component: UserForm,
-                                props: true
+                                props: true,
+                                meta: {
+                                    title: i18n.t('labels.backend.users.titles.edit')
+                                }
                             }
                         ]
                     },
                     {
                         path: 'role',
-                        name: i18n.t('labels.backend.roles.titles.index'),
-                        component: RoleList,
+                        redirect: '/role/list',
+                        name: 'role',
+                        component: {
+                            render (c) { return c('router-view') }
+                        },
+                        meta: {
+                            title: i18n.t('labels.backend.roles.titles.main')
+                        },
                         children: [
                             {
+                                path: 'list',
+                                name: 'role_list',
+                                component: RoleList,
+                                meta: {
+                                    title: i18n.t('labels.backend.roles.titles.index')
+                                },
+                            },
+                            {
                                 path: 'create',
-                                name: i18n.t('labels.backend.roles.titles.create'),
-                                component: RoleForm
+                                name: 'role_create',
+                                component: RoleForm,
+                                meta: {
+                                    title: i18n.t('labels.backend.roles.titles.create')
+                                }
                             },
                             {
                                 path: ':id/edit',
-                                name: i18n.t('labels.backend.roles.titles.edit'),
+                                name: 'role_edit',
                                 component: RoleForm,
-                                props: true
+                                props: true,
+                                meta: {
+                                    title: i18n.t('labels.backend.roles.titles.edit')
+                                }
                             }
                         ]
                     },
                     {
                         path: 'meta',
-                        name: i18n.t('labels.backend.metas.titles.index'),
-                        component: MetaList,
+                        redirect: '/meta/list',
+                        name: 'meta',
+                        component: {
+                            render (c) { return c('router-view') }
+                        },
+                        meta: {
+                            title: i18n.t('labels.backend.metas.titles.main')
+                        },
                         children: [
                             {
+                                path: 'list',
+                                name: 'meta_list',
+                                component: MetaList,
+                                meta: {
+                                    title: i18n.t('labels.backend.metas.titles.index')
+                                },
+                            },
+                            {
                                 path: 'create',
-                                name: i18n.t('labels.backend.metas.titles.create'),
-                                component: MetaForm
+                                name: 'meta_create',
+                                component: MetaForm,
+                                meta: {
+                                    title: i18n.t('labels.backend.metas.titles.create')
+                                }
                             },
                             {
                                 path: ':id/edit',
-                                name: i18n.t('labels.backend.metas.titles.edit'),
+                                name: 'meta_edit',
                                 component: MetaForm,
-                                props: true
+                                props: true,
+                                meta: {
+                                    title: i18n.t('labels.backend.metas.titles.edit')
+                                }
                             }
                         ]
                     },
                     {
                         path: 'redirection',
-                        name: i18n.t('labels.backend.redirections.titles.index'),
-                        component: RedirectionList,
+                        redirect: '/redirection/list',
+                        name: 'redirection',
+                        component: {
+                            render (c) { return c('router-view') }
+                        },
+                        meta: {
+                            title: i18n.t('labels.backend.redirections.titles.main')
+                        },
                         children: [
                             {
+                                path: 'list',
+                                name: 'redirection_list',
+                                component: RedirectionList,
+                                meta: {
+                                    title: i18n.t('labels.backend.redirections.titles.index')
+                                },
+                            },
+                            {
                                 path: 'create',
-                                name: i18n.t('labels.backend.redirections.titles.create'),
-                                component: RedirectionForm
+                                name: 'redirection_create',
+                                component: RedirectionForm,
+                                meta: {
+                                    title: i18n.t('labels.backend.redirections.titles.create')
+                                }
                             },
                             {
                                 path: ':id/edit',
-                                name: i18n.t('labels.backend.redirections.titles.edit'),
+                                name: 'redirection_edit',
                                 component: RedirectionForm,
-                                props: true
+                                props: true,
+                                meta: {
+                                    title: i18n.t('labels.backend.redirections.titles.edit')
+                                }
                             }
                         ]
                     }
