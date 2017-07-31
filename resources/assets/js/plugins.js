@@ -45,19 +45,19 @@ window.swal = require('sweetalert2');
     /**
      * Swal confirm dialog
      */
-    function confirmSwal(button, callback) {
+    $.confirmSwal = function (target, callback) {
         swal({
-            title: $(button).attr('data-trans-title'),
+            title: $(target).attr('data-trans-title'),
             type: "warning",
             showCancelButton: true,
-            cancelButtonText: $(button).attr('data-trans-button-cancel'),
+            cancelButtonText: $(target).attr('data-trans-button-cancel'),
             confirmButtonColor: "#dd4b39",
-            confirmButtonText: $(button).attr('data-trans-button-confirm')
+            confirmButtonText: $(target).attr('data-trans-button-confirm')
         }).then(
             callback,
             function (dismiss) {}
         );
-    }
+    };
 
     /**
      * Datatable config
@@ -166,27 +166,6 @@ window.swal = require('sweetalert2');
 
             confirmSwal(e.target, function () {
                 $(e.target).closest('form').submit();
-            });
-        });
-
-        /**
-         * Bulk forms
-         */
-        $('[data-toggle="bulk-form"]').submit(function (e) {
-            e.preventDefault();
-
-            let dataTableId = $(this).data('target');
-            let dataTable = $(dataTableId).DataTable();
-
-            axios.post($(this).attr('action'), {
-                action: $(this).find('[name="action"]').val(),
-                ids: dataTable.rows({selected: true}).ids().toArray()
-            }).then(function (response) {
-                // Reload Datatables and keep current pager
-                dataTable.ajax.reload(null, false);
-                toastr[response.data.status](response.data.message);
-            }).catch(function (error) {
-                toastr.error(error.response.data.error);
             });
         });
 

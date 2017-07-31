@@ -52,15 +52,17 @@ trait HtmlActionsButtons
     }
 
     /**
-     * @param $url
+     * @param $route
+     *
+     * @param $parameters
      *
      * @return string
      */
-    public function getDeleteButtonHtml($url)
+    public function getDeleteButtonHtml($route, $parameters)
     {
         $title = '<i class="icon-trash" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.delete').'"></i>';
 
-        return link_to($url, $title, [
+        return link_to(route($route, $parameters), $title, [
             'data-toggle' => 'delete-row',
             'data-trans-button-cancel' => trans('buttons.cancel'),
             'data-trans-button-confirm' => trans('buttons.delete'),

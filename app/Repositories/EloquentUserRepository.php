@@ -325,7 +325,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
         }
 
         if ($this->canDelete($user)) {
-            $buttons .= $this->getDeleteButtonHtml("#/user/{$user->id}/destroy");
+            $buttons .= $this->getDeleteButtonHtml('admin.user.destroy', $user);
         }
 
         return $buttons;

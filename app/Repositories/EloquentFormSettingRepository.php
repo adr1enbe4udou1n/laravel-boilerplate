@@ -108,7 +108,7 @@ class EloquentFormSettingRepository extends EloquentBaseRepository implements Fo
     public function getActionButtons(FormSetting $formSetting)
     {
         $buttons = $this->getEditButtonHtml("#/form-setting/{$formSetting->id}/edit")
-          .$this->getDeleteButtonHtml("#/form-setting/{$formSetting->id}/destroy");
+          .$this->getDeleteButtonHtml('admin.form_setting.destroy', $formSetting);
 
         return $buttons;
     }
