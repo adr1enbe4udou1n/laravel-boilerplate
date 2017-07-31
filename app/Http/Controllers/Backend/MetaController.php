@@ -66,6 +66,16 @@ class MetaController extends BackendController
     }
 
     /**
+     * @param Meta $meta
+     *
+     * @return Meta
+     */
+    public function get(Meta $meta)
+    {
+        return $meta;
+    }
+
+    /**
      * @param StoreMetaRequest $request
      *
      * @return mixed

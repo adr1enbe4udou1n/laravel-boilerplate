@@ -68,6 +68,16 @@ class FormSubmissionController extends BackendController
 
     /**
      * @param FormSubmission $form_submission
+     *
+     * @return FormSubmission
+     */
+    public function get(FormSubmission $form_submission)
+    {
+        return $form_submission;
+    }
+
+    /**
+     * @param FormSubmission $form_submission
      * @param Request        $request
      *
      * @return mixed

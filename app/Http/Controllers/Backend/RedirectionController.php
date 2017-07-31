@@ -69,6 +69,16 @@ class RedirectionController extends BackendController
     }
 
     /**
+     * @param Redirection $redirection
+     *
+     * @return Redirection
+     */
+    public function get(Redirection $redirection)
+    {
+        return $redirection;
+    }
+
+    /**
      * @param StoreRedirectionRequest $request
      *
      * @return mixed

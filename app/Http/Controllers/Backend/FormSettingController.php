@@ -64,6 +64,16 @@ class FormSettingController extends BackendController
     }
 
     /**
+     * @param FormSetting $form_setting
+     *
+     * @return FormSetting
+     */
+    public function get(FormSetting $form_setting)
+    {
+        return $form_setting;
+    }
+
+    /**
      * @param StoreFormSettingRequest $request
      *
      * @return mixed

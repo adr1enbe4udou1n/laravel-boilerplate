@@ -66,6 +66,16 @@ class RoleController extends BackendController
     }
 
     /**
+     * @param Role $role
+     *
+     * @return Role
+     */
+    public function get(Role $role)
+    {
+        return $role;
+    }
+
+    /**
      * @param StoreRoleRequest $request
      *
      * @return mixed

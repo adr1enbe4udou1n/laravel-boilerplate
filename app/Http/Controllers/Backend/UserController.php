@@ -92,6 +92,21 @@ class UserController extends BackendController
     }
 
     /**
+     * @param User $user
+     *
+     * @return User
+     */
+    public function get(User $user)
+    {
+        if (!$this->users->canEdit($user)) {
+            // Only Super admin can access himself
+            abort(403);
+        }
+
+        return $user;
+    }
+
+    /**
      * @param StoreUserRequest $request
      *
      * @return mixed

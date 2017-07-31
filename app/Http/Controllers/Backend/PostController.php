@@ -124,6 +124,16 @@ class PostController extends BackendController
     }
 
     /**
+     * @param Post $post
+     *
+     * @return Post
+     */
+    public function get(Post $post)
+    {
+        return $post;
+    }
+
+    /**
      * @param StorePostRequest $request
      *
      * @return mixed

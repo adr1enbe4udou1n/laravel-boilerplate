@@ -12,6 +12,9 @@ Route::post('images/upload', 'AjaxController@imageUpload')
 Route::group(
     ['middleware' => ['can:manage form_settings']],
     function () {
+        Route::get('form-setting/{form_setting}', 'FormSettingController@get')
+          ->name('form_setting.get');
+
         Route::post('form-setting', 'FormSettingController@store')
             ->name('form_setting.store');
         Route::match(['PUT', 'PATCH'], 'form-setting/{form_setting}',
@@ -28,6 +31,9 @@ Route::group(
 Route::group(
     ['middleware' => ['can:manage form_submissions']],
     function () {
+        Route::get('form-submission/{form_submission}', 'FormSubmissionController@get')
+          ->name('form_submission.get');
+
         Route::delete('form-submission/{form_submission}', 'FormSubmissionController@destroy')
             ->name('form_submission.destroy');
 
@@ -48,6 +54,9 @@ Route::group(
 Route::group(
     ['middleware' => ['can:manage users']],
     function () {
+        Route::get('user/{user}', 'UserController@get')
+          ->name('user.get');
+
         Route::post('user', 'UserController@store')
           ->name('user.store');
         Route::match(['PUT', 'PATCH'], 'user/{user}',
@@ -77,6 +86,9 @@ Route::group(
 Route::group(
     ['middleware' => ['can:manage roles']],
     function () {
+        Route::get('role/{role}', 'RoleController@get')
+          ->name('role.get');
+
         Route::post('role', 'RoleController@store')
           ->name('role.store');
         Route::match(['PUT', 'PATCH'], 'role/{role}',
@@ -93,6 +105,9 @@ Route::group(
 Route::group(
     ['middleware' => ['can:manage metas']],
     function () {
+        Route::get('meta/{meta}', 'MetaController@get')
+          ->name('meta.get');
+
         Route::post('meta', 'MetaController@store')
             ->name('meta.store');
         Route::match(['PUT', 'PATCH'], 'meta/{meta}',
@@ -114,6 +129,9 @@ Route::group(
 Route::group(
     ['middleware' => ['can:manage redirections']],
     function () {
+        Route::get('redirection/{redirection}', 'RedirectionController@get')
+          ->name('redirection.get');
+
         Route::post('redirection', 'RedirectionController@store')
             ->name('redirection.store');
         Route::match(['PUT', 'PATCH'], 'redirection/{redirection}',
@@ -139,6 +157,10 @@ if (config('blog.enabled')) {
     Route::group(
         ['middleware' => ['can:manage own posts']],
         function () {
+            Route::get('post/{post}', 'PostController@get')
+              ->name('post.get')
+              ->middleware('can:update,post');
+
             Route::post('post', 'PostController@store')
                 ->name('post.store');
             Route::match(['PUT', 'PATCH'], 'post/{post}',
