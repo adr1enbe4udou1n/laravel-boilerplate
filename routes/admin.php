@@ -12,6 +12,8 @@ Route::post('images/upload', 'AjaxController@imageUpload')
 Route::group(
     ['middleware' => ['can:manage form_settings']],
     function () {
+        Route::get('form-setting/form-types', 'FormSettingController@getFormTypes')
+          ->name('form_setting.get_form_types');
         Route::get('form-setting/{form_setting}', 'FormSettingController@get')
           ->name('form_setting.get');
 
@@ -157,6 +159,15 @@ if (config('blog.enabled')) {
     Route::group(
         ['middleware' => ['can:manage own posts']],
         function () {
+            Route::get('post/draft-counter', 'PostController@getDraftPostCounter')
+              ->name('post.draft.counter');
+            Route::get('post/pending-counter', 'PostController@getPendingPostCounter')
+              ->name('post.pending.counter');
+            Route::get('post/published-counter', 'PostController@getPublishedPostCounter')
+              ->name('post.published.counter');
+            Route::get('post/latest', 'PostController@getLastestPosts')
+              ->name('post.latest');
+
             Route::get('post/{post}', 'PostController@get')
               ->name('post.get')
               ->middleware('can:update,post');
@@ -179,15 +190,6 @@ if (config('blog.enabled')) {
                 'PostController@batchAction')->name(
                 'post.batch-action'
             );
-
-            Route::get('post/draft-counter', 'PostController@getDraftPostCounter')
-              ->name('post.draft.counter');
-            Route::get('post/pending-counter', 'PostController@getPendingPostCounter')
-              ->name('post.pending.counter');
-            Route::get('post/published-counter', 'PostController@getPublishedPostCounter')
-              ->name('post.published.counter');
-            Route::get('post/latest', 'PostController@getLastestPosts')
-              ->name('post.latest');
         }
     );
 }

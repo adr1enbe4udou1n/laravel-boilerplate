@@ -64,6 +64,20 @@ class FormSettingController extends BackendController
     }
 
     /**
+     * @return array
+     */
+    public function getFormTypes()
+    {
+        $formTypes = collect(config('forms'));
+
+        $formTypes->transform(function ($item) {
+            return trans($item['display_name']);
+        });
+
+        return $formTypes;
+    }
+
+    /**
      * @param FormSetting $form_setting
      *
      * @return FormSetting
