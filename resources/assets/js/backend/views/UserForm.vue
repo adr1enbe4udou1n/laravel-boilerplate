@@ -75,7 +75,7 @@
 
                             <b-form-fieldset
                                     label-for="password_confirmation"
-                                    label="@lang('validation.attributes.password_confirmation')"
+                                    :label="$t('validation.attributes.password_confirmation')"
                                     :horizontal="true"
                                     :label-cols="3"
                             >
@@ -83,12 +83,12 @@
                                         id="password_confirmation"
                                         name="password_confirmation"
                                         type="password"
-                                        placeholder="@lang('validation.attributes.password_confirmation')"
+                                        :placeholder="$t('validation.attributes.password_confirmation')"
                                 ></b-form-input>
                             </b-form-fieldset>
 
                             <b-form-fieldset
-                                    label="@lang('validation.attributes.roles')"
+                                    :label="$t('validation.attributes.roles')"
                                     :horizontal="true"
                                     :label-cols="3"
                             >
