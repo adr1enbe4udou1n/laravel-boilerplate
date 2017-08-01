@@ -95,9 +95,10 @@
                                 <div class="custom-controls-stacked">
                                     <b-form-checkbox
                                             v-for="role in roles"
+                                            :key="role.id"
                                             name="roles[]"
                                             :checked="$user.roles"
-                                            :value="role.id" v-cloak>
+                                            :value="role.id">
                                         {{ role.name }}
                                     </b-form-checkbox>
                                 </div>

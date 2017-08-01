@@ -82,7 +82,7 @@
                                                 <b-form-checkbox
                                                         name="permissions[]"
                                                         :checked="role.permissions"
-                                                        :value="$key" v-cloak>
+                                                        :value="$key">
                                                     {{ $t($permission['display_name']) }}
                                                 </b-form-checkbox>
                                                 @endforeach
