@@ -75,6 +75,11 @@ class RoleController extends BackendController
         return $role;
     }
 
+    public function getPermissions()
+    {
+        return collect(config('permissions'))->groupBy('category', true);
+    }
+
     /**
      * @param StoreRoleRequest $request
      *

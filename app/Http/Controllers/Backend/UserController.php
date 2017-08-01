@@ -106,6 +106,11 @@ class UserController extends BackendController
         return $user;
     }
 
+    public function getRoles()
+    {
+        return $this->roles->getAllowedRoles();
+    }
+
     /**
      * @param StoreUserRequest $request
      *

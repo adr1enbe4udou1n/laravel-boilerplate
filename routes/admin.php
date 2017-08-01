@@ -56,6 +56,8 @@ Route::group(
 Route::group(
     ['middleware' => ['can:manage users']],
     function () {
+        Route::get('user/roles', 'UserController@getRoles')
+          ->name('user.get_roles');
         Route::get('user/{user}', 'UserController@get')
           ->name('user.get');
 
@@ -88,6 +90,8 @@ Route::group(
 Route::group(
     ['middleware' => ['can:manage roles']],
     function () {
+        Route::get('role/permissions', 'RoleController@getPermissions')
+          ->name('role.get_permissions');
         Route::get('role/{role}', 'RoleController@get')
           ->name('role.get');
 
@@ -131,6 +135,8 @@ Route::group(
 Route::group(
     ['middleware' => ['can:manage redirections']],
     function () {
+        Route::get('redirection/redirection-types', 'RedirectionController@getRedirectionTypes')
+          ->name('redirection.get_redirection_types');
         Route::get('redirection/{redirection}', 'RedirectionController@get')
           ->name('redirection.get');
 

@@ -78,6 +78,17 @@ class RedirectionController extends BackendController
         return $redirection;
     }
 
+    public function getRedirectionTypes()
+    {
+        $redirections = config('redirections');
+
+        array_walk($redirections, function(&$item) {
+            $item = trans($item);
+        });
+
+        return $redirections;
+    }
+
     /**
      * @param StoreRedirectionRequest $request
      *

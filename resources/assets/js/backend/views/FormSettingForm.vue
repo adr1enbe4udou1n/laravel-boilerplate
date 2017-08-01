@@ -95,7 +95,7 @@
             }
         },
         computed: {
-            isNew: function () {
+            isNew() {
                 return this.id === undefined;
             }
         },
