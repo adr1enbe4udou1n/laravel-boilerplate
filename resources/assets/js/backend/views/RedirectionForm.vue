@@ -124,6 +124,9 @@
                         this.redirection = response.data;
                     });
             }
+        },
+        mounted() {
+            $.initPlugins();
         }
     }
 </script>

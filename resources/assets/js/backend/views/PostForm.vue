@@ -296,6 +296,9 @@
                         this.post = response.data;
                     });
             }
+        },
+        mounted() {
+            $.initPlugins();
         }
     }
 </script>

@@ -128,6 +128,9 @@
                         this.meta = response.data;
                     });
             }
+        },
+        mounted() {
+            $.initPlugins();
         }
     }
 </script>

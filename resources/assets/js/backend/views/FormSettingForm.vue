@@ -118,6 +118,9 @@
                         this.setting = response.data;
                     });
             }
+        },
+        mounted() {
+            $.initPlugins();
         }
     }
 </script>

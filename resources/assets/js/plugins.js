@@ -92,9 +92,31 @@ window.swal = require('sweetalert2');
     }
 
     /**
-     * Plugins to load after DOM is ready
+     * This is for delete buttons that are loaded via AJAX in datatables, they will not work right
+     * without this block of code
      */
-    $(function () {
+    $(document).ajaxComplete(function () {
+        $('[data-toggle="delete-row"]').click(function (e) {
+            e.preventDefault();
+            let url = $(this).attr('href');
+            let dataTable = $(this).closest('table').DataTable();
+
+            $.confirmSwal(this, function () {
+                axios.delete(url)
+                    .then(function (response) {
+                        // Reload Datatables and keep current pager
+                        dataTable.ajax.reload(null, false);
+                        toastr[response.data.status](response.data.message);
+                    })
+                    .catch(function (error) {
+                            toastr.error(error.response.data.error);
+                        }
+                    );
+            });
+        });
+    });
+
+    $.initPlugins = function () {
         /**
          * Bind all bootstrap tooltips
          */
@@ -104,13 +126,6 @@ window.swal = require('sweetalert2');
          * Bind all bootstrap popovers
          */
         $('[data-toggle="popover"]').popover();
-
-        /**
-         * Autosubmit
-         */
-        $('.auto-submit').change(function () {
-            $(this).closest("form").submit();
-        });
 
         /**
          * Datetimepicker
@@ -134,55 +149,14 @@ window.swal = require('sweetalert2');
         });
 
         /**
-         * This is for delete buttons that are loaded via AJAX in datatables, they will not work right
-         * without this block of code
-         */
-        $(document).ajaxComplete(function () {
-            $('[data-toggle="delete-row"]').click(function (e) {
-                e.preventDefault();
-                let url = $(this).attr('href');
-                let dataTable = $(this).closest('table').DataTable();
-
-                confirmSwal(this, function () {
-                    axios.delete(url)
-                        .then(function (response) {
-                            // Reload Datatables and keep current pager
-                            dataTable.ajax.reload(null, false);
-                            toastr[response.data.status](response.data.message);
-                        })
-                        .catch(function (error) {
-                            toastr.error(error.response.data.error);
-                        }
-                    );
-                });
-            });
-        });
-
-        /**
          * Bind all swal confirm buttons
          */
         $('[data-toggle="confirm"]').click(function (e) {
             e.preventDefault();
 
-            confirmSwal(e.target, function () {
+            $.confirmSwal(e.target, function () {
                 $(e.target).closest('form').submit();
             });
-        });
-
-        /**
-         * Bootstrap tabs nav specific hash manager
-         */
-        let hash = document.location.hash;
-        let tabanchor = $(`.nav-tabs a:first`);
-
-        if (hash) {
-            tabanchor = $(`.nav-tabs a[href="${hash}"]`);
-        }
-
-        tabanchor.tab('show');
-
-        $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
-            window.location.hash = e.target.hash;
         });
 
         $('[data-toggle="password-strength-meter"]').each(function () {
@@ -274,5 +248,28 @@ window.swal = require('sweetalert2');
                 autoGrow_onStartup: true
             });
         });
+
+        /**
+         * Bootstrap tabs nav specific hash manager
+         */
+        let hash = document.location.hash;
+        let tabanchor = $(`.nav-tabs a:first`);
+
+        if (hash) {
+            tabanchor = $(`.nav-tabs a[href="${hash}"]`);
+        }
+
+        tabanchor.tab('show');
+
+        $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+            window.location.hash = e.target.hash;
+        });
+    };
+
+    /**
+     * Plugins to load after DOM is ready
+     */
+    $(function () {
+        $.initPlugins();
     });
 })(jQuery);

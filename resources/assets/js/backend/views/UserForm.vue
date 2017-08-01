@@ -162,6 +162,9 @@
                         this.user = response.data;
                     });
             }
+        },
+        mounted() {
+            $.initPlugins();
         }
     }
 </script>
