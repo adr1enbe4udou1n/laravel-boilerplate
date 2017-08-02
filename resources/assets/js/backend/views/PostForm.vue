@@ -72,7 +72,7 @@
                                         data-tags="true"
                                         :data-placeholder="$t('labels.placeholders.tags')"
                                         data-ajax-url="/admin/tags/search"
-                                        :data-minimum_input_length="2"
+                                        data-minimum-input-length="2"
                                         data-item-value="id"
                                         data-item-label="name"
                                 ></b-form-select>

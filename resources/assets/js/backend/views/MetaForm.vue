@@ -33,7 +33,7 @@
                                             data-toggle="autocomplete"
                                             :data-placeholder="$t('labels.placeholders.route')"
                                             data-ajax-url="/admin/routes/search"
-                                            :data-minimum_input_length="2"
+                                            data-minimum-input-length="2"
                                             data-item-value="name"
                                             data-item-label="uri"
                                     ></b-form-select>
