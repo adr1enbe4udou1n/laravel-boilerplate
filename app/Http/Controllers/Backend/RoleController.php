@@ -77,7 +77,7 @@ class RoleController extends BackendController
 
     public function getPermissions()
     {
-        return collect(config('permissions'))->groupBy('category', true);
+        return config('permissions');
     }
 
     /**

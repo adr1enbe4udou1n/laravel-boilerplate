@@ -57,11 +57,4 @@ new Vue({
     router,
     template: '<App/>',
     components: { App },
-    data: {
-        settings: window.settings,
-        iconUser: '<i class="icon-user"></i>',
-        iconEnvelope: '<i class="icon-envelope"></i>',
-        iconLock: '<i class="icon-lock"></i>',
-        iconCalendar: '<i class="icon-calendar"></i>'
-    },
 }).$mount('#app');

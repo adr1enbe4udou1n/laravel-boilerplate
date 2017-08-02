@@ -91,7 +91,7 @@
         props: ['id'],
         data() {
             return {
-                redirectionTypes: null,
+                redirectionTypes: [],
                 redirection: {
                     source: null,
                     active: null,

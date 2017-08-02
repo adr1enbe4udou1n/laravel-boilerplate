@@ -5,7 +5,7 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header">
-                            <h4>{{ $title }}</h4>
+                            <h4>{{ isNew ? $t('labels.backend.posts.titles.create') : $t('labels.backend.posts.titles.edit') }}</h4>
                         </div>
                         <div class="card-block">
                             <b-form-fieldset
@@ -66,7 +66,7 @@
                                         id="tags"
                                         name="tags"
                                         :required="true"
-                                        :options="options"
+                                        :options="this.options()"
                                         v-model="post.tags"
                                         data-toggle="autocomplete"
                                         data-tags="true"
@@ -255,18 +255,21 @@
         props: ['id'],
         data() {
             return {
+                user: window.settings.user,
+                iconCalendar: '<i class="icon-calendar"></i>',
                 post: {
-                    title,
-                    summary,
-                    body,
-                    tags,
-                    featured_image,
-                    state,
-                    status_label,
-                    owner,
-                    published_at,
-                    pinned,
-                    promoted,
+                    title: null,
+                    summary: null,
+                    body: null,
+                    tags: [],
+                    featured_image: null,
+                    featured_image_url: null,
+                    state: null,
+                    status_label: null,
+                    owner: null,
+                    published_at: null,
+                    pinned: null,
+                    promoted: null,
                     meta: {
                         title: null,
                         description: null
@@ -281,8 +284,11 @@
         },
         methods: {
             options() {
-                //$post = $data['post'];
-                //$tags = $post->tags->pluck('name', 'name');
+                let options = [];
+                if (this.post !== null) {
+                    // $post->tags->pluck('name', 'name');
+                }
+                return options;
             },
             onSubmit() {
                 let action = this.isNew ? '/post/store' : `/post/${this.id}/update`;

@@ -97,9 +97,9 @@
                                             v-for="role in roles"
                                             :key="role.id"
                                             name="roles[]"
-                                            :checked="$user.roles"
+                                            :checked="user.roles"
                                             :value="role.id">
-                                        {{ role.name }}
+                                        {{ role.display_name }}
                                     </b-form-checkbox>
                                 </div>
                             </b-form-fieldset>
@@ -128,7 +128,9 @@
         props: ['id'],
         data() {
             return {
-                roles: null,
+                iconUser: '<i class="icon-user"></i>',
+                iconEnvelope: '<i class="icon-envelope"></i>',
+                roles: [],
                 user: {
                     name: null,
                     email: null,

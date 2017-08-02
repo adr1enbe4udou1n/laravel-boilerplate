@@ -72,25 +72,22 @@
                             <div class="form-group row">
                                 <label class="col-lg-2 col-form-label">{{ $t('validation.attributes.permissions') }}</label>
                                 <div class="col-lg-10">
-                                    @foreach($permissions->chunk(4) as $chunk)
-                                    <div class="row">
-                                        @foreach($chunk as $category => $permissions)
-                                        <div class="col-md-3">
-                                            <h4>{{ $t($category) }}</h4>
+                                    <div class="row" v-for="categories in this.permissions">
+                                        <div class="col-md-3" v-for="category in categories">
+                                            <h4>{{ $t(category.title) }}</h4>
                                             <div class="custom-controls-stacked">
-                                                @foreach($permissions as $key => $permission)
+
                                                 <b-form-checkbox
+                                                        v-for="permission in category.permissions"
+                                                        :key="permission.name"
                                                         name="permissions[]"
                                                         :checked="role.permissions"
-                                                        :value="$key">
-                                                    {{ $t($permission['display_name']) }}
+                                                        :value="permission.name">
+                                                    {{ $t(permission['display_name']) }}
                                                 </b-form-checkbox>
-                                                @endforeach
                                             </div>
                                         </div>
-                                        @endforeach
                                     </div>
-                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -113,12 +110,14 @@
 </template>
 
 <script>
+    import _ from 'lodash';
+
     export default {
         name: 'role_form',
         props: ['id'],
         data() {
             return {
-                permissions: null,
+                permissions: [],
                 role: {
                     name: null,
                     display_name: null,
@@ -141,7 +140,18 @@
             axios
                 .get(`/admin/role/permissions`)
                 .then(response => {
-                    this.permissions = response.data;
+                    let categories = _.groupBy(_.forEach(response.data, (value, key) => {
+                        value['name'] = key;
+                    }), 'category');
+
+                    let data = Object.keys(categories).map(key => {
+                        return new Object({
+                            title: key,
+                            permissions: categories[key]
+                        });
+                    });
+
+                    this.permissions = _.chunk(data, 4);
                 });
 
             if (!this.isNew) {

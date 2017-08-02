@@ -28,7 +28,7 @@
                                             id="route"
                                             name="route"
                                             :required="true"
-                                            :options="options"
+                                            :options="this.options()"
                                             v-model="meta.route"
                                             data-toggle="autocomplete"
                                             :data-placeholder="$t('labels.placeholders.route')"
@@ -74,7 +74,7 @@
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <router-link to="'/meta') }}" class="btn btn-danger btn-sm">{{ $t('buttons.back') }}</router-link>
+                                    <router-link to="/meta" class="btn btn-danger btn-sm">{{ $t('buttons.back') }}</router-link>
                                 </div>
                                 <div class="col-md-6">
                                     <input type="submit" class="btn btn-success btn-sm pull-right" :value="isNew ? $t('buttons.create') : $t('buttons.edit')">
