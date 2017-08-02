@@ -172,7 +172,6 @@
                                             :horizontal="true"
                                             :label-cols="3"
                                     >
-                                        <input name="pinned" type="hidden" value="0">
                                         <b-form-toggle
                                                 id="pinned"
                                                 name="pinned"
@@ -187,7 +186,6 @@
                                             :horizontal="true"
                                             :label-cols="3"
                                     >
-                                        <input name="promoted" type="hidden" value="0">
                                         <b-form-toggle
                                                 id="promoted"
                                                 name="promoted"
