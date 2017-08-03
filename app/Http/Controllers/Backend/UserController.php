@@ -103,6 +103,8 @@ class UserController extends BackendController
             abort(403);
         }
 
+        $user->roles = $user->roles()->pluck('id');
+
         return $user;
     }
 

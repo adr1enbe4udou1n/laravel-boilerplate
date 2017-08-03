@@ -86,12 +86,8 @@
         props: ['id'],
         data() {
             return {
-                formTypes: [],
-                setting: {
-                    name: null,
-                    recipients: null,
-                    message: null
-                }
+                formTypes: {},
+                setting: this.initSetting()
             }
         },
         computed: {
@@ -100,6 +96,24 @@
             }
         },
         methods: {
+            initSetting() {
+                return {
+                    name: null,
+                    recipients: null,
+                    message: null
+                }
+            },
+            fetchData() {
+                this.setting = this.initSetting();
+
+                if (!this.isNew) {
+                    axios
+                        .get(`/admin/form-setting/${this.id}`)
+                        .then(response => {
+                            this.setting = response.data;
+                        });
+                }
+            },
             onSubmit() {
                 let action = this.isNew ? '/form-setting/store' : `/form-setting/${this.id}/update`;
             }
@@ -111,13 +125,10 @@
                     this.formTypes = response.data;
                 });
 
-            if (!this.isNew) {
-                axios
-                    .get(`/admin/form-setting/${this.id}`)
-                    .then(response => {
-                        this.setting = response.data;
-                    });
-            }
+            this.fetchData();
+        },
+        watch: {
+            '$route': 'fetchData'
         },
         mounted() {
             $.initPlugins();

@@ -130,15 +130,8 @@
             return {
                 iconUser: '<i class="icon-user"></i>',
                 iconEnvelope: '<i class="icon-envelope"></i>',
-                roles: [],
-                user: {
-                    name: null,
-                    email: null,
-                    active: null,
-                    password: null,
-                    confirm_password: null,
-                    roles: null
-                }
+                roles: {},
+                user: this.initUser()
             }
         },
         computed: {
@@ -147,6 +140,27 @@
             }
         },
         methods: {
+            initUser() {
+                return {
+                    name: null,
+                    email: null,
+                    active: null,
+                    password: null,
+                    confirm_password: null,
+                    roles: null
+                };
+            },
+            fetchData() {
+                this.user = this.initUser();
+
+                if (!this.isNew) {
+                    axios
+                        .get(`/admin/user/${this.id}`)
+                        .then(response => {
+                            this.user = response.data;
+                        });
+                }
+            },
             onSubmit() {
                 let action = this.isNew ? '/user/store' : `/user/${this.id}/update`;
             }
@@ -158,13 +172,10 @@
                     this.roles = response.data;
                 });
 
-            if (!this.isNew) {
-                axios
-                    .get(`/admin/user/${this.id}`)
-                    .then(response => {
-                        this.user = response.data;
-                    });
-            }
+            this.fetchData();
+        },
+        watch: {
+            '$route': 'fetchData'
         },
         mounted() {
             $.initPlugins();

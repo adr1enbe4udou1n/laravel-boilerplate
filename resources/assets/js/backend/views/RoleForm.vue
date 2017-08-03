@@ -118,12 +118,7 @@
         data() {
             return {
                 permissions: [],
-                role: {
-                    name: null,
-                    display_name: null,
-                    description: null,
-                    permissions: null
-                }
+                role: this.initRole()
             }
         },
         computed: {
@@ -132,6 +127,25 @@
             }
         },
         methods: {
+            initRole() {
+                return {
+                    name: null,
+                    display_name: null,
+                    description: null,
+                    permissions: null
+                };
+            },
+            fetchData() {
+                this.role = this.initRole();
+
+                if (!this.isNew) {
+                    axios
+                        .get(`/admin/role/${this.id}`)
+                        .then(response => {
+                            this.meta = response.data;
+                        });
+                }
+            },
             onSubmit() {
                 let action = this.isNew ? '/role/store' : `/role/${this.id}/update`;
             }
@@ -154,13 +168,10 @@
                     this.permissions = _.chunk(data, 4);
                 });
 
-            if (!this.isNew) {
-                axios
-                    .get(`/admin/role/${this.id}`)
-                    .then(response => {
-                        this.meta = response.data;
-                    });
-            }
+            this.fetchData();
+        },
+        watch: {
+            '$route': 'fetchData'
         },
         mounted() {
             $.initPlugins();

@@ -66,7 +66,7 @@
                                         id="tags"
                                         name="tags"
                                         :required="true"
-                                        :options="this.options()"
+                                        :options="tags"
                                         v-model="post.tags"
                                         data-toggle="autocomplete"
                                         data-tags="true"
@@ -255,11 +255,22 @@
             return {
                 user: window.settings.user,
                 iconCalendar: '<i class="icon-calendar"></i>',
-                post: {
+                tags: {},
+                post: this.initPost()
+            }
+        },
+        computed: {
+            isNew() {
+                return this.id === undefined;
+            }
+        },
+        methods: {
+            initPost() {
+                return {
                     title: null,
                     summary: null,
                     body: null,
-                    tags: [],
+                    tags: {},
                     featured_image: null,
                     featured_image_url: null,
                     state: null,
@@ -272,34 +283,31 @@
                         title: null,
                         description: null
                     }
+                };
+            },
+            fetchData() {
+                this.tags = {};
+                this.post = initPost();
+
+                if (!this.isNew) {
+                    axios
+                        .get(`/admin/post/${this.id}`)
+                        .then(response => {
+                            this.post = response.data;
+
+                            // this.tags = $post->tags->pluck('name', 'name');
+                        });
                 }
-            }
-        },
-        computed: {
-            isNew() {
-                return this.id === undefined;
-            }
-        },
-        methods: {
-            options() {
-                let options = [];
-                if (this.post !== null) {
-                    // $post->tags->pluck('name', 'name');
-                }
-                return options;
             },
             onSubmit() {
                 let action = this.isNew ? '/post/store' : `/post/${this.id}/update`;
             }
         },
         created() {
-            if (!this.isNew) {
-                axios
-                    .get(`/admin/post/${this.id}`)
-                    .then(response => {
-                        this.post = response.data;
-                    });
-            }
+            this.fetchData();
+        },
+        watch: {
+            '$route': 'fetchData'
         },
         mounted() {
             $.initPlugins();

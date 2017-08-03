@@ -1555,9 +1555,9 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-cross-env@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/cross-env/-/cross-env-5.0.2.tgz#d39fd2fa28c1b5cfb91e7058d1efe8b4fcb01334"
+cross-env@^5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/cross-env/-/cross-env-5.0.3.tgz#8f55acef7469fed364f4039a9f7ece90191e3981"
   dependencies:
     cross-spawn "^5.1.0"
     is-windows "^1.0.0"
@@ -6479,9 +6479,9 @@ vue-hot-reload-api@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.1.0.tgz#9ca58a6e0df9078554ce1708688b6578754d86de"
 
-vue-i18n@^7.1.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-7.1.0.tgz#01b10bd1807647a4fd0fb1b9b7ac078ce04481b7"
+vue-i18n@^7.1.1:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-7.1.1.tgz#c37259c9088bf821144b393146d342686e9554ea"
 
 vue-loader@^13.0.2:
   version "13.0.2"

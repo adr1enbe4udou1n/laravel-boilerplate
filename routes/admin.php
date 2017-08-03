@@ -33,6 +33,9 @@ Route::group(
 Route::group(
     ['middleware' => ['can:manage form_submissions']],
     function () {
+        Route::get('form-submission/counter', 'FormSubmissionController@getFormSubmissionCounter')
+          ->name('form_submission.counter');
+
         Route::get('form-submission/{form_submission}', 'FormSubmissionController@get')
           ->name('form_submission.get');
 
@@ -47,17 +50,18 @@ Route::group(
             'FormSubmissionController@batchAction')->name(
             'form_submission.batch-action'
         );
-
-        Route::get('form-submission/counter', 'FormSubmissionController@getFormSubmissionCounter')
-          ->name('form_submission.counter');
     }
 );
 
 Route::group(
     ['middleware' => ['can:manage users']],
     function () {
+        Route::get('user/active-counter', 'UserController@getActiveUserCounter')
+          ->name('user.active.counter');
+
         Route::get('user/roles', 'UserController@getRoles')
           ->name('user.get_roles');
+
         Route::get('user/{user}', 'UserController@get')
           ->name('user.get');
 
@@ -81,9 +85,6 @@ Route::group(
             ->name(
                 'user.login-as'
             );
-
-        Route::get('user/active-counter', 'UserController@getActiveUserCounter')
-          ->name('user.active.counter');
     }
 );
 

@@ -28,7 +28,7 @@
                                             id="route"
                                             name="route"
                                             :required="true"
-                                            :options="this.options()"
+                                            :options="routes"
                                             v-model="meta.route"
                                             data-toggle="autocomplete"
                                             :data-placeholder="$t('labels.placeholders.route')"
@@ -94,13 +94,8 @@
         props: ['id'],
         data() {
             return {
-                meta: {
-                    metable_type: null,
-                    metable_id: null,
-                    route : null,
-                    title: null,
-                    description: null
-                }
+                routes: {},
+                meta: this.initMeta()
             }
         },
         computed: {
@@ -109,25 +104,42 @@
             }
         },
         methods: {
-            options() {
-                let options = [];
-                if (this.meta.route) {
-                    options[this.meta.route] = this.$i18n.t(`routes.${meta.route}`);
+            initMeta() {
+                return {
+                    metable_type: null,
+                    metable_id: null,
+                    route : null,
+                    title: null,
+                    description: null
+                };
+            },
+            fetchData() {
+                this.routes = {};
+                this.meta = this.initMeta();
+
+                if (!this.isNew) {
+                    axios
+                        .get(`/admin/meta/${this.id}`)
+                        .then(response => {
+                            this.meta = response.data;
+
+                            if (this.meta.route) {
+                                this.routes = {
+                                    [this.meta.route]: this.$i18n.t(`routes.${this.meta.route}`)
+                                };
+                            }
+                        });
                 }
-                return options;
             },
             onSubmit() {
                 let action = this.isNew ? '/meta/store' : `/meta/${this.id}/update`;
             }
         },
         created() {
-            if (!this.isNew) {
-                axios
-                    .get(`/admin/meta/${this.id}`)
-                    .then(response => {
-                        this.meta = response.data;
-                    });
-            }
+            this.fetchData();
+        },
+        watch: {
+            '$route': 'fetchData'
         },
         mounted() {
             $.initPlugins();

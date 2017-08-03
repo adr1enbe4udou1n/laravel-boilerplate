@@ -91,13 +91,8 @@
         props: ['id'],
         data() {
             return {
-                redirectionTypes: [],
-                redirection: {
-                    source: null,
-                    active: null,
-                    target: null,
-                    type: null
-                }
+                redirectionTypes: {},
+                redirection: this.initRedirection()
             }
         },
         computed: {
@@ -106,6 +101,25 @@
             }
         },
         methods: {
+            initRedirection() {
+                return {
+                    source: null,
+                    active: null,
+                    target: null,
+                    type: null
+                };
+            },
+            fetchData() {
+                this.redirection = this.initRedirection();
+
+                if (!this.isNew) {
+                    axios
+                        .get(`/admin/redirection/${this.id}`)
+                        .then(response => {
+                            this.redirection = response.data;
+                        });
+                }
+            },
             onSubmit() {
                 let action = this.isNew ? '/redirection/store' : `/redirection/${this.id}/update`;
             }
@@ -117,13 +131,10 @@
                     this.redirectionTypes = response.data;
                 });
 
-            if (!this.isNew) {
-                axios
-                    .get(`/admin/redirection/${this.id}`)
-                    .then(response => {
-                        this.redirection = response.data;
-                    });
-            }
+            this.fetchData();
+        },
+        watch: {
+            '$route': 'fetchData'
         },
         mounted() {
             $.initPlugins();
