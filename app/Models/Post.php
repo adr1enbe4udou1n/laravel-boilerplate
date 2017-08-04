@@ -63,7 +63,7 @@ use Plank\Mediable\Mediable;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post withMediaMatchAll($tags = array())
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post withTag(\App\Models\Tag $tag)
  *
- * @property mixed $featured_image_url
+ * @property mixed $featured_image_path
  * @property \App\Models\User $owner
  * @property \App\Models\Meta $meta
  * @property mixed $meta_description
@@ -87,7 +87,7 @@ class Post extends Model
     ];
 
     protected $appends = [
-      'state', 'status_label'
+      'state', 'status_label', 'featured_image_path'
     ];
 
     /**
@@ -145,14 +145,14 @@ class Post extends Model
         return $this->status === self::PUBLISHED;
     }
 
-    public function getFeaturedImageUrlAttribute()
+    public function getFeaturedImagePathAttribute()
     {
         /** @var Media $media */
         if ($media = $this->getMedia('featured image')->first()) {
-            return $media->getUrl();
+            return $media->getDiskPath();
         }
 
-        return '/placeholder.png';
+        return 'placeholder.png';
     }
 
     public function getMetaTitleAttribute()

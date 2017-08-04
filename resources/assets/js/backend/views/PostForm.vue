@@ -85,7 +85,8 @@
                                     :label-cols="2"
                             >
                                 <div class="media">
-                                    <img v-if="post.featured_image_url !== null" class="mr-2" :src="post.featured_image_url" alt="">
+                                    <img v-if="post.featured_image_url !== null" class="mr-2" :src="`/imagecache/small/${post.featured_image_path}`" alt="">
+
                                     <div class="media-body">
                                         <h6>{{ $t('labels.upload_image') }}</h6>
                                         <input id="featured_image" name="featured_image" type="file" class="form-control">
@@ -141,7 +142,7 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 text-right col-form-label">{{ $t('labels.author') }}</label>
                                         <div class="col-lg-9">
-                                            <label class="col-form-label">{{ post.owner }}</label>
+                                            <label class="col-form-label">{{ post.owner.name }}</label>
                                         </div>
                                     </div>
                                     </template>
@@ -159,7 +160,7 @@
                                                         name="published_at"
                                                         :required="true"
                                                         class="text-right"
-                                                        v-model="user.published_at"
+                                                        v-model="post.published_at"
                                                         data-input
                                                 ></b-form-input>
                                             </b-input-group>
@@ -271,11 +272,12 @@
                     summary: null,
                     body: null,
                     tags: {},
-                    featured_image: null,
-                    featured_image_url: null,
+                    featured_image_path: null,
                     state: null,
                     status_label: null,
-                    owner: null,
+                    owner: {
+                        name: null
+                    },
                     published_at: null,
                     pinned: null,
                     promoted: null,
@@ -287,7 +289,7 @@
             },
             fetchData() {
                 this.tags = {};
-                this.post = initPost();
+                this.post = this.initPost();
 
                 if (!this.isNew) {
                     axios

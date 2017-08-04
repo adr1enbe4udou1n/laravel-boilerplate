@@ -100,7 +100,7 @@ class PostController extends BackendController
             })->addColumn('image', function (Post $post) {
                 return link_to(
                     "#/post/{$post->id}/edit",
-                    image_template_html('small', $post->featured_image_url, $post->title),
+                    image_template_html('small', $post->featured_image_path, $post->title),
                     [], null, false
                 );
             })->editColumn('title', function (Post $post) {

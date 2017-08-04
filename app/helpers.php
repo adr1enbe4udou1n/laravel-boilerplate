@@ -115,8 +115,6 @@ if (!function_exists('image_template_url')) {
      */
     function image_template_url($template, $image_path)
     {
-        $image_path = str_replace(config('filesystems.disks.public.url'), '', $image_path);
-
         return url(config('imagecache.route')."/$template/$image_path");
     }
 }

@@ -142,7 +142,7 @@
                     axios
                         .get(`/admin/role/${this.id}`)
                         .then(response => {
-                            this.meta = response.data;
+                            this.role = response.data;
                         });
                 }
             },
