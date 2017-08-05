@@ -36,7 +36,7 @@
                                         id="active"
                                         name="active"
                                         value="1"
-                                        :checked="redirection.active"
+                                        v-model="redirection.active"
                                 ></b-form-toggle>
                             </b-form-fieldset>
 

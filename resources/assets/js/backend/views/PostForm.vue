@@ -190,7 +190,7 @@
                                                 id="pinned"
                                                 name="pinned"
                                                 value="1"
-                                                :checked="post.pinned"
+                                                v-model="post.pinned"
                                         ></b-form-toggle>
                                     </b-form-fieldset>
 
@@ -204,7 +204,7 @@
                                                 id="promoted"
                                                 name="promoted"
                                                 value="1"
-                                                :checked="post.promoted"
+                                                v-model="post.promoted"
                                         ></b-form-toggle>
                                     </b-form-fieldset>
                                 </div>

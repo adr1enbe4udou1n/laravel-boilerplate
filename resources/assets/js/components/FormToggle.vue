@@ -5,7 +5,8 @@
                :name="name"
                :value="value"
                class="switch-input"
-               :checked="checked">
+               :checked="checked"
+               @change="handleChange">
         <span data-on="On" data-Off="Off" class="switch-label"></span>
         <span class="switch-handle"></span>
     </label>
@@ -13,6 +14,10 @@
 
 <script>
     export default {
+        model: {
+            prop: 'checked',
+            event: 'change'
+        },
         props: {
             id: {
                 default: null
@@ -23,9 +28,17 @@
             value: {
                 default: true
             },
+            uncheckedValue: {
+                default: false
+            },
             checked: {
                 default: true
             },
         },
+        methods: {
+            handleChange({ target: { checked } }) {
+                this.$emit('change', checked ? this.value : this.uncheckedValue);
+            }
+        }
     };
 </script>

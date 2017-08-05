@@ -58,7 +58,7 @@
                                         id="active"
                                         name="active"
                                         value="1"
-                                        :checked="user.active"
+                                        v-model="user.active"
                                 ></b-form-toggle>
                             </b-form-fieldset>
 

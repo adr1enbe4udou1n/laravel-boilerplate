@@ -137,7 +137,7 @@ class UserController extends BackendController
     {
         $this->users->update($user, $request->input());
 
-        return $this->RedirectResponse($request, trans('alerts.backend.metas.updated'));
+        return $this->RedirectResponse($request, trans('alerts.backend.users.updated'));
     }
 
     /**
