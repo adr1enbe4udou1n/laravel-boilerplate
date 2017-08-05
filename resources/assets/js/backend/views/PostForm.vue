@@ -139,13 +139,13 @@
                                 <div class="card-block">
                                     <template v-if="!isNew">
                                     <div class="form-group row">
-                                        <label class="col-lg-3 text-right col-form-label">{{ $t('validation.attributes.status') }}</label>
+                                        <label class="col-lg-3 col-form-label">{{ $t('validation.attributes.status') }}</label>
                                         <div class="col-lg-9">
                                             <label class="col-form-label"><b-badge :variant="post.state">{{ $t(post.status_label) }}</b-badge></label>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-lg-3 text-right col-form-label">{{ $t('labels.author') }}</label>
+                                        <label class="col-lg-3 col-form-label">{{ $t('labels.author') }}</label>
                                         <div class="col-lg-9">
                                             <label class="col-form-label">{{ post.owner.name }}</label>
                                         </div>
