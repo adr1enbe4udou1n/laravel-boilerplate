@@ -104,7 +104,6 @@ module.exports = {
             'vue',
             'axios',
             'i18next',
-            'select2',
             'sweetalert2',
             'slick-carousel',
             'flatpickr',

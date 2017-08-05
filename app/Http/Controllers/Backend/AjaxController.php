@@ -58,8 +58,8 @@ class AjaxController extends Controller
                 || str_contains($uri, $query)
             ) {
                 $items[] = [
-                    'name' => $name,
-                    'uri' => $uri,
+                  'value' => $name,
+                  'label' => $uri
                 ];
             }
         }
@@ -84,7 +84,7 @@ class AjaxController extends Controller
         $tags = $this->tags->query()
             ->whereLocale($this->localization->getCurrentLocale())
             ->where('name', 'like', "%$query%")
-            ->get();
+            ->pluck('name');
 
         return [
             'items' => $tags,

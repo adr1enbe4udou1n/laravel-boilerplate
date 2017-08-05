@@ -68,25 +68,17 @@
                                     :horizontal="true"
                                     :label-cols="2"
                             >
-                                <select
+                                <v-select
                                         id="tags"
                                         name="tags"
-                                        :required="true"
                                         multiple
+                                        :options="tags"
                                         v-model="post.tags"
-                                        data-toggle="autocomplete"
-                                        data-tags="true"
-                                        :data-placeholder="$t('labels.placeholders.tags')"
-                                        data-ajax-url="/admin/tags/search"
-                                        data-minimum-input-length="2"
-                                        data-item-value="id"
-                                        data-item-label="name"
+                                        :on-search="getTags"
+                                        :placeholder="$t('labels.placeholders.tags')"
+                                        :taggable="true"
                                 >
-                                    <option v-for="tag in post.tags"
-                                            :value="tag"
-                                            v-html="tag"
-                                    ></option>
-                                </select>
+                                </v-select>
                             </b-form-fieldset>
 
                             <b-form-fieldset
@@ -262,8 +254,6 @@
 </template>
 
 <script>
-    import flatpickr from 'flatpickr';
-
     export default {
         name: 'post_form',
         props: ['id'],
@@ -275,6 +265,7 @@
                     time_24hr: true,
                     enableTime: true,
                 },
+                tags: [],
                 post: this.initPost(),
                 validation: {
                     errors: {}
@@ -311,7 +302,7 @@
                 };
             },
             fetchData() {
-                this.tags = {};
+                this.tags = [];
                 this.post = this.initPost();
 
                 if (!this.isNew) {
@@ -319,8 +310,20 @@
                         .get(`/admin/post/${this.id}`)
                         .then(response => {
                             this.post = response.data;
+                            this.tags = this.post.tags;
                         });
                 }
+            },
+            getTags(search) {
+                axios
+                    .get(`/admin/tags/search`, {
+                        params: {
+                            q: search
+                        }
+                    })
+                    .then(response => {
+                        this.tags = response.data.items;
+                    });
             },
             onFileChange(e) {
                 let files = e.target.files || e.dataTransfer.files;

@@ -30,19 +30,14 @@
                                         :state="validation.errors.hasOwnProperty('route') ? 'danger' : ''"
                                         :feedback="validation.errors.hasOwnProperty('route') ? validation.errors.route[0] : ''"
                                 >
-                                    <b-form-select
+                                    <v-select
                                             id="route"
                                             name="route"
-                                            :required="true"
                                             :options="routes"
                                             v-model="meta.route"
-                                            data-toggle="autocomplete"
-                                            :data-placeholder="$t('labels.placeholders.route')"
-                                            data-ajax-url="/admin/routes/search"
-                                            data-minimum-input-length="2"
-                                            data-item-value="name"
-                                            data-item-label="uri"
-                                    ></b-form-select>
+                                            :placeholder="$t('labels.placeholders.route')"
+                                            :on-search="getRoutes"
+                                    ></v-select>
                                 </b-form-fieldset>
                             </template>
 
@@ -106,7 +101,7 @@
         props: ['id'],
         data() {
             return {
-                routes: {},
+                routes: [],
                 meta: this.initMeta(),
                 validation: {
                     errors: {}
@@ -129,7 +124,7 @@
                 };
             },
             fetchData() {
-                this.routes = {};
+                this.routes = [];
                 this.meta = this.initMeta();
 
                 if (!this.isNew) {
@@ -139,19 +134,35 @@
                             this.meta = response.data;
 
                             if (this.meta.route) {
-                                this.routes = {
-                                    [this.meta.route]: this.$i18n.t(`routes.${this.meta.route}`)
+                                this.meta.route = {
+                                    value: this.meta.route,
+                                    label: this.$i18n.t(`routes.${this.meta.route}`)
                                 };
                             }
                         });
                 }
             },
+            getRoutes(search) {
+                axios
+                    .get(`/admin/routes/search`, {
+                        params: {
+                            q: search
+                        }
+                    })
+                    .then(response => {
+                        this.routes = response.data.items;
+                    });
+            },
             onSubmit() {
                 let router = this.$router;
                 let action = this.isNew ? '/admin/meta' : `/admin/meta/${this.id}`;
 
+                let data = Object.assign({}, this.meta, {
+                    route: this.meta.route.value
+                });
+
                 axios
-                    [this.isNew ? 'post' : 'patch'](action, this.meta)
+                    [this.isNew ? 'post' : 'patch'](action, data)
                     .then(response => {
                         toastr[response.data.status](response.data.message);
                         router.push('/meta');

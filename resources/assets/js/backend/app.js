@@ -33,6 +33,9 @@ VeeValidate(window.locale);
 import BootstrapVue from 'bootstrap-vue';
 Vue.use(BootstrapVue);
 
+import vSelect from 'vue-select';
+Vue.component('v-select', vSelect);
+
 // Custom components
 import FormToggle from '.././components/FormToggle.vue';
 Vue.component('b-form-toggle', FormToggle);

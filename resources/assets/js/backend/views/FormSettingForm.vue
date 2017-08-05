@@ -19,8 +19,6 @@
                                         id="name"
                                         name="name"
                                         :required="true"
-                                        data-toggle="select2"
-                                        :data-placeholder="$t('validation.attributes.form_type')"
                                         :options="formTypes"
                                         v-model="setting.name"
                                 ></b-form-select>
@@ -90,7 +88,12 @@
         props: ['id'],
         data() {
             return {
-                formTypes: {},
+                formTypes: [
+                    {
+                        value: null,
+                        text: `-- ${this.$i18n.t('validation.attributes.form_type')} --`
+                    }
+                ],
                 setting: this.initSetting(),
                 validation: {
                     errors: {}
@@ -144,7 +147,12 @@
             axios
                 .get(`/admin/form-setting/form-types`)
                 .then(response => {
-                    this.formTypes = response.data;
+                    for(let propertyName in response.data) {
+                        this.formTypes.push({
+                            value: propertyName,
+                            text: response.data[propertyName]
+                        });
+                    }
                 });
 
             this.fetchData();

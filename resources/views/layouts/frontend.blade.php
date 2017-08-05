@@ -73,10 +73,6 @@
     <script src="{{ assets('js/vendor.js') }}"></script>
     <script src="{{ assets('js/frontend.js') }}"></script>
 
-    @if (app()->getLocale() !== 'en')
-    <script src="{{ assets('i18n/select2.' . app()->getLocale() . '.js') }}"></script>
-    @endif
-
     @yield('scripts')
 </body>
 </html>

@@ -126,11 +126,12 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     }
 
     /**
-     * @param Post                          $post
-     * @param array                         $input
+     * @param Post $post
+     * @param array $input
      *
      * @return mixed
      *
+     * @throws \Illuminate\Database\Eloquent\MassAssignmentException
      * @throws \App\Exceptions\GeneralException|\Exception|\Throwable
      */
     public function saveAsDraft(Post $post, array $input)

@@ -21,7 +21,6 @@ if (locale !== 'en') {
     flatpickr.localize(require(`flatpickr/dist/l10n/${locale}`)[locale]);
 }
 
-require('select2');
 require('intl-tel-input');
 require('pwstrength-bootstrap/dist/pwstrength-bootstrap');
 
@@ -142,51 +141,6 @@ window.swal = require('sweetalert2');
             $(this).pwstrength({
                 ui: {
                     bootstrap4: true
-                }
-            });
-        });
-
-        /**
-         * Select2
-         */
-        $('[data-toggle="select2"]').each(function () {
-            $(this).select2({
-                width: '100%',
-                theme: "bootstrap"
-            });
-        });
-
-        /**
-         * Autocomplete select2
-         */
-        $('[data-toggle="autocomplete"]').each(function () {
-            let itemValue = $(this).data('item-value');
-            let itemLabel = $(this).data('item-label');
-
-            $(this).select2({
-                width: '100%',
-                theme: "bootstrap",
-                minimumInputLength: $(this).data('minimum-input-length'),
-                ajax: {
-                    url: $(this).data('ajax-url'),
-                    dataType: 'json',
-                    delay: 250,
-                    data: function (params) {
-                        return {
-                            q: params.term,
-                        };
-                    },
-                    processResults: function (data, params) {
-                        return {
-                            results: $.map(data.items, function (item, key) {
-                                return {
-                                    id: item[itemValue],
-                                    text: item[itemLabel],
-                                }
-                            })
-                        };
-                    },
-                    cache: true
                 }
             });
         });

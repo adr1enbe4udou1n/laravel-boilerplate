@@ -45,10 +45,6 @@
     <script src="{{ assets('js/ckeditor.js') }}"></script>
     <script src="{{ assets('js/backend.js') }}"></script>
 
-    @if (app()->getLocale() !== 'en')
-        <script src="{{ assets('i18n/select2.' . app()->getLocale() . '.js') }}"></script>
-    @endif
-
     @yield('scripts')
 </body>
 </html>

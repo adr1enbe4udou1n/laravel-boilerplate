@@ -18,7 +18,6 @@
 
 // Components
 @import "../buttons";
-@import "../select2";
 
 [v-cloak] {
   display: none;
@@ -53,4 +52,22 @@ iframe {
 
 .flatpickr-calendar {
   border-radius: 0;
+}
+
+body .v-select {
+  .selected-tag {
+    background-color: #20a8d8;
+    border-color: #20a8d8;
+    color: #fff;
+
+    .close {
+      color: #fff;
+      text-shadow: none;
+      opacity: 1;
+    }
+  }
+
+  .dropdown-toggle, .selected-tag {
+    border-radius: 0;
+  }
 }
