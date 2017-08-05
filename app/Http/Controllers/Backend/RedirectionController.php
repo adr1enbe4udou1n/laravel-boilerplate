@@ -98,7 +98,7 @@ class RedirectionController extends BackendController
     {
         $this->redirections->store($request->input());
 
-        return redirect()->route('admin.redirection.index')->withFlashSuccess(trans('alerts.backend.redirections.created'));
+        return $this->RedirectResponse($request, trans('alerts.backend.redirections.created'));
     }
 
     /**
@@ -111,7 +111,7 @@ class RedirectionController extends BackendController
     {
         $this->redirections->update($redirection, $request->input());
 
-        return redirect()->route('admin.redirection.index')->withFlashSuccess(trans('alerts.backend.redirections.updated'));
+        return $this->RedirectResponse($request, trans('alerts.backend.redirections.updated'));
     }
 
     /**

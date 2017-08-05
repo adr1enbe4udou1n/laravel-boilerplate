@@ -153,7 +153,7 @@ class PostController extends BackendController
             $this->posts->saveAsDraft($post, $request->input(), $request->file('featured_image'));
         }
 
-        return redirect()->route('admin.post.index')->withFlashSuccess(trans('alerts.backend.posts.created'));
+        return $this->RedirectResponse($request, trans('alerts.backend.posts.created'));
     }
 
     /**
@@ -176,7 +176,7 @@ class PostController extends BackendController
             $this->posts->saveAsDraft($post, $request->input(), $request->file('featured_image'));
         }
 
-        return redirect()->route('admin.post.index')->withFlashSuccess(trans('alerts.backend.posts.updated'));
+        return $this->RedirectResponse($request, trans('alerts.backend.metas.updated'));
     }
 
     /**

@@ -5,15 +5,19 @@
                 <div class="col-md-6 offset-md-3">
                     <div class="card">
                         <div class="card-header">
-                            <h4>{{ isNew ? $t('labels.backend.metas.titles.create') : $t('labels.backend.metas.titles.edit') }}</h4>
+                            <h4>
+                                {{ isNew ? $t('labels.backend.metas.titles.create') : $t('labels.backend.metas.titles.edit')
+                                }}</h4>
                         </div>
 
                         <div class="card-block">
                             <template v-if="this.meta.metable_type !== null">
                                 <div class="form-group">
-                                    <label class="control-label col-lg-3">{{ $t('validation.attributes.metable_type') }}</label>
+                                    <label class="control-label col-lg-3">{{ $t('validation.attributes.metable_type')
+                                        }}</label>
                                     <div class="col-lg-9">
-                                        <label class="control-label">{{ $t(`labels.morphs.${this.meta.metable_type}`, { 'id': this.meta.metable_id }) }}</label>
+                                        <label class="control-label">{{ $t(`labels.morphs.${this.meta.metable_type}`, {'id': this.meta.metable_id})
+                                            }}</label>
                                     </div>
                                 </div>
                             </template>
@@ -23,6 +27,8 @@
                                         :label="$t('validation.attributes.route')"
                                         :horizontal="true"
                                         :label-cols="3"
+                                        :state="validation.errors.hasOwnProperty('route') ? 'danger' : ''"
+                                        :feedback="validation.errors.hasOwnProperty('route') ? validation.errors.route[0] : ''"
                                 >
                                     <b-form-select
                                             id="route"
@@ -45,6 +51,8 @@
                                     :label="$t('validation.attributes.title')"
                                     :horizontal="true"
                                     :label-cols="3"
+                                    :state="validation.errors.hasOwnProperty('title') ? 'danger' : ''"
+                                    :feedback="validation.errors.hasOwnProperty('title') ? validation.errors.title[0] : ''"
                             >
                                 <b-form-input
                                         id="title"
@@ -59,10 +67,12 @@
                                     :label="$t('validation.attributes.description')"
                                     :horizontal="true"
                                     :label-cols="3"
+                                    :state="validation.errors.hasOwnProperty('description') ? 'danger' : ''"
+                                    :feedback="validation.errors.hasOwnProperty('description') ? validation.errors.description[0] : ''"
                             >
                                 <b-form-input
                                         id="description"
-                                        name="description"
+                                        name="description[meta]"
                                         :textarea="true"
                                         :rows="5"
                                         :placeholder="$t('validation.attributes.description')"
@@ -74,10 +84,12 @@
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <router-link to="/meta" class="btn btn-danger btn-sm">{{ $t('buttons.back') }}</router-link>
+                                    <router-link to="/meta" class="btn btn-danger btn-sm">{{ $t('buttons.back') }}
+                                    </router-link>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="submit" class="btn btn-success btn-sm pull-right" :value="isNew ? $t('buttons.create') : $t('buttons.edit')">
+                                    <input type="submit" class="btn btn-success btn-sm pull-right"
+                                           :value="isNew ? $t('buttons.create') : $t('buttons.edit')">
                                 </div>
                             </div>
                         </div>
@@ -95,7 +107,10 @@
         data() {
             return {
                 routes: {},
-                meta: this.initMeta()
+                meta: this.initMeta(),
+                validation: {
+                    errors: {}
+                }
             }
         },
         computed: {
@@ -108,7 +123,7 @@
                 return {
                     metable_type: null,
                     metable_id: null,
-                    route : null,
+                    route: null,
                     title: null,
                     description: null
                 };
@@ -132,7 +147,22 @@
                 }
             },
             onSubmit() {
-                let action = this.isNew ? '/meta/store' : `/meta/${this.id}/update`;
+                let router = this.$router;
+                let action = this.isNew ? '/admin/meta' : `/admin/meta/${this.id}`;
+
+                axios
+                    [this.isNew ? 'post' : 'patch'](action, this.meta)
+                    .then(response => {
+                        toastr[response.data.status](response.data.message);
+                        router.push('/meta');
+                    })
+                    .catch(error => {
+                        if (error.response.status === 422) {
+                            this.validation.errors = error.response.data;
+                            return;
+                        }
+                        toastr.error(error.response.data.error);
+                    });
             }
         },
         created() {

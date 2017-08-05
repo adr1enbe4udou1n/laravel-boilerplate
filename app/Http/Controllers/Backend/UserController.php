@@ -122,7 +122,7 @@ class UserController extends BackendController
     {
         $this->users->store($request->input());
 
-        return redirect()->route('admin.user.index')->withFlashSuccess(trans('alerts.backend.users.created'));
+        return $this->RedirectResponse($request, trans('alerts.backend.users.created'));
     }
 
     /**
@@ -137,7 +137,7 @@ class UserController extends BackendController
     {
         $this->users->update($user, $request->input());
 
-        return redirect()->route('admin.user.index')->withFlashSuccess(trans('alerts.backend.users.updated'));
+        return $this->RedirectResponse($request, trans('alerts.backend.metas.updated'));
     }
 
     /**

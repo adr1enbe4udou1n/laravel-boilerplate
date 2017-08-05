@@ -152,18 +152,16 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
             return false;
         }
 
-        if (empty($input['roles'])) {
-            return true;
-        }
+        $roles = $input['roles'] ?? [];
 
         $allowedRoles = $this->roles->getAllowedRoles()->keyBy('id');
 
-        foreach ($input['roles'] as $id) {
+        foreach ($roles as $id) {
             if (!$allowedRoles->has($id)) {
                 throw new GeneralException(trans('exceptions.backend.users.cannot_set_superior_roles'));
             }
         }
-        $user->roles()->sync($input['roles']);
+        $user->roles()->sync($roles);
 
         return true;
     }

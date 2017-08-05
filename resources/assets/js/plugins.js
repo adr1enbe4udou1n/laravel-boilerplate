@@ -101,14 +101,14 @@ window.swal = require('sweetalert2');
             let url = $(this).attr('href');
             let dataTable = $(this).closest('table').DataTable();
 
-            $.confirmSwal(this, function () {
+            $.confirmSwal(this, () => {
                 axios.delete(url)
-                    .then(function (response) {
+                    .then(response => {
                         // Reload Datatables and keep current pager
                         dataTable.ajax.reload(null, false);
                         toastr[response.data.status](response.data.message);
                     })
-                    .catch(function (error) {
+                    .catch(error => {
                             toastr.error(error.response.data.error);
                         }
                     );

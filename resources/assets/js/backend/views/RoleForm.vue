@@ -14,6 +14,8 @@
                                     :label="$t('validation.attributes.name')"
                                     :horizontal="true"
                                     :label-cols="2"
+                                    :state="validation.errors.hasOwnProperty('name') ? 'danger' : ''"
+                                    :feedback="validation.errors.hasOwnProperty('name') ? validation.errors.name[0] : ''"
                             >
                                 <b-form-input
                                         id="name"
@@ -29,6 +31,8 @@
                                     :label="$t('validation.attributes.display_name')"
                                     :horizontal="true"
                                     :label-cols="2"
+                                    :state="validation.errors.hasOwnProperty('display_name') ? 'danger' : ''"
+                                    :feedback="validation.errors.hasOwnProperty('display_name') ? validation.errors.display_name[0] : ''"
                             >
                                 <b-form-input
                                         id="display_name"
@@ -44,6 +48,8 @@
                                     :label="$t('validation.attributes.description')"
                                     :horizontal="true"
                                     :label-cols="2"
+                                    :state="validation.errors.hasOwnProperty('description') ? 'danger' : ''"
+                                    :feedback="validation.errors.hasOwnProperty('description') ? validation.errors.description[0] : ''"
                             >
                                 <b-form-input
                                         id="description"
@@ -81,7 +87,7 @@
                                                         v-for="permission in category.permissions"
                                                         :key="permission.name"
                                                         name="permissions[]"
-                                                        :checked="role.permissions"
+                                                        v-model="role.permissions"
                                                         :value="permission.name">
                                                     {{ $t(permission['display_name']) }}
                                                 </b-form-checkbox>
@@ -118,7 +124,10 @@
         data() {
             return {
                 permissions: [],
-                role: this.initRole()
+                role: this.initRole(),
+                validation: {
+                    errors: {}
+                }
             }
         },
         computed: {
@@ -147,7 +156,22 @@
                 }
             },
             onSubmit() {
-                let action = this.isNew ? '/role/store' : `/role/${this.id}/update`;
+                let router = this.$router;
+                let action = this.isNew ? '/admin/role' : `/admin/role/${this.id}`;
+
+                axios
+                    [this.isNew ? 'post' : 'patch'](action, this.role)
+                    .then(response => {
+                        toastr[response.data.status](response.data.message);
+                        router.push('/role');
+                    })
+                    .catch(error => {
+                        if (error.response.status === 422) {
+                            this.validation.errors = error.response.data;
+                            return;
+                        }
+                        toastr.error(error.response.data.error);
+                    });
             }
         },
         created() {

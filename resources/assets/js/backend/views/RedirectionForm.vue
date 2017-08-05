@@ -14,6 +14,8 @@
                                     :label="$t('validation.attributes.source_path')"
                                     :horizontal="true"
                                     :label-cols="3"
+                                    :state="validation.errors.hasOwnProperty('source') ? 'danger' : ''"
+                                    :feedback="validation.errors.hasOwnProperty('source') ? validation.errors.source[0] : ''"
                             >
                                 <b-form-input
                                         id="source"
@@ -43,6 +45,8 @@
                                     :label="$t('validation.attributes.target_path')"
                                     :horizontal="true"
                                     :label-cols="3"
+                                    :state="validation.errors.hasOwnProperty('target') ? 'danger' : ''"
+                                    :feedback="validation.errors.hasOwnProperty('target') ? validation.errors.target[0] : ''"
                             >
                                 <b-form-input
                                         id="target"
@@ -92,7 +96,10 @@
         data() {
             return {
                 redirectionTypes: {},
-                redirection: this.initRedirection()
+                redirection: this.initRedirection(),
+                validation: {
+                    errors: {}
+                }
             }
         },
         computed: {
@@ -121,7 +128,22 @@
                 }
             },
             onSubmit() {
-                let action = this.isNew ? '/redirection/store' : `/redirection/${this.id}/update`;
+                let router = this.$router;
+                let action = this.isNew ? '/admin/redirection' : `/admin/redirection/${this.id}`;
+
+                axios
+                    [this.isNew ? 'post' : 'patch'](action, this.redirection)
+                    .then(response => {
+                        toastr[response.data.status](response.data.message);
+                        router.push('/redirection');
+                    })
+                    .catch(error => {
+                        if (error.response.status === 422) {
+                            this.validation.errors = error.response.data;
+                            return;
+                        }
+                        toastr.error(error.response.data.error);
+                    });
             }
         },
         created() {

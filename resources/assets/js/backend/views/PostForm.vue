@@ -13,6 +13,8 @@
                                     :label="$t('validation.attributes.title')"
                                     :horizontal="true"
                                     :label-cols="2"
+                                    :state="validation.errors.hasOwnProperty('title') ? 'danger' : ''"
+                                    :feedback="validation.errors.hasOwnProperty('title') ? validation.errors.title[0] : ''"
                             >
                                 <b-form-input
                                         id="title"
@@ -28,6 +30,8 @@
                                     :label="$t('validation.attributes.summary')"
                                     :horizontal="true"
                                     :label-cols="2"
+                                    :state="validation.errors.hasOwnProperty('summary') ? 'danger' : ''"
+                                    :feedback="validation.errors.hasOwnProperty('summary') ? validation.errors.summary[0] : ''"
                             >
                                 <b-form-input
                                         id="summary"
@@ -44,6 +48,8 @@
                                     :label="$t('validation.attributes.body')"
                                     :horizontal="true"
                                     :label-cols="2"
+                                    :state="validation.errors.hasOwnProperty('body') ? 'danger' : ''"
+                                    :feedback="validation.errors.hasOwnProperty('body') ? validation.errors.body[0] : ''"
                             >
                                 <b-form-input
                                         id="body"
@@ -88,6 +94,8 @@
                                     :label="$t('validation.attributes.image')"
                                     :horizontal="true"
                                     :label-cols="2"
+                                    :state="validation.errors.hasOwnProperty('image') ? 'danger' : ''"
+                                    :feedback="validation.errors.hasOwnProperty('image') ? validation.errors.image[0] : ''"
                             >
                                 <div class="media">
                                     <img v-if="post.featured_image_path !== null" class="mr-2" :src="`/imagecache/small/${post.featured_image_path}`" alt="">
@@ -267,7 +275,10 @@
                     time_24hr: true,
                     enableTime: true,
                 },
-                post: this.initPost()
+                post: this.initPost(),
+                validation: {
+                    errors: {}
+                }
             }
         },
         computed: {
@@ -310,7 +321,22 @@
                 }
             },
             onSubmit() {
-                let action = this.isNew ? '/post/store' : `/post/${this.id}/update`;
+                let router = this.$router;
+                let action = this.isNew ? '/admin/post' : `/admin/post/${this.id}`;
+
+                axios
+                    [this.isNew ? 'post' : 'patch'](action, this.post)
+                    .then(response => {
+                        toastr[response.data.status](response.data.message);
+                        router.push('/post');
+                    })
+                    .catch(error => {
+                        if (error.response.status === 422) {
+                            this.validation.errors = error.response.data;
+                            return;
+                        }
+                        toastr.error(error.response.data.error);
+                    });
             }
         },
         created() {

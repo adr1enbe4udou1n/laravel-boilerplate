@@ -84,7 +84,7 @@ class MetaController extends BackendController
     {
         $this->metas->store($request->input());
 
-        return redirect()->route('admin.meta.index')->withFlashSuccess(trans('alerts.backend.metas.created'));
+        return $this->RedirectResponse($request, trans('alerts.backend.metas.created'));
     }
 
     /**
@@ -97,7 +97,7 @@ class MetaController extends BackendController
     {
         $this->metas->update($meta, $request->input());
 
-        return redirect()->route('admin.meta.index')->withFlashSuccess(trans('alerts.backend.metas.updated'));
+        return $this->RedirectResponse($request, trans('alerts.backend.metas.updated'));
     }
 
     /**

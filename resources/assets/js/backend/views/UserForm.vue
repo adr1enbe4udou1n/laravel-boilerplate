@@ -14,6 +14,8 @@
                                     :label="$t('validation.attributes.name')"
                                     :horizontal="true"
                                     :label-cols="3"
+                                    :state="validation.errors.hasOwnProperty('name') ? 'danger' : ''"
+                                    :feedback="validation.errors.hasOwnProperty('name') ? validation.errors.name[0] : ''"
                             >
                                 <b-input-group :left="iconUser">
                                     <b-form-input
@@ -31,6 +33,8 @@
                                     :label="$t('validation.attributes.email')"
                                     :horizontal="true"
                                     :label-cols="3"
+                                    :state="validation.errors.hasOwnProperty('email') ? 'danger' : ''"
+                                    :feedback="validation.errors.hasOwnProperty('email') ? validation.errors.email[0] : ''"
                             >
                                 <b-input-group :left="iconEnvelope">
                                     <b-form-input
@@ -63,6 +67,8 @@
                                     :label="$t('validation.attributes.password')"
                                     :horizontal="true"
                                     :label-cols="3"
+                                    :state="validation.errors.hasOwnProperty('password') ? 'danger' : ''"
+                                    :feedback="validation.errors.hasOwnProperty('password') ? validation.errors.password[0] : ''"
                             >
                                 <b-form-input
                                         id="password"
@@ -78,6 +84,8 @@
                                     :label="$t('validation.attributes.password_confirmation')"
                                     :horizontal="true"
                                     :label-cols="3"
+                                    :state="validation.errors.hasOwnProperty('password_confirmation') ? 'danger' : ''"
+                                    :feedback="validation.errors.hasOwnProperty('password_confirmation') ? validation.errors.password_confirmation[0] : ''"
                             >
                                 <b-form-input
                                         id="password_confirmation"
@@ -97,8 +105,9 @@
                                             v-for="role in roles"
                                             :key="role.id"
                                             name="roles[]"
-                                            :checked="user.roles"
-                                            :value="role.id">
+                                            v-model="user.roles"
+                                            :value="role.id"
+                                    >
                                         {{ role.display_name }}
                                     </b-form-checkbox>
                                 </div>
@@ -131,7 +140,10 @@
                 iconUser: '<i class="icon-user"></i>',
                 iconEnvelope: '<i class="icon-envelope"></i>',
                 roles: {},
-                user: this.initUser()
+                user: this.initUser(),
+                validation: {
+                    errors: {}
+                }
             }
         },
         computed: {
@@ -147,7 +159,7 @@
                     active: null,
                     password: null,
                     confirm_password: null,
-                    roles: null
+                    roles: []
                 };
             },
             fetchData() {
@@ -162,7 +174,22 @@
                 }
             },
             onSubmit() {
-                let action = this.isNew ? '/user/store' : `/user/${this.id}/update`;
+                let router = this.$router;
+                let action = this.isNew ? '/admin/user' : `/admin/user/${this.id}`;
+
+                axios
+                    [this.isNew ? 'post' : 'patch'](action, this.user)
+                    .then(response => {
+                        toastr[response.data.status](response.data.message);
+                        router.push('/user');
+                    })
+                    .catch(error => {
+                        if (error.response.status === 422) {
+                            this.validation.errors = error.response.data;
+                            return;
+                        }
+                        toastr.error(error.response.data.error);
+                    });
             }
         },
         created() {

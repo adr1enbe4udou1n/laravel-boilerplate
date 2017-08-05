@@ -96,7 +96,7 @@ class FormSettingController extends BackendController
     {
         $this->formSettings->store($request->input());
 
-        return redirect()->route('admin.form_setting.index')->withFlashSuccess(trans('alerts.backend.form_settings.created'));
+        return $this->RedirectResponse($request, trans('alerts.backend.form_settings.created'));
     }
 
     /**
@@ -109,7 +109,7 @@ class FormSettingController extends BackendController
     {
         $this->formSettings->update($formSetting, $request->input());
 
-        return redirect()->route('admin.form_setting.index')->withFlashSuccess(trans('alerts.backend.form_settings.updated'));
+        return $this->RedirectResponse($request, trans('alerts.backend.form_settings.updated'));
     }
 
     /**

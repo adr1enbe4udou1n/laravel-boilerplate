@@ -32,6 +32,8 @@
                                     :description="$t('labels.backend.form_settings.descriptions.recipients')"
                                     :horizontal="true"
                                     :label-cols="3"
+                                    :state="validation.errors.hasOwnProperty('recipients') ? 'danger' : ''"
+                                    :feedback="validation.errors.hasOwnProperty('recipients') ? validation.errors.recipients[0] : ''"
                             >
                                 <b-form-input
                                         id="recipients"
@@ -50,6 +52,8 @@
                                     :description="$t('labels.backend.form_settings.descriptions.message')"
                                     :horizontal="true"
                                     :label-cols="3"
+                                    :state="validation.errors.hasOwnProperty('message') ? 'danger' : ''"
+                                    :feedback="validation.errors.hasOwnProperty('message') ? validation.errors.message[0] : ''"
                             >
                                 <b-form-input
                                         id="message"
@@ -87,7 +91,10 @@
         data() {
             return {
                 formTypes: {},
-                setting: this.initSetting()
+                setting: this.initSetting(),
+                validation: {
+                    errors: {}
+                }
             }
         },
         computed: {
@@ -115,7 +122,22 @@
                 }
             },
             onSubmit() {
-                let action = this.isNew ? '/form-setting/store' : `/form-setting/${this.id}/update`;
+                let router = this.$router;
+                let action = this.isNew ? '/admin/form-setting' : `/admin/form-setting/${this.id}`;
+
+                axios
+                    [this.isNew ? 'post' : 'patch'](action, this.setting)
+                    .then(response => {
+                        toastr[response.data.status](response.data.message);
+                        router.push('/form-setting');
+                    })
+                    .catch(error => {
+                        if (error.response.status === 422) {
+                            this.validation.errors = error.response.data;
+                            return;
+                        }
+                        toastr.error(error.response.data.error);
+                    });
             }
         },
         created() {
