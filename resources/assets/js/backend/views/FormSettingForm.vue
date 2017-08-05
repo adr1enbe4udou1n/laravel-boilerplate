@@ -159,9 +159,6 @@
         },
         watch: {
             '$route': 'fetchData'
-        },
-        mounted() {
-            $.initPlugins();
         }
     }
 </script>

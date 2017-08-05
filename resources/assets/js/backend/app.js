@@ -11,10 +11,6 @@ require('datatables.net-buttons');
 require('datatables.net-buttons-bs4');
 require('datatables.net-buttons/js/buttons.html5');
 
-//CKEditor
-require('ckeditor');
-require('ckeditor/adapters/jquery');
-
 // Plugins
 require('./../plugins');
 
@@ -42,6 +38,9 @@ Vue.component('b-form-toggle', FormToggle);
 
 import Flatpickr from '.././components/Flatpickr.vue';
 Vue.component('flatpickr', Flatpickr);
+
+import CKEditor from '.././components/CKEditor.vue';
+Vue.component('ckeditor', CKEditor);
 
 import BatchAction from './components/BatchAction.vue';
 Vue.component('batch-action', BatchAction);

@@ -20,7 +20,7 @@
             value: {
                 default: null,
                 required: true,
-                validate (value){
+                validate(value) {
                     return value === null || value instanceof Date || typeof value === 'string' || value instanceof String || value instanceof Array
                 }
             },
@@ -50,34 +50,34 @@
                 type: String,
             },
         },
-        data () {
+        data() {
             return {
                 mutableValue: this.value,
                 fp: null
             };
         },
-        mounted () {
+        mounted() {
             if (!this.fp) {
                 let elem = this.config.wrap ? this.$el.parentNode : this.$el;
                 this.fp = new Flatpickr(elem, this.config);
             }
         },
-        beforeDestroy () {
+        beforeDestroy() {
             if (this.fp) {
                 this.fp.destroy();
                 this.fp = null;
             }
         },
         watch: {
-            config (newConfig) {
+            config(newConfig) {
                 this.fp.config = Object.assign(this.fp.config, newConfig);
                 this.fp.redraw();
                 this.fp.setDate(this.value, true);
             },
-            mutableValue (newValue) {
+            mutableValue(newValue) {
                 this.$emit('input', newValue);
             },
-            value (newValue) {
+            value(newValue) {
                 this.fp && this.fp.setDate(newValue, true);
             }
         },

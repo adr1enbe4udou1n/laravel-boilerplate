@@ -205,7 +205,11 @@
             '$route': 'fetchData'
         },
         mounted() {
-            $.initPlugins();
+            $('#password').pwstrength({
+                ui: {
+                    bootstrap4: true
+                }
+            });
         }
     }
 </script>

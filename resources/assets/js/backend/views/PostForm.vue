@@ -51,15 +51,11 @@
                                     :state="validation.errors.hasOwnProperty('body') ? 'danger' : ''"
                                     :feedback="validation.errors.hasOwnProperty('body') ? validation.errors.body[0] : ''"
                             >
-                                <b-form-input
+                                <ckeditor
                                         id="body"
                                         name="body"
-                                        :textarea="true"
-                                        :rows="5"
                                         v-model="post.body"
-                                        data-toggle="editor"
-                                        data-upload-url="/admin/images/upload"
-                                ></b-form-input>
+                                ></ckeditor>
                             </b-form-fieldset>
 
                             <b-form-fieldset
@@ -360,16 +356,7 @@
             this.fetchData();
         },
         watch: {
-            '$route': 'fetchData',
-            'post.body': (val) => {
-                if (val === null) {
-                    CKEDITOR.instances.body.setData('');
-                }
-                CKEDITOR.instances.body.setData(val);
-            }
-        },
-        mounted() {
-            $.initPlugins();
+            '$route': 'fetchData'
         }
     }
 </script>
