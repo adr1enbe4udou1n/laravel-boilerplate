@@ -128,18 +128,6 @@ window.swal = require('sweetalert2');
         $('[data-toggle="popover"]').popover();
 
         /**
-         * Datetimepicker
-         */
-        $('[data-toggle="datetimepicker"]').each(function () {
-            flatpickr(this, {
-                wrap: true,
-                time_24hr: true,
-                enableTime: true,
-                dateFormat: $(this).data('date-format'),
-            });
-        });
-
-        /**
          * Submit support for dropdown buttons
          */
         $('[data-toggle="submit-link"]').click(function () {

@@ -130,6 +130,8 @@ class PostController extends BackendController
      */
     public function get(Post $post)
     {
+        $post->tags = $post->tags()->pluck('name');
+
         return $post;
     }
 

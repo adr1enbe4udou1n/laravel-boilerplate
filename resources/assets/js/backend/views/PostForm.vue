@@ -62,11 +62,11 @@
                                     :horizontal="true"
                                     :label-cols="2"
                             >
-                                <b-form-select
+                                <select
                                         id="tags"
                                         name="tags"
                                         :required="true"
-                                        :options="tags"
+                                        multiple
                                         v-model="post.tags"
                                         data-toggle="autocomplete"
                                         data-tags="true"
@@ -75,7 +75,12 @@
                                         data-minimum-input-length="2"
                                         data-item-value="id"
                                         data-item-label="name"
-                                ></b-form-select>
+                                >
+                                    <option v-for="tag in post.tags"
+                                            :value="tag"
+                                            v-html="tag"
+                                    ></option>
+                                </select>
                             </b-form-fieldset>
 
                             <b-form-fieldset
@@ -85,7 +90,7 @@
                                     :label-cols="2"
                             >
                                 <div class="media">
-                                    <img v-if="post.featured_image_url !== null" class="mr-2" :src="`/imagecache/small/${post.featured_image_path}`" alt="">
+                                    <img v-if="post.featured_image_path !== null" class="mr-2" :src="`/imagecache/small/${post.featured_image_path}`" alt="">
 
                                     <div class="media-body">
                                         <h6>{{ $t('labels.upload_image') }}</h6>
@@ -153,17 +158,17 @@
                                             :horizontal="true"
                                             :label-cols="3"
                                     >
-                                        <div data-toggle="datetimepicker" data-date-format="Y-m-d H:i">
-                                            <b-input-group :right="iconCalendar" data-toggle>
-                                                <b-form-input
-                                                        id="published_at"
-                                                        name="published_at"
-                                                        :required="true"
-                                                        class="text-right"
-                                                        v-model="post.published_at"
-                                                        data-input
-                                                ></b-form-input>
-                                            </b-input-group>
+                                        <div role="group" class="input-group">
+                                            <flatpickr
+                                                    id="published_at"
+                                                    name="published_at"
+                                                    :config="config"
+                                                    :required="true"
+                                                    v-model="post.published_at"
+                                            ></flatpickr>
+                                            <div class="input-group-addon" data-toggle>
+                                                <i class="icon-calendar"></i>
+                                            </div>
                                         </div>
                                     </b-form-fieldset>
 
@@ -249,14 +254,19 @@
 </template>
 
 <script>
+    import flatpickr from 'flatpickr';
+
     export default {
         name: 'post_form',
         props: ['id'],
         data() {
             return {
                 user: window.settings.user,
-                iconCalendar: '<i class="icon-calendar"></i>',
-                tags: {},
+                config: {
+                    wrap: true,
+                    time_24hr: true,
+                    enableTime: true,
+                },
                 post: this.initPost()
             }
         },
@@ -271,7 +281,7 @@
                     title: null,
                     summary: null,
                     body: null,
-                    tags: {},
+                    tags: [],
                     featured_image_path: null,
                     state: null,
                     status_label: null,
@@ -296,8 +306,6 @@
                         .get(`/admin/post/${this.id}`)
                         .then(response => {
                             this.post = response.data;
-
-                            // this.tags = $post->tags->pluck('name', 'name');
                         });
                 }
             },
@@ -309,7 +317,13 @@
             this.fetchData();
         },
         watch: {
-            '$route': 'fetchData'
+            '$route': 'fetchData',
+            'post.body': (val) => {
+                if (val === null) {
+                    CKEDITOR.instances.body.setData('');
+                }
+                CKEDITOR.instances.body.setData(val);
+            }
         },
         mounted() {
             $.initPlugins();

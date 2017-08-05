@@ -37,6 +37,9 @@ Vue.use(BootstrapVue);
 import FormToggle from '.././components/FormToggle.vue';
 Vue.component('b-form-toggle', FormToggle);
 
+import Flatpickr from '.././components/Flatpickr.vue';
+Vue.component('flatpickr', Flatpickr);
+
 import BatchAction from './components/BatchAction.vue';
 Vue.component('batch-action', BatchAction);
 
