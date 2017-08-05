@@ -176,7 +176,7 @@ class PostController extends BackendController
             $this->posts->saveAsDraft($post, $request->input());
         }
 
-        return $this->RedirectResponse($request, trans('alerts.backend.metas.updated'));
+        return $this->RedirectResponse($request, trans('alerts.backend.posts.updated'));
     }
 
     /**
