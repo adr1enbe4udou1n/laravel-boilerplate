@@ -148,9 +148,9 @@ class PostController extends BackendController
         );
 
         if ($request->input('status') === 'publish') {
-            $this->posts->saveAndPublish($post, $request->input(), $request->file('featured_image'));
+            $this->posts->saveAndPublish($post, $request->input());
         } else {
-            $this->posts->saveAsDraft($post, $request->input(), $request->file('featured_image'));
+            $this->posts->saveAsDraft($post, $request->input());
         }
 
         return $this->RedirectResponse($request, trans('alerts.backend.posts.created'));
@@ -171,9 +171,9 @@ class PostController extends BackendController
         );
 
         if ($request->input('status') === 'publish') {
-            $this->posts->saveAndPublish($post, $request->input(), $request->file('featured_image'));
+            $this->posts->saveAndPublish($post, $request->input());
         } else {
-            $this->posts->saveAsDraft($post, $request->input(), $request->file('featured_image'));
+            $this->posts->saveAsDraft($post, $request->input());
         }
 
         return $this->RedirectResponse($request, trans('alerts.backend.metas.updated'));

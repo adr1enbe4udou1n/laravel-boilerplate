@@ -25,7 +25,6 @@ class StorePostRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'featured_image' => 'nullable|mimes:jpeg,jpg,png,gif',
             'status' => 'in:publish,draft',
             'published_at' => 'date',
             'pinned' => 'boolean',

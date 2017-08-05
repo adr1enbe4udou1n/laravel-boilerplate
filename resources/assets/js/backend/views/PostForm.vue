@@ -102,7 +102,7 @@
 
                                     <div class="media-body">
                                         <h6>{{ $t('labels.upload_image') }}</h6>
-                                        <input id="featured_image" name="featured_image" type="file" class="form-control">
+                                        <input id="featured_image" name="featured_image" type="file" class="form-control" @change="onFileChange">
                                         <p class="form-text text-muted">
                                             {{ $t('labels.descriptions.allowed_image_types') }}
                                         </p>
@@ -120,12 +120,12 @@
                                 <div class="col-md-6">
                                     <input name="status" type="hidden" value="publish">
                                     <div class="btn-group pull-right">
-                                        <input type="submit" class="btn btn-success btn-sm pull-right" :value="$t('buttons.posts.save_and_publish')">
-                                        <button type="button" class="btn btn-success btn-sm dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-expanded="false">
+                                        <input type="submit" class="btn btn-success btn-sm pull-right" :value="$t('buttons.posts.save_and_publish')" @click="post.status = 'publish'">
+                                        <button type="button" class="btn btn-success btn-sm dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-expanded="false" id="save-and-publish">
                                             <span class="sr-only"></span>
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" data-toggle="submit-link" data-target="[name=&quot;status&quot;]" data-value="draft" href="javascript:void(0);">{{ $t('buttons.posts.save_as_draft') }}</a>
+                                            <a class="dropdown-item" href="javascript:void(0);" @click="post.status = 'draft'; onSubmit()">{{ $t('buttons.posts.save_as_draft') }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -293,7 +293,9 @@
                     summary: null,
                     body: null,
                     tags: [],
+                    featured_image: null,
                     featured_image_path: null,
+                    status: null,
                     state: null,
                     status_label: null,
                     owner: {
@@ -319,6 +321,18 @@
                             this.post = response.data;
                         });
                 }
+            },
+            onFileChange(e) {
+                let files = e.target.files || e.dataTransfer.files;
+                if (!files.length) return;
+
+                let reader = new FileReader();
+                let post = this.post;
+
+                reader.onload = (e) => {
+                    post.featured_image = e.target.result;
+                };
+                reader.readAsDataURL(files[0]);
             },
             onSubmit() {
                 let router = this.$router;

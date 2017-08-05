@@ -112,40 +112,37 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     /**
      * @param Post                          $post
      * @param array                         $input
-     * @param \Illuminate\Http\UploadedFile $image
      *
      * @return mixed
      *
      * @throws \Illuminate\Database\Eloquent\MassAssignmentException
      * @throws \App\Exceptions\GeneralException|\Exception|\Throwable
      */
-    public function saveAndPublish(Post $post, array $input, UploadedFile $image = null)
+    public function saveAndPublish(Post $post, array $input)
     {
         $post->status = Post::PUBLISHED;
 
-        return $this->save($post, $input, $image);
+        return $this->save($post, $input);
     }
 
     /**
      * @param Post                          $post
      * @param array                         $input
-     * @param \Illuminate\Http\UploadedFile $image
      *
      * @return mixed
      *
      * @throws \App\Exceptions\GeneralException|\Exception|\Throwable
      */
-    public function saveAsDraft(Post $post, array $input, UploadedFile $image = null)
+    public function saveAsDraft(Post $post, array $input)
     {
         $post->status = Post::DRAFT;
 
-        return $this->save($post, $input, $image);
+        return $this->save($post, $input);
     }
 
     /**
      * @param Post                          $post
      * @param array                         $input
-     * @param \Illuminate\Http\UploadedFile $image
      *
      * @return mixed
      *
@@ -153,7 +150,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      * @throws \Throwable
      * @throws \App\Exceptions\GeneralException|\Exception
      */
-    private function save(Post $post, array $input, UploadedFile $image = null)
+    private function save(Post $post, array $input)
     {
         if ($post->exists) {
             if (!Gate::check('update', $post)) {
@@ -168,7 +165,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
             $post->status = Post::PENDING;
         }
 
-        DB::transaction(function () use ($post, $input, $image) {
+        DB::transaction(function () use ($post, $input) {
             if (!$post->save()) {
                 throw new GeneralException(trans('exceptions.backend.posts.save'));
             }
@@ -196,11 +193,19 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
             }
 
             // Featured image
-            if ($image) {
+            if (isset($input['featured_image'])) {
+                // Write base64 string to memory
+                $image = fopen('php://memory', 'wb');
+                $data = explode(',', $input['featured_image']);
+                fwrite($image, base64_decode($data[1]));
+
+                // Upload media
                 $media = $this->mediaUploader->fromSource($image)
                     ->toDestination('public', 'posts')
                     ->useFilename(Str::random(32))
                     ->upload();
+
+                fclose($image);
 
                 $post->handleMediableDeletion();
                 $post->attachMedia($media, 'featured image');

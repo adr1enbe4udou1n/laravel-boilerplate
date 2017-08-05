@@ -128,15 +128,6 @@ window.swal = require('sweetalert2');
         $('[data-toggle="popover"]').popover();
 
         /**
-         * Submit support for dropdown buttons
-         */
-        $('[data-toggle="submit-link"]').click(function () {
-            let $form = $(this).closest('form');
-            $form.find($(this).data('target')).val($(this).data('value'));
-            $form.submit();
-        });
-
-        /**
          * Bind all swal confirm buttons
          */
         $('[data-toggle="confirm"]').click(function (e) {

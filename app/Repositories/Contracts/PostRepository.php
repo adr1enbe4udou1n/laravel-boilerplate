@@ -43,20 +43,18 @@ interface PostRepository extends BaseRepository
     /**
      * @param \App\Models\Post              $post
      * @param array                         $input
-     * @param \Illuminate\Http\UploadedFile $image
      *
      * @return mixed
      */
-    public function saveAndPublish(Post $post, array $input, UploadedFile $image = null);
+    public function saveAndPublish(Post $post, array $input);
 
     /**
      * @param Post                          $post
      * @param array                         $input
-     * @param \Illuminate\Http\UploadedFile $image
      *
      * @return mixed
      */
-    public function saveAsDraft(Post $post, array $input, UploadedFile $image = null);
+    public function saveAsDraft(Post $post, array $input);
 
     /**
      * @param Post $post
