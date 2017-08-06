@@ -14,6 +14,8 @@
 </template>
 
 <script>
+    import axios from 'axios';
+
     export default {
         props: ['options', 'url', 'datatable'],
         data() {
@@ -34,9 +36,9 @@
                     }).then(response => {
                         // Reload Datatables and keep current pager
                         dataTable.ajax.reload(null, false);
-                        toastr[response.data.status](response.data.message);
+                        window.toastr[response.data.status](response.data.message);
                     }).catch(error => {
-                        toastr.error(error.response.data.error);
+                        window.toastr.error(error.response.data.error);
                     });
                 });
             }

@@ -9,8 +9,11 @@ module.exports = {
     },
     "plugins": [
         "import",
-        "vue"
+        "html"
     ],
+    "settings": {
+        "html/html-extensions": [".vue"],
+    },
     "parserOptions": {
         "sourceType": "module"
     },
