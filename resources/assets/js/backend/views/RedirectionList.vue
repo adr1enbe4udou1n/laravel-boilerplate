@@ -36,6 +36,8 @@
 </template>
 
 <script>
+    import axios from 'axios';
+
     export default {
         name: 'redirection_list',
         props: ['adminPath'],
@@ -47,7 +49,7 @@
                     enable: this.$i18n.t('labels.backend.redirections.actions.enable'),
                     disable: this.$i18n.t('labels.backend.redirections.actions.disable')
                 }
-            }
+            };
         },
         methods: {
             onFileImport() {
@@ -55,11 +57,11 @@
 
                 axios.post(`/${this.$root.adminPath}/redirection/import`, {
                     'import': this.importFile,
-                }).then(function (response) {
+                }).then(response => {
                     dataTable.ajax.reload(null, false);
-                    toastr[response.data.status](response.data.message);
-                }).catch(function (error) {
-                    toastr.error(error.response.data.error);
+                    window.toastr[response.data.status](response.data.message);
+                }).catch(error => {
+                    window.toastr.error(error.response.data.error);
                 });
             }
         },
@@ -124,5 +126,5 @@
                 rowId: 'id',
             });
         }
-    }
+    };
 </script>

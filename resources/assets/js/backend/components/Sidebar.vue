@@ -88,7 +88,7 @@
             return {
                 newPostsCount: 0,
                 pendingPostsCount: 0,
-            }
+            };
         },
         created() {
             axios
@@ -108,7 +108,7 @@
                 e.target.parentElement.classList.toggle('open');
             }
         }
-    }
+    };
 </script>
 
 <style lang="css">

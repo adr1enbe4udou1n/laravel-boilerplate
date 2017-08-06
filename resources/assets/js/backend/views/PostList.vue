@@ -30,7 +30,7 @@
                     pin: this.$i18n.t('labels.backend.posts.actions.pin'),
                     promote: this.$i18n.t('labels.backend.posts.actions.promote'),
                 }
-            }
+            };
         },
         mounted() {
             $('#dataTableBuilder').DataTable({
@@ -125,5 +125,5 @@
                 rowId: 'id'
             });
         }
-    }
+    };
 </script>

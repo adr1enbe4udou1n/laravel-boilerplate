@@ -106,7 +106,7 @@
                 validation: {
                     errors: {}
                 }
-            }
+            };
         },
         computed: {
             isNew() {
@@ -164,7 +164,7 @@
                 axios
                     [this.isNew ? 'post' : 'patch'](action, data)
                     .then(response => {
-                        toastr[response.data.status](response.data.message);
+                        window.toastr[response.data.status](response.data.message);
                         router.push('/meta');
                     })
                     .catch(error => {
@@ -172,7 +172,7 @@
                             this.validation.errors = error.response.data;
                             return;
                         }
-                        toastr.error(error.response.data.error);
+                        window.toastr.error(error.response.data.error);
                     });
             }
         },
@@ -182,5 +182,5 @@
         watch: {
             '$route': 'fetchData'
         }
-    }
+    };
 </script>

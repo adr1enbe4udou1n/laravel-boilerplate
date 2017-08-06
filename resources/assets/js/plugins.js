@@ -1,25 +1,4 @@
-
-window.locale = $('html').attr('lang');
-
 import i18next from 'i18next';
-
-window.i18next = i18next.init({
-    lng: locale,
-    resources: {
-        en: {
-            translation: require('pwstrength-bootstrap/locales/en.json')
-        },
-        fr: {
-            translation: require('pwstrength-bootstrap/locales/fr.json')
-        }
-    }
-});
-
-const flatpickr = require('flatpickr');
-
-if (locale !== 'en') {
-    flatpickr.localize(require(`flatpickr/dist/l10n/${locale}`)[locale]);
-}
 
 require('intl-tel-input');
 require('pwstrength-bootstrap/dist/pwstrength-bootstrap');
@@ -27,10 +6,29 @@ require('pwstrength-bootstrap/dist/pwstrength-bootstrap');
 window.toastr = require('toastr');
 window.swal = require('sweetalert2');
 
+const flatpickr = require('flatpickr');
+
 /**
  * Place any jQuery/helper plugins in here.
  */
 (function ($) {
+    window.locale = $('html').attr('lang');
+
+    window.i18next = i18next.init({
+        lng: window.locale,
+        resources: {
+            en: {
+                translation: require('pwstrength-bootstrap/locales/en.json')
+            },
+            fr: {
+                translation: require('pwstrength-bootstrap/locales/fr.json')
+            }
+        }
+    });
+
+    if (window.locale !== 'en') {
+        flatpickr.localize(require(`flatpickr/dist/l10n/${window.locale}`)[window.locale]);
+    }
 
     /**
      * Place the CSRF token as a header on all pages for access in AJAX requests
@@ -45,16 +43,16 @@ window.swal = require('sweetalert2');
      * Swal confirm dialog
      */
     $.confirmSwal = function (target, callback) {
-        swal({
+        window.swal({
             title: $(target).attr('data-trans-title'),
-            type: "warning",
+            type: 'warning',
             showCancelButton: true,
             cancelButtonText: $(target).attr('data-trans-button-cancel'),
-            confirmButtonColor: "#dd4b39",
+            confirmButtonColor: '#dd4b39',
             confirmButtonText: $(target).attr('data-trans-button-confirm')
         }).then(
             callback,
-            function (dismiss) {}
+            function () {}
         );
     };
 
@@ -63,30 +61,30 @@ window.swal = require('sweetalert2');
      */
     if ($.fn.dataTable) {
         let dataTableOptions = {
-            lengthMenu: [[5, 10, 15, 25, 50, -1], [5, 10, 15, 25, 50, locale === 'en' ? 'All' : 'Tout']],
+            lengthMenu: [[5, 10, 15, 25, 50, -1], [5, 10, 15, 25, 50, window.locale === 'en' ? 'All' : 'Tout']],
             buttons: [
                 'csvHtml5', 'excelHtml5'
             ],
             dom:
-            "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
-            "<'row'<'col-sm-12'tr>>" +
-            "<'row'<'col-sm-12 col-md-4'i><'col-sm-12 col-md-4'p><'col-sm-12 col-md-4 text-right'B>>",
+            '<\'row\'<\'col-sm-12 col-md-6\'l><\'col-sm-12 col-md-6\'f>>' +
+            '<\'row\'<\'col-sm-12\'tr>>' +
+            '<\'row\'<\'col-sm-12 col-md-4\'i><\'col-sm-12 col-md-4\'p><\'col-sm-12 col-md-4 text-right\'B>>',
         };
 
-        if (locale !== 'en') {
+        if (window.locale !== 'en') {
             dataTableOptions['language'] = {
-                url: `/i18n/datatables.${locale}.json`
+                url: `/i18n/datatables.${window.locale}.json`
             };
         }
 
         $.extend(true, $.fn.dataTable.defaults, dataTableOptions);
 
         $.extend($.fn.dataTable.ext.classes, {
-            sWrapper:      "dataTables_wrapper dt-bootstrap4",
-            sFilterInput:  "form-control input-sm",
-            sLengthSelect: "form-control input-sm",
-            sProcessing:   "dataTables_processing panel panel-default",
-            sPageButton:   "paginate_button page-item"
+            sWrapper:      'dataTables_wrapper dt-bootstrap4',
+            sFilterInput:  'form-control input-sm',
+            sLengthSelect: 'form-control input-sm',
+            sProcessing:   'dataTables_processing panel panel-default',
+            sPageButton:   'paginate_button page-item'
         });
     }
 
@@ -101,17 +99,16 @@ window.swal = require('sweetalert2');
             let dataTable = $(this).closest('table').DataTable();
 
             $.confirmSwal(this, () => {
-                axios.delete(url)
+                window.axios.delete(url)
                     .then(response => {
                         // Reload Datatables and keep current pager
                         dataTable.ajax.reload(null, false);
-                        toastr[response.data.status](response.data.message);
+                        window.toastr[response.data.status](response.data.message);
                     })
                     .catch(error => {
-                            toastr.error(error.response.data.error);
-                        }
-                    );
+                        window.toastr.error(error.response.data.error);
+                    });
             });
         });
     });
-})(jQuery);
+})(window.jQuery);

@@ -26,13 +26,15 @@
 </template>
 
 <script>
+    import axios from 'axios';
+
     export default {
         name: 'form_submission_form',
         props: ['id'],
         data() {
             return {
                 submission: null
-            }
+            };
         },
         created() {
             axios
@@ -41,5 +43,5 @@
                     this.submission = response.data;
                 });
         }
-    }
+    };
 </script>

@@ -73,5 +73,5 @@
                 rowId: 'id'
             });
         }
-    }
+    };
 </script>

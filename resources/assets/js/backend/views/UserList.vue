@@ -29,7 +29,7 @@
                     enable: this.$i18n.t('labels.backend.users.actions.enable'),
                     disable: this.$i18n.t('labels.backend.users.actions.disable')
                 }
-            }
+            };
         },
         mounted() {
             $('#dataTableBuilder').DataTable({
@@ -110,5 +110,5 @@
                 rowId: 'id'
             });
         }
-    }
+    };
 </script>

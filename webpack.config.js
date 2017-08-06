@@ -34,70 +34,93 @@ if (hmr) {
 const extractSass = new ExtractTextPlugin({
     filename: production ? 'dist/css/[name].[contenthash].css' : 'css/[name].css',
     allChunks: true,
-    disable: hmr
+    disable: hmr,
 });
 
 let ckeditorLocales = ['en', 'fr'];
-let ckeditorPlugins = ['a11yhelp', 'about', 'autogrow', 'dialog', 'filetools', 'image', 'image2', 'lineutils', 'link', 'magicline', 'notificationaggregator', 'pastefromword', 'scayt', 'specialchar', 'table', 'tableselection', 'tabletools', 'uploadimage', 'uploadwidget', 'widget', 'widgetselection', 'wsc'];
+let ckeditorPlugins = [
+    'a11yhelp',
+    'about',
+    'autogrow',
+    'dialog',
+    'filetools',
+    'image',
+    'image2',
+    'lineutils',
+    'link',
+    'magicline',
+    'notificationaggregator',
+    'pastefromword',
+    'scayt',
+    'specialchar',
+    'table',
+    'tableselection',
+    'tabletools',
+    'uploadimage',
+    'uploadwidget',
+    'widget',
+    'widgetselection',
+    'wsc',
+];
 
 // Locales to exclude from ckeditor core, including plugins
 let ckeditorIgnoredLanguages = [];
 
-fs.readdirSync('node_modules/ckeditor/lang').forEach(file => {
-    if (_.some(ckeditorLocales, function (locale) {
-            return file === `${locale}.js`;
-        }) === false) {
+fs.readdirSync('node_modules/ckeditor/lang').forEach((file) => {
+    if (_.some(ckeditorLocales, function(locale) {
+        return file === `${locale}.js`;
+    }) === false) {
         ckeditorIgnoredLanguages.push(file);
     }
 });
 
 let ckeditorCopyPatterns = [
     {
-        from: `node_modules/ckeditor/lang`,
-        to: 'vendor/ckeditor/lang'
+        from: 'node_modules/ckeditor/lang',
+        to: 'vendor/ckeditor/lang',
     },
     {
         from: 'node_modules/ckeditor/plugins/icons.png',
-        to: 'vendor/ckeditor/plugins'
+        to: 'vendor/ckeditor/plugins',
     },
     {
         from: 'node_modules/ckeditor/plugins/icons_hidpi.png',
-        to: 'vendor/ckeditor/plugins'
+        to: 'vendor/ckeditor/plugins',
     },
     {
         from: 'node_modules/ckeditor/skins/moono-lisa',
-        to: 'vendor/ckeditor/skins/moono-lisa'
+        to: 'vendor/ckeditor/skins/moono-lisa',
     },
     {
         from: 'node_modules/ckeditor/config.js',
-        to: 'vendor/ckeditor'
+        to: 'vendor/ckeditor',
     },
     {
         from: 'node_modules/ckeditor/contents.css',
-        to: 'vendor/ckeditor'
+        to: 'vendor/ckeditor',
     },
     {
         from: 'node_modules/ckeditor/styles.js',
-        to: 'vendor/ckeditor'
-    }
+        to: 'vendor/ckeditor',
+    },
 ];
 
 ckeditorPlugins.forEach(function(plugin) {
     ckeditorCopyPatterns.push({
         from: `node_modules/ckeditor/plugins/${plugin}`,
-        to: `vendor/ckeditor/plugins/${plugin}`
-    })
+        to: `vendor/ckeditor/plugins/${plugin}`,
+    });
 });
 
 module.exports = {
     entry: {
         frontend: [
             './resources/assets/js/frontend/app.js',
-            './resources/assets/sass/frontend/app.scss'
+            './resources/assets/sass/frontend/app.scss',
         ],
         backend: [
             './resources/assets/js/backend/app.js',
-            './resources/assets/sass/backend/app.scss'
+            './resources/assets/sass/backend/app.scss',
         ],
         vendor: [
             'jquery',
@@ -111,13 +134,13 @@ module.exports = {
             'toastr',
         ],
         ckeditor: [
-            'ckeditor'
-        ]
+            'ckeditor',
+        ],
     },
     output: {
         path: path.join(__dirname, '/public'),
         filename: production ? 'dist/js/[name].[chunkhash].js' : 'js/[name].js',
-        publicPath: hmr ? `http://localhost:${webpackDevServerPort}/` : '/'
+        publicPath: hmr ? `http://localhost:${webpackDevServerPort}/` : '/',
     },
     module: {
         rules: [
@@ -127,20 +150,20 @@ module.exports = {
                     use: [{
                         loader: 'css-loader',
                         options: {
-                            sourceMap: true
-                        }
+                            sourceMap: true,
+                        },
                     }, {
-                        loader: 'resolve-url-loader?sourceMap'
+                        loader: 'resolve-url-loader?sourceMap',
                     }, {
                         loader: 'sass-loader',
                         options: {
                             precision: 8,
                             outputStyle: 'expanded',
-                            sourceMap: true
-                        }
+                            sourceMap: true,
+                        },
                     }],
-                    fallback: 'style-loader'
-                })
+                    fallback: 'style-loader',
+                }),
             },
             {
                 test: /\.vue$/,
@@ -149,18 +172,18 @@ module.exports = {
                     loaders: {
                         js: 'babel-loader?cacheDirectory',
                         scss: 'vue-style-loader!css-loader!sass-loader',
-                        sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
-                    }
-                }
+                        sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax',
+                    },
+                },
             },
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader?cacheDirectory'
+                loader: 'babel-loader?cacheDirectory',
             },
             {
                 test: /\.html$/,
-                loaders: ['html-loader']
+                loaders: ['html-loader'],
             },
             {
                 test: /\.(png|jpe?g|gif)$/,
@@ -168,62 +191,62 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: path => {
+                            name: (path) => {
                                 if (!/node_modules/.test(path)) {
                                     return 'images/[name].[ext]?[hash]';
                                 }
 
                                 return 'images/vendor/' + path
-                                        .replace(/\\/g, '/')
-                                        .replace(
-                                            /((.*(node_modules))|images|image|img|assets)\//g, ''
-                                        ) + '?[hash]';
+                                    .replace(/\\/g, '/')
+                                    .replace(
+                                        /((.*(node_modules))|images|image|img|assets)\//g, ''
+                                    ) + '?[hash]';
                             },
-                            publicPath: '/'
-                        }
+                            publicPath: '/',
+                        },
                     },
-                    'img-loader'
-                ]
+                    'img-loader',
+                ],
             },
             {
                 test: /\.(woff2?|ttf|eot|svg|otf)$/,
                 loader: 'file-loader',
                 options: {
-                    name: path => {
+                    name: (path) => {
                         if (!/node_modules/.test(path)) {
                             return 'fonts/[name].[ext]?[hash]';
                         }
 
                         return 'fonts/vendor/[name].[ext]?[hash]';
-                    }
-                }
-            }
-        ]
+                    },
+                },
+            },
+        ],
     },
     plugins: [
         new webpack.ProvidePlugin({
-            jquery: ['$', 'window.jQuery']
+            jquery: ['$', 'window.jQuery'],
         }),
         new webpack.IgnorePlugin(/jsdom$/),
         new CopyWebpackPlugin(ckeditorCopyPatterns, {
-            ignore: ckeditorIgnoredLanguages
+            ignore: ckeditorIgnoredLanguages,
         }),
         new FriendlyErrorsWebpackPlugin(),
         new webpack.LoaderOptionsPlugin({
             minimize: production,
             options: {
                 context: __dirname,
-                output: {path: './'}
-            }
+                output: {path: './'},
+            },
         }),
         new WebpackNotifierPlugin(),
         new webpack.optimize.CommonsChunkPlugin({
             names: ['vendor', 'ckeditor', 'manifest'],
-            minChunks: Infinity
+            minChunks: Infinity,
         }),
         new LodashModuleReplacementPlugin({
             collections: true,
-            shorthands: true
+            shorthands: true,
         }),
         extractSass,
         new BrowserSyncPlugin(
@@ -233,69 +256,69 @@ module.exports = {
                 open: browserSyncHost === 'localhost' ? 'local' : 'external',
                 proxy: {
                     target: process.env.BROWSERSYNC_PROXY,
-                    reqHeaders: function (config) {
+                    reqHeaders: function(config) {
                         return {
-                            host: `${config.url.hostname}:${process.env.BROWSERSYNC_PORT}`
+                            host: `${config.url.hostname}:${process.env.BROWSERSYNC_PORT}`,
                         };
-                    }
+                    },
                 },
                 files: [
                     'app/**/*.php',
                     'resources/views/**/*.php',
                     'public/js/**/*.js',
-                    'public/css/**/*.css'
-                ]
+                    'public/css/**/*.css',
+                ],
             },
             {
-                reload: false
+                reload: false,
             }
-        )
+        ),
     ],
     resolve: {
         alias: {
-            'vue$': 'vue/dist/vue.esm.js'
-        }
+            'vue$': 'vue/dist/vue.esm.js',
+        },
     },
     performance: {
-        hints: false
+        hints: false,
     },
     devtool: production ? 'source-map' : 'inline-source-map',
     devServer: {
         headers: {
-            "Access-Control-Allow-Origin": "*"
+            'Access-Control-Allow-Origin': '*',
         },
         historyApiFallback: true,
         noInfo: true,
         compress: true,
         quiet: true,
-        port: webpackDevServerPort
-    }
+        port: webpackDevServerPort,
+    },
 };
 
 let plugins = [];
 
 if (hmr) {
     plugins = [
-        new webpack.NamedModulesPlugin()
+        new webpack.NamedModulesPlugin(),
     ];
 }
 
 if (production) {
     plugins = [
         new CleanWebpackPlugin(['dist', 'fonts/vendor', 'images/vendor'], {
-            root: path.join(__dirname, '/public')
+            root: path.join(__dirname, '/public'),
         }),
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: JSON.stringify('production')
-            }
+                NODE_ENV: JSON.stringify('production'),
+            },
         }),
         new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: true,
             compress: {
-                warnings: false
-            }
+                warnings: false,
+            },
         }),
         new StatsWriterPlugin({
             filename: 'assets-manifest.json',
@@ -306,10 +329,10 @@ if (production) {
                     '/js/frontend.js': `/${data.assetsByChunkName.frontend[0]}`,
                     '/css/frontend.css': `/${data.assetsByChunkName.frontend[1]}`,
                     '/js/backend.js': `/${data.assetsByChunkName.backend[0]}`,
-                    '/css/backend.css': `/${data.assetsByChunkName.backend[1]}`
+                    '/css/backend.css': `/${data.assetsByChunkName.backend[1]}`,
                 }, null, 2);
-            }
-        })
+            },
+        }),
     ];
 }
 

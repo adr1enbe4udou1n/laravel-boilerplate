@@ -250,6 +250,8 @@
 </template>
 
 <script>
+    import axios from 'axios';
+
     export default {
         name: 'post_form',
         props: ['id'],
@@ -265,7 +267,7 @@
                 validation: {
                     errors: {}
                 }
-            }
+            };
         },
         computed: {
             isNew() {
@@ -324,10 +326,9 @@
                 let router = this.$router;
                 let action = this.isNew ? `/${this.$root.adminPath}/post` : `/${this.$root.adminPath}/post/${this.id}`;
 
-                axios
-                    [this.isNew ? 'post' : 'patch'](action, this.post)
+                axios[this.isNew ? 'post' : 'patch'](action, this.post)
                     .then(response => {
-                        toastr[response.data.status](response.data.message);
+                        window.toastr[response.data.status](response.data.message);
                         router.push('/post');
                     })
                     .catch(error => {
@@ -335,7 +336,7 @@
                             this.validation.errors = error.response.data;
                             return;
                         }
-                        toastr.error(error.response.data.error);
+                        window.toastr.error(error.response.data.error);
                     });
             }
         },
@@ -345,5 +346,5 @@
         watch: {
             '$route': 'fetchData'
         }
-    }
+    };
 </script>

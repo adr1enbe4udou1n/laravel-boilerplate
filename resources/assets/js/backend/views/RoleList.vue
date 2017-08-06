@@ -21,9 +21,6 @@
     export default {
         name: 'role_list',
         props: ['adminPath'],
-        data() {
-            return {}
-        },
         mounted() {
             $('#dataTableBuilder').DataTable({
                 serverSide: true,
@@ -84,5 +81,5 @@
                 order: [[1, 'asc']]
             });
         }
-    }
+    };
 </script>

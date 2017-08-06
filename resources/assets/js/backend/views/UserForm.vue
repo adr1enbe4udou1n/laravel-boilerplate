@@ -132,6 +132,8 @@
 </template>
 
 <script>
+    import axios from 'axios';
+
     export default {
         name: 'user_form',
         props: ['id'],
@@ -144,7 +146,7 @@
                 validation: {
                     errors: {}
                 }
-            }
+            };
         },
         computed: {
             isNew() {
@@ -177,10 +179,9 @@
                 let router = this.$router;
                 let action = this.isNew ? `/${this.$root.adminPath}/user` : `/${this.$root.adminPath}/user/${this.id}`;
 
-                axios
-                    [this.isNew ? 'post' : 'patch'](action, this.user)
+                axios[this.isNew ? 'post' : 'patch'](action, this.user)
                     .then(response => {
-                        toastr[response.data.status](response.data.message);
+                        window.toastr[response.data.status](response.data.message);
                         router.push('/user');
                     })
                     .catch(error => {
@@ -188,7 +189,7 @@
                             this.validation.errors = error.response.data;
                             return;
                         }
-                        toastr.error(error.response.data.error);
+                        window.toastr.error(error.response.data.error);
                     });
             }
         },
@@ -211,5 +212,5 @@
                 }
             });
         }
-    }
+    };
 </script>

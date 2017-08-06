@@ -24,7 +24,7 @@
         },
         computed: {
             instance() {
-                return CKEDITOR.instances[this.id];
+                return window.CKEDITOR.instances[this.id];
             }
         },
         methods: {
@@ -41,10 +41,10 @@
         mounted() {
             let plugins = ['autogrow', 'image2', 'uploadimage'];
 
-            CKEDITOR.replace(this.id, {
+            window.CKEDITOR.replace(this.id, {
                 extraPlugins: plugins.join(','),
                 removePlugins: 'resize',
-                language: locale,
+                language: window.locale,
                 toolbar: [
                     {name: 'basicstyles', items: ['Bold', 'Italic']},
                     {name: 'links', items: ['Link', 'Unlink']},

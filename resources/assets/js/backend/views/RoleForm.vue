@@ -116,7 +116,9 @@
 </template>
 
 <script>
+    import axios from 'axios';
     import _ from 'lodash';
+    // eslint-disable-next-line no-unused-vars
     import { groupBy, forEach } from 'lodash/collection';
 
     export default {
@@ -129,7 +131,7 @@
                 validation: {
                     errors: {}
                 }
-            }
+            };
         },
         computed: {
             isNew() {
@@ -160,10 +162,9 @@
                 let router = this.$router;
                 let action = this.isNew ? `/${this.$root.adminPath}/role` : `/${this.$root.adminPath}/role/${this.id}`;
 
-                axios
-                    [this.isNew ? 'post' : 'patch'](action, this.role)
+                axios[this.isNew ? 'post' : 'patch'](action, this.role)
                     .then(response => {
-                        toastr[response.data.status](response.data.message);
+                        window.toastr[response.data.status](response.data.message);
                         router.push('/role');
                     })
                     .catch(error => {
@@ -171,7 +172,7 @@
                             this.validation.errors = error.response.data;
                             return;
                         }
-                        toastr.error(error.response.data.error);
+                        window.toastr.error(error.response.data.error);
                     });
             }
         },
@@ -198,5 +199,5 @@
         watch: {
             '$route': 'fetchData'
         }
-    }
+    };
 </script>

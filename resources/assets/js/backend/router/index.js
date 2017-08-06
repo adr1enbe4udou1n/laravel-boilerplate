@@ -52,7 +52,7 @@ export default (i18n) => {
                         name: 'post',
                         component: {
                             render(c) {
-                                return c('router-view')
+                                return c('router-view');
                             }
                         },
                         meta: {
@@ -92,7 +92,7 @@ export default (i18n) => {
                         name: 'form_submissions',
                         component: {
                             render(c) {
-                                return c('router-view')
+                                return c('router-view');
                             }
                         },
                         meta: {
@@ -124,7 +124,7 @@ export default (i18n) => {
                         name: 'form_setting',
                         component: {
                             render(c) {
-                                return c('router-view')
+                                return c('router-view');
                             }
                         },
                         meta: {
@@ -164,7 +164,7 @@ export default (i18n) => {
                         name: 'user',
                         component: {
                             render(c) {
-                                return c('router-view')
+                                return c('router-view');
                             }
                         },
                         meta: {
@@ -204,7 +204,7 @@ export default (i18n) => {
                         name: 'role',
                         component: {
                             render(c) {
-                                return c('router-view')
+                                return c('router-view');
                             }
                         },
                         meta: {
@@ -244,7 +244,7 @@ export default (i18n) => {
                         name: 'meta',
                         component: {
                             render(c) {
-                                return c('router-view')
+                                return c('router-view');
                             }
                         },
                         meta: {
@@ -284,7 +284,7 @@ export default (i18n) => {
                         name: 'redirection',
                         component: {
                             render(c) {
-                                return c('router-view')
+                                return c('router-view');
                             }
                         },
                         meta: {
@@ -322,4 +322,4 @@ export default (i18n) => {
             }
         ]
     });
-}
+};

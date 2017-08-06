@@ -21,10 +21,10 @@
 </template>
 
 <script>
-    import AppHeader from '../components/Header.vue'
-    import Sidebar from '../components/Sidebar.vue'
-    import AppFooter from '../components/Footer.vue'
-    import Breadcrumb from '../components/Breadcrumb.vue'
+    import AppHeader from '../components/Header.vue';
+    import Sidebar from '../components/Sidebar.vue';
+    import AppFooter from '../components/Footer.vue';
+    import Breadcrumb from '../components/Breadcrumb.vue';
 
     export default {
         name: 'full',
@@ -43,5 +43,5 @@
                 return this.$route.matched;
             }
         }
-    }
+    };
 </script>

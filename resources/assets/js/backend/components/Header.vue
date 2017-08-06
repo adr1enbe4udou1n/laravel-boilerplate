@@ -61,5 +61,5 @@
                 document.body.classList.toggle('aside-menu-hidden');
             }
         }
-    }
+    };
 </script>

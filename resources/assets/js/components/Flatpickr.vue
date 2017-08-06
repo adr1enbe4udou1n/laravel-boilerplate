@@ -19,10 +19,7 @@
         props: {
             value: {
                 default: null,
-                required: true,
-                validate(value) {
-                    return value === null || value instanceof Date || typeof value === 'string' || value instanceof String || value instanceof Array
-                }
+                required: true
             },
             config: {
                 type: Object,
@@ -31,23 +28,20 @@
                 })
             },
             placeholder: {
-                type: String,
-                default: ''
+                type: String
             },
             inputClass: {
-                type: [String, Object],
-                default: ''
+                type: [String, Object]
             },
             name: {
-                type: String,
-                default: 'date-time'
+                type: String
             },
             required: {
                 type: Boolean,
                 default: false
             },
             id: {
-                type: String,
+                type: String
             },
         },
         data() {

@@ -30,5 +30,5 @@
                 return item;
             }
         }
-    }
+    };
 </script>

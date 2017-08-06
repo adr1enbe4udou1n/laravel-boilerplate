@@ -21,5 +21,5 @@
     export default {
         name: 'footer',
         props: ['name', 'editorName', 'editorSiteUrl']
-    }
+    };
 </script>

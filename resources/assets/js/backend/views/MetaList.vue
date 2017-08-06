@@ -27,7 +27,7 @@
                 options: {
                     destroy: this.$i18n.t('labels.backend.metas.actions.destroy'),
                 }
-            }
+            };
         },
         mounted() {
             $('#dataTableBuilder').DataTable({
@@ -94,5 +94,5 @@
                 rowId: 'id'
             });
         }
-    }
+    };
 </script>

@@ -90,6 +90,8 @@
 </template>
 
 <script>
+    import axios from 'axios';
+
     export default {
         name: 'redirection_form',
         props: ['id'],
@@ -100,7 +102,7 @@
                 validation: {
                     errors: {}
                 }
-            }
+            };
         },
         computed: {
             isNew() {
@@ -131,10 +133,9 @@
                 let router = this.$router;
                 let action = this.isNew ? `/${this.$root.adminPath}/redirection` : `/${this.$root.adminPath}/redirection/${this.id}`;
 
-                axios
-                    [this.isNew ? 'post' : 'patch'](action, this.redirection)
+                axios[this.isNew ? 'post' : 'patch'](action, this.redirection)
                     .then(response => {
-                        toastr[response.data.status](response.data.message);
+                        window.toastr[response.data.status](response.data.message);
                         router.push('/redirection');
                     })
                     .catch(error => {
@@ -142,7 +143,7 @@
                             this.validation.errors = error.response.data;
                             return;
                         }
-                        toastr.error(error.response.data.error);
+                        window.toastr.error(error.response.data.error);
                     });
             }
         },
@@ -158,5 +159,5 @@
         watch: {
             '$route': 'fetchData'
         }
-    }
+    };
 </script>

@@ -19,7 +19,7 @@
         data() {
             return {
                 action: Object.keys(this.options)[0]
-            }
+            };
         },
         methods: {
             onSubmit(e) {
@@ -27,19 +27,19 @@
                 let url = this.url;
                 let action = this.action;
 
-                $.confirmSwal(e.target, function () {
+                $.confirmSwal(e.target, () => {
                     axios.post(url, {
                         action: action,
                         ids: dataTable.rows({selected: true}).ids().toArray()
-                    }).then(function (response) {
+                    }).then(response => {
                         // Reload Datatables and keep current pager
                         dataTable.ajax.reload(null, false);
                         toastr[response.data.status](response.data.message);
-                    }).catch(function (error) {
+                    }).catch(error => {
                         toastr.error(error.response.data.error);
                     });
                 });
             }
         }
-    }
+    };
 </script>

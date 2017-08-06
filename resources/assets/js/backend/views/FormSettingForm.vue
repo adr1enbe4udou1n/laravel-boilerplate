@@ -83,6 +83,8 @@
 </template>
 
 <script>
+    import axios from 'axios';
+
     export default {
         name: 'form_setting_form',
         props: ['id'],
@@ -98,7 +100,7 @@
                 validation: {
                     errors: {}
                 }
-            }
+            };
         },
         computed: {
             isNew() {
@@ -111,7 +113,7 @@
                     name: null,
                     recipients: null,
                     message: null
-                }
+                };
             },
             fetchData() {
                 this.setting = this.initSetting();
@@ -128,10 +130,9 @@
                 let router = this.$router;
                 let action = this.isNew ? `/${this.$root.adminPath}/form-setting` : `/${this.$root.adminPath}/form-setting/${this.id}`;
 
-                axios
-                    [this.isNew ? 'post' : 'patch'](action, this.setting)
+                axios[this.isNew ? 'post' : 'patch'](action, this.setting)
                     .then(response => {
-                        toastr[response.data.status](response.data.message);
+                        window.toastr[response.data.status](response.data.message);
                         router.push('/form-setting');
                     })
                     .catch(error => {
@@ -139,7 +140,7 @@
                             this.validation.errors = error.response.data;
                             return;
                         }
-                        toastr.error(error.response.data.error);
+                        window.toastr.error(error.response.data.error);
                     });
             }
         },
@@ -160,5 +161,5 @@
         watch: {
             '$route': 'fetchData'
         }
-    }
+    };
 </script>

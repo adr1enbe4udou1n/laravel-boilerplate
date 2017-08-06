@@ -96,6 +96,8 @@
 </template>
 
 <script>
+    import axios from 'axios';
+
     export default {
         name: 'dashboard',
         props: ['adminPath', 'user'],
@@ -107,7 +109,7 @@
                 activeUsersCount: 0,
                 formSubmissionsCount: 0,
                 posts: {},
-            }
+            };
         },
         created() {
             axios
@@ -141,5 +143,5 @@
                     this.posts = response.data;
                 });
         }
-    }
+    };
 </script>

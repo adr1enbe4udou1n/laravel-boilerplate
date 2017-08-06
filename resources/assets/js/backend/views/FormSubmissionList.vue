@@ -22,7 +22,7 @@
                 options: {
                     destroy: this.$i18n.t('labels.backend.form_submissions.actions.destroy')
                 }
-            }
+            };
         },
         mounted() {
             $('#dataTableBuilder').DataTable({
@@ -75,5 +75,5 @@
                 rowId: 'id'
             });
         }
-    }
+    };
 </script>
