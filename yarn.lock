@@ -1551,9 +1551,9 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-cross-env@^5.0.3:
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/cross-env/-/cross-env-5.0.3.tgz#8f55acef7469fed364f4039a9f7ece90191e3981"
+cross-env@^5.0.4:
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/cross-env/-/cross-env-5.0.4.tgz#af93f5ce541ca9de49250b988104112e31c22563"
   dependencies:
     cross-spawn "^5.1.0"
     is-windows "^1.0.0"
