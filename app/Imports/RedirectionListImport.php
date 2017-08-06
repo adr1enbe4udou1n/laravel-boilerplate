@@ -17,9 +17,15 @@ class RedirectionListImport extends ExcelFile
      */
     public function getFile()
     {
-        /** @var UploadedFile $file */
-        if ($file = Input::file('import')) {
-            return $file->getPathname();
+        if ($import = Input::get('import')) {
+            $data = explode(',', $import);
+
+            $tmpfname = tempnam(sys_get_temp_dir(), 'import');
+            $handle = fopen($tmpfname, 'wb');
+            fwrite($handle, base64_decode($data[1]));
+            fclose($handle);
+
+            return $tmpfname;
         }
 
         return null;

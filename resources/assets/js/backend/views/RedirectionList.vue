@@ -7,9 +7,9 @@
                         <h4>{{ $t('labels.backend.redirections.import.title') }}</h4>
                     </div>
                     <div class="card-block">
-                        <form class="form-inline">
+                        <form class="form-inline" @submit.prevent="onFileImport">
                             <input type="file" class="form-control" data-toggle="tooltip" data-placement="bottom"
-                                   :title="$t('labels.backend.redirections.import.description')">
+                                   :title="$t('labels.backend.redirections.import.description')" @change="onFileChange">
                             <input type="submit" class="btn btn-warning btn-md ml-1"
                                    :value="$t('buttons.redirections.import')">
                         </form>
@@ -42,11 +42,38 @@
         props: ['adminPath'],
         data() {
             return {
+                importFile: null,
                 options: {
                     destroy: this.$i18n.t('labels.backend.redirections.actions.destroy'),
                     enable: this.$i18n.t('labels.backend.redirections.actions.enable'),
                     disable: this.$i18n.t('labels.backend.redirections.actions.disable')
                 }
+            }
+        },
+        methods: {
+            onFileChange(e) {
+                let files = e.target.files || e.dataTransfer.files;
+                if (!files.length) return;
+
+                let reader = new FileReader();
+                let data = this.$data;
+
+                reader.onload = (e) => {
+                    data.importFile = e.target.result;
+                };
+                reader.readAsDataURL(files[0]);
+            },
+            onFileImport() {
+                let dataTable = $('#dataTableBuilder').DataTable();
+
+                axios.post(`/${this.$root.adminPath}/redirection/import`, {
+                    'import': this.importFile,
+                }).then(function (response) {
+                    dataTable.ajax.reload(null, false);
+                    toastr[response.data.status](response.data.message);
+                }).catch(function (error) {
+                    toastr.error(error.response.data.error);
+                });
             }
         },
         mounted() {

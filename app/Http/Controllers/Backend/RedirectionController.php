@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests\ImportRedirectionRequest;
 use App\Http\Requests\StoreRedirectionRequest;
 use App\Http\Requests\UpdateRedirectionRequest;
 use App\Imports\RedirectionListImport;
 use App\Models\Redirection;
 use App\Repositories\Contracts\RedirectionRepository;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
@@ -159,15 +156,15 @@ class RedirectionController extends BackendController
     }
 
     /**
-     * @param \App\Http\Requests\ImportRedirectionRequest $request
-     * @param \App\Imports\RedirectionListImport          $import
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Imports\RedirectionListImport $import
      *
-     * @return
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
-    public function import(ImportRedirectionRequest $request, RedirectionListImport $import)
+    public function import(Request $request, RedirectionListImport $import)
     {
         $import->handleImport();
 
-        return redirect()->back()->withFlashSuccess(trans('alerts.backend.redirections.file_imported'));
+        return $this->RedirectResponse($request, trans('alerts.backend.redirections.file_imported'));
     }
 }
