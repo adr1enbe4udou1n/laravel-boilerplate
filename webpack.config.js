@@ -11,6 +11,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 const production = process.env.NODE_ENV === 'production';
 const hmr = process.argv.includes('--hot');
@@ -99,7 +100,6 @@ module.exports = {
             './resources/assets/sass/backend/app.scss'
         ],
         vendor: [
-            'lodash',
             'jquery',
             'vue',
             'axios',
@@ -155,8 +155,8 @@ module.exports = {
             },
             {
                 test: /\.jsx?$/,
-                exclude: /(node_modules|bower_components)/,
-                use: 'babel-loader?cacheDirectory'
+                exclude: /node_modules/,
+                loader: 'babel-loader?cacheDirectory'
             },
             {
                 test: /\.html$/,
@@ -220,6 +220,10 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             names: ['vendor', 'ckeditor', 'manifest'],
             minChunks: Infinity
+        }),
+        new LodashModuleReplacementPlugin({
+            collections: true,
+            shorthands: true
         }),
         extractSass,
         new BrowserSyncPlugin(

@@ -117,6 +117,7 @@
 
 <script>
     import _ from 'lodash';
+    import { groupBy, forEach } from 'lodash/collection';
 
     export default {
         name: 'role_form',
