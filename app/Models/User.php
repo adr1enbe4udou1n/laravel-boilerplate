@@ -92,7 +92,7 @@ class User extends Authenticatable
 
     protected $appends = [
       'avatar',
-      'can'
+      'can',
     ];
 
     public function scopeActives(Builder $query)
@@ -171,6 +171,7 @@ class User extends Authenticatable
                 $permissions[$name] = false;
             }
         }
+
         return $permissions;
     }
 

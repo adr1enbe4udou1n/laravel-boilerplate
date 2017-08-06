@@ -21,7 +21,7 @@ class RedirectionController extends BackendController
     /**
      * Create a new controller instance.
      *
-     * @param RedirectionRepository              $redirections
+     * @param RedirectionRepository $redirections
      */
     public function __construct(RedirectionRepository $redirections)
     {
@@ -79,7 +79,7 @@ class RedirectionController extends BackendController
     {
         $redirections = config('redirections');
 
-        array_walk($redirections, function(&$item) {
+        array_walk($redirections, function (&$item) {
             $item = trans($item);
         });
 
@@ -156,7 +156,7 @@ class RedirectionController extends BackendController
     }
 
     /**
-     * @param \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request           $request
      * @param \App\Imports\RedirectionListImport $import
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse

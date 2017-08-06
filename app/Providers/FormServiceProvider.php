@@ -68,8 +68,7 @@ class FormServiceProvider extends ServiceProvider
             if (isset($parameters['placeholder'])) {
                 if (!isset($parameters['multiple'])) {
                     $attributes['placeholder'] = $parameters['placeholder'];
-                }
-                else {
+                } else {
                     $attributes['data-placeholder'] = $parameters['placeholder'];
                 }
             }

@@ -6,9 +6,7 @@ use App\Http\Requests\StoreMetaRequest;
 use App\Http\Requests\UpdateMetaRequest;
 use App\Models\Meta;
 use App\Repositories\Contracts\MetaRepository;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
 
@@ -22,7 +20,7 @@ class MetaController extends BackendController
     /**
      * Create a new controller instance.
      *
-     * @param MetaRepository                     $metas
+     * @param MetaRepository $metas
      */
     public function __construct(MetaRepository $metas)
     {

@@ -2,7 +2,6 @@
 
 namespace App\Imports;
 
-use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Input;
 use Maatwebsite\Excel\Files\ExcelFile;
 

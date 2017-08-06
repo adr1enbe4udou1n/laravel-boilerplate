@@ -11,7 +11,6 @@ use App\Models\User;
 use App\Repositories\Contracts\PostRepository;
 use App\Repositories\Contracts\TagRepository;
 use App\Repositories\Traits\HtmlActionsButtons;
-use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
@@ -110,8 +109,8 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     }
 
     /**
-     * @param Post                          $post
-     * @param array                         $input
+     * @param Post  $post
+     * @param array $input
      *
      * @return mixed
      *
@@ -126,7 +125,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     }
 
     /**
-     * @param Post $post
+     * @param Post  $post
      * @param array $input
      *
      * @return mixed
@@ -142,8 +141,8 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     }
 
     /**
-     * @param Post                          $post
-     * @param array                         $input
+     * @param Post  $post
+     * @param array $input
      *
      * @return mixed
      *

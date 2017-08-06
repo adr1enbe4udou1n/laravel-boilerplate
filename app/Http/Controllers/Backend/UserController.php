@@ -7,9 +7,7 @@ use App\Http\Requests\UpdateUserRequest;
 use App\Models\User;
 use App\Repositories\Contracts\RoleRepository;
 use App\Repositories\Contracts\UserRepository;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
 
@@ -70,6 +68,7 @@ class UserController extends BackendController
                 if ($this->users->canEdit($user)) {
                     return link_to("#/user/{$user->id}/edit", $user->name);
                 }
+
                 return $user->name;
             })->editColumn('confirmed', function (User $user) {
                 return boolean_html_label($user->confirmed);

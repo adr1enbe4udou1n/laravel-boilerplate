@@ -53,7 +53,6 @@ trait HtmlActionsButtons
 
     /**
      * @param $route
-     *
      * @param $parameters
      *
      * @return string

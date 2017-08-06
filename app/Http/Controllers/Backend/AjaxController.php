@@ -59,7 +59,7 @@ class AjaxController extends Controller
             ) {
                 $items[] = [
                   'value' => $name,
-                  'label' => $uri
+                  'label' => $uri,
                 ];
             }
         }

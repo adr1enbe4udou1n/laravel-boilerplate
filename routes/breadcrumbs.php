@@ -3,7 +3,7 @@
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
-use \DaveJamesMiller\Breadcrumbs\Generator;
+use DaveJamesMiller\Breadcrumbs\Generator;
 
 Breadcrumbs::register('home', function (Generator $breadcrumbs) {
     $breadcrumbs->push(trans('labels.frontend.titles.home'), route('home'));

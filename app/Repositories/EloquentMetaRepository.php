@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\DB;
  */
 class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepository
 {
-
     use HtmlActionsButtons;
 
     /**
@@ -62,7 +61,7 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
     }
 
     /**
-     * @param Meta $meta
+     * @param Meta  $meta
      * @param array $input
      *
      * @return \App\Models\Meta

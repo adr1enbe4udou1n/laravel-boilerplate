@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\FormSubmission;
 use App\Repositories\Contracts\FormSubmissionRepository;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
@@ -19,7 +18,7 @@ class FormSubmissionController extends BackendController
     /**
      * Create a new controller instance.
      *
-     * @param FormSubmissionRepository           $formSubmissions
+     * @param FormSubmissionRepository $formSubmissions
      */
     public function __construct(FormSubmissionRepository $formSubmissions)
     {

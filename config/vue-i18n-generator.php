@@ -13,7 +13,6 @@ return [
 
     'langPath' => '/resources/lang',
 
-
     /*
     |--------------------------------------------------------------------------
     | Output file
@@ -24,5 +23,5 @@ return [
     |
     */
     'jsPath' => '/resources/assets/js/langs/',
-    'jsFile' => '/resources/assets/js/vue-i18n-locales.generated.js'
+    'jsFile' => '/resources/assets/js/vue-i18n-locales.generated.js',
 ];

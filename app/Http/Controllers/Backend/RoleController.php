@@ -6,15 +6,12 @@ use App\Http\Requests\StoreRoleRequest;
 use App\Http\Requests\UpdateRoleRequest;
 use App\Models\Role;
 use App\Repositories\Contracts\RoleRepository;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
-use Illuminate\View\View;
 use Yajra\Datatables\Datatables;
 use Yajra\Datatables\Engines\EloquentEngine;
 
 class RoleController extends BackendController
 {
-
     /**
      * @var RoleRepository
      */
@@ -95,7 +92,7 @@ class RoleController extends BackendController
     }
 
     /**
-     * @param Role $role
+     * @param Role              $role
      * @param UpdateRoleRequest $request
      *
      * @return mixed
@@ -108,7 +105,7 @@ class RoleController extends BackendController
     }
 
     /**
-     * @param Role $role
+     * @param Role    $role
      * @param Request $request
      *
      * @return mixed

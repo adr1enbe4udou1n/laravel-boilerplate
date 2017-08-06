@@ -87,7 +87,7 @@ class Post extends Model
     ];
 
     protected $appends = [
-      'state', 'status_label', 'featured_image_path'
+      'state', 'status_label', 'featured_image_path',
     ];
 
     /**

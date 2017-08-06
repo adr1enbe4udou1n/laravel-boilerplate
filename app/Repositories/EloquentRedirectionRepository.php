@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\DB;
  */
 class EloquentRedirectionRepository extends EloquentBaseRepository implements RedirectionRepository
 {
-
     use HtmlActionsButtons;
 
     /**
@@ -62,7 +61,7 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
 
     /**
      * @param Redirection $redirection
-     * @param array $input
+     * @param array       $input
      *
      * @return \App\Models\Redirection
      *

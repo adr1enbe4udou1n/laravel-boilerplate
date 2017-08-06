@@ -13,7 +13,6 @@ use Exception;
  */
 class EloquentFormSettingRepository extends EloquentBaseRepository implements FormSettingRepository
 {
-
     use HtmlActionsButtons;
 
     /**
@@ -62,7 +61,7 @@ class EloquentFormSettingRepository extends EloquentBaseRepository implements Fo
 
     /**
      * @param FormSetting $formSetting
-     * @param array $input
+     * @param array       $input
      *
      * @return \App\Models\FormSetting
      *

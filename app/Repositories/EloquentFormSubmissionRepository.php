@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\DB;
  */
 class EloquentFormSubmissionRepository extends EloquentBaseRepository implements FormSubmissionRepository
 {
-
     use HtmlActionsButtons;
 
     /**
@@ -30,7 +29,7 @@ class EloquentFormSubmissionRepository extends EloquentBaseRepository implements
 
     /**
      * @param string $type
-     * @param array $input
+     * @param array  $input
      *
      * @return \App\Models\FormSubmission
      *
