@@ -8,8 +8,7 @@
                     </div>
                     <div class="card-block">
                         <form class="form-inline" @submit.prevent="onFileImport">
-                            <input type="file" class="form-control" data-toggle="tooltip" data-placement="bottom"
-                                   :title="$t('labels.backend.redirections.import.description')" @change="onFileChange">
+                            <b-input-file v-model="importFile"></b-input-file>
                             <input type="submit" class="btn btn-warning btn-md ml-1"
                                    :value="$t('buttons.redirections.import')">
                         </form>
@@ -51,18 +50,6 @@
             }
         },
         methods: {
-            onFileChange(e) {
-                let files = e.target.files || e.dataTransfer.files;
-                if (!files.length) return;
-
-                let reader = new FileReader();
-                let data = this.$data;
-
-                reader.onload = (e) => {
-                    data.importFile = e.target.result;
-                };
-                reader.readAsDataURL(files[0]);
-            },
             onFileImport() {
                 let dataTable = $('#dataTableBuilder').DataTable();
 

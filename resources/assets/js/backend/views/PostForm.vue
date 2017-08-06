@@ -90,7 +90,7 @@
 
                                     <div class="media-body">
                                         <h6>{{ $t('labels.upload_image') }}</h6>
-                                        <input id="featured_image" name="featured_image" type="file" class="form-control" @change="onFileChange">
+                                        <b-input-file id="featured_image" name="featured_image" v-model="post.featured_image"></b-input-file>
                                         <p class="form-text text-muted">
                                             {{ $t('labels.descriptions.allowed_image_types') }}
                                         </p>
@@ -319,18 +319,6 @@
                     .then(response => {
                         this.tags = response.data.items;
                     });
-            },
-            onFileChange(e) {
-                let files = e.target.files || e.dataTransfer.files;
-                if (!files.length) return;
-
-                let reader = new FileReader();
-                let post = this.post;
-
-                reader.onload = (e) => {
-                    post.featured_image = e.target.result;
-                };
-                reader.readAsDataURL(files[0]);
             },
             onSubmit() {
                 let router = this.$router;
