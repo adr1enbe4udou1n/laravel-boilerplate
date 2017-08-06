@@ -62,4 +62,15 @@ new Vue({
     router,
     template: '<App/>',
     components: { App },
+    data: {
+        user: window.settings.user,
+        isImpersonation: window.settings.is_impersonation,
+        usurperName: window.settings.usurper_name,
+        adminPath: window.settings.app['admin_path'],
+        locales: window.settings.locales,
+        blogEnabled: window.settings.blog.enabled,
+        appName: window.settings.app.name,
+        editorName: window.settings.app.editor_name,
+        editorSiteUrl: window.settings.app.editor_site_url
+    },
 }).$mount('#app');

@@ -20,9 +20,7 @@
 <script>
     export default {
         name: 'form_setting_list',
-        data() {
-            return {}
-        },
+        props: ['adminPath'],
         mounted() {
             $('#dataTableBuilder').DataTable({
                 serverSide: true,
@@ -33,7 +31,7 @@
                 info: false,
                 buttons: [],
                 ajax: {
-                    url: '/admin/form-setting/search',
+                    url: `/${this.$root.adminPath}/form-setting/search`,
                     type: 'post'
                 },
                 columns: [{

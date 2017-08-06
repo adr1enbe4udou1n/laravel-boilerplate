@@ -56,7 +56,7 @@ class RouteServiceProvider extends ServiceProvider
             ->group(base_path('routes/auth.php'));
 
         Route::middleware(['web', 'locale', 'auth', 'can:access backend'])
-            ->prefix(LaravelLocalization::setLocale().'/admin')
+            ->prefix(LaravelLocalization::setLocale().'/'.config('app.admin_path'))
             ->namespace($this->namespace.'\Backend')
             ->as('admin.')
             ->group(base_path('routes/admin.php'));

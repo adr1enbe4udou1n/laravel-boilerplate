@@ -5,13 +5,13 @@
         </strong> {{ $t("labels.all_rights_reserved") }}
         <span class="float-right">
 
-        <template v-if="editor_name !== ''">
-            <template v-if="editor_site_url !== ''">
+        <template v-if="editorName !== ''">
+            <template v-if="editorSiteUrl !== ''">
             <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <a
-                :href="editor_site_url" target="_blank"><strong>{{ editor_name }}</strong></a>
+                :href="editorSiteUrl" target="_blank"><strong>{{ editorName }}</strong></a>
             </template>
             <template v-else>
-            <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <strong>{{ editor_name }}</strong>
+            <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <strong>{{ editorName }}</strong>
             </template>
         </template>
     </span>
@@ -20,12 +20,6 @@
 <script>
     export default {
         name: 'footer',
-        data() {
-            return {
-                name: window.settings.app.name,
-                editor_name: window.settings.app.editor_name,
-                editor_site_url: window.settings.app.editor_site_url
-            }
-        }
+        props: ['name', 'editorName', 'editorSiteUrl']
     }
 </script>

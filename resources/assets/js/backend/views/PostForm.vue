@@ -255,7 +255,6 @@
         props: ['id'],
         data() {
             return {
-                user: window.settings.user,
                 config: {
                     wrap: true,
                     time_24hr: true,
@@ -303,7 +302,7 @@
 
                 if (!this.isNew) {
                     axios
-                        .get(`/admin/post/${this.id}`)
+                        .get(`/${this.$root.adminPath}/post/${this.id}`)
                         .then(response => {
                             this.post = response.data;
                             this.tags = this.post.tags;
@@ -312,7 +311,7 @@
             },
             getTags(search) {
                 axios
-                    .get(`/admin/tags/search`, {
+                    .get(`/${this.$root.adminPath}/tags/search`, {
                         params: {
                             q: search
                         }
@@ -335,7 +334,7 @@
             },
             onSubmit() {
                 let router = this.$router;
-                let action = this.isNew ? '/admin/post' : `/admin/post/${this.id}`;
+                let action = this.isNew ? `/${this.$root.adminPath}/post` : `/${this.$root.adminPath}/post/${this.id}`;
 
                 axios
                     [this.isNew ? 'post' : 'patch'](action, this.post)

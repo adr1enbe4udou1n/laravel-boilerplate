@@ -20,6 +20,7 @@
 <script>
     export default {
         name: 'role_list',
+        props: ['adminPath'],
         data() {
             return {}
         },
@@ -33,7 +34,7 @@
                 info: false,
                 buttons: [],
                 ajax: {
-                    url: '/admin/role/search',
+                    url: `/${this.$root.adminPath}/role/search`,
                     type: 'post'
                 },
                 columns: [{

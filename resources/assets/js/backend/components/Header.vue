@@ -15,16 +15,16 @@
                     <span class="d-md-down-none">{{ $t('labels.language') }}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" rel="alternate" v-for="(locale, index) in locales" :hreflang="index"
-                       :href="`/${index}/admin`">
+                    <a class="dropdown-item" rel="alternate" v-for="(locale, index) in this.$root.locales" :hreflang="index"
+                       :href="`/${index}/${$root.adminPath}`">
                         {{ locale.native }}
                     </a>
                 </div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <img :src="user.avatar" class="img-avatar" :alt="$t('labels.user.avatar')">
-                    <span class="d-md-down-none">{{ user.name }}</span>
+                    <img :src="this.$root.user.avatar" class="img-avatar" :alt="$t('labels.user.avatar')">
+                    <span class="d-md-down-none">{{ this.$root.user.name }}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <div class="dropdown-header text-center">
@@ -33,7 +33,7 @@
 
                     <a class="dropdown-item" href="/user/account"><i class="icon-user"></i>
                         {{ $t('labels.user.profile') }}</a>
-                    <a class="dropdown-item" href="/admin/logout"><i class="icon-logout"></i>
+                    <a class="dropdown-item" :href="`/${this.$root.adminPath}/logout`"><i class="icon-logout"></i>
                         {{ $t('labels.user.logout') }}</a>
                 </div>
             </li>
@@ -43,16 +43,7 @@
 <script>
     export default {
         name: 'header',
-        data() {
-            return {
-                locales: window.settings.locales,
-                user: window.settings.user,
-            }
-        },
         methods: {
-            click() {
-                // do nothing
-            },
             sidebarToggle(e) {
                 e.preventDefault();
                 document.body.classList.toggle('sidebar-hidden');

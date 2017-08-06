@@ -36,7 +36,7 @@
         },
         created() {
             axios
-                .get(`/admin/form-submission/${this.id}`)
+                .get(`/${this.$root.adminPath}/form-submission/${this.id}`)
                 .then(response => {
                     this.submission = response.data;
                 });

@@ -129,7 +129,7 @@
 
                 if (!this.isNew) {
                     axios
-                        .get(`/admin/meta/${this.id}`)
+                        .get(`/${this.$root.adminPath}/meta/${this.id}`)
                         .then(response => {
                             this.meta = response.data;
 
@@ -144,7 +144,7 @@
             },
             getRoutes(search) {
                 axios
-                    .get(`/admin/routes/search`, {
+                    .get(`/${this.$root.adminPath}/routes/search`, {
                         params: {
                             q: search
                         }
@@ -155,7 +155,7 @@
             },
             onSubmit() {
                 let router = this.$router;
-                let action = this.isNew ? '/admin/meta' : `/admin/meta/${this.id}`;
+                let action = this.isNew ? `/${this.$root.adminPath}/meta` : `/${this.$root.adminPath}/meta/${this.id}`;
 
                 let data = Object.assign({}, this.meta, {
                     route: this.meta.route.value
