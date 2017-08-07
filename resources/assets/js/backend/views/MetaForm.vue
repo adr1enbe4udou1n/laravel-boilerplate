@@ -11,12 +11,12 @@
                         </div>
 
                         <div class="card-block">
-                            <template v-if="this.meta.metable_type !== null">
+                            <template v-if="this.model.metable_type !== null">
                                 <div class="form-group">
                                     <label class="control-label col-lg-3">{{ $t('validation.attributes.metable_type')
                                         }}</label>
                                     <div class="col-lg-9">
-                                        <label class="control-label">{{ $t(`labels.morphs.${this.meta.metable_type}`, {'id': this.meta.metable_id})
+                                        <label class="control-label">{{ $t(`labels.morphs.${this.model.metable_type}`, {'id': this.model.metable_id})
                                             }}</label>
                                     </div>
                                 </div>
@@ -34,7 +34,7 @@
                                             id="route"
                                             name="route"
                                             :options="routes"
-                                            v-model="meta.route"
+                                            v-model="model.route"
                                             :placeholder="$t('labels.placeholders.route')"
                                             :on-search="getRoutes"
                                     ></v-select>
@@ -53,7 +53,7 @@
                                         id="title"
                                         name="title"
                                         :placeholder="$t('validation.attributes.title')"
-                                        v-model="meta.title"
+                                        v-model="model.title"
                                 ></b-form-input>
                             </b-form-fieldset>
 
@@ -71,7 +71,7 @@
                                         :textarea="true"
                                         :rows="5"
                                         :placeholder="$t('validation.attributes.description')"
-                                        v-model="meta.description"
+                                        v-model="model.description"
                                 ></b-form-input>
                             </b-form-fieldset>
                         </div>
@@ -96,25 +96,24 @@
 </template>
 
 <script>
+    import axios from 'axios';
+    import form from '../mixins/form';
+    
     export default {
         name: 'meta_form',
-        props: ['id'],
+        mixins: [form],
         data() {
             return {
                 routes: [],
-                meta: this.initMeta(),
+                modelName: 'meta',
+                model: this.initModel(),
                 validation: {
                     errors: {}
                 }
             };
         },
-        computed: {
-            isNew() {
-                return this.id === undefined;
-            }
-        },
         methods: {
-            initMeta() {
+            initModel() {
                 return {
                     metable_type: null,
                     metable_id: null,
@@ -122,25 +121,6 @@
                     title: null,
                     description: null
                 };
-            },
-            fetchData() {
-                this.routes = [];
-                this.meta = this.initMeta();
-
-                if (!this.isNew) {
-                    axios
-                        .get(`${this.$root.adminPath}/meta/${this.id}`)
-                        .then(response => {
-                            this.meta = response.data;
-
-                            if (this.meta.route) {
-                                this.meta.route = {
-                                    value: this.meta.route,
-                                    label: this.$i18n.t(`routes.${this.meta.route}`)
-                                };
-                            }
-                        });
-                }
             },
             getRoutes(search) {
                 axios
@@ -152,35 +132,7 @@
                     .then(response => {
                         this.routes = response.data.items;
                     });
-            },
-            onSubmit() {
-                let router = this.$router;
-                let action = this.isNew ? `${this.$root.adminPath}/meta` : `${this.$root.adminPath}/meta/${this.id}`;
-
-                let data = Object.assign({}, this.meta, {
-                    route: this.meta.route.value
-                });
-
-                axios
-                    [this.isNew ? 'post' : 'patch'](action, data)
-                    .then(response => {
-                        window.toastr[response.data.status](response.data.message);
-                        router.push('/meta');
-                    })
-                    .catch(error => {
-                        if (error.response.status === 422) {
-                            this.validation.errors = error.response.data;
-                            return;
-                        }
-                        window.toastr.error(error.response.data.error);
-                    });
             }
-        },
-        created() {
-            this.fetchData();
-        },
-        watch: {
-            '$route': 'fetchData'
         }
     };
 </script>

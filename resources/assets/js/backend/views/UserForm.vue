@@ -23,7 +23,7 @@
                                             name="name"
                                             :required="true"
                                             :placeholder="$t('validation.attributes.name')"
-                                            v-model="user.name"
+                                            v-model="model.name"
                                     ></b-form-input>
                                 </b-input-group>
                             </b-form-fieldset>
@@ -43,7 +43,7 @@
                                             type="email"
                                             :required="true"
                                             :placeholder="$t('validation.attributes.email')"
-                                            v-model="user.email"
+                                            v-model="model.email"
                                     ></b-form-input>
                                 </b-input-group>
                             </b-form-fieldset>
@@ -58,7 +58,7 @@
                                         id="active"
                                         name="active"
                                         value="1"
-                                        v-model="user.active"
+                                        v-model="model.active"
                                 ></b-form-toggle>
                             </b-form-fieldset>
 
@@ -105,7 +105,7 @@
                                             v-for="role in roles"
                                             :key="role.id"
                                             name="roles[]"
-                                            v-model="user.roles"
+                                            v-model="model.roles"
                                             :value="role.id"
                                     >
                                         {{ role.display_name }}
@@ -133,28 +133,25 @@
 
 <script>
     import axios from 'axios';
+    import form from '../mixins/form';
 
     export default {
         name: 'user_form',
-        props: ['id'],
+        mixins: [form],
         data() {
             return {
                 iconUser: '<i class="icon-user"></i>',
                 iconEnvelope: '<i class="icon-envelope"></i>',
                 roles: {},
-                user: this.initUser(),
+                modelName: 'user',
+                model: this.initModel(),
                 validation: {
                     errors: {}
                 }
             };
         },
-        computed: {
-            isNew() {
-                return this.id === undefined;
-            }
-        },
         methods: {
-            initUser() {
+            initModel() {
                 return {
                     name: null,
                     email: null,
@@ -164,46 +161,15 @@
                     roles: []
                 };
             },
-            fetchData() {
-                this.user = this.initUser();
-
-                if (!this.isNew) {
-                    axios
-                        .get(`${this.$root.adminPath}/user/${this.id}`)
-                        .then(response => {
-                            this.user = response.data;
-                        });
-                }
-            },
-            onSubmit() {
-                let router = this.$router;
-                let action = this.isNew ? `${this.$root.adminPath}/user` : `${this.$root.adminPath}/user/${this.id}`;
-
-                axios[this.isNew ? 'post' : 'patch'](action, this.user)
-                    .then(response => {
-                        window.toastr[response.data.status](response.data.message);
-                        router.push('/user');
-                    })
-                    .catch(error => {
-                        if (error.response.status === 422) {
-                            this.validation.errors = error.response.data;
-                            return;
-                        }
-                        window.toastr.error(error.response.data.error);
-                    });
-            }
         },
         created() {
             axios
-                .get(`${this.$root.adminPath}/user/roles`)
+                .get(`${this.$root.adminPath}/${this.modelName}/roles`)
                 .then(response => {
                     this.roles = response.data;
                 });
 
             this.fetchData();
-        },
-        watch: {
-            '$route': 'fetchData'
         },
         mounted() {
             $('#password').pwstrength({

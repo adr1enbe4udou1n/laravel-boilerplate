@@ -20,7 +20,7 @@
                                         name="name"
                                         :required="true"
                                         :options="formTypes"
-                                        v-model="setting.name"
+                                        v-model="model.name"
                                 ></b-form-select>
                             </b-form-fieldset>
 
@@ -40,7 +40,7 @@
                                         :rows="5"
                                         :required="true"
                                         :placeholder="$t('validation.attributes.recipients')"
-                                        v-model="setting.recipients"
+                                        v-model="model.recipients"
                                 ></b-form-input>
                             </b-form-fieldset>
 
@@ -60,7 +60,7 @@
                                         :rows="5"
                                         :required="true"
                                         :placeholder="$t('validation.attributes.message')"
-                                        v-model="setting.message"
+                                        v-model="model.message"
                                 ></b-form-input>
                             </b-form-fieldset>
                         </div>
@@ -84,10 +84,11 @@
 
 <script>
     import axios from 'axios';
+    import form from '../mixins/form';
 
     export default {
         name: 'form_setting_form',
-        props: ['id'],
+        mixins: [form],
         data() {
             return {
                 formTypes: [
@@ -96,57 +97,25 @@
                         text: `-- ${this.$i18n.t('validation.attributes.form_type')} --`
                     }
                 ],
-                setting: this.initSetting(),
+                modelName: 'form-setting',
+                model: this.initModel(),
                 validation: {
                     errors: {}
                 }
             };
         },
-        computed: {
-            isNew() {
-                return this.id === undefined;
-            }
-        },
         methods: {
-            initSetting() {
+            initModel() {
                 return {
                     name: null,
                     recipients: null,
                     message: null
                 };
             },
-            fetchData() {
-                this.setting = this.initSetting();
-
-                if (!this.isNew) {
-                    axios
-                        .get(`${this.$root.adminPath}/form-setting/${this.id}`)
-                        .then(response => {
-                            this.setting = response.data;
-                        });
-                }
-            },
-            onSubmit() {
-                let router = this.$router;
-                let action = this.isNew ? `${this.$root.adminPath}/form-setting` : `${this.$root.adminPath}/form-setting/${this.id}`;
-
-                axios[this.isNew ? 'post' : 'patch'](action, this.setting)
-                    .then(response => {
-                        window.toastr[response.data.status](response.data.message);
-                        router.push('/form-setting');
-                    })
-                    .catch(error => {
-                        if (error.response.status === 422) {
-                            this.validation.errors = error.response.data;
-                            return;
-                        }
-                        window.toastr.error(error.response.data.error);
-                    });
-            }
         },
         created() {
             axios
-                .get(`${this.$root.adminPath}/form-setting/form-types`)
+                .get(`${this.$root.adminPath}/${this.modelName}/form-types`)
                 .then(response => {
                     for(let propertyName in response.data) {
                         this.formTypes.push({
@@ -157,9 +126,6 @@
                 });
 
             this.fetchData();
-        },
-        watch: {
-            '$route': 'fetchData'
         }
     };
 </script>

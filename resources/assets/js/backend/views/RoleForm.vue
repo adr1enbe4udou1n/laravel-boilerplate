@@ -22,7 +22,7 @@
                                         name="name"
                                         :required="true"
                                         :placeholder="$t('validation.attributes.name')"
-                                        v-model="role.name"
+                                        v-model="model.name"
                                 ></b-form-input>
                             </b-form-fieldset>
 
@@ -39,7 +39,7 @@
                                         name="display_name"
                                         :required="true"
                                         :placeholder="$t('validation.attributes.display_name')"
-                                        v-model="role.display_name"
+                                        v-model="model.display_name"
                                 ></b-form-input>
                             </b-form-fieldset>
 
@@ -55,7 +55,7 @@
                                         id="description"
                                         name="description"
                                         :placeholder="$t('validation.attributes.description')"
-                                        v-model="role.description"
+                                        v-model="model.description"
                                 ></b-form-input>
                             </b-form-fieldset>
 
@@ -71,7 +71,7 @@
                                         type="number"
                                         :required="true"
                                         :placeholder="$t('validation.attributes.order')"
-                                        v-model="role.order"
+                                        v-model="model.order"
                                 ></b-form-input>
                             </b-form-fieldset>
 
@@ -87,7 +87,7 @@
                                                         v-for="permission in category.permissions"
                                                         :key="permission.name"
                                                         name="permissions[]"
-                                                        v-model="role.permissions"
+                                                        v-model="model.permissions"
                                                         :value="permission.name">
                                                     {{ $t(permission['display_name']) }}
                                                 </b-form-checkbox>
@@ -117,29 +117,27 @@
 
 <script>
     import axios from 'axios';
+    import form from '../mixins/form';
+    
     import _ from 'lodash';
     // eslint-disable-next-line no-unused-vars
     import { groupBy, forEach } from 'lodash/collection';
 
     export default {
         name: 'role_form',
-        props: ['id'],
+        mixins: [form],
         data() {
             return {
                 permissions: [],
-                role: this.initRole(),
+                modelName: 'role',
+                model: this.initModel(),
                 validation: {
                     errors: {}
                 }
             };
         },
-        computed: {
-            isNew() {
-                return this.id === undefined;
-            }
-        },
         methods: {
-            initRole() {
+            initModel() {
                 return {
                     name: null,
                     display_name: null,
@@ -147,38 +145,10 @@
                     permissions: null
                 };
             },
-            fetchData() {
-                this.role = this.initRole();
-
-                if (!this.isNew) {
-                    axios
-                        .get(`${this.$root.adminPath}/role/${this.id}`)
-                        .then(response => {
-                            this.role = response.data;
-                        });
-                }
-            },
-            onSubmit() {
-                let router = this.$router;
-                let action = this.isNew ? `${this.$root.adminPath}/role` : `${this.$root.adminPath}/role/${this.id}`;
-
-                axios[this.isNew ? 'post' : 'patch'](action, this.role)
-                    .then(response => {
-                        window.toastr[response.data.status](response.data.message);
-                        router.push('/role');
-                    })
-                    .catch(error => {
-                        if (error.response.status === 422) {
-                            this.validation.errors = error.response.data;
-                            return;
-                        }
-                        window.toastr.error(error.response.data.error);
-                    });
-            }
         },
         created() {
             axios
-                .get(`${this.$root.adminPath}/role/permissions`)
+                .get(`${this.$root.adminPath}/${this.modelName}/permissions`)
                 .then(response => {
                     let categories = _.groupBy(_.forEach(response.data, (value, key) => {
                         value['name'] = key;
@@ -195,9 +165,6 @@
                 });
 
             this.fetchData();
-        },
-        watch: {
-            '$route': 'fetchData'
         }
     };
 </script>

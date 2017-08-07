@@ -21,7 +21,7 @@
                                         name="title"
                                         :required="true"
                                         :placeholder="$t('validation.attributes.title')"
-                                        v-model="post.title"
+                                        v-model="model.title"
                                 ></b-form-input>
                             </b-form-fieldset>
 
@@ -39,7 +39,7 @@
                                         :textarea="true"
                                         :rows="5"
                                         :placeholder="$t('validation.attributes.summary')"
-                                        v-model="post.summary"
+                                        v-model="model.summary"
                                 ></b-form-input>
                             </b-form-fieldset>
 
@@ -54,7 +54,7 @@
                                 <ckeditor
                                         id="body"
                                         name="body"
-                                        v-model="post.body"
+                                        v-model="model.body"
                                 ></ckeditor>
                             </b-form-fieldset>
 
@@ -68,8 +68,7 @@
                                         id="tags"
                                         name="tags"
                                         multiple
-                                        :options="tags"
-                                        v-model="post.tags"
+                                        v-model="model.tags"
                                         :on-search="getTags"
                                         :placeholder="$t('labels.placeholders.tags')"
                                         :taggable="true"
@@ -86,11 +85,11 @@
                                     :feedback="validation.errors.hasOwnProperty('image') ? validation.errors.image[0] : ''"
                             >
                                 <div class="media">
-                                    <img v-if="post.featured_image_path !== null" class="mr-2" :src="`/imagecache/small/${post.featured_image_path}`" alt="">
+                                    <img v-if="model.featured_image_path !== null" class="mr-2" :src="`/imagecache/small/${model.featured_image_path}`" alt="">
 
                                     <div class="media-body">
                                         <h6>{{ $t('labels.upload_image') }}</h6>
-                                        <b-input-file id="featured_image" name="featured_image" v-model="post.featured_image"></b-input-file>
+                                        <b-input-file id="featured_image" name="featured_image" v-model="model.featured_image"></b-input-file>
                                         <p class="form-text text-muted">
                                             {{ $t('labels.descriptions.allowed_image_types') }}
                                         </p>
@@ -108,12 +107,12 @@
                                 <div class="col-md-6">
                                     <input name="status" type="hidden" value="publish">
                                     <div class="btn-group pull-right">
-                                        <input type="submit" class="btn btn-success btn-sm pull-right" :value="$t('buttons.posts.save_and_publish')" @click="post.status = 'publish'">
+                                        <input type="submit" class="btn btn-success btn-sm pull-right" :value="$t('buttons.posts.save_and_publish')" @click="model.status = 'publish'">
                                         <button type="button" class="btn btn-success btn-sm dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-expanded="false" id="save-and-publish">
                                             <span class="sr-only"></span>
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="javascript:void(0);" @click="post.status = 'draft'; onSubmit()">{{ $t('buttons.posts.save_as_draft') }}</a>
+                                            <a class="dropdown-item" href="javascript:void(0);" @click="model.status = 'draft'; onSubmit()">{{ $t('buttons.posts.save_as_draft') }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -137,13 +136,13 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">{{ $t('validation.attributes.status') }}</label>
                                         <div class="col-lg-9">
-                                            <label class="col-form-label"><b-badge :variant="post.state">{{ $t(post.status_label) }}</b-badge></label>
+                                            <label class="col-form-label"><b-badge :variant="model.state">{{ $t(model.status_label) }}</b-badge></label>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">{{ $t('labels.author') }}</label>
                                         <div class="col-lg-9">
-                                            <label class="col-form-label">{{ post.owner.name }}</label>
+                                            <label class="col-form-label">{{ model.owner.name }}</label>
                                         </div>
                                     </div>
                                     </template>
@@ -160,7 +159,7 @@
                                                     name="published_at"
                                                     :config="config"
                                                     :required="true"
-                                                    v-model="post.published_at"
+                                                    v-model="model.published_at"
                                             ></flatpickr>
                                             <div class="input-group-addon" data-toggle>
                                                 <i class="icon-calendar"></i>
@@ -178,7 +177,7 @@
                                                 id="pinned"
                                                 name="pinned"
                                                 value="1"
-                                                v-model="post.pinned"
+                                                v-model="model.pinned"
                                         ></b-form-toggle>
                                     </b-form-fieldset>
 
@@ -192,7 +191,7 @@
                                                 id="promoted"
                                                 name="promoted"
                                                 value="1"
-                                                v-model="post.promoted"
+                                                v-model="model.promoted"
                                         ></b-form-toggle>
                                     </b-form-fieldset>
                                 </div>
@@ -219,7 +218,7 @@
                                                 id="title"
                                                 name="meta[title]"
                                                 :placeholder="$t('labels.backend.posts.placeholders.meta_title')"
-                                                v-model="post.title"
+                                                v-model="model.title"
                                         ></b-form-input>
                                     </b-form-fieldset>
 
@@ -236,7 +235,7 @@
                                                 :textarea="true"
                                                 :rows="5"
                                                 :placeholder="$t('labels.backend.posts.placeholders.meta_description')"
-                                                v-model="post.description"
+                                                v-model="model.description"
                                         ></b-form-input>
                                     </b-form-fieldset>
                                 </div>
@@ -251,10 +250,11 @@
 
 <script>
     import axios from 'axios';
+    import form from '../mixins/form';
 
     export default {
         name: 'post_form',
-        props: ['id'],
+        mixins: [form],
         data() {
             return {
                 config: {
@@ -262,20 +262,15 @@
                     time_24hr: true,
                     enableTime: true,
                 },
-                tags: [],
-                post: this.initPost(),
+                modelName: 'post',
+                model: this.initModel(),
                 validation: {
                     errors: {}
                 }
             };
         },
-        computed: {
-            isNew() {
-                return this.id === undefined;
-            }
-        },
         methods: {
-            initPost() {
+            initModel() {
                 return {
                     title: null,
                     summary: null,
@@ -298,19 +293,6 @@
                     }
                 };
             },
-            fetchData() {
-                this.tags = [];
-                this.post = this.initPost();
-
-                if (!this.isNew) {
-                    axios
-                        .get(`${this.$root.adminPath}/post/${this.id}`)
-                        .then(response => {
-                            this.post = response.data;
-                            this.tags = this.post.tags;
-                        });
-                }
-            },
             getTags(search) {
                 axios
                     .get(`${this.$root.adminPath}/tags/search`, {
@@ -321,30 +303,7 @@
                     .then(response => {
                         this.tags = response.data.items;
                     });
-            },
-            onSubmit() {
-                let router = this.$router;
-                let action = this.isNew ? `${this.$root.adminPath}/post` : `${this.$root.adminPath}/post/${this.id}`;
-
-                axios[this.isNew ? 'post' : 'patch'](action, this.post)
-                    .then(response => {
-                        window.toastr[response.data.status](response.data.message);
-                        router.push('/post');
-                    })
-                    .catch(error => {
-                        if (error.response.status === 422) {
-                            this.validation.errors = error.response.data;
-                            return;
-                        }
-                        window.toastr.error(error.response.data.error);
-                    });
             }
-        },
-        created() {
-            this.fetchData();
-        },
-        watch: {
-            '$route': 'fetchData'
         }
     };
 </script>

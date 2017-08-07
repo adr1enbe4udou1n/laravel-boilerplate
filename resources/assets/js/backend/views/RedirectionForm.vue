@@ -22,7 +22,7 @@
                                         name="source"
                                         :required="true"
                                         :placeholder="$t('validation.attributes.source_path')"
-                                        v-model="redirection.source"
+                                        v-model="model.source"
                                 ></b-form-input>
                             </b-form-fieldset>
 
@@ -36,7 +36,7 @@
                                         id="active"
                                         name="active"
                                         value="1"
-                                        v-model="redirection.active"
+                                        v-model="model.active"
                                 ></b-form-toggle>
                             </b-form-fieldset>
 
@@ -53,7 +53,7 @@
                                         name="target"
                                         :required="true"
                                         :placeholder="$t('validation.attributes.target_path')"
-                                        v-model="redirection.target"
+                                        v-model="model.target"
                                 ></b-form-input>
                             </b-form-fieldset>
 
@@ -67,7 +67,7 @@
                                         :required="true"
                                         :stacked="true"
                                         :options="redirectionTypes"
-                                        v-model="redirection.type"
+                                        v-model="model.type"
                                 ></b-form-radio>
                             </b-form-fieldset>
                         </div>
@@ -91,26 +91,23 @@
 
 <script>
     import axios from 'axios';
+    import form from '../mixins/form';
 
     export default {
         name: 'redirection_form',
-        props: ['id'],
+        mixins: [form],
         data() {
             return {
                 redirectionTypes: {},
-                redirection: this.initRedirection(),
+                modelName: 'redirection',
+                model: this.initModel(),
                 validation: {
                     errors: {}
                 }
             };
         },
-        computed: {
-            isNew() {
-                return this.id === undefined;
-            }
-        },
         methods: {
-            initRedirection() {
+            initModel() {
                 return {
                     source: null,
                     active: null,
@@ -118,46 +115,15 @@
                     type: null
                 };
             },
-            fetchData() {
-                this.redirection = this.initRedirection();
-
-                if (!this.isNew) {
-                    axios
-                        .get(`${this.$root.adminPath}/redirection/${this.id}`)
-                        .then(response => {
-                            this.redirection = response.data;
-                        });
-                }
-            },
-            onSubmit() {
-                let router = this.$router;
-                let action = this.isNew ? `${this.$root.adminPath}/redirection` : `${this.$root.adminPath}/redirection/${this.id}`;
-
-                axios[this.isNew ? 'post' : 'patch'](action, this.redirection)
-                    .then(response => {
-                        window.toastr[response.data.status](response.data.message);
-                        router.push('/redirection');
-                    })
-                    .catch(error => {
-                        if (error.response.status === 422) {
-                            this.validation.errors = error.response.data;
-                            return;
-                        }
-                        window.toastr.error(error.response.data.error);
-                    });
-            }
         },
         created() {
             axios
-                .get(`${this.$root.adminPath}/redirection/redirection-types`)
+                .get(`${this.$root.adminPath}/${this.modelName}/redirection-types`)
                 .then(response => {
                     this.redirectionTypes = response.data;
                 });
 
             this.fetchData();
-        },
-        watch: {
-            '$route': 'fetchData'
         }
     };
 </script>
