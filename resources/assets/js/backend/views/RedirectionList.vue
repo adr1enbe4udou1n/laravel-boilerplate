@@ -29,7 +29,7 @@
             <div class="card-block">
                 <table id="dataTableBuilder" class="table table-striped table-bordered table-hover" cellspacing="0"
                        width="100%"></table>
-                <batch-action :options="options" :url="`/${this.$root.adminPath}/redirection/batch-action`" datatable="dataTableBuilder"></batch-action>
+                <batch-action :options="options" :url="`${this.$root.adminPath}/redirection/batch-action`" datatable="dataTableBuilder"></batch-action>
             </div>
         </div>
     </div>
@@ -55,7 +55,7 @@
             onFileImport() {
                 let dataTable = $('#dataTableBuilder').DataTable();
 
-                axios.post(`/${this.$root.adminPath}/redirection/import`, {
+                axios.post(`${this.$root.adminPath}/redirection/import`, {
                     'import': this.importFile,
                 }).then(response => {
                     dataTable.ajax.reload(null, false);
@@ -70,7 +70,7 @@
                 serverSide: true,
                 processing: true,
                 ajax: {
-                    url: `/${this.$root.adminPath}/redirection/search`,
+                    url: `${this.$root.adminPath}/redirection/search`,
                     type: 'post'
                 },
                 columns: [{

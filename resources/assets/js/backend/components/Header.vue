@@ -33,7 +33,7 @@
 
                     <a class="dropdown-item" href="/user/account"><i class="icon-user"></i>
                         {{ $t('labels.user.profile') }}</a>
-                    <a class="dropdown-item" :href="`/${this.$root.adminPath}/logout`"><i class="icon-logout"></i>
+                    <a class="dropdown-item" :href="`${this.$root.adminPath}/logout`"><i class="icon-logout"></i>
                         {{ $t('labels.user.logout') }}</a>
                 </div>
             </li>

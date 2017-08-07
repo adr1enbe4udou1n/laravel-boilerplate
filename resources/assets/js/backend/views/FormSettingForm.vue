@@ -120,7 +120,7 @@
 
                 if (!this.isNew) {
                     axios
-                        .get(`/${this.$root.adminPath}/form-setting/${this.id}`)
+                        .get(`${this.$root.adminPath}/form-setting/${this.id}`)
                         .then(response => {
                             this.setting = response.data;
                         });
@@ -128,7 +128,7 @@
             },
             onSubmit() {
                 let router = this.$router;
-                let action = this.isNew ? `/${this.$root.adminPath}/form-setting` : `/${this.$root.adminPath}/form-setting/${this.id}`;
+                let action = this.isNew ? `${this.$root.adminPath}/form-setting` : `${this.$root.adminPath}/form-setting/${this.id}`;
 
                 axios[this.isNew ? 'post' : 'patch'](action, this.setting)
                     .then(response => {
@@ -146,7 +146,7 @@
         },
         created() {
             axios
-                .get(`/${this.$root.adminPath}/form-setting/form-types`)
+                .get(`${this.$root.adminPath}/form-setting/form-types`)
                 .then(response => {
                     for(let propertyName in response.data) {
                         this.formTypes.push({

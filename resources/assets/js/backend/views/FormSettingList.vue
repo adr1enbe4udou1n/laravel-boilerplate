@@ -31,7 +31,7 @@
                 info: false,
                 buttons: [],
                 ajax: {
-                    url: `/${this.$root.adminPath}/form-setting/search`,
+                    url: `${this.$root.adminPath}/form-setting/search`,
                     type: 'post'
                 },
                 columns: [{

@@ -169,7 +169,7 @@
 
                 if (!this.isNew) {
                     axios
-                        .get(`/${this.$root.adminPath}/user/${this.id}`)
+                        .get(`${this.$root.adminPath}/user/${this.id}`)
                         .then(response => {
                             this.user = response.data;
                         });
@@ -177,7 +177,7 @@
             },
             onSubmit() {
                 let router = this.$router;
-                let action = this.isNew ? `/${this.$root.adminPath}/user` : `/${this.$root.adminPath}/user/${this.id}`;
+                let action = this.isNew ? `${this.$root.adminPath}/user` : `${this.$root.adminPath}/user/${this.id}`;
 
                 axios[this.isNew ? 'post' : 'patch'](action, this.user)
                     .then(response => {
@@ -195,7 +195,7 @@
         },
         created() {
             axios
-                .get(`/${this.$root.adminPath}/user/roles`)
+                .get(`${this.$root.adminPath}/user/roles`)
                 .then(response => {
                     this.roles = response.data;
                 });

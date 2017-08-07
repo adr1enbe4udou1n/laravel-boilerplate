@@ -23,7 +23,7 @@
         {!! json_encode([
             'app' => [
                 'name' => config('app.name'),
-                'admin_path' => config('app.admin_path'),
+                'admin_path' => route('admin.home', [], false),
                 'editor_name' => config('app.editor_name'),
                 'editor_site_url' => config('app.editor_site_url')
             ],

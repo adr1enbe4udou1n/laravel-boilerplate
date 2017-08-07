@@ -31,7 +31,7 @@
                 info: false,
                 buttons: [],
                 ajax: {
-                    url: `/${this.$root.adminPath}/role/search`,
+                    url: `${this.$root.adminPath}/role/search`,
                     type: 'post'
                 },
                 columns: [{

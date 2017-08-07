@@ -123,7 +123,7 @@
 
                 if (!this.isNew) {
                     axios
-                        .get(`/${this.$root.adminPath}/redirection/${this.id}`)
+                        .get(`${this.$root.adminPath}/redirection/${this.id}`)
                         .then(response => {
                             this.redirection = response.data;
                         });
@@ -131,7 +131,7 @@
             },
             onSubmit() {
                 let router = this.$router;
-                let action = this.isNew ? `/${this.$root.adminPath}/redirection` : `/${this.$root.adminPath}/redirection/${this.id}`;
+                let action = this.isNew ? `${this.$root.adminPath}/redirection` : `${this.$root.adminPath}/redirection/${this.id}`;
 
                 axios[this.isNew ? 'post' : 'patch'](action, this.redirection)
                     .then(response => {
@@ -149,7 +149,7 @@
         },
         created() {
             axios
-                .get(`/${this.$root.adminPath}/redirection/redirection-types`)
+                .get(`${this.$root.adminPath}/redirection/redirection-types`)
                 .then(response => {
                     this.redirectionTypes = response.data;
                 });

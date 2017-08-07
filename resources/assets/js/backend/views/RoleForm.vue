@@ -152,7 +152,7 @@
 
                 if (!this.isNew) {
                     axios
-                        .get(`/${this.$root.adminPath}/role/${this.id}`)
+                        .get(`${this.$root.adminPath}/role/${this.id}`)
                         .then(response => {
                             this.role = response.data;
                         });
@@ -160,7 +160,7 @@
             },
             onSubmit() {
                 let router = this.$router;
-                let action = this.isNew ? `/${this.$root.adminPath}/role` : `/${this.$root.adminPath}/role/${this.id}`;
+                let action = this.isNew ? `${this.$root.adminPath}/role` : `${this.$root.adminPath}/role/${this.id}`;
 
                 axios[this.isNew ? 'post' : 'patch'](action, this.role)
                     .then(response => {
@@ -178,7 +178,7 @@
         },
         created() {
             axios
-                .get(`/${this.$root.adminPath}/role/permissions`)
+                .get(`${this.$root.adminPath}/role/permissions`)
                 .then(response => {
                     let categories = _.groupBy(_.forEach(response.data, (value, key) => {
                         value['name'] = key;
