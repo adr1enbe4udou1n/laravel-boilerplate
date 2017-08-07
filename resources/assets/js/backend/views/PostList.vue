@@ -33,6 +33,7 @@
         },
         mounted() {
             $('#dataTableBuilder').DataTable({
+                responsive: true,
                 serverSide: true,
                 processing: true,
                 ajax: {
@@ -60,6 +61,7 @@
                     name: 'translations.title',
                     defaultContent: this.$i18n.t('labels.no_value'),
                     width: 150,
+                    responsivePriority: 1,
                 }, {
                     title: this.$i18n.t('validation.attributes.status'),
                     data: 'status',
@@ -67,6 +69,7 @@
                     searchable: false,
                     className: 'text-center',
                     width: 75,
+                    responsivePriority: 2,
                 }, {
                     title: this.$i18n.t('validation.attributes.pinned'),
                     data: 'pinned',
@@ -118,6 +121,7 @@
                     name: 'actions',
                     orderable: false,
                     width: 125,
+                    responsivePriority: 3,
                 }],
                 select: {style: 'os'},
                 order: [[9, 'desc']],

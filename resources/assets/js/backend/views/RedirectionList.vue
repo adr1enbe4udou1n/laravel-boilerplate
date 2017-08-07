@@ -66,6 +66,7 @@
         },
         mounted() {
             $('#dataTableBuilder').DataTable({
+                responsive: true,
                 serverSide: true,
                 processing: true,
                 ajax: {
@@ -85,6 +86,7 @@
                     title: this.$i18n.t('validation.attributes.source_path'),
                     data: 'source',
                     name: 'source',
+                    responsivePriority: 1,
                 }, {
                     title: this.$i18n.t('validation.attributes.active'),
                     data: 'active',
@@ -119,6 +121,7 @@
                     name: 'actions',
                     orderable: false,
                     width: 75,
+                    responsivePriority: 2,
                 }],
                 select: {style: 'os'},
                 order: [[1, 'asc']],

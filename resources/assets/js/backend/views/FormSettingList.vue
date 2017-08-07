@@ -22,6 +22,7 @@
         name: 'form_setting_list',
         mounted() {
             $('#dataTableBuilder').DataTable({
+                responsive: true,
                 serverSide: true,
                 processing: true,
                 lengthChange: false,
@@ -38,6 +39,7 @@
                     data: 'name',
                     name: 'name',
                     width: 150,
+                    responsivePriority: 1,
                 }, {
                     title: this.$i18n.t('validation.attributes.recipients'),
                     data: 'recipients',
@@ -67,6 +69,7 @@
                     name: 'actions',
                     orderable: false,
                     width: 75,
+                    responsivePriority: 2,
                 }],
                 order: [[0, 'asc']],
                 rowId: 'id'

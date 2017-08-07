@@ -25,6 +25,7 @@
         },
         mounted() {
             $('#dataTableBuilder').DataTable({
+                responsive: true,
                 serverSide: true,
                 processing: true,
                 ajax: {
@@ -45,6 +46,7 @@
                     data: 'type',
                     name: 'type',
                     width: 150,
+                    responsivePriority: 1,
                 }, {
                     title: this.$i18n.t('validation.attributes.form_data'),
                     data: 'data',
@@ -68,6 +70,7 @@
                     name: 'actions',
                     orderable: false,
                     width: 75,
+                    responsivePriority: 2,
                 }],
                 select: {style: 'os'},
                 order: [[3, 'desc']],

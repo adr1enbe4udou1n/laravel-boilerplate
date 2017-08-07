@@ -22,6 +22,7 @@
         name: 'role_list',
         mounted() {
             $('#dataTableBuilder').DataTable({
+                responsive: true,
                 serverSide: true,
                 processing: true,
                 lengthChange: false,
@@ -39,6 +40,7 @@
                     name: 'name',
                     orderable: false,
                     width: 150,
+                    responsivePriority: 1,
                 }, {
                     title: this.$i18n.t('validation.attributes.order'),
                     data: 'order',
@@ -75,7 +77,8 @@
                     data: 'actions',
                     name: 'actions',
                     orderable: false,
-                    width: 75
+                    width: 75,
+                    responsivePriority: 2,
                 }],
                 order: [[1, 'asc']]
             });
