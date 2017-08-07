@@ -100,7 +100,6 @@
 
     export default {
         name: 'dashboard',
-        props: ['adminPath', 'user'],
         data() {
             return {
                 newPostsCount: 0,

@@ -20,7 +20,6 @@
 <script>
     export default {
         name: 'form_setting_list',
-        props: ['adminPath'],
         mounted() {
             $('#dataTableBuilder').DataTable({
                 serverSide: true,

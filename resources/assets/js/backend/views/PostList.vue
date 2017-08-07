@@ -21,7 +21,6 @@
 <script>
     export default {
         name: 'post_list',
-        props: ['adminPath'],
         data() {
             return {
                 options: {

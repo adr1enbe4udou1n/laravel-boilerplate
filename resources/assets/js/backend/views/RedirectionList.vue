@@ -40,7 +40,6 @@
 
     export default {
         name: 'redirection_list',
-        props: ['adminPath'],
         data() {
             return {
                 importFile: null,

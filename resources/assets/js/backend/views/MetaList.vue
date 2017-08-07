@@ -21,7 +21,6 @@
 <script>
     export default {
         name: 'meta_list',
-        props: ['adminPath'],
         data() {
             return {
                 options: {
@@ -31,6 +30,7 @@
         },
         mounted() {
             $('#dataTableBuilder').DataTable({
+                responsive: true,
                 serverSide: true,
                 processing: true,
                 ajax: {
@@ -81,7 +81,7 @@
                     data: 'updated_at',
                     name: 'updated_at',
                     width: 110,
-                    className: 'text-center'
+                    className: 'text-center',
                 }, {
                     title: this.$i18n.t('labels.actions'),
                     data: 'actions',
@@ -91,7 +91,7 @@
                 }],
                 select: {style: 'os'},
                 order: [[5, 'desc']],
-                rowId: 'id'
+                rowId: 'id',
             });
         }
     };

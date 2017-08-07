@@ -16,7 +16,6 @@
 <script>
     export default {
         name: 'form_submission_list',
-        props: ['adminPath'],
         data() {
             return {
                 options: {
