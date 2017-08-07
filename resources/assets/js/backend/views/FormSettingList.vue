@@ -69,6 +69,7 @@
                     name: 'actions',
                     orderable: false,
                     width: 75,
+                    className: 'nowrap',
                     responsivePriority: 2,
                 }],
                 order: [[0, 'asc']],

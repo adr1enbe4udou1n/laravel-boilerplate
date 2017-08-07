@@ -79,10 +79,9 @@
                                 <label class="col-lg-2 col-form-label">{{ $t('validation.attributes.permissions') }}</label>
                                 <div class="col-lg-10">
                                     <div class="row" v-for="categories in this.permissions">
-                                        <div class="col-md-3" v-for="category in categories">
+                                        <div class="col-md-6" v-for="category in categories">
                                             <h4>{{ $t(category.title) }}</h4>
                                             <div class="custom-controls-stacked">
-
                                                 <b-form-checkbox
                                                         v-for="permission in category.permissions"
                                                         :key="permission.name"
@@ -161,7 +160,7 @@
                         });
                     });
 
-                    this.permissions = _.chunk(data, 4);
+                    this.permissions = _.chunk(data, 2);
                 });
 
             this.fetchData();

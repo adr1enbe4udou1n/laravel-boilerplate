@@ -121,6 +121,7 @@
                     name: 'actions',
                     orderable: false,
                     width: 125,
+                    className: 'nowrap',
                     responsivePriority: 3,
                 }],
                 select: {style: 'os'},

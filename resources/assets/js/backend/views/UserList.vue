@@ -65,7 +65,7 @@
                     name: 'confirmed',
                     orderable: false,
                     searchable: false,
-                    width: 50,
+                    width: 75,
                     className: 'text-center'
                 }, {
                     title: this.$i18n.t('validation.attributes.roles'),
@@ -91,13 +91,13 @@
                     title: this.$i18n.t('labels.created_at'),
                     data: 'created_at',
                     name: 'created_at',
-                    width: 110,
+                    width: 75,
                     className: 'text-center'
                 }, {
                     title: this.$i18n.t('labels.updated_at'),
                     data: 'updated_at',
                     name: 'updated_at',
-                    width: 110,
+                    width: 75,
                     className: 'text-center'
                 }, {
                     title: this.$i18n.t('labels.actions'),
@@ -105,11 +105,12 @@
                     name: 'actions',
                     orderable: false,
                     width: 110,
+                    className: 'nowrap',
                     responsivePriority: 2,
                 }],
                 select: {style: 'os'},
                 order: [[7, 'desc']],
-                rowId: 'id'
+                rowId: 'id',
             });
         }
     };
