@@ -16,7 +16,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" rel="alternate" v-for="(locale, index) in this.$root.locales" :hreflang="index"
-                       :href="`/${index}/${$root.adminPath}`">
+                       :href="`/${index}/${$root.adminPathName}#${$router.currentRoute.fullPath}`">
                         {{ locale.native }}
                     </a>
                 </div>
@@ -59,7 +59,7 @@
             asideToggle(e) {
                 e.preventDefault();
                 document.body.classList.toggle('aside-menu-hidden');
-            }
+            },
         }
     };
 </script>
