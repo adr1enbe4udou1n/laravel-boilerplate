@@ -1,7 +1,7 @@
 <template>
     <div class="animated fadeIn">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
+        <div class="row justify-content-center">
+            <div class="col-xl-6">
                 <div class="card">
                     <div class="card-header">
                         <h4>{{ $t('labels.backend.form_submissions.titles.show') }}</h4>

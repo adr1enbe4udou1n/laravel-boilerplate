@@ -1,8 +1,8 @@
 <template>
     <div class="animated fadeIn">
         <form @submit.prevent="onSubmit">
-            <div class="row">
-                <div class="col-xl-6 offset-xl-3">
+            <div class="row justify-content-center">
+                <div class="col-xl-6">
                     <div class="card">
                         <div class="card-header">
                             <h4>{{ isNew ? $t('labels.backend.form_settings.titles.create') : $t('labels.backend.form_settings.titles.edit') }}</h4>
