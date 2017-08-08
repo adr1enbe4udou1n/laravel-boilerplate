@@ -54,38 +54,39 @@
                         <h4>{{ $t('labels.backend.dashboard.last_posts') }}</h4>
                     </div>
                     <div class="card-block">
-                        <table class="table table-striped table-bordered table-hover table-responsive">
-
-                            <thead>
-                            <tr>
-                                <th>{{ $t('validation.attributes.title') }}</th>
-                                <th>{{ $t('validation.attributes.status') }}</th>
-                                <th>{{ $t('validation.attributes.pinned') }}</th>
-                                <th>{{ $t('validation.attributes.summary') }}</th>
-                                <th class="text-center" style="width: 100px">{{ $t('labels.published_at') }}</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <template v-if="posts.length > 0">
-                            <tr v-for="post in posts">
-                                <td>
-                                    <router-link :to="`/post/${post.id}/edit`">
-                                        {{ post.title }}
-                                    </router-link>
-                                </td>
-                                <td><b-badge :variant="post.state">{{ $t(post.status_label) }}</b-badge></td>
-                                <td><b-badge :variant="post.pinned ? 'success' : 'danger'">{{ post.pinned ? $t('labels.yes') : $t('labels.no') }}</b-badge></td>
-                                <td>{{ post.summary }}</td>
-                                <td class="text-center">{{ post.published_at }}</td>
-                            </tr>
-                            </template>
-                            <tr v-else>
-                                <td valign="top" colspan="6"
-                                    class="text-center">{{ $t('labels.no_results') }}
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th>{{ $t('validation.attributes.title') }}</th>
+                                    <th>{{ $t('validation.attributes.status') }}</th>
+                                    <th>{{ $t('validation.attributes.pinned') }}</th>
+                                    <th>{{ $t('validation.attributes.summary') }}</th>
+                                    <th class="text-center" style="width: 100px">{{ $t('labels.published_at') }}</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <template v-if="posts.length > 0">
+                                <tr v-for="post in posts">
+                                    <td>
+                                        <router-link :to="`/post/${post.id}/edit`">
+                                            {{ post.title }}
+                                        </router-link>
+                                    </td>
+                                    <td><b-badge :variant="post.state">{{ $t(post.status_label) }}</b-badge></td>
+                                    <td><b-badge :variant="post.pinned ? 'success' : 'danger'">{{ post.pinned ? $t('labels.yes') : $t('labels.no') }}</b-badge></td>
+                                    <td>{{ post.summary }}</td>
+                                    <td class="text-center">{{ post.published_at }}</td>
+                                </tr>
+                                </template>
+                                <tr v-else>
+                                    <td valign="top" colspan="6"
+                                        class="text-center">{{ $t('labels.no_results') }}
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
                         <router-link to="/post/index" class="btn btn-primary pull-right">
                             {{ $t('labels.backend.dashboard.all_posts') }}
                         </router-link>
