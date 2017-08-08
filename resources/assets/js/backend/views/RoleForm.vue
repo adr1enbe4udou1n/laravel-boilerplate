@@ -2,7 +2,7 @@
     <div class="animated fadeIn">
         <form @submit.prevent="onSubmit">
             <div class="row">
-                <div class="col-md-8 offset-md-2">
+                <div class="col-xl-8 offset-xl-2">
                     <div class="card">
                         <div class="card-header">
                             <h4>{{ isNew ? $t('labels.backend.roles.titles.create') : $t('labels.backend.roles.titles.edit') }}</h4>
@@ -17,13 +17,17 @@
                                     :state="validation.errors.hasOwnProperty('name') ? 'danger' : ''"
                                     :feedback="validation.errors.hasOwnProperty('name') ? validation.errors.name[0] : ''"
                             >
-                                <b-form-input
-                                        id="name"
-                                        name="name"
-                                        :required="true"
-                                        :placeholder="$t('validation.attributes.name')"
-                                        v-model="model.name"
-                                ></b-form-input>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <b-form-input
+                                                id="name"
+                                                name="name"
+                                                :required="true"
+                                                :placeholder="$t('validation.attributes.name')"
+                                                v-model="model.name"
+                                        ></b-form-input>
+                                    </div>
+                                </div>
                             </b-form-fieldset>
 
                             <b-form-fieldset
@@ -34,13 +38,17 @@
                                     :state="validation.errors.hasOwnProperty('display_name') ? 'danger' : ''"
                                     :feedback="validation.errors.hasOwnProperty('display_name') ? validation.errors.display_name[0] : ''"
                             >
-                                <b-form-input
-                                        id="display_name"
-                                        name="display_name"
-                                        :required="true"
-                                        :placeholder="$t('validation.attributes.display_name')"
-                                        v-model="model.display_name"
-                                ></b-form-input>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <b-form-input
+                                                id="display_name"
+                                                name="display_name"
+                                                :required="true"
+                                                :placeholder="$t('validation.attributes.display_name')"
+                                                v-model="model.display_name"
+                                        ></b-form-input>
+                                    </div>
+                                </div>
                             </b-form-fieldset>
 
                             <b-form-fieldset
@@ -51,12 +59,16 @@
                                     :state="validation.errors.hasOwnProperty('description') ? 'danger' : ''"
                                     :feedback="validation.errors.hasOwnProperty('description') ? validation.errors.description[0] : ''"
                             >
-                                <b-form-input
-                                        id="description"
-                                        name="description"
-                                        :placeholder="$t('validation.attributes.description')"
-                                        v-model="model.description"
-                                ></b-form-input>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <b-form-input
+                                                id="description"
+                                                name="description"
+                                                :placeholder="$t('validation.attributes.description')"
+                                                v-model="model.description"
+                                        ></b-form-input>
+                                    </div>
+                                </div>
                             </b-form-fieldset>
 
                             <b-form-fieldset
@@ -65,21 +77,24 @@
                                     :horizontal="true"
                                     :label-cols="2"
                             >
-                                <b-form-input
-                                        id="order"
-                                        name="order"
-                                        type="number"
-                                        :required="true"
-                                        :placeholder="$t('validation.attributes.order')"
-                                        v-model="model.order"
-                                ></b-form-input>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <b-form-input
+                                                id="order"
+                                                name="order"
+                                                type="number"
+                                                :required="true"
+                                                v-model="model.order"
+                                        ></b-form-input>
+                                    </div>
+                                </div>
                             </b-form-fieldset>
 
                             <div class="form-group row">
-                                <label class="col-lg-2 col-form-label">{{ $t('validation.attributes.permissions') }}</label>
-                                <div class="col-lg-10">
-                                    <div class="row" v-for="categories in this.permissions">
-                                        <div class="col-md-6" v-for="category in categories">
+                                <label class="col-sm-2 col-form-label">{{ $t('validation.attributes.permissions') }}</label>
+                                <div class="col-sm-10">
+                                    <div class="row">
+                                        <div class="col-md-6 col-xl-4 mb-3" v-for="category in this.permissions">
                                             <h4>{{ $t(category.title) }}</h4>
                                             <div class="custom-controls-stacked">
                                                 <b-form-checkbox
@@ -141,6 +156,7 @@
                     name: null,
                     display_name: null,
                     description: null,
+                    order: 0,
                     permissions: null
                 };
             },
@@ -153,14 +169,12 @@
                         value['name'] = key;
                     }), 'category');
 
-                    let data = Object.keys(categories).map(key => {
+                    this.permissions = Object.keys(categories).map(key => {
                         return new Object({
                             title: key,
                             permissions: categories[key]
                         });
                     });
-
-                    this.permissions = _.chunk(data, 2);
                 });
 
             this.fetchData();

@@ -2,7 +2,7 @@
     <div class="animated fadeIn">
         <form @submit.prevent="onSubmit">
             <div class="row">
-                <div class="col-md-6 offset-md-3">
+                <div class="col-xl-6 offset-xl-3">
                     <div class="card">
                         <div class="card-header">
                             <h4>

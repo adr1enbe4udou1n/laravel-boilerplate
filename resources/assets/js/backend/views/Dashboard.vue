@@ -1,9 +1,9 @@
 <template>
     <div class="animated fadeIn">
         <div class="row">
-            <div class="col-lg-6 col-sm-12">
+            <div class="col-xl">
                 <div class="row">
-                    <div class="col-lg-4 col-xs-6">
+                    <div class="col-sm">
                         <div class="card card-inverse card-danger">
                             <div class="card-block pb-0">
                                 <h4 class="mb-0">{{ newPostsCount }}</h4>
@@ -11,7 +11,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-xs-6">
+                    <div class="col-sm">
                         <div class="card card-inverse card-warning">
                             <div class="card-block pb-0">
                                 <h4 class="mb-0">{{ pendingPostsCount }}</h4>
@@ -19,7 +19,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-xs-6">
+                    <div class="col-sm">
                         <div class="card card-inverse card-success">
                             <div class="card-block pb-0">
                                 <h4 class="mb-0">{{ publishedPostsCount }}</h4>
@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6 col-xs-6" v-if="this.$root.user.can['manage users']">
+                    <div class="col-sm" v-if="this.$root.user.can['manage users']">
                         <div class="card card-inverse card-primary">
                             <div class="card-block pb-0">
                                 <h4 class="mb-0">{{ activeUsersCount }}</h4>
@@ -37,7 +37,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-xs-6" v-if="this.$root.user.can['manage form_submissions']">
+                    <div class="col-sm" v-if="this.$root.user.can['manage form_submissions']">
                         <div class="card card-inverse card-info">
                             <div class="card-block pb-0">
                                 <h4 class="mb-0">{{ formSubmissionsCount }}</h4>
@@ -48,13 +48,14 @@
                 </div>
             </div>
 
-            <div class="col-lg-6 col-sm-12">
+            <div class="col-xl">
                 <div class="card">
                     <div class="card-header">
                         <h4>{{ $t('labels.backend.dashboard.last_posts') }}</h4>
                     </div>
                     <div class="card-block">
-                        <table class="table">
+                        <table class="table table-striped table-bordered table-hover table-responsive">
+
                             <thead>
                             <tr>
                                 <th>{{ $t('validation.attributes.title') }}</th>

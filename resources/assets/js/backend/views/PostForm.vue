@@ -2,7 +2,7 @@
     <div class="animated fadeIn">
         <form @submit.prevent="onSubmit">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-xl-8">
                     <div class="card">
                         <div class="card-header">
                             <h4>{{ isNew ? $t('labels.backend.posts.titles.create') : $t('labels.backend.posts.titles.edit') }}</h4>
@@ -120,7 +120,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-xl-4">
                     <div id="accordion" role="tablist">
                         <div class="card mb-0">
                             <div class="card-header" role="tab" id="headingOne">

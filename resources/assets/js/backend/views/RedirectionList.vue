@@ -1,7 +1,7 @@
 <template>
     <div class="animated fadeIn">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-xl-6">
                 <div class="card">
                     <div class="card-header">
                         <h4>{{ $t('labels.backend.redirections.import.title') }}</h4>
