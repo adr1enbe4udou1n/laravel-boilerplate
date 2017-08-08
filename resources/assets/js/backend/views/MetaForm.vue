@@ -27,8 +27,8 @@
                                         :label="$t('validation.attributes.route')"
                                         :horizontal="true"
                                         :label-cols="3"
-                                        :state="validation.errors.hasOwnProperty('route') ? 'danger' : ''"
-                                        :feedback="validation.errors.hasOwnProperty('route') ? validation.errors.route[0] : ''"
+                                        :state="state('route')"
+                                        :feedback="feedback('route')"
                                 >
                                     <v-select
                                             id="route"
@@ -46,8 +46,8 @@
                                     :label="$t('validation.attributes.title')"
                                     :horizontal="true"
                                     :label-cols="3"
-                                    :state="validation.errors.hasOwnProperty('title') ? 'danger' : ''"
-                                    :feedback="validation.errors.hasOwnProperty('title') ? validation.errors.title[0] : ''"
+                                    :state="state('title')"
+                                    :feedback="feedback('title')"
                             >
                                 <b-form-input
                                         id="title"
@@ -62,8 +62,8 @@
                                     :label="$t('validation.attributes.description')"
                                     :horizontal="true"
                                     :label-cols="3"
-                                    :state="validation.errors.hasOwnProperty('description') ? 'danger' : ''"
-                                    :feedback="validation.errors.hasOwnProperty('description') ? validation.errors.description[0] : ''"
+                                    :state="state('description')"
+                                    :feedback="feedback('description')"
                             >
                                 <b-form-input
                                         id="description"
@@ -106,10 +106,6 @@
             return {
                 routes: [],
                 modelName: 'meta',
-                model: this.initModel(),
-                validation: {
-                    errors: {}
-                }
             };
         },
         methods: {

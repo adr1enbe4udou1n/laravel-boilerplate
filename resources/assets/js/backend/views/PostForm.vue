@@ -13,13 +13,13 @@
                                     :label="$t('validation.attributes.title')"
                                     :horizontal="true"
                                     :label-cols="2"
-                                    :state="validation.errors.hasOwnProperty('title') ? 'danger' : ''"
-                                    :feedback="validation.errors.hasOwnProperty('title') ? validation.errors.title[0] : ''"
+                                    :state="state('title')"
+                                    :feedback="feedback('title')"
                             >
                                 <b-form-input
                                         id="title"
                                         name="title"
-                                        :required="true"
+                                        v-validate="'required'"
                                         :placeholder="$t('validation.attributes.title')"
                                         v-model="model.title"
                                 ></b-form-input>
@@ -30,8 +30,8 @@
                                     :label="$t('validation.attributes.summary')"
                                     :horizontal="true"
                                     :label-cols="2"
-                                    :state="validation.errors.hasOwnProperty('summary') ? 'danger' : ''"
-                                    :feedback="validation.errors.hasOwnProperty('summary') ? validation.errors.summary[0] : ''"
+                                    :state="state('summary')"
+                                    :feedback="feedback('summary')"
                             >
                                 <b-form-input
                                         id="summary"
@@ -48,8 +48,8 @@
                                     :label="$t('validation.attributes.body')"
                                     :horizontal="true"
                                     :label-cols="2"
-                                    :state="validation.errors.hasOwnProperty('body') ? 'danger' : ''"
-                                    :feedback="validation.errors.hasOwnProperty('body') ? validation.errors.body[0] : ''"
+                                    :state="state('body')"
+                                    :feedback="feedback('body')"
                             >
                                 <ckeditor
                                         id="body"
@@ -81,8 +81,8 @@
                                     :label="$t('validation.attributes.image')"
                                     :horizontal="true"
                                     :label-cols="2"
-                                    :state="validation.errors.hasOwnProperty('image') ? 'danger' : ''"
-                                    :feedback="validation.errors.hasOwnProperty('image') ? validation.errors.image[0] : ''"
+                                    :state="state('image')"
+                                    :feedback="feedback('image')"
                             >
                                 <div class="media">
                                     <img v-if="model.featured_image_path !== null" class="mr-2" :src="`/imagecache/small/${model.featured_image_path}`" alt="">
@@ -158,7 +158,7 @@
                                                     id="published_at"
                                                     name="published_at"
                                                     :config="config"
-                                                    :required="true"
+                                                    v-validate="'required'"
                                                     v-model="model.published_at"
                                             ></flatpickr>
                                             <div class="input-group-addon" data-toggle>
@@ -263,10 +263,6 @@
                     enableTime: true,
                 },
                 modelName: 'post',
-                model: this.initModel(),
-                validation: {
-                    errors: {}
-                }
             };
         },
         methods: {

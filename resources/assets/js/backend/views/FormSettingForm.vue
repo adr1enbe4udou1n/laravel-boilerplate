@@ -18,7 +18,7 @@
                                 <b-form-select
                                         id="name"
                                         name="name"
-                                        :required="true"
+                                        v-validate="'required'"
                                         :options="formTypes"
                                         v-model="model.name"
                                 ></b-form-select>
@@ -30,15 +30,15 @@
                                     :description="$t('labels.backend.form_settings.descriptions.recipients')"
                                     :horizontal="true"
                                     :label-cols="3"
-                                    :state="validation.errors.hasOwnProperty('recipients') ? 'danger' : ''"
-                                    :feedback="validation.errors.hasOwnProperty('recipients') ? validation.errors.recipients[0] : ''"
+                                    :state="state('recipients')"
+                                    :feedback="feedback('recipients')"
                             >
                                 <b-form-input
                                         id="recipients"
                                         name="recipients"
                                         :textarea="true"
                                         :rows="5"
-                                        :required="true"
+                                        v-validate="'required'"
                                         :placeholder="$t('validation.attributes.recipients')"
                                         v-model="model.recipients"
                                 ></b-form-input>
@@ -50,15 +50,15 @@
                                     :description="$t('labels.backend.form_settings.descriptions.message')"
                                     :horizontal="true"
                                     :label-cols="3"
-                                    :state="validation.errors.hasOwnProperty('message') ? 'danger' : ''"
-                                    :feedback="validation.errors.hasOwnProperty('message') ? validation.errors.message[0] : ''"
+                                    :state="state('message')"
+                                    :feedback="feedback('message')"
                             >
                                 <b-form-input
                                         id="message"
                                         name="message"
                                         :textarea="true"
                                         :rows="5"
-                                        :required="true"
+                                        v-validate="'required'"
                                         :placeholder="$t('validation.attributes.message')"
                                         v-model="model.message"
                                 ></b-form-input>
@@ -98,10 +98,6 @@
                     }
                 ],
                 modelName: 'form-setting',
-                model: this.initModel(),
-                validation: {
-                    errors: {}
-                }
             };
         },
         methods: {

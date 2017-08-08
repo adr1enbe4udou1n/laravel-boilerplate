@@ -14,15 +14,15 @@
                                     :label="$t('validation.attributes.name')"
                                     :horizontal="true"
                                     :label-cols="2"
-                                    :state="validation.errors.hasOwnProperty('name') ? 'danger' : ''"
-                                    :feedback="validation.errors.hasOwnProperty('name') ? validation.errors.name[0] : ''"
+                                    :state="state('name')"
+                                    :feedback="feedback('name')"
                             >
                                 <div class="row">
                                     <div class="col-md-6">
                                         <b-form-input
                                                 id="name"
                                                 name="name"
-                                                :required="true"
+                                                v-validate="'required'"
                                                 :placeholder="$t('validation.attributes.name')"
                                                 v-model="model.name"
                                         ></b-form-input>
@@ -35,15 +35,15 @@
                                     :label="$t('validation.attributes.display_name')"
                                     :horizontal="true"
                                     :label-cols="2"
-                                    :state="validation.errors.hasOwnProperty('display_name') ? 'danger' : ''"
-                                    :feedback="validation.errors.hasOwnProperty('display_name') ? validation.errors.display_name[0] : ''"
+                                    :state="state('display_name')"
+                                    :feedback="feedback('display_name')"
                             >
                                 <div class="row">
                                     <div class="col-md-6">
                                         <b-form-input
                                                 id="display_name"
                                                 name="display_name"
-                                                :required="true"
+                                                v-validate="'required'"
                                                 :placeholder="$t('validation.attributes.display_name')"
                                                 v-model="model.display_name"
                                         ></b-form-input>
@@ -56,8 +56,8 @@
                                     :label="$t('validation.attributes.description')"
                                     :horizontal="true"
                                     :label-cols="2"
-                                    :state="validation.errors.hasOwnProperty('description') ? 'danger' : ''"
-                                    :feedback="validation.errors.hasOwnProperty('description') ? validation.errors.description[0] : ''"
+                                    :state="state('description')"
+                                    :feedback="feedback('description')"
                             >
                                 <div class="row">
                                     <div class="col-md-6">
@@ -83,8 +83,10 @@
                                                 id="order"
                                                 name="order"
                                                 type="number"
-                                                :required="true"
+                                                v-validate="'required'"
                                                 v-model="model.order"
+                                                :state="state('order')"
+                                                :feedback="feedback('order')"
                                         ></b-form-input>
                                     </div>
                                 </div>
@@ -144,10 +146,6 @@
             return {
                 permissions: [],
                 modelName: 'role',
-                model: this.initModel(),
-                validation: {
-                    errors: {}
-                }
             };
         },
         methods: {

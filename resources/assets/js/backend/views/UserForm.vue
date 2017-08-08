@@ -14,16 +14,16 @@
                                     :label="$t('validation.attributes.name')"
                                     :horizontal="true"
                                     :label-cols="3"
-                                    :state="validation.errors.hasOwnProperty('name') ? 'danger' : ''"
-                                    :feedback="validation.errors.hasOwnProperty('name') ? validation.errors.name[0] : ''"
+                                    :state="state('name')"
+                                    :feedback="feedback('name')"
                             >
                                 <b-input-group :left="iconUser">
                                     <b-form-input
                                             id="name"
                                             name="name"
-                                            :required="true"
                                             :placeholder="$t('validation.attributes.name')"
                                             v-model="model.name"
+                                            v-validate="'required'"
                                     ></b-form-input>
                                 </b-input-group>
                             </b-form-fieldset>
@@ -33,17 +33,17 @@
                                     :label="$t('validation.attributes.email')"
                                     :horizontal="true"
                                     :label-cols="3"
-                                    :state="validation.errors.hasOwnProperty('email') ? 'danger' : ''"
-                                    :feedback="validation.errors.hasOwnProperty('email') ? validation.errors.email[0] : ''"
+                                    :state="state('email')"
+                                    :feedback="feedback('email')"
                             >
                                 <b-input-group :left="iconEnvelope">
                                     <b-form-input
                                             id="email"
                                             name="email"
                                             type="email"
-                                            :required="true"
                                             :placeholder="$t('validation.attributes.email')"
                                             v-model="model.email"
+                                            v-validate="'required|email'"
                                     ></b-form-input>
                                 </b-input-group>
                             </b-form-fieldset>
@@ -67,8 +67,8 @@
                                     :label="$t('validation.attributes.password')"
                                     :horizontal="true"
                                     :label-cols="3"
-                                    :state="validation.errors.hasOwnProperty('password') ? 'danger' : ''"
-                                    :feedback="validation.errors.hasOwnProperty('password') ? validation.errors.password[0] : ''"
+                                    :state="state('password')"
+                                    :feedback="feedback('password')"
                             >
                                 <b-form-input
                                         id="password"
@@ -84,8 +84,8 @@
                                     :label="$t('validation.attributes.password_confirmation')"
                                     :horizontal="true"
                                     :label-cols="3"
-                                    :state="validation.errors.hasOwnProperty('password_confirmation') ? 'danger' : ''"
-                                    :feedback="validation.errors.hasOwnProperty('password_confirmation') ? validation.errors.password_confirmation[0] : ''"
+                                    :state="state('password_confirmation')"
+                                    :feedback="feedback('password_confirmation')"
                             >
                                 <b-form-input
                                         id="password_confirmation"
@@ -144,10 +144,6 @@
                 iconEnvelope: '<i class="icon-envelope"></i>',
                 roles: {},
                 modelName: 'user',
-                model: this.initModel(),
-                validation: {
-                    errors: {}
-                }
             };
         },
         methods: {

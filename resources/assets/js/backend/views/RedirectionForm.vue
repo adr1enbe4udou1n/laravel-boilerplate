@@ -14,13 +14,13 @@
                                     :label="$t('validation.attributes.source_path')"
                                     :horizontal="true"
                                     :label-cols="3"
-                                    :state="validation.errors.hasOwnProperty('source') ? 'danger' : ''"
-                                    :feedback="validation.errors.hasOwnProperty('source') ? validation.errors.source[0] : ''"
+                                    :state="state('source')"
+                                    :feedback="feedback('source')"
                             >
                                 <b-form-input
                                         id="source"
                                         name="source"
-                                        :required="true"
+                                        v-validate="'required'"
                                         :placeholder="$t('validation.attributes.source_path')"
                                         v-model="model.source"
                                 ></b-form-input>
@@ -45,13 +45,13 @@
                                     :label="$t('validation.attributes.target_path')"
                                     :horizontal="true"
                                     :label-cols="3"
-                                    :state="validation.errors.hasOwnProperty('target') ? 'danger' : ''"
-                                    :feedback="validation.errors.hasOwnProperty('target') ? validation.errors.target[0] : ''"
+                                    :state="state('target')"
+                                    :feedback="feedback('target')"
                             >
                                 <b-form-input
                                         id="target"
                                         name="target"
-                                        :required="true"
+                                        v-validate="'required'"
                                         :placeholder="$t('validation.attributes.target_path')"
                                         v-model="model.target"
                                 ></b-form-input>
@@ -64,7 +64,7 @@
                             >
                                 <b-form-radio
                                         name="type"
-                                        :required="true"
+                                        v-validate="'required'"
                                         :stacked="true"
                                         :options="redirectionTypes"
                                         v-model="model.type"
@@ -100,10 +100,6 @@
             return {
                 redirectionTypes: {},
                 modelName: 'redirection',
-                model: this.initModel(),
-                validation: {
-                    errors: {}
-                }
             };
         },
         methods: {
