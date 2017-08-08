@@ -92,22 +92,28 @@
             };
         },
         created() {
-            axios
-                .get(`${this.$root.adminPath}/post/draft-counter`)
-                .then(response => {
-                    this.newPostsCount = response.data;
-                });
-            axios
-                .get(`${this.$root.adminPath}/post/pending-counter`)
-                .then(response => {
-                    this.pendingPostsCount = response.data;
-                });
+            this.fetchData();
         },
         methods: {
+            fetchData() {
+                axios
+                    .get(`${this.$root.adminPath}/post/draft-counter`)
+                    .then(response => {
+                        this.newPostsCount = response.data;
+                    });
+                axios
+                    .get(`${this.$root.adminPath}/post/pending-counter`)
+                    .then(response => {
+                        this.pendingPostsCount = response.data;
+                    });
+            },
             handleClick(e) {
                 e.preventDefault();
                 e.target.parentElement.classList.toggle('open');
             }
+        },
+        watch: {
+            '$route': 'fetchData'
         }
     };
 </script>
