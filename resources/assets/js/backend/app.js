@@ -71,6 +71,7 @@ new Vue({
         user: window.settings.user,
         isImpersonation: window.settings.is_impersonation,
         usurperName: window.settings.usurper_name,
+        homePath: window.settings.app.home_path,
         adminPathName: window.settings.app.admin_path_name,
         adminPath: window.settings.app.admin_path,
         locales: window.settings.locales,

@@ -106,18 +106,16 @@
             return {
                 routes: [],
                 modelName: 'meta',
-            };
-        },
-        methods: {
-            initModel() {
-                return {
+                model: {
                     metable_type: null,
                     metable_id: null,
                     route: null,
                     title: null,
                     description: null
-                };
-            },
+                }
+            };
+        },
+        methods: {
             getRoutes(search) {
                 axios
                     .get(`${this.$root.adminPath}/routes/search`, {

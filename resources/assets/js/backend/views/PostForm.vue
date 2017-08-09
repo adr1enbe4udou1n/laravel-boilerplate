@@ -158,7 +158,6 @@
                                                     id="published_at"
                                                     name="published_at"
                                                     :config="config"
-                                                    v-validate="'required'"
                                                     v-model="model.published_at"
                                             ></flatpickr>
                                             <div class="input-group-addon" data-toggle>
@@ -250,6 +249,7 @@
 
 <script>
     import axios from 'axios';
+    import moment from 'moment';
     import form from '../mixins/form';
 
     export default {
@@ -263,11 +263,7 @@
                     enableTime: true,
                 },
                 modelName: 'post',
-            };
-        },
-        methods: {
-            initModel() {
-                return {
+                model: {
                     title: null,
                     summary: null,
                     body: null,
@@ -280,15 +276,17 @@
                     owner: {
                         name: null
                     },
-                    published_at: null,
+                    published_at: moment().format(),
                     pinned: null,
                     promoted: null,
                     meta: {
                         title: null,
                         description: null
                     }
-                };
-            },
+                }
+            };
+        },
+        methods: {
             getTags(search) {
                 axios
                     .get(`${this.$root.adminPath}/tags/search`, {

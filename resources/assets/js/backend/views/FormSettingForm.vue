@@ -98,16 +98,12 @@
                     }
                 ],
                 modelName: 'form-setting',
-            };
-        },
-        methods: {
-            initModel() {
-                return {
+                model: {
                     name: null,
                     recipients: null,
                     message: null
-                };
-            },
+                }
+            };
         },
         created() {
             axios

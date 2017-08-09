@@ -382,7 +382,8 @@ export default {
                     "contact": "Contact",
                     "blog": "Blog",
                     "message_sent": "Message sent",
-                    "legal_mentions": "Legal mentions"
+                    "legal_mentions": "Legal mentions",
+                    "administration": "Administration"
                 },
                 "submissions": {
                     "message_sent": "<p>Your message has been successfully sent<\/p>"
@@ -1045,7 +1046,8 @@ export default {
                     "contact": "Contact",
                     "blog": "Blog",
                     "message_sent": "Message envoyé",
-                    "legal_mentions": "Mention légales"
+                    "legal_mentions": "Mention légales",
+                    "administration": "Administration"
                 },
                 "submissions": {
                     "message_sent": "<p>Votre demande de contact a bien été envoyée<\/p>"

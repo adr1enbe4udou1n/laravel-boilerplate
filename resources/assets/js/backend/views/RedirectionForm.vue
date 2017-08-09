@@ -100,17 +100,13 @@
             return {
                 redirectionTypes: {},
                 modelName: 'redirection',
-            };
-        },
-        methods: {
-            initModel() {
-                return {
+                model: {
                     source: null,
-                    active: null,
+                    active: true,
                     target: null,
-                    type: null
-                };
-            },
+                    type: 301
+                }
+            };
         },
         created() {
             axios

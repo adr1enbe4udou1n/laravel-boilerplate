@@ -35,7 +35,7 @@ export default (i18n) => {
                 name: 'home',
                 component: Full,
                 meta: {
-                    title: i18n.t('labels.frontend.titles.home')
+                    title: i18n.t('labels.frontend.titles.administration')
                 },
                 children: [
                     {

@@ -146,18 +146,14 @@
             return {
                 permissions: [],
                 modelName: 'role',
-            };
-        },
-        methods: {
-            initModel() {
-                return {
+                model: {
                     name: null,
                     display_name: null,
                     description: null,
                     order: 0,
-                    permissions: null
-                };
-            },
+                    permissions: []
+                }
+            };
         },
         created() {
             axios

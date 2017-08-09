@@ -4,7 +4,6 @@ export default {
     props: ['id'],
     data() {
         return {
-            model: this.initModel(),
             validation: {
                 errors: {}
             }
@@ -17,8 +16,6 @@ export default {
     },
     methods: {
         fetchData() {
-            this.model = this.initModel();
-
             if (!this.isNew) {
                 axios
                     .get(`${this.$root.adminPath}/${this.modelName}/${this.id}`)
@@ -28,7 +25,9 @@ export default {
             }
         },
         state(name) {
-            return this.errors.has(name) || this.validation.errors.hasOwnProperty(name) ? 'danger' : '';
+            if (this.errors.has(name) || this.validation.errors.hasOwnProperty(name)) {
+                return 'danger';
+            }
         },
         feedback(name) {
             if (this.errors.has(name)) {
@@ -62,8 +61,5 @@ export default {
     },
     created() {
         this.fetchData();
-    },
-    watch: {
-        '$route': 'fetchData'
     },
 };

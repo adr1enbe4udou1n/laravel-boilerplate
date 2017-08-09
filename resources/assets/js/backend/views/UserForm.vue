@@ -144,19 +144,15 @@
                 iconEnvelope: '<i class="icon-envelope"></i>',
                 roles: {},
                 modelName: 'user',
-            };
-        },
-        methods: {
-            initModel() {
-                return {
+                model: {
                     name: null,
                     email: null,
-                    active: null,
+                    active: true,
                     password: null,
                     confirm_password: null,
                     roles: []
-                };
-            },
+                },
+            };
         },
         created() {
             axios

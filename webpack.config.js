@@ -132,6 +132,7 @@ module.exports = {
             'flatpickr',
             'intl-tel-input',
             'toastr',
+            'moment'
         ],
         ckeditor: [
             'ckeditor',

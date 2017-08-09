@@ -2205,20 +2205,20 @@
         },
         {
             "name": "mcamara/laravel-localization",
-            "version": "v1.2.6",
+            "version": "v1.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mcamara/laravel-localization.git",
-                "reference": "2177e05d5cf35efea3a43c0f1785a3edd816347f"
+                "reference": "5f7e0e646d5c2374b8adaf1757599e043cd0994d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mcamara/laravel-localization/zipball/2177e05d5cf35efea3a43c0f1785a3edd816347f",
-                "reference": "2177e05d5cf35efea3a43c0f1785a3edd816347f",
+                "url": "https://api.github.com/repos/mcamara/laravel-localization/zipball/5f7e0e646d5c2374b8adaf1757599e043cd0994d",
+                "reference": "5f7e0e646d5c2374b8adaf1757599e043cd0994d",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "~5.2",
+                "laravel/framework": "~5.2, ~5.3, ~5.4",
                 "php": ">=5.6.0"
             },
             "require-dev": {
@@ -2226,6 +2226,16 @@
                 "phpunit/phpunit": "5.4.*"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mcamara\\LaravelLocalization\\LaravelLocalizationServiceProvider"
+                    ],
+                    "aliases": {
+                        "LaravelLocalization": "Mcamara\\LaravelLocalization\\Facades\\LaravelLocalization"
+                    }
+                }
+            },
             "autoload": {
                 "classmap": [],
                 "psr-0": {
@@ -2250,7 +2260,7 @@
                 "localization",
                 "php"
             ],
-            "time": "2017-05-18T10:22:35+00:00"
+            "time": "2017-08-08T04:41:28+00:00"
         },
         {
             "name": "mews/purifier",

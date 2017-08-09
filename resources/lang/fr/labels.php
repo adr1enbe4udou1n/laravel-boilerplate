@@ -259,6 +259,7 @@ return [
             'blog' => 'Blog',
             'message_sent' => 'Message envoyé',
             'legal_mentions' => 'Mention légales',
+            'administration' => 'Administration',
         ],
 
         'submissions' => [
