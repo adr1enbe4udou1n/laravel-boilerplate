@@ -72,6 +72,7 @@ return [
         'password_reset' => 'Réinitialisation du mot de passe',
         'register' => 'S\'inscrire',
         'space' => 'Mon espace',
+        'settings' => 'Paramètres',
         'account' => 'Mon compte',
         'profile' => 'Mon profil',
         'avatar' => 'Avatar',

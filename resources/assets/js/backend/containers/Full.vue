@@ -4,10 +4,10 @@
         <div class="app-body">
             <Sidebar/>
             <main class="main">
-                <b-alert variant="warning" show v-if="this.$root.isImpersonation">
-                    <span v-html="$t('labels.alerts.login_as', {'name': user.name, 'route': '/admin/logout-as', 'admin': usurperName})"></span>
+                <b-alert variant="warning" show v-if="this.$root.isImpersonation" class="mb-0">
+                    <span v-html="$t('labels.alerts.login_as', {'name': this.$root.user.name, 'route': `${this.$root.homePath}/logout-as`, 'admin': this.$root.usurperName})"></span>
                 </b-alert>
-                <b-alert variant="warning" show v-if="!this.$root.user.confirmed">
+                <b-alert variant="warning" show v-if="!this.$root.user.confirmed" class="mb-0">
                     <span v-html="$t('labels.alerts.not_confirmed', {'route': '/user/confirmation/send' })"></span>
                 </b-alert>
                 <breadcrumb :list="list"/>

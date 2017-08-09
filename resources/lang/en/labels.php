@@ -72,6 +72,7 @@ return [
         'password_reset' => 'Password Reset',
         'register' => 'Register',
         'space' => 'My space',
+        'settings' => 'Settings',
         'account' => 'My account',
         'profile' => 'My profile',
         'avatar' => 'Avatar',
