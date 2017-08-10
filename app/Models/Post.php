@@ -63,6 +63,7 @@ use Plank\Mediable\Mediable;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post withMediaMatchAll($tags = array())
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Post withTag(\App\Models\Tag $tag)
  *
+ * @property mixed $featured_image_url
  * @property mixed $featured_image_path
  * @property \App\Models\User $owner
  * @property \App\Models\Meta $meta
@@ -153,6 +154,11 @@ class Post extends Model
         }
 
         return 'placeholder.png';
+    }
+
+    public function getFeaturedImageUrlAttribute()
+    {
+        return config('filesystems.disks.public.url') . '/' . $this->getFeaturedImagePathAttribute();
     }
 
     public function getMetaTitleAttribute()

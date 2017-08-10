@@ -73,6 +73,7 @@
                                         :placeholder="$t('labels.placeholders.tags')"
                                         :taggable="true"
                                 >
+                                    <span slot="no-options">{{ $t('labels.no_results') }}</span>
                                 </v-select>
                             </b-form-fieldset>
 

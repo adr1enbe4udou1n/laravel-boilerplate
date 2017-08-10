@@ -4,7 +4,7 @@ return [
     'language' => 'Language',
     'actions' => 'Actions',
     'general' => 'General',
-    'no_results' => 'No results availible',
+    'no_results' => 'No results available',
     'are_you_sure' => 'Are you sure ?',
     'yes' => 'Yes',
     'no' => 'No',

@@ -181,7 +181,10 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader?cacheDirectory',
+                use: [
+                    'babel-loader?cacheDirectory',
+                    'eslint-loader',
+                ],
             },
             {
                 test: /\.html$/,
@@ -328,6 +331,7 @@ if (production) {
                 return JSON.stringify({
                     '/js/manifest.js': `/${data.assetsByChunkName.manifest[0]}`,
                     '/js/vendor.js': `/${data.assetsByChunkName.vendor[0]}`,
+                    '/js/ckeditor.js': `/${data.assetsByChunkName.ckeditor[0]}`,
                     '/js/frontend.js': `/${data.assetsByChunkName.frontend[0]}`,
                     '/css/frontend.css': `/${data.assetsByChunkName.frontend[1]}`,
                     '/js/backend.js': `/${data.assetsByChunkName.backend[0]}`,

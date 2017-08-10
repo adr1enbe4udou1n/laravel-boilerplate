@@ -4,7 +4,7 @@ return [
     'language' => 'Langue',
     'actions' => 'Actions',
     'general' => 'Général',
-    'no_results' => 'Aucune donnée disponible dans le tableau',
+    'no_results' => 'Aucun résultat trouvé',
     'are_you_sure' => 'Etes-vous sûr ?',
     'yes' => 'Oui',
     'no' => 'Non',

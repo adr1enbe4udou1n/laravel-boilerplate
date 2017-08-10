@@ -36,7 +36,7 @@
             </section>
         @endif
 
-        @if(Breadcrumbs::exists())
+        @if(Breadcrumbs::exists() && !request()->is('/'))
             <section class="nav-breadcrumb bg-inverse">
                 <div class="container">
                     {!! Breadcrumbs::render() !!}
@@ -44,7 +44,7 @@
             </section>
         @endif
 
-        <div class="main-container container">
+        <div class="main-container container py-4">
             @hasSection('title')
                 <h1 class="mb-4">@yield('title')</h1>
             @endif
