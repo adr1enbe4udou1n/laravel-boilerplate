@@ -43,6 +43,7 @@ let ckeditorPlugins = [
     'about',
     'autogrow',
     'dialog',
+    'divarea',
     'filetools',
     'image',
     'image2',

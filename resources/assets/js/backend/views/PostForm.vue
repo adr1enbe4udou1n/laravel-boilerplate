@@ -33,14 +33,14 @@
                                     :state="state('summary')"
                                     :feedback="feedback('summary')"
                             >
-                                <b-form-input
+                                <textarea
                                         id="summary"
                                         name="summary"
-                                        :textarea="true"
                                         :rows="5"
                                         :placeholder="$t('validation.attributes.summary')"
+                                        class="form-control"
                                         v-model="model.summary"
-                                ></b-form-input>
+                                ></textarea>
                             </b-form-fieldset>
 
                             <b-form-fieldset
@@ -228,14 +228,14 @@
                                             :horizontal="true"
                                             :label-cols="2"
                                     >
-                                        <b-form-input
+                                        <textarea
                                                 id="description"
                                                 name="meta[description]"
-                                                :textarea="true"
                                                 :rows="5"
                                                 :placeholder="$t('labels.backend.posts.placeholders.meta_description')"
+                                                class="form-control"
                                                 v-model="model.description"
-                                        ></b-form-input>
+                                        ></textarea>
                                     </b-form-fieldset>
                                 </div>
                             </div>

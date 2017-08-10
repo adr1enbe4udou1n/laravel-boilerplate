@@ -33,15 +33,15 @@
                                     :state="state('recipients')"
                                     :feedback="feedback('recipients')"
                             >
-                                <b-form-input
+                                <textarea
                                         id="recipients"
                                         name="recipients"
-                                        :textarea="true"
                                         :rows="5"
                                         v-validate="'required'"
                                         :placeholder="$t('validation.attributes.recipients')"
+                                        class="form-control"
                                         v-model="model.recipients"
-                                ></b-form-input>
+                                ></textarea>
                             </b-form-fieldset>
 
                             <b-form-fieldset
@@ -53,15 +53,15 @@
                                     :state="state('message')"
                                     :feedback="feedback('message')"
                             >
-                                <b-form-input
+                                <textarea
                                         id="message"
                                         name="message"
-                                        :textarea="true"
                                         :rows="5"
                                         v-validate="'required'"
                                         :placeholder="$t('validation.attributes.message')"
+                                        class="form-control"
                                         v-model="model.message"
-                                ></b-form-input>
+                                ></textarea>
                             </b-form-fieldset>
                         </div>
 

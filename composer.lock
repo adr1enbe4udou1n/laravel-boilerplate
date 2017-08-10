@@ -2152,16 +2152,16 @@
         },
         {
             "name": "martinlindhe/laravel-vue-i18n-generator",
-            "version": "0.1.17",
+            "version": "0.1.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/martinlindhe/laravel-vue-i18n-generator.git",
-                "reference": "db3f79a1a01260b1f2933eb5e1385f30e9fe4cfa"
+                "reference": "e38f48d099c14fca78a7f778ad85c1ac17fd7350"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/martinlindhe/laravel-vue-i18n-generator/zipball/db3f79a1a01260b1f2933eb5e1385f30e9fe4cfa",
-                "reference": "db3f79a1a01260b1f2933eb5e1385f30e9fe4cfa",
+                "url": "https://api.github.com/repos/martinlindhe/laravel-vue-i18n-generator/zipball/e38f48d099c14fca78a7f778ad85c1ac17fd7350",
+                "reference": "e38f48d099c14fca78a7f778ad85c1ac17fd7350",
                 "shasum": ""
             },
             "require": {
@@ -2201,7 +2201,7 @@
                 "laravel",
                 "vue-i18n"
             ],
-            "time": "2017-07-28T23:21:40+00:00"
+            "time": "2017-08-10T13:57:12+00:00"
         },
         {
             "name": "mcamara/laravel-localization",

@@ -65,14 +65,14 @@
                                     :state="state('description')"
                                     :feedback="feedback('description')"
                             >
-                                <b-form-input
+                                <textarea
                                         id="description"
                                         name="description[meta]"
-                                        :textarea="true"
                                         :rows="5"
                                         :placeholder="$t('validation.attributes.description')"
+                                        class="form-control"
                                         v-model="model.description"
-                                ></b-form-input>
+                                ></textarea>
                             </b-form-fieldset>
                         </div>
 

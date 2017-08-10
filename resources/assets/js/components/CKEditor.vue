@@ -39,11 +39,11 @@
             this.updateData();
         },
         mounted() {
-            let plugins = ['autogrow', 'image2', 'uploadimage'];
+            let plugins = ['autogrow', 'divarea', 'image2', 'uploadimage'];
 
             window.CKEDITOR.replace(this.id, {
                 extraPlugins: plugins.join(','),
-                removePlugins: 'resize',
+                removePlugins: 'resize,wysiwygarea',
                 language: window.locale,
                 toolbar: [
                     {name: 'basicstyles', items: ['Bold', 'Italic']},
@@ -53,10 +53,7 @@
                     {name: 'styles', items: ['Format']},
                     {name: 'document', items: ['Source']},
                 ],
-                uploadUrl: '/admin/images/upload',
-                autoGrow_minHeight: 200,
-                autoGrow_maxHeight: 600,
-                autoGrow_onStartup: true
+                uploadUrl: `${this.$root.adminPath}/images/upload`,
             });
 
             this.instance.on('blur', () => {
@@ -68,9 +65,10 @@
         },
         beforeDestroy() {
             if (this.instance) {
-                this.instance.focusManager.blur(true);
-                this.instance.removeAllListeners();
-                this.instance.destroy();
+                setTimeout(() => {
+                    this.instance.removeAllListeners();
+                    this.instance.destroy();
+                });
             }
         }
     };
