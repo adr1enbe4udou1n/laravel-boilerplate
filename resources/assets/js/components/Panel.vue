@@ -2,7 +2,7 @@
     <div class="card mb-3">
         <div class="card-header">{{ title }}</div>
 
-        <div class="card-block">
+        <div class="card-body">
             <slot></slot>
         </div>
     </div>

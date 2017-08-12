@@ -1,5 +1,5 @@
 @if ($type === 'password')
-    {{ Form::password($name, array_merge(['id' => $name, 'class' => 'form-control'], $attributes)) }}
+    {{ Form::password($name, $attributes) }}
 @else
-    {{ Form::$type($name, $value ?? null, array_merge(['id' => $name, 'class' => 'form-control'], $attributes)) }}
+    {{ Form::$type($name, $value ?? null, $attributes) }}
 @endif

@@ -10,7 +10,7 @@
                                 }}</h4>
                         </div>
 
-                        <div class="card-block">
+                        <div class="card-body">
                             <template v-if="this.model.metable_type !== null">
                                 <div class="form-group">
                                     <label class="control-label col-lg-3">{{ $t('validation.attributes.metable_type')

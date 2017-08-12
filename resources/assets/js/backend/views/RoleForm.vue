@@ -8,7 +8,7 @@
                             <h4>{{ isNew ? $t('labels.backend.roles.titles.create') : $t('labels.backend.roles.titles.edit') }}</h4>
                         </div>
 
-                        <div class="card-block">
+                        <div class="card-body">
                             <b-form-fieldset
                                     label-for="name"
                                     :label="$t('validation.attributes.name')"

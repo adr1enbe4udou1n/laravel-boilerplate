@@ -99,7 +99,7 @@
 
 @mixin bg-variant($parent, $color) {
   #{$parent} {
-    @include border-radius($card-border-radius-inner $card-border-radius-inner $card-border-radius-inner $card-border-radius-inner);
+    @include border-radius($card-border-radius $card-border-radius $card-border-radius $card-border-radius);
     color: #fff !important;
     background-color: $color !important;
   }
@@ -108,9 +108,4 @@
       background-color: darken($color, 10%);
     }
   }
-}
-
-@mixin card-accent-variant($color) {
-  border-top-width: 2px;
-  border-top-color: $color;
 }

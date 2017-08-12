@@ -5,10 +5,10 @@
 <!-- Main Content -->
 @section('content')
     <div class="row">
-        <div class="col-md-12 col-lg-6 offset-lg-3 mt-4">
+        <div class="col-md-12 col-lg-5 mx-auto">
             <div class="card">
                 <div class="card-header">@lang('labels.user.send_password_link')</div>
-                <div class="card-block">
+                <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
@@ -21,8 +21,6 @@
                         @component('components.fieldset', [
                             'name' => 'email',
                             'title' => trans('validation.attributes.email'),
-                            'horizontal' => true,
-                            'label_cols' => 4
                         ])
                             @component('components.input-group', [
                                 'left' => '<i class="icon-user"></i>'
@@ -36,7 +34,7 @@
                         @endcomponent
 
                         <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-6">
                                 <button  class="btn btn-primary">
                                     @lang('labels.user.send_password_link')
                                 </button>

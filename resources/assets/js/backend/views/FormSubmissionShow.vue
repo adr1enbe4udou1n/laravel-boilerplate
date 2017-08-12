@@ -6,7 +6,7 @@
                     <div class="card-header">
                         <h4>{{ $t('labels.backend.form_submissions.titles.show') }}</h4>
                     </div>
-                    <div class="card-block">
+                    <div class="card-body">
                         <table class="table table-striped table-hover" v-if="submission !== null">
                             <tr v-for="(value, name) in JSON.parse(submission.data)">
 

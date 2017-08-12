@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer bg-dark">
     <div class="container">
         <ul class="footer-links">
             <li><a href="{{ route('home') }}">@lang('labels.frontend.titles.home')</a></li>

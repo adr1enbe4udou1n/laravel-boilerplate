@@ -18,7 +18,10 @@ class FormServiceProvider extends ServiceProvider
         View::composer('components.form.*', function (\Illuminate\View\View $view) {
             $data = $view->getData();
 
-            $attributes = [];
+            $attributes = [
+                'id' => $data['name'],
+                'class' => 'form-control'
+            ];
             $rules = [];
             $parameters = $data['parameters'];
 
@@ -41,15 +44,6 @@ class FormServiceProvider extends ServiceProvider
                         $attributes['multiple'] = true;
                     }
                     break;
-                case 'components.form.choices':
-                    if (!isset($parameters['multiple'])) {
-                        $parameters['multiple'] = false;
-                    }
-
-                    $parameters['type'] = $parameters['multiple']
-                      ? 'checkbox'
-                      : 'radio';
-                    break;
             }
 
             if (isset($parameters['required']) && $parameters['required']) {
@@ -59,6 +53,11 @@ class FormServiceProvider extends ServiceProvider
 
             if (!empty($rules)) {
                 $attributes['v-validate'] = "'".implode('|', $rules)."'";
+                $attributes[':class'] = "{'is-invalid': errors.has('{$data['name']}') }";
+            }
+
+            if (($errors = session('errors')) && $errors->has($data['name'])) {
+                $attributes['class'] .= ' is-invalid';
             }
 
             if (isset($parameters['strength_meter']) && $parameters['strength_meter']) {
@@ -95,8 +94,6 @@ class FormServiceProvider extends ServiceProvider
         Form::component('bsTextarea', 'components.form.textarea', ['name', 'parameters' => []]);
         Form::component('bsSelect', 'components.form.select', ['name', 'parameters' => []]);
         Form::component('bsCheckbox', 'components.form.checkbox', ['name', 'parameters' => []]);
-        Form::component('bsChoices', 'components.form.choices', ['name', 'parameters' => []]);
-        Form::component('bsFile', 'components.form.file', ['name', 'parameters' => []]);
     }
 
     /**

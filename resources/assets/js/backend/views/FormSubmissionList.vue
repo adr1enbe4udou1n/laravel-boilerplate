@@ -4,7 +4,7 @@
             <div class="card-header">
                 <h4>{{ $t('labels.backend.form_submissions.titles.index') }}</h4>
             </div>
-            <div class="card-block">
+            <div class="card-body">
                 <table id="dataTableBuilder" class="table table-striped table-bordered table-hover" cellspacing="0"
                        width="100%"></table>
                 <batch-action :options="options" :url="`${this.$root.adminPath}/form-submission/batch-action`" datatable="dataTableBuilder"></batch-action>

@@ -6,7 +6,7 @@
                     <div class="card-header">
                         <h4>{{ $t('labels.backend.redirections.import.title') }}</h4>
                     </div>
-                    <div class="card-block">
+                    <div class="card-body">
                         <form class="form-inline" @submit.prevent="onFileImport">
                             <b-input-file v-model="importFile"></b-input-file>
                             <input type="submit" class="btn btn-warning btn-md ml-1"
@@ -26,7 +26,7 @@
                 </div>
                 <h4 class="mt-1">{{ $t('labels.backend.redirections.titles.index') }}</h4>
             </div>
-            <div class="card-block">
+            <div class="card-body">
                 <table id="dataTableBuilder" class="table table-striped table-bordered table-hover" cellspacing="0"
                        width="100%"></table>
                 <batch-action :options="options" :url="`${this.$root.adminPath}/redirection/batch-action`" datatable="dataTableBuilder"></batch-action>

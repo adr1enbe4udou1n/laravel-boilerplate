@@ -54,7 +54,7 @@
 @endcomponent
 
 <div class="form-group row">
-    <div class="col-md-6 offset-md-4">
+    <div class="col-md-8 ml-auto">
         {{ Form::submit(trans('buttons.update'), ['class' => 'btn btn-primary', 'id' => 'update-profile']) }}
     </div>
 </div>

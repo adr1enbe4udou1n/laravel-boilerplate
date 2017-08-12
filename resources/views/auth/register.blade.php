@@ -3,10 +3,10 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-lg-6 offset-lg-3 mt-4">
+            <div class="col-md-12 col-lg-6 mx-auto">
                 <div class="card">
                     <div class="card-header">@lang('labels.user.register')</div>
-                    <div class="card-block">
+                    <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
                             {{ csrf_field() }}
 
@@ -71,13 +71,13 @@
                             @endcomponent
 
                             <div class="form-group row">
-                                <div class="col-md-9 offset-md-3">
+                                <div class="col-md-9 ml-auto">
                                     {!! Captcha::display() !!}
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <div class="col-md-9 offset-md-3">
+                                <div class="col-md-9 ml-auto">
                                     <button  class="btn btn-primary">
                                         @lang('labels.user.register')
                                     </button>

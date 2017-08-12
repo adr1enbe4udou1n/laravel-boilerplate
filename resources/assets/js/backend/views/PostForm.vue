@@ -7,7 +7,7 @@
                         <div class="card-header">
                             <h4>{{ isNew ? $t('labels.backend.posts.titles.create') : $t('labels.backend.posts.titles.edit') }}</h4>
                         </div>
-                        <div class="card-block">
+                        <div class="card-body">
                             <b-form-fieldset
                                     label-for="title"
                                     :label="$t('validation.attributes.title')"
@@ -132,7 +132,7 @@
                                 </h5>
                             </div>
                             <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-                                <div class="card-block">
+                                <div class="card-body">
                                     <template v-if="!isNew">
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">{{ $t('validation.attributes.status') }}</label>
@@ -206,7 +206,7 @@
                                 </h5>
                             </div>
                             <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                <div class="card-block">
+                                <div class="card-body">
                                     <b-form-fieldset
                                             label-for="title"
                                             :label="$t('validation.attributes.title')"

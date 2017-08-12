@@ -14,7 +14,7 @@
     line-height: 90px;
     background: $gray-lighter;
 
-    @include border-radius($card-border-radius-inner $card-border-radius-inner 0 0);
+    @include border-radius($card-border-radius $card-border-radius 0 0);
   }
 
   .chart-wrapper {

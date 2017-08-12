@@ -5,7 +5,8 @@
  */
 
 window.$ = window.jQuery = require('jquery');
-window.Tether = require('tether');
+import Popper from 'popper.js';
+window.Popper = Popper;
 require('bootstrap');
 
 /**

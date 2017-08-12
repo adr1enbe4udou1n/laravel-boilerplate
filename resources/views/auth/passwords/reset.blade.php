@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header">@lang('labels.user.password_reset')</div>
 
-                <div class="card-block">
+                <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}

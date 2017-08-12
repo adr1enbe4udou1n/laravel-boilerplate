@@ -80,3 +80,11 @@ body .cke_wysiwyg_div {
   min-height: 200px;
   padding: 15px;
 }
+
+.form-group.is-invalid .form-control {
+  border-color: $form-feedback-invalid-color;
+}
+
+.form-group.is-invalid .invalid-feedback {
+  display: block;
+}

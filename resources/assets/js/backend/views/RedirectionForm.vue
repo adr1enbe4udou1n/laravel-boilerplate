@@ -8,7 +8,7 @@
                             <h4>{{ isNew ? $t('labels.backend.redirections.titles.create') : $t('labels.backend.redirections.titles.edit') }}</h4>
                         </div>
 
-                        <div class="card-block">
+                        <div class="card-body">
                             <b-form-fieldset
                                     label-for="source"
                                     :label="$t('validation.attributes.source_path')"

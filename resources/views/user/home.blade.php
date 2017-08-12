@@ -6,9 +6,70 @@
         <div class="card">
             <div class="card-header">@lang('labels.user.dashboard')</div>
 
-            <div class="card-block">
+            <div class="card-body">
                 <div class="row">
-                    <div class="col-md-4 push-md-8">
+                    <div class="col-md-8">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h4>Item</h4>
+                            </div>
+
+                            <div class="card-body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.</p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>Item</h4>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>Item</h4>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>Item</h4>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>Item</h4>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
                         <div class="media">
                             <img class="media-object mr-3" src="{{ $logged_in_user->avatar }}" alt="@lang('labels.user.avatar')">
                             <div class="media-body">
@@ -22,11 +83,11 @@
                                 </small>
 
                                 <p>
-                                <a href="{{ route('user.account') }}" class="btn btn-info btn-sm">@lang('labels.user.account')</a>
+                                    <a href="{{ route('user.account') }}" class="btn btn-info btn-sm">@lang('labels.user.account')</a>
 
-                                @can('access backend')
-                                <a href="{{ route('admin.home') }}" class="btn btn-danger btn-sm">@lang('labels.user.administration')</a>
-                                @endcan
+                                    @can('access backend')
+                                        <a href="{{ route('admin.home') }}" class="btn btn-danger btn-sm">@lang('labels.user.administration')</a>
+                                    @endcan
                                 </p>
                             </div>
                         </div>
@@ -34,83 +95,21 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <h4>Sidebar Item</h4>
-                            </div><!--card-header-->
+                            </div>
 
-                            <div class="card-block">
+                            <div class="card-body">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.
-                            </div><!--card-block-->
-                        </div><!--panel-->
+                            </div>
+                        </div>
 
                         <div class="card">
                             <div class="card-header">
                                 <h4>Sidebar Item</h4>
-                            </div><!--card-header-->
+                            </div>
 
-                            <div class="card-block">
+                            <div class="card-body">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.
-                            </div><!--card-block-->
-                        </div><!--panel-->
-                    </div><!--col-md-4-->
-
-                    <div class="col-md-8 pull-md-4">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <h4>Item</h4>
-                            </div><!--card-header-->
-
-                            <div class="card-block">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.</p>
-                            </div><!--card-block-->
-                        </div><!--panel-->
-
-                        <div class="row">
-                            <div class="col-md-6 mb-4">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Item</h4>
-                                    </div><!--card-header-->
-
-                                    <div class="card-block">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.</p>
-                                    </div><!--card-block-->
-                                </div><!--panel-->
-                            </div><!--col-md-6-->
-
-                            <div class="col-md-6 mb-4">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Item</h4>
-                                    </div><!--card-header-->
-
-                                    <div class="card-block">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.</p>
-                                    </div><!--card-block-->
-                                </div><!--panel-->
-                            </div><!--col-md-6-->
-
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Item</h4>
-                                    </div><!--card-header-->
-
-                                    <div class="card-block">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.</p>
-                                    </div><!--card-block-->
-                                </div><!--panel-->
-                            </div><!--col-md-6-->
-
-                            <div class="col-md-6">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4>Item</h4>
-                                    </div><!--card-header-->
-
-                                    <div class="card-block">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.</p>
-                                    </div><!--card-block-->
-                                </div><!--panel-->
-                            </div><!--col-md-6-->
+                            </div>
                         </div>
                     </div>
                 </div>

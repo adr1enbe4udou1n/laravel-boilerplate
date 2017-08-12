@@ -20,7 +20,7 @@
             <i class="fa fa-home"></i> @lang('labels.frontend.titles.about')
         </div>
 
-        <div class="card-block">
+        <div class="card-body">
             <p>
                 Nulla quis lorem ut libero malesuada feugiat. Sed porttitor lectus nibh. Vivamus suscipit tortor
                 eget felis porttitor volutpat. Nulla porttitor accumsan tincidunt. Vivamus suscipit tortor eget
@@ -45,7 +45,7 @@
             This panel show original 4K images samples optimized by imagecache intervention laravel package
         </div>
 
-        <div class="card-block">
+        <div class="card-body">
             <div class="row">
                 <div class="col-md-4">
                     <img src="{{ image_template_url('large', 'wallpapers-uhd/03908_halfdomejoy_3840x2160.jpg') }}" alt="halfdomejoy" width="480" height="360" class="img-fluid">

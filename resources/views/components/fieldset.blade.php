@@ -1,6 +1,6 @@
-<div class="form-group row{{ $errors->has($name) ? ' has-danger' : '' }}" :class="{'has-danger': errors.has('{{ $name }}') }">
+<div class="form-group row{{ $errors->has($name) ? ' is-invalid' : '' }}" :class="{'is-invalid': errors.has('{{ $name }}') }">
     @isset($title)
-    {{ Form::label($name, isset($required) && $required ? "$title *" : $title, ['class' => isset($horizontal) && $horizontal ? "col-md-{$label_cols} col-form-label" : 'col-12 form-control-label']) }}
+    {{ Form::label($name, $title, ['class' => isset($horizontal) && $horizontal ? "col-md-{$label_cols} col-form-label" : 'col-12 form-control-label']) }}
     @endisset
 
     <div class="{{ isset($horizontal) && $horizontal ? 'col-md-' . (12 - $label_cols ) : 'col-12' }}">
@@ -8,17 +8,20 @@
         {{{ $slot }}}
 
         @if ($errors->has($name))
-            <div class="form-control-feedback" v-show="!errors.has('{{ $name }}')">
-                {{ $errors->first($name) }}
+            <div class="invalid-feedback">
+                <span v-if="errors.has('{{ $name }}')" v-cloak>@{{ errors.first('{{{ $name }}}') }}</span>
+                <span v-else>{{ $errors->first($name) }}</span>
+            </div>
+        @else
+            <div class="invalid-feedback" v-if="errors.has('{{ $name }}')">
+                @{{ errors.first('{{{ $name }}}') }}
             </div>
         @endif
-        <div class="form-control-feedback" v-show="errors.has('{{ $name }}')" v-cloak>
-            @{{ errors.first('{{{ $name }}}') }}
-        </div>
+
         @if(isset($description))
-            <p class="form-text text-muted" v-show="!errors.has('{{ $name }}')">
+            <small class="form-text text-muted">
                 {{ $description }}
-            </p>
+            </small>
         @endif
     </div>
 </div>

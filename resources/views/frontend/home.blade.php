@@ -16,7 +16,7 @@
             @lang('labels.frontend.titles.home')
         </div>
 
-        <div class="card-block">
+        <div class="card-body">
             <p>
                 Nulla quis lorem ut libero malesuada feugiat. Sed porttitor lectus nibh. Vivamus suscipit tortor
                 eget felis porttitor volutpat. Nulla porttitor accumsan tincidunt. Vivamus suscipit tortor eget
@@ -35,7 +35,7 @@
     <div class="card mb-3">
         <div class="card-header"></i> Font Awesome</div>
 
-        <div class="card-block">
+        <div class="card-body">
             <i class="fa fa-home"></i>
             <i class="fa fa-facebook"></i>
             <i class="fa fa-twitter"></i>

@@ -37,7 +37,7 @@
         @endif
 
         @if(Breadcrumbs::exists() && !request()->is('/'))
-            <section class="nav-breadcrumb bg-inverse">
+            <section class="nav-breadcrumb bg-dark">
                 <div class="container">
                     {!! Breadcrumbs::render() !!}
                 </div>

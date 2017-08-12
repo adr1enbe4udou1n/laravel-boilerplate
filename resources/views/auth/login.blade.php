@@ -4,10 +4,10 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-12 col-lg-6 offset-lg-3 mt-4">
+        <div class="col-md-12 col-lg-6 mx-auto">
             <div class="card">
                 <div class="card-header">@lang('labels.user.login')</div>
-                <div class="card-block">
+                <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
@@ -47,14 +47,14 @@
 
                         @if($is_locked)
                         <div class="form-group row">
-                            <div class="col-md-2 col-sm-12 offset-md-4">
+                            <div class="col-md-8 ml-auto">
                                 {!! Captcha::display() !!}
                             </div>
                         </div>
                         @endif
 
                         <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-8 ml-auto">
                                 {{ Form::bsCheckbox('remember', [
                                     'label' => trans('labels.user.remember'),
                                 ]) }}
@@ -62,7 +62,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-md-8 offset-md-4">
+                            <div class="col-md-8 ml-auto">
                                 <button  class="btn btn-primary">
                                     @lang('labels.user.login')
                                 </button>

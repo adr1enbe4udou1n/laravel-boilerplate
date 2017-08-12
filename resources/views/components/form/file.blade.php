@@ -1,1 +1,0 @@
-{{ Form::file($name, array_merge(['id' => $name, 'class' => 'form-control'], $attributes)) }}
