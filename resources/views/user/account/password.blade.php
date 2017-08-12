@@ -6,9 +6,10 @@
     'horizontal' => true,
     'label_cols' => 4
 ])
-    {{ Form::bsInput('old_password', [
+    {{ Form::password('old_password', [
         'placeholder' => trans('validation.attributes.old_password'),
-        'type' => 'password',
+        'class' => 'form-control',
+        'v-validate' => "'required'"
     ]) }}
 @endcomponent
 
@@ -18,11 +19,11 @@
     'horizontal' => true,
     'label_cols' => 4
 ])
-    {{ Form::bsInput('password', [
-        'required' => true,
+    {{ Form::password('password', [
         'placeholder' => trans('validation.attributes.new_password'),
-        'type' => 'password',
-        'strength_meter' => true,
+        'class' => 'form-control',
+        'v-validate' => "'required'",
+        'data-toggle' => 'password-strength-meter'
     ]) }}
 @endcomponent
 
@@ -32,10 +33,10 @@
     'horizontal' => true,
     'label_cols' => 4
 ])
-    {{ Form::bsInput('password_confirmation', [
-        'required' => true,
+    {{ Form::password('password_confirmation', [
         'placeholder' => trans('validation.attributes.new_password_confirmation'),
-        'type' => 'password',
+        'class' => 'form-control',
+        'v-validate' => "'required'"
     ]) }}
 @endcomponent
 

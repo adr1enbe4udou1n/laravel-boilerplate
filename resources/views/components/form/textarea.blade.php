@@ -1,1 +1,0 @@
-{{ Form::textarea($name, null, $attributes) }}

@@ -20,10 +20,11 @@
                             @component('components.input-group', [
                                 'left' => '<i class="icon-user"></i>'
                             ])
-                                {{ Form::bsInput('email', [
+                                {{ Form::email('email', null, [
                                     'type' => 'email',
-                                    'required' => true,
                                     'placeholder' => trans('validation.attributes.email'),
+                                    'class' => 'form-control',
+                                    'v-validate' => "'required|email'"
                                 ]) }}
                             @endcomponent
                         @endcomponent
@@ -37,10 +38,10 @@
                             @component('components.input-group', [
                                 'left' => '<i class="icon-lock"></i>'
                             ])
-                                {{ Form::bsInput('password', [
-                                    'type' => 'password',
-                                    'required' => true,
+                                {{ Form::password('password', [
                                     'placeholder' => trans('validation.attributes.password'),
+                                    'class' => 'form-control',
+                                    'v-validate' => "'required'"
                                 ]) }}
                             @endcomponent
                         @endcomponent
@@ -55,9 +56,11 @@
 
                         <div class="form-group row">
                             <div class="col-md-8 ml-auto">
-                                {{ Form::bsCheckbox('remember', [
-                                    'label' => trans('labels.user.remember'),
-                                ]) }}
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" name="remember" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">@lang('labels.user.remember')</span>
+                                </label>
                             </div>
                         </div>
 

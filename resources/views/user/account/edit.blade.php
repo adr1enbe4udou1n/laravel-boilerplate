@@ -6,9 +6,10 @@
     'horizontal' => true,
     'label_cols' => 4
 ])
-    {{ Form::bsInput('name', [
-        'required' => true,
+    {{ Form::text('name', null, [
         'placeholder' => trans('validation.attributes.name'),
+        'class' => 'form-control',
+        'v-validate' => "'required'"
     ]) }}
 @endcomponent
 
@@ -18,12 +19,10 @@
     'horizontal' => true,
     'label_cols' => 4
 ])
-    {{ Form::bsInput('email', [
-        'required' => true,
-        'type' => 'email',
+    {{ Form::email('email', null, [
         'title' => trans('validation.attributes.email'),
-        'label_col_class' => 'col-md-4',
-        'field_wrapper_class' => 'col-md-6',
+        'class' => 'form-control',
+        'v-validate' => "'required|email'"
     ]) }}
 @endcomponent
 
@@ -33,10 +32,10 @@
     'horizontal' => true,
     'label_cols' => 4
 ])
-    {{ Form::bsSelect('locale', [
-        'required' => true,
+    {{ Form::select('locale', $locales, null, [
         'placeholder' => trans('labels.frontend.placeholders.locale'),
-        'options' => $locales,
+        'class' => 'form-control',
+        'v-validate' => "'required'",
     ]) }}
 @endcomponent
 
@@ -46,10 +45,10 @@
     'horizontal' => true,
     'label_cols' => 4
 ])
-    {{ Form::bsSelect('timezone', [
-        'required' => true,
+    {{ Form::select('timezone', array_combine(array_values($timezones), $timezones), null, [
         'placeholder' => trans('labels.frontend.placeholders.timezone'),
-        'options' => array_combine(array_values($timezones), $timezones),
+        'class' => 'form-control',
+        'v-validate' => "'required'",
     ]) }}
 @endcomponent
 

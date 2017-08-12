@@ -70,7 +70,7 @@
     "vue-select": "^2.2.0",
     "vue-template-compiler": "^2.4.2",
     "webfontloader": "^1.6.28",
-    "webpack": "^3.5.3",
+    "webpack": "^3.5.4",
     "webpack-dev-server": "^2.7.1",
     "webpack-notifier": "^1.5.0",
     "webpack-stats-plugin": "^0.1.5"

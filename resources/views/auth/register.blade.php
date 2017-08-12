@@ -19,9 +19,10 @@
                                 @component('components.input-group', [
                                     'left' => '<i class="icon-user"></i>'
                                 ])
-                                    {{ Form::bsInput('name', [
-                                        'required' => true,
+                                    {{ Form::text('name', null, [
                                         'placeholder' => trans('validation.attributes.name'),
+                                        'class' => 'form-control',
+                                        'v-validate' => "'required'",
                                     ]) }}
                                 @endcomponent
                             @endcomponent
@@ -35,10 +36,10 @@
                                 @component('components.input-group', [
                                     'left' => '<i class="icon-envelope"></i>'
                                 ])
-                                    {{ Form::bsInput('email', [
-                                        'type' => 'email',
-                                        'required' => true,
+                                    {{ Form::text('email', null, [
                                         'placeholder' => trans('validation.attributes.email'),
+                                        'class' => 'form-control',
+                                        'v-validate' => "'required|email'",
                                     ]) }}
                                 @endcomponent
                             @endcomponent
@@ -49,11 +50,11 @@
                                 'horizontal' => true,
                                 'label_cols' => 3
                             ])
-                                {{ Form::bsInput('password', [
-                                    'type' => 'password',
-                                    'required' => true,
+                                {{ Form::password('password', [
                                     'placeholder' => trans('validation.attributes.password'),
-                                    'strength_meter' => true,
+                                    'class' => 'form-control',
+                                    'v-validate' => "'required'",
+                                    'data-toggle' => 'password-strength-meter'
                                 ]) }}
                             @endcomponent
 
@@ -63,10 +64,10 @@
                                 'horizontal' => true,
                                 'label_cols' => 3
                             ])
-                                {{ Form::bsInput('password_confirmation', [
-                                    'type' => 'password',
-                                    'required' => true,
+                                {{ Form::password('password_confirmation', [
                                     'placeholder' => trans('validation.attributes.password_confirmation'),
+                                    'class' => 'form-control',
+                                    'v-validate' => "'required'"
                                 ]) }}
                             @endcomponent
 

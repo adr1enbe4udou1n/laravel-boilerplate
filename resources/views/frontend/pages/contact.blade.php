@@ -19,9 +19,10 @@
                     'name' => 'name',
                     'title' => trans('validation.attributes.name'),
                 ])
-                    {{ Form::bsInput('name', [
-                        'required' => true,
+                    {{ Form::text('name', null, [
                         'placeholder' => trans('validation.attributes.name'),
+                        'class' => 'form-control',
+                        'v-validate' => "'required'"
                     ]) }}
                 @endcomponent
 
@@ -31,8 +32,9 @@
                             'name' => 'postal_code',
                             'title' => trans('validation.attributes.postal_code'),
                         ])
-                            {{ Form::bsInput('postal_code', [
+                            {{ Form::text('postal_code', null, [
                                 'placeholder' => trans('validation.attributes.postal_code'),
+                                'class' => 'form-control',
                             ]) }}
                         @endcomponent
                     </div>
@@ -41,8 +43,9 @@
                             'name' => 'city',
                             'title' => trans('validation.attributes.city'),
                         ])
-                            {{ Form::bsInput('city', [
+                            {{ Form::text('city', null, [
                                 'placeholder' => trans('validation.attributes.city'),
+                                'class' => 'form-control',
                             ]) }}
                         @endcomponent
                     </div>
@@ -57,10 +60,10 @@
                             @component('components.input-group', [
                                 'left' => '<i class="icon-envelope"></i>'
                             ])
-                                {{ Form::bsInput('email', [
-                                    'required' => true,
-                                    'type' => 'email',
+                                {{ Form::email('email', null, [
                                     'placeholder' => trans('validation.attributes.email'),
+                                    'class' => 'form-control',
+                                    'v-validate' => "'required|email'"
                                 ]) }}
                             @endcomponent
                         @endcomponent
@@ -70,9 +73,9 @@
                             'name' => 'phone',
                             'title' => trans('validation.attributes.phone'),
                         ])
-                            {{ Form::bsInput('phone', [
-                                'type' => 'tel',
+                            {{ Form::tel('phone', null, [
                                 'placeholder' => trans('validation.attributes.phone'),
+                                'class' => 'form-control',
                             ]) }}
                         @endcomponent
                     </div>
@@ -82,12 +85,11 @@
                     'name' => 'message',
                     'title' => trans('validation.attributes.message'),
                 ])
-                    {{ Form::bsTextarea('message', [
-                        'required' => true,
+                    {{ Form::textarea('message', null, [
                         'placeholder' => trans('validation.attributes.message'),
-                        'attributes' => [
-                            'rows' => 5
-                        ],
+                        'rows' => 5,
+                        'class' => 'form-control',
+                        'v-validate' => "'required'"
                     ]) }}
                 @endcomponent
 

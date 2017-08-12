@@ -19,10 +19,10 @@
                                 @component('components.input-group', [
                                     'left' => '<i class="icon-user"></i>'
                                 ])
-                                    {{ Form::bsInput('email', [
-                                        'type' => 'email',
-                                        'required' => true,
+                                    {{ Form::email('email', null, [
                                         'placeholder' => trans('validation.attributes.email'),
+                                        'class' => 'form-control',
+                                        'v-validate' => "'required|email'",
                                     ]) }}
                                 @endcomponent
                             @endcomponent
@@ -33,10 +33,10 @@
                                 @component('components.input-group', [
                                     'left' => '<i class="icon-lock"></i>'
                                 ])
-                                    {{ Form::bsInput('password', [
-                                        'type' => 'password',
-                                        'required' => true,
+                                    {{ Form::password('password', [
                                         'placeholder' => trans('validation.attributes.password'),
+                                        'class' => 'form-control',
+                                        'v-validate' => "'required'",
                                     ]) }}
                                 @endcomponent
                             @endcomponent
