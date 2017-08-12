@@ -23,12 +23,11 @@
                             </template>
                             <template v-else>
                                 <b-form-fieldset
-                                        label-for="route"
+                                        name="route"
                                         :label="$t('validation.attributes.route')"
                                         :horizontal="true"
                                         :label-cols="3"
-                                        :state="state('route')"
-                                        :feedback="feedback('route')"
+                                        :invalid-feedback="feedback('route')"
                                 >
                                     <v-select
                                             id="route"
@@ -42,12 +41,11 @@
                             </template>
 
                             <b-form-fieldset
-                                    label-for="title"
+                                    name="title"
                                     :label="$t('validation.attributes.title')"
                                     :horizontal="true"
                                     :label-cols="3"
-                                    :state="state('title')"
-                                    :feedback="feedback('title')"
+                                    :invalid-feedback="feedback('title')"
                             >
                                 <b-form-input
                                         id="title"
@@ -58,12 +56,11 @@
                             </b-form-fieldset>
 
                             <b-form-fieldset
-                                    label-for="description"
+                                    name="description"
                                     :label="$t('validation.attributes.description')"
                                     :horizontal="true"
                                     :label-cols="3"
-                                    :state="state('description')"
-                                    :feedback="feedback('description')"
+                                    :invalid-feedback="feedback('description')"
                             >
                                 <textarea
                                         id="description"

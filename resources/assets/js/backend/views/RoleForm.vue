@@ -10,12 +10,11 @@
 
                         <div class="card-body">
                             <b-form-fieldset
-                                    label-for="name"
+                                    name="name"
                                     :label="$t('validation.attributes.name')"
                                     :horizontal="true"
                                     :label-cols="2"
-                                    :state="state('name')"
-                                    :feedback="feedback('name')"
+                                    :invalid-feedback="feedback('name')"
                             >
                                 <div class="row">
                                     <div class="col-md-6">
@@ -31,12 +30,11 @@
                             </b-form-fieldset>
 
                             <b-form-fieldset
-                                    label-for="display_name"
+                                    name="display_name"
                                     :label="$t('validation.attributes.display_name')"
                                     :horizontal="true"
                                     :label-cols="2"
-                                    :state="state('display_name')"
-                                    :feedback="feedback('display_name')"
+                                    :invalid-feedback="feedback('display_name')"
                             >
                                 <div class="row">
                                     <div class="col-md-6">
@@ -52,12 +50,11 @@
                             </b-form-fieldset>
 
                             <b-form-fieldset
-                                    label-for="description"
+                                    name="description"
                                     :label="$t('validation.attributes.description')"
                                     :horizontal="true"
                                     :label-cols="2"
-                                    :state="state('description')"
-                                    :feedback="feedback('description')"
+                                    :invalid-feedback="feedback('description')"
                             >
                                 <div class="row">
                                     <div class="col-md-6">
@@ -72,7 +69,7 @@
                             </b-form-fieldset>
 
                             <b-form-fieldset
-                                    label-for="order"
+                                    name="order"
                                     :label="$t('validation.attributes.order')"
                                     :horizontal="true"
                                     :label-cols="2"
@@ -85,8 +82,7 @@
                                                 type="number"
                                                 v-validate="'required'"
                                                 v-model="model.order"
-                                                :state="state('order')"
-                                                :feedback="feedback('order')"
+                                                :invalid-feedback="feedback('order')"
                                         ></b-form-input>
                                     </div>
                                 </div>

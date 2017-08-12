@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-12 col-lg-6 offset-lg-3 mt-4">
+        <div class="col-md-12 col-lg-6 mx-auto">
             <div class="card">
                 <div class="card-header">@lang('labels.user.password_reset')</div>
 
@@ -65,7 +65,7 @@
                         @endcomponent
 
                         <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-8 ml-auto">
                                 <button  class="btn btn-primary">
                                     @lang('labels.user.password_reset')
                                 </button>

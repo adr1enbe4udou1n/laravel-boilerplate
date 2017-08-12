@@ -24,17 +24,12 @@ export default {
                     });
             }
         },
-        state(name) {
-            if (this.errors.has(name) || this.validation.errors.hasOwnProperty(name)) {
-                return 'danger';
-            }
-        },
         feedback(name) {
             if (this.errors.has(name)) {
                 return this.errors.first(name);
             }
-            if (this.validation.errors.hasOwnProperty('name')) {
-                return this.validation.errors.name[0];
+            if (this.validation.errors.hasOwnProperty(name)) {
+                return this.validation.errors[name][0];
             }
         },
         onSubmit() {

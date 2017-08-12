@@ -10,12 +10,11 @@
 
                         <div class="card-body">
                             <b-form-fieldset
-                                    label-for="source"
+                                    name="source"
                                     :label="$t('validation.attributes.source_path')"
                                     :horizontal="true"
                                     :label-cols="3"
-                                    :state="state('source')"
-                                    :feedback="feedback('source')"
+                                    :invalid-feedback="feedback('source')"
                             >
                                 <b-form-input
                                         id="source"
@@ -27,7 +26,7 @@
                             </b-form-fieldset>
 
                             <b-form-fieldset
-                                    label-for="active"
+                                    name="active"
                                     :label="$t('validation.attributes.active')"
                                     :horizontal="true"
                                     :label-cols="3"
@@ -41,12 +40,11 @@
                             </b-form-fieldset>
 
                             <b-form-fieldset
-                                    label-for="target"
+                                    name="target"
                                     :label="$t('validation.attributes.target_path')"
                                     :horizontal="true"
                                     :label-cols="3"
-                                    :state="state('target')"
-                                    :feedback="feedback('target')"
+                                    :invalid-feedback="feedback('target')"
                             >
                                 <b-form-input
                                         id="target"

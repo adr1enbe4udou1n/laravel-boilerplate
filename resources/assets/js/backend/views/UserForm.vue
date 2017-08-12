@@ -10,46 +10,46 @@
 
                         <div class="card-body">
                             <b-form-fieldset
-                                    label-for="name"
+                                    name="name"
                                     :label="$t('validation.attributes.name')"
                                     :horizontal="true"
                                     :label-cols="3"
-                                    :state="state('name')"
-                                    :feedback="feedback('name')"
+                                    :invalid-feedback="feedback('name')"
                             >
                                 <b-input-group :left="iconUser">
-                                    <b-form-input
+                                    <input
                                             id="name"
                                             name="name"
                                             :placeholder="$t('validation.attributes.name')"
+                                            class="form-control"
                                             v-model="model.name"
                                             v-validate="'required'"
-                                    ></b-form-input>
+                                    >
                                 </b-input-group>
                             </b-form-fieldset>
 
                             <b-form-fieldset
-                                    label-for="email"
+                                    name="email"
                                     :label="$t('validation.attributes.email')"
                                     :horizontal="true"
                                     :label-cols="3"
-                                    :state="state('email')"
-                                    :feedback="feedback('email')"
+                                    :invalid-feedback="feedback('email')"
                             >
                                 <b-input-group :left="iconEnvelope">
-                                    <b-form-input
+                                    <input
                                             id="email"
                                             name="email"
                                             type="email"
                                             :placeholder="$t('validation.attributes.email')"
+                                            class="form-control"
                                             v-model="model.email"
                                             v-validate="'required|email'"
-                                    ></b-form-input>
+                                    >
                                 </b-input-group>
                             </b-form-fieldset>
 
                             <b-form-fieldset
-                                    label-for="active"
+                                    name="active"
                                     :label="$t('validation.attributes.active')"
                                     :horizontal="true"
                                     :label-cols="3"
@@ -63,36 +63,36 @@
                             </b-form-fieldset>
 
                             <b-form-fieldset
-                                    label-for="password"
+                                    name="password"
                                     :label="$t('validation.attributes.password')"
                                     :horizontal="true"
                                     :label-cols="3"
-                                    :state="state('password')"
-                                    :feedback="feedback('password')"
+                                    :invalid-feedback="feedback('password')"
                             >
-                                <b-form-input
+                                <input
                                         id="password"
                                         name="password"
                                         type="password"
                                         :placeholder="$t('validation.attributes.password')"
+                                        class="form-control"
                                         data-toggle="password-strength-meter"
-                                ></b-form-input>
+                                >
                             </b-form-fieldset>
 
                             <b-form-fieldset
-                                    label-for="password_confirmation"
+                                    name="password_confirmation"
                                     :label="$t('validation.attributes.password_confirmation')"
                                     :horizontal="true"
                                     :label-cols="3"
-                                    :state="state('password_confirmation')"
-                                    :feedback="feedback('password_confirmation')"
+                                    :invalid-feedback="feedback('password_confirmation')"
                             >
-                                <b-form-input
+                                <input
                                         id="password_confirmation"
                                         name="password_confirmation"
                                         type="password"
                                         :placeholder="$t('validation.attributes.password_confirmation')"
-                                ></b-form-input>
+                                        class="form-control"
+                                >
                             </b-form-fieldset>
 
                             <b-form-fieldset

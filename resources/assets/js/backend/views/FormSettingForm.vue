@@ -10,7 +10,7 @@
 
                         <div class="card-body">
                             <b-form-fieldset
-                                    label-for="name"
+                                    name="name"
                                     :label="$t('validation.attributes.form_type')"
                                     :horizontal="true"
                                     :label-cols="3"
@@ -25,13 +25,12 @@
                             </b-form-fieldset>
 
                             <b-form-fieldset
-                                    label-for="recipients"
+                                    name="recipients"
                                     :label="$t('validation.attributes.recipients')"
                                     :description="$t('labels.backend.form_settings.descriptions.recipients')"
                                     :horizontal="true"
                                     :label-cols="3"
-                                    :state="state('recipients')"
-                                    :feedback="feedback('recipients')"
+                                    :invalid-feedback="feedback('recipients')"
                             >
                                 <textarea
                                         id="recipients"
@@ -45,13 +44,12 @@
                             </b-form-fieldset>
 
                             <b-form-fieldset
-                                    label-for="message"
+                                    name="message"
                                     :label="$t('validation.attributes.message')"
                                     :description="$t('labels.backend.form_settings.descriptions.message')"
                                     :horizontal="true"
                                     :label-cols="3"
-                                    :state="state('message')"
-                                    :feedback="feedback('message')"
+                                    :invalid-feedback="feedback('message')"
                             >
                                 <textarea
                                         id="message"

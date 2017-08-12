@@ -9,12 +9,11 @@
                         </div>
                         <div class="card-body">
                             <b-form-fieldset
-                                    label-for="title"
+                                    name="title"
                                     :label="$t('validation.attributes.title')"
                                     :horizontal="true"
                                     :label-cols="2"
-                                    :state="state('title')"
-                                    :feedback="feedback('title')"
+                                    :invalid-feedback="feedback('title')"
                             >
                                 <b-form-input
                                         id="title"
@@ -26,12 +25,11 @@
                             </b-form-fieldset>
 
                             <b-form-fieldset
-                                    label-for="summary"
+                                    name="summary"
                                     :label="$t('validation.attributes.summary')"
                                     :horizontal="true"
                                     :label-cols="2"
-                                    :state="state('summary')"
-                                    :feedback="feedback('summary')"
+                                    :invalid-feedback="feedback('summary')"
                             >
                                 <textarea
                                         id="summary"
@@ -44,12 +42,11 @@
                             </b-form-fieldset>
 
                             <b-form-fieldset
-                                    label-for="body"
+                                    name="body"
                                     :label="$t('validation.attributes.body')"
                                     :horizontal="true"
                                     :label-cols="2"
-                                    :state="state('body')"
-                                    :feedback="feedback('body')"
+                                    :invalid-feedback="feedback('body')"
                             >
                                 <ckeditor
                                         id="body"
@@ -59,7 +56,7 @@
                             </b-form-fieldset>
 
                             <b-form-fieldset
-                                    label-for="tags"
+                                    name="tags"
                                     :label="$t('validation.attributes.tags')"
                                     :horizontal="true"
                                     :label-cols="2"
@@ -78,12 +75,11 @@
                             </b-form-fieldset>
 
                             <b-form-fieldset
-                                    label-for="featured_image"
+                                    name="featured_image"
                                     :label="$t('validation.attributes.image')"
                                     :horizontal="true"
                                     :label-cols="2"
-                                    :state="state('image')"
-                                    :feedback="feedback('image')"
+                                    :invalid-feedback="feedback('image')"
                             >
                                 <div class="media">
                                     <img v-if="model.featured_image_path !== null" class="mr-2" :src="`/imagecache/small/${model.featured_image_path}`" alt="">
@@ -149,7 +145,7 @@
                                     </template>
 
                                     <b-form-fieldset
-                                            label-for="published_at"
+                                            name="published_at"
                                             :label="$t('validation.attributes.publish_at')"
                                             :horizontal="true"
                                             :label-cols="3"
@@ -168,7 +164,7 @@
                                     </b-form-fieldset>
 
                                     <b-form-fieldset
-                                            label-for="pinned"
+                                            name="pinned"
                                             :label="$t('validation.attributes.pinned')"
                                             :horizontal="true"
                                             :label-cols="3"
@@ -182,7 +178,7 @@
                                     </b-form-fieldset>
 
                                     <b-form-fieldset
-                                            label-for="promoted"
+                                            name="promoted"
                                             :label="$t('validation.attributes.promoted')"
                                             :horizontal="true"
                                             :label-cols="3"
@@ -208,7 +204,7 @@
                             <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
                                 <div class="card-body">
                                     <b-form-fieldset
-                                            label-for="title"
+                                            name="title"
                                             :label="$t('validation.attributes.title')"
                                             :description="$t('labels.backend.posts.descriptions.meta_title')"
                                             :horizontal="true"
@@ -223,7 +219,7 @@
                                     </b-form-fieldset>
 
                                     <b-form-fieldset
-                                            label-for="description"
+                                            name="description"
                                             :label="$t('validation.attributes.description')"
                                             :description="$t('labels.backend.posts.descriptions.meta_description')"
                                             :horizontal="true"
