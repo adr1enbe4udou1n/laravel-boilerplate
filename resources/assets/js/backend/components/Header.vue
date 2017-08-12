@@ -1,5 +1,5 @@
 <template>
-    <header class="app-header navbar">
+    <header class="app-header navbar navbar-expand-lg">
         <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button" @click="mobileSidebarToggle">
             &#9776;
         </button>

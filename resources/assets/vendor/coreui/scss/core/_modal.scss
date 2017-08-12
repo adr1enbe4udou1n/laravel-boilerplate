@@ -1,4 +1,4 @@
-@each $variant, $color in (primary: $brand-primary, secondary: $gray-lighter, success: $brand-success, info: $brand-info, warning: $brand-warning, danger: $brand-danger) {
+@each $variant, $color in (primary: $blue, secondary: $gray-lighter, success: $green, info: $cyan, warning: $yellow, danger: $red) {
   .modal-#{$variant} {
 
     .modal-content {

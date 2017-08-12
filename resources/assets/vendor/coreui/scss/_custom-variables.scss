@@ -92,13 +92,13 @@ $sidebar-nav-link-icon-color:       $text-muted;
 
 $sidebar-nav-link-borders:          0;
 $sidebar-nav-link-hover-color:      #fff;
-$sidebar-nav-link-hover-bg:         $brand-primary;
+$sidebar-nav-link-hover-bg:         $blue;
 $sidebar-nav-link-hover-icon-color: #fff !important;
 
 $sidebar-nav-link-hover-borders:    0;
 $sidebar-nav-link-active-color:     #fff;
 $sidebar-nav-link-active-bg:        lighten($sidebar-bg, 5%);
-$sidebar-nav-link-active-icon-color: $brand-primary;
+$sidebar-nav-link-active-icon-color: $blue;
 
 $sidebar-nav-link-active-borders:   0;
 
@@ -126,9 +126,9 @@ $top-nav-ul-borders: (
 );
 
 $top-nav-hover-color:               #fff;
-$top-nav-hover-bg:                  $brand-primary;
+$top-nav-hover-bg:                  $blue;
 $top-nav-active-color:              #fff;
-$top-nav-active-bg:                 $brand-primary;
+$top-nav-active-bg:                 $blue;
 $top-nav-height:                    $navbar-height - 15px;
 
 // Breadcrumb

@@ -4,7 +4,7 @@
             <div class="col-xl">
                 <div class="row">
                     <div class="col-sm">
-                        <div class="card card-inverse card-danger">
+                        <div class="card text-white bg-danger">
                             <div class="card-body pb-0">
                                 <h4 class="mb-0">{{ newPostsCount }}</h4>
                                 <p>{{ $t('labels.backend.dashboard.new_posts') }}</p>
@@ -12,7 +12,7 @@
                         </div>
                     </div>
                     <div class="col-sm">
-                        <div class="card card-inverse card-warning">
+                        <div class="card text-white bg-warning">
                             <div class="card-body pb-0">
                                 <h4 class="mb-0">{{ pendingPostsCount }}</h4>
                                 <p>{{ $t('labels.backend.dashboard.pending_posts') }}</p>
@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="col-sm">
-                        <div class="card card-inverse card-success">
+                        <div class="card text-white bg-success">
                             <div class="card-body pb-0">
                                 <h4 class="mb-0">{{ publishedPostsCount }}</h4>
                                 <p>{{ $t('labels.backend.dashboard.published_posts') }}</p>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm" v-if="this.$root.user.can['manage users']">
-                        <div class="card card-inverse card-primary">
+                        <div class="card text-white bg-primary">
                             <div class="card-body pb-0">
                                 <h4 class="mb-0">{{ activeUsersCount }}</h4>
                                 <p>{{ $t('labels.backend.dashboard.active_users') }}</p>
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <div class="col-sm" v-if="this.$root.user.can['manage form_submissions']">
-                        <div class="card card-inverse card-info">
+                        <div class="card text-white bg-info">
                             <div class="card-body pb-0">
                                 <h4 class="mb-0">{{ formSubmissionsCount }}</h4>
                                 <p>{{ $t('labels.backend.dashboard.form_submissions') }}</p>

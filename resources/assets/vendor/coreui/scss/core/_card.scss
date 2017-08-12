@@ -43,7 +43,7 @@
     color: #fff;
   }
 
-  @each $variant, $color in (primary: $brand-primary, secondary: $gray-lighter, success: $brand-success, info: $brand-info, warning: $brand-warning, danger: $brand-danger) {
+  @each $variant, $color in (primary: $blue, secondary: $gray-lighter, success: $green, info: $cyan, warning: $yellow, danger: $red) {
     &.card-header-#{$variant} {
       margin: -1px -1px 0;
       background: $color;
@@ -97,7 +97,7 @@
   }
 }
 
-@each $variant, $color in (primary: $brand-primary, secondary: $gray-lighter, success: $brand-success, info: $brand-info, warning: $brand-warning, danger: $brand-danger) {
+@each $variant, $color in (primary: $blue, secondary: $gray-lighter, success: $green, info: $cyan, warning: $yellow, danger: $red) {
   .card-#{$variant} {
     @include card-variant($color)
   }

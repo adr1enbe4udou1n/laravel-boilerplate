@@ -45,41 +45,41 @@
 }
 
 .callout-primary {
-  border-left-color: $brand-primary;
+  border-left-color: $blue;
 
   h4 {
-    color: $brand-primary;
+    color: $blue;
   }
 }
 
 .callout-info {
-  border-left-color: $brand-info;
+  border-left-color: $cyan;
 
   h4 {
-    color: $brand-info;
+    color: $cyan;
   }
 }
 
 .callout-warning {
-  border-left-color: $brand-warning;
+  border-left-color: $yellow;
 
   h4 {
-    color: $brand-warning;
+    color: $yellow;
   }
 }
 
 .callout-danger {
-  border-left-color: $brand-danger;
+  border-left-color: $red;
 
   h4 {
-    color: $brand-danger;
+    color: $red;
   }
 }
 
 .callout-success {
-  border-left-color: $brand-success;
+  border-left-color: $green;
 
   h4 {
-    color: $brand-success;
+    color: $green;
   }
 }
