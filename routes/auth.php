@@ -23,9 +23,9 @@ Route::group(
             ['middleware' => ['can:impersonate users']],
             function () {
                 Route::get('user/{user}/login-as', 'LoginController@loginAs')->name('login-as');
-                Route::get('logout-as', 'LoginController@logoutAs')->name('logout-as');
             }
         );
+        Route::get('logout-as', 'LoginController@logoutAs')->name('logout-as');
 
         // Password Reset Routes...
         Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.request');

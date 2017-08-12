@@ -96,16 +96,18 @@
         },
         methods: {
             fetchData() {
-                axios
-                    .get(`${this.$root.adminPath}/post/draft-counter`)
-                    .then(response => {
-                        this.newPostsCount = response.data;
-                    });
-                axios
-                    .get(`${this.$root.adminPath}/post/pending-counter`)
-                    .then(response => {
-                        this.pendingPostsCount = response.data;
-                    });
+                if (this.$root.user.can['manage own posts']) {
+                    axios
+                        .get(`${this.$root.adminPath}/post/draft-counter`)
+                        .then(response => {
+                            this.newPostsCount = response.data;
+                        });
+                    axios
+                        .get(`${this.$root.adminPath}/post/pending-counter`)
+                        .then(response => {
+                            this.pendingPostsCount = response.data;
+                        });
+                }
             },
             handleClick(e) {
                 e.preventDefault();

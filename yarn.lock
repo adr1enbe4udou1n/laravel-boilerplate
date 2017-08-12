@@ -909,9 +909,9 @@ boom@2.x.x:
   dependencies:
     hoek "2.x.x"
 
-bootstrap-vue@^0.20.1:
-  version "0.20.1"
-  resolved "https://registry.yarnpkg.com/bootstrap-vue/-/bootstrap-vue-0.20.1.tgz#00532f6c94da2d5b6b38fc537629d202bfc318fd"
+bootstrap-vue@^0.20.2:
+  version "0.20.2"
+  resolved "https://registry.yarnpkg.com/bootstrap-vue/-/bootstrap-vue-0.20.2.tgz#56ba7c0791587356a820423831dc819706257019"
   dependencies:
     bootstrap "^4.0.0-alpha.6"
     tether latest
@@ -6517,9 +6517,9 @@ svgo@^0.7.0:
     sax "~1.2.1"
     whet.extend "~0.9.9"
 
-sweetalert2@^6.6.7:
-  version "6.6.7"
-  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-6.6.7.tgz#a95c7ed4a2d6a45ac1a1212ed481dfd0033aa333"
+sweetalert2@^6.6.8:
+  version "6.6.8"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-6.6.8.tgz#d1cafd25b6ec1ea4cd43c02baac94637ff33eace"
 
 table@^4.0.1:
   version "4.0.1"
@@ -6889,9 +6889,9 @@ vary@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.1.tgz#67535ebb694c1d52257457984665323f587e8d37"
 
-vee-validate@^2.0.0-rc.9:
-  version "2.0.0-rc.9"
-  resolved "https://registry.yarnpkg.com/vee-validate/-/vee-validate-2.0.0-rc.9.tgz#6f6b881ee542d5bfbfc7f9f0a45a3f85283a0e94"
+vee-validate@^2.0.0-rc.12:
+  version "2.0.0-rc.12"
+  resolved "https://registry.yarnpkg.com/vee-validate/-/vee-validate-2.0.0-rc.12.tgz#05c7f98e6d954d80e7762e0b66fefab8b11f9de5"
 
 vendors@^1.0.0:
   version "1.0.1"
