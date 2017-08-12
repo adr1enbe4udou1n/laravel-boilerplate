@@ -15,13 +15,21 @@
                                     :horizontal="true"
                                     :label-cols="3"
                             >
-                                <b-form-select
+                                <select
                                         id="name"
                                         name="name"
+                                        class="form-control"
                                         v-validate="'required'"
-                                        :options="formTypes"
                                         v-model="model.name"
-                                ></b-form-select>
+                                >
+                                    <option
+                                            v-for="type in formTypes"
+                                            :key="type.value"
+                                            :value="type.value"
+                                    >
+                                        {{ type.text }}
+                                    </option>
+                                </select>
                             </b-form-fieldset>
 
                             <b-form-fieldset

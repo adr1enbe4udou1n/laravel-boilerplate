@@ -47,12 +47,13 @@
                                     :label-cols="3"
                                     :invalid-feedback="feedback('title')"
                             >
-                                <b-form-input
+                                <input
                                         id="title"
                                         name="title"
                                         :placeholder="$t('validation.attributes.title')"
+                                        class="form-control"
                                         v-model="model.title"
-                                ></b-form-input>
+                                >
                             </b-form-fieldset>
 
                             <b-form-fieldset

@@ -15,13 +15,14 @@
                                     :label-cols="2"
                                     :invalid-feedback="feedback('title')"
                             >
-                                <b-form-input
+                                <input
                                         id="title"
                                         name="title"
+                                        class="form-control"
                                         v-validate="'required'"
                                         :placeholder="$t('validation.attributes.title')"
                                         v-model="model.title"
-                                ></b-form-input>
+                                >
                             </b-form-fieldset>
 
                             <b-form-fieldset
@@ -133,7 +134,9 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label">{{ $t('validation.attributes.status') }}</label>
                                         <div class="col-lg-9">
-                                            <label class="col-form-label"><b-badge :variant="model.state">{{ $t(model.status_label) }}</b-badge></label>
+                                            <label class="col-form-label">
+                                                <span :class="`badge badge-${model.state}`">{{ $t(model.status_label) }}</span>
+                                            </label>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -204,29 +207,30 @@
                             <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
                                 <div class="card-body">
                                     <b-form-fieldset
-                                            name="title"
+                                            name="meta-title"
                                             :label="$t('validation.attributes.title')"
                                             :description="$t('labels.backend.posts.descriptions.meta_title')"
                                             :horizontal="true"
                                             :label-cols="2"
                                     >
-                                        <b-form-input
-                                                id="title"
+                                        <input
+                                                id="meta-title"
                                                 name="meta[title]"
+                                                class="form-control"
                                                 :placeholder="$t('labels.backend.posts.placeholders.meta_title')"
                                                 v-model="model.title"
-                                        ></b-form-input>
+                                        >
                                     </b-form-fieldset>
 
                                     <b-form-fieldset
-                                            name="description"
+                                            name="meta-description"
                                             :label="$t('validation.attributes.description')"
                                             :description="$t('labels.backend.posts.descriptions.meta_description')"
                                             :horizontal="true"
                                             :label-cols="2"
                                     >
                                         <textarea
-                                                id="description"
+                                                id="meta-description"
                                                 name="meta[description]"
                                                 :rows="5"
                                                 :placeholder="$t('labels.backend.posts.placeholders.meta_description')"

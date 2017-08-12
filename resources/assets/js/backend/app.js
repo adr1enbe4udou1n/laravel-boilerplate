@@ -41,6 +41,9 @@ Vue.component('b-input-group', InputGroup);
 import FormCheckbox from '.././components/FormCheckbox.vue';
 Vue.component('b-form-checkbox', FormCheckbox);
 
+import FormRadio from '.././components/FormRadio.vue';
+Vue.component('b-form-radio', FormRadio);
+
 import FormToggle from '.././components/FormToggle.vue';
 Vue.component('b-form-toggle', FormToggle);
 

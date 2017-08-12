@@ -16,13 +16,14 @@
                                     :label-cols="3"
                                     :invalid-feedback="feedback('source')"
                             >
-                                <b-form-input
+                                <input
                                         id="source"
                                         name="source"
                                         v-validate="'required'"
                                         :placeholder="$t('validation.attributes.source_path')"
+                                        class="form-control"
                                         v-model="model.source"
-                                ></b-form-input>
+                                >
                             </b-form-fieldset>
 
                             <b-form-fieldset
@@ -46,13 +47,14 @@
                                     :label-cols="3"
                                     :invalid-feedback="feedback('target')"
                             >
-                                <b-form-input
+                                <input
                                         id="target"
                                         name="target"
                                         v-validate="'required'"
                                         :placeholder="$t('validation.attributes.target_path')"
+                                        class="form-control"
                                         v-model="model.target"
-                                ></b-form-input>
+                                >
                             </b-form-fieldset>
 
                             <b-form-fieldset
@@ -60,13 +62,18 @@
                                     :horizontal="true"
                                     :label-cols="3"
                             >
-                                <b-form-radio
-                                        name="type"
-                                        v-validate="'required'"
-                                        :stacked="true"
-                                        :options="redirectionTypes"
-                                        v-model="model.type"
-                                ></b-form-radio>
+                                <div class="custom-controls-stacked">
+                                    <b-form-radio
+                                            name="type"
+                                            v-validate="'required'"
+                                            v-for="(label, type) in redirectionTypes"
+                                            :key="type"
+                                            v-model="model.type"
+                                            :value="type"
+                                    >
+                                        {{ label }}
+                                    </b-form-radio>
+                                </div>
                             </b-form-fieldset>
                         </div>
 

@@ -8,15 +8,17 @@
                     </div>
                     <div class="card-body">
                         <table class="table table-striped table-hover" v-if="submission !== null">
-                            <tr v-for="(value, name) in JSON.parse(submission.data)">
+                            <tbody>
+                                <tr v-for="(value, name) in JSON.parse(submission.data)">
 
-                                <th>{{ $t(`validation.attributes.${name}`) }}</th>
-                                <td>{{ value }}</td>
-                            </tr>
-                            <tr>
-                                <th>{{ $t('labels.created_at') }}</th>
-                                <td>{{ submission.created_at }}</td>
-                            </tr>
+                                    <th>{{ $t(`validation.attributes.${name}`) }}</th>
+                                    <td>{{ value }}</td>
+                                </tr>
+                                <tr>
+                                    <th>{{ $t('labels.created_at') }}</th>
+                                    <td>{{ submission.created_at }}</td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>

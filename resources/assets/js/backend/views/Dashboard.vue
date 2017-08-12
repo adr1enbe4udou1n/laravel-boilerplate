@@ -73,8 +73,8 @@
                                             {{ post.title }}
                                         </router-link>
                                     </td>
-                                    <td><b-badge :variant="post.state">{{ $t(post.status_label) }}</b-badge></td>
-                                    <td><b-badge :variant="post.pinned ? 'success' : 'danger'">{{ post.pinned ? $t('labels.yes') : $t('labels.no') }}</b-badge></td>
+                                    <td><span :class="`badge badge-${post.state}`">{{ $t(post.status_label) }}</span></td>
+                                    <td><span :class="`badge badge-${post.pinned ? 'success' : 'danger'}`">{{ post.pinned ? $t('labels.yes') : $t('labels.no') }}</span></td>
                                     <td>{{ post.summary }}</td>
                                     <td class="text-center">{{ post.published_at }}</td>
                                 </tr>
@@ -87,7 +87,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <router-link to="/post/index" class="btn btn-primary pull-right">
+                        <router-link to="/post" class="btn btn-primary pull-right">
                             {{ $t('labels.backend.dashboard.all_posts') }}
                         </router-link>
                     </div>
