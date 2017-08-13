@@ -12,6 +12,11 @@ jobs:
           - v1-dependencies-{{ checksum "composer.json" }}
           - v1-dependencies-
 
+      - run: php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+      - run: php composer-setup.php
+      - run: php -r "unlink('composer-setup.php');"
+      - run: sudo mv composer.phar /usr/local/bin/composer
+
       - run: composer install -n --prefer-dist
 
       - save_cache:
