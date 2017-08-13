@@ -14,8 +14,6 @@ jobs:
           - v1-dependencies-{{ checksum "composer.json" }}
           - v1-dependencies-
 
-      - run: sudo mv composer.phar /usr/local/bin/composer
-
       - run: composer install -n --prefer-dist
 
       - save_cache:
