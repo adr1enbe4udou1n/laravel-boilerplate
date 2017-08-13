@@ -22,8 +22,16 @@ install:
   - php artisan key:generate --env=testing
   - composer run-script post-install-cmd
 
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - ./vendor/laravel/dusk/bin/chromedriver-linux &
+  - cp .env.testing .env
+  - php artisan serve &
+
 script:
   - vendor/bin/phpunit
+  - php artisan dusk
 
 deploy:
   provider: heroku
