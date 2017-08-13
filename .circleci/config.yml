@@ -2,24 +2,29 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/php:7.1.5-browsers
+      - image: notnoopci/php:7.1.5-browsers
 
     steps:
       - checkout
+
+      - run: sudo apt install -y libsqlite3-dev
+      - run: php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+      - run: php composer-setup.php
+      - run: php -r "unlink('composer-setup.php');"
 
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "composer.json" }}
           - v1-dependencies-
 
-      - run: sudo apt install libzip-dev
-      - run: sudo pecl install zip
-      - run: php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-      - run: php composer-setup.php
-      - run: php -r "unlink('composer-setup.php');"
       - run: sudo mv composer.phar /usr/local/bin/composer
 
       - run: composer install -n --prefer-dist
+
+      - save_cache:
+          key: composer-v1-{{ checksum "composer.json" }}
+          paths:
+            - vendor
 
       - save_cache:
           paths:
