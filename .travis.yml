@@ -18,15 +18,13 @@ before_install:
 
 install:
   - composer install --no-interaction --prefer-dist --no-suggest --no-scripts
-  - cp .env.testing.example .env.testing
-  - php artisan key:generate --env=testing
-  - composer run-script post-install-cmd
+  - cp .env.dusk .env
+  - php artisan key:generate
 
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - ./vendor/laravel/dusk/bin/chromedriver-linux &
-  - cp .env.testing .env
   - php artisan serve > /dev/null 2>&1 &
 
 script:
