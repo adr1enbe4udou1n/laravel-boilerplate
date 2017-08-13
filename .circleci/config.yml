@@ -12,22 +12,17 @@ jobs:
 
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "composer.json" }}
-          - v1-dependencies-
+          - composer-v1-{{ checksum "composer.json" }}
+          - composer-v1-
 
       - run: composer install -n --prefer-dist
 
       - save_cache:
           key: composer-v1-{{ checksum "composer.json" }}
           paths:
-            - vendor
-
-      - save_cache:
-          paths:
             - ./vendor
-          key: v1-dependencies-{{ checksum "composer.json" }}
 
-      - run: phpunit
+      - run: ./vendor/bin/phpunit
 
       - run:
           name: Start Chrome Driver
