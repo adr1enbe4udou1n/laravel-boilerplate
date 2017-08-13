@@ -20,17 +20,3 @@ jobs:
           key: v1-dependencies-{{ checksum "composer.json" }}
 
       - run: phpunit
-
-      - run:
-          name: Start Chrome Driver
-          command: ./vendor/laravel/dusk/bin/chromedriver-linux
-          background: true
-
-      - run:
-          name: Run Laravel Server
-          command: php artisan serve
-          background: true
-
-      - run:
-          name: Run Laravel Dusk Tests
-          command: php artisan dusk
