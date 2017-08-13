@@ -11,6 +11,7 @@
         "cviebrock/eloquent-sluggable": "^4.2",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
         "dimsav/laravel-translatable": "^7.2",
+        "doctrine/common": "2.7.*",
         "doctrine/dbal": "2.5.*",
         "guzzlehttp/guzzle": "^6.2",
         "hieu-le/active": "^3.3",
