@@ -17,6 +17,7 @@
         "doctrine/instantiator": "1.0.*",
         "doctrine/common": "2.7.*",
         "doctrine/dbal": "2.5.*",
+        "ext-gd": "*",
         "guzzlehttp/guzzle": "^6.2",
         "hieu-le/active": "^3.3",
         "intervention/image": "^2.3",

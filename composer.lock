@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e0662c8ec14fccfe0cafc86df91fa7ce",
+    "content-hash": "61e8bc613e5ade17ba7ea1b33d7db8b6",
     "packages": [
         {
             "name": "arcanedev/no-captcha",
@@ -5989,7 +5989,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.0"
+        "php": "^7.0",
+        "ext-gd": "*"
     },
     "platform-dev": []
 }
