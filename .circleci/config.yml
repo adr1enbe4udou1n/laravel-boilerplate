@@ -2,12 +2,13 @@ version: 2
 jobs:
   build:
     docker:
-      - image: notnoopci/php
+      - image: notnoopci/php:7.1.5-browsers
 
     steps:
       - checkout
 
-      - run: sudo apt install -y libsqlite3-dev
+      - run: sudo apt install -y libsqlite3-dev libzip-dev
+      - run: sudo docker-php-ext-install zip
 
       - restore_cache:
           keys:
