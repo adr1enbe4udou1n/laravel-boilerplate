@@ -1,7 +1,7 @@
 # Laravel Boilerplate
 > This is a Bootstrap 4 starter kit site with full user account registration/management and backend based on Laravel 5.4, inspired by the popular [Laravel 5 Boilerplate](https://github.com/rappasoft/laravel-5-boilerplate). Unit & feature tests are not integrated yet, therefore this project isn't rock-solid for now. 
 
-[![Build Status](https://travis-ci.org/adr1enbe4udou1n/laravel-boilerplate.svg)](https://travis-ci.org/adr1enbe4udou1n/laravel-boilerplate)
+[![CircleCI](https://circleci.com/gh/adr1enbe4udou1n/laravel-boilerplate.svg?style=shield)](https://circleci.com/gh/adr1enbe4udou1n/laravel-boilerplate)
 [![License](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/license)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 
 ## Features
