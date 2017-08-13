@@ -8,9 +8,6 @@ jobs:
       - checkout
 
       - run: sudo apt install -y libsqlite3-dev
-      - run: php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-      - run: php composer-setup.php
-      - run: php -r "unlink('composer-setup.php');"
 
       - restore_cache:
           keys:
