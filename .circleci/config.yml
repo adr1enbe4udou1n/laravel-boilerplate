@@ -12,8 +12,9 @@ jobs:
           - v1-dependencies-{{ checksum "composer.json" }}
           - v1-dependencies-
 
+      - run: php -v
       - run: sudo apt-get update
-      - run: sudo apt-get install php-zip
+      - run: sudo apt-get install php7.0-zip
       - run: php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
       - run: php composer-setup.php
       - run: php -r "unlink('composer-setup.php');"
