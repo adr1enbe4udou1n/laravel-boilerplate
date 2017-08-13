@@ -24,6 +24,7 @@ jobs:
 
       - run: cp .env.dusk .env
       - run: php artisan key:generate
+      - run: touch database/database.sqlite
       - run: ./vendor/bin/phpunit
 
       - run:

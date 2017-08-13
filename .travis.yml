@@ -20,6 +20,7 @@ install:
   - composer install --no-interaction --prefer-dist --no-suggest --no-scripts
   - cp .env.dusk .env
   - php artisan key:generate
+  - touch database/database.sqlite
 
 before_script:
   - export DISPLAY=:99.0
