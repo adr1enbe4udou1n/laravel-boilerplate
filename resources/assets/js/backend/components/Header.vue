@@ -1,12 +1,12 @@
 <template>
     <header class="app-header navbar navbar-expand-lg">
-        <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button" @click="mobileSidebarToggle">
+        <button class="navbar-toggler d-lg-none" type="button" @click="mobileSidebarToggle">
             &#9776;
         </button>
         <a class="navbar-brand" href="#"></a>
         <ul class="nav navbar-nav d-md-down-none mr-auto">
             <li class="nav-item">
-                <a class="nav-link navbar-toggler sidebar-toggler" href="#" @click="sidebarMinimize">&#9776;</a>
+                <a class="nav-link" href="#" @click="sidebarMinimize">&#9776;</a>
             </li>
         </ul>
         <ul class="nav navbar-nav ml-auto mr-4">
