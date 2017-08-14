@@ -69,6 +69,7 @@
                 responsive: true,
                 serverSide: true,
                 processing: true,
+                autoWidth: false,
                 ajax: {
                     url: `${this.$root.adminPath}/redirection/search`,
                     type: 'post'

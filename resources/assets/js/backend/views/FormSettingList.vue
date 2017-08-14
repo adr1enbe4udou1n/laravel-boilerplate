@@ -25,6 +25,7 @@
                 responsive: true,
                 serverSide: true,
                 processing: true,
+                autoWidth: false,
                 lengthChange: false,
                 searching: false,
                 paging: false,

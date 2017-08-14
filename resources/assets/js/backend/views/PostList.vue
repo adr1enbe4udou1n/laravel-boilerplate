@@ -36,6 +36,7 @@
                 responsive: true,
                 serverSide: true,
                 processing: true,
+                autoWidth: false,
                 ajax: {
                     url: `${this.$root.adminPath}/post/search`,
                     type: 'post'
@@ -55,12 +56,12 @@
                     name: 'image',
                     orderable: false,
                     searchable: false,
+                    width: 120,
                 }, {
                     title: this.$i18n.t('validation.attributes.title'),
                     data: 'title',
                     name: 'translations.title',
                     defaultContent: this.$i18n.t('labels.no_value'),
-                    width: 150,
                     responsivePriority: 1,
                 }, {
                     title: this.$i18n.t('validation.attributes.status'),
@@ -83,13 +84,7 @@
                     name: 'promoted',
                     searchable: false,
                     className: 'text-center',
-                    width: 100,
-                }, {
-                    title: this.$i18n.t('validation.attributes.summary'),
-                    data: 'summary',
-                    name: 'translations.summary',
-                    defaultContent: this.$i18n.t('labels.no_value'),
-                    orderable: false,
+                    width: 75,
                 }, {
                     title: this.$i18n.t('labels.author'),
                     data: 'owner.name',
@@ -101,26 +96,26 @@
                     title: this.$i18n.t('labels.published_at'),
                     data: 'published_at',
                     name: 'published_at',
-                    width: 75,
+                    width: 110,
                     className: 'text-center'
                 }, {
                     title: this.$i18n.t('labels.created_at'),
                     data: 'created_at',
                     name: 'created_at',
-                    width: 75,
+                    width: 110,
                     className: 'text-center'
                 }, {
                     title: this.$i18n.t('labels.updated_at'),
                     data: 'updated_at',
                     name: 'updated_at',
-                    width: 75,
+                    width: 110,
                     className: 'text-center'
                 }, {
                     title: this.$i18n.t('labels.actions'),
                     data: 'actions',
                     name: 'actions',
                     orderable: false,
-                    width: 125,
+                    width: 100,
                     className: 'nowrap',
                     responsivePriority: 3,
                 }],

@@ -33,6 +33,7 @@
                 responsive: true,
                 serverSide: true,
                 processing: true,
+                autoWidth: false,
                 ajax: {
                     url: `${this.$root.adminPath}/meta/search`,
                     type: 'post'

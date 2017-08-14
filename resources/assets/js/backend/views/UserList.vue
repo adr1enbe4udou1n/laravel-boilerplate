@@ -35,6 +35,7 @@
                 responsive: true,
                 serverSide: true,
                 processing: true,
+                autoWidth: false,
                 ajax: {
                     url: `${this.$root.adminPath}/user/search`,
                     type: 'post'
@@ -91,20 +92,20 @@
                     title: this.$i18n.t('labels.created_at'),
                     data: 'created_at',
                     name: 'created_at',
-                    width: 75,
+                    width: 110,
                     className: 'text-center'
                 }, {
                     title: this.$i18n.t('labels.updated_at'),
                     data: 'updated_at',
                     name: 'updated_at',
-                    width: 75,
+                    width: 110,
                     className: 'text-center'
                 }, {
                     title: this.$i18n.t('labels.actions'),
                     data: 'actions',
                     name: 'actions',
                     orderable: false,
-                    width: 110,
+                    width: 100,
                     className: 'nowrap',
                     responsivePriority: 2,
                 }],
