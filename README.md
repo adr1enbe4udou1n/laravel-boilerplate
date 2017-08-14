@@ -12,7 +12,7 @@
 
 ### Frontend
 
-* Bootstrap 4 Frontend with basic home-about-contact and legal mentions pages.
+* Bootstrap 4 (beta) Frontend with basic home-about-contact and legal mentions pages.
 * [Slick carousel](http://kenwheeler.github.io/slick/) and [Cookie Consent](https://cookieconsent.insites.com/) integrated.
 * Blog section, including navigation by tags & authors.
 * Intervention image cache for dynamic optimized images.
@@ -22,29 +22,38 @@
 
 ### Backend
 
-* Backend based on Bootstrap 4 [CoreUI](https://github.com/mrholek/CoreUI-Free-Bootstrap-Admin-Template) theme with some essential plugins (DataTables, SweetAlert2, Select2, Flatpickr, CKEditor, etc.).
-* Batch actions integrated within DataTables thanks to select plugin.
+#### Underlying layer
+
+* Based on Bootstrap 4 [CoreUI](https://github.com/mrholek/CoreUI-Free-Bootstrap-Admin-Template) theme with many useful plugins (DataTables, SweetAlert2, Flatpickr, CKEditor, etc.).
+* Entirely written with Vue components, including vue-route for instant client-side navigation
+* All main CRUD actions are ajaxified
+* Client-side validation with [vee-validate](https://github.com/baianat/vee-validate)
+* Native [vue-select](https://github.com/sagalbot/vue-select) component for powerful select system (autocomplete, tags, etc.)
+* Batch actions integrated within DataTables thanks to his select plugin.
 * Client-side CSV / Excel export feature included by buttons DataTable plugin.
+
+#### Features included
+
 * User and permissions management (classic users <-> roles <-> permissions structure).
 * Impersonation feature for quick user context testing.
-* Frontend forms module, including settings (recipients and translatable message confirmation) & submissions management. Note for developer, forms are configured on specific laravel config file. This boilerplate include just one "contact form" type.
+* Frontend forms module, including settings (recipients and translatable message confirmation) & submissions management.
 * Posts management for frontend blog, with granular publication permissions (classic draft-pending-published workflow). Posts include title, summary, html body, tags, featured image, metas. They can be published at specific datetime and pinned if needed. Specific user can be limited to modify own posts only, according to his permissions.
 * No media manager interface included with this boilerplate, but the "uploadimage" CKEditor plugin is installed in order to support direct drag & drop image files.
 
 ### Localization & SEO
 
-* Multilingual ready thanks to awesome [Laravel Localization](https://github.com/mcamara/laravel-localization) package. Each routes are prefixed by locale in URL for best SEO support. For this boilerplate, EN & FR locales are 100% supported, including translated routes.
-* Model Field Translatable support thanks to very cool [Laravel Translatable](https://github.com/dimsav/laravel-translatable), used for contact form confirmed message, metatags and posts.
+* Multilingual ready thanks to [Laravel Localization](https://github.com/mcamara/laravel-localization) package. Each routes are prefixed by locale in URL for best SEO support. For this boilerplate, EN & FR locales are 100% supported, including translated routes.
+* Model Field Translatable support with [Laravel Translatable](https://github.com/dimsav/laravel-translatable), used for contact form confirmed message, metatags and posts.
 * Robots and Sitemap integrated, including multilingual alternates.
 * Full Metatags manager interface with translatable title & description. Meta entity can be either linked to route or specific entity like post.
 * 301/302 redirections manager interface, with CSV/XLSX import feature.
 
 ### Developer Specific
 
-* Many form components bootstrap helpers with basic client side validation by vee-validate.
+* Server-side (blade) and client-side (vue) form components bootstrap helpers.
 * Usage of [Laravel-Mediable](https://github.com/plank/laravel-mediable) package for orderable media model management, used for featured image on posts.
 * Permissions configuration based on config file rather than database.
-* Form types defined on config file for settings & submission support.
+* Form types defined on config file for settings & submission support. This boilerplate include just one "contact form" type.
 * Custom webpack integration rather than laravel mix, for better flexibility (cf bellow).
 
 ## Install
@@ -83,7 +92,7 @@ Both frontend and backend have dedicated login pages.
 
 ### Compiling assets with Webpack
 
-1. If not yet done, get Yarn globally with `npm -g i yarn` and install dependencies with `yarn`
+1. Install dependencies with `yarn`
 2. Launch `yarn watch` for compiling assets and start browsersync
 
 > Note : If assets modified, don't forget to launch `yarn production` before deploy on each production environment.
@@ -104,7 +113,7 @@ Laravel Mix still stay awesome for newcomers thanks to his laravel-like webpack 
 
 For instance, with this custom setup HMR work natively with configurable port and productions assets are correctly cleanup after each compilation in specific "dist" directory.
 
-For your info, this webpack setup is a direct recovery from my other little side-project [Express Boilerplate](https://github.com/adr1enbe4udou1n/express-boilerplate) which is optimized for quick prototype frontend development based on express Node framework.
+This webpack setup is a direct recovery from my other little side-project [Express Boilerplate](https://github.com/adr1enbe4udou1n/express-boilerplate) which is optimized for quick prototype frontend development based on express Node framework.
 
 ## TODO
 
@@ -124,12 +133,11 @@ For your info, this webpack setup is a direct recovery from my other little side
 - [x] <s>Facebook/Twitter/Google Sign in with socialite package</s>
 - [x] <s>Blog system (posts, publication date, multilangue, HTML wysiwyg, tags, featured image, medias, public user profile)</s>
 - [x] <s>Dashboard</s>
-- [x] <s>Switch to full Bootstrap 4 for both Frontend & Backend</s>
+- [x] <s>Switch to full Bootstrap 4 beta for both Frontend & Backend</s>
+- [x] <s>Create client-side Vue components Form Helpers</s>
+- [x] <s>With previous task done, then why not consider 100% client-side Vue backend with vue-route ? Will be nice but seems a lot to do...</s>
 - [ ] Refactor & debug
 - [ ] Inclusion of unit/featured/browser tests
-- Only if i'm motivated :
-    - [ ] Change classic server-side Form Helpers by client-side Form Vue components
-    - [ ] With previous task done, then why not consider 100% client-side Vue backend with vue-route ? Will be nice but seems a lot to do...
 
 ## License
 
