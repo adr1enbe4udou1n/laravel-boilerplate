@@ -36,7 +36,7 @@
             </section>
         @endif
 
-        @if(Breadcrumbs::exists() && !request()->is('/'))
+        @if(Breadcrumbs::exists() && !request()->routeIs('home'))
             <section class="nav-breadcrumb bg-dark">
                 <div class="container">
                     {!! Breadcrumbs::render() !!}
