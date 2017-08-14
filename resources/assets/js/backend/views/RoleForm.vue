@@ -59,7 +59,7 @@
                                     :invalid-feedback="feedback('description')"
                             >
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <input
                                                 id="description"
                                                 name="description"

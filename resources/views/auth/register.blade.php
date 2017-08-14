@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-12 col-lg-6 mx-auto">
+            <div class="col-md-12 col-lg-8 mx-auto">
                 <div class="card">
                     <div class="card-header">@lang('labels.user.register')</div>
                     <div class="card-body">
