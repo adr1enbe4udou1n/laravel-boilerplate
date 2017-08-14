@@ -4,6 +4,10 @@
 [![CircleCI](https://circleci.com/gh/adr1enbe4udou1n/laravel-boilerplate.svg?style=shield)](https://circleci.com/gh/adr1enbe4udou1n/laravel-boilerplate)
 [![License](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/license)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 
+<p align="center">
+<img src="https://user-images.githubusercontent.com/3679080/29276568-47dd36f8-810f-11e7-9273-d0068bec6558.gif">
+</p>
+
 ## Features
 
 ### Frontend
