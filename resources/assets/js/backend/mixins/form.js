@@ -38,7 +38,14 @@ export default {
                     let router = this.$router;
                     let action = this.isNew ? `${this.$root.adminPath}/${this.modelName}` : `${this.$root.adminPath}/${this.modelName}/${this.id}`;
 
-                    axios[this.isNew ? 'post' : 'patch'](action, this.model)
+                    let data = new FormData();
+                    Object.keys(this.model).forEach(key => data.append(key, this.model[key]));
+
+                    if (!this.isNew) {
+                        data.append('_method', 'PATCH');
+                    }
+
+                    axios.post(action, data)
                         .then(response => {
                             window.toastr[response.data.status](response.data.message);
                             router.push(`/${this.modelName}`);

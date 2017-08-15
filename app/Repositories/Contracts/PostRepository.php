@@ -5,6 +5,7 @@ namespace App\Repositories\Contracts;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
+use Illuminate\Http\UploadedFile;
 
 /**
  * Interface PostRepository.
@@ -40,20 +41,22 @@ interface PostRepository extends BaseRepository
     public function findBySlug($slug);
 
     /**
-     * @param \App\Models\Post $post
-     * @param array            $input
+     * @param \App\Models\Post              $post
+     * @param array                         $input
+     * @param \Illuminate\Http\UploadedFile $image
      *
      * @return mixed
      */
-    public function saveAndPublish(Post $post, array $input);
+    public function saveAndPublish(Post $post, array $input, UploadedFile $image = null);
 
     /**
-     * @param Post  $post
-     * @param array $input
+     * @param Post                          $post
+     * @param array                         $input
+     * @param \Illuminate\Http\UploadedFile $image
      *
      * @return mixed
      */
-    public function saveAsDraft(Post $post, array $input);
+    public function saveAsDraft(Post $post, array $input, UploadedFile $image = null);
 
     /**
      * @param Post $post

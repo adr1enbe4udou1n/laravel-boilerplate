@@ -80,14 +80,20 @@
                                     :label="$t('validation.attributes.image')"
                                     :horizontal="true"
                                     :label-cols="2"
-                                    :invalid-feedback="feedback('image')"
+                                    :invalid-feedback="feedback('featured_image')"
                             >
                                 <div class="media">
                                     <img v-if="model.featured_image_path !== null" class="mr-2" :src="`/imagecache/small/${model.featured_image_path}`" alt="">
 
                                     <div class="media-body">
                                         <h6>{{ $t('labels.upload_image') }}</h6>
-                                        <b-input-file id="featured_image" name="featured_image" v-model="model.featured_image"></b-input-file>
+                                        <input
+                                                id="featured_image"
+                                                name="featured_image"
+                                                type="file"
+                                                class="form-control"
+                                                @change="onFileChange"
+                                        >
                                         <p class="form-text text-muted">
                                             {{ $t('labels.descriptions.allowed_image_types') }}
                                         </p>
@@ -298,7 +304,13 @@
                     .then(response => {
                         this.tags = response.data.items;
                     });
-            }
+            },
+            onFileChange(e) {
+                let files = e.target.files || e.dataTransfer.files;
+                if (!files.length) return;
+
+                this.model.featured_image = files[0];
+            },
         }
     };
 </script>

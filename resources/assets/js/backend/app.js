@@ -47,9 +47,6 @@ Vue.component('b-form-radio', FormRadio);
 import FormToggle from '.././components/FormToggle.vue';
 Vue.component('b-form-toggle', FormToggle);
 
-import InputFile from '.././components/InputFile.vue';
-Vue.component('b-input-file', InputFile);
-
 import Flatpickr from '.././components/Flatpickr.vue';
 Vue.component('flatpickr', Flatpickr);
 

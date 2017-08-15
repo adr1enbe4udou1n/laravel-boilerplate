@@ -8,7 +8,11 @@
                     </div>
                     <div class="card-body">
                         <form class="form-inline" @submit.prevent="onFileImport">
-                            <b-input-file v-model="importFile"></b-input-file>
+                            <input
+                                    type="file"
+                                    class="form-control"
+                                    @change="onFileChange"
+                            >
                             <input type="submit" class="btn btn-warning btn-md ml-1"
                                    :value="$t('buttons.redirections.import')">
                         </form>
@@ -51,17 +55,26 @@
             };
         },
         methods: {
+            onFileChange(e) {
+                let files = e.target.files || e.dataTransfer.files;
+                if (!files.length) return;
+
+                this.importFile = files[0];
+            },
             onFileImport() {
                 let dataTable = $('#dataTableBuilder').DataTable();
 
-                axios.post(`${this.$root.adminPath}/redirection/import`, {
-                    'import': this.importFile,
-                }).then(response => {
-                    dataTable.ajax.reload(null, false);
-                    window.toastr[response.data.status](response.data.message);
-                }).catch(error => {
-                    window.toastr.error(error.response.data.error);
-                });
+                let data = new FormData();
+                data.append('import', this.importFile);
+
+                axios
+                    .post(`${this.$root.adminPath}/redirection/import`, data)
+                    .then(response => {
+                        dataTable.ajax.reload(null, false);
+                        window.toastr[response.data.status](response.data.message);
+                    }).catch(error => {
+                        window.toastr.error(error.response.data.error);
+                    });
             }
         },
         mounted() {

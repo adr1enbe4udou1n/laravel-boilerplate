@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Repositories\Contracts\PostRepository;
 use App\Repositories\Contracts\TagRepository;
 use App\Repositories\Traits\HtmlActionsButtons;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
@@ -109,48 +110,47 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     }
 
     /**
-     * @param Post  $post
+     * @param Post $post
      * @param array $input
      *
-     * @return mixed
+     * @param \Illuminate\Http\UploadedFile|null $image
      *
-     * @throws \Illuminate\Database\Eloquent\MassAssignmentException
+     * @return mixed
      * @throws \App\Exceptions\GeneralException|\Exception|\Throwable
      */
-    public function saveAndPublish(Post $post, array $input)
+    public function saveAndPublish(Post $post, array $input, UploadedFile $image = null)
     {
         $post->status = Post::PUBLISHED;
 
-        return $this->save($post, $input);
+        return $this->save($post, $input, $image);
     }
 
     /**
-     * @param Post  $post
+     * @param Post $post
      * @param array $input
      *
-     * @return mixed
+     * @param \Illuminate\Http\UploadedFile|null $image
      *
-     * @throws \Illuminate\Database\Eloquent\MassAssignmentException
+     * @return mixed
      * @throws \App\Exceptions\GeneralException|\Exception|\Throwable
      */
-    public function saveAsDraft(Post $post, array $input)
+    public function saveAsDraft(Post $post, array $input, UploadedFile $image = null)
     {
         $post->status = Post::DRAFT;
 
-        return $this->save($post, $input);
+        return $this->save($post, $input, $image);
     }
 
     /**
-     * @param Post  $post
+     * @param Post $post
      * @param array $input
      *
-     * @return mixed
+     * @param \Illuminate\Http\UploadedFile|null $image
      *
-     * @throws \Illuminate\Database\Eloquent\MassAssignmentException
-     * @throws \Throwable
-     * @throws \App\Exceptions\GeneralException|\Exception
+     * @return mixed
+     * @throws \App\Exceptions\GeneralException|\Exception|\Throwable
      */
-    private function save(Post $post, array $input)
+    private function save(Post $post, array $input, UploadedFile $image = null)
     {
         if ($post->exists) {
             if (!Gate::check('update', $post)) {
@@ -165,7 +165,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
             $post->status = Post::PENDING;
         }
 
-        DB::transaction(function () use ($post, $input) {
+        DB::transaction(function () use ($post, $input, $image) {
             if (!$post->save()) {
                 throw new GeneralException(trans('exceptions.backend.posts.save'));
             }
@@ -185,7 +185,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
                 $ids = $post->tags->pluck('id')->toArray();
                 $post->tags()->detach($ids);
 
-                foreach ($input['tags'] as $tag) {
+                foreach (explode(',', $input['tags']) as $tag) {
                     if ($tag = $this->tags->findOrCreate($tag)) {
                         $post->tags()->attach($tag->id);
                     }
@@ -193,19 +193,11 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
             }
 
             // Featured image
-            if (isset($input['featured_image'])) {
-                // Write base64 string to memory
-                $image = fopen('php://memory', 'wb');
-                $data = explode(',', $input['featured_image']);
-                fwrite($image, base64_decode($data[1]));
-
-                // Upload media
+            if ($image) {
                 $media = $this->mediaUploader->fromSource($image)
-                    ->toDestination('public', 'posts')
-                    ->useFilename(Str::random(32))
-                    ->upload();
-
-                fclose($image);
+                  ->toDestination('public', 'posts')
+                  ->useFilename(Str::random(32))
+                  ->upload();
 
                 $post->handleMediableDeletion();
                 $post->attachMedia($media, 'featured image');
