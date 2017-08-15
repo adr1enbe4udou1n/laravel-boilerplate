@@ -1,13 +1,13 @@
-@each $variant, $color in (primary: $blue, secondary: $gray-lighter, success: $green, info: $cyan, warning: $yellow, danger: $red) {
-  .modal-#{$variant} {
+@each $color, $value in $theme-colors {
+  .modal-#{$color} {
 
     .modal-content {
-      border-color: $color;
+      border-color: $value;
     }
 
     .modal-header {
       color: #fff;
-      background-color: $color;
+      background-color: $value;
     }
   }
 }

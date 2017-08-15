@@ -84,7 +84,7 @@
                     name: 'promoted',
                     searchable: false,
                     className: 'text-center',
-                    width: 75,
+                    width: 90,
                 }, {
                     title: this.$i18n.t('labels.author'),
                     data: 'owner.name',

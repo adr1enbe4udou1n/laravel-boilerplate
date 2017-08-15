@@ -5,18 +5,16 @@
                 <div class="col-xl-6">
                     <div class="card">
                         <div class="card-header">
-                            <h4>
-                                {{ isNew ? $t('labels.backend.metas.titles.create') : $t('labels.backend.metas.titles.edit')
-                                }}</h4>
+                            <h4>{{ isNew ? $t('labels.backend.metas.titles.create') : $t('labels.backend.metas.titles.edit') }}</h4>
                         </div>
 
                         <div class="card-body">
                             <template v-if="this.model.metable_type !== null">
-                                <div class="form-group">
-                                    <label class="control-label col-lg-3">{{ $t('validation.attributes.metable_type')
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label">{{ $t('validation.attributes.metable_type')
                                         }}</label>
                                     <div class="col-lg-9">
-                                        <label class="control-label">{{ $t(`labels.morphs.${this.model.metable_type}`, {'id': this.model.metable_id})
+                                        <label class="col-form-label">{{ $t(`labels.morphs.${this.model.metable_type}`, {'id': this.model.metable_id})
                                             }}</label>
                                     </div>
                                 </div>

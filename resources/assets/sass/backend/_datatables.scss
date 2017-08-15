@@ -2,7 +2,7 @@
 @import "node_modules/datatables.net-select-bs4/css/select.bootstrap4";
 
 table.dataTable tbody > tr.selected, table.dataTable tbody > tr > .selected {
-  background-color: $gray-lighter;
+  background-color: $gray-300;
 }
 
 table.dataTable tbody tr.selected, table.dataTable tbody th.selected, table.dataTable tbody td.selected {

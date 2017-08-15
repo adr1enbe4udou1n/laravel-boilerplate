@@ -6,7 +6,7 @@
   }
 }
 
-// app-dashboard and app-root are Angular2 selectors. You can add here your own selectors if you need.
+// app-dashboard and app-root are Angular2+ selectors. You can add here your own selectors if you need.
 .app,
 app-dashboard,
 app-root {
@@ -220,6 +220,66 @@ app-root {
 }
 
 //
+// Breadcrumb
+//
+.breadcrumb-fixed {
+
+  .main {
+    $breadcrumb-height: 2 * $breadcrumb-padding-y + $font-size-base + 1.5 * $spacer;
+    padding-top: $breadcrumb-height;
+  }
+
+  .breadcrumb {
+    position: fixed;
+    top: $navbar-height;
+    right: 0;
+    left: 0;
+    z-index: $zindex-sticky - 2;
+  }
+
+  // if sidebar + main + aside
+  .main:nth-child(2) {
+    .breadcrumb {
+      right: $aside-menu-width;
+      left: $sidebar-width;
+    }
+  }
+
+  // if sidebar + main
+  .main:first-child {
+    .breadcrumb {
+      right: $aside-menu-width;
+      left: 0;
+    }
+  }
+
+  // if  main + aside
+  .main:last-child {
+    .breadcrumb {
+      right: 0;
+    }
+  }
+
+  &.sidebar-minimized {
+    .main .breadcrumb {
+      left: $sidebar-minimized-width;
+    }
+  }
+
+  &.sidebar-hidden, &.sidebar-off-canvas {
+    .main .breadcrumb {
+      left: 0;
+    }
+  }
+
+  &.aside-menu-hidden, &.aside-menu-off-canvas {
+    .main .breadcrumb {
+      right: 0;
+    }
+  }
+}
+
+//
 // Footer
 //
 .footer-fixed {
@@ -246,6 +306,9 @@ app-root {
 .aside-menu {
   transition: margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, flex $layout-transition-speed;
 }
+.breadcrumb {
+  transition: left $layout-transition-speed, right $layout-transition-speed, width $layout-transition-speed;
+}
 
 //
 // Mobile layout
@@ -257,14 +320,7 @@ app-root {
     position: fixed !important;
     z-index: $zindex-sticky;
     width: 100%;
-
-    .navbar-toggler {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 70px;
-      height: inherit;
-    }
+    text-align: center;
 
     .navbar-toggler {
       @if (lightness( $navbar-brand-bg ) > 40) {
@@ -275,15 +331,9 @@ app-root {
     }
 
     .navbar-brand {
-      width: 100% !important;
-      margin: 0 auto !important;
-    }
-
-    .navbar-nav {
       position: absolute;
-      top: 0;
-      right: 15px;
-      height: inherit;
+      left: 50%;
+      margin-left: - ($navbar-brand-width / 2);
     }
   }
 
@@ -307,8 +357,14 @@ app-root {
     margin-left: 0 !important;
   }
 
-  .aside-menu {
-    margin-right: - $aside-menu-width;
+  // .aside-menu {
+  //   margin-right: - $aside-menu-width;
+  // }
+
+  .sidebar-hidden {
+    .sidebar {
+      margin-left: - $mobile-sidebar-width;
+    }
   }
 
   .sidebar-mobile-show {
@@ -325,6 +381,13 @@ app-root {
     .main {
       margin-right: - $mobile-sidebar-width !important;
       margin-left: $mobile-sidebar-width !important;
+    }
+  }
+
+  .breadcrumb-fixed {
+    .main .breadcrumb {
+      right: 0 !important;
+      left: 0 !important;
     }
   }
 }

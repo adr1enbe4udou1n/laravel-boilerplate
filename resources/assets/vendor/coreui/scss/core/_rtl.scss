@@ -259,24 +259,9 @@
     border-right-color: $text-muted;
   }
 
-  .callout-primary {
-    border-right-color: $blue;
+  @each $color, $value in $theme-colors {
+    &.callout-#{$color} {
+      border-right-color: $value;
+    }
   }
-
-  .callout-info {
-    border-right-color: $cyan;
-  }
-
-  .callout-warning {
-    border-right-color: $yellow;
-  }
-
-  .callout-danger {
-    border-right-color: $red;
-  }
-
-  .callout-success {
-    border-right-color: $green;
-  }
-
 }

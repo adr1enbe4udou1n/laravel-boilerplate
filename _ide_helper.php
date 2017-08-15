@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.4.32 on 2017-08-13.
+ * Generated for Laravel 5.4.33 on 2017-08-15.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -15134,7 +15134,7 @@ namespace  {
             /**
              * Add an "or where" clause to the query.
              *
-             * @param string|\Closure $column
+             * @param string|array|\Closure $column
              * @param string $operator
              * @param mixed $value
              * @return \Illuminate\Database\Eloquent\Builder|static 
@@ -15634,6 +15634,18 @@ namespace  {
             }
          
             /**
+             * Pass the query to a given callback.
+             *
+             * @param \Closure $callback
+             * @return \Illuminate\Database\Query\Builder 
+             * @static 
+             */ 
+            public static function tap($callback)
+            {    
+                return \Illuminate\Database\Eloquent\Builder::tap($callback);
+            }
+         
+            /**
              * Apply the callback's query changes if the given "value" is false.
              *
              * @param mixed $value
@@ -15938,18 +15950,6 @@ namespace  {
             public static function crossJoin($table, $first = null, $operator = null, $second = null)
             {    
                 return \Illuminate\Database\Query\Builder::crossJoin($table, $first, $operator, $second);
-            }
-         
-            /**
-             * Pass the query to a given callback.
-             *
-             * @param \Closure $callback
-             * @return \Illuminate\Database\Query\Builder 
-             * @static 
-             */ 
-            public static function tap($callback)
-            {    
-                return \Illuminate\Database\Query\Builder::tap($callback);
             }
          
             /**

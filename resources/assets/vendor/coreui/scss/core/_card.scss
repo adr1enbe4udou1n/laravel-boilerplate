@@ -1,11 +1,26 @@
 .card {
   margin-bottom: 1.5 * $spacer;
+
+  // Cards with color accent
+  @each $color, $value in $theme-colors {
+    &.bg-#{$color} {
+      border-color: darken($value, 12.5%);
+      .card-header {
+        background-color: darken($value, 3%);
+        border-color: darken($value, 12.5%);
+      }
+    }
+  }
+}
+
+.text-white .text-muted {
+  color: rgba(255,255,255,.6) !important;
 }
 
 .card-header {
 
   .icon-bg {
-    display: inline-block;
+    display: inline-body;
     padding: $card-spacer-y $card-spacer-x !important;
     margin-top: -$card-spacer-y;
     margin-right: $card-spacer-x;
@@ -43,14 +58,6 @@
     color: #fff;
   }
 
-  @each $variant, $color in (primary: $blue, secondary: $gray-lighter, success: $green, info: $cyan, warning: $yellow, danger: $red) {
-    &.card-header-#{$variant} {
-      margin: -1px -1px 0;
-      background: $color;
-      border-bottom: 1px solid $color;
-    }
-  }
-
   .btn {
     margin-top: - $input-btn-padding-y;
   }
@@ -79,41 +86,8 @@
   }
 }
 
-
-//
-// Background variations
-//
-
-@mixin card-variant($color) {
-  background-color: $color;
-
-  .card-header {
-    border-color: darken($color,5%);
-  }
-
-  .card-header, .card-footer {
-    background-color: darken($color,5%);
-    //border: 0;
-  }
-}
-
-@each $variant, $color in (primary: $blue, secondary: $gray-lighter, success: $green, info: $cyan, warning: $yellow, danger: $red) {
-  .card-#{$variant} {
-    @include card-variant($color)
-  }
-}
-
-.card-inverse {
-  color: #fff;
-
-  .text-muted {
-    color: rgba(255,255,255,.6) !important;
-  }
-
-}
-
 [class*="card-outline-"] {
-  .card-block {
+  .card-body {
     background: #fff !important;
   }
 
@@ -122,6 +96,13 @@
     border-right-color: $border-color;
     border-bottom-color: $border-color;
     border-left-color: $border-color;
+  }
+}
+
+// Cards with color accent
+@each $color, $value in $theme-colors {
+  .card-accent-#{$color} {
+    @include card-accent-variant($value);
   }
 }
 
@@ -154,12 +135,12 @@
       }
 
       [class^="icon-"], [class*=" icon-"] {
-        display: inline-block;
+        display: inline-body;
         vertical-align: middle;
       }
 
       i {
-        display: inline-block;
+        display: inline-body;
         transition: .4s;
       }
 
@@ -208,5 +189,5 @@
 
 .card-placeholder {
   background: rgba(0,0,0,.025);
-  border: 1px dashed $gray-light;
+  border: 1px dashed $gray-300;
 }

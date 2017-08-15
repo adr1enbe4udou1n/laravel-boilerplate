@@ -44,42 +44,12 @@
   }
 }
 
-.callout-primary {
-  border-left-color: $blue;
+@each $color, $value in $theme-colors {
+  &.callout-#{$color} {
+    border-left-color: $value;
 
-  h4 {
-    color: $blue;
-  }
-}
-
-.callout-info {
-  border-left-color: $cyan;
-
-  h4 {
-    color: $cyan;
-  }
-}
-
-.callout-warning {
-  border-left-color: $yellow;
-
-  h4 {
-    color: $yellow;
-  }
-}
-
-.callout-danger {
-  border-left-color: $red;
-
-  h4 {
-    color: $red;
-  }
-}
-
-.callout-success {
-  border-left-color: $green;
-
-  h4 {
-    color: $green;
+    h4 {
+      color: $value;
+    }
   }
 }
