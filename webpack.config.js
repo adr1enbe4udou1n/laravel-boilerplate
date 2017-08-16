@@ -140,7 +140,7 @@ module.exports = {
         ],
     },
     output: {
-        path: path.join(__dirname, '/public'),
+        path: path.resolve(__dirname, '/public'),
         filename: production ? 'dist/js/[name].[chunkhash].js' : 'js/[name].js',
         publicPath: hmr ? `http://localhost:${webpackDevServerPort}/` : '/',
     },
@@ -311,7 +311,7 @@ if (hmr) {
 if (production) {
     plugins = [
         new CleanWebpackPlugin(['dist', 'fonts/vendor', 'images/vendor'], {
-            root: path.join(__dirname, '/public'),
+            root: path.resolve(__dirname, '/public'),
         }),
         new webpack.DefinePlugin({
             'process.env': {

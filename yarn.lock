@@ -5111,9 +5111,9 @@ pngquant-bin@^3.0.0:
     bin-wrapper "^3.0.0"
     logalot "^2.0.0"
 
-popper.js@^1.11.1:
-  version "1.11.1"
-  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.11.1.tgz#f5aca9a73bca1ce1fdbd9be8b1ba68677cbdd8e0"
+popper.js@^1.12.1:
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.12.1.tgz#623f3c6124ffbc065c39c100b223d6bd4b659303"
 
 portfinder@^1.0.9:
   version "1.0.13"
@@ -6878,9 +6878,9 @@ vary@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.1.tgz#67535ebb694c1d52257457984665323f587e8d37"
 
-vee-validate@^2.0.0-rc.12:
-  version "2.0.0-rc.12"
-  resolved "https://registry.yarnpkg.com/vee-validate/-/vee-validate-2.0.0-rc.12.tgz#05c7f98e6d954d80e7762e0b66fefab8b11f9de5"
+vee-validate@^2.0.0-rc.13:
+  version "2.0.0-rc.13"
+  resolved "https://registry.yarnpkg.com/vee-validate/-/vee-validate-2.0.0-rc.13.tgz#b2aadf729c277d7a908bec5d71169d02c54b7890"
 
 vendors@^1.0.0:
   version "1.0.1"
