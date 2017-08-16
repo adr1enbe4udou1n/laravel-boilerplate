@@ -51,11 +51,20 @@ export default {
                             router.push(`/${this.modelName}`);
                         })
                         .catch(error => {
+                            // Validation errors
                             if (error.response.status === 422) {
                                 this.validation.errors = error.response.data;
                                 return;
                             }
-                            window.toastr.error(error.response.data.error);
+
+                            // Domain error
+                            if (error.response.data.error !== undefined) {
+                                window.toastr.error(error.response.data.error);
+                                return;
+                            }
+
+                            // Generic error
+                            window.toastr.error(this.$i18n.t('exceptions.general'));
                         });
                 }
             });

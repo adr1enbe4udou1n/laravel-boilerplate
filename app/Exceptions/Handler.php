@@ -59,7 +59,7 @@ class Handler extends ExceptionHandler
          */
         if ($exception instanceof GeneralException) {
             if ($request->expectsJson()) {
-                return response()->json(['error' => $exception->getMessage()], 422);
+                return response()->json(['error' => $exception->getMessage()], 500);
             }
 
             return redirect()->back()->withInput()->withFlashError($exception->getMessage());

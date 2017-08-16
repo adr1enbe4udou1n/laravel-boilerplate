@@ -96,6 +96,7 @@ export default {
             }
         },
         "exceptions": {
+            "general": "Server exception",
             "backend": {
                 "users": {
                     "create": "Error on user creation",
@@ -761,6 +762,7 @@ export default {
             }
         },
         "exceptions": {
+            "general": "Erreur serveur",
             "backend": {
                 "users": {
                     "create": "Erreur lors de la création de l'utilisateur",

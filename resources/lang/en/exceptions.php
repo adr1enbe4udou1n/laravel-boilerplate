@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'general' => 'Server exception',
+
     'backend' => [
         'users' => [
             'create' => 'Error on user creation',

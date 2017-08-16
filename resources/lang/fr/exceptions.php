@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'general' => 'Erreur serveur',
+
     'backend' => [
         'users' => [
             'create' => 'Erreur lors de la création de l\'utilisateur',
