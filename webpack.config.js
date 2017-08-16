@@ -18,7 +18,7 @@ const hmr = process.argv.includes('--hot');
 
 const browserSyncHost = process.env.BROWSERSYNC_HOST || 'localhost';
 const browserSyncPort = parseInt(process.env.BROWSERSYNC_PORT || '3000', 10);
-const webpackDevServerPort = parseInt(process.env.WEBPACKDEVSERVER_PORT || '8080', 10);
+const webpackDevServerPort = parseInt(process.env.HMR_PORT || '8080', 10);
 
 // Hot reloading file for Laravel detection
 const hotfilename = 'public/hot';
@@ -260,7 +260,7 @@ module.exports = {
         }),
         new WebpackNotifierPlugin(),
         new webpack.optimize.CommonsChunkPlugin({
-            names: ['vendor', 'ckeditor', 'manifest'],
+            names: ['vendor', 'manifest'],
             minChunks: Infinity,
         }),
         new LodashModuleReplacementPlugin({
@@ -306,6 +306,7 @@ module.exports = {
         headers: {
             'Access-Control-Allow-Origin': '*',
         },
+        contentBase: path.resolve('public'),
         historyApiFallback: true,
         noInfo: true,
         compress: true,
@@ -318,7 +319,7 @@ let plugins = [];
 
 if (hmr) {
     plugins = [
-        new webpack.NamedModulesPlugin(),
+        new webpack.NamedModulesPlugin()
     ];
 }
 
