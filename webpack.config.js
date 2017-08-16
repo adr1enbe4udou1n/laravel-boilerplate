@@ -219,7 +219,12 @@ module.exports = {
                             publicPath: '/',
                         },
                     },
-                    'img-loader',
+                    {
+                        loader: 'img-loader',
+                        options: {
+                            enabled: production,
+                        },
+                    },
                 ],
             },
             {
