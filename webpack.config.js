@@ -8,7 +8,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
+const ManifestPlugin = require('webpack-manifest-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
@@ -334,20 +334,7 @@ if (production) {
                 warnings: false,
             },
         }),
-        new StatsWriterPlugin({
-            filename: 'assets-manifest.json',
-            transform(data) {
-                return JSON.stringify({
-                    '/js/manifest.js': `/${data.assetsByChunkName.manifest[0]}`,
-                    '/js/vendor.js': `/${data.assetsByChunkName.vendor[0]}`,
-                    '/js/ckeditor.js': `/${data.assetsByChunkName.ckeditor[0]}`,
-                    '/js/frontend.js': `/${data.assetsByChunkName.frontend[0]}`,
-                    '/css/frontend.css': `/${data.assetsByChunkName.frontend[1]}`,
-                    '/js/backend.js': `/${data.assetsByChunkName.backend[0]}`,
-                    '/css/backend.css': `/${data.assetsByChunkName.backend[1]}`,
-                }, null, 2);
-            },
-        }),
+        new ManifestPlugin()
     ];
 }
 

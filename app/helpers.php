@@ -17,10 +17,9 @@ if (!function_exists('assets')) {
     function assets($path)
     {
         static $manifest;
+        $baseUrl = route('home', [], false);
 
-        if (!starts_with($path, '/')) {
-            $path = "/{$path}";
-        }
+        $path = $baseUrl . $path;
 
         if (app()->environment('local', 'testing')) {
             if (file_exists(public_path('/hot'))) {
@@ -35,13 +34,17 @@ if (!function_exists('assets')) {
         }
 
         if (!$manifest
-            && file_exists($manifestPath = public_path('/assets-manifest.json'))
+            && file_exists($manifestPath = public_path('/manifest.json'))
         ) {
             $manifest = json_decode(file_get_contents($manifestPath), true);
         }
 
-        if ($manifest && array_key_exists($path, $manifest)) {
-            return new HtmlString($manifest[$path]);
+        if ($manifest) {
+            $name = basename($path);
+
+            if (array_key_exists($name, $manifest)) {
+                return new HtmlString($baseUrl . $manifest[$name]);
+            }
         }
 
         return new HtmlString($path);

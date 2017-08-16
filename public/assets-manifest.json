@@ -1,9 +1,0 @@
-{
-  "/js/manifest.js": "/dist/js/manifest.e0a691a201aaa8ce4d10.js",
-  "/js/vendor.js": "/dist/js/vendor.06895cb82767ae733f29.js",
-  "/js/ckeditor.js": "/dist/js/ckeditor.9c4d6ead937beef5cccd.js",
-  "/js/frontend.js": "/dist/js/frontend.d7586c4656145d342695.js",
-  "/css/frontend.css": "/dist/css/frontend.8dffa9d2beb7c264d86c765ee984c1de.css",
-  "/js/backend.js": "/dist/js/backend.60335bea705f85804470.js",
-  "/css/backend.css": "/dist/css/backend.78675ae42ca6573e67a09614cc60b7e4.css"
-}
