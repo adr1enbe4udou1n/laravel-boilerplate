@@ -151,8 +151,6 @@
                         this.formSubmissionsCount = response.data;
                     });
             }
-
-
         }
     };
 </script>
