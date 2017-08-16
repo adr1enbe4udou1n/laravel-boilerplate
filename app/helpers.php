@@ -23,9 +23,10 @@ if (!function_exists('assets')) {
 
         if (app()->environment('local', 'testing')) {
             if (file_exists(public_path('/hot'))) {
-                $hmrPort = config('app.hmr_port');
+                $hmrHost = env('BROWSERSYNC_HOST');
+                $hmrPost = env('WEBPACKDEVSERVER_PORT');
 
-                return new HtmlString("//localhost:{$hmrPort}{$path}");
+                return new HtmlString("//{$hmrHost}:{$hmrPost}{$path}");
             }
 
             if (file_exists(public_path($path))) {

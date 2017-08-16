@@ -18,7 +18,7 @@ const hmr = process.argv.includes('--hot');
 
 const browserSyncHost = process.env.BROWSERSYNC_HOST || 'localhost';
 const browserSyncPort = parseInt(process.env.BROWSERSYNC_PORT || '3000', 10);
-const webpackDevServerPort = parseInt(process.env.HMR_PORT || '8080', 10);
+const webpackDevServerPort = parseInt(process.env.WEBPACKDEVSERVER_PORT || '8080', 10);
 
 // Hot reloading file for Laravel detection
 const hotfilename = 'public/hot';
@@ -142,7 +142,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'public'),
         filename: production ? 'dist/js/[name].[chunkhash].js' : 'js/[name].js',
-        publicPath: hmr ? `http://localhost:${webpackDevServerPort}/` : '/',
+        publicPath: hmr ? `http://${browserSyncHost}:${webpackDevServerPort}/` : '/',
     },
     module: {
         rules: [
@@ -311,6 +311,7 @@ module.exports = {
         noInfo: true,
         compress: true,
         quiet: true,
+        host: browserSyncHost,
         port: webpackDevServerPort,
     },
 };
