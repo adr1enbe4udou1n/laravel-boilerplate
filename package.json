@@ -10,6 +10,7 @@
     "production": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "devDependencies": {
+    "autoprefixer": "^7.1.2",
     "axios": "^0.16.2",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
@@ -53,6 +54,7 @@
     "moment": "^2.18.1",
     "node-sass": "^4.5.3",
     "popper.js": "^1.12.1",
+    "postcss-loader": "^2.0.6",
     "pwstrength-bootstrap": "^2.1.1",
     "resolve-url-loader": "^2.1.0",
     "sass-loader": "^6.0.6",

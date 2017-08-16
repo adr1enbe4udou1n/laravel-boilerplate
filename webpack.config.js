@@ -140,7 +140,7 @@ module.exports = {
         ],
     },
     output: {
-        path: path.resolve(__dirname, '/public'),
+        path: path.resolve(__dirname, 'public'),
         filename: production ? 'dist/js/[name].[chunkhash].js' : 'js/[name].js',
         publicPath: hmr ? `http://localhost:${webpackDevServerPort}/` : '/',
     },
@@ -153,7 +153,16 @@ module.exports = {
                         loader: 'css-loader',
                         options: {
                             sourceMap: true,
+                            importLoaders: 1,
                         },
+                    }, {
+                        loader: 'postcss-loader',
+                        options: {
+                            sourceMap: true,
+                            plugins: [
+                                require('autoprefixer')
+                            ]
+                        }
                     }, {
                         loader: 'resolve-url-loader?sourceMap',
                     }, {
@@ -311,7 +320,7 @@ if (hmr) {
 if (production) {
     plugins = [
         new CleanWebpackPlugin(['dist', 'fonts/vendor', 'images/vendor'], {
-            root: path.resolve(__dirname, '/public'),
+            root: path.resolve(__dirname, 'public'),
         }),
         new webpack.DefinePlugin({
             'process.env': {
