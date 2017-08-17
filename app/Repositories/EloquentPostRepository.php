@@ -110,12 +110,12 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     }
 
     /**
-     * @param Post $post
-     * @param array $input
-     *
+     * @param Post                               $post
+     * @param array                              $input
      * @param \Illuminate\Http\UploadedFile|null $image
      *
      * @return mixed
+     *
      * @throws \App\Exceptions\GeneralException|\Exception|\Throwable
      */
     public function saveAndPublish(Post $post, array $input, UploadedFile $image = null)
@@ -126,12 +126,12 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     }
 
     /**
-     * @param Post $post
-     * @param array $input
-     *
+     * @param Post                               $post
+     * @param array                              $input
      * @param \Illuminate\Http\UploadedFile|null $image
      *
      * @return mixed
+     *
      * @throws \App\Exceptions\GeneralException|\Exception|\Throwable
      */
     public function saveAsDraft(Post $post, array $input, UploadedFile $image = null)
@@ -142,12 +142,12 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     }
 
     /**
-     * @param Post $post
-     * @param array $input
-     *
+     * @param Post                               $post
+     * @param array                              $input
      * @param \Illuminate\Http\UploadedFile|null $image
      *
      * @return mixed
+     *
      * @throws \App\Exceptions\GeneralException|\Exception|\Throwable
      */
     private function save(Post $post, array $input, UploadedFile $image = null)

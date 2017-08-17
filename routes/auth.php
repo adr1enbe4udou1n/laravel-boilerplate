@@ -34,9 +34,9 @@ Route::group(
         Route::post('password/reset', 'ResetPasswordController@reset');
 
         // Admin specific login forms
-        Route::get(config('app.admin_path') . '/login', 'LoginController@showAdminLoginForm')->name('admin.login');
-        Route::get(config('app.admin_path') . '/logout', 'LoginController@adminLogout')->name('admin.logout');
-        Route::get(config('app.admin_path') . '/password/reset', 'ForgotPasswordController@showAdminLinkRequestForm')->name('admin.password.request');
+        Route::get(config('app.admin_path').'/login', 'LoginController@showAdminLoginForm')->name('admin.login');
+        Route::get(config('app.admin_path').'/logout', 'LoginController@adminLogout')->name('admin.logout');
+        Route::get(config('app.admin_path').'/password/reset', 'ForgotPasswordController@showAdminLinkRequestForm')->name('admin.password.request');
     }
 );
 

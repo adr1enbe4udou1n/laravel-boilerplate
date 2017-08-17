@@ -158,7 +158,7 @@ class Post extends Model
 
     public function getFeaturedImageUrlAttribute()
     {
-        return config('filesystems.disks.public.url') . '/' . $this->getFeaturedImagePathAttribute();
+        return config('filesystems.disks.public.url').'/'.$this->getFeaturedImagePathAttribute();
     }
 
     public function getMetaTitleAttribute()

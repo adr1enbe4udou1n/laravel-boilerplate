@@ -156,7 +156,7 @@ class RedirectionController extends BackendController
     }
 
     /**
-     * @param \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request           $request
      * @param \App\Imports\RedirectionListImport $import
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
