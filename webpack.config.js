@@ -31,12 +31,6 @@ if (hmr) {
     fs.writeFileSync(hotfilename, 'hot reloading');
 }
 
-const extractSass = new ExtractTextPlugin({
-    filename: production ? 'dist/css/[name].[contenthash].css' : 'css/[name].css',
-    allChunks: true,
-    disable: hmr,
-});
-
 let ckeditorLocales = ['en', 'fr'];
 let ckeditorPlugins = [
     'a11yhelp',
@@ -148,7 +142,8 @@ module.exports = {
         rules: [
             {
                 test: /\.scss$/,
-                use: extractSass.extract({
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
                     use: [{
                         loader: 'css-loader',
                         options: {
@@ -173,7 +168,6 @@ module.exports = {
                             sourceMap: true,
                         },
                     }],
-                    fallback: 'style-loader',
                 }),
             },
             {
@@ -267,7 +261,11 @@ module.exports = {
             collections: true,
             shorthands: true,
         }),
-        extractSass,
+        new ExtractTextPlugin({
+            filename: production ? 'dist/css/[name].[contenthash].css' : 'css/[name].css',
+            allChunks: true,
+            disable: hmr,
+        }),
         new BrowserSyncPlugin(
             {
                 host: browserSyncHost,
