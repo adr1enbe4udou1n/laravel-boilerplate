@@ -195,9 +195,9 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
             // Featured image
             if ($image) {
                 $media = $this->mediaUploader->fromSource($image)
-                  ->toDestination('public', 'posts')
-                  ->useFilename(Str::random(32))
-                  ->upload();
+                    ->toDestination('public', 'posts')
+                    ->useFilename(Str::random(32))
+                    ->upload();
 
                 $post->handleMediableDeletion();
                 $post->attachMedia($media, 'featured image');
