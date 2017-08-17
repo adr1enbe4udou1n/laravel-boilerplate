@@ -3,11 +3,11 @@
 namespace App\Models;
 
 use App\Models\Traits\Metable;
+use App\Models\Traits\Taggable;
 use Carbon\Carbon;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Traits\Taggable;
 use Plank\Mediable\Media;
 use Plank\Mediable\Mediable;
 

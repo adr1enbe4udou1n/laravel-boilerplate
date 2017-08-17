@@ -31,9 +31,9 @@ class EloquentFormSubmissionRepository extends EloquentBaseRepository implements
      * @param string $type
      * @param array  $input
      *
-     * @return \App\Models\FormSubmission
-     *
      * @throws \Exception|\Throwable
+     *
+     * @return \App\Models\FormSubmission
      */
     public function store($type, array $input)
     {
@@ -61,9 +61,9 @@ class EloquentFormSubmissionRepository extends EloquentBaseRepository implements
     /**
      * @param FormSubmission $formSubmission
      *
-     * @return bool|null
-     *
      * @throws \Exception|\Throwable
+     *
+     * @return bool|null
      */
     public function destroy(FormSubmission $formSubmission)
     {
@@ -77,9 +77,9 @@ class EloquentFormSubmissionRepository extends EloquentBaseRepository implements
     /**
      * @param array $ids
      *
-     * @return mixed
-     *
      * @throws \Exception|\Throwable
+     *
+     * @return mixed
      */
     public function batchDestroy(array $ids)
     {

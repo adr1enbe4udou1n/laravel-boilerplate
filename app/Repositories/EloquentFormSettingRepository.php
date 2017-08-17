@@ -39,9 +39,9 @@ class EloquentFormSettingRepository extends EloquentBaseRepository implements Fo
     /**
      * @param array $input
      *
-     * @return \App\Models\FormSetting
-     *
      * @throws \Exception|\Throwable
+     *
+     * @return \App\Models\FormSetting
      */
     public function store(array $input)
     {
@@ -63,10 +63,10 @@ class EloquentFormSettingRepository extends EloquentBaseRepository implements Fo
      * @param FormSetting $formSetting
      * @param array       $input
      *
-     * @return \App\Models\FormSetting
-     *
      * @throws Exception
      * @throws \Exception|\Throwable
+     *
+     * @return \App\Models\FormSetting
      */
     public function update(FormSetting $formSetting, array $input)
     {
@@ -86,9 +86,9 @@ class EloquentFormSettingRepository extends EloquentBaseRepository implements Fo
     /**
      * @param FormSetting $formSetting
      *
-     * @return bool|null
-     *
      * @throws \Exception|\Throwable
+     *
+     * @return bool|null
      */
     public function destroy(FormSetting $formSetting)
     {

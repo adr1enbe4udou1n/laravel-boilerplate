@@ -28,9 +28,9 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
     /**
      * @param array $input
      *
-     * @return \App\Models\Role
-     *
      * @throws \Exception|\Throwable
+     *
+     * @return \App\Models\Role
      */
     public function store(array $input)
     {
@@ -48,10 +48,10 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
      * @param Role  $role
      * @param array $input
      *
-     * @return \App\Models\Role
-     *
      * @throws Exception
      * @throws \Exception|\Throwable
+     *
+     * @return \App\Models\Role
      */
     public function update(Role $role, array $input)
     {
@@ -68,9 +68,9 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
      * @param \App\Models\Role $role
      * @param array            $input
      *
-     * @return bool
-     *
      * @throws \App\Exceptions\GeneralException
+     *
+     * @return bool
      */
     private function save(Role $role, array $input)
     {
@@ -92,9 +92,9 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
     /**
      * @param Role $role
      *
-     * @return bool|null
-     *
      * @throws \Exception|\Throwable
+     *
+     * @return bool|null
      */
     public function destroy(Role $role)
     {

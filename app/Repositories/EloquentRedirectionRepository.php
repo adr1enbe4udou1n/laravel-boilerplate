@@ -39,9 +39,9 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
     /**
      * @param array $input
      *
-     * @return \App\Models\Redirection
-     *
      * @throws \Exception|\Throwable
+     *
+     * @return \App\Models\Redirection
      */
     public function store(array $input)
     {
@@ -63,10 +63,10 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
      * @param Redirection $redirection
      * @param array       $input
      *
-     * @return \App\Models\Redirection
-     *
      * @throws Exception
      * @throws \Exception|\Throwable
+     *
+     * @return \App\Models\Redirection
      */
     public function update(Redirection $redirection, array $input)
     {
@@ -86,9 +86,9 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
     /**
      * @param Redirection $redirection
      *
-     * @return bool|null
-     *
      * @throws \Exception|\Throwable
+     *
+     * @return bool|null
      */
     public function destroy(Redirection $redirection)
     {
@@ -102,9 +102,9 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
     /**
      * @param array $ids
      *
-     * @return mixed
-     *
      * @throws \Exception|\Throwable
+     *
+     * @return mixed
      */
     public function batchDestroy(array $ids)
     {
@@ -123,9 +123,9 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
     /**
      * @param array $ids
      *
-     * @return mixed
-     *
      * @throws \Exception|\Throwable
+     *
+     * @return mixed
      */
     public function batchEnable(array $ids)
     {
@@ -145,9 +145,9 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
     /**
      * @param array $ids
      *
-     * @return mixed
-     *
      * @throws \Exception|\Throwable
+     *
+     * @return mixed
      */
     public function batchDisable(array $ids)
     {

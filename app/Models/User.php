@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
+use App\Notifications\ResetPassword as ResetPasswordNotification;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Notifications\ResetPassword as ResetPasswordNotification;
+use Illuminate\Notifications\Notifiable;
 
 /**
  * App\Models\User.

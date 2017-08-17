@@ -49,9 +49,9 @@ class AccountController extends Controller
      *
      * @param Request $request
      *
-     * @return \Illuminate\View\View
-     *
      * @throws \Mcamara\LaravelLocalization\Exceptions\SupportedLocalesNotDefined
+     *
+     * @return \Illuminate\View\View
      */
     public function index(Request $request)
     {
@@ -124,9 +124,9 @@ class AccountController extends Controller
     /**
      * @param \Illuminate\Http\Request $request
      *
-     * @return mixed
-     *
      * @throws \RuntimeException
+     *
+     * @return mixed
      */
     public function delete(Request $request)
     {

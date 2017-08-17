@@ -54,9 +54,9 @@ class EloquentTagRepository extends EloquentBaseRepository implements TagReposit
     /**
      * @param string $name
      *
-     * @return bool
-     *
      * @throws \Exception
+     *
+     * @return bool
      */
     public function delete($name)
     {

@@ -40,9 +40,9 @@ class AjaxController extends Controller
      *
      * @param Request $request
      *
-     * @return array
-     *
      * @throws \InvalidArgumentException
+     *
+     * @return array
      */
     public function routesSearch(Request $request)
     {
@@ -74,9 +74,9 @@ class AjaxController extends Controller
      *
      * @param Request $request
      *
-     * @return array
-     *
      * @throws \InvalidArgumentException
+     *
+     * @return array
      */
     public function tagsSearch(Request $request)
     {

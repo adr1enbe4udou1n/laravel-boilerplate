@@ -176,9 +176,9 @@ class LoginController extends Controller
      *
      * @param Request $request
      *
-     * @return \Illuminate\Http\Response
-     *
      * @throws \RuntimeException
+     *
+     * @return \Illuminate\Http\Response
      */
     public function logout(Request $request)
     {
@@ -192,9 +192,9 @@ class LoginController extends Controller
      *
      * @param Request $request
      *
-     * @return \Illuminate\Http\Response
-     *
      * @throws \RuntimeException
+     *
+     * @return \Illuminate\Http\Response
      */
     public function adminLogout(Request $request)
     {

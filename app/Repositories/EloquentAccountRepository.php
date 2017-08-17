@@ -45,10 +45,10 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
     /**
      * @param array $input
      *
-     * @return \App\Models\User
-     *
      * @throws \Throwable
      * @throws \Exception
+     *
+     * @return \App\Models\User
      */
     public function register(array $input)
     {
@@ -63,9 +63,9 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
     /**
      * @param Authenticatable $user
      *
-     * @return \App\Models\User
-     *
      * @throws \App\Exceptions\GeneralException
+     *
+     * @return \App\Models\User
      */
     public function login(Authenticatable $user)
     {
@@ -87,9 +87,9 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
      * @param              $provider
      * @param AbstractUser $data
      *
-     * @return User
-     *
      * @throws \App\Exceptions\GeneralException
+     *
+     * @return User
      */
     public function findOrCreateSocial($provider, AbstractUser $data)
     {
@@ -127,9 +127,9 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
     /**
      * @param User $user
      *
-     * @return \Illuminate\Http\RedirectResponse
-     *
      * @throws Exception
+     *
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function loginAs(User $user)
     {
@@ -183,10 +183,10 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
     /**
      * @param $input
      *
-     * @return mixed
-     *
      * @throws \Illuminate\Database\Eloquent\MassAssignmentException
      * @throws \App\Exceptions\GeneralException
+     *
+     * @return mixed
      */
     public function update(array $input)
     {
@@ -214,9 +214,9 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
      * @param $oldPassword
      * @param $newPassword
      *
-     * @return mixed
-     *
      * @throws \App\Exceptions\GeneralException
+     *
+     * @return mixed
      */
     public function changePassword($oldPassword, $newPassword)
     {
@@ -279,9 +279,9 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
     }
 
     /**
-     * @return mixed
-     *
      * @throws \App\Exceptions\GeneralException|Exception
+     *
+     * @return mixed
      */
     public function delete()
     {

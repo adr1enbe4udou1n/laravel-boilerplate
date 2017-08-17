@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Listeners\LoginEventListener;
 use App\Listeners\FormSubmissionEventListener;
+use App\Listeners\LoginEventListener;
 use App\Listeners\UserEventListener;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;

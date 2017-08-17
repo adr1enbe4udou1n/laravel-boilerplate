@@ -73,9 +73,9 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
      * @param array $input
      * @param bool  $confirmed
      *
-     * @return \App\Models\User
-     *
      * @throws \App\Exceptions\GeneralException
+     *
+     * @return \App\Models\User
      */
     public function store(array $input, $confirmed = false)
     {
@@ -108,10 +108,10 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
      * @param User  $user
      * @param array $input
      *
-     * @return \App\Models\User
-     *
      * @throws Exception
      * @throws \Exception|\Throwable
+     *
+     * @return \App\Models\User
      */
     public function update(User $user, array $input)
     {
@@ -138,9 +138,9 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
      * @param \App\Models\User $user
      * @param array            $input
      *
-     * @return bool
-     *
      * @throws \App\Exceptions\GeneralException
+     *
+     * @return bool
      */
     private function save(User $user, array $input)
     {
@@ -169,9 +169,9 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
     /**
      * @param User $user
      *
-     * @return bool|null
-     *
      * @throws \Exception|\Throwable
+     *
+     * @return bool|null
      */
     public function destroy(User $user)
     {
@@ -191,9 +191,9 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
     /**
      * @param array $ids
      *
-     * @return mixed
-     *
      * @throws \Exception|\Throwable
+     *
+     * @return mixed
      */
     public function batchDestroy(array $ids)
     {
@@ -212,9 +212,9 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
     /**
      * @param array $ids
      *
-     * @return mixed
-     *
      * @throws \Exception|\Throwable
+     *
+     * @return mixed
      */
     public function batchEnable(array $ids)
     {
@@ -234,9 +234,9 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
     /**
      * @param array $ids
      *
-     * @return mixed
-     *
      * @throws \Exception|\Throwable
+     *
+     * @return mixed
      */
     public function batchDisable(array $ids)
     {

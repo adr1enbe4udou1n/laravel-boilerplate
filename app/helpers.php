@@ -10,9 +10,9 @@ if (!function_exists('assets')) {
      *
      * @param string $path
      *
-     * @return mixed
-     *
      * @throws \Exception
+     *
+     * @return mixed
      */
     function assets($path)
     {

@@ -114,9 +114,9 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      * @param array                              $input
      * @param \Illuminate\Http\UploadedFile|null $image
      *
-     * @return mixed
-     *
      * @throws \App\Exceptions\GeneralException|\Exception|\Throwable
+     *
+     * @return mixed
      */
     public function saveAndPublish(Post $post, array $input, UploadedFile $image = null)
     {
@@ -130,9 +130,9 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      * @param array                              $input
      * @param \Illuminate\Http\UploadedFile|null $image
      *
-     * @return mixed
-     *
      * @throws \App\Exceptions\GeneralException|\Exception|\Throwable
+     *
+     * @return mixed
      */
     public function saveAsDraft(Post $post, array $input, UploadedFile $image = null)
     {
@@ -146,9 +146,9 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      * @param array                              $input
      * @param \Illuminate\Http\UploadedFile|null $image
      *
-     * @return mixed
-     *
      * @throws \App\Exceptions\GeneralException|\Exception|\Throwable
+     *
+     * @return mixed
      */
     private function save(Post $post, array $input, UploadedFile $image = null)
     {
@@ -212,9 +212,9 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     /**
      * @param Post $post
      *
-     * @return mixed
-     *
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function destroy(Post $post)
     {
@@ -245,9 +245,9 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     /**
      * @param array $ids
      *
-     * @return mixed
-     *
      * @throws \Exception|\Throwable
+     *
+     * @return mixed
      */
     public function batchDestroy(array $ids)
     {
@@ -268,10 +268,10 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     /**
      * @param array $ids
      *
-     * @return mixed
-     *
      * @throws \Throwable
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function batchPublish(array $ids)
     {
@@ -296,10 +296,10 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     /**
      * @param array $ids
      *
-     * @return mixed
-     *
      * @throws \Throwable
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function batchPin(array $ids)
     {
@@ -319,10 +319,10 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     /**
      * @param array $ids
      *
-     * @return mixed
-     *
      * @throws \Throwable
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function batchPromote(array $ids)
     {

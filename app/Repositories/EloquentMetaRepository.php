@@ -40,9 +40,9 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
     /**
      * @param array $input
      *
-     * @return \App\Models\Meta
-     *
      * @throws \Exception|\Throwable
+     *
+     * @return \App\Models\Meta
      */
     public function store(array $input)
     {
@@ -64,10 +64,10 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
      * @param Meta  $meta
      * @param array $input
      *
-     * @return \App\Models\Meta
-     *
      * @throws Exception
      * @throws \Exception|\Throwable
+     *
+     * @return \App\Models\Meta
      */
     public function update(Meta $meta, array $input)
     {
@@ -89,9 +89,9 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
     /**
      * @param Meta $meta
      *
-     * @return bool|null
-     *
      * @throws \Exception|\Throwable
+     *
+     * @return bool|null
      */
     public function destroy(Meta $meta)
     {
@@ -105,9 +105,9 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
     /**
      * @param array $ids
      *
-     * @return mixed
-     *
      * @throws \Exception|\Throwable
+     *
+     * @return mixed
      */
     public function batchDestroy(array $ids)
     {

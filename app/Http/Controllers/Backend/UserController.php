@@ -45,9 +45,9 @@ class UserController extends BackendController
      *
      * @param Request $request
      *
-     * @return \Illuminate\Http\JsonResponse
-     *
      * @throws \Exception
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
     public function search(Request $request)
     {
@@ -128,9 +128,9 @@ class UserController extends BackendController
      * @param User              $user
      * @param UpdateUserRequest $request
      *
-     * @return mixed
-     *
      * @throws \Illuminate\Database\Eloquent\MassAssignmentException
+     *
+     * @return mixed
      */
     public function update(User $user, UpdateUserRequest $request)
     {

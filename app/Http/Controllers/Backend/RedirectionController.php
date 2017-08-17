@@ -33,9 +33,9 @@ class RedirectionController extends BackendController
      *
      * @param Request $request
      *
-     * @return \Illuminate\Http\JsonResponse
-     *
      * @throws \Exception
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
     public function search(Request $request)
     {
