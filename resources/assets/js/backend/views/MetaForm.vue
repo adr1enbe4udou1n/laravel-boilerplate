@@ -80,7 +80,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <input type="submit" class="btn btn-success btn-sm pull-right"
-                                           :value="isNew ? $t('buttons.create') : $t('buttons.edit')">
+                                           :value="isNew ? $t('buttons.create') : $t('buttons.edit')"
+                                           :disabled="pending">
                                 </div>
                             </div>
                         </div>

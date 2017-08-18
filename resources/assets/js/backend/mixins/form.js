@@ -6,7 +6,8 @@ export default {
         return {
             validation: {
                 errors: {}
-            }
+            },
+            pending: false,
         };
     },
     computed: {
@@ -35,6 +36,7 @@ export default {
         onSubmit() {
             this.$validator.validateAll().then(result => {
                 if (result) {
+                    this.pending = true;
                     let router = this.$router;
                     let action = this.isNew ? this.route(`admin.${this.modelName}.store`) : this.route(`admin.${this.modelName}.update`, { [this.modelName]: this.id });
 
@@ -65,7 +67,8 @@ export default {
 
                             // Generic error
                             window.toastr.error(this.$i18n.t('exceptions.general'));
-                        });
+                        })
+                        .then(() => this.pending = false);
                 }
             });
         }

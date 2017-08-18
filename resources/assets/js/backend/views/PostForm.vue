@@ -111,7 +111,7 @@
                                 <div class="col-md-6">
                                     <input name="status" type="hidden" value="publish">
                                     <div class="btn-group pull-right">
-                                        <input type="submit" class="btn btn-success btn-sm pull-right" :value="$t('buttons.posts.save_and_publish')" @click="model.status = 'publish'">
+                                        <input type="submit" class="btn btn-success btn-sm pull-right" :value="$t('buttons.posts.save_and_publish')" @click="model.status = 'publish'" :disabled="pending">
                                         <button type="button" class="btn btn-success btn-sm dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-expanded="false" id="save-and-publish">
                                             <span class="sr-only"></span>
                                         </button>
