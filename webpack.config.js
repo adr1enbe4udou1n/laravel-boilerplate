@@ -119,6 +119,8 @@ module.exports = {
         ],
         vendor: [
             'jquery',
+            'popper.js',
+            'bootstrap',
             'vue',
             'axios',
             'i18next',
@@ -238,7 +240,10 @@ module.exports = {
     },
     plugins: [
         new webpack.ProvidePlugin({
-            jquery: ['$', 'window.jQuery'],
+            $: 'jquery',
+            jQuery: 'jquery',
+            'window.jQuery': 'jquery',
+            Popper: ['popper.js', 'default'],
         }),
         new webpack.IgnorePlugin(/jsdom$/),
         new CopyWebpackPlugin(ckeditorCopyPatterns, {

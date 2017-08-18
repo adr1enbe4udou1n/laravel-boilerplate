@@ -5116,9 +5116,9 @@ pngquant-bin@^3.0.0:
     bin-wrapper "^3.0.0"
     logalot "^2.0.0"
 
-popper.js@^1.12.2:
-  version "1.12.2"
-  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.12.2.tgz#6c4f5b3453a8bff6d8c632ff7b9b55f031bfd570"
+popper.js@^1.12.3:
+  version "1.12.3"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.12.3.tgz#e46a99c52e74e310411df505d820b61bdbe7eaee"
 
 portfinder@^1.0.9:
   version "1.0.13"
