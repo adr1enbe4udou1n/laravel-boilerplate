@@ -15,8 +15,8 @@
                     <span class="d-md-down-none">{{ $t('labels.language') }}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" rel="alternate" v-for="(locale, index) in this.$app.locales" :hreflang="index"
-                       :href="`/${index}/${$app.adminPathName}#${$router.currentRoute.fullPath}`">
+                    <a class="dropdown-item" rel="alternate" :key="index" v-for="(locale, index) in this.$app.locales" :hreflang="index"
+                       :href="`/${index}/${$app.adminPathName}#${$route.fullPath}`">
                         {{ locale.native }}
                     </a>
                 </div>
@@ -40,6 +40,7 @@
         </ul>
     </header>
 </template>
+
 <script>
     export default {
         name: 'header',
@@ -60,6 +61,6 @@
                 e.preventDefault();
                 document.body.classList.toggle('aside-menu-hidden');
             },
-        }
+        },
     };
 </script>

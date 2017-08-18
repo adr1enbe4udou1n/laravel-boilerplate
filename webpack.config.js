@@ -276,14 +276,7 @@ module.exports = {
                 host: browserSyncHost,
                 port: browserSyncPort,
                 open: browserSyncHost === 'localhost' ? 'local' : 'external',
-                proxy: {
-                    target: process.env.BROWSERSYNC_PROXY,
-                    reqHeaders: function(config) {
-                        return {
-                            host: `${config.url.hostname}:${process.env.BROWSERSYNC_PORT}`,
-                        };
-                    },
-                },
+                proxy: process.env.BROWSERSYNC_PROXY,
                 files: [
                     'app/**/*.php',
                     'resources/views/**/*.php',

@@ -94,7 +94,7 @@ return [
         'laravel' => false, // Laravel version and environment
         'events' => false, // All events fired
         'default_request' => false, // Regular or special Symfony request logger
-        'symfony_request' => true,  // Only one can be enabled..
+        'symfony_request' => false,  // Only one can be enabled..
         'mail' => true,  // Catch mail messages
         'logs' => false, // Add the latest log messages
         'files' => false, // Show the included files
