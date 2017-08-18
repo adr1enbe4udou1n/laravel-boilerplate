@@ -41,6 +41,10 @@ class Redirection extends Model
             'type',
         ];
 
+    protected $casts = [
+        'active' => 'boolean',
+    ];
+
     public function scopeActives(Builder $query)
     {
         return $query->where('active', '=', true);

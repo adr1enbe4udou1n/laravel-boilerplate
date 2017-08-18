@@ -27,6 +27,7 @@ class StoreRedirectionRequest extends FormRequest
             'source' => 'required|unique:redirections',
             'target' => 'required',
             'type' => 'required',
+            'active' => 'boolean',
         ];
     }
 }

@@ -152,7 +152,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
             return false;
         }
 
-        $roles = explode(',', $input['roles']) ?? [];
+        $roles = isset($input['roles']) ? explode(',', $input['roles']) : [];
 
         if (!empty($roles)) {
             $allowedRoles = $this->roles->getAllowedRoles()->keyBy('id');
@@ -162,8 +162,9 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
                     throw new GeneralException(trans('exceptions.backend.users.cannot_set_superior_roles'));
                 }
             }
-            $user->roles()->sync($roles);
         }
+
+        $user->roles()->sync($roles);
 
         return true;
     }

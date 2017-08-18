@@ -90,6 +90,10 @@ class User extends Authenticatable
             'remember_token',
         ];
 
+    protected $casts = [
+        'active' => 'boolean',
+    ];
+
     protected $appends = [
       'avatar',
       'can',

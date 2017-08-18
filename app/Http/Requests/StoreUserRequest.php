@@ -28,6 +28,7 @@ class StoreUserRequest extends FormRequest
             'name' => 'required',
             'password' => 'required|min:6|confirmed',
             'password_confirmation' => 'required|min:6',
+            'active' => 'boolean',
         ];
     }
 }

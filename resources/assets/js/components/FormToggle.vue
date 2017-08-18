@@ -32,7 +32,7 @@
                 default: false
             },
             checked: {
-                default: true
+                default: false
             },
         },
         methods: {

@@ -41,7 +41,14 @@ export default {
                     let action = this.isNew ? this.$app.route(`admin.${this.modelName}.store`) : this.$app.route(`admin.${this.modelName}.update`, { [this.modelName]: this.id });
 
                     let data = new FormData();
-                    Object.keys(this.model).forEach(key => data.append(key, this.model[key]));
+                    Object.keys(this.model).forEach(key => {
+                        if(typeof(this.model[key]) === 'boolean') {
+                            data.append(key, this.model[key] ? 1 : 0);
+                            return;
+                        }
+
+                        data.append(key, this.model[key]);
+                    });
 
                     if (!this.isNew) {
                         data.append('_method', 'PATCH');
