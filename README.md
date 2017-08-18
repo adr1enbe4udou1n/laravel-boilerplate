@@ -5,7 +5,7 @@
 [![License](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/license)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/3679080/29458807-24d8cfae-8421-11e7-82f6-1647c144b98b.gif">
+<img src="https://user-images.githubusercontent.com/3679080/29458952-e625732e-8421-11e7-91b6-e373281767e0.gif">
 </p>
 
 ## Features
