@@ -33,7 +33,7 @@
             <div class="card-body">
                 <table id="dataTableBuilder" class="table table-striped table-bordered table-hover" cellspacing="0"
                        width="100%"></table>
-                <batch-action :options="options" :url="route('admin.redirection.batch_action')" datatable="dataTableBuilder"></batch-action>
+                <batch-action :options="options" :url="$app.route('admin.redirection.batch_action')" datatable="dataTableBuilder"></batch-action>
             </div>
         </div>
     </div>
@@ -68,7 +68,7 @@
                 data.append('import', this.importFile);
 
                 axios
-                    .post(this.route('admin.redirection.import', data))
+                    .post(this.$app.route('admin.redirection.import', data))
                     .then(response => {
                         dataTable.ajax.reload(null, false);
                         window.toastr[response.data.status](response.data.message);
@@ -84,7 +84,7 @@
                 processing: true,
                 autoWidth: false,
                 ajax: {
-                    url: this.route('admin.redirection.search'),
+                    url: this.$app.route('admin.redirection.search'),
                     type: 'post'
                 },
                 columns: [{

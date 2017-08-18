@@ -19,7 +19,7 @@ export default {
         fetchData() {
             if (!this.isNew) {
                 axios
-                    .get(this.route(`admin.${this.modelName}.get`, { [this.modelName]: this.id }))
+                    .get(this.$app.route(`admin.${this.modelName}.get`, { [this.modelName]: this.id }))
                     .then(response => {
                         this.model = response.data;
                     });
@@ -38,7 +38,7 @@ export default {
                 if (result) {
                     this.pending = true;
                     let router = this.$router;
-                    let action = this.isNew ? this.route(`admin.${this.modelName}.store`) : this.route(`admin.${this.modelName}.update`, { [this.modelName]: this.id });
+                    let action = this.isNew ? this.$app.route(`admin.${this.modelName}.store`) : this.$app.route(`admin.${this.modelName}.update`, { [this.modelName]: this.id });
 
                     let data = new FormData();
                     Object.keys(this.model).forEach(key => data.append(key, this.model[key]));

@@ -1,7 +1,7 @@
 <template>
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a :href="$root.homePath">{{ $t('labels.frontend.titles.home') }}</a>
+            <a :href="this.$app.homePath">{{ $t('labels.frontend.titles.home') }}</a>
         </li>
         <li class="breadcrumb-item" v-for="(item, index) in list">
             <span class="active" v-if="isLast(index)">{{ showName(item) }}</span>

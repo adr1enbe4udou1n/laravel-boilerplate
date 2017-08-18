@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm" v-if="this.$root.user.can['manage users']">
+                    <div class="col-sm" v-if="this.$app.user.can['manage users']">
                         <div class="card text-white bg-primary">
                             <div class="card-body pb-0">
                                 <h4 class="mb-0">{{ activeUsersCount }}</h4>
@@ -37,7 +37,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm" v-if="this.$root.user.can['manage form_submissions']">
+                    <div class="col-sm" v-if="this.$app.user.can['manage form_submissions']">
                         <div class="card text-white bg-info">
                             <div class="card-body pb-0">
                                 <h4 class="mb-0">{{ formSubmissionsCount }}</h4>
@@ -113,40 +113,40 @@
             };
         },
         created() {
-            if (this.$root.user.can['manage own posts']) {
+            if (this.$app.user.can['manage own posts']) {
                 axios
-                    .get(this.route('admin.post.draft.counter'))
+                    .get(this.$app.route('admin.post.draft.counter'))
                     .then(response => {
                         this.newPostsCount = response.data;
                     });
                 axios
-                    .get(this.route('admin.post.pending.counter'))
+                    .get(this.$app.route('admin.post.pending.counter'))
                     .then(response => {
                         this.pendingPostsCount = response.data;
                     });
                 axios
-                    .get(this.route('admin.post.published.counter'))
+                    .get(this.$app.route('admin.post.published.counter'))
                     .then(response => {
                         this.publishedPostsCount = response.data;
                     });
                 axios
-                    .get(this.route('admin.post.latest'))
+                    .get(this.$app.route('admin.post.latest'))
                     .then(response => {
                         this.posts = response.data;
                     });
             }
 
-            if (this.$root.user.can['manage users']) {
+            if (this.$app.user.can['manage users']) {
                 axios
-                    .get(this.route('admin.user.active.counter'))
+                    .get(this.$app.route('admin.user.active.counter'))
                     .then(response => {
                         this.activeUsersCount = response.data;
                     });
             }
 
-            if (this.$root.user.can['manage form_submissions']) {
+            if (this.$app.user.can['manage form_submissions']) {
                 axios
-                    .get(this.route('admin.form_submission.counter'))
+                    .get(this.$app.route('admin.form_submission.counter'))
                     .then(response => {
                         this.formSubmissionsCount = response.data;
                     });

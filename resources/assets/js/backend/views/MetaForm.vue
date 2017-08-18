@@ -115,7 +115,7 @@
         methods: {
             getRoutes(search) {
                 axios
-                    .get(this.route('admin.routes.search'), {
+                    .get(this.$app.route('admin.routes.search'), {
                         params: {
                             q: search
                         }

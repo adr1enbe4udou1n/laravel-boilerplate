@@ -15,25 +15,25 @@
                     <span class="d-md-down-none">{{ $t('labels.language') }}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" rel="alternate" v-for="(locale, index) in this.$root.locales" :hreflang="index"
-                       :href="`/${index}/${$root.adminPathName}#${$router.currentRoute.fullPath}`">
+                    <a class="dropdown-item" rel="alternate" v-for="(locale, index) in this.$app.locales" :hreflang="index"
+                       :href="`/${index}/${$app.adminPathName}#${$router.currentRoute.fullPath}`">
                         {{ locale.native }}
                     </a>
                 </div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <img :src="this.$root.user.avatar" class="img-avatar" :alt="$t('labels.user.avatar')">
-                    <span class="d-md-down-none">{{ this.$root.user.name }}</span>
+                    <img :src="this.$app.user.avatar" class="img-avatar" :alt="$t('labels.user.avatar')">
+                    <span class="d-md-down-none">{{ this.$app.user.name }}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <div class="dropdown-header text-center">
                         <strong>{{ $t('labels.user.settings') }}</strong>
                     </div>
 
-                    <a class="dropdown-item" :href="route('user.account')"><i class="icon-user"></i>
+                    <a class="dropdown-item" :href="$app.route('user.account')"><i class="icon-user"></i>
                         {{ $t('labels.user.profile') }}</a>
-                    <a class="dropdown-item" :href="route('admin.logout')"><i class="icon-logout"></i>
+                    <a class="dropdown-item" :href="$app.route('admin.logout')"><i class="icon-logout"></i>
                         {{ $t('labels.user.logout') }}</a>
                 </div>
             </li>

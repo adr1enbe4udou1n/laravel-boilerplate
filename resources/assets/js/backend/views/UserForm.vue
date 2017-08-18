@@ -156,7 +156,7 @@
         },
         created() {
             axios
-                .get(this.route(`admin.${this.modelName}.get_roles`))
+                .get(this.$app.route(`admin.${this.modelName}.get_roles`))
                 .then(response => {
                     this.roles = response.data;
                 });

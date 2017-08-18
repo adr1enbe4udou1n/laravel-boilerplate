@@ -4,10 +4,10 @@
         <div class="app-body">
             <Sidebar/>
             <main class="main">
-                <div class="alert alert-warning alert-top mb-0" v-if="this.$root.isImpersonation">
-                    <span v-html="$t('labels.alerts.login_as', {'name': this.$root.user.name, 'route': `${this.$root.homePath}/logout-as`, 'admin': this.$root.usurperName})"></span>
+                <div class="alert alert-warning alert-top mb-0" v-if="this.$app.isImpersonation">
+                    <span v-html="$t('labels.alerts.login_as', {'name': this.$app.user.name, 'route': `${this.$app.homePath}/logout-as`, 'admin': this.$app.usurperName})"></span>
                 </div>
-                <div class="alert alert-warning alert-top mb-0" v-if="!this.$root.user.confirmed">
+                <div class="alert alert-warning alert-top mb-0" v-if="!this.$app.user.confirmed">
                     <span v-html="$t('labels.alerts.not_confirmed', {'route': '/user/confirmation/send' })"></span>
                 </div>
                 <breadcrumb :list="list"/>
@@ -16,7 +16,7 @@
                 </div>
             </main>
         </div>
-        <AppFooter :name="this.$root.appName" :editor-name="this.$root.editorName" :editor-site-url="this.$root.editorSiteUrl" />
+        <AppFooter :name="this.$app.appName" :editor-name="this.$app.editorName" :editor-site-url="this.$app.editorSiteUrl" />
     </div>
 </template>
 

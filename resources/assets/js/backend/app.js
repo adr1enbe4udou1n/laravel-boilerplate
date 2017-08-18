@@ -63,11 +63,12 @@ import Router from './router';
 let router = Router(i18n);
 
 router.beforeEach((to, from, next) => {
-    document.title = `${to.meta.title} | ${window.settings.app.name}`;
+    document.title = `${to.meta.title} | ${window.settings.appName}`;
     next();
 });
 
-Vue.prototype.route = window.route;
+Vue.prototype.$app = window.settings;
+Vue.prototype.$app.route = window.route;
 
 // Init
 if (document.getElementById('app') !== null) {
@@ -76,17 +77,5 @@ if (document.getElementById('app') !== null) {
         router,
         template: '<App/>',
         components: {App},
-        data: {
-            user: window.settings.user,
-            isImpersonation: window.settings.is_impersonation,
-            usurperName: window.settings.usurper_name,
-            homePath: window.settings.app.home_path,
-            adminPathName: window.settings.app.admin_path_name,
-            locales: window.settings.locales,
-            blogEnabled: window.settings.blog.enabled,
-            appName: window.settings.app.name,
-            editorName: window.settings.app.editor_name,
-            editorSiteUrl: window.settings.app.editor_site_url
-        },
     }).$mount('#app');
 }

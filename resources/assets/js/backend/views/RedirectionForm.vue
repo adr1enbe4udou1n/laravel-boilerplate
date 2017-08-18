@@ -115,7 +115,7 @@
         },
         created() {
             axios
-                .get(this.route(`admin.${this.modelName}.get_redirection_types`))
+                .get(this.$app.route(`admin.${this.modelName}.get_redirection_types`))
                 .then(response => {
                     this.redirectionTypes = response.data;
                 });

@@ -17,9 +17,10 @@ if (!function_exists('assets')) {
     function assets($path)
     {
         static $manifest;
-        $baseUrl = route('home', [], false);
 
-        $path = $baseUrl.$path;
+        if (!starts_with($path, '/')) {
+            $path = "/{$path}";
+        }
 
         if (app()->environment('local', 'testing')) {
             if (file_exists(public_path('/hot'))) {
@@ -44,7 +45,7 @@ if (!function_exists('assets')) {
             $name = basename($path);
 
             if (array_key_exists($name, $manifest)) {
-                return new HtmlString($baseUrl.$manifest[$name]);
+                return new HtmlString("/{$manifest[$name]}");
             }
         }
 
