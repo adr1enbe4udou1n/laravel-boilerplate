@@ -270,6 +270,7 @@
                     enableTime: true,
                 },
                 modelName: 'post',
+                listPath: '/post',
                 model: {
                     title: null,
                     summary: null,

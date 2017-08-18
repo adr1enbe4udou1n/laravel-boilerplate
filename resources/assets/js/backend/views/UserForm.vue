@@ -144,6 +144,7 @@
                 iconEnvelope: '<i class="icon-envelope"></i>',
                 roles: {},
                 modelName: 'user',
+                listPath: '/user',
                 model: {
                     name: null,
                     email: null,

@@ -50,7 +50,9 @@ export default {
                     axios.post(action, data)
                         .then(response => {
                             window.toastr[response.data.status](response.data.message);
-                            router.push(`/${this.modelName}`);
+                            if (this.listPath) {
+                                router.push(this.listPath);
+                            }
                         })
                         .catch(error => {
                             // Validation errors

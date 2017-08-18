@@ -103,6 +103,7 @@
             return {
                 routes: [],
                 modelName: 'meta',
+                listPath: '/meta',
                 model: {
                     metable_type: null,
                     metable_id: null,

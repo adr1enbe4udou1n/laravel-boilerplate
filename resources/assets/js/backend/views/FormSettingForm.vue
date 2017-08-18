@@ -104,6 +104,7 @@
                     }
                 ],
                 modelName: 'form_setting',
+                listPath: '/form-setting',
                 model: {
                     name: null,
                     recipients: null,

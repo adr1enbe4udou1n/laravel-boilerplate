@@ -146,6 +146,7 @@
             return {
                 permissions: [],
                 modelName: 'role',
+                listPath: '/role',
                 model: {
                     name: null,
                     display_name: null,

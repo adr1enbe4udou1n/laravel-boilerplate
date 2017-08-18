@@ -105,6 +105,7 @@
             return {
                 redirectionTypes: {},
                 modelName: 'redirection',
+                listPath: '/redirection',
                 model: {
                     source: null,
                     active: true,
