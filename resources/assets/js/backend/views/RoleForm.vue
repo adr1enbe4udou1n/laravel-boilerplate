@@ -157,7 +157,7 @@
         },
         created() {
             axios
-                .get(window.route(`admin.${this.modelName}.get_permissions`))
+                .get(this.route(`admin.${this.modelName}.get_permissions`))
                 .then(response => {
                     let categories = _.groupBy(_.forEach(response.data, (value, key) => {
                         value['name'] = key;

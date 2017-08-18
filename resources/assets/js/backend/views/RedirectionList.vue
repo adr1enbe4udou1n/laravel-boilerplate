@@ -68,7 +68,7 @@
                 data.append('import', this.importFile);
 
                 axios
-                    .post(window.route('admin.redirection.import', data))
+                    .post(this.route('admin.redirection.import', data))
                     .then(response => {
                         dataTable.ajax.reload(null, false);
                         window.toastr[response.data.status](response.data.message);
@@ -84,7 +84,7 @@
                 processing: true,
                 autoWidth: false,
                 ajax: {
-                    url: window.route('admin.redirection.search'),
+                    url: this.route('admin.redirection.search'),
                     type: 'post'
                 },
                 columns: [{

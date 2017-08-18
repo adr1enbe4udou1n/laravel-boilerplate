@@ -32,7 +32,7 @@
                 info: false,
                 buttons: [],
                 ajax: {
-                    url: window.route('admin.form_setting.search'),
+                    url: this.route('admin.form_setting.search'),
                     type: 'post'
                 },
                 columns: [{

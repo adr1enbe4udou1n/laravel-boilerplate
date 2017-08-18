@@ -29,7 +29,7 @@
                 serverSide: true,
                 processing: true,
                 ajax: {
-                    url: window.route('admin.form_submission.search'),
+                    url: this.route('admin.form_submission.search'),
                     type: 'post'
                 },
                 columns: [{

@@ -98,12 +98,12 @@
             fetchData() {
                 if (this.$root.user.can['manage own posts']) {
                     axios
-                        .get(window.route('admin.post.draft.counter'))
+                        .get(this.route('admin.post.draft.counter'))
                         .then(response => {
                             this.newPostsCount = response.data;
                         });
                     axios
-                        .get(window.route('admin.post.pending.counter'))
+                        .get(this.route('admin.post.pending.counter'))
                         .then(response => {
                             this.pendingPostsCount = response.data;
                         });

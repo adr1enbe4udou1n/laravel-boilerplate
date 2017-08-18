@@ -38,7 +38,7 @@
                 processing: true,
                 autoWidth: false,
                 ajax: {
-                    url: window.route('admin.post.search'),
+                    url: this.route('admin.post.search'),
                     type: 'post'
                 },
                 columns: [{
