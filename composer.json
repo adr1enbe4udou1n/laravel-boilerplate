@@ -6,6 +6,7 @@
     "type": "project",
     "require": {
         "php": "^7.0",
+        "ext-gd": "*",
         "arcanedev/no-captcha": "^4.0",
         "artesaos/seotools": "^0.10.0",
         "cviebrock/eloquent-sluggable": "^4.2",
@@ -14,10 +15,9 @@
         "doctrine/annotations": "1.4.*",
         "doctrine/cache": "1.6.*",
         "doctrine/collections": "1.4.*",
-        "doctrine/instantiator": "1.0.*",
         "doctrine/common": "2.7.*",
         "doctrine/dbal": "2.5.*",
-        "ext-gd": "*",
+        "doctrine/instantiator": "1.0.*",
         "guzzlehttp/guzzle": "^6.2",
         "hieu-le/active": "^3.3",
         "intervention/image": "^2.3",
@@ -33,6 +33,7 @@
         "mews/purifier": "^2.0",
         "plank/laravel-mediable": "^2.4",
         "roumen/sitemap": "^2.6",
+        "tightenco/ziggy": "^0.3.0",
         "yajra/laravel-datatables-oracle": "^7.7"
     },
     "require-dev": {

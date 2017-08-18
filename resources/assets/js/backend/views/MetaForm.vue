@@ -114,7 +114,7 @@
         methods: {
             getRoutes(search) {
                 axios
-                    .get(`${this.$root.adminPath}/routes/search`, {
+                    .get(window.route('admin.routes.search'), {
                         params: {
                             q: search
                         }

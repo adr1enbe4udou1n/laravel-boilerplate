@@ -48,7 +48,7 @@ Route::group(
 
         Route::post('form-submission/batch-action',
             'FormSubmissionController@batchAction')->name(
-            'form_submission.batch-action'
+            'form_submission.batch_action'
         );
     }
 );
@@ -78,7 +78,7 @@ Route::group(
 
         Route::post('user/batch-action',
             'UserController@batchAction')->name(
-            'user.batch-action'
+            'user.batch_action'
         );
 
         Route::get('user/{user}/login-as', 'UserController@loginAs')
@@ -128,7 +128,7 @@ Route::group(
 
         Route::post('meta/batch-action',
             'MetaController@batchAction')->name(
-            'meta.batch-action'
+            'meta.batch_action'
         );
     }
 );
@@ -154,7 +154,7 @@ Route::group(
 
         Route::post('redirection/batch-action',
             'RedirectionController@batchAction')->name(
-            'redirection.batch-action'
+            'redirection.batch_action'
         );
 
         Route::post('redirection/import', 'RedirectionController@import')
@@ -195,7 +195,7 @@ if (config('blog.enabled')) {
 
             Route::post('post/batch-action',
                 'PostController@batchAction')->name(
-                'post.batch-action'
+                'post.batch_action'
             );
         }
     );

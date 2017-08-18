@@ -227,6 +227,7 @@ return [
         Mews\Purifier\PurifierServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         MartinLindhe\VueInternationalizationGenerator\GeneratorProvider::class,
+        Tightenco\Ziggy\ZiggyServiceProvider::class,
 
         /*
          * Application Service Providers...

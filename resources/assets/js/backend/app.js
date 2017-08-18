@@ -67,23 +67,26 @@ router.beforeEach((to, from, next) => {
     next();
 });
 
+Vue.prototype.route = window.route;
+
 // Init
-new Vue({
-    i18n,
-    router,
-    template: '<App/>',
-    components: { App },
-    data: {
-        user: window.settings.user,
-        isImpersonation: window.settings.is_impersonation,
-        usurperName: window.settings.usurper_name,
-        homePath: window.settings.app.home_path,
-        adminPathName: window.settings.app.admin_path_name,
-        adminPath: window.settings.app.admin_path,
-        locales: window.settings.locales,
-        blogEnabled: window.settings.blog.enabled,
-        appName: window.settings.app.name,
-        editorName: window.settings.app.editor_name,
-        editorSiteUrl: window.settings.app.editor_site_url
-    },
-}).$mount('#app');
+if (document.getElementById('app') !== null) {
+    new Vue({
+        i18n,
+        router,
+        template: '<App/>',
+        components: {App},
+        data: {
+            user: window.settings.user,
+            isImpersonation: window.settings.is_impersonation,
+            usurperName: window.settings.usurper_name,
+            homePath: window.settings.app.home_path,
+            adminPathName: window.settings.app.admin_path_name,
+            locales: window.settings.locales,
+            blogEnabled: window.settings.blog.enabled,
+            appName: window.settings.app.name,
+            editorName: window.settings.app.editor_name,
+            editorSiteUrl: window.settings.app.editor_site_url
+        },
+    }).$mount('#app');
+}

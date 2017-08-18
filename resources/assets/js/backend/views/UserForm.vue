@@ -156,7 +156,7 @@
         },
         created() {
             axios
-                .get(`${this.$root.adminPath}/${this.modelName}/roles`)
+                .get(window.route(`admin.${this.modelName}.get_roles`))
                 .then(response => {
                     this.roles = response.data;
                 });

@@ -12,7 +12,7 @@
             <div class="card-body">
                 <table id="dataTableBuilder" class="table table-striped table-bordered table-hover" cellspacing="0"
                        width="100%"></table>
-                <batch-action :options="options" :url="`${this.$root.adminPath}/user/batch-action`" datatable="dataTableBuilder"></batch-action>
+                <batch-action :options="options" :url="route('admin.user.batch_action')" datatable="dataTableBuilder"></batch-action>
             </div>
         </div>
     </div>
@@ -37,7 +37,7 @@
                 processing: true,
                 autoWidth: false,
                 ajax: {
-                    url: `${this.$root.adminPath}/user/search`,
+                    url: window.route('admin.user.search'),
                     type: 'post'
                 },
                 columns: [{

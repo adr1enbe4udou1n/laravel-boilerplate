@@ -115,22 +115,22 @@
         created() {
             if (this.$root.user.can['manage own posts']) {
                 axios
-                    .get(`${this.$root.adminPath}/post/draft-counter`)
+                    .get(window.route('admin.post.draft.counter'))
                     .then(response => {
                         this.newPostsCount = response.data;
                     });
                 axios
-                    .get(`${this.$root.adminPath}/post/pending-counter`)
+                    .get(window.route('admin.post.pending.counter'))
                     .then(response => {
                         this.pendingPostsCount = response.data;
                     });
                 axios
-                    .get(`${this.$root.adminPath}/post/published-counter`)
+                    .get(window.route('admin.post.published.counter'))
                     .then(response => {
                         this.publishedPostsCount = response.data;
                     });
                 axios
-                    .get(`${this.$root.adminPath}/post/latest`)
+                    .get(window.route('admin.post.latest'))
                     .then(response => {
                         this.posts = response.data;
                     });
@@ -138,7 +138,7 @@
 
             if (this.$root.user.can['manage users']) {
                 axios
-                    .get(`${this.$root.adminPath}/user/active-counter`)
+                    .get(window.route('admin.user.active.counter'))
                     .then(response => {
                         this.activeUsersCount = response.data;
                     });
@@ -146,7 +146,7 @@
 
             if (this.$root.user.can['manage form_submissions']) {
                 axios
-                    .get(`${this.$root.adminPath}/form-submission/counter`)
+                    .get(window.route('admin.form_submission.counter'))
                     .then(response => {
                         this.formSubmissionsCount = response.data;
                     });

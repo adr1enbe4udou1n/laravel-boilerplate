@@ -296,7 +296,7 @@
         methods: {
             getTags(search) {
                 axios
-                    .get(`${this.$root.adminPath}/tags/search`, {
+                    .get(window.route('admin.tags.search'), {
                         params: {
                             q: search
                         }

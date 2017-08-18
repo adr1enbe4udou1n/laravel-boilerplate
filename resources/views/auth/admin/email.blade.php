@@ -23,7 +23,7 @@
                                     {{ Form::email('email', null, [
                                         'placeholder' => trans('validation.attributes.email'),
                                         'class' => 'form-control',
-                                        'v-validate' => "'required|email'",
+                                        'required' => true,
                                     ]) }}
                                 @endcomponent
                             @endcomponent

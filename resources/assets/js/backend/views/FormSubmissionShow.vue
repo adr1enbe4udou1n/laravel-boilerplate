@@ -40,7 +40,7 @@
         },
         created() {
             axios
-                .get(`${this.$root.adminPath}/form-submission/${this.id}`)
+                .get(window.route('admin.form_submission', { form_submission: this.id }))
                 .then(response => {
                     this.submission = response.data;
                 });

@@ -22,7 +22,7 @@
                                     {{ Form::email('email', null, [
                                         'placeholder' => trans('validation.attributes.email'),
                                         'class' => 'form-control',
-                                        'v-validate' => "'required|email'",
+                                        'required' => true,
                                     ]) }}
                                 @endcomponent
                             @endcomponent
@@ -36,7 +36,7 @@
                                     {{ Form::password('password', [
                                         'placeholder' => trans('validation.attributes.password'),
                                         'class' => 'form-control',
-                                        'v-validate' => "'required'",
+                                        'required' => true,
                                     ]) }}
                                 @endcomponent
                             @endcomponent

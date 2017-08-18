@@ -1248,9 +1248,9 @@ circular-json@^0.3.1:
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/circular-json/-/circular-json-0.3.3.tgz#815c99ea84f6809529d2f45791bdf82711352d66"
 
-ckeditor@^4.7.1:
-  version "4.7.1"
-  resolved "https://registry.yarnpkg.com/ckeditor/-/ckeditor-4.7.1.tgz#9cfe03b7504049bcda839758d836e95bfc3a3598"
+ckeditor@^4.7.2:
+  version "4.7.2"
+  resolved "https://registry.yarnpkg.com/ckeditor/-/ckeditor-4.7.2.tgz#d4a603d4e4c1d0f0980b858cd0d90308ffc9a60b"
 
 clap@^1.0.9:
   version "1.2.0"

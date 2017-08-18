@@ -31,9 +31,9 @@
                         <strong>{{ $t('labels.user.settings') }}</strong>
                     </div>
 
-                    <a class="dropdown-item" :href="`${this.$root.homePath}/user/account`"><i class="icon-user"></i>
+                    <a class="dropdown-item" :href="route('user.account')"><i class="icon-user"></i>
                         {{ $t('labels.user.profile') }}</a>
-                    <a class="dropdown-item" :href="`${this.$root.adminPath}/logout`"><i class="icon-logout"></i>
+                    <a class="dropdown-item" :href="route('admin.logout')"><i class="icon-logout"></i>
                         {{ $t('labels.user.logout') }}</a>
                 </div>
             </li>

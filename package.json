@@ -19,7 +19,7 @@
     "bootstrap": "^4.0.0-beta",
     "browser-sync": "^2.18.13",
     "browser-sync-webpack-plugin": "^1.2.0",
-    "ckeditor": "^4.7.1",
+    "ckeditor": "^4.7.2",
     "clean-webpack-plugin": "^0.1.16",
     "cookieconsent": "^3.0.4",
     "copy-webpack-plugin": "^4.0.1",

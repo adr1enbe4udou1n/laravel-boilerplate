@@ -103,7 +103,7 @@
                         text: `-- ${this.$i18n.t('validation.attributes.form_type')} --`
                     }
                 ],
-                modelName: 'form-setting',
+                modelName: 'form_setting',
                 model: {
                     name: null,
                     recipients: null,
@@ -113,7 +113,7 @@
         },
         created() {
             axios
-                .get(`${this.$root.adminPath}/${this.modelName}/form-types`)
+                .get(window.route(`admin.${this.modelName}.get_form_types`))
                 .then(response => {
                     for(let propertyName in response.data) {
                         this.formTypes.push({

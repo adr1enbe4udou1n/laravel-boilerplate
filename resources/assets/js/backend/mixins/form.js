@@ -18,7 +18,7 @@ export default {
         fetchData() {
             if (!this.isNew) {
                 axios
-                    .get(`${this.$root.adminPath}/${this.modelName}/${this.id}`)
+                    .get(window.route(`admin.${this.modelName}.get`, { [this.modelName]: this.id }))
                     .then(response => {
                         this.model = response.data;
                     });
@@ -36,7 +36,7 @@ export default {
             this.$validator.validateAll().then(result => {
                 if (result) {
                     let router = this.$router;
-                    let action = this.isNew ? `${this.$root.adminPath}/${this.modelName}` : `${this.$root.adminPath}/${this.modelName}/${this.id}`;
+                    let action = this.isNew ? window.route(`admin.${this.modelName}.store`) : window.route(`admin.${this.modelName}.update`, { [this.modelName]: this.id });
 
                     let data = new FormData();
                     Object.keys(this.model).forEach(key => data.append(key, this.model[key]));
