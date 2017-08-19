@@ -15,7 +15,8 @@
                     <span class="d-md-down-none">{{ $t('labels.language') }}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" rel="alternate" :key="index" v-for="(locale, index) in this.$app.locales" :hreflang="index"
+                    <a class="dropdown-item" rel="alternate" :key="index" v-for="(locale, index) in this.$app.locales"
+                       :hreflang="index"
                        :href="`/${index}/${$app.adminPathName}#${$route.fullPath}`">
                         {{ locale.native }}
                     </a>
@@ -42,25 +43,25 @@
 </template>
 
 <script>
-    export default {
-        name: 'header',
-        methods: {
-            sidebarToggle(e) {
-                e.preventDefault();
-                document.body.classList.toggle('sidebar-hidden');
-            },
-            sidebarMinimize(e) {
-                e.preventDefault();
-                document.body.classList.toggle('sidebar-minimized');
-            },
-            mobileSidebarToggle(e) {
-                e.preventDefault();
-                document.body.classList.toggle('sidebar-mobile-show');
-            },
-            asideToggle(e) {
-                e.preventDefault();
-                document.body.classList.toggle('aside-menu-hidden');
-            },
-        },
-    };
+  export default {
+    name: 'header',
+    methods: {
+      sidebarToggle (e) {
+        e.preventDefault()
+        document.body.classList.toggle('sidebar-hidden')
+      },
+      sidebarMinimize (e) {
+        e.preventDefault()
+        document.body.classList.toggle('sidebar-minimized')
+      },
+      mobileSidebarToggle (e) {
+        e.preventDefault()
+        document.body.classList.toggle('sidebar-mobile-show')
+      },
+      asideToggle (e) {
+        e.preventDefault()
+        document.body.classList.toggle('aside-menu-hidden')
+      }
+    }
+  }
 </script>

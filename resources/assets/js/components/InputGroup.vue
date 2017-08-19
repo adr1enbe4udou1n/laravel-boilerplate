@@ -13,32 +13,32 @@
 </template>
 
 <script>
-    export default {
-        computed: {
-            classObject() {
-                return [
-                    'input-group',
-                    this.size ? ('input-group-' + this.size) : '',
-                ];
-            }
-        },
-        props: {
-            size: {
-                type: String,
-                default: null
-            },
-            state: {
-                type: String,
-                default: null
-            },
-            left: {
-                type: String,
-                default: null
-            },
-            right: {
-                type: String,
-                default: null
-            }
-        }
-    };
+  export default {
+    computed: {
+      classObject () {
+        return [
+          'input-group',
+          this.size ? ('input-group-' + this.size) : ''
+        ]
+      }
+    },
+    props: {
+      size: {
+        type: String,
+        default: null
+      },
+      state: {
+        type: String,
+        default: null
+      },
+      left: {
+        type: String,
+        default: null
+      },
+      right: {
+        type: String,
+        default: null
+      }
+    }
+  }
 </script>

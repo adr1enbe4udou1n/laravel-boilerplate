@@ -5,7 +5,9 @@
                 <div class="col-xl-6">
                     <div class="card">
                         <div class="card-header">
-                            <h4>{{ isNew ? $t('labels.backend.redirections.titles.create') : $t('labels.backend.redirections.titles.edit') }}</h4>
+                            <h4>
+                                {{ isNew ? $t('labels.backend.redirections.titles.create') : $t('labels.backend.redirections.titles.edit')
+                                }}</h4>
                         </div>
 
                         <div class="card-body">
@@ -80,10 +82,14 @@
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <router-link to="/redirection" class="btn btn-danger btn-sm">{{ $t('buttons.back') }}</router-link>
+                                    <router-link to="/redirection" class="btn btn-danger btn-sm">{{ $t('buttons.back')
+                                        }}
+                                    </router-link>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="submit" class="btn btn-success btn-sm pull-right" :value="isNew ? $t('buttons.create') : $t('buttons.edit')" :disabled="pending">
+                                    <input type="submit" class="btn btn-success btn-sm pull-right"
+                                           :value="isNew ? $t('buttons.create') : $t('buttons.edit')"
+                                           :disabled="pending">
                                 </div>
                             </div>
                         </div>
@@ -95,33 +101,33 @@
 </template>
 
 <script>
-    import axios from 'axios';
-    import form from '../mixins/form';
+  import axios from 'axios'
+  import form from '../mixins/form'
 
-    export default {
-        name: 'redirection_form',
-        mixins: [form],
-        data() {
-            return {
-                redirectionTypes: {},
-                modelName: 'redirection',
-                listPath: '/redirection',
-                model: {
-                    source: null,
-                    active: true,
-                    target: null,
-                    type: 301
-                }
-            };
-        },
-        created() {
-            axios
-                .get(this.$app.route(`admin.${this.modelName}.get_redirection_types`))
-                .then(response => {
-                    this.redirectionTypes = response.data;
-                });
-
-            this.fetchData();
+  export default {
+    name: 'redirection_form',
+    mixins: [form],
+    data () {
+      return {
+        redirectionTypes: {},
+        modelName: 'redirection',
+        listPath: '/redirection',
+        model: {
+          source: null,
+          active: true,
+          target: null,
+          type: 301
         }
-    };
+      }
+    },
+    created () {
+      axios
+        .get(this.$app.route(`admin.${this.modelName}.get_redirection_types`))
+        .then(response => {
+          this.redirectionTypes = response.data
+        })
+
+      this.fetchData()
+    }
+  }
 </script>

@@ -5,7 +5,9 @@
                 <div class="col-xl-8">
                     <div class="card">
                         <div class="card-header">
-                            <h4>{{ isNew ? $t('labels.backend.posts.titles.create') : $t('labels.backend.posts.titles.edit') }}</h4>
+                            <h4>
+                                {{ isNew ? $t('labels.backend.posts.titles.create') : $t('labels.backend.posts.titles.edit')
+                                }}</h4>
                         </div>
                         <div class="card-body">
                             <b-form-fieldset
@@ -83,7 +85,8 @@
                                     :invalid-feedback="feedback('featured_image')"
                             >
                                 <div class="media">
-                                    <img v-if="model.featured_image_path !== null" class="mr-2" :src="`/imagecache/small/${model.featured_image_path}`" alt="">
+                                    <img v-if="model.featured_image_path !== null" class="mr-2"
+                                         :src="`/imagecache/small/${model.featured_image_path}`" alt="">
 
                                     <div class="media-body">
                                         <h6>{{ $t('labels.upload_image') }}</h6>
@@ -106,17 +109,24 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <router-link to="/post"
-                                       class="btn btn-danger btn-sm">{{ $t('buttons.back') }}</router-link>
+                                                 class="btn btn-danger btn-sm">{{ $t('buttons.back') }}
+                                    </router-link>
                                 </div>
                                 <div class="col-md-6">
                                     <input name="status" type="hidden" value="publish">
                                     <div class="btn-group pull-right">
-                                        <input type="submit" class="btn btn-success btn-sm pull-right" :value="$t('buttons.posts.save_and_publish')" @click="model.status = 'publish'" :disabled="pending">
-                                        <button type="button" class="btn btn-success btn-sm dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-expanded="false" id="save-and-publish">
+                                        <input type="submit" class="btn btn-success btn-sm pull-right"
+                                               :value="$t('buttons.posts.save_and_publish')"
+                                               @click="model.status = 'publish'" :disabled="pending">
+                                        <button type="button"
+                                                class="btn btn-success btn-sm dropdown-toggle dropdown-toggle-split"
+                                                data-toggle="dropdown" aria-expanded="false" id="save-and-publish">
                                             <span class="sr-only"></span>
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="javascript:void(0);" @click="model.status = 'draft'; onSubmit()">{{ $t('buttons.posts.save_as_draft') }}</a>
+                                            <a class="dropdown-item" href="javascript:void(0);"
+                                               @click="model.status = 'draft'; onSubmit()">{{ $t('buttons.posts.save_as_draft')
+                                                }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -137,20 +147,22 @@
                             <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
                                 <div class="card-body">
                                     <template v-if="!isNew">
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">{{ $t('validation.attributes.status') }}</label>
-                                        <div class="col-lg-9">
-                                            <label class="col-form-label">
-                                                <span :class="`badge badge-${model.state}`">{{ $t(model.status_label) }}</span>
-                                            </label>
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label">{{ $t('validation.attributes.status')
+                                                }}</label>
+                                            <div class="col-lg-9">
+                                                <label class="col-form-label">
+                                                    <span :class="`badge badge-${model.state}`">{{ $t(model.status_label)
+                                                        }}</span>
+                                                </label>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">{{ $t('labels.author') }}</label>
-                                        <div class="col-lg-9">
-                                            <label class="col-form-label">{{ model.owner.name }}</label>
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-form-label">{{ $t('labels.author') }}</label>
+                                            <div class="col-lg-9">
+                                                <label class="col-form-label">{{ model.owner.name }}</label>
+                                            </div>
                                         </div>
-                                    </div>
                                     </template>
 
                                     <b-form-fieldset
@@ -205,7 +217,8 @@
                         <div class="card">
                             <div class="card-header" role="tab" id="headingTwo">
                                 <h5>
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion"
+                                       href="#collapseTwo" aria-expanded="false">
                                         {{ $t('labels.backend.titles.metas') }}
                                     </a>
                                 </h5>
@@ -255,63 +268,63 @@
 </template>
 
 <script>
-    import axios from 'axios';
-    import moment from 'moment';
-    import form from '../mixins/form';
+  import axios from 'axios'
+  import moment from 'moment'
+  import form from '../mixins/form'
 
-    export default {
-        name: 'post_form',
-        mixins: [form],
-        data() {
-            return {
-                config: {
-                    wrap: true,
-                    time_24hr: true,
-                    enableTime: true,
-                },
-                modelName: 'post',
-                listPath: '/post',
-                model: {
-                    title: null,
-                    summary: null,
-                    body: null,
-                    tags: [],
-                    featured_image: null,
-                    featured_image_path: null,
-                    status: null,
-                    state: null,
-                    status_label: null,
-                    owner: {
-                        name: null
-                    },
-                    published_at: moment().format(),
-                    pinned: null,
-                    promoted: null,
-                    meta: {
-                        title: null,
-                        description: null
-                    }
-                }
-            };
+  export default {
+    name: 'post_form',
+    mixins: [form],
+    data () {
+      return {
+        config: {
+          wrap: true,
+          time_24hr: true,
+          enableTime: true
         },
-        methods: {
-            getTags(search) {
-                axios
-                    .get(this.$app.route('admin.tags.search'), {
-                        params: {
-                            q: search
-                        }
-                    })
-                    .then(response => {
-                        this.tags = response.data.items;
-                    });
-            },
-            onFileChange(e) {
-                let files = e.target.files || e.dataTransfer.files;
-                if (!files.length) return;
-
-                this.model.featured_image = files[0];
-            },
+        modelName: 'post',
+        listPath: '/post',
+        model: {
+          title: null,
+          summary: null,
+          body: null,
+          tags: [],
+          featured_image: null,
+          featured_image_path: null,
+          status: null,
+          state: null,
+          status_label: null,
+          owner: {
+            name: null
+          },
+          published_at: moment().format(),
+          pinned: null,
+          promoted: null,
+          meta: {
+            title: null,
+            description: null
+          }
         }
-    };
+      }
+    },
+    methods: {
+      getTags (search) {
+        axios
+          .get(this.$app.route('admin.tags.search'), {
+            params: {
+              q: search
+            }
+          })
+          .then(response => {
+            this.tags = response.data.items
+          })
+      },
+      onFileChange (e) {
+        let files = e.target.files || e.dataTransfer.files
+        if (!files.length) return
+
+        this.model.featured_image = files[0]
+      }
+    }
+  }
 </script>

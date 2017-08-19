@@ -5,7 +5,9 @@
                 <div class="col-xl-6">
                     <div class="card">
                         <div class="card-header">
-                            <h4>{{ isNew ? $t('labels.backend.form_settings.titles.create') : $t('labels.backend.form_settings.titles.edit') }}</h4>
+                            <h4>
+                                {{ isNew ? $t('labels.backend.form_settings.titles.create') : $t('labels.backend.form_settings.titles.edit')
+                                }}</h4>
                         </div>
 
                         <div class="card-body">
@@ -74,10 +76,14 @@
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <router-link to="/form-setting" class="btn btn-danger btn-sm">{{ $t('buttons.back') }}</router-link>
+                                    <router-link to="/form-setting" class="btn btn-danger btn-sm">{{ $t('buttons.back')
+                                        }}
+                                    </router-link>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="submit" class="btn btn-success btn-sm pull-right" :value="isNew ? $t('buttons.create') : $t('buttons.edit')" :disabled="pending">
+                                    <input type="submit" class="btn btn-success btn-sm pull-right"
+                                           :value="isNew ? $t('buttons.create') : $t('buttons.edit')"
+                                           :disabled="pending">
                                 </div>
                             </div>
                         </div>
@@ -89,42 +95,42 @@
 </template>
 
 <script>
-    import axios from 'axios';
-    import form from '../mixins/form';
+  import axios from 'axios'
+  import form from '../mixins/form'
 
-    export default {
-        name: 'form_setting_form',
-        mixins: [form],
-        data() {
-            return {
-                formTypes: [
-                    {
-                        value: null,
-                        text: `-- ${this.$i18n.t('validation.attributes.form_type')} --`
-                    }
-                ],
-                modelName: 'form_setting',
-                listPath: '/form-setting',
-                model: {
-                    name: null,
-                    recipients: null,
-                    message: null
-                }
-            };
-        },
-        created() {
-            axios
-                .get(this.$app.route(`admin.${this.modelName}.get_form_types`))
-                .then(response => {
-                    for(let propertyName in response.data) {
-                        this.formTypes.push({
-                            value: propertyName,
-                            text: response.data[propertyName]
-                        });
-                    }
-                });
-
-            this.fetchData();
+  export default {
+    name: 'form_setting_form',
+    mixins: [form],
+    data () {
+      return {
+        formTypes: [
+          {
+            value: null,
+            text: `-- ${this.$i18n.t('validation.attributes.form_type')} --`
+          }
+        ],
+        modelName: 'form_setting',
+        listPath: '/form-setting',
+        model: {
+          name: null,
+          recipients: null,
+          message: null
         }
-    };
+      }
+    },
+    created () {
+      axios
+        .get(this.$app.route(`admin.${this.modelName}.get_form_types`))
+        .then(response => {
+          for (let propertyName in response.data) {
+            this.formTypes.push({
+              value: propertyName,
+              text: response.data[propertyName]
+            })
+          }
+        })
+
+      this.fetchData()
+    }
+  }
 </script>

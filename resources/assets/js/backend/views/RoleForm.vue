@@ -5,7 +5,9 @@
                 <div class="col-xl-8">
                     <div class="card">
                         <div class="card-header">
-                            <h4>{{ isNew ? $t('labels.backend.roles.titles.create') : $t('labels.backend.roles.titles.edit') }}</h4>
+                            <h4>
+                                {{ isNew ? $t('labels.backend.roles.titles.create') : $t('labels.backend.roles.titles.edit')
+                                }}</h4>
                         </div>
 
                         <div class="card-body">
@@ -93,7 +95,8 @@
                             </b-form-fieldset>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">{{ $t('validation.attributes.permissions') }}</label>
+                                <label class="col-sm-2 col-form-label">{{ $t('validation.attributes.permissions')
+                                    }}</label>
                                 <div class="col-sm-10">
                                     <div class="row">
                                         <div class="col-md-6 col-xl-4 mb-3" v-for="category in this.permissions">
@@ -117,10 +120,13 @@
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <router-link to="/role" class="btn btn-danger btn-sm">{{ $t('buttons.back') }}</router-link>
+                                    <router-link to="/role" class="btn btn-danger btn-sm">{{ $t('buttons.back') }}
+                                    </router-link>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="submit" class="btn btn-success btn-sm pull-right" :value="isNew ? $t('buttons.create') : $t('buttons.edit')" :disabled="pending">
+                                    <input type="submit" class="btn btn-success btn-sm pull-right"
+                                           :value="isNew ? $t('buttons.create') : $t('buttons.edit')"
+                                           :disabled="pending">
                                 </div>
                             </div>
                         </div>
@@ -132,47 +138,47 @@
 </template>
 
 <script>
-    import axios from 'axios';
-    import form from '../mixins/form';
-    
-    import _ from 'lodash';
-    // eslint-disable-next-line no-unused-vars
-    import { groupBy, forEach } from 'lodash/collection';
+  import axios from 'axios'
+  import form from '../mixins/form'
 
-    export default {
-        name: 'role_form',
-        mixins: [form],
-        data() {
-            return {
-                permissions: [],
-                modelName: 'role',
-                listPath: '/role',
-                model: {
-                    name: null,
-                    display_name: null,
-                    description: null,
-                    order: 0,
-                    permissions: []
-                }
-            };
-        },
-        created() {
-            axios
-                .get(this.$app.route(`admin.${this.modelName}.get_permissions`))
-                .then(response => {
-                    let categories = _.groupBy(_.forEach(response.data, (value, key) => {
-                        value['name'] = key;
-                    }), 'category');
+  import _ from 'lodash'
+  // eslint-disable-next-line no-unused-vars
+  import { groupBy, forEach } from 'lodash/collection'
 
-                    this.permissions = Object.keys(categories).map(key => {
-                        return new Object({
-                            title: key,
-                            permissions: categories[key]
-                        });
-                    });
-                });
-
-            this.fetchData();
+  export default {
+    name: 'role_form',
+    mixins: [form],
+    data () {
+      return {
+        permissions: [],
+        modelName: 'role',
+        listPath: '/role',
+        model: {
+          name: null,
+          display_name: null,
+          description: null,
+          order: 0,
+          permissions: []
         }
-    };
+      }
+    },
+    created () {
+      axios
+        .get(this.$app.route(`admin.${this.modelName}.get_permissions`))
+        .then(response => {
+          let categories = _.groupBy(_.forEach(response.data, (value, key) => {
+            value['name'] = key
+          }), 'category')
+
+          this.permissions = Object.keys(categories).map(key => {
+            return {
+              title: key,
+              permissions: categories[key]
+            }
+          })
+        })
+
+      this.fetchData()
+    }
+  }
 </script>

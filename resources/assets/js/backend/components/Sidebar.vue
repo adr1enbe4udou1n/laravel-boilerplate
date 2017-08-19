@@ -19,13 +19,16 @@
                     <li class="nav-item">
                         <router-link to="/post" class="nav-link">
                             <i class="icon-notebook"></i> {{ $t('labels.backend.posts.titles.main') }}
-                            <span class="badge badge-danger" :title="$t('labels.backend.dashboard.new_posts')">{{ newPostsCount }}</span>
-                            <span class="badge badge-warning" :title="$t('labels.backend.dashboard.pending_posts')">{{ pendingPostsCount }}</span>
+                            <span class="badge badge-danger"
+                                  :title="$t('labels.backend.dashboard.new_posts')">{{ newPostsCount }}</span>
+                            <span class="badge badge-warning"
+                                  :title="$t('labels.backend.dashboard.pending_posts')">{{ pendingPostsCount }}</span>
                         </router-link>
                     </li>
                 </template>
 
-                <template v-if="this.$app.user.can['manage form_submissions'] || this.$app.user.can['manage form_settings']">
+                <template
+                        v-if="this.$app.user.can['manage form_submissions'] || this.$app.user.can['manage form_settings']">
                     <li class="nav-title">{{ $t('labels.backend.sidebar.forms') }}</li>
                     <li class="nav-item" v-if="this.$app.user.can['manage form_submissions']">
                         <router-link to="/form-submission" class="nav-link">
@@ -81,43 +84,43 @@
     </div>
 </template>
 <script>
-    import axios from 'axios';
+  import axios from 'axios'
 
-    export default {
-        name: 'sidebar',
-        data() {
-            return {
-                newPostsCount: 0,
-                pendingPostsCount: 0,
-            };
-        },
-        created() {
-            this.fetchData();
-        },
-        methods: {
-            fetchData() {
-                if (this.$app.user.can['manage own posts']) {
-                    axios
-                        .get(this.$app.route('admin.post.draft.counter'))
-                        .then(response => {
-                            this.newPostsCount = response.data;
-                        });
-                    axios
-                        .get(this.$app.route('admin.post.pending.counter'))
-                        .then(response => {
-                            this.pendingPostsCount = response.data;
-                        });
-                }
-            },
-            handleClick(e) {
-                e.preventDefault();
-                e.target.parentElement.classList.toggle('open');
-            }
-        },
-        watch: {
-            '$route': 'fetchData'
+  export default {
+    name: 'sidebar',
+    data () {
+      return {
+        newPostsCount: 0,
+        pendingPostsCount: 0
+      }
+    },
+    created () {
+      this.fetchData()
+    },
+    methods: {
+      fetchData () {
+        if (this.$app.user.can['manage own posts']) {
+          axios
+            .get(this.$app.route('admin.post.draft.counter'))
+            .then(response => {
+              this.newPostsCount = response.data
+            })
+          axios
+            .get(this.$app.route('admin.post.pending.counter'))
+            .then(response => {
+              this.pendingPostsCount = response.data
+            })
         }
-    };
+      },
+      handleClick (e) {
+        e.preventDefault()
+        e.target.parentElement.classList.toggle('open')
+      }
+    },
+    watch: {
+      '$route': 'fetchData'
+    }
+  }
 </script>
 
 <style lang="css">

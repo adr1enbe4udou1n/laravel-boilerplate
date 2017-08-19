@@ -67,17 +67,20 @@
                                 </thead>
                                 <tbody>
                                 <template v-if="posts.length > 0">
-                                <tr v-for="post in posts">
-                                    <td>
-                                        <router-link :to="`/post/${post.id}/edit`">
-                                            {{ post.title }}
-                                        </router-link>
-                                    </td>
-                                    <td><span :class="`badge badge-${post.state}`">{{ $t(post.status_label) }}</span></td>
-                                    <td><span :class="`badge badge-${post.pinned ? 'success' : 'danger'}`">{{ post.pinned ? $t('labels.yes') : $t('labels.no') }}</span></td>
-                                    <td>{{ post.summary }}</td>
-                                    <td class="text-center">{{ post.published_at }}</td>
-                                </tr>
+                                    <tr v-for="post in posts">
+                                        <td>
+                                            <router-link :to="`/post/${post.id}/edit`">
+                                                {{ post.title }}
+                                            </router-link>
+                                        </td>
+                                        <td><span :class="`badge badge-${post.state}`">{{ $t(post.status_label)
+                                            }}</span></td>
+                                        <td><span
+                                                :class="`badge badge-${post.pinned ? 'success' : 'danger'}`">{{ post.pinned ? $t('labels.yes') : $t('labels.no')
+                                            }}</span></td>
+                                        <td>{{ post.summary }}</td>
+                                        <td class="text-center">{{ post.published_at }}</td>
+                                    </tr>
                                 </template>
                                 <tr v-else>
                                     <td valign="top" colspan="6"
@@ -98,59 +101,59 @@
 </template>
 
 <script>
-    import axios from 'axios';
+  import axios from 'axios'
 
-    export default {
-        name: 'dashboard',
-        data() {
-            return {
-                newPostsCount: 0,
-                pendingPostsCount: 0,
-                publishedPostsCount: 0,
-                activeUsersCount: 0,
-                formSubmissionsCount: 0,
-                posts: {},
-            };
-        },
-        created() {
-            if (this.$app.user.can['manage own posts']) {
-                axios
-                    .get(this.$app.route('admin.post.draft.counter'))
-                    .then(response => {
-                        this.newPostsCount = response.data;
-                    });
-                axios
-                    .get(this.$app.route('admin.post.pending.counter'))
-                    .then(response => {
-                        this.pendingPostsCount = response.data;
-                    });
-                axios
-                    .get(this.$app.route('admin.post.published.counter'))
-                    .then(response => {
-                        this.publishedPostsCount = response.data;
-                    });
-                axios
-                    .get(this.$app.route('admin.post.latest'))
-                    .then(response => {
-                        this.posts = response.data;
-                    });
-            }
+  export default {
+    name: 'dashboard',
+    data () {
+      return {
+        newPostsCount: 0,
+        pendingPostsCount: 0,
+        publishedPostsCount: 0,
+        activeUsersCount: 0,
+        formSubmissionsCount: 0,
+        posts: {}
+      }
+    },
+    created () {
+      if (this.$app.user.can['manage own posts']) {
+        axios
+          .get(this.$app.route('admin.post.draft.counter'))
+          .then(response => {
+            this.newPostsCount = response.data
+          })
+        axios
+          .get(this.$app.route('admin.post.pending.counter'))
+          .then(response => {
+            this.pendingPostsCount = response.data
+          })
+        axios
+          .get(this.$app.route('admin.post.published.counter'))
+          .then(response => {
+            this.publishedPostsCount = response.data
+          })
+        axios
+          .get(this.$app.route('admin.post.latest'))
+          .then(response => {
+            this.posts = response.data
+          })
+      }
 
-            if (this.$app.user.can['manage users']) {
-                axios
-                    .get(this.$app.route('admin.user.active.counter'))
-                    .then(response => {
-                        this.activeUsersCount = response.data;
-                    });
-            }
+      if (this.$app.user.can['manage users']) {
+        axios
+          .get(this.$app.route('admin.user.active.counter'))
+          .then(response => {
+            this.activeUsersCount = response.data
+          })
+      }
 
-            if (this.$app.user.can['manage form_submissions']) {
-                axios
-                    .get(this.$app.route('admin.form_submission.counter'))
-                    .then(response => {
-                        this.formSubmissionsCount = response.data;
-                    });
-            }
-        }
-    };
+      if (this.$app.user.can['manage form_submissions']) {
+        axios
+          .get(this.$app.route('admin.form_submission.counter'))
+          .then(response => {
+            this.formSubmissionsCount = response.data
+          })
+      }
+    }
+  }
 </script>

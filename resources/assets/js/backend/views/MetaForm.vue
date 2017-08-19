@@ -5,7 +5,9 @@
                 <div class="col-xl-6">
                     <div class="card">
                         <div class="card-header">
-                            <h4>{{ isNew ? $t('labels.backend.metas.titles.create') : $t('labels.backend.metas.titles.edit') }}</h4>
+                            <h4>
+                                {{ isNew ? $t('labels.backend.metas.titles.create') : $t('labels.backend.metas.titles.edit')
+                                }}</h4>
                         </div>
 
                         <div class="card-body">
@@ -93,38 +95,38 @@
 </template>
 
 <script>
-    import axios from 'axios';
-    import form from '../mixins/form';
-    
-    export default {
-        name: 'meta_form',
-        mixins: [form],
-        data() {
-            return {
-                routes: [],
-                modelName: 'meta',
-                listPath: '/meta',
-                model: {
-                    metable_type: null,
-                    metable_id: null,
-                    route: null,
-                    title: null,
-                    description: null
-                }
-            };
-        },
-        methods: {
-            getRoutes(search) {
-                axios
-                    .get(this.$app.route('admin.routes.search'), {
-                        params: {
-                            q: search
-                        }
-                    })
-                    .then(response => {
-                        this.routes = response.data.items;
-                    });
-            }
+  import axios from 'axios'
+  import form from '../mixins/form'
+
+  export default {
+    name: 'meta_form',
+    mixins: [form],
+    data () {
+      return {
+        routes: [],
+        modelName: 'meta',
+        listPath: '/meta',
+        model: {
+          metable_type: null,
+          metable_id: null,
+          route: null,
+          title: null,
+          description: null
         }
-    };
+      }
+    },
+    methods: {
+      getRoutes (search) {
+        axios
+          .get(this.$app.route('admin.routes.search'), {
+            params: {
+              q: search
+            }
+          })
+          .then(response => {
+            this.routes = response.data.items
+          })
+      }
+    }
+  }
 </script>

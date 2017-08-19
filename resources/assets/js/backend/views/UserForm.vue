@@ -5,7 +5,9 @@
                 <div class="col-xl-6">
                     <div class="card">
                         <div class="card-header">
-                            <h4>{{ isNew ? $t('labels.backend.users.titles.create') : $t('labels.backend.users.titles.edit') }}</h4>
+                            <h4>
+                                {{ isNew ? $t('labels.backend.users.titles.create') : $t('labels.backend.users.titles.edit')
+                                }}</h4>
                         </div>
 
                         <div class="card-body">
@@ -117,10 +119,13 @@
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <router-link to="/user" class="btn btn-danger btn-sm">{{ $t('buttons.back') }}</router-link>
+                                    <router-link to="/user" class="btn btn-danger btn-sm">{{ $t('buttons.back') }}
+                                    </router-link>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="submit" class="btn btn-success btn-sm pull-right" :value="isNew ? $t('buttons.create') : $t('buttons.edit')" :disabled="pending">
+                                    <input type="submit" class="btn btn-success btn-sm pull-right"
+                                           :value="isNew ? $t('buttons.create') : $t('buttons.edit')"
+                                           :disabled="pending">
                                 </div>
                             </div>
                         </div>
@@ -132,44 +137,44 @@
 </template>
 
 <script>
-    import axios from 'axios';
-    import form from '../mixins/form';
+  import axios from 'axios'
+  import form from '../mixins/form'
 
-    export default {
-        name: 'user_form',
-        mixins: [form],
-        data() {
-            return {
-                iconUser: '<i class="icon-user"></i>',
-                iconEnvelope: '<i class="icon-envelope"></i>',
-                roles: {},
-                modelName: 'user',
-                listPath: '/user',
-                model: {
-                    name: null,
-                    email: null,
-                    active: true,
-                    password: null,
-                    confirm_password: null,
-                    roles: []
-                },
-            };
-        },
-        created() {
-            axios
-                .get(this.$app.route(`admin.${this.modelName}.get_roles`))
-                .then(response => {
-                    this.roles = response.data;
-                });
-
-            this.fetchData();
-        },
-        mounted() {
-            $('#password').pwstrength({
-                ui: {
-                    bootstrap4: true
-                }
-            });
+  export default {
+    name: 'user_form',
+    mixins: [form],
+    data () {
+      return {
+        iconUser: '<i class="icon-user"></i>',
+        iconEnvelope: '<i class="icon-envelope"></i>',
+        roles: {},
+        modelName: 'user',
+        listPath: '/user',
+        model: {
+          name: null,
+          email: null,
+          active: true,
+          password: null,
+          confirm_password: null,
+          roles: []
         }
-    };
+      }
+    },
+    created () {
+      axios
+        .get(this.$app.route(`admin.${this.modelName}.get_roles`))
+        .then(response => {
+          this.roles = response.data
+        })
+
+      this.fetchData()
+    },
+    mounted () {
+      $('#password').pwstrength({
+        ui: {
+          bootstrap4: true
+        }
+      })
+    }
+  }
 </script>

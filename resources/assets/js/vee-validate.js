@@ -2,22 +2,22 @@
 /**
  * Initialize Vue
  */
-import Vue from 'vue';
+import Vue from 'vue'
 
 /**
  * Vee Validate
  */
-import VeeValidate from 'vee-validate';
-import french from 'vee-validate/dist/locale/fr';
+import VeeValidate from 'vee-validate'
+import french from 'vee-validate/dist/locale/fr'
 
-VeeValidate.Validator.addLocale(french);
+VeeValidate.Validator.addLocale(french)
 
-export default function(locale) {
-    Vue.use(VeeValidate, {
-        locale: locale
-    });
+export default function (locale) {
+  Vue.use(VeeValidate, {
+    locale: locale
+  })
 
-    VeeValidate.Validator.extend('phone', (value, [inputId]) => {
-        return $(`#${inputId}`).intlTelInput('isValidNumber');
-    });
+  VeeValidate.Validator.extend('phone', (value, [inputId]) => {
+    return $(`#${inputId}`).intlTelInput('isValidNumber')
+  })
 }

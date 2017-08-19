@@ -14,34 +14,34 @@
 </template>
 
 <script>
-    import axios from 'axios';
+  import axios from 'axios'
 
-    export default {
-        props: ['options', 'url', 'datatable'],
-        data() {
-            return {
-                action: Object.keys(this.options)[0]
-            };
-        },
-        methods: {
-            onSubmit(e) {
-                let dataTable = $(`#${this.datatable}`).DataTable();
-                let url = this.url;
-                let action = this.action;
+  export default {
+    props: ['options', 'url', 'datatable'],
+    data () {
+      return {
+        action: Object.keys(this.options)[0]
+      }
+    },
+    methods: {
+      onSubmit (e) {
+        let dataTable = $(`#${this.datatable}`).DataTable()
+        let url = this.url
+        let action = this.action
 
-                $.confirmSwal(e.target, () => {
-                    axios.post(url, {
-                        action: action,
-                        ids: dataTable.rows({selected: true}).ids().toArray()
-                    }).then(response => {
-                        // Reload Datatables and keep current pager
-                        dataTable.ajax.reload(null, false);
-                        window.toastr[response.data.status](response.data.message);
-                    }).catch(error => {
-                        window.toastr.error(error.response.data.error);
-                    });
-                });
-            }
-        }
-    };
+        $.confirmSwal(e.target, () => {
+          axios.post(url, {
+            action: action,
+            ids: dataTable.rows({selected: true}).ids().toArray()
+          }).then(response => {
+            // Reload Datatables and keep current pager
+            dataTable.ajax.reload(null, false)
+            window.toastr[response.data.status](response.data.message)
+          }).catch(error => {
+            window.toastr.error(error.response.data.error)
+          })
+        })
+      }
+    }
+  }
 </script>
