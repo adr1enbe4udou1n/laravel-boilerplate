@@ -42,9 +42,9 @@ window.swal = sweetalert2;
   })
 
   /**
-     * Swal confirm dialog
-     */
-  $.confirmSwal = function (target, callback) {
+   * Swal confirm dialog
+   */
+  $.confirmSwal = (target, callback) => {
     window.swal({
       title: $(target).attr('data-trans-title'),
       type: 'warning',
@@ -54,7 +54,7 @@ window.swal = sweetalert2;
       confirmButtonText: $(target).attr('data-trans-button-confirm')
     }).then(
       callback,
-      function () {}
+      () => {}
     )
   }
 
@@ -94,8 +94,8 @@ window.swal = sweetalert2;
      * This is for delete buttons that are loaded via AJAX in datatables, they will not work right
      * without this block of code
      */
-  $(document).ajaxComplete(function () {
-    $('[data-toggle="delete-row"]').click(function (e) {
+  $(document).ajaxComplete(() => {
+    $('[data-toggle="delete-row"]').click((e) => {
       e.preventDefault()
       let url = $(this).attr('href')
       let dataTable = $(this).closest('table').DataTable()

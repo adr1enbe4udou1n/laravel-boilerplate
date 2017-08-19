@@ -18,5 +18,8 @@
   },
   "parserOptions": {
     "sourceType": "module"
+  },
+  "rules": {
+    "prefer-arrow-callback": 2
   }
 }

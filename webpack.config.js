@@ -62,7 +62,7 @@ let ckeditorPlugins = [
 let ckeditorIgnoredLanguages = []
 
 fs.readdirSync('node_modules/ckeditor/lang').forEach((file) => {
-  if (_.some(ckeditorLocales, function (locale) {
+  if (_.some(ckeditorLocales, (locale) => {
     return file === `${locale}.js`
   }) === false) {
     ckeditorIgnoredLanguages.push(file)
@@ -100,7 +100,7 @@ let ckeditorCopyPatterns = [
   }
 ]
 
-ckeditorPlugins.forEach(function (plugin) {
+ckeditorPlugins.forEach((plugin) => {
   ckeditorCopyPatterns.push({
     from: `node_modules/ckeditor/plugins/${plugin}`,
     to: `vendor/ckeditor/plugins/${plugin}`

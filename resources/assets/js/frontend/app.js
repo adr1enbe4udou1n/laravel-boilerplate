@@ -40,7 +40,7 @@ WebFont.load({
 /**
  * Cookie Consent
  */
-window.addEventListener('load', function () {
+window.addEventListener('load', () => {
   window.cookieconsent.initialise({
     'palette': {
       'popup': {
@@ -100,15 +100,15 @@ window.addEventListener('load', function () {
   /**
      * Bind all swal confirm buttons
      */
-  $('[data-toggle="confirm"]').click(function (e) {
+  $('[data-toggle="confirm"]').click((e) => {
     e.preventDefault()
 
-    $.confirmSwal(e.target, function () {
+    $.confirmSwal(e.target, () => {
       $(e.target).closest('form').submit()
     })
   })
 
-  $('[data-toggle="password-strength-meter"]').each(function () {
+  $('[data-toggle="password-strength-meter"]').each(() => {
     $(this).pwstrength({
       ui: {
         bootstrap4: true
@@ -135,7 +135,7 @@ window.addEventListener('load', function () {
 
   tabanchor.tab('show')
 
-  $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+  $('a[data-toggle="tab"]').on('show.bs.tab', (e) => {
     window.location.hash = e.target.hash
   })
 })(jQuery)
