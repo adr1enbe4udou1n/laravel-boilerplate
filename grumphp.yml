@@ -1,8 +1,15 @@
 parameters:
   git_dir: .
   bin_dir: vendor/bin
+  stop_on_failure: true
   tasks:
     phpcsfixer2:
       allow_risky: true
-    phplint: ~
-    phpunit: ~
+      metadata:
+        priority: 1
+    phplint:
+      metadata:
+        priority: 2
+    phpunit:
+      metadata:
+        priority: 0
