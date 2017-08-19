@@ -2718,16 +2718,16 @@
         },
         {
             "name": "plank/laravel-mediable",
-            "version": "2.4.7",
+            "version": "2.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/plank/laravel-mediable.git",
-                "reference": "fbce316e3c86551cfbac1c57a1102d8d3bee0ab0"
+                "reference": "75177a1f9f14f1e3d42d2da3e9bda7e2a42c654e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/plank/laravel-mediable/zipball/fbce316e3c86551cfbac1c57a1102d8d3bee0ab0",
-                "reference": "fbce316e3c86551cfbac1c57a1102d8d3bee0ab0",
+                "url": "https://api.github.com/repos/plank/laravel-mediable/zipball/75177a1f9f14f1e3d42d2da3e9bda7e2a42c654e",
+                "reference": "75177a1f9f14f1e3d42d2da3e9bda7e2a42c654e",
                 "shasum": ""
             },
             "require": {
@@ -2746,6 +2746,16 @@
                 "vlucas/phpdotenv": "^2.2"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Plank\\Mediable\\MediableServiceProvider"
+                    ],
+                    "aliases": {
+                        "MediaUploader": "Plank\\Mediable\\MediaUploaderFacade"
+                    }
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Plank\\Mediable\\": "src/"
@@ -2769,7 +2779,7 @@
                 "media",
                 "uploader"
             ],
-            "time": "2017-05-04T20:17:32+00:00"
+            "time": "2017-08-18T17:27:15+00:00"
         },
         {
             "name": "psr/http-message",
