@@ -1,12 +1,14 @@
 import i18next from 'i18next';
 
-require('intl-tel-input');
-require('pwstrength-bootstrap/dist/pwstrength-bootstrap');
+import 'intl-tel-input';
+import 'pwstrength-bootstrap/dist/pwstrength-bootstrap';
 
-window.toastr = require('toastr');
-window.swal = require('sweetalert2');
+import toastr from 'toastr';
+import sweetalert2 from 'sweetalert2';
+import flatpickr from 'flatpickr';
 
-const flatpickr = require('flatpickr');
+window.toastr = toastr;
+window.swal = sweetalert2;
 
 /**
  * Place any jQuery/helper plugins in here.
@@ -111,4 +113,4 @@ const flatpickr = require('flatpickr');
             });
         });
     });
-})(window.jQuery);
+})(jQuery);

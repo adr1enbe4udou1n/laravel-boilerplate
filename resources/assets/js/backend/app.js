@@ -1,20 +1,21 @@
 
-require('./../bootstrap');
+import './../bootstrap';
 
-window.JSZip = require('jszip');
+import jszip from 'jszip';
+window.JSZip = jszip;
 
 // Datatables
-require('datatables.net');
-require('datatables.net-bs4');
-require('datatables.net-select');
-require('datatables.net-buttons');
-require('datatables.net-buttons-bs4');
-require('datatables.net-responsive');
-require('datatables.net-responsive-bs4');
-require('datatables.net-buttons/js/buttons.html5');
+import 'datatables.net';
+import 'datatables.net-bs4';
+import 'datatables.net-select';
+import 'datatables.net-buttons';
+import 'datatables.net-buttons-bs4';
+import 'datatables.net-responsive';
+import 'datatables.net-responsive-bs4';
+import 'datatables.net-buttons/js/buttons.html5';
 
 // Plugins
-require('./../plugins');
+import './../plugins';
 
 /**
  * Vue

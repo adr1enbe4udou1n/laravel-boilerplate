@@ -1,7 +1,7 @@
-require('./../bootstrap');
-require('./../plugins');
-require('cookieconsent');
-require('slick-carousel');
+import './../bootstrap';
+import './../plugins';
+import 'cookieconsent';
+import 'slick-carousel';
 
 /**
  * Initialize Vue
@@ -34,96 +34,105 @@ WebFont.load({
     }
 });
 
+/**
+ * Cookie Consent
+ */
+window.addEventListener('load', function () {
+    window.cookieconsent.initialise({
+        'palette': {
+            'popup': {
+                'background': '#fff',
+                'text': '#777'
+            },
+            'button': {
+                'background': '#3097d1',
+                'text': '#ffffff'
+            }
+        },
+        'showLink': false,
+        'theme': 'edgeless',
+        'content': {
+            'message': window.settings.cookieconsent.message,
+            'dismiss': window.settings.cookieconsent.dismiss
+        }
+    });
+});
+
 (function ($) {
     /**
      * Slick
      */
-    $('.slider').removeClass('hidden').slick({
+    $('[data-toggle="slider"]').not('.slick-initialized').removeAttr('hidden').slick({
         dots: true,
         infinite: true,
         speed: 300,
         slidesToShow: 3,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 576,
+                settings: {
+                    slidesToShow: 1
+                }
+            }
+        ]
     });
 
     /**
-     * Cookie Consent
+     * Bind all bootstrap tooltips
      */
-    window.addEventListener('load', function () {
-        window.cookieconsent.initialise({
-            'palette': {
-                'popup': {
-                    'background': '#fff',
-                    'text': '#777'
-                },
-                'button': {
-                    'background': '#3097d1',
-                    'text': '#ffffff'
-                }
-            },
-            'showLink': false,
-            'theme': 'edgeless',
-            'content': {
-                'message': window.settings.cookieconsent.message,
-                'dismiss': window.settings.cookieconsent.dismiss
+    $('[data-toggle="tooltip"]').tooltip();
+
+    /**
+     * Bind all bootstrap popovers
+     */
+    $('[data-toggle="popover"]').popover();
+
+    /**
+     * Bind all swal confirm buttons
+     */
+    $('[data-toggle="confirm"]').click(function (e) {
+        e.preventDefault();
+
+        $.confirmSwal(e.target, function () {
+            $(e.target).closest('form').submit();
+        });
+    });
+
+    $('[data-toggle="password-strength-meter"]').each(function () {
+        $(this).pwstrength({
+            ui: {
+                bootstrap4: true
             }
         });
     });
 
-    /**
-     * Plugins to load after DOM is ready
-     */
-    $(function () {
-        /**
-         * Bind all bootstrap tooltips
-         */
-        $('[data-toggle="tooltip"]').tooltip();
-
-        /**
-         * Bind all bootstrap popovers
-         */
-        $('[data-toggle="popover"]').popover();
-
-        /**
-         * Bind all swal confirm buttons
-         */
-        $('[data-toggle="confirm"]').click(function (e) {
-            e.preventDefault();
-
-            $.confirmSwal(e.target, function () {
-                $(e.target).closest('form').submit();
-            });
-        });
-
-        $('[data-toggle="password-strength-meter"]').each(function () {
-            $(this).pwstrength({
-                ui: {
-                    bootstrap4: true
-                }
-            });
-        });
-
-        $('[type="tel"]').intlTelInput({
-            autoPlaceholder: 'aggressive',
-            utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.14/js/utils.js',
-            initialCountry: window.locale === 'en' ? 'us' : window.locale,
-            preferredCountries: ['us', 'gb', 'fr']
-        });
-
-        /**
-         * Bootstrap tabs nav specific hash manager
-         */
-        let hash = document.location.hash;
-        let tabanchor = $('.nav-tabs a:first');
-
-        if (hash) {
-            tabanchor = $(`.nav-tabs a[href="${hash}"]`);
-        }
-
-        tabanchor.tab('show');
-
-        $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
-            window.location.hash = e.target.hash;
-        });
+    $('[type="tel"]').intlTelInput({
+        autoPlaceholder: 'aggressive',
+        utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.14/js/utils.js',
+        initialCountry: window.locale === 'en' ? 'us' : window.locale,
+        preferredCountries: ['us', 'gb', 'fr']
     });
-})(window.jQuery);
+
+    /**
+     * Bootstrap tabs nav specific hash manager
+     */
+    let hash = document.location.hash;
+    let tabanchor = $('.nav-tabs a:first');
+
+    if (hash) {
+        tabanchor = $(`.nav-tabs a[href="${hash}"]`);
+    }
+
+    tabanchor.tab('show');
+
+    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+        window.location.hash = e.target.hash;
+    });
+})(jQuery);
