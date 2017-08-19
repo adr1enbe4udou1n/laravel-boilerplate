@@ -38,8 +38,7 @@ class PostController extends BackendController
         $this->tags = $tags;
     }
 
-    public function getDraftPostCounter()
-    {
+    public function getDraftPostCounter() {
         return $this->posts->query()->whereStatus(Post::DRAFT)->count();
     }
 
