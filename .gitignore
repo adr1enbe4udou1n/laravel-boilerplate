@@ -13,6 +13,8 @@ yarn-error.log
 
 /.php_cs
 /.php_cs.cache
+/.phpstorm.meta.php
+/_ide_helper.php
 
 # Dev Builded Files
 /public/css
