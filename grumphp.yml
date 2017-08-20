@@ -5,6 +5,7 @@ parameters:
   tasks:
     phpcsfixer2:
       allow_risky: true
+      config: .php_cs.dist
       metadata:
         priority: 1
     phplint:

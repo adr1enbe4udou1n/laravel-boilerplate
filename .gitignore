@@ -11,7 +11,8 @@ npm-debug.log
 yarn-error.log
 .env
 
-.php_cs.cache
+/.php_cs
+/.php_cs.cache
 
 # Dev Builded Files
 /public/css

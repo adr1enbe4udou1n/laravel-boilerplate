@@ -27,8 +27,8 @@
   "images\\vendor\\intl-tel-input\\build\\flags.png": "images/vendor/intl-tel-input/build/flags.png?ae33acae404631e997ef8d91dae08ccd",
   "images\\vendor\\intl-tel-input\\build\\flags@2x.png": "images/vendor/intl-tel-input/build/flags@2x.png?f2c77a6b7e26ff160fdb4193b383b1ea",
   "images\\vendor\\slick-carousel\\slick\\ajax-loader.gif": "images/vendor/slick-carousel/slick/ajax-loader.gif?68b0c4fcb84d239f261c1a5e65818142",
-  "manifest.js": "dist/js/manifest.1dd0e0677ce9ba277309.js",
-  "manifest.js.map": "dist/js/manifest.1dd0e0677ce9ba277309.js.map",
-  "vendor.js": "dist/js/vendor.505be028643799d265b4.js",
-  "vendor.js.map": "dist/js/vendor.505be028643799d265b4.js.map"
+  "manifest.js": "dist/js/manifest.8fce824061b36b806703.js",
+  "manifest.js.map": "dist/js/manifest.8fce824061b36b806703.js.map",
+  "vendor.js": "dist/js/vendor.bbb055dc2e2dbea93b9a.js",
+  "vendor.js.map": "dist/js/vendor.bbb055dc2e2dbea93b9a.js.map"
 }

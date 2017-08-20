@@ -6538,9 +6538,9 @@ svgo@^0.7.0:
     sax "~1.2.1"
     whet.extend "~0.9.9"
 
-sweetalert2@^6.6.8:
-  version "6.6.8"
-  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-6.6.8.tgz#d1cafd25b6ec1ea4cd43c02baac94637ff33eace"
+sweetalert2@^6.6.9:
+  version "6.6.9"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-6.6.9.tgz#d3814561d4b2dba71ebda7f4497800e5e4e8a58a"
 
 table@^4.0.1:
   version "4.0.1"
@@ -6754,7 +6754,7 @@ ua-parser-js@0.7.12:
   version "0.7.12"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.12.tgz#04c81a99bdd5dc52263ea29d24c6bf8d4818a4bb"
 
-uglify-js@3.0.x, uglify-js@^3.0.27:
+uglify-js@3.0.x:
   version "3.0.27"
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.0.27.tgz#a97db8c8ba6b9dba4e2f88d86aa9548fa6320034"
   dependencies:
@@ -6769,6 +6769,13 @@ uglify-js@^2.8.29:
     yargs "~3.10.0"
   optionalDependencies:
     uglify-to-browserify "~1.0.0"
+
+uglify-js@^3.0.28:
+  version "3.0.28"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.0.28.tgz#96b8495f0272944787b5843a1679aa326640d5f7"
+  dependencies:
+    commander "~2.11.0"
+    source-map "~0.5.1"
 
 uglify-to-browserify@~1.0.0:
   version "1.0.2"
