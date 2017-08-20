@@ -16,32 +16,33 @@
                 </div>
             </main>
         </div>
-        <AppFooter :name="this.$app.appName" :editor-name="this.$app.editorName" :editor-site-url="this.$app.editorSiteUrl" />
+        <AppFooter :name="this.$app.appName" :editor-name="this.$app.editorName"
+                   :editor-site-url="this.$app.editorSiteUrl"/>
     </div>
 </template>
 
 <script>
-    import AppHeader from '../components/Header.vue';
-    import Sidebar from '../components/Sidebar.vue';
-    import AppFooter from '../components/Footer.vue';
-    import Breadcrumb from '../components/Breadcrumb.vue';
+  import AppHeader from '../components/Header.vue'
+  import Sidebar from '../components/Sidebar.vue'
+  import AppFooter from '../components/Footer.vue'
+  import Breadcrumb from '../components/Breadcrumb.vue'
 
-    export default {
-        name: 'full',
-        components: {
-            AppHeader,
-            Sidebar,
-            AppFooter,
-            Breadcrumb
-        },
-        computed: {
-            name() {
-                return this.$route.name;
-            },
+  export default {
+    name: 'full',
+    components: {
+      AppHeader,
+      Sidebar,
+      AppFooter,
+      Breadcrumb
+    },
+    computed: {
+      name () {
+        return this.$route.name
+      },
 
-            list() {
-                return this.$route.matched;
-            }
-        }
-    };
+      list () {
+        return this.$route.matched
+      }
+    }
+  }
 </script>
