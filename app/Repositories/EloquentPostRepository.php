@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Exceptions\GeneralException;
-use App\Models\Meta;
 use App\Models\Post;
 use App\Models\PostTranslation;
 use App\Models\Tag;
