@@ -10,9 +10,11 @@ class BackendController extends Controller
     /**
      * Show admin home.
      *
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
         return view('backend.home');
     }

@@ -49,7 +49,7 @@ class RoleController extends BackendController
             ]));
 
             return $query->editColumn('name', function (Role $role) {
-                return link_to("#/role/{$role->id}/edit", $role->name);
+                return link_to("#/roles/{$role->id}/edit", $role->name);
             })->addColumn('actions', function (Role $role) {
                 return $this->roles->getActionButtons($role);
             })->editColumn('created_at', function (Role $role) use ($request) {
@@ -67,7 +67,7 @@ class RoleController extends BackendController
      *
      * @return Role
      */
-    public function get(Role $role)
+    public function show(Role $role)
     {
         $role->permissions = $role->permissions()->pluck('name');
 

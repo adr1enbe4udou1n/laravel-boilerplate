@@ -102,8 +102,8 @@ class EloquentFormSubmissionRepository extends EloquentBaseRepository implements
      */
     public function getActionButtons(FormSubmission $formSubmission)
     {
-        $buttons = $this->getShowButtonHtml("#/form-submission/{$formSubmission->id}/show")
-          .$this->getDeleteButtonHtml('admin.form_submission.destroy', $formSubmission);
+        $buttons = $this->getShowButtonHtml("#/form-submissions/{$formSubmission->id}/show")
+          .$this->getDeleteButtonHtml('admin.form_submissions.destroy', $formSubmission);
 
         return $buttons;
     }

@@ -145,8 +145,8 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
      */
     public function getActionButtons(Role $role)
     {
-        $buttons = $this->getEditButtonHtml("#/role/{$role->id}/edit")
-            .$this->getDeleteButtonHtml('admin.role.destroy', $role);
+        $buttons = $this->getEditButtonHtml("#/roles/{$role->id}/edit")
+            .$this->getDeleteButtonHtml('admin.roles.destroy', $role);
 
         return $buttons;
     }

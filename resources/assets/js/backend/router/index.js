@@ -47,8 +47,8 @@ export default (i18n) => {
             }
           },
           {
-            path: 'post',
-            redirect: '/post/list',
+            path: 'posts',
+            redirect: '/posts/list',
             name: 'post',
             component: {
               render (c) {
@@ -87,9 +87,9 @@ export default (i18n) => {
             ]
           },
           {
-            path: 'form-submission',
-            redirect: '/form-submission/list',
-            name: 'form_submissions',
+            path: 'form-submissions',
+            redirect: '/form-submissions/list',
+            name: 'form_submission',
             component: {
               render (c) {
                 return c('router-view')
@@ -119,8 +119,8 @@ export default (i18n) => {
             ]
           },
           {
-            path: 'form-setting',
-            redirect: '/form-setting/list',
+            path: 'form-settings',
+            redirect: '/form-settings/list',
             name: 'form_setting',
             component: {
               render (c) {
@@ -159,8 +159,8 @@ export default (i18n) => {
             ]
           },
           {
-            path: 'user',
-            redirect: '/user/list',
+            path: 'users',
+            redirect: '/users/list',
             name: 'user',
             component: {
               render (c) {
@@ -199,8 +199,8 @@ export default (i18n) => {
             ]
           },
           {
-            path: 'role',
-            redirect: '/role/list',
+            path: 'roles',
+            redirect: '/roles/list',
             name: 'role',
             component: {
               render (c) {
@@ -239,8 +239,8 @@ export default (i18n) => {
             ]
           },
           {
-            path: 'meta',
-            redirect: '/meta/list',
+            path: 'metas',
+            redirect: '/metas/list',
             name: 'meta',
             component: {
               render (c) {
@@ -279,8 +279,8 @@ export default (i18n) => {
             ]
           },
           {
-            path: 'redirection',
-            redirect: '/redirection/list',
+            path: 'redirections',
+            redirect: '/redirections/list',
             name: 'redirection',
             component: {
               render (c) {

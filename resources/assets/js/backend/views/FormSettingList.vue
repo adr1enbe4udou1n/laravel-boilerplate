@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="pull-right mt-2">
-                    <router-link to="/form-setting/create" class="btn btn-success btn-sm"><i class="icon-plus"></i>
+                    <router-link to="/form-settings/create" class="btn btn-success btn-sm"><i class="icon-plus"></i>
                         {{ $t('buttons.form_settings.create') }}
                     </router-link>
                 </div>
@@ -32,7 +32,7 @@
         info: false,
         buttons: [],
         ajax: {
-          url: this.$app.route('admin.form_setting.search'),
+          url: this.$app.route('admin.form_settings.search'),
           type: 'post'
         },
         columns: [{

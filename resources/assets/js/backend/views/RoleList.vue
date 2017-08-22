@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="pull-right mt-2">
-                    <router-link to="/role/create" class="btn btn-success btn-sm">
+                    <router-link to="/roles/create" class="btn btn-success btn-sm">
                         <i class="icon-plus"></i> {{ $t('buttons.roles.create') }}
                     </router-link>
                 </div>
@@ -32,7 +32,7 @@
         info: false,
         buttons: [],
         ajax: {
-          url: this.$app.route('admin.role.search'),
+          url: this.$app.route('admin.roles.search'),
           type: 'post'
         },
         columns: [{

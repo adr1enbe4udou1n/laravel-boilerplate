@@ -68,7 +68,7 @@ class MetaController extends BackendController
      *
      * @return Meta
      */
-    public function get(Meta $meta)
+    public function show(Meta $meta)
     {
         return $meta;
     }

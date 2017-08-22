@@ -66,7 +66,7 @@ class UserController extends BackendController
 
             return $query->editColumn('name', function (User $user) {
                 if ($this->users->canEdit($user)) {
-                    return link_to("#/user/{$user->id}/edit", $user->name);
+                    return link_to("#/users/{$user->id}/edit", $user->name);
                 }
 
                 return $user->name;
@@ -95,7 +95,7 @@ class UserController extends BackendController
      *
      * @return User
      */
-    public function get(User $user)
+    public function show(User $user)
     {
         if (!$this->users->canEdit($user)) {
             // Only Super admin can access himself

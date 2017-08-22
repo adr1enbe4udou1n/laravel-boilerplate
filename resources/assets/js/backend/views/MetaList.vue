@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="pull-right mt-2">
-                    <router-link to="/meta/create" class="btn btn-success btn-sm"><i class="icon-plus"></i>
+                    <router-link to="/metas/create" class="btn btn-success btn-sm"><i class="icon-plus"></i>
                         {{ $t('buttons.metas.create') }}
                     </router-link>
                 </div>
@@ -12,7 +12,7 @@
             <div class="card-body">
                 <table id="dataTableBuilder" class="table table-striped table-bordered table-hover" cellspacing="0"
                        width="100%"></table>
-                <batch-action :options="options" :url="$app.route('admin.meta.batch_action')"
+                <batch-action :options="options" :url="$app.route('admin.metas.batch_action')"
                               datatable="dataTableBuilder"></batch-action>
             </div>
         </div>
@@ -36,7 +36,7 @@
         processing: true,
         autoWidth: false,
         ajax: {
-          url: this.$app.route('admin.meta.search'),
+          url: this.$app.route('admin.metas.search'),
           type: 'post'
         },
         columns: [{

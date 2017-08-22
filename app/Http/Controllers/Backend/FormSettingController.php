@@ -81,7 +81,7 @@ class FormSettingController extends BackendController
      *
      * @return FormSetting
      */
-    public function get(FormSetting $form_setting)
+    public function show(FormSetting $form_setting)
     {
         return $form_setting;
     }

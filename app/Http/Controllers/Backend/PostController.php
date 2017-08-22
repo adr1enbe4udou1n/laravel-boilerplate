@@ -97,12 +97,12 @@ class PostController extends BackendController
                 return $this->posts->getActionButtons($post);
             })->addColumn('image', function (Post $post) {
                 return link_to(
-                    "#/post/{$post->id}/edit",
+                    "#/posts/{$post->id}/edit",
                     image_template_html('small', $post->featured_image_path, $post->title),
                     [], null, false
                 );
             })->editColumn('title', function (Post $post) {
-                return link_to("#/post/{$post->id}/edit", $post->title);
+                return link_to("#/posts/{$post->id}/edit", $post->title);
             })->editColumn('status', function (Post $post) {
                 return state_html_label($post->state, trans($post->status_label));
             })->editColumn('pinned', function (Post $post) {
@@ -126,8 +126,10 @@ class PostController extends BackendController
      *
      * @return Post
      */
-    public function get(Post $post)
+    public function show(Post $post)
     {
+        $this->authorize('update', $post);
+
         $post->tags = $post->tags()->pluck('name');
 
         return $post;
@@ -164,6 +166,8 @@ class PostController extends BackendController
      */
     public function update(Post $post, UpdatePostRequest $request)
     {
+        $this->authorize('update', $post);
+
         $post->fill(
             $request->only('title', 'summary', 'body', 'published_at', 'pinned', 'promoted')
         );
@@ -185,6 +189,8 @@ class PostController extends BackendController
      */
     public function destroy(Post $post, Request $request)
     {
+        $this->authorize('update', $post);
+
         $this->posts->destroy($post);
 
         return $this->RedirectResponse($request, trans('alerts.backend.posts.deleted'));

@@ -120,7 +120,7 @@
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <router-link to="/role" class="btn btn-danger btn-sm">{{ $t('buttons.back') }}
+                                    <router-link to="/roles" class="btn btn-danger btn-sm">{{ $t('buttons.back') }}
                                     </router-link>
                                 </div>
                                 <div class="col-md-6">
@@ -164,7 +164,7 @@
     },
     created () {
       axios
-        .get(this.$app.route(`admin.${this.modelName}.get_permissions`))
+        .get(this.$app.route(`admin.roles.get_permissions`))
         .then(response => {
           let categories = _.groupBy(_.forEach(response.data, (value, key) => {
             value['name'] = key

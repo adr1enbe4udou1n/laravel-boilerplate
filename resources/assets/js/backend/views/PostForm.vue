@@ -108,7 +108,7 @@
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <router-link to="/post"
+                                    <router-link to="/posts"
                                                  class="btn btn-danger btn-sm">{{ $t('buttons.back') }}
                                     </router-link>
                                 </div>

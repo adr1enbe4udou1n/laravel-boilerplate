@@ -70,7 +70,7 @@ class RedirectionController extends BackendController
      *
      * @return Redirection
      */
-    public function get(Redirection $redirection)
+    public function show(Redirection $redirection)
     {
         return $redirection;
     }

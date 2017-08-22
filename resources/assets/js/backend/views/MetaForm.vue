@@ -77,7 +77,7 @@
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <router-link to="/meta" class="btn btn-danger btn-sm">{{ $t('buttons.back') }}
+                                    <router-link to="/metas" class="btn btn-danger btn-sm">{{ $t('buttons.back') }}
                                     </router-link>
                                 </div>
                                 <div class="col-md-6">

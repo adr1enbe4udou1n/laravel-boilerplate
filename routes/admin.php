@@ -12,43 +12,34 @@ Route::post('images/upload', 'AjaxController@imageUpload')
 Route::group(
     ['middleware' => ['can:manage form_settings']],
     function () {
-        Route::get('form-setting/form-types', 'FormSettingController@getFormTypes')
-          ->name('form_setting.get_form_types');
-        Route::get('form-setting/{form_setting}', 'FormSettingController@get')
-          ->name('form_setting.get');
+        Route::get('form_settings/form_types', 'FormSettingController@getFormTypes')
+            ->name('form_settings.get_form_types');
 
-        Route::post('form-setting', 'FormSettingController@store')
-            ->name('form_setting.store');
-        Route::match(['PUT', 'PATCH'], 'form-setting/{form_setting}',
-            'FormSettingController@update')->name('form_setting.update');
-        Route::delete('form-setting/{form_setting}', 'FormSettingController@destroy')
-            ->name('form_setting.destroy');
+        Route::post('form_settings/search', 'FormSettingController@search')
+            ->name('form_settings.search');
 
-        Route::post('form-setting/search', 'FormSettingController@search')->name(
-            'form_setting.search'
-        );
+        Route::resource('form_settings', 'FormSettingController', [
+            'only' => ['show', 'store', 'update', 'destroy'],
+        ]);
     }
 );
 
 Route::group(
     ['middleware' => ['can:manage form_submissions']],
     function () {
-        Route::get('form-submission/counter', 'FormSubmissionController@getFormSubmissionCounter')
-          ->name('form_submission.counter');
+        Route::get('form_submissions/counter', 'FormSubmissionController@getFormSubmissionCounter')
+            ->name('form_submissions.counter');
 
-        Route::get('form-submission/{form_submission}', 'FormSubmissionController@get')
-          ->name('form_submission.get');
+        Route::post('form_submissions/search', 'FormSubmissionController@search')
+            ->name('form_submissions.search');
 
-        Route::delete('form-submission/{form_submission}', 'FormSubmissionController@destroy')
-            ->name('form_submission.destroy');
+        Route::resource('form_submissions', 'FormSubmissionController', [
+            'only' => ['show', 'destroy'],
+        ]);
 
-        Route::post('form-submission/search', 'FormSubmissionController@search')->name(
-            'form_submission.search'
-        );
-
-        Route::post('form-submission/batch-action',
+        Route::post('form_submissions/batch_action',
             'FormSubmissionController@batchAction')->name(
-            'form_submission.batch_action'
+            'form_submissions.batch_action'
         );
     }
 );
@@ -56,79 +47,54 @@ Route::group(
 Route::group(
     ['middleware' => ['can:manage users']],
     function () {
-        Route::get('user/active-counter', 'UserController@getActiveUserCounter')
-          ->name('user.active.counter');
+        Route::get('users/active_counter', 'UserController@getActiveUserCounter')
+            ->name('users.active.counter');
 
-        Route::get('user/roles', 'UserController@getRoles')
-          ->name('user.get_roles');
+        Route::get('users/roles', 'UserController@getRoles')
+            ->name('users.get_roles');
 
-        Route::get('user/{user}', 'UserController@get')
-          ->name('user.get');
+        Route::post('users/search', 'UserController@search')
+            ->name('users.search');
 
-        Route::post('user', 'UserController@store')
-          ->name('user.store');
-        Route::match(['PUT', 'PATCH'], 'user/{user}',
-          'UserController@update')->name('user.update');
-        Route::delete('user/{user}', 'UserController@destroy')
-          ->name('user.destroy');
+        Route::resource('users', 'UserController', [
+            'only' => ['show', 'store', 'update', 'destroy'],
+        ]);
 
-        Route::post('user/search', 'UserController@search')->name(
-            'user.search'
-        );
-
-        Route::post('user/batch-action',
+        Route::post('users/batch_action',
             'UserController@batchAction')->name(
-            'user.batch_action'
+            'users.batch_action'
         );
-
-        Route::get('user/{user}/login-as', 'UserController@loginAs')
-            ->name(
-                'user.login-as'
-            );
     }
 );
 
 Route::group(
     ['middleware' => ['can:manage roles']],
     function () {
-        Route::get('role/permissions', 'RoleController@getPermissions')
-          ->name('role.get_permissions');
-        Route::get('role/{role}', 'RoleController@get')
-          ->name('role.get');
+        Route::get('roles/permissions', 'RoleController@getPermissions')
+            ->name('roles.get_permissions');
 
-        Route::post('role', 'RoleController@store')
-          ->name('role.store');
-        Route::match(['PUT', 'PATCH'], 'role/{role}',
-          'RoleController@update')->name('role.update');
-        Route::delete('role/{role}', 'RoleController@destroy')
-          ->name('role.destroy');
+        Route::post('roles/search', 'RoleController@search')
+            ->name('roles.search');
 
-        Route::post('role/search', 'RoleController@search')->name(
-            'role.search'
-        );
+        Route::resource('roles', 'RoleController', [
+            'only' => ['show', 'store', 'update', 'destroy'],
+        ]);
     }
 );
 
 Route::group(
     ['middleware' => ['can:manage metas']],
     function () {
-        Route::get('meta/{meta}', 'MetaController@get')
-          ->name('meta.get');
+        Route::post('metas/search', 'MetaController@search')
+            ->name('metas.search');
 
-        Route::post('meta', 'MetaController@store')
-            ->name('meta.store');
-        Route::match(['PUT', 'PATCH'], 'meta/{meta}',
-            'MetaController@update')->name('meta.update');
-        Route::delete('meta/{meta}', 'MetaController@destroy')
-            ->name('meta.destroy');
+        Route::resource('metas', 'MetaController', [
+            'only' => ['show', 'store', 'update', 'destroy'],
+        ]);
 
-        Route::post('meta/search', 'MetaController@search')->name(
-            'meta.search'
-        );
-
-        Route::post('meta/batch-action',
+        Route::post('metas/batch_action',
             'MetaController@batchAction')->name(
-            'meta.batch_action'
+            'metas.batch_action'
         );
     }
 );
@@ -136,29 +102,23 @@ Route::group(
 Route::group(
     ['middleware' => ['can:manage redirections']],
     function () {
-        Route::get('redirection/redirection-types', 'RedirectionController@getRedirectionTypes')
-          ->name('redirection.get_redirection_types');
-        Route::get('redirection/{redirection}', 'RedirectionController@get')
-          ->name('redirection.get');
+        Route::get('redirections/redirection_types', 'RedirectionController@getRedirectionTypes')
+            ->name('redirections.get_redirection_types');
 
-        Route::post('redirection', 'RedirectionController@store')
-            ->name('redirection.store');
-        Route::match(['PUT', 'PATCH'], 'redirection/{redirection}',
-            'RedirectionController@update')->name('redirection.update');
-        Route::delete('redirection/{redirection}', 'RedirectionController@destroy')
-            ->name('redirection.destroy');
+        Route::post('redirections/search', 'RedirectionController@search')
+            ->name('redirections.search');
 
-        Route::post('redirection/search', 'RedirectionController@search')->name(
-            'redirection.search'
-        );
+        Route::resource('redirections', 'RedirectionController', [
+            'only' => ['show', 'store', 'update', 'destroy'],
+        ]);
 
-        Route::post('redirection/batch-action',
+        Route::post('redirections/batch_action',
             'RedirectionController@batchAction')->name(
-            'redirection.batch_action'
+            'redirections.batch_action'
         );
 
-        Route::post('redirection/import', 'RedirectionController@import')
-            ->name('redirection.import');
+        Route::post('redirections/import', 'RedirectionController@import')
+            ->name('redirections.import');
     }
 );
 
@@ -166,36 +126,25 @@ if (config('blog.enabled')) {
     Route::group(
         ['middleware' => ['can:manage own posts']],
         function () {
-            Route::get('post/draft-counter', 'PostController@getDraftPostCounter')
-              ->name('post.draft.counter');
-            Route::get('post/pending-counter', 'PostController@getPendingPostCounter')
-              ->name('post.pending.counter');
-            Route::get('post/published-counter', 'PostController@getPublishedPostCounter')
-              ->name('post.published.counter');
-            Route::get('post/latest', 'PostController@getLastestPosts')
-              ->name('post.latest');
+            Route::get('posts/draft_counter', 'PostController@getDraftPostCounter')
+                ->name('posts.draft.counter');
+            Route::get('posts/pending_counter', 'PostController@getPendingPostCounter')
+                ->name('posts.pending.counter');
+            Route::get('posts/published_counter', 'PostController@getPublishedPostCounter')
+                ->name('posts.published.counter');
+            Route::get('posts/latest', 'PostController@getLastestPosts')
+                ->name('posts.latest');
 
-            Route::get('post/{post}', 'PostController@get')
-              ->name('post.get')
-              ->middleware('can:update,post');
+            Route::post('posts/search', 'PostController@search')
+                ->name('posts.search');
 
-            Route::post('post', 'PostController@store')
-                ->name('post.store');
-            Route::match(['PUT', 'PATCH'], 'post/{post}',
-                'PostController@update')->name('post.update')
-                ->middleware('can:update,post');
-            Route::delete('post/{post}', 'PostController@destroy')
-                ->name('post.destroy')
-                ->middleware('can:update,post');
+            Route::resource('posts', 'PostController', [
+                'only' => ['show', 'store', 'update', 'destroy'],
+            ]);
 
-            Route::post('post/search', 'PostController@search')
-                ->name(
-                    'post.search'
-                );
-
-            Route::post('post/batch-action',
+            Route::post('posts/batch_action',
                 'PostController@batchAction')->name(
-                'post.batch_action'
+                'posts.batch_action'
             );
         }
     );

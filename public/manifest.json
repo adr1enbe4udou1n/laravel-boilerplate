@@ -1,8 +1,8 @@
 {
   "backend.css": "dist/css/backend.78675ae42ca6573e67a09614cc60b7e4.css",
   "backend.css.map": "dist/css/backend.78675ae42ca6573e67a09614cc60b7e4.css.map",
-  "backend.js": "dist/js/backend.68bf0ab3c1dac961e99b.js",
-  "backend.js.map": "dist/js/backend.68bf0ab3c1dac961e99b.js.map",
+  "backend.js": "dist/js/backend.337a36ac4e1b36f0e368.js",
+  "backend.js.map": "dist/js/backend.337a36ac4e1b36f0e368.js.map",
   "ckeditor.js": "dist/js/ckeditor.0ff49890879262b8e6b1.js",
   "ckeditor.js.map": "dist/js/ckeditor.0ff49890879262b8e6b1.js.map",
   "fonts\\vendor\\Simple-Line-Icons.eot": "fonts/vendor/Simple-Line-Icons.eot?f33df365d6d0255b586f2920355e94d7",
@@ -27,8 +27,8 @@
   "images\\vendor\\intl-tel-input\\build\\flags.png": "images/vendor/intl-tel-input/build/flags.png?ae33acae404631e997ef8d91dae08ccd",
   "images\\vendor\\intl-tel-input\\build\\flags@2x.png": "images/vendor/intl-tel-input/build/flags@2x.png?f2c77a6b7e26ff160fdb4193b383b1ea",
   "images\\vendor\\slick-carousel\\slick\\ajax-loader.gif": "images/vendor/slick-carousel/slick/ajax-loader.gif?68b0c4fcb84d239f261c1a5e65818142",
-  "manifest.js": "dist/js/manifest.26e187c2fa3428aa64e5.js",
-  "manifest.js.map": "dist/js/manifest.26e187c2fa3428aa64e5.js.map",
+  "manifest.js": "dist/js/manifest.f9cbca91c518a52a0053.js",
+  "manifest.js.map": "dist/js/manifest.f9cbca91c518a52a0053.js.map",
   "vendor.js": "dist/js/vendor.bbb055dc2e2dbea93b9a.js",
   "vendor.js.map": "dist/js/vendor.bbb055dc2e2dbea93b9a.js.map"
 }

@@ -82,7 +82,7 @@
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <router-link to="/redirection" class="btn btn-danger btn-sm">{{ $t('buttons.back')
+                                    <router-link to="/redirections" class="btn btn-danger btn-sm">{{ $t('buttons.back')
                                         }}
                                     </router-link>
                                 </div>
@@ -122,7 +122,7 @@
     },
     created () {
       axios
-        .get(this.$app.route(`admin.${this.modelName}.get_redirection_types`))
+        .get(this.$app.route(`admin.redirections.get_redirection_types`))
         .then(response => {
           this.redirectionTypes = response.data
         })

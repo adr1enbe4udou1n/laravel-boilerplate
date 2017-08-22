@@ -76,7 +76,7 @@
                         <div class="card-footer">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <router-link to="/form-setting" class="btn btn-danger btn-sm">{{ $t('buttons.back')
+                                    <router-link to="/form-settings" class="btn btn-danger btn-sm">{{ $t('buttons.back')
                                         }}
                                     </router-link>
                                 </div>
@@ -120,7 +120,7 @@
     },
     created () {
       axios
-        .get(this.$app.route(`admin.${this.modelName}.get_form_types`))
+        .get(this.$app.route(`admin.${this.modelName}s.get_form_types`))
         .then(response => {
           for (let propertyName in response.data) {
             this.formTypes.push({

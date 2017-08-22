@@ -70,7 +70,7 @@ class FormSubmissionController extends BackendController
      *
      * @return FormSubmission
      */
-    public function get(FormSubmission $form_submission)
+    public function show(FormSubmission $form_submission)
     {
         return $form_submission;
     }

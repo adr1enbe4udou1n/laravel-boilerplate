@@ -7,7 +7,7 @@
             <div class="card-body">
                 <table id="dataTableBuilder" class="table table-striped table-bordered table-hover" cellspacing="0"
                        width="100%"></table>
-                <batch-action :options="options" :url="$app.route('admin.form_submission.batch_action')"
+                <batch-action :options="options" :url="$app.route('admin.form_submissions.batch_action')"
                               datatable="dataTableBuilder"></batch-action>
             </div>
         </div>
@@ -30,7 +30,7 @@
         serverSide: true,
         processing: true,
         ajax: {
-          url: this.$app.route('admin.form_submission.search'),
+          url: this.$app.route('admin.form_submissions.search'),
           type: 'post'
         },
         columns: [{

@@ -69,7 +69,7 @@
                                 <template v-if="posts.length > 0">
                                     <tr v-for="post in posts">
                                         <td>
-                                            <router-link :to="`/post/${post.id}/edit`">
+                                            <router-link :to="`/posts/${post.id}/edit`">
                                                 {{ post.title }}
                                             </router-link>
                                         </td>
@@ -90,7 +90,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <router-link to="/post" class="btn btn-primary pull-right">
+                        <router-link to="/posts" class="btn btn-primary pull-right">
                             {{ $t('labels.backend.dashboard.all_posts') }}
                         </router-link>
                     </div>
@@ -118,22 +118,22 @@
     created () {
       if (this.$app.user.can['manage own posts']) {
         axios
-          .get(this.$app.route('admin.post.draft.counter'))
+          .get(this.$app.route('admin.posts.draft.counter'))
           .then(response => {
             this.newPostsCount = response.data
           })
         axios
-          .get(this.$app.route('admin.post.pending.counter'))
+          .get(this.$app.route('admin.posts.pending.counter'))
           .then(response => {
             this.pendingPostsCount = response.data
           })
         axios
-          .get(this.$app.route('admin.post.published.counter'))
+          .get(this.$app.route('admin.posts.published.counter'))
           .then(response => {
             this.publishedPostsCount = response.data
           })
         axios
-          .get(this.$app.route('admin.post.latest'))
+          .get(this.$app.route('admin.posts.latest'))
           .then(response => {
             this.posts = response.data
           })
@@ -141,7 +141,7 @@
 
       if (this.$app.user.can['manage users']) {
         axios
-          .get(this.$app.route('admin.user.active.counter'))
+          .get(this.$app.route('admin.users.active.counter'))
           .then(response => {
             this.activeUsersCount = response.data
           })
@@ -149,7 +149,7 @@
 
       if (this.$app.user.can['manage form_submissions']) {
         axios
-          .get(this.$app.route('admin.form_submission.counter'))
+          .get(this.$app.route('admin.form_submissions.counter'))
           .then(response => {
             this.formSubmissionsCount = response.data
           })

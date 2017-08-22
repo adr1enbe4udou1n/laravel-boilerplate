@@ -24,7 +24,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="pull-right mt-2">
-                    <router-link to="/redirection/create" class="btn btn-success btn-sm"><i class="icon-plus"></i>
+                    <router-link to="/redirections/create" class="btn btn-success btn-sm"><i class="icon-plus"></i>
                         {{ $t('buttons.redirections.create') }}
                     </router-link>
                 </div>
@@ -33,7 +33,7 @@
             <div class="card-body">
                 <table id="dataTableBuilder" class="table table-striped table-bordered table-hover" cellspacing="0"
                        width="100%"></table>
-                <batch-action :options="options" :url="$app.route('admin.redirection.batch_action')"
+                <batch-action :options="options" :url="$app.route('admin.redirections.batch_action')"
                               datatable="dataTableBuilder"></batch-action>
             </div>
         </div>
@@ -69,13 +69,13 @@
         data.append('import', this.importFile)
 
         axios
-          .post(this.$app.route('admin.redirection.import', data))
+          .post(this.$app.route('admin.redirections.import'), data)
           .then(response => {
             dataTable.ajax.reload(null, false)
             window.toastr[response.data.status](response.data.message)
           })
-          .catch(error => {
-            window.toastr.error(error.response.data.error)
+          .catch(() => {
+            window.toastr.error(this.$i18n.t('exceptions.general'))
           })
       }
     },
@@ -86,7 +86,7 @@
         processing: true,
         autoWidth: false,
         ajax: {
-          url: this.$app.route('admin.redirection.search'),
+          url: this.$app.route('admin.redirections.search'),
           type: 'post'
         },
         columns: [{
