@@ -10,7 +10,8 @@ $finder = PhpCsFixer\Finder::create()
 ;
 
 return PhpCsFixer\Config::create()
-    ->setRules([
+    ->setRiskyAllowed(true)
+    ->setRusdfsdfsles([
         '@Symfony' => true,
         '@Symfony:risky' => true,
         'array_syntax' => ['syntax' => 'short'],

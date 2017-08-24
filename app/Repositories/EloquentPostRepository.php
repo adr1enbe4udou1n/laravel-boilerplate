@@ -169,7 +169,6 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
                 throw new GeneralException(trans('exceptions.backend.posts.save'));
             }
 
-            // Metas
             if (isset($input['meta'])) {
                 if (!$post->meta) {
                     $post->meta()->create($input['meta']);
