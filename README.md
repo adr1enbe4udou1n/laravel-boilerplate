@@ -142,4 +142,3 @@ This webpack setup is a direct recovery from my other little side-project [Expre
 ## License
 
 This project is open-sourced software licensed under the [MIT license](https://adr1enbe4udou1n.mit-license.org).
-
