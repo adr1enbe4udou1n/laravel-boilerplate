@@ -1,4 +1,3 @@
-
 import './../bootstrap'
 import './../plugins'
 import 'cookieconsent'
@@ -63,43 +62,46 @@ window.addEventListener('load', () => {
 
 (function ($) {
   /**
-     * Slick
-     */
-  $('[data-toggle="slider"]').not('.slick-initialized').removeAttr('hidden').slick({
-    dots: true,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2
+   * Slick
+   */
+  $('[data-toggle="slider"]')
+    .not('.slick-initialized')
+    .removeAttr('hidden')
+    .slick({
+      dots: true,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 576,
+          settings: {
+            slidesToShow: 1
+          }
         }
-      },
-      {
-        breakpoint: 576,
-        settings: {
-          slidesToShow: 1
-        }
-      }
-    ]
-  })
+      ]
+    })
 
   /**
-     * Bind all bootstrap tooltips
-     */
+   * Bind all bootstrap tooltips
+   */
   $('[data-toggle="tooltip"]').tooltip()
 
   /**
-     * Bind all bootstrap popovers
-     */
+   * Bind all bootstrap popovers
+   */
   $('[data-toggle="popover"]').popover()
 
   /**
-     * Bind all swal confirm buttons
-     */
+   * Bind all swal confirm buttons
+   */
   $('[data-toggle="confirm"]').click((e) => {
     e.preventDefault()
 
@@ -108,12 +110,10 @@ window.addEventListener('load', () => {
     })
   })
 
-  $('[data-toggle="password-strength-meter"]').each(() => {
-    $(this).pwstrength({
-      ui: {
-        bootstrap4: true
-      }
-    })
+  $('[data-toggle="password-strength-meter"]').pwstrength({
+    ui: {
+      bootstrap4: true
+    }
   })
 
   $('[type="tel"]').intlTelInput({
@@ -124,8 +124,8 @@ window.addEventListener('load', () => {
   })
 
   /**
-     * Bootstrap tabs nav specific hash manager
-     */
+   * Bootstrap tabs nav specific hash manager
+   */
   let hash = document.location.hash
   let tabanchor = $('.nav-tabs a:first')
 
