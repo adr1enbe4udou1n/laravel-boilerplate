@@ -97,10 +97,10 @@ window.swal = sweetalert2;
   $(document).ajaxComplete(() => {
     $('[data-toggle="delete-row"]').click((e) => {
       e.preventDefault()
-      let url = $(this).attr('href')
-      let dataTable = $(this).closest('table').DataTable()
+      let url = $(e.currentTarget).attr('href')
+      let dataTable = $(e.currentTarget).closest('table').DataTable()
 
-      $.confirmSwal(this, () => {
+      $.confirmSwal(e.currentTarget, () => {
         window.axios.delete(url)
           .then(response => {
             // Reload Datatables and keep current pager

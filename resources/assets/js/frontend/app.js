@@ -105,7 +105,7 @@ window.addEventListener('load', () => {
   $('[data-toggle="confirm"]').click((e) => {
     e.preventDefault()
 
-    $.confirmSwal(e.target, () => {
+    $.confirmSwal(e.currentTarget, () => {
       $(e.target).closest('form').submit()
     })
   })

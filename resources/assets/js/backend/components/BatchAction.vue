@@ -29,7 +29,7 @@
         let url = this.url
         let action = this.action
 
-        $.confirmSwal(e.target, () => {
+        $.confirmSwal(e.currentTarget, () => {
           axios.post(url, {
             action: action,
             ids: dataTable.rows({selected: true}).ids().toArray()
