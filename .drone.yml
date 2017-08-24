@@ -1,0 +1,14 @@
+pipeline:
+  build:
+    image: php
+    commands:
+      - sudo apt install -y libsqlite3-dev libzip-dev libpng12-dev
+      - sudo docker-php-ext-install gd zip
+      - composer install --prefer-dist
+      - cp .env.dusk .env
+      - php artisan key:generate
+      - touch database/database.sqlite
+      - ./vendor/bin/phpunit
+      - ./vendor/laravel/dusk/bin/chromedriver-linux &
+      - php artisan serve &
+      - php artisan dusk
