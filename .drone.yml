@@ -12,6 +12,5 @@ pipeline:
       - php artisan key:generate
       - touch database/database.sqlite
       - ./vendor/bin/phpunit
-      - ./vendor/laravel/dusk/bin/chromedriver-linux &
       - php artisan serve &
       - php artisan dusk
