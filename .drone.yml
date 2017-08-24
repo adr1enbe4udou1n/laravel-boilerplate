@@ -2,8 +2,8 @@ pipeline:
   build:
     image: php
     commands:
-      - sudo apt install -y libsqlite3-dev libzip-dev libpng12-dev
-      - sudo docker-php-ext-install gd zip
+      - apt-get update && apt-get install -y libsqlite3-dev libzip-dev libpng12-dev
+      - docker-php-ext-install gd zip
       - composer install --prefer-dist
       - cp .env.dusk .env
       - php artisan key:generate
