@@ -4,6 +4,9 @@ pipeline:
     commands:
       - apt-get update && apt-get install -y libsqlite3-dev libzip-dev libpng12-dev
       - docker-php-ext-install gd zip
+      - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+      - php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+      - php -r "unlink('composer-setup.php');"
       - composer install --prefer-dist
       - cp .env.dusk .env
       - php artisan key:generate
