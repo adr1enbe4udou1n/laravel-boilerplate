@@ -2,15 +2,15 @@ pipeline:
   build:
     image: notnoopci/php:7.1-browsers
     volumes:
-      - /tmp/composer-cache:/home/circleci/.composer/cache/
+      - /tmp/composer-cache:/root/.composer/cache/
     commands:
       - sudo apt-get update && sudo apt-get install -y libsqlite3-dev libzip-dev libpng12-dev
       - sudo docker-php-ext-install gd zip
-      - composer install --prefer-dist
-      - cp .env.dusk .env
-      - php artisan key:generate
-      - touch database/database.sqlite
-      - ./vendor/bin/phpunit
-      - ./vendor/laravel/dusk/bin/chromedriver-linux &
-      - php artisan serve &
-      - php artisan dusk
+      - sudo composer install --prefer-dist
+      - sudo cp .env.dusk .env
+      - sudo php artisan key:generate
+      - sudo touch database/database.sqlite
+      - sudo ./vendor/bin/phpunit
+      - sudo ./vendor/laravel/dusk/bin/chromedriver-linux &
+      - sudo php artisan serve &
+      - sudo php artisan dusk
