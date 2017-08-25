@@ -1,16 +1,18 @@
 pipeline:
   build:
-    image: php
+    image: notnoopci/php:7.1-browsers
+    environment:
+      - COMPOSER_CACHE_DIR=/cache
+    volumes:
+      - /tmp/composer-cache:/cache
     commands:
-      - apt-get update && apt-get install -y libsqlite3-dev libzip-dev libpng12-dev
-      - docker-php-ext-install gd zip
-      - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-      - php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-      - php -r "unlink('composer-setup.php');"
+      - sudo apt-get update && sudo apt-get install -y libsqlite3-dev libzip-dev
+      - sudo docker-php-ext-install gd zip
       - composer install --prefer-dist
       - cp .env.dusk .env
       - php artisan key:generate
       - touch database/database.sqlite
       - ./vendor/bin/phpunit
+      - ./vendor/laravel/dusk/bin/chromedriver-linux &
       - php artisan serve &
       - php artisan dusk

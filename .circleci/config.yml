@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: notnoopci/php:7.1.5-browsers
+      - image: notnoopci/php:7.1-browsers
 
     steps:
       - checkout
