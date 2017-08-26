@@ -1,26 +1,27 @@
 @import "node_modules/datatables.net-bs4/css/dataTables.bootstrap4";
-@import "node_modules/datatables.net-select-bs4/css/select.bootstrap4";
 
-table.dataTable tbody > tr.selected, table.dataTable tbody > tr > .selected {
-  background-color: $gray-300;
-}
+.app .dataTables_wrapper {
+  td.select-checkbox:before {
+    font-family: "FontAwesome";
+    font-size: (4em / 3);
+    content: "\f096";
+  }
 
-table.dataTable tbody tr.selected, table.dataTable tbody th.selected, table.dataTable tbody td.selected {
-  color: #000000;
-}
+  .selected {
+    background-color: $gray-300;
 
-table.dataTable tbody tr.selected a, table.dataTable tbody th.selected a, table.dataTable tbody td.selected a {
-  color: #3c8dbc;
-}
+    td.select-checkbox:before {
+      content: "\f046";
+    }
+  }
 
-table.dataTable tbody tr.selected td:last-child a {
-  color: #ffffff;
-}
+  .dataTables_paginate .pagination {
+    justify-content: center;
+    margin: 0;
+  }
 
-table.dataTable tr.selected td.select-checkbox:after, table.dataTable tr.selected th.select-checkbox:after {
-  text-shadow: none;
-}
-
-div.dataTables_wrapper div.dataTables_paginate ul.pagination {
-  justify-content: center;
+  .dataTable {
+    margin-top: .5rem !important;
+    margin-bottom: 1rem !important;
+  }
 }

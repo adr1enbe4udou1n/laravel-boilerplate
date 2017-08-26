@@ -33,7 +33,6 @@
     "datatables.net-responsive": ">=2.1.1",
     "datatables.net-responsive-bs4": ">=2.1.1",
     "datatables.net-select": ">=1.2.2",
-    "datatables.net-select-bs4": ">=1.2.2",
     "dotenv": "^4.0.0",
     "eslint": "^4.5.0",
     "eslint-config-standard": "^10.2.1",
