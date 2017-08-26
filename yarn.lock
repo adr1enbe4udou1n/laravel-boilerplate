@@ -3422,9 +3422,9 @@ https-browserify@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-0.0.1.tgz#3f91365cabe60b77ed0ebba24b454e3e09d95a82"
 
-i18next@^8.4.3:
-  version "8.4.3"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-8.4.3.tgz#36b6ff516c4f992010eedcce24a36c4609e8c7dc"
+i18next@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-9.0.0.tgz#a89ab0481b5b6b3964f55b12f03de9063d8f4500"
 
 iconv-lite@^0.4.17:
   version "0.4.18"
@@ -6999,9 +6999,9 @@ vue-hot-reload-api@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.1.0.tgz#9ca58a6e0df9078554ce1708688b6578754d86de"
 
-vue-i18n@^7.1.1:
-  version "7.1.1"
-  resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-7.1.1.tgz#c37259c9088bf821144b393146d342686e9554ea"
+vue-i18n@^7.1.2:
+  version "7.1.2"
+  resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-7.1.2.tgz#6f5b4b9101e7b92aa05089eb1c0d266aa344f8fc"
 
 vue-loader@^13.0.4:
   version "13.0.4"

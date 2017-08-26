@@ -29,6 +29,7 @@ import FormRadio from '.././components/FormRadio.vue'
 import FormToggle from '.././components/FormToggle.vue'
 import Flatpickr from '.././components/Flatpickr.vue'
 import CKEditor from '.././components/CKEditor.vue'
+import DataTable from './components/DataTable.vue'
 import BatchAction from './components/BatchAction.vue'
 import Router from './router'
 import App from './App.vue'
@@ -50,6 +51,7 @@ Vue.component('b-form-radio', FormRadio)
 Vue.component('b-form-toggle', FormToggle)
 Vue.component('flatpickr', Flatpickr)
 Vue.component('ckeditor', CKEditor)
+Vue.component('datatable', DataTable)
 Vue.component('batch-action', BatchAction)
 
 let router = Router(i18n)

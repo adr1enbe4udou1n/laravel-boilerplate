@@ -16,7 +16,7 @@ window.swal = sweetalert2;
 (function ($) {
   window.locale = $('html').attr('lang')
 
-  window.i18next = i18next.init({
+  i18next.init({
     lng: window.locale,
     resources: {
       en: {
@@ -57,60 +57,4 @@ window.swal = sweetalert2;
       () => {}
     )
   }
-
-  /**
-     * Datatable config
-     */
-  if ($.fn.dataTable) {
-    let dataTableOptions = {
-      lengthMenu: [[5, 10, 15, 25, 50, -1], [5, 10, 15, 25, 50, window.locale === 'en' ? 'All' : 'Tout']],
-      buttons: [
-        'csvHtml5', 'excelHtml5'
-      ],
-      dom:
-            '<\'row\'<\'col-sm-12 col-md-6\'l><\'col-sm-12 col-md-6\'f>>' +
-            '<\'row\'<\'col-sm-12\'tr>>' +
-            '<\'row\'<\'col-sm-12 col-md-4\'i><\'col-sm-12 col-md-4\'p><\'col-sm-12 col-md-4 text-right\'B>>'
-    }
-
-    if (window.locale !== 'en') {
-      dataTableOptions['language'] = {
-        url: `/i18n/datatables.${window.locale}.json`
-      }
-    }
-
-    $.extend(true, $.fn.dataTable.defaults, dataTableOptions)
-
-    $.extend($.fn.dataTable.ext.classes, {
-      sWrapper: 'dataTables_wrapper dt-bootstrap4',
-      sFilterInput: 'form-control input-sm',
-      sLengthSelect: 'form-control input-sm',
-      sProcessing: 'dataTables_processing panel panel-default',
-      sPageButton: 'paginate_button page-item'
-    })
-  }
-
-  /**
-     * This is for delete buttons that are loaded via AJAX in datatables, they will not work right
-     * without this block of code
-     */
-  $(document).ajaxComplete(() => {
-    $('[data-toggle="delete-row"]').click((e) => {
-      e.preventDefault()
-      let url = $(e.currentTarget).attr('href')
-      let dataTable = $(e.currentTarget).closest('table').DataTable()
-
-      $.confirmSwal(e.currentTarget, () => {
-        window.axios.delete(url)
-          .then(response => {
-            // Reload Datatables and keep current pager
-            dataTable.ajax.reload(null, false)
-            window.toastr[response.data.status](response.data.message)
-          })
-          .catch(error => {
-            window.toastr.error(error.response.data.error)
-          })
-      })
-    })
-  })
 })(jQuery)

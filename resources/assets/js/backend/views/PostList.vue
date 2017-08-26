@@ -10,10 +10,7 @@
                 <h4 class="mt-1">{{ $t('labels.backend.posts.titles.index') }}</h4>
             </div>
             <div class="card-body">
-                <table id="dataTableBuilder" class="table table-striped table-bordered table-hover" cellspacing="0"
-                       width="100%"></table>
-                <batch-action :options="options" :url="$app.route('admin.posts.batch_action')"
-                              datatable="dataTableBuilder"></batch-action>
+                <datatable :options="dataTableOptions" :actions="dataTableActions" :action-url="$app.route('admin.posts.batch_action')"></datatable>
             </div>
         </div>
     </div>
@@ -24,106 +21,104 @@
     name: 'post_list',
     data () {
       return {
-        options: {
+        dataTableOptions: {
+          responsive: true,
+          serverSide: true,
+          processing: true,
+          autoWidth: false,
+          ajax: {
+            url: this.$app.route('admin.posts.search'),
+            type: 'post'
+          },
+          columns: [{
+            defaultContent: '',
+            title: '',
+            data: 'checkbox',
+            name: 'checkbox',
+            orderable: false,
+            searchable: false,
+            width: 15,
+            className: 'select-checkbox'
+          }, {
+            title: this.$i18n.t('validation.attributes.image'),
+            data: 'image',
+            name: 'image',
+            orderable: false,
+            searchable: false,
+            width: 120
+          }, {
+            title: this.$i18n.t('validation.attributes.title'),
+            data: 'title',
+            name: 'translations.title',
+            defaultContent: this.$i18n.t('labels.no_value'),
+            responsivePriority: 1
+          }, {
+            title: this.$i18n.t('validation.attributes.status'),
+            data: 'status',
+            name: 'status',
+            searchable: false,
+            className: 'text-center',
+            width: 75,
+            responsivePriority: 2
+          }, {
+            title: this.$i18n.t('validation.attributes.pinned'),
+            data: 'pinned',
+            name: 'pinned',
+            searchable: false,
+            className: 'text-center',
+            width: 50
+          }, {
+            title: this.$i18n.t('validation.attributes.promoted'),
+            data: 'promoted',
+            name: 'promoted',
+            searchable: false,
+            className: 'text-center',
+            width: 90
+          }, {
+            title: this.$i18n.t('labels.author'),
+            data: 'owner.name',
+            name: 'owner.name',
+            orderable: false,
+            width: 100,
+            className: 'text-center'
+          }, {
+            title: this.$i18n.t('labels.published_at'),
+            data: 'published_at',
+            name: 'published_at',
+            width: 110,
+            className: 'text-center'
+          }, {
+            title: this.$i18n.t('labels.created_at'),
+            data: 'created_at',
+            name: 'created_at',
+            width: 110,
+            className: 'text-center'
+          }, {
+            title: this.$i18n.t('labels.updated_at'),
+            data: 'updated_at',
+            name: 'updated_at',
+            width: 110,
+            className: 'text-center'
+          }, {
+            title: this.$i18n.t('labels.actions'),
+            data: 'actions',
+            name: 'actions',
+            orderable: false,
+            width: 100,
+            className: 'nowrap',
+            responsivePriority: 3
+          }],
+          select: {style: 'os'},
+          order: [[9, 'desc']],
+          rowId: 'id'
+        },
+        dataTableActions: {
           destroy: this.$i18n.t('labels.backend.posts.actions.destroy'),
           publish: this.$i18n.t('labels.backend.posts.actions.publish'),
           pin: this.$i18n.t('labels.backend.posts.actions.pin'),
           promote: this.$i18n.t('labels.backend.posts.actions.promote')
         }
       }
-    },
-    mounted () {
-      $('#dataTableBuilder').DataTable({
-        responsive: true,
-        serverSide: true,
-        processing: true,
-        autoWidth: false,
-        ajax: {
-          url: this.$app.route('admin.posts.search'),
-          type: 'post'
-        },
-        columns: [{
-          defaultContent: '',
-          title: '',
-          data: 'checkbox',
-          name: 'checkbox',
-          orderable: false,
-          searchable: false,
-          width: 15,
-          className: 'select-checkbox'
-        }, {
-          title: this.$i18n.t('validation.attributes.image'),
-          data: 'image',
-          name: 'image',
-          orderable: false,
-          searchable: false,
-          width: 120
-        }, {
-          title: this.$i18n.t('validation.attributes.title'),
-          data: 'title',
-          name: 'translations.title',
-          defaultContent: this.$i18n.t('labels.no_value'),
-          responsivePriority: 1
-        }, {
-          title: this.$i18n.t('validation.attributes.status'),
-          data: 'status',
-          name: 'status',
-          searchable: false,
-          className: 'text-center',
-          width: 75,
-          responsivePriority: 2
-        }, {
-          title: this.$i18n.t('validation.attributes.pinned'),
-          data: 'pinned',
-          name: 'pinned',
-          searchable: false,
-          className: 'text-center',
-          width: 50
-        }, {
-          title: this.$i18n.t('validation.attributes.promoted'),
-          data: 'promoted',
-          name: 'promoted',
-          searchable: false,
-          className: 'text-center',
-          width: 90
-        }, {
-          title: this.$i18n.t('labels.author'),
-          data: 'owner.name',
-          name: 'owner.name',
-          orderable: false,
-          width: 100,
-          className: 'text-center'
-        }, {
-          title: this.$i18n.t('labels.published_at'),
-          data: 'published_at',
-          name: 'published_at',
-          width: 110,
-          className: 'text-center'
-        }, {
-          title: this.$i18n.t('labels.created_at'),
-          data: 'created_at',
-          name: 'created_at',
-          width: 110,
-          className: 'text-center'
-        }, {
-          title: this.$i18n.t('labels.updated_at'),
-          data: 'updated_at',
-          name: 'updated_at',
-          width: 110,
-          className: 'text-center'
-        }, {
-          title: this.$i18n.t('labels.actions'),
-          data: 'actions',
-          name: 'actions',
-          orderable: false,
-          width: 100,
-          className: 'nowrap',
-          responsivePriority: 3
-        }],
-        select: {style: 'os'},
-        order: [[9, 'desc']],
-        rowId: 'id'
-      })
     }
   }
 </script>
