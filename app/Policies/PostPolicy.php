@@ -10,13 +10,6 @@ class PostPolicy
 {
     use HandlesAuthorization;
 
-    public function before(User $user, $ability)
-    {
-        if ($user->can('manage posts')) {
-            return true;
-        }
-    }
-
     /**
      * Determine whether the user can update the user.
      *
@@ -27,8 +20,62 @@ class PostPolicy
      *
      * @internal param \App\Models\User $user
      */
+    public function view(User $authenticatedUser, Post $post)
+    {
+        if ($authenticatedUser->can('view posts')) {
+            return true;
+        }
+
+        if ($authenticatedUser->can('view own posts')) {
+            return $authenticatedUser->id === $post->user_id;
+        }
+
+        return false;
+    }
+
+    /**
+     * Determine whether the user can update the post.
+     *
+     * @param User             $authenticatedUser
+     * @param \App\Models\Post $post
+     *
+     * @return mixed
+     *
+     * @internal param \App\Models\User $user
+     */
     public function update(User $authenticatedUser, Post $post)
     {
-        return $authenticatedUser->id === $post->user_id;
+        if ($authenticatedUser->can('edit posts')) {
+            return true;
+        }
+
+        if ($authenticatedUser->can('edit own posts')) {
+            return $authenticatedUser->id === $post->user_id;
+        }
+
+        return false;
+    }
+
+    /**
+     * Determine whether the user can delete the post.
+     *
+     * @param User             $authenticatedUser
+     * @param \App\Models\Post $post
+     *
+     * @return mixed
+     *
+     * @internal param \App\Models\User $user
+     */
+    public function delete(User $authenticatedUser, Post $post)
+    {
+        if ($authenticatedUser->can('delete posts')) {
+            return true;
+        }
+
+        if ($authenticatedUser->can('delete own posts')) {
+            return $authenticatedUser->id === $post->user_id;
+        }
+
+        return false;
     }
 }

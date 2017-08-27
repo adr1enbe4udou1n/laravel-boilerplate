@@ -83,7 +83,8 @@
                                 <div class="col-md-6">
                                     <input type="submit" class="btn btn-success btn-sm pull-right"
                                            :value="isNew ? $t('buttons.create') : $t('buttons.edit')"
-                                           :disabled="pending">
+                                           :disabled="pending"
+                                           v-if="isNew || this.$app.user.can('edit form_settings')">
                                 </div>
                             </div>
                         </div>
@@ -110,7 +111,7 @@
           }
         ],
         modelName: 'form_setting',
-        listPath: '/form-setting',
+        listPath: '/form-settings',
         model: {
           name: null,
           recipients: null,

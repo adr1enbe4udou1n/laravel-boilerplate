@@ -65,7 +65,7 @@ interface UserRepository extends BaseRepository
      * @param \Illuminate\Contracts\Auth\Authenticatable $user
      * @param                                            $name
      *
-     * @return mixed
+     * @return bool
      */
     public function hasPermission(Authenticatable $user, $name);
 

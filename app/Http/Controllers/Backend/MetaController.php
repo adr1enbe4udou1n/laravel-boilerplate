@@ -80,6 +80,8 @@ class MetaController extends BackendController
      */
     public function store(StoreMetaRequest $request)
     {
+        $this->authorize('create metas');
+
         $this->metas->store($request->input());
 
         return $this->RedirectResponse($request, trans('alerts.backend.metas.created'));
@@ -93,6 +95,8 @@ class MetaController extends BackendController
      */
     public function update(Meta $meta, UpdateMetaRequest $request)
     {
+        $this->authorize('edit metas');
+
         $this->metas->update($meta, $request->input());
 
         return $this->RedirectResponse($request, trans('alerts.backend.metas.updated'));
@@ -106,6 +110,8 @@ class MetaController extends BackendController
      */
     public function destroy(Meta $meta, Request $request)
     {
+        $this->authorize('delete metas');
+
         $this->metas->destroy($meta);
 
         return $this->RedirectResponse($request, trans('alerts.backend.metas.deleted'));
@@ -123,6 +129,8 @@ class MetaController extends BackendController
 
         switch ($action) {
             case 'destroy':
+                $this->authorize('delete metas');
+
                 $this->metas->batchDestroy($ids);
 
                 return $this->RedirectResponse($request, trans('alerts.backend.metas.bulk_destroyed'));

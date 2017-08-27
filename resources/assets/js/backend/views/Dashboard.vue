@@ -2,7 +2,7 @@
     <div class="animated fadeIn">
         <div class="row">
             <div class="col-xl">
-                <div class="row">
+                <div class="row" v-if="this.$app.user.can('view own posts')">
                     <div class="col-sm">
                         <div class="card text-white bg-danger">
                             <div class="card-body pb-0">
@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm" v-if="this.$app.user.can['manage users']">
+                    <div class="col-sm" v-if="this.$app.user.can('view users')">
                         <div class="card text-white bg-primary">
                             <div class="card-body pb-0">
                                 <h4 class="mb-0">{{ activeUsersCount }}</h4>
@@ -37,7 +37,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm" v-if="this.$app.user.can['manage form_submissions']">
+                    <div class="col-sm" v-if="this.$app.user.can('view form_submissions')">
                         <div class="card text-white bg-info">
                             <div class="card-body pb-0">
                                 <h4 class="mb-0">{{ formSubmissionsCount }}</h4>
@@ -48,7 +48,7 @@
                 </div>
             </div>
 
-            <div class="col-xl">
+            <div class="col-xl" v-if="this.$app.user.can('view own posts')">
                 <div class="card">
                     <div class="card-header">
                         <h4>{{ $t('labels.backend.dashboard.last_posts') }}</h4>
@@ -116,7 +116,7 @@
       }
     },
     created () {
-      if (this.$app.user.can['manage own posts']) {
+      if (this.$app.user.can('view own posts')) {
         axios
           .get(this.$app.route('admin.posts.draft.counter'))
           .then(response => {
@@ -139,7 +139,7 @@
           })
       }
 
-      if (this.$app.user.can['manage users']) {
+      if (this.$app.user.can('view users')) {
         axios
           .get(this.$app.route('admin.users.active.counter'))
           .then(response => {
@@ -147,7 +147,7 @@
           })
       }
 
-      if (this.$app.user.can['manage form_submissions']) {
+      if (this.$app.user.can('view form_submissions')) {
         axios
           .get(this.$app.route('admin.form_submissions.counter'))
           .then(response => {

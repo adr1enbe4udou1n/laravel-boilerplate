@@ -2,6 +2,7 @@
 
 return [
     'general' => 'Erreur serveur',
+    'unauthorized' => 'Action non autorisée',
 
     'backend' => [
         'users' => [

@@ -18,9 +18,10 @@ class PostsTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker\Factory::create();
+        $user = new User();
 
         // Get User ids with roles (those can create posts)
-        $userIds = User::select('id')->has('roles')->get();
+        $userIds = $user->select('id')->has('roles')->get();
 
         // 50 random posts
         /** @var \Illuminate\Database\Eloquent\Collection $posts */

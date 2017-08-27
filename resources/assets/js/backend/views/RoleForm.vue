@@ -126,7 +126,8 @@
                                 <div class="col-md-6">
                                     <input type="submit" class="btn btn-success btn-sm pull-right"
                                            :value="isNew ? $t('buttons.create') : $t('buttons.edit')"
-                                           :disabled="pending">
+                                           :disabled="pending"
+                                           v-if="isNew || this.$app.user.can('edit roles')">
                                 </div>
                             </div>
                         </div>
@@ -152,7 +153,7 @@
       return {
         permissions: [],
         modelName: 'role',
-        listPath: '/role',
+        listPath: '/roles',
         model: {
           name: null,
           display_name: null,

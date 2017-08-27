@@ -86,6 +86,8 @@ class RoleController extends BackendController
      */
     public function store(StoreRoleRequest $request)
     {
+        $this->authorize('create roles');
+
         $this->roles->store($request->input());
 
         return $this->RedirectResponse($request, trans('alerts.backend.roles.created'));
@@ -99,6 +101,8 @@ class RoleController extends BackendController
      */
     public function update(Role $role, UpdateRoleRequest $request)
     {
+        $this->authorize('edit roles');
+
         $this->roles->update($role, $request->input());
 
         return $this->RedirectResponse($request, trans('alerts.backend.roles.updated'));
@@ -112,6 +116,8 @@ class RoleController extends BackendController
      */
     public function destroy(Role $role, Request $request)
     {
+        $this->authorize('delete roles');
+
         $this->roles->destroy($role);
 
         return $this->RedirectResponse($request, trans('alerts.backend.roles.deleted'));

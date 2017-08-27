@@ -71,7 +71,7 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
     public function update(Redirection $redirection, array $input)
     {
         if (($existingRedirection = $this->find($redirection->source))
-          && $existingRedirection->id !== $redirection->id
+            && $existingRedirection->id !== $redirection->id
         ) {
             throw new GeneralException(trans('exceptions.backend.redirections.already_exist'));
         }
@@ -131,7 +131,7 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
     {
         DB::transaction(function () use ($ids) {
             if ($this->query()->whereIn('id', $ids)
-              ->update(['active' => true])
+                ->update(['active' => true])
             ) {
                 return true;
             }
@@ -153,7 +153,7 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
     {
         DB::transaction(function () use ($ids) {
             if ($this->query()->whereIn('id', $ids)
-              ->update(['active' => false])
+                ->update(['active' => false])
             ) {
                 return true;
             }
@@ -172,7 +172,7 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
     public function getActionButtons(Redirection $redirection)
     {
         $buttons = $this->getEditButtonHtml("#/redirections/{$redirection->id}/edit")
-          .$this->getDeleteButtonHtml('admin.redirections.destroy', $redirection);
+            .$this->getDeleteButtonHtml('admin.redirections.destroy', $redirection, 'delete redirections');
 
         return $buttons;
     }

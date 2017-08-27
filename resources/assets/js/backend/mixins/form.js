@@ -19,7 +19,8 @@ export default {
     fetchData () {
       if (!this.isNew) {
         axios
-          .get(this.$app.route(`admin.${this.modelName}s.show`, { [this.modelName]: this.id }))
+          .get(this.$app.route(`admin.${this.modelName}s.show`,
+            {[this.modelName]: this.id}))
           .then(response => {
             this.model = response.data
           })
@@ -38,7 +39,9 @@ export default {
         if (result) {
           this.pending = true
           let router = this.$router
-          let action = this.isNew ? this.$app.route(`admin.${this.modelName}s.store`) : this.$app.route(`admin.${this.modelName}s.update`, { [this.modelName]: this.id })
+          let action = this.isNew ? this.$app.route(
+            `admin.${this.modelName}s.store`) : this.$app.route(
+            `admin.${this.modelName}s.update`, {[this.modelName]: this.id})
 
           let data = new FormData()
           Object.keys(this.model).forEach(key => {
@@ -65,6 +68,12 @@ export default {
               // Validation errors
               if (error.response.status === 422) {
                 this.validation.errors = error.response.data
+                return
+              }
+
+              // Not allowed error
+              if (error.response.status === 403) {
+                window.toastr.error(this.$i18n.t('exceptions.unauthorized'))
                 return
               }
 

@@ -85,7 +85,7 @@ class PostController extends BackendController
                 'updated_at',
             ]);
 
-            if (!Gate::check('manage posts')) {
+            if (!Gate::check('view posts')) {
                 // Filter to only current user's posts
                 $query->whereUserId(auth()->id());
             }
@@ -128,7 +128,7 @@ class PostController extends BackendController
      */
     public function show(Post $post)
     {
-        $this->authorize('update', $post);
+        $this->authorize('view', $post);
 
         $post->tags = $post->tags()->pluck('name');
 
@@ -142,6 +142,8 @@ class PostController extends BackendController
      */
     public function store(StorePostRequest $request)
     {
+        $this->authorize('create posts');
+
         /** @var Post $post */
         $post = $this->posts->make(
             $request->only('title', 'summary', 'body', 'published_at', 'pinned', 'promoted')
@@ -189,7 +191,7 @@ class PostController extends BackendController
      */
     public function destroy(Post $post, Request $request)
     {
-        $this->authorize('update', $post);
+        $this->authorize('delete', $post);
 
         $this->posts->destroy($post);
 
@@ -208,11 +210,15 @@ class PostController extends BackendController
 
         switch ($action) {
             case 'destroy':
+                $this->authorize('delete posts');
+
                 $this->posts->batchDestroy($ids);
 
                 return $this->RedirectResponse($request, trans('alerts.backend.posts.bulk_destroyed'));
                 break;
             case 'publish':
+                $this->authorize('edit posts');
+
                 $this->posts->batchPublish($ids);
 
                 if (Gate::check('publish posts')) {
@@ -222,11 +228,15 @@ class PostController extends BackendController
                 return $this->RedirectResponse($request, trans('alerts.backend.posts.bulk_pending', 'warning'));
                 break;
             case 'pin':
+                $this->authorize('edit posts');
+
                 $this->posts->batchPin($ids);
 
                 return $this->RedirectResponse($request, trans('alerts.backend.posts.bulk_pinned'));
                 break;
             case 'promote':
+                $this->authorize('edit posts');
+
                 $this->posts->batchPromote($ids);
 
                 return $this->RedirectResponse($request, trans('alerts.backend.posts.bulk_promoted'));

@@ -93,6 +93,8 @@ class RedirectionController extends BackendController
      */
     public function store(StoreRedirectionRequest $request)
     {
+        $this->authorize('create redirections');
+
         $this->redirections->store($request->input());
 
         return $this->RedirectResponse($request, trans('alerts.backend.redirections.created'));
@@ -106,6 +108,8 @@ class RedirectionController extends BackendController
      */
     public function update(Redirection $redirection, UpdateRedirectionRequest $request)
     {
+        $this->authorize('edit redirections');
+
         $this->redirections->update($redirection, $request->input());
 
         return $this->RedirectResponse($request, trans('alerts.backend.redirections.updated'));
@@ -119,6 +123,8 @@ class RedirectionController extends BackendController
      */
     public function destroy(Redirection $redirection, Request $request)
     {
+        $this->authorize('delete redirections');
+
         $this->redirections->destroy($redirection);
 
         return $this->RedirectResponse($request, trans('alerts.backend.redirections.deleted'));
@@ -136,16 +142,22 @@ class RedirectionController extends BackendController
 
         switch ($action) {
             case 'destroy':
+                $this->authorize('delete redirections');
+
                 $this->redirections->batchDestroy($ids);
 
                 return $this->RedirectResponse($request, trans('alerts.backend.redirections.bulk_destroyed'));
                 break;
             case 'enable':
+                $this->authorize('edit redirections');
+
                 $this->redirections->batchEnable($ids);
 
                 return $this->RedirectResponse($request, trans('alerts.backend.redirections.bulk_enabled'));
                 break;
             case 'disable':
+                $this->authorize('edit redirections');
+
                 $this->redirections->batchDisable($ids);
 
                 return $this->RedirectResponse($request, trans('alerts.backend.redirections.bulk_disabled'));
@@ -163,6 +175,8 @@ class RedirectionController extends BackendController
      */
     public function import(Request $request, RedirectionListImport $import)
     {
+        $this->authorize('create redirections');
+
         $import->handleImport();
 
         return $this->RedirectResponse($request, trans('alerts.backend.redirections.file_imported'));

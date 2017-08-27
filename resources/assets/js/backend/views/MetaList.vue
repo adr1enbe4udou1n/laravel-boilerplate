@@ -2,7 +2,7 @@
     <div class="animated fadeIn">
         <div class="card">
             <div class="card-header">
-                <div class="pull-right mt-2">
+                <div class="pull-right mt-2" v-if="this.$app.user.can('create metas')">
                     <router-link to="/metas/create" class="btn btn-success btn-sm"><i class="icon-plus"></i>
                         {{ $t('buttons.metas.create') }}
                     </router-link>

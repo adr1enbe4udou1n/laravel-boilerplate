@@ -23,7 +23,7 @@
 
         <div class="card">
             <div class="card-header">
-                <div class="pull-right mt-2">
+                <div class="pull-right mt-2" v-if="this.$app.user.can('create redirections')">
                     <router-link to="/redirections/create" class="btn btn-success btn-sm"><i class="icon-plus"></i>
                         {{ $t('buttons.redirections.create') }}
                     </router-link>

@@ -96,7 +96,6 @@ class User extends Authenticatable
 
     protected $appends = [
       'avatar',
-      'can',
     ];
 
     public function scopeActives(Builder $query)
@@ -151,32 +150,14 @@ class User extends Authenticatable
             }
         }
 
-        return collect($permissions);
-    }
-
-    /**
-     * Get all user permissions in a flat array.
-     *
-     * @return array
-     */
-    public function getCanAttribute()
-    {
-        $permissions = [];
-
-        /** @var Authenticatable $user */
-        if ($user = auth()->user()) {
-            $all_permissions = config('permissions');
-
-            foreach ($all_permissions as $name => $permission) {
-                if ($user->can($name)) {
-                    $permissions[$name] = true;
-                    continue;
-                }
-                $permissions[$name] = false;
+        // Add children permissions
+        foreach (config('permissions') as $name => $permission) {
+            if (isset($permission['children']) && in_array($name, $permissions, true)) {
+                $permissions = array_merge($permissions, $permission['children']);
             }
         }
 
-        return $permissions;
+        return collect($permissions);
     }
 
     /**

@@ -10,7 +10,7 @@ Route::post('images/upload', 'AjaxController@imageUpload')
     ->name('images.upload');
 
 Route::group(
-    ['middleware' => ['can:manage form_settings']],
+    ['middleware' => ['can:view form_settings']],
     function () {
         Route::get('form_settings/form_types', 'FormSettingController@getFormTypes')
             ->name('form_settings.get_form_types');
@@ -25,7 +25,7 @@ Route::group(
 );
 
 Route::group(
-    ['middleware' => ['can:manage form_submissions']],
+    ['middleware' => ['can:view form_submissions']],
     function () {
         Route::get('form_submissions/counter', 'FormSubmissionController@getFormSubmissionCounter')
             ->name('form_submissions.counter');
@@ -45,7 +45,7 @@ Route::group(
 );
 
 Route::group(
-    ['middleware' => ['can:manage users']],
+    ['middleware' => ['can:view users']],
     function () {
         Route::get('users/active_counter', 'UserController@getActiveUserCounter')
             ->name('users.active.counter');
@@ -68,7 +68,7 @@ Route::group(
 );
 
 Route::group(
-    ['middleware' => ['can:manage roles']],
+    ['middleware' => ['can:view roles']],
     function () {
         Route::get('roles/permissions', 'RoleController@getPermissions')
             ->name('roles.get_permissions');
@@ -83,7 +83,7 @@ Route::group(
 );
 
 Route::group(
-    ['middleware' => ['can:manage metas']],
+    ['middleware' => ['can:view metas']],
     function () {
         Route::post('metas/search', 'MetaController@search')
             ->name('metas.search');
@@ -100,7 +100,7 @@ Route::group(
 );
 
 Route::group(
-    ['middleware' => ['can:manage redirections']],
+    ['middleware' => ['can:view redirections']],
     function () {
         Route::get('redirections/redirection_types', 'RedirectionController@getRedirectionTypes')
             ->name('redirections.get_redirection_types');
@@ -124,7 +124,7 @@ Route::group(
 
 if (config('blog.enabled')) {
     Route::group(
-        ['middleware' => ['can:manage own posts']],
+        ['middleware' => ['can:view own posts']],
         function () {
             Route::get('posts/draft_counter', 'PostController@getDraftPostCounter')
                 ->name('posts.draft.counter');

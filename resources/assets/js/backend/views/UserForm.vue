@@ -125,7 +125,8 @@
                                 <div class="col-md-6">
                                     <input type="submit" class="btn btn-success btn-sm pull-right"
                                            :value="isNew ? $t('buttons.create') : $t('buttons.edit')"
-                                           :disabled="pending">
+                                           :disabled="pending"
+                                           v-if="isNew || this.$app.user.can('edit users')">
                                 </div>
                             </div>
                         </div>
@@ -149,7 +150,7 @@
         iconEnvelope: '<i class="icon-envelope"></i>',
         roles: {},
         modelName: 'user',
-        listPath: '/user',
+        listPath: '/users',
         model: {
           name: null,
           email: null,

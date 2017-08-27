@@ -93,6 +93,8 @@ class FormSettingController extends BackendController
      */
     public function store(StoreFormSettingRequest $request)
     {
+        $this->authorize('create form_settings');
+
         $this->formSettings->store($request->input());
 
         return $this->RedirectResponse($request, trans('alerts.backend.form_settings.created'));
@@ -106,6 +108,8 @@ class FormSettingController extends BackendController
      */
     public function update(FormSetting $formSetting, UpdateFormSettingRequest $request)
     {
+        $this->authorize('edit form_settings');
+
         $this->formSettings->update($formSetting, $request->input());
 
         return $this->RedirectResponse($request, trans('alerts.backend.form_settings.updated'));
@@ -119,6 +123,8 @@ class FormSettingController extends BackendController
      */
     public function destroy(FormSetting $formSetting, Request $request)
     {
+        $this->authorize('delete form_settings');
+
         $this->formSettings->destroy($formSetting);
 
         return $this->RedirectResponse($request, trans('alerts.backend.form_settings.deleted'));

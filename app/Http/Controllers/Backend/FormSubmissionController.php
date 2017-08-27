@@ -83,6 +83,8 @@ class FormSubmissionController extends BackendController
      */
     public function destroy(FormSubmission $form_submission, Request $request)
     {
+        $this->authorize('delete form_submissions');
+
         $this->formSubmissions->destroy($form_submission);
 
         return $this->RedirectResponse($request, trans('alerts.backend.form_submissions.deleted'));
@@ -100,6 +102,8 @@ class FormSubmissionController extends BackendController
 
         switch ($action) {
             case 'destroy':
+                $this->authorize('delete form_submissions');
+
                 $this->formSubmissions->batchDestroy($ids);
 
                 return $this->RedirectResponse($request, trans('alerts.backend.form_submissions.bulk_destroyed'));

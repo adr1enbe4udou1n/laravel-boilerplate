@@ -12,7 +12,10 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         // Create super admin user
-        User::create([
+        $user = new User();
+        $role = new Role();
+
+        $user->create([
             'name' => 'Super admin',
             'email' => 'superadmin@example.com',
             'password' => bcrypt('secret'),
@@ -27,7 +30,7 @@ class UsersTableSeeder extends Seeder
          */
 
         /** @var Role $administratorRole */
-        $administratorRole = Role::create([
+        $administratorRole = $role->create([
             'name' => 'administrator',
             'en' => [
                 'display_name' => 'Administrator',
@@ -40,24 +43,43 @@ class UsersTableSeeder extends Seeder
             'order' => 0,
         ]);
 
-        foreach ([
-            'access backend',
-            'manage posts',
-            'manage own posts',
-            'publish posts',
-            'manage form_settings',
-            'manage form_submissions',
-            'manage users',
-            'impersonate users',
-            'manage roles',
-            'manage metas',
-            'manage redirections',
-        ] as $name) {
+        foreach (
+            [
+                'access backend',
+                'view posts',
+                'create posts',
+                'edit posts',
+                'delete posts',
+                'publish posts',
+                'view form_settings',
+                'create form_settings',
+                'edit form_settings',
+                'delete form_settings',
+                'view form_submissions',
+                'delete form_submissions',
+                'view users',
+                'create users',
+                'edit users',
+                'delete users',
+                'impersonate users',
+                'view roles',
+                'create roles',
+                'edit roles',
+                'delete roles',
+                'view metas',
+                'create metas',
+                'edit metas',
+                'delete metas',
+                'view redirections',
+                'create redirections',
+                'edit redirections',
+                'delete redirections',
+            ] as $name) {
             $administratorRole->permissions()->create(['name' => $name]);
         }
 
         /** @var Role $supervisorRole */
-        $supervisorRole = Role::create([
+        $supervisorRole = $role->create([
             'name' => 'supervisor',
             'en' => [
                 'display_name' => 'Supervisor',
@@ -70,20 +92,30 @@ class UsersTableSeeder extends Seeder
             'order' => 1,
         ]);
 
-        foreach ([
-            'access backend',
-            'manage posts',
-            'manage own posts',
-            'publish posts',
-            'manage form_settings',
-            'manage form_submissions',
-            'manage users',
-        ] as $name) {
+        foreach (
+            [
+                'access backend',
+                'view posts',
+                'create posts',
+                'edit posts',
+                'delete posts',
+                'publish posts',
+                'view form_settings',
+                'create form_settings',
+                'edit form_settings',
+                'delete form_settings',
+                'view form_submissions',
+                'delete form_submissions',
+                'view users',
+                'create users',
+                'edit users',
+                'delete users',
+            ] as $name) {
             $supervisorRole->permissions()->create(['name' => $name]);
         }
 
         /** @var Role $seoConsultantRole */
-        $seoConsultantRole = Role::create([
+        $seoConsultantRole = $role->create([
             'name' => 'seo consultant',
             'en' => [
                 'display_name' => 'SEO consultant',
@@ -96,16 +128,23 @@ class UsersTableSeeder extends Seeder
             'order' => 2,
         ]);
 
-        foreach ([
-            'access backend',
-            'manage metas',
-            'manage redirections',
-        ] as $name) {
+        foreach (
+            [
+                'access backend',
+                'view metas',
+                'create metas',
+                'edit metas',
+                'delete metas',
+                'view redirections',
+                'create redirections',
+                'edit redirections',
+                'delete redirections',
+            ] as $name) {
             $seoConsultantRole->permissions()->create(['name' => $name]);
         }
 
         /** @var Role $editorRole */
-        $editorRole = Role::create([
+        $editorRole = $role->create([
             'name' => 'editor',
             'en' => [
                 'display_name' => 'Editor',
@@ -118,17 +157,20 @@ class UsersTableSeeder extends Seeder
             'order' => 3,
         ]);
 
-        foreach ([
-            'access backend',
-            'manage posts',
-            'manage own posts',
-            'publish posts',
-        ] as $name) {
+        foreach (
+            [
+                'access backend',
+                'view posts',
+                'create posts',
+                'edit posts',
+                'delete posts',
+                'publish posts',
+            ] as $name) {
             $editorRole->permissions()->create(['name' => $name]);
         }
 
         /** @var Role $redactorRole */
-        $redactorRole = Role::create([
+        $redactorRole = $role->create([
             'name' => 'redactor',
             'en' => [
                 'display_name' => 'Redactor',
@@ -141,16 +183,49 @@ class UsersTableSeeder extends Seeder
             'order' => 3,
         ]);
 
-        foreach ([
-            'access backend',
-            'manage own posts',
-        ] as $name) {
+        foreach (
+            [
+                'access backend',
+                'view own posts',
+                'create posts',
+                'edit own posts',
+                'delete own posts',
+            ] as $name) {
             $redactorRole->permissions()->create(['name' => $name]);
+        }
+
+        /** @var Role $demoRole */
+        $demoRole = $role->create([
+            'name' => 'demo',
+            'en' => [
+                'display_name' => 'Demo',
+                'description' => 'Access to all read only BO functionalities',
+            ],
+            'fr' => [
+                'display_name' => 'Démo',
+                'description' => 'Accès à l\'ensemble des fonctionnalités du BO en lecture seule',
+            ],
+            'order' => 3,
+        ]);
+
+        foreach (
+            [
+                'access backend',
+                'access all backend',
+                'view posts',
+                'view form_settings',
+                'view form_submissions',
+                'view users',
+                'view roles',
+                'view metas',
+                'view redirections',
+            ] as $name) {
+            $demoRole->permissions()->create(['name' => $name]);
         }
 
         // 1 administrator
         /** @var User $administrator */
-        $administrator = User::create([
+        $administrator = $user->create([
             'name' => 'Administrator',
             'email' => 'admin@example.com',
             'password' => bcrypt('secret'),
@@ -164,7 +239,7 @@ class UsersTableSeeder extends Seeder
 
         // 1 supervisor
         /** @var User $supervisor */
-        $supervisor = User::create([
+        $supervisor = $user->create([
             'name' => 'Supervisor',
             'email' => 'supervisor@example.com',
             'password' => bcrypt('secret'),
@@ -176,9 +251,23 @@ class UsersTableSeeder extends Seeder
 
         $supervisor->roles()->save($supervisorRole);
 
+        // 1 demo
+        /** @var User $demo */
+        $demo = $user->create([
+            'name' => 'Demo',
+            'email' => 'demo@example.com',
+            'password' => bcrypt('demo'),
+            'active' => true,
+            'confirmed' => true,
+            'locale' => app()->getLocale(),
+            'timezone' => config('app.timezone'),
+        ]);
+
+        $demo->roles()->save($demoRole);
+
         // 1 seo consultant
         /** @var User $seoConsultant */
-        $seoConsultant = User::create([
+        $seoConsultant = $user->create([
             'name' => 'Seo consultant',
             'email' => 'seo@example.com',
             'password' => bcrypt('secret'),
@@ -193,7 +282,7 @@ class UsersTableSeeder extends Seeder
 
         // 1 editor
         /** @var User $editor */
-        $editor = User::create([
+        $editor = $user->create([
             'name' => 'Editor',
             'email' => 'editor@example.com',
             'password' => bcrypt('secret'),
@@ -208,7 +297,7 @@ class UsersTableSeeder extends Seeder
         // 5 redactors
         for ($i = 1; $i <= 5; ++$i) {
             /** @var User $redactor */
-            $redactor = User::create([
+            $redactor = $user->create([
                 'name' => "Redactor $i",
                 'email' => "redactor-$i@example.com",
                 'password' => bcrypt('secret'),

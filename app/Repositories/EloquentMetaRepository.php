@@ -131,7 +131,7 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
     public function getActionButtons(Meta $meta)
     {
         $buttons = $this->getEditButtonHtml("#/metas/{$meta->id}/edit")
-          .$this->getDeleteButtonHtml('admin.metas.destroy', $meta);
+            .$this->getDeleteButtonHtml('admin.metas.destroy', $meta, 'delete metas');
 
         return $buttons;
     }

@@ -119,6 +119,8 @@ class UserController extends BackendController
      */
     public function store(StoreUserRequest $request)
     {
+        $this->authorize('create users');
+
         $this->users->store($request->input());
 
         return $this->RedirectResponse($request, trans('alerts.backend.users.created'));
@@ -134,6 +136,8 @@ class UserController extends BackendController
      */
     public function update(User $user, UpdateUserRequest $request)
     {
+        $this->authorize('edit users');
+
         $this->users->update($user, $request->input());
 
         return $this->RedirectResponse($request, trans('alerts.backend.users.updated'));
@@ -147,6 +151,8 @@ class UserController extends BackendController
      */
     public function destroy(User $user, Request $request)
     {
+        $this->authorize('delete users');
+
         $this->users->destroy($user);
 
         return $this->RedirectResponse($request, trans('alerts.backend.users.deleted'));
@@ -164,16 +170,22 @@ class UserController extends BackendController
 
         switch ($action) {
             case 'destroy':
+                $this->authorize('delete users');
+
                 $this->users->batchDestroy($ids);
 
                 return $this->RedirectResponse($request, trans('alerts.backend.users.bulk_destroyed'));
                 break;
             case 'enable':
+                $this->authorize('edit users');
+
                 $this->users->batchEnable($ids);
 
                 return $this->RedirectResponse($request, trans('alerts.backend.users.bulk_enabled'));
                 break;
             case 'disable':
+                $this->authorize('edit users');
+
                 $this->users->batchDisable($ids);
 
                 return $this->RedirectResponse($request, trans('alerts.backend.users.bulk_disabled'));

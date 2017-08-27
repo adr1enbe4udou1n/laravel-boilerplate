@@ -89,7 +89,8 @@
                                 <div class="col-md-6">
                                     <input type="submit" class="btn btn-success btn-sm pull-right"
                                            :value="isNew ? $t('buttons.create') : $t('buttons.edit')"
-                                           :disabled="pending">
+                                           :disabled="pending"
+                                           v-if="isNew || this.$app.user.can('edit redirections')">
                                 </div>
                             </div>
                         </div>
@@ -111,7 +112,7 @@
       return {
         redirectionTypes: {},
         modelName: 'redirection',
-        listPath: '/redirection',
+        listPath: '/redirections',
         model: {
           source: null,
           active: true,

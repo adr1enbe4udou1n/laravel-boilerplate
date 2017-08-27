@@ -83,7 +83,8 @@
                                 <div class="col-md-6">
                                     <input type="submit" class="btn btn-success btn-sm pull-right"
                                            :value="isNew ? $t('buttons.create') : $t('buttons.edit')"
-                                           :disabled="pending">
+                                           :disabled="pending"
+                                           v-if="isNew || this.$app.user.can('edit metas')">
                                 </div>
                             </div>
                         </div>
@@ -105,7 +106,7 @@
       return {
         routes: [],
         modelName: 'meta',
-        listPath: '/meta',
+        listPath: '/metas',
         model: {
           metable_type: null,
           metable_id: null,

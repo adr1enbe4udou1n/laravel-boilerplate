@@ -114,7 +114,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <input name="status" type="hidden" value="publish">
-                                    <div class="btn-group pull-right">
+                                    <div class="btn-group pull-right"
+                                         v-if="isNew || this.$app.user.can('edit posts') || this.$app.user.can('edit own posts')">
                                         <input type="submit" class="btn btn-success btn-sm pull-right"
                                                :value="$t('buttons.posts.save_and_publish')"
                                                @click="model.status = 'publish'" :disabled="pending">
@@ -283,7 +284,7 @@
           enableTime: true
         },
         modelName: 'post',
-        listPath: '/post',
+        listPath: '/posts',
         model: {
           title: null,
           summary: null,
