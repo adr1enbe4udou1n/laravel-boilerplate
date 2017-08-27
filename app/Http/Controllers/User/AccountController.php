@@ -65,8 +65,6 @@ class AccountController extends Controller
      */
     public function update(UpdateAccountRequest $request)
     {
-        $request->headers->set('referer', route('user.account').'#edit');
-
         $this->account->update($request->input());
 
         return redirect()->route('user.account')
