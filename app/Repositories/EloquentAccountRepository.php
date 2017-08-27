@@ -292,10 +292,6 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
      */
     public function delete()
     {
-        if (!config('account.updating_enabled')) {
-            throw new GeneralException(trans('exceptions.frontend.user.updating_disabled'));
-        }
-
         $user = auth()->user();
 
         /** @var User $user */
