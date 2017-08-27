@@ -64,11 +64,14 @@ router.beforeEach((to, from, next) => {
 Vue.prototype.$app = window.settings
 Vue.prototype.$app.route = window.route
 
-Vue.prototype.$app.user.can = (permission) => {
-  if (Vue.prototype.$app.user.id === 1 || Vue.prototype.$app.permissions.includes('access all backend')) {
-    return true
+if (Vue.prototype.$app.user) {
+  Vue.prototype.$app.user.can = (permission) => {
+    if (Vue.prototype.$app.user.id === 1 ||
+      Vue.prototype.$app.permissions.includes('access all backend')) {
+      return true
+    }
+    return Vue.prototype.$app.permissions.includes(permission)
   }
-  return Vue.prototype.$app.permissions.includes(permission)
 }
 
 // Init

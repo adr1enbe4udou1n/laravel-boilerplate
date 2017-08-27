@@ -61,6 +61,7 @@ return [
             'email_taken' => 'That e-mail address is already taken.',
             'password_mismatch' => 'That is not your old password.',
             'delete_account' => 'Error on account deletion.',
+            'updating_disabled' => 'Account editing is disabled.',
         ],
 
         'auth' => [

@@ -52,8 +52,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
      */
     public function register(array $input)
     {
-        $user = $this->users->store(Arr::only($input,
-            ['name', 'email', 'password']));
+        $user = $this->users->store(Arr::only($input, ['name', 'email', 'password']));
 
         $this->sendConfirmationToUser($user);
 
@@ -190,6 +189,10 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
      */
     public function update(array $input)
     {
+        if (!config('account.updating_enabled')) {
+            throw new GeneralException(trans('exceptions.frontend.user.updating_disabled'));
+        }
+
         $user = auth()->user();
 
         /** @var User $user */
@@ -220,6 +223,10 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
      */
     public function changePassword($oldPassword, $newPassword)
     {
+        if (!config('account.updating_enabled')) {
+            throw new GeneralException(trans('exceptions.frontend.user.updating_disabled'));
+        }
+
         $user = auth()->user();
 
         /** @var User $user */
@@ -285,6 +292,10 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
      */
     public function delete()
     {
+        if (!config('account.updating_enabled')) {
+            throw new GeneralException(trans('exceptions.frontend.user.updating_disabled'));
+        }
+
         $user = auth()->user();
 
         /** @var User $user */

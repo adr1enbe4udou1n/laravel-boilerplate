@@ -76,7 +76,25 @@
         dom:
         '<\'row\'<\'col-md-4\'l><\'col-md-4 text-center\'i><\'col-md-4\'f>>' +
         '<\'row\'<\'col\'tr>>' +
-        '<\'row\'<\'col-md-4 table-group-actions\'><\'col-md-4\'p><\'col-md-4 text-right\'B>>'
+        '<\'row\'<\'col-md-4 table-group-actions\'><\'col-md-4\'p><\'col-md-4 text-right\'B>>',
+        ajax: {
+          error: (xhr) => {
+            // If not logged, force redirect
+            if (xhr.status === 401) {
+              window.location = this.$app.route('admin.login')
+              return
+            }
+
+            // Not allowed error
+            if (xhr.status === 403) {
+              window.toastr.error(this.$i18n.t('exceptions.unauthorized'))
+              return
+            }
+
+            // Generic error
+            window.toastr.error(this.$i18n.t('exceptions.general'))
+          }
+        }
       }
 
       if (window.locale !== 'en') {
@@ -86,6 +104,7 @@
       }
 
       $.extend(true, $.fn.dataTable.defaults, dataTableOptions)
+      $.fn.dataTable.ext.errMode = 'none'
 
       /**
        * Integrate form actions into datatable layout
