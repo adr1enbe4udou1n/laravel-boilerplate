@@ -8,6 +8,7 @@ return [
     'are_you_sure' => 'Etes-vous sûr ?',
     'yes' => 'Oui',
     'no' => 'Non',
+    'add_new' => 'Ajouter',
     'more_info' => 'Plus d\'info',
     'last_access_at' => 'Dernier accès le',
     'author' => 'Auteur',
@@ -114,6 +115,15 @@ return [
             'last_pending_posts' => 'Derniers articles en attente de publication',
             'last_new_posts' => 'Derniers nouveaux articles',
             'all_posts' => 'Voir tous les articles',
+        ],
+
+        'new_menu' => [
+            'post' => 'Nouvel article',
+            'form_setting' => 'Nouveau paramétrage de formulaire',
+            'user' => 'Nouvel utilisateur',
+            'role' => 'Nouveau rôle',
+            'meta' => 'Nouvelle meta',
+            'redirection' => 'Nouvelle redirection',
         ],
 
         'sidebar' => [

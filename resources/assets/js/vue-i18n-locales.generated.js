@@ -147,7 +147,8 @@ export default {
                 "user": {
                     "email_taken": "That e-mail address is already taken.",
                     "password_mismatch": "That is not your old password.",
-                    "delete_account": "Error on account deletion."
+                    "delete_account": "Error on account deletion.",
+                    "updating_disabled": "Account editing is disabled."
                 },
                 "auth": {
                     "registration_disabled": "Registration is disabled."
@@ -167,6 +168,7 @@ export default {
             "are_you_sure": "Are you sure ?",
             "yes": "Yes",
             "no": "No",
+            "add_new": "Add",
             "more_info": "More info",
             "author": "Author",
             "last_access_at": "Last access at",
@@ -261,6 +263,14 @@ export default {
                     "last_pending_posts": "Last pending posts",
                     "last_new_posts": "Last new posts",
                     "all_posts": "All posts"
+                },
+                "new_menu": {
+                    "post": "New post",
+                    "form_setting": "New form setting",
+                    "user": "New user",
+                    "role": "New role",
+                    "meta": "New meta",
+                    "redirection": "New redirection"
                 },
                 "sidebar": {
                     "content": "Content management",
@@ -914,7 +924,8 @@ export default {
                 "user": {
                     "email_taken": "Cet email est déjà utilisé par un compte existant.",
                     "password_mismatch": "L'ancien mot de passe est incorrect.",
-                    "delete_account": "Erreur lors de la suppression de votre compte."
+                    "delete_account": "Erreur lors de la suppression de votre compte.",
+                    "updating_disabled": "La modification de compte est désactivée."
                 },
                 "auth": {
                     "registration_disabled": "L'enregistrement d'utilisateurs est désactivé."
@@ -934,6 +945,7 @@ export default {
             "are_you_sure": "Etes-vous sûr ?",
             "yes": "Oui",
             "no": "Non",
+            "add_new": "Ajouter",
             "more_info": "Plus d'info",
             "last_access_at": "Dernier accès le",
             "author": "Auteur",
@@ -1028,6 +1040,14 @@ export default {
                     "last_pending_posts": "Derniers articles en attente de publication",
                     "last_new_posts": "Derniers nouveaux articles",
                     "all_posts": "Voir tous les articles"
+                },
+                "new_menu": {
+                    "post": "Nouvel article",
+                    "form_setting": "Nouveau paramétrage de formulaire",
+                    "user": "Nouvel utilisateur",
+                    "role": "Nouveau rôle",
+                    "meta": "Nouvelle meta",
+                    "redirection": "Nouvelle redirection"
                 },
                 "sidebar": {
                     "content": "Gestion de contenu",

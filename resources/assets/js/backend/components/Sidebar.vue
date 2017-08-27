@@ -9,13 +9,8 @@
                     </router-link>
                 </li>
 
-                <template v-if="this.$app.blogEnabled && (this.$app.user.can('create posts') || this.$app.user.can('view own posts'))">
+                <template v-if="this.$app.blogEnabled && (this.$app.user.can('view own posts'))">
                     <li class="nav-title">{{ $t('labels.backend.sidebar.content') }}</li>
-                    <li class="nav-item" v-if="this.$app.user.can('create posts')">
-                        <router-link to="/posts/create" class="nav-link">
-                            <i class="icon-plus"></i> {{ $t('labels.backend.posts.titles.create') }}
-                        </router-link>
-                    </li>
                     <li class="nav-item" v-if="this.$app.user.can('view own posts')">
                         <router-link to="/posts" class="nav-link">
                             <i class="icon-notebook"></i> {{ $t('labels.backend.posts.titles.main') }}
@@ -41,13 +36,8 @@
                     </li>
                 </template>
 
-                <template v-if="this.$app.user.can('create users') || this.$app.user.can('view users') || this.$app.user.can('view roles')">
+                <template v-if="this.$app.user.can('view users') || this.$app.user.can('view roles')">
                     <li class="nav-title">{{ $t('labels.backend.sidebar.access') }}</li>
-                    <li class="nav-item" v-if="this.$app.user.can('create users')">
-                        <router-link to="/users/create" class="nav-link">
-                            <i class="icon-plus"></i> {{ $t('labels.backend.users.titles.create') }}
-                        </router-link>
-                    </li>
                     <li class="nav-item" v-if="this.$app.user.can('view users')">
                         <router-link to="/users" class="nav-link">
                             <i class="icon-people"></i> {{ $t('labels.backend.users.titles.main') }}
@@ -60,13 +50,8 @@
                     </li>
                 </template>
 
-                <template v-if="this.$app.user.can('create metas') || this.$app.user.can('view metas') || this.$app.user.can('view redirections')">
+                <template v-if="this.$app.user.can('view metas') || this.$app.user.can('view redirections')">
                     <li class="nav-title">{{ $t('labels.backend.sidebar.seo') }}</li>
-                    <li class="nav-item" v-if="this.$app.user.can('create metas')">
-                        <router-link to="/metas/create" class="nav-link">
-                            <i class="icon-plus"></i> {{ $t('labels.backend.metas.titles.create') }}
-                        </router-link>
-                    </li>
                     <li class="nav-item" v-if="this.$app.user.can('view metas')">
                         <router-link to="/metas" class="nav-link">
                             <i class="icon-tag"></i> {{ $t('labels.backend.metas.titles.main') }}

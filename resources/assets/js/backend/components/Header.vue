@@ -12,6 +12,31 @@
         <ul class="nav navbar-nav ml-auto mr-4">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+                    <span class="d-md-down-none"><i class="icon-plus"></i> {{ $t('labels.add_new') }}</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <router-link class="dropdown-item" to="/posts/create" v-if="this.$app.user.can('create posts')">
+                        <i class="icon-notebook"></i> {{ $t('labels.backend.new_menu.post') }}
+                    </router-link>
+                    <router-link class="dropdown-item" to="/form-settings/create" v-if="this.$app.user.can('create form_settings')">
+                        <i class="icon-equalizer"></i> {{ $t('labels.backend.new_menu.form_setting') }}
+                    </router-link>
+                    <router-link class="dropdown-item" to="/users/create" v-if="this.$app.user.can('create users')">
+                        <i class="icon-people"></i> {{ $t('labels.backend.new_menu.user') }}
+                    </router-link>
+                    <router-link class="dropdown-item" to="/roles/create" v-if="this.$app.user.can('create roles')">
+                        <i class="icon-shield"></i> {{ $t('labels.backend.new_menu.role') }}
+                    </router-link>
+                    <router-link class="dropdown-item" to="/metas/create" v-if="this.$app.user.can('create metas')">
+                        <i class="icon-tag"></i> {{ $t('labels.backend.new_menu.meta') }}
+                    </router-link>
+                    <router-link class="dropdown-item" to="/redirections/create" v-if="this.$app.user.can('create redirections')">
+                        <i class="icon-control-forward"></i> {{ $t('labels.backend.new_menu.redirection') }}
+                    </router-link>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
                     <span class="d-md-down-none">{{ $t('labels.language') }}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">

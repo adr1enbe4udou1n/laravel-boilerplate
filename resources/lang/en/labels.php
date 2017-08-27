@@ -8,6 +8,7 @@ return [
     'are_you_sure' => 'Are you sure ?',
     'yes' => 'Yes',
     'no' => 'No',
+    'add_new' => 'Add',
     'more_info' => 'More info',
     'author' => 'Author',
     'last_access_at' => 'Last access at',
@@ -114,6 +115,15 @@ return [
             'last_pending_posts' => 'Last pending posts',
             'last_new_posts' => 'Last new posts',
             'all_posts' => 'All posts',
+        ],
+
+        'new_menu' => [
+            'post' => 'New post',
+            'form_setting' => 'New form setting',
+            'user' => 'New user',
+            'role' => 'New role',
+            'meta' => 'New meta',
+            'redirection' => 'New redirection',
         ],
 
         'sidebar' => [
