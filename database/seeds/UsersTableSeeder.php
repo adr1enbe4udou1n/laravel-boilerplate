@@ -180,7 +180,7 @@ class UsersTableSeeder extends Seeder
                 'display_name' => 'Rédacteur',
                 'description' => 'Accès aux fonctions de rédaction du site, avec possibilité d\'éditer uniquement ses propres articles',
             ],
-            'order' => 3,
+            'order' => 4,
         ]);
 
         foreach (
@@ -205,7 +205,7 @@ class UsersTableSeeder extends Seeder
                 'display_name' => 'Démo',
                 'description' => 'Accès à l\'ensemble des fonctionnalités du BO en lecture seule',
             ],
-            'order' => 3,
+            'order' => 5,
         ]);
 
         foreach (

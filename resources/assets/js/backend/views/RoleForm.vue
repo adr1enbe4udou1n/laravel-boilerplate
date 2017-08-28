@@ -6,7 +6,8 @@
                     <div class="card">
                         <div class="card-header">
                             <h4>
-                                {{ isNew ? $t('labels.backend.roles.titles.create') : $t('labels.backend.roles.titles.edit')
+                                {{ isNew ? $t('labels.backend.roles.titles.create') : $t(
+                              'labels.backend.roles.titles.edit')
                                 }}</h4>
                         </div>
 
@@ -102,14 +103,17 @@
                                         <div class="col-md-6 col-xl-4 mb-3" v-for="category in this.permissions">
                                             <h4>{{ $t(category.title) }}</h4>
                                             <div class="custom-controls-stacked">
-                                                <b-form-checkbox
-                                                        v-for="permission in category.permissions"
-                                                        :key="permission.name"
-                                                        name="permissions[]"
-                                                        v-model="model.permissions"
-                                                        :value="permission.name">
-                                                    {{ $t(permission['display_name']) }}
-                                                </b-form-checkbox>
+                                                <b-tooltip v-for="permission in category.permissions"
+                                                           :key="permission.name"
+                                                           placement="left"
+                                                           :title="$i18n.t(permission['description'])">
+                                                    <b-form-checkbox
+                                                            name="permissions[]"
+                                                            v-model="model.permissions"
+                                                            :value="permission.name">
+                                                        {{ $t(permission['display_name']) }}
+                                                    </b-form-checkbox>
+                                                </b-tooltip>
                                             </div>
                                         </div>
                                     </div>

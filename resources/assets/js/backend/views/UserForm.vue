@@ -6,7 +6,8 @@
                     <div class="card">
                         <div class="card-header">
                             <h4>
-                                {{ isNew ? $t('labels.backend.users.titles.create') : $t('labels.backend.users.titles.edit')
+                                {{ isNew ? $t('labels.backend.users.titles.create') : $t(
+                              'labels.backend.users.titles.edit')
                                 }}</h4>
                         </div>
 
@@ -103,15 +104,18 @@
                                     :label-cols="3"
                             >
                                 <div class="custom-controls-stacked">
-                                    <b-form-checkbox
-                                            v-for="role in roles"
-                                            :key="role.id"
-                                            name="roles[]"
-                                            v-model="model.roles"
-                                            :value="role.id"
-                                    >
-                                        {{ role.display_name }}
-                                    </b-form-checkbox>
+                                    <b-tooltip v-for="role in roles"
+                                               :key="role.id"
+                                               placement="left"
+                                               :title="role.description">
+                                        <b-form-checkbox
+                                                name="roles[]"
+                                                v-model="model.roles"
+                                                :value="role.id"
+                                        >
+                                            {{ role.display_name }}
+                                        </b-form-checkbox>
+                                    </b-tooltip>
                                 </div>
                             </b-form-fieldset>
                         </div>

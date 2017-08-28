@@ -27,6 +27,7 @@ import InputGroup from '.././components/InputGroup.vue'
 import FormCheckbox from '.././components/FormCheckbox.vue'
 import FormRadio from '.././components/FormRadio.vue'
 import FormToggle from '.././components/FormToggle.vue'
+import Tooltip from '.././components/Tooltip.vue'
 import Flatpickr from '.././components/Flatpickr.vue'
 import CKEditor from '.././components/CKEditor.vue'
 import DataTable from './components/DataTable.vue'
@@ -49,6 +50,7 @@ Vue.component('b-input-group', InputGroup)
 Vue.component('b-form-checkbox', FormCheckbox)
 Vue.component('b-form-radio', FormRadio)
 Vue.component('b-form-toggle', FormToggle)
+Vue.component('b-tooltip', Tooltip)
 Vue.component('flatpickr', Flatpickr)
 Vue.component('ckeditor', CKEditor)
 Vue.component('datatable', DataTable)
