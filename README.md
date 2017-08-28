@@ -4,9 +4,14 @@
 [![CircleCI](https://circleci.com/gh/adr1enbe4udou1n/laravel-boilerplate.svg?style=shield)](https://circleci.com/gh/adr1enbe4udou1n/laravel-boilerplate)
 [![License](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/license)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 
+## Demo
+
 <p align="center">
-<img src="https://user-images.githubusercontent.com/3679080/29458952-e625732e-8421-11e7-91b6-e373281767e0.gif">
+<img src="https://user-images.githubusercontent.com/3679080/29774048-5add5dc2-8c00-11e7-98c5-623fb6e2601f.gif">
 </p>
+
+* Frontend demo : [https://laravel-boilerplate.pc-world.fr](https://laravel-boilerplate.pc-world.fr)
+* Backend demo : [https://laravel-boilerplate.pc-world.fr/admincp](https://laravel-boilerplate.pc-world.fr/admincp) (demo@example.com/demo, read-only)
 
 ## Features
 
