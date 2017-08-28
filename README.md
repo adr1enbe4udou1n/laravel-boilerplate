@@ -7,7 +7,7 @@
 ## Demo
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/3679080/29774048-5add5dc2-8c00-11e7-98c5-623fb6e2601f.gif">
+<img src="https://user-images.githubusercontent.com/3679080/29774712-d2f213e6-8c02-11e7-89b9-9578a6780f54.gif">
 </p>
 
 * Frontend demo : [https://laravel-boilerplate.pc-world.fr](https://laravel-boilerplate.pc-world.fr)
