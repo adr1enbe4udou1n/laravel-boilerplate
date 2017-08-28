@@ -1,5 +1,3 @@
-import i18next from 'i18next'
-
 import 'intl-tel-input'
 import 'pwstrength-bootstrap/dist/pwstrength-bootstrap'
 
@@ -15,18 +13,6 @@ window.swal = sweetalert2;
  */
 (function ($) {
   window.locale = $('html').attr('lang')
-
-  i18next.init({
-    lng: window.locale,
-    resources: {
-      en: {
-        translation: require('pwstrength-bootstrap/locales/en.json')
-      },
-      fr: {
-        translation: require('pwstrength-bootstrap/locales/fr.json')
-      }
-    }
-  })
 
   if (window.locale !== 'en') {
     flatpickr.localize(require(`flatpickr/dist/l10n/${window.locale}`)[window.locale])

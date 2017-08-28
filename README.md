@@ -35,7 +35,7 @@
 * Client-side validation with [vee-validate](https://github.com/baianat/vee-validate)
 * Native [vue-select](https://github.com/sagalbot/vue-select) component for powerful select system (autocomplete, tags, etc.)
 * Batch actions integrated within DataTables thanks to his select plugin.
-* Client-side CSV / Excel export feature included by buttons DataTable plugin.
+* Client-side CSV export feature included by buttons DataTable plugin.
 
 #### Features included
 

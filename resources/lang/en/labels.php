@@ -9,6 +9,7 @@ return [
     'yes' => 'Yes',
     'no' => 'No',
     'add_new' => 'Add',
+    'export' => 'Export',
     'more_info' => 'More info',
     'author' => 'Author',
     'last_access_at' => 'Last access at',

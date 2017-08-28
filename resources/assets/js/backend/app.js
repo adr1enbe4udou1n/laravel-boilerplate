@@ -1,6 +1,5 @@
 
 import './../bootstrap'
-import jszip from 'jszip'
 
 // Datatables
 import 'datatables.net'
@@ -35,7 +34,6 @@ import BatchAction from './components/BatchAction.vue'
 import Router from './router'
 import App from './App.vue'
 
-window.JSZip = jszip
 const i18n = VueI18n(window.locale)
 
 // VeeValidate

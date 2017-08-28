@@ -19,3 +19,4 @@ yarn-error.log
 # Dev Builded Files
 /public/css
 /public/js
+/public/plain-report.txt

@@ -71,7 +71,10 @@
       let dataTableOptions = {
         lengthMenu: [[5, 10, 15, 25, 50, -1], [5, 10, 15, 25, 50, window.locale === 'en' ? 'All' : 'Tout']],
         buttons: [
-          'csvHtml5', 'excelHtml5'
+          {
+            text: this.$i18n.t('labels.export'),
+            extend: 'csvHtml5'
+          }
         ],
         dom:
         '<\'row\'<\'col-md-4\'l><\'col-md-4 text-center\'i><\'col-md-4\'f>>' +

@@ -12,6 +12,7 @@ const ManifestPlugin = require('webpack-manifest-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
+const WebpackBundleSizeAnalyzerPlugin = require('webpack-bundle-size-analyzer').WebpackBundleSizeAnalyzerPlugin
 
 const production = process.env.NODE_ENV === 'production'
 const hmr = process.argv.includes('--hot')
@@ -123,7 +124,6 @@ module.exports = {
       'bootstrap',
       'vue',
       'axios',
-      'i18next',
       'sweetalert2',
       'slick-carousel',
       'flatpickr',
@@ -248,6 +248,7 @@ module.exports = {
       Popper: ['popper.js', 'default']
     }),
     new webpack.IgnorePlugin(/jsdom$/),
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new CopyWebpackPlugin(ckeditorCopyPatterns, {
       ignore: ckeditorIgnoredLanguages
     }),
@@ -273,6 +274,7 @@ module.exports = {
       allChunks: true,
       disable: hmr
     }),
+    new WebpackBundleSizeAnalyzerPlugin('./plain-report.txt'),
     new BrowserSyncPlugin(
       {
         host: browserSyncHost,
