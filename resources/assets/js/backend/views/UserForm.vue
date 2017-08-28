@@ -79,6 +79,7 @@
                                         :placeholder="$t('validation.attributes.password')"
                                         class="form-control"
                                         data-toggle="password-strength-meter"
+                                        v-model="model.password"
                                 >
                             </b-form-fieldset>
 
@@ -95,6 +96,7 @@
                                         type="password"
                                         :placeholder="$t('validation.attributes.password_confirmation')"
                                         class="form-control"
+                                        v-model="model.password_confirmation"
                                 >
                             </b-form-fieldset>
 
