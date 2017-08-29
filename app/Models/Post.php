@@ -138,11 +138,7 @@ class Post extends Model
 
     public function getPublishedAttribute()
     {
-        $now = Carbon::now();
-
-        return $this->status === self::PUBLISHED
-            && ($this->published_at === null || $this->published_at < $now)
-            && ($this->unpublished_at === null || $this->unpublished_at > $now);
+        return $this->status === self::PUBLISHED;
     }
 
     public function getFeaturedImagePathAttribute()
@@ -202,20 +198,7 @@ class Post extends Model
      */
     public function scopePublished(Builder $query)
     {
-        $now = Carbon::now();
-
-        return $query
-            ->where('status', '=', self::PUBLISHED)
-            ->where(function (Builder $q) use ($now) {
-                $q
-                    ->whereNull('published_at')
-                    ->orWhere('published_at', '<', $now);
-            })
-            ->where(function (Builder $q) use ($now) {
-                $q
-                    ->whereNull('unpublished_at')
-                    ->orWhere('unpublished_at', '>', $now);
-            });
+        return $query->where('status', '=', self::PUBLISHED);
     }
 
     /**

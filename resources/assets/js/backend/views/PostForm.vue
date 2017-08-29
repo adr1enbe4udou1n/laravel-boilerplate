@@ -167,6 +167,7 @@
                                     </template>
 
                                     <b-form-fieldset
+                                            v-if="this.$app.user.can('publish posts')"
                                             name="published_at"
                                             :label="$t('validation.attributes.published_at')"
                                             :horizontal="true"
@@ -190,6 +191,7 @@
                                     </b-form-fieldset>
 
                                     <b-form-fieldset
+                                            v-if="this.$app.user.can('publish posts')"
                                             name="unpublished_at"
                                             :label="$t('validation.attributes.unpublished_at')"
                                             :horizontal="true"

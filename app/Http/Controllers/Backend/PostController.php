@@ -58,7 +58,14 @@ class PostController extends BackendController
      */
     public function getLastestPosts()
     {
-        return $this->posts->query()->orderByDesc('created_at')->limit(10)->get();
+        $query = $this->posts->query();
+
+        if (!Gate::check('view posts')) {
+            // Filter to only current user's posts
+            $query->whereUserId(auth()->id());
+        }
+
+        return $query->orderByDesc('created_at')->limit(10)->get();
     }
 
     /**
