@@ -174,7 +174,8 @@ return [
         'promoted' => 'Mis en avant',
         'body' => 'Corps',
         'tags' => 'Etiquettes',
-        'publish_at' => 'Publier le',
+        'published_at' => 'Publier le',
+        'unpublished_at' => 'Dépublier le',
         'metable_type' => 'Entité',
     ],
 ];

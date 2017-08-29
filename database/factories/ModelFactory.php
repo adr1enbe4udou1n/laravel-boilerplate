@@ -47,6 +47,14 @@ $factory->define(App\Models\Tag::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Models\Post::class, function (Faker\Generator $faker) {
+    $publishedDate = null;
+    $unPublishedDate = null;
+
+    if ($faker->boolean) {
+        $publishedDate = $faker->dateTimeBetween('-2 days', '+2 days');
+        $unPublishedDate = $faker->dateTimeBetween($publishedDate, '+2 days');
+    }
+
     return [
         'en' => [
             'title' => $faker->sentence,
@@ -61,6 +69,7 @@ $factory->define(App\Models\Post::class, function (Faker\Generator $faker) {
         'status' => $faker->numberBetween(0, 2),
         'promoted' => $faker->boolean(10),
         'pinned' => $faker->boolean(5),
-        'published_at' => $faker->dateTimeBetween('-2 days', '+2 days'),
+        'published_at' => $publishedDate,
+        'unpublished_at' => $unPublishedDate,
     ];
 });

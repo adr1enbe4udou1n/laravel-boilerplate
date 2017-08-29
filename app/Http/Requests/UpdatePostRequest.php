@@ -27,7 +27,8 @@ class UpdatePostRequest extends FormRequest
             'title' => 'required',
             'featured_image' => 'nullable|mimes:jpeg,jpg,png,gif',
             'status' => 'in:publish,draft',
-            'published_at' => 'date',
+            'published_at' => 'nullable|date',
+            'unpublished_at' => 'nullable|date',
             'pinned' => 'boolean',
             'promoted' => 'boolean',
         ];

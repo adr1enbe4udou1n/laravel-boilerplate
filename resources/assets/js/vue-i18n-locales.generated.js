@@ -773,7 +773,8 @@ export default {
                 "promoted": "Promoted",
                 "body": "Body",
                 "tags": "Tags",
-                "publish_at": "Publish at",
+                "published_at": "Publish at",
+                "unpublished_at": "Unpublish at",
                 "metable_type": "Entity"
             }
         }
@@ -1551,7 +1552,8 @@ export default {
                 "promoted": "Mis en avant",
                 "body": "Corps",
                 "tags": "Etiquettes",
-                "publish_at": "Publier le",
+                "published_at": "Publier le",
+                "unpublished_at": "Dépublier le",
                 "metable_type": "Entité"
             }
         }

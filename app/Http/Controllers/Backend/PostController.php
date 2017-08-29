@@ -80,7 +80,6 @@ class PostController extends BackendController
                 'status',
                 'pinned',
                 'promoted',
-                'published_at',
                 'created_at',
                 'updated_at',
             ]);
@@ -109,8 +108,6 @@ class PostController extends BackendController
                 return boolean_html_label($post->pinned);
             })->editColumn('promoted', function (Post $post) {
                 return boolean_html_label($post->promoted);
-            })->editColumn('published_at', function (Post $post) use ($request) {
-                return $post->published_at->setTimezone($request->user()->timezone);
             })->editColumn('created_at', function (Post $post) use ($request) {
                 return $post->created_at->setTimezone($request->user()->timezone);
             })->editColumn('updated_at', function (Post $post) use ($request) {
@@ -146,7 +143,7 @@ class PostController extends BackendController
 
         /** @var Post $post */
         $post = $this->posts->make(
-            $request->only('title', 'summary', 'body', 'published_at', 'pinned', 'promoted')
+            $request->only('title', 'summary', 'body', 'published_at', 'unpublished_at', 'pinned', 'promoted')
         );
 
         if ($request->input('status') === 'publish') {
@@ -171,7 +168,7 @@ class PostController extends BackendController
         $this->authorize('update', $post);
 
         $post->fill(
-            $request->only('title', 'summary', 'body', 'published_at', 'pinned', 'promoted')
+            $request->only('title', 'summary', 'body', 'published_at', 'unpublished_at', 'pinned', 'promoted')
         );
 
         if ($request->input('status') === 'publish') {

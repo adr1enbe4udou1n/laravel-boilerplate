@@ -14,43 +14,42 @@ use Illuminate\Notifications\Notifiable;
  * @property int $id
  * @property string $name
  * @property string $email
- * @property string $password
+ * @property string|null $password
  * @property bool $active
- * @property string $confirmation_token
- * @property bool $confirmed
- * @property string $remember_token
+ * @property string|null $confirmation_token
+ * @property int $confirmed
+ * @property string|null $remember_token
  * @property string $locale
  * @property string $timezone
  * @property string $slug
- * @property \Carbon\Carbon $last_access_at
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
- * @property mixed $is_super_admin
- * @property \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
- * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Role[] $roles
- *
- * @method static \Illuminate\Database\Query\Builder|\App\Models\User actives()
- * @method static \Illuminate\Database\Query\Builder|\App\Models\User findSimilarSlugs(\Illuminate\Database\Eloquent\Model $model, $attribute, $config, $slug)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereActive($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereConfirmationToken($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereConfirmed($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereEmail($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereLastAccessAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereLocale($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereName($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\User wherePassword($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereRememberToken($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereSlug($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereTimezone($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereUpdatedAt($value)
- * @mixin \Eloquent
- *
- * @property \Illuminate\Database\Eloquent\Collection|\App\Models\SocialLogin[] $providers
+ * @property \Carbon\Carbon|null $last_access_at
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
  * @property mixed $avatar
  * @property mixed $formatted_roles
+ * @property mixed $is_super_admin
+ * @property \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property \Plank\Mediable\MediableCollection|\App\Models\Post[] $posts
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Models\SocialLogin[] $providers
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Role[] $roles
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User actives()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User findSimilarSlugs(\Illuminate\Database\Eloquent\Model $model, $attribute, $config, $slug)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereConfirmationToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereConfirmed($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereLastAccessAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereLocale($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereTimezone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class User extends Authenticatable
 {

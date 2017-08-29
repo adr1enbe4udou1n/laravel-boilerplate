@@ -12,67 +12,56 @@ use Plank\Mediable\Media;
 use Plank\Mediable\Mediable;
 
 /**
- * App\Models\Article.
+ * App\Models\Post.
  *
- * @property int                                                                         $id
- * @property int                                                                         $user_id
- * @property string                                                                      $locale
- * @property string                                                                      $title
- * @property string                                                                      $summary
- * @property string                                                                      $body
- * @property string                                                                      $slug
- * @property bool                                                                        $status
- * @property bool                                                                        $promoted
- * @property bool                                                                        $pinned
- * @property \Carbon\Carbon                                                              $published_at
- * @property \Carbon\Carbon                                                              $created_at
- * @property \Carbon\Carbon                                                              $updated_at
- * @property \Illuminate\Database\Eloquent\Collection|\App\Models\PostTranslation[] $translations
- *
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Post listsTranslations($translationField)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Post notTranslatedIn($locale = null)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Post orWhereTranslation($key, $value, $locale = null)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Post orWhereTranslationLike($key, $value, $locale = null)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Post translated()
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Post translatedIn($locale = null)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereImage($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Post wherePinned($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Post wherePromoted($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Post wherePublishedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereTranslation($key, $value, $locale = null)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereTranslationLike($key, $value, $locale = null)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereUpdatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereUserId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Post withTranslation()
- * @mixin \Eloquent
- *
- * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Tag[] $tags
- * @property mixed $status_label
- * @property mixed $state
- *
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereStatus($value)
- *
- * @property \Illuminate\Database\Eloquent\Collection|\Plank\Mediable\Media[] $media
- *
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Post published()
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereHasMedia($tags, $match_all = false)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Post whereHasMediaMatchAll($tags)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Post withMedia($tags = array(), $match_all = false)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Post withMediaMatchAll($tags = array())
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Post withTag(\App\Models\Tag $tag)
- *
- * @property mixed $featured_image_url
+ * @property int $id
+ * @property int|null $user_id
+ * @property int $status
+ * @property bool $promoted
+ * @property bool $pinned
+ * @property \Carbon\Carbon|null $published_at
+ * @property string|null $unpublished_at
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
  * @property mixed $featured_image_path
- * @property \App\Models\User $owner
- * @property \App\Models\Meta $meta
+ * @property mixed $featured_image_url
  * @property mixed $meta_description
  * @property mixed $meta_title
- *
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post withOwner(\App\Models\User $user)
- *
  * @property mixed $published
+ * @property mixed $state
+ * @property mixed $status_label
+ * @property \Illuminate\Database\Eloquent\Collection|\Plank\Mediable\Media[] $media
+ * @property \App\Models\Meta $meta
+ * @property \App\Models\User|null $owner
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Tag[] $tags
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Models\PostTranslation[] $translations
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post listsTranslations($translationField)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post notTranslatedIn($locale = null)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post orWhereTranslation($key, $value, $locale = null)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post orWhereTranslationLike($key, $value, $locale = null)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post published()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post translated()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post translatedIn($locale = null)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post whereHasMedia($tags, $match_all = false)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post whereHasMediaMatchAll($tags)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post wherePinned($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post wherePromoted($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post wherePublishedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post whereTranslation($key, $value, $locale = null)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post whereTranslationLike($key, $value, $locale = null)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post whereUnpublishedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post withMedia($tags = array(), $match_all = false)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post withMediaMatchAll($tags = array())
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post withOwner(\App\Models\User $user)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post withTag(\App\Models\Tag $tag)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post withTranslation()
+ * @mixin \Eloquent
  */
 class Post extends Model
 {
@@ -85,6 +74,7 @@ class Post extends Model
 
     protected $dates = [
         'published_at',
+        'unpublished_at',
     ];
 
     protected $appends = [
@@ -101,7 +91,7 @@ class Post extends Model
      *
      * @var array
      */
-    protected $fillable = ['status', 'published_at', 'pinned', 'promoted'];
+    protected $fillable = ['status', 'published_at', 'unpublished_at', 'pinned', 'promoted'];
 
     protected $with = ['translations', 'media', 'owner'];
 
@@ -148,7 +138,11 @@ class Post extends Model
 
     public function getPublishedAttribute()
     {
-        return $this->status === self::PUBLISHED;
+        $now = Carbon::now();
+
+        return $this->status === self::PUBLISHED
+            && ($this->published_at === null || $this->published_at < $now)
+            && ($this->unpublished_at === null || $this->unpublished_at > $now);
     }
 
     public function getFeaturedImagePathAttribute()
@@ -190,6 +184,15 @@ class Post extends Model
         }
     }
 
+    public function setUnPublishedAtAttribute($value)
+    {
+        if (is_string($value)) {
+            $this->attributes['unpublished_at'] = Carbon::createFromFormat('Y-m-d H:i', $value);
+        } else {
+            $this->attributes['unpublished_at'] = $value;
+        }
+    }
+
     /**
      * Scope a query to only include published articles.
      *
@@ -199,9 +202,20 @@ class Post extends Model
      */
     public function scopePublished(Builder $query)
     {
+        $now = Carbon::now();
+
         return $query
             ->where('status', '=', self::PUBLISHED)
-            ->where('published_at', '<', Carbon::now());
+            ->where(function (Builder $q) use ($now) {
+                $q
+                    ->whereNull('published_at')
+                    ->orWhere('published_at', '<', $now);
+            })
+            ->where(function (Builder $q) use ($now) {
+                $q
+                    ->whereNull('unpublished_at')
+                    ->orWhere('unpublished_at', '>', $now);
+            });
     }
 
     /**

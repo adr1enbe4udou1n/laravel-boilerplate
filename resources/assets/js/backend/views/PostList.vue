@@ -82,12 +82,6 @@
             width: 100,
             className: 'text-center'
           }, {
-            title: this.$i18n.t('labels.published_at'),
-            data: 'published_at',
-            name: 'published_at',
-            width: 110,
-            className: 'text-center'
-          }, {
             title: this.$i18n.t('labels.created_at'),
             data: 'created_at',
             name: 'created_at',

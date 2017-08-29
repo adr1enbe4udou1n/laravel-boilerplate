@@ -12,14 +12,16 @@ const ManifestPlugin = require('webpack-manifest-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
-const WebpackBundleSizeAnalyzerPlugin = require('webpack-bundle-size-analyzer').WebpackBundleSizeAnalyzerPlugin
+const WebpackBundleSizeAnalyzerPlugin = require(
+  'webpack-bundle-size-analyzer').WebpackBundleSizeAnalyzerPlugin
 
 const production = process.env.NODE_ENV === 'production'
 const hmr = process.argv.includes('--hot')
 
 const browserSyncHost = process.env.BROWSERSYNC_HOST || 'localhost'
 const browserSyncPort = parseInt(process.env.BROWSERSYNC_PORT || '3000', 10)
-const webpackDevServerPort = parseInt(process.env.WEBPACKDEVSERVER_PORT || '8080', 10)
+const webpackDevServerPort = parseInt(process.env.WEBPACKDEVSERVER_PORT ||
+  '8080', 10)
 
 // Hot reloading file for Laravel detection
 const hotfilename = 'public/hot'
@@ -64,8 +66,8 @@ let ckeditorIgnoredLanguages = []
 
 fs.readdirSync('node_modules/ckeditor/lang').forEach((file) => {
   if (_.some(ckeditorLocales, (locale) => {
-    return file === `${locale}.js`
-  }) === false) {
+      return file === `${locale}.js`
+    }) === false) {
     ckeditorIgnoredLanguages.push(file)
   }
 })
@@ -128,8 +130,7 @@ module.exports = {
       'slick-carousel',
       'flatpickr',
       'intl-tel-input',
-      'toastr',
-      'moment'
+      'toastr'
     ],
     ckeditor: [
       'ckeditor'
@@ -146,30 +147,31 @@ module.exports = {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: [{
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-              importLoaders: 1
-            }
-          }, {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true,
-              plugins: [
-                require('autoprefixer')
-              ]
-            }
-          }, {
-            loader: 'resolve-url-loader?sourceMap'
-          }, {
-            loader: 'sass-loader',
-            options: {
-              precision: 8,
-              outputStyle: 'expanded',
-              sourceMap: true
-            }
-          }]
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                sourceMap: true,
+                importLoaders: 1
+              }
+            }, {
+              loader: 'postcss-loader',
+              options: {
+                sourceMap: true,
+                plugins: [
+                  require('autoprefixer')
+                ]
+              }
+            }, {
+              loader: 'resolve-url-loader?sourceMap'
+            }, {
+              loader: 'sass-loader',
+              options: {
+                precision: 8,
+                outputStyle: 'expanded',
+                sourceMap: true
+              }
+            }]
         })
       },
       {
@@ -248,7 +250,6 @@ module.exports = {
       Popper: ['popper.js', 'default']
     }),
     new webpack.IgnorePlugin(/jsdom$/),
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new CopyWebpackPlugin(ckeditorCopyPatterns, {
       ignore: ckeditorIgnoredLanguages
     }),
@@ -270,7 +271,9 @@ module.exports = {
       shorthands: true
     }),
     new ExtractTextPlugin({
-      filename: production ? 'dist/css/[name].[contenthash].css' : 'css/[name].css',
+      filename: production
+        ? 'dist/css/[name].[contenthash].css'
+        : 'css/[name].css',
       allChunks: true,
       disable: hmr
     }),

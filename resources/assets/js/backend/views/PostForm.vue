@@ -168,9 +168,10 @@
 
                                     <b-form-fieldset
                                             name="published_at"
-                                            :label="$t('validation.attributes.publish_at')"
+                                            :label="$t('validation.attributes.published_at')"
                                             :horizontal="true"
                                             :label-cols="3"
+                                            :invalid-feedback="feedback('published_at')"
                                     >
                                         <div role="group" class="input-group">
                                             <flatpickr
@@ -181,6 +182,32 @@
                                             ></flatpickr>
                                             <div class="input-group-addon" data-toggle>
                                                 <i class="icon-calendar"></i>
+                                            </div>
+                                            <div class="input-group-addon" data-clear>
+                                                <i class="icon-close"></i>
+                                            </div>
+                                        </div>
+                                    </b-form-fieldset>
+
+                                    <b-form-fieldset
+                                            name="unpublished_at"
+                                            :label="$t('validation.attributes.unpublished_at')"
+                                            :horizontal="true"
+                                            :label-cols="3"
+                                            :invalid-feedback="feedback('unpublished_at')"
+                                    >
+                                        <div role="group" class="input-group">
+                                            <flatpickr
+                                                    id="unpublished_at"
+                                                    name="unpublished_at"
+                                                    :config="config"
+                                                    v-model="model.unpublished_at"
+                                            ></flatpickr>
+                                            <div class="input-group-addon" data-toggle>
+                                                <i class="icon-calendar"></i>
+                                            </div>
+                                            <div class="input-group-addon" data-clear>
+                                                <i class="icon-close"></i>
                                             </div>
                                         </div>
                                     </b-form-fieldset>
@@ -270,7 +297,6 @@
 
 <script>
   import axios from 'axios'
-  import moment from 'moment'
   import form from '../mixins/form'
 
   export default {
@@ -298,7 +324,8 @@
           owner: {
             name: null
           },
-          published_at: moment().format(),
+          published_at: null,
+          unpublished_at: null,
           pinned: null,
           promoted: null,
           meta: {

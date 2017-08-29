@@ -174,7 +174,8 @@ return [
         'promoted' => 'Promoted',
         'body' => 'Body',
         'tags' => 'Tags',
-        'publish_at' => 'Publish at',
+        'published_at' => 'Publish at',
+        'unpublished_at' => 'Unpublish at',
         'metable_type' => 'Entity',
     ],
 ];

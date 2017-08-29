@@ -68,7 +68,8 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
             ->published()
             ->with('owner')
             ->orderByDesc('pinned')
-            ->orderByDesc('published_at');
+            ->orderByDesc('published_at')
+            ->orderByDesc('updated_at');
     }
 
     /**
