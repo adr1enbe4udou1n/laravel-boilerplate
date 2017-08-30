@@ -5,13 +5,13 @@
             {!! $error !!}<br/>
         @endforeach
     </div>
-@elseif (isset($flash_message))
-    <div class="alert {{ isset($flash_type) ? "alert-$flash_type" : 'alert-info' }}">
+@elseif (isset($flashMessage))
+    <div class="alert {{ isset($flashType) ? "alert-$flashType" : 'alert-info' }}">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        @if(is_array(json_decode($flash_message, true)))
-            {!! implode('', $flash_message->all(':message<br/>')) !!}
+        @if(is_array(json_decode($flashMessage, true)))
+            {!! implode('', $flashMessage->all(':message<br/>')) !!}
         @else
-            {!! $flash_message !!}
+            {!! $flashMessage !!}
         @endif
     </div>
 @endif

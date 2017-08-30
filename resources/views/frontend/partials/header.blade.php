@@ -40,7 +40,7 @@
                 @else
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ $logged_in_user->name }}
+                            {{ $loggedInUser->name }}
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdown02">

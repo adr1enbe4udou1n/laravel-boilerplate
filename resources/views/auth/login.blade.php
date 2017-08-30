@@ -39,7 +39,7 @@
                             @endcomponent
                         @endcomponent
 
-                        @if($is_locked)
+                        @if($isLocked)
                         <div class="form-group row">
                             <div class="col-md-8 ml-auto">
                                 {!! app('captcha')->display($attributes = [], $lang = app()->getLocale()); !!}
@@ -70,7 +70,7 @@
                         </div>
                     </form>
                     <div class="row justify-content-center">
-                        {!! $socialite_links !!}
+                        {!! $socialiteLinks !!}
                     </div>
                 </div>
             </div>

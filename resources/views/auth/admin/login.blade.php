@@ -35,7 +35,7 @@
                                 @endcomponent
                             @endcomponent
 
-                            @if($is_locked)
+                            @if($isLocked)
                                 <div class="form-group">
                                     {!! app('captcha')->display($attributes = [], $lang = app()->getLocale()); !!}
                                 </div>

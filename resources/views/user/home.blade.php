@@ -71,15 +71,15 @@
                     </div>
                     <div class="col-md-4">
                         <div class="media">
-                            <img class="media-object mr-3" src="{{ $logged_in_user->avatar }}" alt="@lang('labels.user.avatar')">
+                            <img class="media-object mr-3" src="{{ $loggedInUser->avatar }}" alt="@lang('labels.user.avatar')">
                             <div class="media-body">
                                 <h4>
-                                    {{ $logged_in_user->name }}<br/>
+                                    {{ $loggedInUser->name }}<br/>
                                 </h4>
 
                                 <small>
-                                    {{ $logged_in_user->email }}<br/>
-                                    @lang('labels.user.member_since', ['date' => $logged_in_user->created_at->formatLocalized('%A %d %B %Y')])
+                                    {{ $loggedInUser->email }}<br/>
+                                    @lang('labels.user.member_since', ['date' => $loggedInUser->created_at->formatLocalized('%A %d %B %Y')])
                                 </small>
 
                                 <p>

@@ -25,29 +25,29 @@ class ViewServiceProvider extends ServiceProvider
         View::composer('partials/messages', function (\Illuminate\View\View $view) {
             $data = collect($view->getData());
 
-            if ($flash = session()->get('flash_message') ?: $data->get('flash_message')) {
-                $view->with('flash_message', $flash);
-                $view->with('flash_type', 'info');
-            } elseif ($flash = session()->get('flash_success') ?: $data->get('flash_success')) {
-                $view->with('flash_message', $flash);
-                $view->with('flash_type', 'success');
-            } elseif ($flash = session()->get('flash_info') ?: $data->get('flash_info')) {
-                $view->with('flash_message', $flash);
-                $view->with('flash_type', 'info');
-            } elseif ($flash = session()->get('flash_warning') ?: $data->get('flash_warning')) {
-                $view->with('flash_message', $flash);
-                $view->with('flash_type', 'warning');
-            } elseif ($flash = session()->get('flash_danger') ?: $data->get('flash_danger')) {
-                $view->with('flash_message', $flash);
-                $view->with('flash_type', 'danger');
-            } elseif ($flash = session()->get('flash_error') ?: $data->get('flash_error')) {
-                $view->with('flash_message', $flash);
-                $view->with('flash_type', 'danger');
+            if ($flash = session()->get('flash_message') ?: $data->get('flashMessage')) {
+                $view->with('flashMessage', $flash);
+                $view->with('flashType', 'info');
+            } elseif ($flash = session()->get('flash_success') ?: $data->get('flashSuccess')) {
+                $view->with('flashMessage', $flash);
+                $view->with('flashType', 'success');
+            } elseif ($flash = session()->get('flash_info') ?: $data->get('flashInfo')) {
+                $view->with('flashMessage', $flash);
+                $view->with('flashType', 'info');
+            } elseif ($flash = session()->get('flash_warning') ?: $data->get('flashWarning')) {
+                $view->with('flashMessage', $flash);
+                $view->with('flashType', 'warning');
+            } elseif ($flash = session()->get('flash_danger') ?: $data->get('flashDanger')) {
+                $view->with('flashMessage', $flash);
+                $view->with('flashType', 'danger');
+            } elseif ($flash = session()->get('flash_error') ?: $data->get('flashError')) {
+                $view->with('flashMessage', $flash);
+                $view->with('flashType', 'danger');
             }
         });
 
         View::composer('*', function (\Illuminate\View\View $view) {
-            $view->with('logged_in_user', $logged_in_user = auth()->user());
+            $view->with('loggedInUser', $logged_in_user = auth()->user());
         });
     }
 

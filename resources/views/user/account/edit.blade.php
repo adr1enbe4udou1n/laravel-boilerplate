@@ -9,7 +9,7 @@
         'horizontal' => true,
         'label_cols' => 4
     ])
-        <input name="name" placeholder="@lang('validation.attributes.name')" class="form-control" v-validate="'required'" value="{{ old('name', $logged_in_user->name) }}">
+        <input name="name" placeholder="@lang('validation.attributes.name')" class="form-control" v-validate="'required'" value="{{ old('name', $loggedInUser->name) }}">
     @endcomponent
 
     @component('components.fieldset', [
@@ -18,7 +18,7 @@
         'horizontal' => true,
         'label_cols' => 4
     ])
-        <input type="email" name="email" placeholder="@lang('validation.attributes.email')" class="form-control" v-validate="'required|email'" value="{{ old('email', $logged_in_user->email) }}">
+        <input type="email" name="email" placeholder="@lang('validation.attributes.email')" class="form-control" v-validate="'required|email'" value="{{ old('email', $loggedInUser->email) }}">
     @endcomponent
 
     @component('components.fieldset', [
@@ -30,7 +30,7 @@
         <select name="locale" class="form-control" v-validate="'required'">
             <option>@lang('labels.frontend.placeholders.locale')</option>
             @foreach($locales as $value => $text)
-                <option value="{{ $value }}" {{ old('locale', $logged_in_user->locale) === $value ? 'selected' : '' }}>{{ $text }}</option>
+                <option value="{{ $value }}" {{ old('locale', $loggedInUser->locale) === $value ? 'selected' : '' }}>{{ $text }}</option>
             @endforeach
         </select>
     @endcomponent
@@ -44,7 +44,7 @@
         <select name="timezone" class="form-control" v-validate="'required'">
             <option>@lang('labels.frontend.placeholders.timezone')</option>
             @foreach($timezones as $text)
-                <option value="{{ $text }}" {{ old('timezone', $logged_in_user->timezone) === $text ? 'selected' : '' }}>{{ $text }}</option>
+                <option value="{{ $text }}" {{ old('timezone', $loggedInUser->timezone) === $text ? 'selected' : '' }}>{{ $text }}</option>
             @endforeach
         </select>
     @endcomponent
