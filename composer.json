@@ -11,7 +11,6 @@
         "artesaos/seotools": "^0.10.0",
         "cviebrock/eloquent-sluggable": "^4.2",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",
-        "dimsav/laravel-translatable": "^7.2",
         "doctrine/dbal": "^2.6",
         "guzzlehttp/guzzle": "^6.2",
         "hieu-le/active": "^3.3",

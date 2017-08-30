@@ -1,6 +1,6 @@
 <?php
 
-use Dimsav\Translatable\Translatable;
+use App\Models\Traits\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\HtmlString;
 
