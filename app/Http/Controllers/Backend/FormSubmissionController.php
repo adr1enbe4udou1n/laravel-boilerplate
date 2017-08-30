@@ -5,8 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Models\FormSubmission;
 use App\Repositories\Contracts\FormSubmissionRepository;
 use Illuminate\Http\Request;
-use Yajra\Datatables\Datatables;
-use Yajra\Datatables\Engines\EloquentEngine;
+use Yajra\DataTables\Facades\DataTables;
 
 class FormSubmissionController extends BackendController
 {
@@ -42,8 +41,8 @@ class FormSubmissionController extends BackendController
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            /** @var EloquentEngine $query */
-            $query = Datatables::of($this->formSubmissions->select([
+            /** @var \Yajra\DataTables\EloquentDataTable $query */
+            $query = DataTables::of($this->formSubmissions->select([
                 'id',
                 'type',
                 'data',

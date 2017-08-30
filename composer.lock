@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9cfe95cb991bc063852e9df62a61f181",
+    "content-hash": "97bd6c3c4b438a15c58f06a5fdde0bf4",
     "packages": [
         {
             "name": "arcanedev/no-captcha",
@@ -2451,16 +2451,16 @@
         },
         {
             "name": "plank/laravel-mediable",
-            "version": "2.4.8",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/plank/laravel-mediable.git",
-                "reference": "75177a1f9f14f1e3d42d2da3e9bda7e2a42c654e"
+                "reference": "41bd90fd714f453590830bc953c90946c4fec30b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/plank/laravel-mediable/zipball/75177a1f9f14f1e3d42d2da3e9bda7e2a42c654e",
-                "reference": "75177a1f9f14f1e3d42d2da3e9bda7e2a42c654e",
+                "url": "https://api.github.com/repos/plank/laravel-mediable/zipball/41bd90fd714f453590830bc953c90946c4fec30b",
+                "reference": "41bd90fd714f453590830bc953c90946c4fec30b",
                 "shasum": ""
             },
             "require": {
@@ -2512,7 +2512,7 @@
                 "media",
                 "uploader"
             ],
-            "time": "2017-08-18T17:27:15+00:00"
+            "time": "2017-08-30T12:54:56+00:00"
         },
         {
             "name": "psr/http-message",
@@ -3872,46 +3872,55 @@
         },
         {
             "name": "yajra/laravel-datatables-oracle",
-            "version": "v7.10.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables.git",
-                "reference": "05d06c883e56f318e919ed614571f96db9c5a0de"
+                "reference": "3e9b0990876979e7aa86a7e9fb86735db3c9dc1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/05d06c883e56f318e919ed614571f96db9c5a0de",
-                "reference": "05d06c883e56f318e919ed614571f96db9c5a0de",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/3e9b0990876979e7aa86a7e9fb86735db3c9dc1a",
+                "reference": "3e9b0990876979e7aa86a7e9fb86735db3c9dc1a",
                 "shasum": ""
             },
             "require": {
-                "illuminate/database": "5.4.*",
-                "illuminate/filesystem": "5.4.*",
-                "illuminate/http": "5.4.*",
-                "illuminate/support": "5.4.*",
-                "illuminate/view": "5.4.*",
-                "php": ">=5.6.4"
+                "illuminate/database": "5.4.*|5.5.*",
+                "illuminate/filesystem": "5.4.*|5.5.*",
+                "illuminate/http": "5.4.*|5.5.*",
+                "illuminate/support": "5.4.*|5.5.*",
+                "illuminate/view": "5.4.*|5.5.*",
+                "php": ">=7.0"
             },
             "require-dev": {
-                "mockery/mockery": "0.9.*",
-                "orchestra/testbench": "^3.4",
-                "phpunit/phpunit": "~5.7"
+                "orchestra/testbench": "~3.5"
             },
             "suggest": {
-                "league/fractal": "Transform your api response into something you won't hate.",
                 "yajra/laravel-datatables-buttons": "Plugin for server-side exporting of dataTable.",
+                "yajra/laravel-datatables-fractal": "Plugin for server-side response using Fractal.",
                 "yajra/laravel-datatables-html": "Plugin for server-side HTML builder of dataTable."
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "7.0-dev"
+                    "dev-master": "8.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Yajra\\DataTables\\DataTablesServiceProvider"
+                    ],
+                    "aliases": {
+                        "DataTables": "Yajra\\DataTables\\Facades\\DataTables"
+                    }
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Yajra\\Datatables\\": "src/"
-                }
+                    "Yajra\\DataTables\\": "src/"
+                },
+                "files": [
+                    "src/helper.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -3929,7 +3938,7 @@
                 "jquery",
                 "laravel"
             ],
-            "time": "2017-08-24T05:27:20+00:00"
+            "time": "2017-08-24T05:30:16+00:00"
         }
     ],
     "packages-dev": [
@@ -7509,7 +7518,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "yajra/laravel-datatables-oracle": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

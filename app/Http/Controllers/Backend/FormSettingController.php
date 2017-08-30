@@ -7,8 +7,7 @@ use App\Http\Requests\UpdateFormSettingRequest;
 use App\Models\FormSetting;
 use App\Repositories\Contracts\FormSettingRepository;
 use Illuminate\Http\Request;
-use Yajra\Datatables\Datatables;
-use Yajra\Datatables\Engines\EloquentEngine;
+use Yajra\DataTables\Facades\DataTables;
 
 class FormSettingController extends BackendController
 {
@@ -39,8 +38,8 @@ class FormSettingController extends BackendController
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            /** @var EloquentEngine $query */
-            $query = Datatables::of($this->formSettings->select([
+            /** @var \Yajra\DataTables\EloquentDataTable $query */
+            $query = DataTables::of($this->formSettings->select([
                 'id',
                 'name',
                 'recipients',

@@ -10,8 +10,7 @@ use App\Repositories\Contracts\TagRepository;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
-use Yajra\Datatables\Engines\EloquentEngine;
-use Yajra\Datatables\Facades\Datatables;
+use Yajra\DataTables\Facades\DataTables;
 
 class PostController extends BackendController
 {
@@ -96,8 +95,8 @@ class PostController extends BackendController
                 $query->whereUserId(auth()->id());
             }
 
-            /** @var EloquentEngine $query */
-            $query = Datatables::of($query);
+            /** @var \Yajra\DataTables\EloquentDataTable $query */
+            $query = DataTables::of($query);
 
             return $query->addColumn('actions', function (Post $post) {
                 return $this->posts->getActionButtons($post);

@@ -8,8 +8,7 @@ use App\Models\User;
 use App\Repositories\Contracts\RoleRepository;
 use App\Repositories\Contracts\UserRepository;
 use Illuminate\Http\Request;
-use Yajra\Datatables\Datatables;
-use Yajra\Datatables\Engines\EloquentEngine;
+use Yajra\DataTables\Facades\DataTables;
 
 class UserController extends BackendController
 {
@@ -52,8 +51,8 @@ class UserController extends BackendController
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            /** @var EloquentEngine $query */
-            $query = Datatables::of($this->users->select([
+            /** @var \Yajra\DataTables\EloquentDataTable $query */
+            $query = DataTables::of($this->users->select([
                 'id',
                 'name',
                 'email',

@@ -23,10 +23,10 @@
         "martinlindhe/laravel-vue-i18n-generator": "^0.1.16",
         "mcamara/laravel-localization": "^1.2",
         "mews/purifier": "^2.0",
-        "plank/laravel-mediable": "^2.4",
+        "plank/laravel-mediable": "^2.5",
         "roumen/sitemap": "^2.6",
         "tightenco/ziggy": "^0.3.0",
-        "yajra/laravel-datatables-oracle": "^7.7"
+        "yajra/laravel-datatables-oracle": "8.0.x-dev"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^2.3",

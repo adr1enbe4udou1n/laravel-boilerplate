@@ -8,8 +8,7 @@ use App\Imports\RedirectionListImport;
 use App\Models\Redirection;
 use App\Repositories\Contracts\RedirectionRepository;
 use Illuminate\Http\Request;
-use Yajra\Datatables\Datatables;
-use Yajra\Datatables\Engines\EloquentEngine;
+use Yajra\DataTables\Facades\DataTables;
 
 class RedirectionController extends BackendController
 {
@@ -40,8 +39,8 @@ class RedirectionController extends BackendController
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            /** @var EloquentEngine $query */
-            $query = Datatables::of($this->redirections->select([
+            /** @var \Yajra\DataTables\EloquentDataTable $query */
+            $query = DataTables::of($this->redirections->select([
                 'id',
                 'source',
                 'active',

@@ -7,8 +7,7 @@ use App\Http\Requests\UpdateMetaRequest;
 use App\Models\Meta;
 use App\Repositories\Contracts\MetaRepository;
 use Illuminate\Http\Request;
-use Yajra\Datatables\Datatables;
-use Yajra\Datatables\Engines\EloquentEngine;
+use Yajra\DataTables\Facades\DataTables;
 
 class MetaController extends BackendController
 {
@@ -39,8 +38,8 @@ class MetaController extends BackendController
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            /** @var EloquentEngine $query */
-            $query = Datatables::of($this->metas->select([
+            /** @var \Yajra\DataTables\EloquentDataTable $query */
+            $query = DataTables::of($this->metas->select([
                 'id',
                 'route',
                 'metable_type',

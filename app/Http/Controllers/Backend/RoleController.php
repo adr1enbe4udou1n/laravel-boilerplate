@@ -7,8 +7,7 @@ use App\Http\Requests\UpdateRoleRequest;
 use App\Models\Role;
 use App\Repositories\Contracts\RoleRepository;
 use Illuminate\Http\Request;
-use Yajra\Datatables\Datatables;
-use Yajra\Datatables\Engines\EloquentEngine;
+use Yajra\DataTables\Facades\DataTables;
 
 class RoleController extends BackendController
 {
@@ -39,8 +38,8 @@ class RoleController extends BackendController
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            /** @var EloquentEngine $query */
-            $query = Datatables::of($this->roles->select([
+            /** @var \Yajra\DataTables\EloquentDataTable $query */
+            $query = DataTables::of($this->roles->select([
               'id',
               'name',
               'order',
