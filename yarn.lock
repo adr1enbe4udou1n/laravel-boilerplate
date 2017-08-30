@@ -3594,9 +3594,9 @@ interpret@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.0.3.tgz#cbc35c62eeee73f19ab7b10a801511401afc0f90"
 
-intl-tel-input@^12.0.1:
-  version "12.0.1"
-  resolved "https://registry.yarnpkg.com/intl-tel-input/-/intl-tel-input-12.0.1.tgz#d3c38b29311d92c1588bc2d0ae3f4cd84252da7b"
+intl-tel-input@^12.0.2:
+  version "12.0.2"
+  resolved "https://registry.yarnpkg.com/intl-tel-input/-/intl-tel-input-12.0.2.tgz#2f7c199bce9c2511bbd3cc76e55387e0aa67f308"
 
 invariant@^2.2.2:
   version "2.2.2"
@@ -5136,9 +5136,9 @@ pngquant-bin@^3.0.0:
     bin-wrapper "^3.0.0"
     logalot "^2.0.0"
 
-popper.js@^1.12.4:
-  version "1.12.4"
-  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.12.4.tgz#ba8eac2a45a0f549a1f56bd5b122fa61f433b4b3"
+popper.js@^1.12.5:
+  version "1.12.5"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.12.5.tgz#229e4dea01629e1f1a1e26991ffade5024220fa6"
 
 portfinder@^1.0.9:
   version "1.0.13"
