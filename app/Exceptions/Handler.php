@@ -7,22 +7,25 @@ use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Support\Facades\Mail;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class Handler extends ExceptionHandler
 {
     /**
-     * A list of the exception types that should not be reported.
+     * A list of the exception types that are not reported.
      *
      * @var array
      */
     protected $dontReport = [
-        \Illuminate\Auth\AuthenticationException::class,
-        \Illuminate\Auth\Access\AuthorizationException::class,
-        \Symfony\Component\HttpKernel\Exception\HttpException::class,
-        \Illuminate\Database\Eloquent\ModelNotFoundException::class,
-        \Illuminate\Session\TokenMismatchException::class,
-        \Illuminate\Validation\ValidationException::class,
+    ];
+
+    /**
+     * A list of the inputs that are never flashed for validation exceptions.
+     *
+     * @var array
+     */
+    protected $dontFlash = [
+        'password',
+        'password_confirmation',
     ];
 
     /**
@@ -31,6 +34,8 @@ class Handler extends ExceptionHandler
      * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
      *
      * @param \Exception $exception
+     *
+     * @return mixed|void
      */
     public function report(Exception $exception)
     {
@@ -59,33 +64,13 @@ class Handler extends ExceptionHandler
          */
         if ($exception instanceof GeneralException) {
             if ($request->expectsJson()) {
-                return response()->json(['error' => $exception->getMessage()], 500);
+                return response()->json(['message' => $exception->getMessage()], 500);
             }
 
             return redirect()->back()->withInput()->withFlashError($exception->getMessage());
         }
 
         return parent::render($request, $exception);
-    }
-
-    /**
-     * Prepare response containing exception render.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \Exception               $e
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    protected function prepareResponse($request, Exception $e)
-    {
-        if (!$this->isHttpException($e) && config('app.debug')) {
-            return $this->toIlluminateResponse($this->convertExceptionToResponse($e), $e);
-        }
-        if (!$this->isHttpException($e)) {
-            $e = new HttpException(500, $e->getMessage());
-        }
-
-        return $this->toIlluminateResponse($this->renderHttpException($e), $e);
     }
 
     /**
@@ -99,7 +84,7 @@ class Handler extends ExceptionHandler
     protected function unauthenticated($request, AuthenticationException $exception)
     {
         if ($request->expectsJson()) {
-            return response()->json(['error' => 'Unauthenticated.'], 401);
+            return response()->json(['message' => 'Unauthenticated.'], 401);
         }
 
         if (is_admin_route($request)) {

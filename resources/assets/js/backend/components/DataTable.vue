@@ -43,8 +43,8 @@
           }
 
           // Domain error
-          if (error.response.data.error !== undefined) {
-            window.toastr.error(error.response.data.error)
+          if (error.response.data.message !== undefined) {
+            window.toastr.error(error.response.data.message)
             return
           }
 

@@ -4,9 +4,7 @@ export default {
   props: ['id'],
   data () {
     return {
-      validation: {
-        errors: {}
-      },
+      validation: {},
       pending: false
     }
   },
@@ -30,7 +28,7 @@ export default {
       if (this.errors.has(name)) {
         return this.errors.first(name)
       }
-      if (this.validation.errors.hasOwnProperty(name)) {
+      if (this.validation.errors !== undefined && this.validation.errors.hasOwnProperty(name)) {
         return this.validation.errors[name][0]
       }
     },
@@ -45,6 +43,10 @@ export default {
 
           let data = new FormData()
           Object.keys(this.model).forEach(key => {
+            if (this.model[key] === null) {
+              data.append(key, '')
+              return
+            }
             if (typeof (this.model[key]) === 'boolean') {
               data.append(key, this.model[key] ? 1 : 0)
               return
@@ -67,7 +69,7 @@ export default {
             .catch(error => {
               // Validation errors
               if (error.response.status === 422) {
-                this.validation.errors = error.response.data
+                this.validation = error.response.data
                 return
               }
 
@@ -78,8 +80,8 @@ export default {
               }
 
               // Domain error
-              if (error.response.data.error !== undefined) {
-                window.toastr.error(error.response.data.error)
+              if (error.response.data.message !== undefined) {
+                window.toastr.error(error.response.data.message)
                 return
               }
 
