@@ -30,7 +30,7 @@
         <select name="locale" class="form-control" v-validate="'required'">
             <option>@lang('labels.frontend.placeholders.locale')</option>
             @foreach($locales as $value => $text)
-                <option value="{{ $value }}" @if($logged_in_user->locale === $text)selected@endif>{{ $text }}</option>
+                <option value="{{ $value }}" {{ $logged_in_user->locale === $value ? 'selected' : '' }}>{{ $text }}</option>
             @endforeach
         </select>
     @endcomponent
@@ -44,7 +44,7 @@
         <select name="timezone" class="form-control" v-validate="'required'">
             <option>@lang('labels.frontend.placeholders.timezone')</option>
             @foreach($timezones as $text)
-                <option value="{{ $text }}" @if($logged_in_user->timezone === $text)selected@endif>{{ $text }}</option>
+                <option value="{{ $text }}" {{ $logged_in_user->timezone === $text ? 'selected' : '' }}>{{ $text }}</option>
             @endforeach
         </select>
     @endcomponent
