@@ -9,23 +9,23 @@ jobs:
 
       - run: sudo apt install -y libsqlite3-dev libzip-dev libpng12-dev
       - run: sudo docker-php-ext-install gd zip
+      - run: cp .env.dusk .env
 
       - restore_cache:
           keys:
           - composer-v1-{{ checksum "composer.json" }}
           - composer-v1-
 
-      - run: composer install -n --prefer-dist
+      - run: composer install -n --ignore-platform-reqs
 
       - save_cache:
           key: composer-v1-{{ checksum "composer.json" }}
           paths:
             - ./vendor
 
-      - run: cp .env.dusk .env
       - run: php artisan key:generate
       - run: touch database/database.sqlite
-      - run: ./vendor/bin/phpunit
+      - run: vendor/bin/phpunit
 
       - run:
           name: Start Chrome Driver
