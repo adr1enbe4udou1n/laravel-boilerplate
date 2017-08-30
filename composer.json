@@ -7,7 +7,7 @@
     "require": {
         "php": "^7.1",
         "ext-gd": "*",
-        "arcanedev/no-captcha": "^4.0",
+        "anhskohbo/no-captcha": "^2.3",
         "artesaos/seotools": "^0.10.0",
         "cviebrock/eloquent-sluggable": "^4.2",
         "davejamesmiller/laravel-breadcrumbs": "^3.0",

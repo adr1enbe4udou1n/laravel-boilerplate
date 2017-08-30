@@ -61,7 +61,7 @@
 
                             <div class="form-group row">
                                 <div class="col-md-9 ml-auto">
-                                    {!! Captcha::display() !!}
+                                    {!! app('captcha')->display($attributes = [], $lang = app()->getLocale()); !!}
                                 </div>
                             </div>
 
@@ -78,8 +78,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('scripts')
-    {!! Captcha::script() !!}
 @endsection

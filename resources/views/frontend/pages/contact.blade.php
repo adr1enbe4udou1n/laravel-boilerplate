@@ -74,7 +74,7 @@
                 @endcomponent
 
                 <div class="form-group">
-                    {!! Captcha::display() !!}
+                    {!! app('captcha')->display($attributes = [], $lang = app()->getLocale()); !!}
                 </div>
 
                 <div class="form-group">
@@ -83,8 +83,4 @@
             </form>
         </div>
     </div>
-@endsection
-
-@section('scripts')
-    {!! Captcha::script() !!}
 @endsection

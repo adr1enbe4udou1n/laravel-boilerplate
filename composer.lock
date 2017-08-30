@@ -4,43 +4,31 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "97bd6c3c4b438a15c58f06a5fdde0bf4",
+    "content-hash": "fb052d8b30418d9cb4ba69f0dac734a8",
     "packages": [
         {
-            "name": "arcanedev/no-captcha",
-            "version": "4.0.1",
+            "name": "anhskohbo/no-captcha",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ARCANEDEV/noCAPTCHA.git",
-                "reference": "cd5c4fe01776b02feb32b6500b6c276439479c21"
+                "url": "https://github.com/anhskohbo/no-captcha.git",
+                "reference": "4f729a21999f496db9580fc4625a0f837ef53adc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ARCANEDEV/noCAPTCHA/zipball/cd5c4fe01776b02feb32b6500b6c276439479c21",
-                "reference": "cd5c4fe01776b02feb32b6500b6c276439479c21",
+                "url": "https://api.github.com/repos/anhskohbo/no-captcha/zipball/4f729a21999f496db9580fc4625a0f837ef53adc",
+                "reference": "4f729a21999f496db9580fc4625a0f837ef53adc",
                 "shasum": ""
             },
             "require": {
-                "arcanedev/support": "~4.0",
-                "ext-curl": "*",
-                "ext-json": "*",
-                "php": ">=5.6.4",
-                "psr/http-message": "~1.0"
-            },
-            "require-dev": {
-                "arcanedev/laravel-html": "~5.0",
-                "phpunit/phpcov": "~3.0",
-                "phpunit/phpunit": "~5.0"
+                "guzzlehttp/guzzle": "^6.2",
+                "illuminate/support": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*",
+                "php": ">=5.5.5"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.3-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
-                    "Arcanedev\\NoCaptcha\\": "src/"
+                    "Anhskohbo\\NoCaptcha\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -49,83 +37,20 @@
             ],
             "authors": [
                 {
-                    "name": "ARCANEDEV",
-                    "email": "arcanedev.maroc@gmail.com",
-                    "homepage": "https://github.com/arcanedev-maroc",
-                    "role": "Developer"
+                    "name": "anhskohbo",
+                    "email": "anhskohbo@gmail.com"
                 }
             ],
-            "description": "No CAPTCHA (new Google reCAPTCHA) with Laravel support",
-            "homepage": "https://github.com/ARCANEDEV/noCAPTCHA",
+            "description": "No CAPTCHA reCAPTCHA For Laravel.",
             "keywords": [
-                "arcanedev",
                 "captcha",
-                "google",
                 "laravel",
+                "laravel4",
+                "laravel5",
                 "no-captcha",
                 "recaptcha"
             ],
-            "time": "2017-03-17T16:34:51+00:00"
-        },
-        {
-            "name": "arcanedev/support",
-            "version": "4.1.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ARCANEDEV/Support.git",
-                "reference": "50bf6c1e6aabf7c5c4e1cea0d6028b0622d5ce2d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ARCANEDEV/Support/zipball/50bf6c1e6aabf7c5c4e1cea0d6028b0622d5ce2d",
-                "reference": "50bf6c1e6aabf7c5c4e1cea0d6028b0622d5ce2d",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/filesystem": "~5.4.0",
-                "illuminate/support": "~5.4.0",
-                "php": ">=5.6.4"
-            },
-            "require-dev": {
-                "orchestra/testbench-browser-kit": "~3.4.0",
-                "phpunit/phpcov": "~3.0",
-                "phpunit/phpunit": "~5.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Arcanedev\\Support\\": "src/"
-                },
-                "files": [
-                    "constants.php",
-                    "helpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "ARCANEDEV",
-                    "email": "arcanedev.maroc@gmail.com",
-                    "homepage": "https://github.com/arcanedev-maroc"
-                }
-            ],
-            "description": "ARCANEDEV Support Helpers",
-            "homepage": "https://github.com/ARCANEDEV/Support",
-            "keywords": [
-                "arcanedev",
-                "arcanesoft",
-                "laravel",
-                "support"
-            ],
-            "time": "2017-05-08T12:18:25+00:00"
+            "time": "2017-01-30T19:35:26+00:00"
         },
         {
             "name": "artesaos/seotools",

@@ -37,7 +37,7 @@
 
                             @if($is_locked)
                                 <div class="form-group">
-                                    {!! Captcha::display() !!}
+                                    {!! app('captcha')->display($attributes = [], $lang = app()->getLocale()); !!}
                                 </div>
                             @endif
                             <div class="form-group">
@@ -65,8 +65,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('scripts')
-    {!! Captcha::script() !!}
 @endsection
