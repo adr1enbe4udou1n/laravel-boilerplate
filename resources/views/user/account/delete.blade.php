@@ -1,13 +1,12 @@
 @lang('labels.user.account_delete')
 
-{{ Form::open(['route' => ['user.account.delete'], 'method' => 'DELETE']) }}
+<form action="{{ route('user.account.delete') }}" method="POST">
+    {{ csrf_field() }}
+    <input type="hidden" name="_method" value="DELETE">
 
-{{ Form::submit(trans('labels.user.delete'), [
-    'class' => 'btn btn-danger',
-    'data-toggle' => 'confirm',
-    'data-trans-button-cancel' => trans('buttons.cancel'),
-    'data-trans-button-confirm' => trans('buttons.delete'),
-    'data-trans-title' => trans('labels.are_you_sure'),
-]) }}
-
-{{ Form::close() }}
+    <button class="btn btn-danger"
+            data-toggle="confirm"
+            data-trans-button-cancel="@lang('buttons.cancel')"
+            data-trans-button-confirm="@lang('buttons.delete')"
+            data-trans-title="@lang('labels.are_you_sure')">@lang('labels.user.delete')</button>
+</form>

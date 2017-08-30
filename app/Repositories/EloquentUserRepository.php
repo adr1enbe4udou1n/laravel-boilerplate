@@ -320,9 +320,10 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
             $title
                 = '<i class="icon-lock" data-toggle="tooltip" data-placement="top" title="'
                 .trans('buttons.login-as', ['name' => $user->name]).'"></i>';
-            $buttons .= link_to(route('login-as', $user), $title, [
-                    'class' => 'btn btn-sm btn-warning',
-                ], false, false).' ';
+
+            $route = route('login-as', $user);
+
+            $buttons .= "<a href=\"{$route}\" class=\"btn btn-sm btn-warning\">{$title}</a> ";
         }
 
         if ($this->canDelete($user)) {

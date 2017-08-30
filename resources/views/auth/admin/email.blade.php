@@ -20,11 +20,7 @@
                                 @component('components.input-group', [
                                     'left' => '<i class="icon-user"></i>'
                                 ])
-                                    {{ Form::email('email', null, [
-                                        'placeholder' => trans('validation.attributes.email'),
-                                        'class' => 'form-control',
-                                        'required' => true,
-                                    ]) }}
+                                    <input type="email" name="email" placeholder="@lang('validation.attributes.email')" class="form-control" required value="{{ old('email') }}">
                                 @endcomponent
                             @endcomponent
 

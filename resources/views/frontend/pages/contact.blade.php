@@ -19,11 +19,7 @@
                     'name' => 'name',
                     'title' => trans('validation.attributes.name'),
                 ])
-                    {{ Form::text('name', null, [
-                        'placeholder' => trans('validation.attributes.name'),
-                        'class' => 'form-control',
-                        'v-validate' => "'required'"
-                    ]) }}
+                    <input name="name" placeholder="@lang('validation.attributes.name')" class="form-control" v-validate="'required'" value="{{ old('name') }}">
                 @endcomponent
 
                 <div class="row">
@@ -32,10 +28,7 @@
                             'name' => 'postal_code',
                             'title' => trans('validation.attributes.postal_code'),
                         ])
-                            {{ Form::text('postal_code', null, [
-                                'placeholder' => trans('validation.attributes.postal_code'),
-                                'class' => 'form-control',
-                            ]) }}
+                            <input name="postal_code" placeholder="@lang('validation.attributes.postal_code')" class="form-control" value="{{ old('postal_code') }}">
                         @endcomponent
                     </div>
                     <div class="col-sm-6">
@@ -43,10 +36,7 @@
                             'name' => 'city',
                             'title' => trans('validation.attributes.city'),
                         ])
-                            {{ Form::text('city', null, [
-                                'placeholder' => trans('validation.attributes.city'),
-                                'class' => 'form-control',
-                            ]) }}
+                            <input name="city" placeholder="@lang('validation.attributes.city')" class="form-control" value="{{ old('city') }}">
                         @endcomponent
                     </div>
                 </div>
@@ -60,11 +50,7 @@
                             @component('components.input-group', [
                                 'left' => '<i class="icon-envelope"></i>'
                             ])
-                                {{ Form::email('email', null, [
-                                    'placeholder' => trans('validation.attributes.email'),
-                                    'class' => 'form-control',
-                                    'v-validate' => "'required|email'"
-                                ]) }}
+                                <input type="email" name="email" placeholder="@lang('validation.attributes.email')" class="form-control" v-validate="'required|email'" value="{{ old('email') }}">
                             @endcomponent
                         @endcomponent
                     </div>
@@ -73,10 +59,7 @@
                             'name' => 'phone',
                             'title' => trans('validation.attributes.phone'),
                         ])
-                            {{ Form::tel('phone', null, [
-                                'placeholder' => trans('validation.attributes.phone'),
-                                'class' => 'form-control',
-                            ]) }}
+                            <input type="tel" name="phone" placeholder="@lang('validation.attributes.phone')" class="form-control" value="{{ old('phone') }}">
                         @endcomponent
                     </div>
                 </div>
@@ -85,12 +68,9 @@
                     'name' => 'message',
                     'title' => trans('validation.attributes.message'),
                 ])
-                    {{ Form::textarea('message', null, [
-                        'placeholder' => trans('validation.attributes.message'),
-                        'rows' => 5,
-                        'class' => 'form-control',
-                        'v-validate' => "'required'"
-                    ]) }}
+                    <textarea name="message" placeholder="@lang('validation.attributes.message')" class="form-control" rows="5" v-validate="'required'">
+                        {{ old('message') }}
+                    </textarea>
                 @endcomponent
 
                 <div class="form-group">

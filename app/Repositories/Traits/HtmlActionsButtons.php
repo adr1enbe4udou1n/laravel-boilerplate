@@ -18,9 +18,7 @@ trait HtmlActionsButtons
     {
         $title = '<i class="icon-magnifier" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.view').'"></i>';
 
-        return link_to($url, $title, [
-                'class' => 'btn btn-sm btn-success',
-            ], false, false).' ';
+        return "<a href=\"{$url}\" class=\"btn btn-sm btn-success\">{$title}</a> ";
     }
 
     /**
@@ -33,10 +31,9 @@ trait HtmlActionsButtons
     {
         $title = '<i class="icon-eye" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.preview').'"></i>';
 
-        return link_to(route($route, $parameters), $title, [
-                'class' => 'btn btn-sm btn-success',
-                'target' => '_blank',
-            ], false, false).' ';
+        $route = route($route, $parameters);
+
+        return "<a href=\"{$route}\" class=\"btn btn-sm btn-success\" target=\"_blank\">{$title}</a> ";
     }
 
     /**
@@ -48,9 +45,7 @@ trait HtmlActionsButtons
     {
         $title = '<i class="icon-pencil" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.edit').'"></i>';
 
-        return link_to($url, $title, [
-                'class' => 'btn btn-sm btn-primary',
-            ], false, false).' ';
+        return "<a href=\"{$url}\" class=\"btn btn-sm btn-primary\">{$title}</a> ";
     }
 
     /**
@@ -67,14 +62,12 @@ trait HtmlActionsButtons
             return '';
         }
 
+        $route = route($route, $parameters);
         $title = '<i class="icon-trash" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.delete').'"></i>';
+        $transCancel = trans('buttons.cancel');
+        $transConfirm = trans('buttons.delete');
+        $transTitle = trans('labels.are_you_sure');
 
-        return link_to(route($route, $parameters), $title, [
-                'data-toggle' => 'delete-row',
-                'data-trans-button-cancel' => trans('buttons.cancel'),
-                'data-trans-button-confirm' => trans('buttons.delete'),
-                'data-trans-title' => trans('labels.are_you_sure'),
-                'class' => 'btn btn-sm btn-danger',
-            ], false, false).' ';
+        return "<a href=\"{$route}\" class=\"btn btn-sm btn-danger\" data-toggle=\"delete-row\" data-trans-button-cancel=\"{$transCancel}\" data-trans-button-confirm=\"{$transConfirm}\" data-trans-title=\"{$transTitle}\">{$title}</a>";
     }
 }

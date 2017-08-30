@@ -1,6 +1,6 @@
 <div class="form-group row{{ $errors->has($name) ? ' is-invalid' : '' }}" :class="{'is-invalid': errors.has('{{ $name }}') }">
     @isset($title)
-    {{ Form::label($name, $title, ['class' => isset($horizontal) && $horizontal ? "col-md-{$label_cols} col-form-label" : 'col-12 form-control-label']) }}
+        <label for="{{ $name }}" class="{{ isset($horizontal) && $horizontal ? "col-md-{$label_cols} col-form-label" : 'col-12 form-control-label' }}">{{ $title }}</label>
     @endisset
 
     <div class="{{ isset($horizontal) && $horizontal ? 'col-md-' . (12 - $label_cols ) : 'col-12' }}">

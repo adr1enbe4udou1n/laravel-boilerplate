@@ -96,12 +96,10 @@ class LoginController extends Controller
 
         foreach (config('services') as $name => $service) {
             if (isset($service['client_id'])) {
-                $socialiteLinks[] = link_to(
-                    route('social.login', $name),
-                    '<i class="fa fa-'.$name.' fa-lg"></i> '.ucfirst($name),
-                    ['class' => "btn btn-default btn-$name"],
-                    null, false
-                );
+                $route = route('social.login', $name);
+                $icon = ucfirst($name);
+
+                $socialiteLinks[] = "<a href=\"{$route}\" class=\"btn btn-default btn-{$name}\"><i class=\"fa fa-{$name} fa-lg\"></i> {$icon}</a>";
             }
         }
 

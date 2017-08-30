@@ -49,7 +49,7 @@ class RoleController extends BackendController
             ]));
 
             return $query->editColumn('name', function (Role $role) {
-                return link_to("#/roles/{$role->id}/edit", $role->name);
+                return "<a href=\"#/roles/{$role->id}/edit\">{$role->name}</a>";
             })->addColumn('actions', function (Role $role) {
                 return $this->roles->getActionButtons($role);
             })->editColumn('created_at', function (Role $role) use ($request) {
@@ -57,7 +57,7 @@ class RoleController extends BackendController
             })->editColumn('updated_at', function (Role $role) use ($request) {
                 return $role->updated_at->setTimezone($request->user()->timezone);
             })
-              ->rawColumns(['actions'])
+              ->rawColumns(['name', 'actions'])
               ->make(true);
         }
     }

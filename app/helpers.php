@@ -140,48 +140,6 @@ if (!function_exists('image_template_html')) {
     }
 }
 
-if (!function_exists('form_batch_action')) {
-    function form_batch_action($route, $table_id, array $actions)
-    {
-        $options = [];
-        foreach ($actions as $name => $action) {
-            if (is_string($action)) {
-                $options[$name] = $action;
-                continue;
-            }
-
-            if ($action['active']) {
-                $options[$name] = $action['title'];
-            }
-        }
-
-        return view('backend.partials.form.batch-action', compact('route', 'table_id', 'options'));
-    }
-}
-
-if (!function_exists('menu_item_access')) {
-    function menu_item_access($route_name, $title, $icon = null, $ability = null, $ability_arguments = [], ...$active_route_patterns)
-    {
-        if ($ability && !\Illuminate\Support\Facades\Gate::check($ability, $ability_arguments)) {
-            return null;
-        }
-
-        if ($icon) {
-            $title = "<i class=\"$icon\"></i> {$title}";
-        }
-
-        $route = link_to(route($route_name), $title, [
-            'class' => 'nav-link '.active_class(if_route_pattern($active_route_patterns)),
-        ], null, false);
-
-        if (!in_array($route_name, $active_route_patterns, true)) {
-            $active_route_patterns[] = $route_name;
-        }
-
-        return "<li class=\"nav-item\">{$route}</li>";
-    }
-}
-
 if (!function_exists('localize_url')) {
     function localize_url($locale = null, $attributes = [], Model $translatable = null)
     {

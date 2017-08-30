@@ -66,7 +66,7 @@ class UserController extends BackendController
 
             return $query->editColumn('name', function (User $user) {
                 if ($this->users->canEdit($user)) {
-                    return link_to("#/users/{$user->id}/edit", $user->name);
+                    return "<a href=\"#/users/{$user->id}/edit\">{$user->name}</a>";
                 }
 
                 return $user->name;
@@ -85,7 +85,7 @@ class UserController extends BackendController
             })->editColumn('updated_at', function (User $user) use ($request) {
                 return $user->updated_at->setTimezone($request->user()->timezone);
             })
-                ->rawColumns(['confirmed', 'active', 'actions'])
+                ->rawColumns(['name', 'confirmed', 'active', 'actions'])
                 ->make(true);
         }
     }

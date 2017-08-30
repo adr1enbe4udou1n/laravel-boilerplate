@@ -19,11 +19,8 @@
                                 @component('components.input-group', [
                                     'left' => '<i class="icon-user"></i>'
                                 ])
-                                    {{ Form::text('name', null, [
-                                        'placeholder' => trans('validation.attributes.name'),
-                                        'class' => 'form-control',
-                                        'v-validate' => "'required'",
-                                    ]) }}
+                                    <input name="name" placeholder="@lang('validation.attributes.name')"
+                                           class="form-control" v-validate="'required'" value="{{ old('name') }}">
                                 @endcomponent
                             @endcomponent
 
@@ -36,11 +33,8 @@
                                 @component('components.input-group', [
                                     'left' => '<i class="icon-envelope"></i>'
                                 ])
-                                    {{ Form::text('email', null, [
-                                        'placeholder' => trans('validation.attributes.email'),
-                                        'class' => 'form-control',
-                                        'v-validate' => "'required|email'",
-                                    ]) }}
+                                    <input type="email" name="email" placeholder="@lang('validation.attributes.email')"
+                                           class="form-control" v-validate="'required|email'" value="{{ old('email') }}">
                                 @endcomponent
                             @endcomponent
 
@@ -50,12 +44,8 @@
                                 'horizontal' => true,
                                 'label_cols' => 3
                             ])
-                                {{ Form::password('password', [
-                                    'placeholder' => trans('validation.attributes.password'),
-                                    'class' => 'form-control',
-                                    'v-validate' => "'required'",
-                                    'data-toggle' => 'password-strength-meter'
-                                ]) }}
+                                <input type="password" name="password" placeholder="@lang('validation.attributes.password')"
+                                       class="form-control" v-validate="'required'" data-toggle="password-strength-meter">
                             @endcomponent
 
                             @component('components.fieldset', [
@@ -64,11 +54,9 @@
                                 'horizontal' => true,
                                 'label_cols' => 3
                             ])
-                                {{ Form::password('password_confirmation', [
-                                    'placeholder' => trans('validation.attributes.password_confirmation'),
-                                    'class' => 'form-control',
-                                    'v-validate' => "'required'"
-                                ]) }}
+                                <input type="password" name="password_confirmation"
+                                       placeholder="@lang('validation.attributes.password_confirmation')"
+                                       class="form-control" v-validate="'required'">
                             @endcomponent
 
                             <div class="form-group row">

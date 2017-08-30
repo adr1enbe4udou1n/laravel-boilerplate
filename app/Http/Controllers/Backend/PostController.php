@@ -102,13 +102,11 @@ class PostController extends BackendController
             return $query->addColumn('actions', function (Post $post) {
                 return $this->posts->getActionButtons($post);
             })->addColumn('image', function (Post $post) {
-                return link_to(
-                    "#/posts/{$post->id}/edit",
-                    image_template_html('small', $post->featured_image_path, $post->title),
-                    [], null, false
-                );
+                $content = image_template_html('small', $post->featured_image_path, $post->title);
+
+                return "<a href=\"#/posts/{$post->id}/edit\">{$content}</a>";
             })->editColumn('title', function (Post $post) {
-                return link_to("#/posts/{$post->id}/edit", $post->title);
+                return "<a href=\"#/posts/{$post->id}/edit\">{$post->title}</a>";
             })->editColumn('status', function (Post $post) {
                 return state_html_label($post->state, trans($post->status_label));
             })->editColumn('pinned', function (Post $post) {
@@ -120,7 +118,7 @@ class PostController extends BackendController
             })->editColumn('updated_at', function (Post $post) use ($request) {
                 return $post->updated_at->setTimezone($request->user()->timezone);
             })
-                ->rawColumns(['image', 'status', 'pinned', 'promoted', 'actions'])
+                ->rawColumns(['image', 'title', 'status', 'pinned', 'promoted', 'actions'])
                 ->make(true);
         }
     }

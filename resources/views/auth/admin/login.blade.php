@@ -19,11 +19,8 @@
                                 @component('components.input-group', [
                                     'left' => '<i class="icon-user"></i>'
                                 ])
-                                    {{ Form::email('email', null, [
-                                        'placeholder' => trans('validation.attributes.email'),
-                                        'class' => 'form-control',
-                                        'required' => true,
-                                    ]) }}
+                                    <input type="email" name="email" placeholder="@lang('validation.attributes.email')"
+                                           class="form-control" required value="{{ old('email') }}">
                                 @endcomponent
                             @endcomponent
 
@@ -33,11 +30,8 @@
                                 @component('components.input-group', [
                                     'left' => '<i class="icon-lock"></i>'
                                 ])
-                                    {{ Form::password('password', [
-                                        'placeholder' => trans('validation.attributes.password'),
-                                        'class' => 'form-control',
-                                        'required' => true,
-                                    ]) }}
+                                    <input type="password" name="password" placeholder="@lang('validation.attributes.password')"
+                                           class="form-control" required>
                                 @endcomponent
                             @endcomponent
 

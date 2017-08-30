@@ -29,11 +29,8 @@
                             @component('components.input-group', [
                                 'left' => '<i class="icon-user"></i>'
                             ])
-                                {{ Form::bsInput('email', [
-                                    'type' => 'email',
-                                    'required' => true,
-                                    'placeholder' => trans('validation.attributes.email'),
-                                ]) }}
+                                <input type="email" name="email" placeholder="@lang('validation.attributes.email')"
+                                       class="form-control" v-validate="'required|email'" value="{{ old('email') }}">
                             @endcomponent
                         @endcomponent
 
@@ -43,12 +40,8 @@
                                 'horizontal' => true,
                                 'label_cols' => 4
                             ])
-                            {{ Form::bsInput('password', [
-                                'type' => 'password',
-                                'required' => true,
-                                'placeholder' => trans('validation.attributes.password'),
-                                'strength_meter' => true,
-                            ]) }}
+                            <input type="password" name="password" placeholder="@lang('validation.attributes.password')"
+                                   class="form-control" v-validate="'required'" data-toggle="password-strength-meter">
                         @endcomponent
 
                         @component('components.fieldset', [
@@ -57,16 +50,14 @@
                             'horizontal' => true,
                             'label_cols' => 4
                         ])
-                            {{ Form::bsInput('password_confirmation', [
-                                'type' => 'password',
-                                'required' => true,
-                                'placeholder' => trans('validation.attributes.password_confirmation'),
-                            ]) }}
+                            <input type="password" name="password_confirmation"
+                                   placeholder="@lang('validation.attributes.password_confirmation')"
+                                   class="form-control" v-validate="'required'">
                         @endcomponent
 
                         <div class="form-group row">
                             <div class="col-md-8 ml-auto">
-                                <button  class="btn btn-primary">
+                                <button class="btn btn-primary">
                                     @lang('labels.user.password_reset')
                                 </button>
                             </div>
