@@ -10,7 +10,7 @@
         "anhskohbo/no-captcha": "dev-master",
         "artesaos/seotools": "^0.10.0",
         "cviebrock/eloquent-sluggable": "^4.2",
-        "davejamesmiller/laravel-breadcrumbs": "^3.0",
+        "davejamesmiller/laravel-breadcrumbs": "^4.0",
         "doctrine/dbal": "^2.6",
         "fideloper/proxy": "^3.3",
         "guzzlehttp/guzzle": "^6.2",
@@ -26,11 +26,11 @@
         "mews/purifier": "^2.0",
         "plank/laravel-mediable": "^2.5",
         "roumen/sitemap": "^2.6",
-        "tightenco/ziggy": "^0.3.0",
+        "tightenco/ziggy": "^0.4.0",
         "yajra/laravel-datatables-oracle": "8.0.x-dev"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^2.3",
+        "barryvdh/laravel-debugbar": "^3.0",
         "barryvdh/laravel-ide-helper": "^2.2",
         "filp/whoops": "^2.1",
         "friendsofphp/php-cs-fixer": "^2.5",
