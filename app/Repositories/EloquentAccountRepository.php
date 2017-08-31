@@ -124,6 +124,29 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
     }
 
     /**
+     * @param \Illuminate\Contracts\Auth\Authenticatable $user
+     * @param                                            $name
+     *
+     * @return bool
+     */
+    public function hasPermission(Authenticatable $user, $name)
+    {
+        // First user is always super admin and cannot be deleted
+        if ($user->is_super_admin) {
+            return true;
+        }
+
+        /** @var \Illuminate\Support\Collection $permissions */
+        $permissions = session()->get('permissions');
+
+        if ($permissions->isEmpty()) {
+            return false;
+        }
+
+        return $permissions->contains($name);
+    }
+
+    /**
      * @param User $user
      *
      * @throws Exception

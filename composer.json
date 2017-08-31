@@ -20,6 +20,7 @@
         "laravel/framework": "5.5.*",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
+        "laravelcollective/html": "^5.5",
         "maatwebsite/excel": "^2.1",
         "martinlindhe/laravel-vue-i18n-generator": "^0.1.16",
         "mcamara/laravel-localization": "^1.2",

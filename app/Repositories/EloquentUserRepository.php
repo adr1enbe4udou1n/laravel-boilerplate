@@ -11,10 +11,10 @@ use App\Repositories\Contracts\RoleRepository;
 use App\Repositories\Contracts\UserRepository;
 use App\Repositories\Traits\HtmlActionsButtons;
 use Exception;
-use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 use Mcamara\LaravelLocalization\LaravelLocalization;
 
 /**
@@ -256,37 +256,12 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
         return true;
     }
 
-    /**
-     * @param \Illuminate\Contracts\Auth\Authenticatable $user
-     * @param                                            $name
-     *
-     * @return bool
-     */
-    public function hasPermission(Authenticatable $user, $name)
-    {
-        // First user is always super admin and cannot be deleted
-        if ($user->is_super_admin) {
-            return true;
-        }
-
-        /** @var \Illuminate\Support\Collection $permissions */
-        $permissions = session()->get('permissions');
-
-        if ($permissions->isEmpty()) {
-            return false;
-        }
-
-        return $permissions->contains($name);
-    }
-
     private function canImpersonate(User $user)
     {
-        $authenticatedUser = auth()->user();
-
-        if ($this->hasPermission($authenticatedUser, 'impersonate users')) {
+        if (Gate::check('impersonate users')) {
             return !$user->is_super_admin
                 && session()->get('admin_user_id') !== $user->id
-                && $user->id !== $authenticatedUser->id;
+                && $user->id !== auth()->id();
         }
 
         return false;

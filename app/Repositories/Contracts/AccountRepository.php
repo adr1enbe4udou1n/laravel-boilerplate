@@ -34,6 +34,14 @@ interface AccountRepository extends BaseRepository
     public function findOrCreateSocial($provider, AbstractUser $data);
 
     /**
+     * @param \Illuminate\Contracts\Auth\Authenticatable $user
+     * @param                                            $name
+     *
+     * @return bool
+     */
+    public function hasPermission(Authenticatable $user, $name);
+
+    /**
      * @param User $user
      *
      * @return mixed

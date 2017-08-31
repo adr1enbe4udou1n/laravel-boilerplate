@@ -17,7 +17,7 @@
             'editorSiteUrl' => config('app.editor_site_url'),
             'locales' => LaravelLocalization::getSupportedLocales(),
             'user' => $loggedInUser,
-            'permissions' => $loggedInUser->getPermissions(),
+            'permissions' => session()->get('permissions'),
             'isImpersonation' => session()->has('admin_user_id') && session()->has('temp_user_id'),
             'usurperName' => session()->get('admin_user_name'),
             'blogEnabled' => config('blog.enabled')

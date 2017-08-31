@@ -6,7 +6,7 @@ use App\Models\Post;
 use App\Models\User;
 use App\Policies\PostPolicy;
 use App\Policies\UserPolicy;
-use App\Repositories\Contracts\UserRepository;
+use App\Repositories\Contracts\AccountRepository;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -32,11 +32,11 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        $userRepository = $this->app->make(UserRepository::class);
+        $accountRepository = $this->app->make(AccountRepository::class);
 
         foreach (config('permissions') as $key => $permissions) {
-            Gate::define($key, function (User $user) use ($userRepository, $key) {
-                return $userRepository->hasPermission($user, $key);
+            Gate::define($key, function (User $user) use ($accountRepository, $key) {
+                return $accountRepository->hasPermission($user, $key);
             });
         }
     }

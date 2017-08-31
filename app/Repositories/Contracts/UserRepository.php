@@ -3,7 +3,6 @@
 namespace App\Repositories\Contracts;
 
 use App\Models\User;
-use Illuminate\Contracts\Auth\Authenticatable;
 
 /**
  * Interface UserRepository.
@@ -60,14 +59,6 @@ interface UserRepository extends BaseRepository
      * @return mixed
      */
     public function batchDisable(array $ids);
-
-    /**
-     * @param \Illuminate\Contracts\Auth\Authenticatable $user
-     * @param                                            $name
-     *
-     * @return bool
-     */
-    public function hasPermission(Authenticatable $user, $name);
 
     /**
      * @param \App\Models\User $user
