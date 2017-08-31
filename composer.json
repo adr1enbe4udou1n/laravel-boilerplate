@@ -15,7 +15,7 @@
         "fideloper/proxy": "^3.3",
         "guzzlehttp/guzzle": "^6.2",
         "hieu-le/active": "^3.3",
-        "intervention/image": "^2.3",
+        "intervention/image": "^2.4",
         "intervention/imagecache": "^2.3",
         "laravel/framework": "5.5.*",
         "laravel/socialite": "^3.0",
@@ -27,11 +27,11 @@
         "plank/laravel-mediable": "^2.5",
         "roumen/sitemap": "^2.6",
         "tightenco/ziggy": "^0.4.0",
-        "yajra/laravel-datatables-oracle": "8.0.x-dev"
+        "yajra/laravel-datatables-oracle": "^8.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.0",
-        "barryvdh/laravel-ide-helper": "^2.2",
+        "barryvdh/laravel-ide-helper": "^2.4",
         "filp/whoops": "^2.1",
         "friendsofphp/php-cs-fixer": "^2.5",
         "fzaninotto/faker": "~1.4",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f82b8f214ef5849355515f302b3308a6",
+    "content-hash": "36e5f4fbbbe71e932a0d83a68e6a1b8b",
     "packages": [
         {
             "name": "anhskohbo/no-captcha",
@@ -541,16 +541,16 @@
         },
         {
             "name": "doctrine/common",
-            "version": "v2.8.0",
+            "version": "v2.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "ed349f953d443963c590b008b37b864b8a3c4b21"
+                "reference": "f68c297ce6455e8fd794aa8ffaf9fa458f6ade66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/ed349f953d443963c590b008b37b864b8a3c4b21",
-                "reference": "ed349f953d443963c590b008b37b864b8a3c4b21",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/f68c297ce6455e8fd794aa8ffaf9fa458f6ade66",
+                "reference": "f68c297ce6455e8fd794aa8ffaf9fa458f6ade66",
                 "shasum": ""
             },
             "require": {
@@ -610,7 +610,7 @@
                 "persistence",
                 "spl"
             ],
-            "time": "2017-07-22T09:01:43+00:00"
+            "time": "2017-08-31T08:43:38+00:00"
         },
         {
             "name": "doctrine/dbal",
@@ -1189,27 +1189,26 @@
         },
         {
             "name": "hieu-le/active",
-            "version": "3.4.0",
+            "version": "3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/letrunghieu/active.git",
-                "reference": "6d98ba8a1b779ef545cae585572f392f3f56ffd5"
+                "reference": "977b3927033bdf7aedfbf983cf6050c82e31e598"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/letrunghieu/active/zipball/6d98ba8a1b779ef545cae585572f392f3f56ffd5",
-                "reference": "6d98ba8a1b779ef545cae585572f392f3f56ffd5",
+                "url": "https://api.github.com/repos/letrunghieu/active/zipball/977b3927033bdf7aedfbf983cf6050c82e31e598",
+                "reference": "977b3927033bdf7aedfbf983cf6050c82e31e598",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "^5.0",
-                "php": ">=5.5.9"
+                "laravel/framework": "^5.5",
+                "php": ">=7.0"
             },
             "require-dev": {
                 "codeclimate/php-test-reporter": "dev-master",
-                "mockery/mockery": "dev-master",
                 "orchestra/testbench": "^3.1",
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "~6.0"
             },
             "type": "library",
             "autoload": {
@@ -1239,7 +1238,7 @@
                 "laravel",
                 "routing"
             ],
-            "time": "2017-02-15T03:04:16+00:00"
+            "time": "2017-08-31T10:20:30+00:00"
         },
         {
             "name": "intervention/image",
@@ -1914,20 +1913,19 @@
         },
         {
             "name": "maatwebsite/excel",
-            "version": "2.1.21",
+            "version": "2.1.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-                "reference": "2f5e717a09bfa69f5d804a97880a944a3bbe25d2"
+                "reference": "bb7b3d9a72f56ddab974e6a629e4f5e51cd945a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/2f5e717a09bfa69f5d804a97880a944a3bbe25d2",
-                "reference": "2f5e717a09bfa69f5d804a97880a944a3bbe25d2",
+                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/bb7b3d9a72f56ddab974e6a629e4f5e51cd945a2",
+                "reference": "bb7b3d9a72f56ddab974e6a629e4f5e51cd945a2",
                 "shasum": ""
             },
             "require": {
-                "ext-zip": "*",
                 "illuminate/cache": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
                 "illuminate/config": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
                 "illuminate/filesystem": "5.0.*|5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
@@ -1989,7 +1987,7 @@
                 "import",
                 "laravel"
             ],
-            "time": "2017-08-16T14:49:55+00:00"
+            "time": "2017-08-31T14:52:24+00:00"
         },
         {
             "name": "martinlindhe/laravel-vue-i18n-generator",
@@ -4017,16 +4015,16 @@
         },
         {
             "name": "yajra/laravel-datatables-oracle",
-            "version": "dev-master",
+            "version": "v8.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables.git",
-                "reference": "3e9b0990876979e7aa86a7e9fb86735db3c9dc1a"
+                "reference": "06ddfeac9a86a701d860070a2f19b1f6ebe6615d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/3e9b0990876979e7aa86a7e9fb86735db3c9dc1a",
-                "reference": "3e9b0990876979e7aa86a7e9fb86735db3c9dc1a",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/06ddfeac9a86a701d860070a2f19b1f6ebe6615d",
+                "reference": "06ddfeac9a86a701d860070a2f19b1f6ebe6615d",
                 "shasum": ""
             },
             "require": {
@@ -4083,22 +4081,22 @@
                 "jquery",
                 "laravel"
             ],
-            "time": "2017-08-24T05:30:16+00:00"
+            "time": "2017-08-31T11:09:32+00:00"
         }
     ],
     "packages-dev": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v3.0.0",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "a8f798029783e021f25affab6c34f786983639df"
+                "reference": "bce341e3194bbeffa60ac782d645067557f5075e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/a8f798029783e021f25affab6c34f786983639df",
-                "reference": "a8f798029783e021f25affab6c34f786983639df",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/bce341e3194bbeffa60ac782d645067557f5075e",
+                "reference": "bce341e3194bbeffa60ac782d645067557f5075e",
                 "shasum": ""
             },
             "require": {
@@ -4153,7 +4151,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2017-08-28T20:21:05+00:00"
+            "time": "2017-08-29T08:54:25+00:00"
         },
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -7699,9 +7697,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "yajra/laravel-datatables-oracle": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
