@@ -152,7 +152,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
             return false;
         }
 
-        $roles = isset($input['roles']) ? explode(',', $input['roles']) : [];
+        $roles = $input['roles'] ?? [];
 
         if (!empty($roles)) {
             $allowedRoles = $this->roles->getAllowedRoles()->keyBy('id');

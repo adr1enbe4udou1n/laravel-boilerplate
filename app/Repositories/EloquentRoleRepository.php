@@ -80,7 +80,7 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
 
         $role->permissions()->delete();
 
-        $permissions = isset($input['permissions']) ? explode(',', $input['permissions']) : [];
+        $permissions = $input['permissions'] ?? [];
 
         foreach ($permissions as $name) {
             $role->permissions()->create(['name' => $name]);

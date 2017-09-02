@@ -183,7 +183,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
                 $ids = $post->tags->pluck('id')->toArray();
                 $post->tags()->detach($ids);
 
-                foreach (explode(',', $input['tags']) as $tag) {
+                foreach ($input['tags'] as $tag) {
                     if ($tag = $this->tags->findOrCreate($tag)) {
                         $post->tags()->attach($tag->id);
                     }

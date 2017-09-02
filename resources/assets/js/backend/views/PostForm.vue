@@ -70,6 +70,7 @@
                                         multiple
                                         v-model="model.tags"
                                         :on-search="getTags"
+                                        :options="tagsOptions"
                                         :placeholder="$t('labels.placeholders.tags')"
                                         :taggable="true"
                                 >
@@ -313,6 +314,7 @@
         },
         modelName: 'post',
         listPath: '/posts',
+        tagsOptions: [],
         model: {
           title: null,
           summary: null,
@@ -346,7 +348,7 @@
             }
           })
           .then(response => {
-            this.tags = response.data.items
+            this.tagsOptions = response.data.items
           })
       },
       onFileChange (e) {

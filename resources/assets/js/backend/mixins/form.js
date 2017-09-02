@@ -51,6 +51,12 @@ export default {
               data.append(key, this.model[key] ? 1 : 0)
               return
             }
+            if (Array.isArray(this.model[key])) {
+              this.model[key].forEach(val => {
+                data.append(`${key}[]`, val)
+              })
+              return
+            }
 
             data.append(key, this.model[key])
           })
