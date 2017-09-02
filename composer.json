@@ -4,6 +4,12 @@
     "keywords": ["framework", "laravel", "boilerplate", "bootstrap 4 beta", "vue", "coreui"],
     "license": "MIT",
     "type": "project",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/JellyBool/Purifier"
+        }
+    ],
     "require": {
         "php": "^7.1",
         "ext-gd": "*",
@@ -24,7 +30,7 @@
         "maatwebsite/excel": "^2.1",
         "martinlindhe/laravel-vue-i18n-generator": "^0.1.16",
         "mcamara/laravel-localization": "^1.2",
-        "mews/purifier": "^2.0",
+        "mews/purifier": "dev-master",
         "plank/laravel-mediable": "^2.5",
         "roumen/sitemap": "^2.6",
         "tightenco/ziggy": "^0.4.0",
