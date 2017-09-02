@@ -232,11 +232,6 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     {
         $query = $this->query()->whereIn('id', $ids);
 
-        if (!Gate::check('manage posts')) {
-            // Filter to only current user's posts
-            $query->whereUserId(auth()->id());
-        }
-
         return $query;
     }
 
@@ -250,8 +245,15 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     public function batchDestroy(array $ids)
     {
         DB::transaction(function () use ($ids) {
+            $query = $this->batchQuery($ids);
+
+            if (!Gate::check('delete posts')) {
+                // Filter to only current user's posts
+                $query->whereUserId(auth()->id());
+            }
+
             /** @var Post[] $posts */
-            $posts = $this->batchQuery($ids)->get();
+            $posts = $query->get();
 
             foreach ($posts as $post) {
                 $this->destroy($post);
@@ -275,6 +277,11 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     {
         DB::transaction(function () use ($ids) {
             $query = $this->batchQuery($ids);
+
+            if (!Gate::check('edit posts')) {
+                // Filter to only current user's posts
+                $query->whereUserId(auth()->id());
+            }
 
             if (Gate::check('publish posts')) {
                 if ($query->update(['status' => Post::PUBLISHED])) {
@@ -304,6 +311,11 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
         DB::transaction(function () use ($ids) {
             $query = $this->batchQuery($ids);
 
+            if (!Gate::check('edit posts')) {
+                // Filter to only current user's posts
+                $query->whereUserId(auth()->id());
+            }
+
             if ($query->update(['pinned' => true])) {
                 return true;
             }
@@ -326,6 +338,11 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     {
         DB::transaction(function () use ($ids) {
             $query = $this->batchQuery($ids);
+
+            if (!Gate::check('edit posts')) {
+                // Filter to only current user's posts
+                $query->whereUserId(auth()->id());
+            }
 
             if ($query->update(['promoted' => true])) {
                 return true;

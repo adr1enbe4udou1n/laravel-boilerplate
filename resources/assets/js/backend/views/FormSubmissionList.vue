@@ -5,7 +5,7 @@
                 <h4>{{ $t('labels.backend.form_submissions.titles.index') }}</h4>
             </div>
             <div class="card-body">
-                <datatable :options="dataTableOptions" :actions="dataTableActions" :action-url="$app.route('admin.form_submissions.batch_action')"></datatable>
+                <datatable :options="dataTableOptions" :actions="dataTableActions" action-route-name="admin.form_submissions.batch_action"></datatable>
             </div>
         </div>
     </div>

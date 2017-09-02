@@ -20,7 +20,7 @@
         type: Object,
         default: null
       },
-      actionUrl: {
+      actionRouteName: {
         type: String,
         default: null
       }
@@ -28,7 +28,7 @@
     methods: {
       onBulkAction ($name) {
         let dataTable = $(this.$el).find('table').DataTable()
-        axios.post(this.actionUrl, {
+        axios.post(this.$app.route(this.actionRouteName), {
           action: $name,
           ids: dataTable.rows({selected: true}).ids().toArray()
         }).then(response => {

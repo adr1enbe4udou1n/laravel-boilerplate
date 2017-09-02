@@ -31,7 +31,7 @@
                 <h4 class="mt-1">{{ $t('labels.backend.redirections.titles.index') }}</h4>
             </div>
             <div class="card-body">
-                <datatable :options="dataTableOptions" :actions="dataTableActions" :action-url="$app.route('admin.redirections.batch_action')"></datatable>
+                <datatable :options="dataTableOptions" :actions="dataTableActions" action-route-name="admin.redirections.batch_action"></datatable>
             </div>
         </div>
     </div>
