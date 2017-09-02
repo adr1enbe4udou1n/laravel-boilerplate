@@ -47,7 +47,7 @@ class ViewServiceProvider extends ServiceProvider
         });
 
         View::composer('*', function (\Illuminate\View\View $view) {
-            $view->with('loggedInUser', $logged_in_user = auth()->user());
+            $view->with('loggedInUser', auth()->user());
         });
     }
 
