@@ -15,10 +15,10 @@
         "ext-gd": "*",
         "anhskohbo/no-captcha": "^2.4",
         "artesaos/seotools": "^0.10.0",
-        "cviebrock/eloquent-sluggable": "^4.2",
+        "cviebrock/eloquent-sluggable": "dev-master",
         "davejamesmiller/laravel-breadcrumbs": "^4.0",
         "doctrine/dbal": "^2.6",
-        "fideloper/proxy": "^3.3",
+        "fideloper/proxy": "~3.3",
         "guzzlehttp/guzzle": "^6.2",
         "hieu-le/active": "^3.3",
         "intervention/image": "^2.4",
@@ -39,14 +39,11 @@
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.0",
         "barryvdh/laravel-ide-helper": "^2.4",
-        "filp/whoops": "^2.1",
-        "friendsofphp/php-cs-fixer": "^2.5",
+        "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
-        "jakub-onderka/php-parallel-lint": "^0.9.2",
-        "laravel/dusk": "^2.0",
-        "mockery/mockery": "0.9.*",
-        "phpro/grumphp": "^0.11.6",
-        "phpunit/phpunit": "~6.2.0"
+        "laravel/dusk": "~2.0",
+        "mockery/mockery": "1.0.x-dev",
+        "phpunit/phpunit": "~6.0"
     },
     "autoload": {
         "classmap": [
