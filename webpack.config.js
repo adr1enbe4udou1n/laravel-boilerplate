@@ -12,8 +12,7 @@ const ManifestPlugin = require('webpack-manifest-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
-const WebpackBundleSizeAnalyzerPlugin = require(
-  'webpack-bundle-size-analyzer').WebpackBundleSizeAnalyzerPlugin
+const WebpackBundleSizeAnalyzerPlugin = require('webpack-bundle-size-analyzer').WebpackBundleSizeAnalyzerPlugin
 
 const production = process.env.NODE_ENV === 'production'
 const hmr = process.argv.includes('--hot')
@@ -66,8 +65,8 @@ let ckeditorIgnoredLanguages = []
 
 fs.readdirSync('node_modules/ckeditor/lang').forEach((file) => {
   if (_.some(ckeditorLocales, (locale) => {
-      return file === `${locale}.js`
-    }) === false) {
+    return file === `${locale}.js`
+  }) === false) {
     ckeditorIgnoredLanguages.push(file)
   }
 })
