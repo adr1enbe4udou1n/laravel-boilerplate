@@ -4,6 +4,7 @@ pipeline:
     volumes:
       - /tmp/composer-cache:/home/circleci/.composer/cache/
     commands:
+      - whoami
       - composer install --ignore-platform-reqs
       - cp .env.dusk .env
       - php artisan key:generate
