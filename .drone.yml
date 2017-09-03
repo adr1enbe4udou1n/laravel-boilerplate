@@ -4,8 +4,8 @@ pipeline:
     volumes:
       - /tmp/composer-cache:/root/.composer/cache/
     commands:
-      - sudo composer install --ignore-platform-reqs
       - cp .env.dusk .env
+      - sudo composer install --ignore-platform-reqs
       - php artisan key:generate
       - touch database/database.sqlite
       - ./vendor/bin/phpunit
