@@ -1,11 +1,15 @@
+workspace:
+  base: /home/circleci
+  path: laravel/boilerplate
+
 pipeline:
   build:
     image: notnoopci/php:7.1-browsers
     volumes:
-      - /tmp/composer-cache:/root/.composer/cache/
+      - /tmp/composer-cache:/home/circleci/.composer/cache/
     commands:
       - cp .env.dusk .env
-      - sudo composer install --ignore-platform-reqs
+      - composer install --ignore-platform-reqs
       - php artisan key:generate
       - touch database/database.sqlite
       - ./vendor/bin/phpunit
