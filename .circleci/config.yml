@@ -7,8 +7,6 @@ jobs:
     steps:
       - checkout
 
-      - run: sudo apt install -y libsqlite3-dev libzip-dev libpng12-dev
-      - run: sudo docker-php-ext-install gd zip
       - run: cp .env.dusk .env
 
       - restore_cache:

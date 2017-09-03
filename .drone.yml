@@ -1,0 +1,14 @@
+pipeline:
+  build:
+    image: notnoopci/php:7.1-browsers
+    volumes:
+      - /tmp/composer-cache:/root/.composer/cache/
+    commands:
+      - composer install --prefer-dist
+      - cp .env.dusk .env
+      - php artisan key:generate
+      - touch database/database.sqlite
+      - ./vendor/bin/phpunit
+      - ./vendor/laravel/dusk/bin/chromedriver-linux &
+      - php artisan serve &
+      - php artisan dusk
