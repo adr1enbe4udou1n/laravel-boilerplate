@@ -15,7 +15,7 @@
         "ext-gd": "*",
         "anhskohbo/no-captcha": "^2.4",
         "artesaos/seotools": "^0.10.0",
-        "cviebrock/eloquent-sluggable": "dev-master",
+        "cviebrock/eloquent-sluggable": "^4.3",
         "davejamesmiller/laravel-breadcrumbs": "^4.0",
         "doctrine/dbal": "^2.6",
         "fideloper/proxy": "~3.3",
