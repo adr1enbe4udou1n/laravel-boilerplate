@@ -18,7 +18,7 @@
     @yield('metas')
 
     <!-- Styles -->
-    @if (!$hmr)
+    @if (app()->environment('production'))
     <link rel="stylesheet" href="{{ assets('css/frontend.css') }}">
     @endif
     @yield('styles')

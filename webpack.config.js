@@ -274,7 +274,7 @@ module.exports = {
         ? 'dist/css/[name].[contenthash].css'
         : 'css/[name].css',
       allChunks: true,
-      disable: hmr
+      disable: !production
     }),
     new WebpackBundleSizeAnalyzerPlugin('./plain-report.txt'),
     new BrowserSyncPlugin(

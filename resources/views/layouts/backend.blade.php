@@ -11,7 +11,7 @@
     <title>Administration | {{ config('app.name') }}</title>
 
     <!-- Custom Styles -->
-    @if (!$hmr)
+    @if (app()->environment('production'))
     <link rel="stylesheet" href="{{ assets('css/backend.css') }}">
     @endif
 </head>

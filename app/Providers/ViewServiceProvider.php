@@ -13,13 +13,6 @@ class ViewServiceProvider extends ServiceProvider
     public function boot()
     {
         /*
-         * Share hot mode for views
-         */
-        View::composer('*', function (\Illuminate\View\View $view) {
-            $view->with('hmr', file_exists(public_path('/hot')));
-        });
-
-        /*
          * Prepare flash message for alerts
          */
         View::composer('partials/messages', function (\Illuminate\View\View $view) {
