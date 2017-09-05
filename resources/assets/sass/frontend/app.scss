@@ -15,6 +15,9 @@
 @import "node_modules/cookieconsent/build/cookieconsent.min";
 @import "node_modules/intl-tel-input/src/css/intlTelInput.scss";
 
+// Bootstrap 4 beta fixes
+@import "../bootstrap";
+
 // Components
 @import "../buttons";
 
@@ -53,10 +56,6 @@ body {
   display: none;
 }
 
-.form-group.has-error {
-  background: none;
-}
-
 .intl-tel-input {
   width: 100%;
 }
@@ -89,12 +88,4 @@ iframe {
     background-color: #fff;
     margin: 0 0.5rem;
   }
-}
-
-.form-group.is-invalid .form-control {
-  border-color: $form-feedback-invalid-color;
-}
-
-.form-group.is-invalid .invalid-feedback {
-  display: block;
 }
