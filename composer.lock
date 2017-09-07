@@ -1195,16 +1195,16 @@
         },
         {
             "name": "hieu-le/active",
-            "version": "3.5.0",
+            "version": "3.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/letrunghieu/active.git",
-                "reference": "977b3927033bdf7aedfbf983cf6050c82e31e598"
+                "reference": "42d0f50be74b89d730bb4c0ee8c32447630506c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/letrunghieu/active/zipball/977b3927033bdf7aedfbf983cf6050c82e31e598",
-                "reference": "977b3927033bdf7aedfbf983cf6050c82e31e598",
+                "url": "https://api.github.com/repos/letrunghieu/active/zipball/42d0f50be74b89d730bb4c0ee8c32447630506c6",
+                "reference": "42d0f50be74b89d730bb4c0ee8c32447630506c6",
                 "shasum": ""
             },
             "require": {
@@ -1217,6 +1217,16 @@
                 "phpunit/phpunit": "~6.0"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "HieuLe\\Active\\ActiveServiceProvider"
+                    ],
+                    "aliases": {
+                        "Active": "HieuLe\\Active\\Facades\\Active"
+                    }
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "HieuLe\\Active\\": "src/",
@@ -1244,7 +1254,7 @@
                 "laravel",
                 "routing"
             ],
-            "time": "2017-08-31T10:20:30+00:00"
+            "time": "2017-09-07T02:36:51+00:00"
         },
         {
             "name": "intervention/image",
@@ -1516,16 +1526,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.5.2",
+            "version": "v5.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "65da63c8ad4836e2bcddcff75becd49c71c5041c"
+                "reference": "779a98d3b2ebed2128db1a668dcc10a65c9b01be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/65da63c8ad4836e2bcddcff75becd49c71c5041c",
-                "reference": "65da63c8ad4836e2bcddcff75becd49c71c5041c",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/779a98d3b2ebed2128db1a668dcc10a65c9b01be",
+                "reference": "779a98d3b2ebed2128db1a668dcc10a65c9b01be",
                 "shasum": ""
             },
             "require": {
@@ -1644,7 +1654,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-09-04T14:09:04+00:00"
+            "time": "2017-09-07T13:50:21+00:00"
         },
         {
             "name": "laravel/socialite",
@@ -3001,26 +3011,33 @@
         },
         {
             "name": "roumen/sitemap",
-            "version": "v2.6.5",
+            "version": "v2.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravelium/laravel-sitemap.git",
-                "reference": "43747375a1dc19b11aa52442c99628a8d104c0f7"
+                "reference": "977dda2ff52843e8162a11e5760d04372d0b04f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravelium/laravel-sitemap/zipball/43747375a1dc19b11aa52442c99628a8d104c0f7",
-                "reference": "43747375a1dc19b11aa52442c99628a8d104c0f7",
+                "url": "https://api.github.com/repos/Laravelium/laravel-sitemap/zipball/977dda2ff52843e8162a11e5760d04372d0b04f8",
+                "reference": "977dda2ff52843e8162a11e5760d04372d0b04f8",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "~5",
-                "php": ">=5.5.9"
+                "illuminate/support": "5.5.*",
+                "php": ">=7.0.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "3.7.*"
+                "phpunit/phpunit": "5.4.*"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Roumen\\Sitemap\\SitemapServiceProvider"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Roumen\\Sitemap": "src/"
@@ -3034,18 +3051,18 @@
                 {
                     "name": "Roumen Damianoff",
                     "email": "roumen@crimsson.com",
-                    "homepage": "https://roumen.it",
+                    "homepage": "https://damianoff.com",
                     "role": "Developer"
                 }
             ],
             "description": "A not so simple sitemap generator for Laravel.",
-            "homepage": "https://roumen.it/projects/laravel-sitemap",
+            "homepage": "https://damianoff.com/en/projects/laravel-sitemap",
             "keywords": [
                 "Sitemap",
                 "generator",
                 "laravel"
             ],
-            "time": "2016-10-06T06:13:52+00:00"
+            "time": "2017-09-07T16:19:37+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4106,16 +4123,16 @@
         },
         {
             "name": "yajra/laravel-datatables-oracle",
-            "version": "v8.0.1",
+            "version": "v8.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables.git",
-                "reference": "06ddfeac9a86a701d860070a2f19b1f6ebe6615d"
+                "reference": "b1fcc9be3403394791541ec839e1d89f3196e337"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/06ddfeac9a86a701d860070a2f19b1f6ebe6615d",
-                "reference": "06ddfeac9a86a701d860070a2f19b1f6ebe6615d",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/b1fcc9be3403394791541ec839e1d89f3196e337",
+                "reference": "b1fcc9be3403394791541ec839e1d89f3196e337",
                 "shasum": ""
             },
             "require": {
@@ -4172,7 +4189,7 @@
                 "jquery",
                 "laravel"
             ],
-            "time": "2017-08-31T11:09:32+00:00"
+            "time": "2017-09-06T00:36:58+00:00"
         }
     ],
     "packages-dev": [
@@ -4633,16 +4650,16 @@
         },
         {
             "name": "laravel/dusk",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/dusk.git",
-                "reference": "7f75d602dd6d59311ff46777eff44fa14d39e5af"
+                "reference": "5e0ceaa27c9a78897f201a26f176b23bef20210f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/dusk/zipball/7f75d602dd6d59311ff46777eff44fa14d39e5af",
-                "reference": "7f75d602dd6d59311ff46777eff44fa14d39e5af",
+                "url": "https://api.github.com/repos/laravel/dusk/zipball/5e0ceaa27c9a78897f201a26f176b23bef20210f",
+                "reference": "5e0ceaa27c9a78897f201a26f176b23bef20210f",
                 "shasum": ""
             },
             "require": {
@@ -4690,7 +4707,7 @@
                 "testing",
                 "webdriver"
             ],
-            "time": "2017-08-28T10:03:58+00:00"
+            "time": "2017-09-06T13:19:28+00:00"
         },
         {
             "name": "maximebf/debugbar",
