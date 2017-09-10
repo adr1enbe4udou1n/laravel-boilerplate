@@ -97,10 +97,10 @@ Both frontend and backend have dedicated login pages.
 
 ### Compiling assets with Webpack
 
-1. Install dependencies with `yarn`
-2. Launch `yarn watch` for compiling assets and start browsersync
+1. Install dependencies with `npm i`
+2. Launch `npm run watch` for compiling assets and start browsersync
 
-> Note : If assets modified, don't forget to launch `yarn production` before deploy on each production environment.
+> Note : If assets modified, don't forget to launch `npm run production` before deploy on each production environment.
 
 ### Permissions definitions
 
