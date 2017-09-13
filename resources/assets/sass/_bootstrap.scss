@@ -6,14 +6,7 @@
   display: block;
 }
 
-// Fix input/select height on Windows
-input[type=text], select {
-  padding-top: .4rem !important;
-  padding-bottom: .45rem !important;
-  line-height: 1.4 !important;
-}
-
-select {
+// Fix select height on Windows
+select.form-control {
   padding-top: .3rem !important;
-  padding-left: .5rem !important;
 }
