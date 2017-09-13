@@ -1,10 +1,10 @@
 {
   "backend.css": "dist/css/backend.bede9fa5b58fc35efb415f9fcf2ea798.css",
   "backend.css.map": "dist/css/backend.bede9fa5b58fc35efb415f9fcf2ea798.css.map",
-  "backend.js": "dist/js/backend.f46c5dedaabacdfbd9bb.js",
-  "backend.js.map": "dist/js/backend.f46c5dedaabacdfbd9bb.js.map",
-  "ckeditor.js": "dist/js/ckeditor.ffb8e1e6505015550b5a.js",
-  "ckeditor.js.map": "dist/js/ckeditor.ffb8e1e6505015550b5a.js.map",
+  "backend.js": "dist/js/backend.00a7034a2338e4fd741d.js",
+  "backend.js.map": "dist/js/backend.00a7034a2338e4fd741d.js.map",
+  "ckeditor.js": "dist/js/ckeditor.1e699fa4fe308aa859a9.js",
+  "ckeditor.js.map": "dist/js/ckeditor.1e699fa4fe308aa859a9.js.map",
   "fonts\\vendor\\Simple-Line-Icons.eot": "fonts/vendor/Simple-Line-Icons.eot?f33df365d6d0255b586f2920355e94d7",
   "fonts\\vendor\\Simple-Line-Icons.svg": "fonts/vendor/Simple-Line-Icons.svg?2fe2efe63441d830b1acd106c1fe8734",
   "fonts\\vendor\\Simple-Line-Icons.ttf": "fonts/vendor/Simple-Line-Icons.ttf?d2285965fe34b05465047401b8595dd0",
@@ -27,8 +27,8 @@
   "images\\vendor\\intl-tel-input\\build\\flags.png": "images/vendor/intl-tel-input/build/flags.png?ae33acae404631e997ef8d91dae08ccd",
   "images\\vendor\\intl-tel-input\\build\\flags@2x.png": "images/vendor/intl-tel-input/build/flags@2x.png?f2c77a6b7e26ff160fdb4193b383b1ea",
   "images\\vendor\\slick-carousel\\slick\\ajax-loader.gif": "images/vendor/slick-carousel/slick/ajax-loader.gif?68b0c4fcb84d239f261c1a5e65818142",
-  "manifest.js": "dist/js/manifest.4cb5320f50fa4b4759a7.js",
-  "manifest.js.map": "dist/js/manifest.4cb5320f50fa4b4759a7.js.map",
-  "vendor.js": "dist/js/vendor.9933c8d0e10059046b3b.js",
-  "vendor.js.map": "dist/js/vendor.9933c8d0e10059046b3b.js.map"
+  "manifest.js": "dist/js/manifest.a89a08cb0e4a0d50ed4e.js",
+  "manifest.js.map": "dist/js/manifest.a89a08cb0e4a0d50ed4e.js.map",
+  "vendor.js": "dist/js/vendor.19639e07f6140a81841e.js",
+  "vendor.js.map": "dist/js/vendor.19639e07f6140a81841e.js.map"
 }
