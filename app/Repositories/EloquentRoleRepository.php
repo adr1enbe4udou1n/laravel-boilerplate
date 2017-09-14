@@ -127,7 +127,7 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
 
         $roles = $roles->filter(function (Role $role) use ($permissions) {
             foreach ($role->permissions as $permission) {
-                if ($permissions->search($permission, true) === false) {
+                if (false === $permissions->search($permission, true)) {
                     return false;
                 }
             }

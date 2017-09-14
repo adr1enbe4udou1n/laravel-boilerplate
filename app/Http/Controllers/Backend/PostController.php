@@ -150,7 +150,7 @@ class PostController extends BackendController
             $request->only('title', 'summary', 'body', 'published_at', 'unpublished_at', 'pinned', 'promoted')
         );
 
-        if ($request->input('status') === 'publish') {
+        if ('publish' === $request->input('status')) {
             $this->posts->saveAndPublish($post, $request->input(), $request->file('featured_image'));
         } else {
             $this->posts->saveAsDraft($post, $request->input(), $request->file('featured_image'));
@@ -175,7 +175,7 @@ class PostController extends BackendController
             $request->only('title', 'summary', 'body', 'published_at', 'unpublished_at', 'pinned', 'promoted')
         );
 
-        if ($request->input('status') === 'publish') {
+        if ('publish' === $request->input('status')) {
             $this->posts->saveAndPublish($post, $request->input(), $request->file('featured_image'));
         } else {
             $this->posts->saveAsDraft($post, $request->input(), $request->file('featured_image'));

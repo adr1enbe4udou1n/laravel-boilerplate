@@ -58,7 +58,7 @@ trait Translatable
     {
         $configFallbackLocale = $this->getFallbackLocale();
         $locale = $locale ?: $this->locale();
-        $withFallback = $withFallback === null ? $this->useFallback() : $withFallback;
+        $withFallback = null === $withFallback ? $this->useFallback() : $withFallback;
         $fallbackLocale = $this->getFallbackLocale($locale);
 
         if ($translation = $this->getTranslationByLocaleKey($locale)) {
@@ -119,7 +119,7 @@ trait Translatable
     {
         if ($this->translationForeignKey) {
             $key = $this->translationForeignKey;
-        } elseif ($this->primaryKey !== 'id') {
+        } elseif ('id' !== $this->primaryKey) {
             $key = $this->primaryKey;
         } else {
             $key = $this->getForeignKey();
@@ -186,7 +186,7 @@ trait Translatable
         list($attribute, $locale) = $this->getAttributeAndLocale($key);
 
         if ($this->isTranslationAttribute($attribute)) {
-            if ($this->getTranslation($locale) === null) {
+            if (null === $this->getTranslation($locale)) {
                 return null;
             }
 
@@ -264,7 +264,7 @@ trait Translatable
      */
     protected function getTranslationOrNew($locale)
     {
-        if (($translation = $this->getTranslation($locale, false)) === null) {
+        if (null === ($translation = $this->getTranslation($locale, false))) {
             $translation = $this->getNewTranslation($locale);
         }
 
@@ -333,7 +333,7 @@ trait Translatable
      */
     private function isLocaleCountryBased($locale)
     {
-        return mb_strpos($locale, $this->getLocaleSeparator()) !== false;
+        return false !== mb_strpos($locale, $this->getLocaleSeparator());
     }
 
     /**
@@ -353,7 +353,7 @@ trait Translatable
      */
     private function useFallback()
     {
-        if (isset($this->useTranslationFallback) && $this->useTranslationFallback !== null) {
+        if (isset($this->useTranslationFallback) && null !== $this->useTranslationFallback) {
             return $this->useTranslationFallback;
         }
 
@@ -770,7 +770,7 @@ trait Translatable
      */
     public function deleteTranslations($locales = null)
     {
-        if ($locales === null) {
+        if (null === $locales) {
             $translations = $this->translations()->get();
         } else {
             $locales = (array) $locales;

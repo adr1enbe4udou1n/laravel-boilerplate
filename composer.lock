@@ -243,16 +243,16 @@
         },
         {
             "name": "davejamesmiller/laravel-breadcrumbs",
-            "version": "4.1.0",
+            "version": "4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davejamesmiller/laravel-breadcrumbs.git",
-                "reference": "eec0aebed453a9019b621f12de6554b8cd23c2cb"
+                "reference": "368d7b3a2cd21fe2e648756e5d01d3fe4fbe98e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davejamesmiller/laravel-breadcrumbs/zipball/eec0aebed453a9019b621f12de6554b8cd23c2cb",
-                "reference": "eec0aebed453a9019b621f12de6554b8cd23c2cb",
+                "url": "https://api.github.com/repos/davejamesmiller/laravel-breadcrumbs/zipball/368d7b3a2cd21fe2e648756e5d01d3fe4fbe98e1",
+                "reference": "368d7b3a2cd21fe2e648756e5d01d3fe4fbe98e1",
                 "shasum": ""
             },
             "require": {
@@ -298,7 +298,7 @@
             "keywords": [
                 "laravel"
             ],
-            "time": "2017-08-28T14:22:19+00:00"
+            "time": "2017-09-14T08:23:50+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -4769,12 +4769,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mockery/mockery.git",
-                "reference": "d1d330595a113fb2ed40bed22411af2327762f8d"
+                "reference": "005bf351c508ebb26894b7d5b1e184f65903526b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mockery/mockery/zipball/d1d330595a113fb2ed40bed22411af2327762f8d",
-                "reference": "d1d330595a113fb2ed40bed22411af2327762f8d",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/005bf351c508ebb26894b7d5b1e184f65903526b",
+                "reference": "005bf351c508ebb26894b7d5b1e184f65903526b",
                 "shasum": ""
             },
             "require": {
@@ -4826,7 +4826,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2017-08-22T07:19:24+00:00"
+            "time": "2017-09-14T09:23:40+00:00"
         },
         {
             "name": "myclabs/deep-copy",

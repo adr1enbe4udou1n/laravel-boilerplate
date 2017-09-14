@@ -104,7 +104,7 @@ class LoginController extends Controller
         }
 
         foreach ($socialiteLinks as $socialiteLink) {
-            $socialiteHtml .= ($socialiteHtml !== '' ? '&nbsp;' : '')
+            $socialiteHtml .= ('' !== $socialiteHtml ? '&nbsp;' : '')
                 .$socialiteLink;
         }
 

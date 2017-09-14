@@ -138,7 +138,7 @@ class Post extends Model
 
     public function getPublishedAttribute()
     {
-        return $this->status === self::PUBLISHED;
+        return self::PUBLISHED === $this->status;
     }
 
     public function getFeaturedImagePathAttribute()
@@ -158,12 +158,12 @@ class Post extends Model
 
     public function getMetaTitleAttribute()
     {
-        return $this->meta !== null && !empty($this->meta->title) ? $this->meta->title : $this->title;
+        return null !== $this->meta && !empty($this->meta->title) ? $this->meta->title : $this->title;
     }
 
     public function getMetaDescriptionAttribute()
     {
-        return $this->meta !== null && !empty($this->meta->description) ? $this->meta->description : $this->summary;
+        return null !== $this->meta && !empty($this->meta->description) ? $this->meta->description : $this->summary;
     }
 
     public function owner()

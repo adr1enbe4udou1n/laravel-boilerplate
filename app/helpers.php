@@ -79,7 +79,7 @@ if (!function_exists('is_admin_route')) {
     {
         $action = $request->route()->getAction();
 
-        return $action['namespace'] === 'App\Http\Controllers\Backend';
+        return 'App\Http\Controllers\Backend' === $action['namespace'];
     }
 }
 

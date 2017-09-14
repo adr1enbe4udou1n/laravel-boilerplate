@@ -104,7 +104,7 @@ class User extends Authenticatable
 
     public function getIsSuperAdminAttribute()
     {
-        return $this->id === 1;
+        return 1 === $this->id;
     }
 
     /**

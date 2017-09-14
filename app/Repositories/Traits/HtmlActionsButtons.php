@@ -58,7 +58,7 @@ trait HtmlActionsButtons
      */
     public function getDeleteButtonHtml($route, $parameters, $ability = null, $arguments = [])
     {
-        if ($ability !== null && !Gate::check('access all backend') && !Gate::check($ability, $arguments)) {
+        if (null !== $ability && !Gate::check('access all backend') && !Gate::check($ability, $arguments)) {
             return '';
         }
 
