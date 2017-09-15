@@ -4769,12 +4769,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mockery/mockery.git",
-                "reference": "005bf351c508ebb26894b7d5b1e184f65903526b"
+                "reference": "89db0caa22276c470e4add719f3d181a78dec827"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mockery/mockery/zipball/005bf351c508ebb26894b7d5b1e184f65903526b",
-                "reference": "005bf351c508ebb26894b7d5b1e184f65903526b",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/89db0caa22276c470e4add719f3d181a78dec827",
+                "reference": "89db0caa22276c470e4add719f3d181a78dec827",
                 "shasum": ""
             },
             "require": {
@@ -4826,7 +4826,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2017-09-14T09:23:40+00:00"
+            "time": "2017-09-15T09:49:58+00:00"
         },
         {
             "name": "myclabs/deep-copy",
