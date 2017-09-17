@@ -1,13 +1,14 @@
 {
   "private": true,
   "scripts": {
+    "clean": "rimraf public/dist public/fonts/vendor public/images/vendor public/vendor/ckeditor",
     "dev": "npm run development",
     "development": "cross-env NODE_ENV=development webpack --progress --hide-modules",
     "watch": "cross-env NODE_ENV=development webpack --watch --progress --hide-modules",
     "watch-poll": "npm run watch -- --watch-poll",
     "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
     "prod": "npm run production",
-    "production": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "production": "npm run clean && cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.4",
@@ -21,7 +22,6 @@
     "browser-sync": "^2.18.13",
     "browser-sync-webpack-plugin": "^1.2.0",
     "ckeditor": "^4.7.3",
-    "clean-webpack-plugin": "^0.1.16",
     "cookieconsent": "^3.0.4",
     "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^5.0.5",
@@ -58,6 +58,7 @@
     "postcss-loader": "^2.0.6",
     "pwstrength-bootstrap": "^2.1.1",
     "resolve-url-loader": "^2.1.0",
+    "rimraf": "^2.6.2",
     "sass-loader": "^6.0.6",
     "simple-line-icons": "^2.4.1",
     "slick-carousel": "^1.7.1",
