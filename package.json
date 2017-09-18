@@ -69,7 +69,7 @@
     "vee-validate": "^2.0.0-rc.17",
     "vue": "^2.4.4",
     "vue-i18n": "^7.2.0",
-    "vue-loader": "^13.0.4",
+    "vue-loader": "^13.0.5",
     "vue-router": "^2.7.0",
     "vue-select": "^2.2.0",
     "vue-template-compiler": "^2.4.4",

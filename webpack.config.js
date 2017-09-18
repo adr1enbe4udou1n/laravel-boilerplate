@@ -5,7 +5,7 @@ const path = require('path')
 const webpack = require('webpack')
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
@@ -251,7 +251,6 @@ module.exports = {
     new CopyWebpackPlugin(ckeditorCopyPatterns, {
       ignore: ckeditorIgnoredLanguages
     }),
-    new FriendlyErrorsWebpackPlugin(),
     new webpack.LoaderOptionsPlugin({
       minimize: production,
       options: {
@@ -259,6 +258,7 @@ module.exports = {
         output: {path: './'}
       }
     }),
+    new FriendlyErrorsPlugin(),
     new WebpackNotifierPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest'],
@@ -339,6 +339,7 @@ if (production) {
         warnings: false
       }
     }),
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new ManifestPlugin()
   ]
 }
