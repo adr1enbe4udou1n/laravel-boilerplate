@@ -24,7 +24,7 @@
         "maatwebsite/excel": "^2.1",
         "martinlindhe/laravel-vue-i18n-generator": "^0.1.16",
         "mcamara/laravel-localization": "^1.2",
-        "mews/purifier": "dev-master",
+        "mews/purifier": "^2.0",
         "plank/laravel-mediable": "^2.5",
         "roumen/sitemap": "^2.6",
         "tightenco/ziggy": "^0.4.0",
