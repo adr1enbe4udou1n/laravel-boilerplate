@@ -219,6 +219,7 @@ return [
         Roumen\Sitemap\SitemapServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\BreadcrumbsServiceProvider::class,
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
+        Dimsav\Translatable\TranslatableServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Plank\Mediable\MediableServiceProvider::class,

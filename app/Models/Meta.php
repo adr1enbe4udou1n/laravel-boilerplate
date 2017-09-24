@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Traits\Translatable;
+use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
 /**
