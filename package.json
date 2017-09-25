@@ -49,7 +49,7 @@
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-loader": "^0.5.1",
     "img-loader": "^2.0.0",
-    "intl-tel-input": "^12.0.3",
+    "intl-tel-input": "^12.1.0",
     "jquery": "^3.2.1",
     "lodash": "^4.17.4",
     "lodash-webpack-plugin": "^0.11.4",
