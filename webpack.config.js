@@ -11,7 +11,7 @@ const ManifestPlugin = require('webpack-manifest-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
-const WebpackBundleSizeAnalyzerPlugin = require('webpack-bundle-size-analyzer').WebpackBundleSizeAnalyzerPlugin
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const production = process.env.NODE_ENV === 'production'
 const hmr = process.argv.includes('--hot')
@@ -275,7 +275,6 @@ module.exports = {
       allChunks: true,
       disable: !production
     }),
-    new WebpackBundleSizeAnalyzerPlugin('./plain-report.txt'),
     new BrowserSyncPlugin(
       {
         host: browserSyncHost,
@@ -339,6 +338,7 @@ if (production) {
       }
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
+    new BundleAnalyzerPlugin(),
     new ManifestPlugin()
   ]
 }
