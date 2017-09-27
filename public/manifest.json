@@ -1,8 +1,8 @@
 {
   "backend.css": "dist/css/backend.46bc82f88255a039037e1c681d287720.css",
   "backend.css.map": "dist/css/backend.46bc82f88255a039037e1c681d287720.css.map",
-  "backend.js": "dist/js/backend.160575cd928c29044de7.js",
-  "backend.js.map": "dist/js/backend.160575cd928c29044de7.js.map",
+  "backend.js": "dist/js/backend.90ef8215dd1c970a4878.js",
+  "backend.js.map": "dist/js/backend.90ef8215dd1c970a4878.js.map",
   "ckeditor.js": "dist/js/ckeditor.8c4da8b8541012ac76dd.js",
   "ckeditor.js.map": "dist/js/ckeditor.8c4da8b8541012ac76dd.js.map",
   "fonts\\vendor\\Simple-Line-Icons.eot": "fonts/vendor/Simple-Line-Icons.eot?f33df365d6d0255b586f2920355e94d7",
@@ -21,14 +21,14 @@
   "fonts\\vendor\\slick.woff": "fonts/vendor/slick.woff?b7c9e1e479de3b53f1e4e30ebac2403a",
   "frontend.css": "dist/css/frontend.54b1ad2e9b5f8f0d86457cfde6f86cc8.css",
   "frontend.css.map": "dist/css/frontend.54b1ad2e9b5f8f0d86457cfde6f86cc8.css.map",
-  "frontend.js": "dist/js/frontend.6cce4d65b182470cf2dc.js",
-  "frontend.js.map": "dist/js/frontend.6cce4d65b182470cf2dc.js.map",
+  "frontend.js": "dist/js/frontend.16ce548e80a3d6a02db4.js",
+  "frontend.js.map": "dist/js/frontend.16ce548e80a3d6a02db4.js.map",
   "images\\logo.png": "images/logo.png?01fb1da17b77e9ca7f9e946a4b0dd92c",
   "images\\vendor\\intl-tel-input\\build\\flags.png": "images/vendor/intl-tel-input/build/flags.png?ae33acae404631e997ef8d91dae08ccd",
   "images\\vendor\\intl-tel-input\\build\\flags@2x.png": "images/vendor/intl-tel-input/build/flags@2x.png?f2c77a6b7e26ff160fdb4193b383b1ea",
   "images\\vendor\\slick-carousel\\slick\\ajax-loader.gif": "images/vendor/slick-carousel/slick/ajax-loader.gif?68b0c4fcb84d239f261c1a5e65818142",
-  "manifest.js": "dist/js/manifest.e006334bd68c833c5235.js",
-  "manifest.js.map": "dist/js/manifest.e006334bd68c833c5235.js.map",
-  "vendor.js": "dist/js/vendor.f768247b7717d096fa52.js",
-  "vendor.js.map": "dist/js/vendor.f768247b7717d096fa52.js.map"
+  "manifest.js": "dist/js/manifest.3a55b94daa99595f2dce.js",
+  "manifest.js.map": "dist/js/manifest.3a55b94daa99595f2dce.js.map",
+  "vendor.js": "dist/js/vendor.178a93d4a015d3a7596c.js",
+  "vendor.js.map": "dist/js/vendor.178a93d4a015d3a7596c.js.map"
 }
