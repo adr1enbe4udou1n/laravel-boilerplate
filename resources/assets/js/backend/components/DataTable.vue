@@ -9,6 +9,8 @@
 
 <script>
   import axios from 'axios'
+  import sweetalert2 from 'sweetalert2'
+  import toastr from 'toastr'
 
   export default {
     props: {
@@ -34,22 +36,22 @@
         }).then(response => {
           // Reload Datatables and keep current pager
           dataTable.ajax.reload(null, false)
-          window.toastr[response.data.status](response.data.message)
+          toastr[response.data.status](response.data.message)
         }).catch(error => {
           // Not allowed error
           if (error.response.status === 403) {
-            window.toastr.error(this.$i18n.t('exceptions.unauthorized'))
+            toastr.error(this.$i18n.t('exceptions.unauthorized'))
             return
           }
 
           // Domain error
           if (error.response.data.message !== undefined) {
-            window.toastr.error(error.response.data.message)
+            toastr.error(error.response.data.message)
             return
           }
 
           // Generic error
-          window.toastr.error(this.$i18n.t('exceptions.general'))
+          toastr.error(this.$i18n.t('exceptions.general'))
         })
       }
     },
@@ -90,12 +92,12 @@
 
             // Not allowed error
             if (xhr.status === 403) {
-              window.toastr.error(this.$i18n.t('exceptions.unauthorized'))
+              toastr.error(this.$i18n.t('exceptions.unauthorized'))
               return
             }
 
             // Generic error
-            window.toastr.error(this.$i18n.t('exceptions.general'))
+            toastr.error(this.$i18n.t('exceptions.general'))
           }
         }
       }
@@ -126,30 +128,40 @@
           let url = $(e.currentTarget).attr('href')
           let dataTable = $(e.currentTarget).closest('table').DataTable()
 
-          $.confirmSwal(e.currentTarget, () => {
-            axios.delete(url)
-              .then(response => {
-                // Reload Datatables and keep current pager
-                dataTable.ajax.reload(null, false)
-                window.toastr[response.data.status](response.data.message)
-              })
-              .catch(error => {
-                // Not allowed error
-                if (error.response.status === 403) {
-                  window.toastr.error(this.$i18n.t('exceptions.unauthorized'))
-                  return
-                }
+          sweetalert2({
+            title: this.$i18n.t('labels.are_you_sure'),
+            type: 'warning',
+            showCancelButton: true,
+            cancelButtonText: this.$i18n.t('buttons.cancel'),
+            confirmButtonColor: '#dd4b39',
+            confirmButtonText: this.$i18n.t('buttons.delete')
+          }).then(
+            () => {
+              axios.delete(url)
+                .then(response => {
+                  // Reload Datatables and keep current pager
+                  dataTable.ajax.reload(null, false)
+                  toastr[response.data.status](response.data.message)
+                })
+                .catch(error => {
+                  // Not allowed error
+                  if (error.response.status === 403) {
+                    toastr.error(this.$i18n.t('exceptions.unauthorized'))
+                    return
+                  }
 
-                // Domain error
-                if (error.response.data.error !== undefined) {
-                  window.toastr.error(error.response.data.error)
-                  return
-                }
+                  // Domain error
+                  if (error.response.data.error !== undefined) {
+                    toastr.error(error.response.data.error)
+                    return
+                  }
 
-                // Generic error
-                window.toastr.error(this.$i18n.t('exceptions.general'))
-              })
-          })
+                  // Generic error
+                  toastr.error(this.$i18n.t('exceptions.general'))
+                })
+            },
+            () => {}
+          )
         })
       })
 

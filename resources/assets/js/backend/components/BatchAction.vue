@@ -14,6 +14,8 @@
 </template>
 
 <script>
+  import sweetalert2 from 'sweetalert2'
+
   export default {
     props: ['options', 'url', 'datatableId'],
     data () {
@@ -25,9 +27,19 @@
       onSubmit (e) {
         let action = this.action
 
-        $.confirmSwal(e.currentTarget, () => {
-          this.$emit('action', action)
-        })
+        sweetalert2({
+          title: this.$i18n.t('labels.are_you_sure'),
+          type: 'warning',
+          showCancelButton: true,
+          cancelButtonText: this.$i18n.t('buttons.cancel'),
+          confirmButtonColor: '#dd4b39',
+          confirmButtonText: this.$i18n.t('buttons.delete')
+        }).then(
+          () => {
+            this.$emit('action', action)
+          },
+          () => {}
+        )
       }
     }
   }

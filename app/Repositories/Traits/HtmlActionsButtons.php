@@ -64,10 +64,7 @@ trait HtmlActionsButtons
 
         $route = route($route, $parameters);
         $title = '<i class="icon-trash" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.delete').'"></i>';
-        $transCancel = trans('buttons.cancel');
-        $transConfirm = trans('buttons.delete');
-        $transTitle = trans('labels.are_you_sure');
 
-        return "<a href=\"{$route}\" class=\"btn btn-sm btn-danger\" data-toggle=\"delete-row\" data-trans-button-cancel=\"{$transCancel}\" data-trans-button-confirm=\"{$transConfirm}\" data-trans-title=\"{$transTitle}\">{$title}</a>";
+        return "<a href=\"{$route}\" class=\"btn btn-sm btn-danger\" data-toggle=\"delete-row\">{$title}</a>";
     }
 }

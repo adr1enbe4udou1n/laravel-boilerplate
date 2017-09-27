@@ -11,8 +11,7 @@ import 'datatables.net-responsive'
 import 'datatables.net-responsive-bs4'
 import 'datatables.net-buttons/js/buttons.html5'
 
-// Plugins
-import './../plugins'
+import sweetalert2 from 'sweetalert2'
 
 /**
  * Vue
@@ -33,6 +32,9 @@ import DataTable from './components/DataTable.vue'
 import BatchAction from './components/BatchAction.vue'
 import Router from './router'
 import App from './App.vue'
+
+window.swal = sweetalert2
+window.locale = $('html').attr('lang')
 
 const i18n = VueI18n(window.locale)
 

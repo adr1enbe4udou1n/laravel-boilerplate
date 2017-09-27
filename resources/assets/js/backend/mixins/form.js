@@ -1,4 +1,5 @@
 import axios from 'axios'
+import toastr from 'toastr'
 
 export default {
   props: ['id'],
@@ -67,7 +68,7 @@ export default {
 
           axios.post(action, data)
             .then(response => {
-              window.toastr[response.data.status](response.data.message)
+              toastr[response.data.status](response.data.message)
               if (this.listPath) {
                 router.push(this.listPath)
               }
@@ -81,18 +82,18 @@ export default {
 
               // Not allowed error
               if (error.response.status === 403) {
-                window.toastr.error(this.$i18n.t('exceptions.unauthorized'))
+                toastr.error(this.$i18n.t('exceptions.unauthorized'))
                 return
               }
 
               // Domain error
               if (error.response.data.message !== undefined) {
-                window.toastr.error(error.response.data.message)
+                toastr.error(error.response.data.message)
                 return
               }
 
               // Generic error
-              window.toastr.error(this.$i18n.t('exceptions.general'))
+              toastr.error(this.$i18n.t('exceptions.general'))
             })
             .then(() => {
               this.pending = false

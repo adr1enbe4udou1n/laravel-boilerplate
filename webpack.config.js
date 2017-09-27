@@ -125,10 +125,7 @@ module.exports = {
       'vue',
       'axios',
       'sweetalert2',
-      'slick-carousel',
-      'flatpickr',
-      'intl-tel-input',
-      'toastr'
+      'intl-tel-input'
     ],
     ckeditor: [
       'ckeditor'
