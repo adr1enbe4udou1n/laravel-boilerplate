@@ -169,6 +169,10 @@ return [
 
     'faker_locale' => env('FAKER_LOCALE', 'en_US'),
 
+    'hmr_host' => env('BROWSERSYNC_HOST', 'localhost'),
+
+    'hmr_port' => env('WEBPACKDEVSERVER_PORT', 8080),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
