@@ -1628,8 +1628,8 @@ cookieconsent@^3.0.4:
   resolved "https://registry.yarnpkg.com/cookieconsent/-/cookieconsent-3.0.4.tgz#ef02b3fdbd10de6a9af20f22e287448bfdd48c5d"
 
 copy-webpack-plugin@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-4.0.1.tgz#9728e383b94316050d0c7463958f2b85c0aa8200"
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-4.1.0.tgz#292a040318fe8ae3b1d7996ef05dfb483eb0b647"
   dependencies:
     bluebird "^2.10.2"
     fs-extra "^0.26.4"
@@ -2519,8 +2519,8 @@ eslint-scope@^3.7.1:
     estraverse "^4.1.1"
 
 eslint@^4.7.2:
-  version "4.7.2"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.7.2.tgz#ff6f5f5193848a27ee9b627be3e73fb9cb5e662e"
+  version "4.8.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.8.0.tgz#229ef0e354e0e61d837c7a80fdfba825e199815e"
   dependencies:
     ajv "^5.2.0"
     babel-code-frame "^6.22.0"
@@ -6753,8 +6753,8 @@ svgo@^0.7.0:
     whet.extend "~0.9.9"
 
 sweetalert2@^6.9.1:
-  version "6.9.1"
-  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-6.9.1.tgz#2fa57eb9310777e07e6f11baf63cc8a42f61dbe7"
+  version "6.10.0"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-6.10.0.tgz#f093158011c425b62e6dd22f5fa0391cf59b337c"
 
 table@^4.0.1:
   version "4.0.1"
