@@ -5,8 +5,3 @@
 .form-group.is-invalid .invalid-feedback {
   display: block;
 }
-
-// Fix select height on Windows
-select.form-control {
-  padding-top: .3rem !important;
-}

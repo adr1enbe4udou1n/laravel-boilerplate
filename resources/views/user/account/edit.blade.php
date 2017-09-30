@@ -34,7 +34,7 @@
 ])
     {{ Form::select('locale', $locales, null, [
         'placeholder' => trans('labels.frontend.placeholders.locale'),
-        'class' => 'form-control',
+        'class' => 'custom-select',
         'v-validate' => "'required'",
     ]) }}
 @endcomponent
@@ -47,7 +47,7 @@
 ])
     {{ Form::select('timezone', array_combine(array_values($timezones), $timezones), null, [
         'placeholder' => trans('labels.frontend.placeholders.timezone'),
-        'class' => 'form-control',
+        'class' => 'custom-select',
         'v-validate' => "'required'",
     ]) }}
 @endcomponent

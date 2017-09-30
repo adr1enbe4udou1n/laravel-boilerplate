@@ -20,7 +20,7 @@
                                 <select
                                         id="name"
                                         name="name"
-                                        class="form-control"
+                                        class="custom-select"
                                         v-validate="'required'"
                                         v-model="model.name"
                                 >
