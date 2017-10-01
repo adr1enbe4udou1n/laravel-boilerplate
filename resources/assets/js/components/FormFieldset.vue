@@ -55,10 +55,6 @@
       }
     },
     props: {
-      id: {
-        type: String,
-        default: null
-      },
       name: {
         type: String,
         default: null
@@ -70,9 +66,6 @@
       labelCols: {
         type: Number,
         default: 3
-      },
-      labelSize: {
-        type: Number
       },
       labelTextAlign: {
         type: String,
