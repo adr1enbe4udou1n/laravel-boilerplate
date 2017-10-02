@@ -40,7 +40,7 @@
     },
     created () {
       axios
-        .get(this.$app.route('admin.form_submissions', {form_submission: this.id}))
+        .get(this.$app.route('admin.form_submission', {form_submission: this.id}))
         .then(response => {
           this.submission = response.data
         })
