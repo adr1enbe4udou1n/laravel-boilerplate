@@ -1,6 +1,6 @@
 {
-  "backend.css": "dist/css/backend.0af42b896dd408d79566e738f5cb2dde.css",
-  "backend.css.map": "dist/css/backend.0af42b896dd408d79566e738f5cb2dde.css.map",
+  "backend.css": "dist/css/backend.45e3cdceb92c9e4dc8b70c23e78e362e.css",
+  "backend.css.map": "dist/css/backend.45e3cdceb92c9e4dc8b70c23e78e362e.css.map",
   "backend.js": "dist/js/backend.92ac9037e8694c08dfe1.js",
   "backend.js.map": "dist/js/backend.92ac9037e8694c08dfe1.js.map",
   "ckeditor.js": "dist/js/ckeditor.8c4da8b8541012ac76dd.js",
@@ -23,6 +23,7 @@
   "frontend.css.map": "dist/css/frontend.7246a0b95f0ad23e5aa4d6339e9686c4.css.map",
   "frontend.js": "dist/js/frontend.9936517a5cb5d541f05f.js",
   "frontend.js.map": "dist/js/frontend.9936517a5cb5d541f05f.js.map",
+  "images\\logo-symbol.png": "images/logo-symbol.png?eaca174bbed1c4633466178546f52bce",
   "images\\logo.png": "images/logo.png?01fb1da17b77e9ca7f9e946a4b0dd92c",
   "images\\vendor\\intl-tel-input\\build\\flags.png": "images/vendor/intl-tel-input/build/flags.png?ae33acae404631e997ef8d91dae08ccd",
   "images\\vendor\\intl-tel-input\\build\\flags@2x.png": "images/vendor/intl-tel-input/build/flags@2x.png?f2c77a6b7e26ff160fdb4193b383b1ea",
