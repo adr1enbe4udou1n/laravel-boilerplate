@@ -65,7 +65,7 @@ class UserController extends BackendController
 
             return $query->editColumn('name', function (User $user) {
                 if ($this->users->canEdit($user)) {
-                    return "<a href=\"#/users/{$user->id}/edit\">{$user->name}</a>";
+                    return "<a href=\"/users/{$user->id}/edit\" data-router-link>{$user->name}</a>";
                 }
 
                 return $user->name;

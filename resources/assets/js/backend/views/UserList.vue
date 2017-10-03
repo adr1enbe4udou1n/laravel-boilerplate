@@ -40,18 +40,18 @@
             width: 15,
             className: 'select-checkbox'
           }, {
-            title: this.$i18n.t('validation.attributes.name'),
+            title: this.$t('validation.attributes.name'),
             data: 'name',
             name: 'name',
             width: 150,
             responsivePriority: 1
           }, {
-            title: this.$i18n.t('validation.attributes.email'),
+            title: this.$t('validation.attributes.email'),
             data: 'email',
             name: 'email',
             width: 150
           }, {
-            title: this.$i18n.t('validation.attributes.confirmed'),
+            title: this.$t('validation.attributes.confirmed'),
             data: 'confirmed',
             name: 'confirmed',
             orderable: false,
@@ -59,19 +59,19 @@
             width: 75,
             className: 'text-center'
           }, {
-            title: this.$i18n.t('validation.attributes.roles'),
+            title: this.$t('validation.attributes.roles'),
             data: 'roles',
             name: 'roles',
             orderable: false,
             searchable: false
           }, {
-            title: this.$i18n.t('labels.last_access_at'),
+            title: this.$t('labels.last_access_at'),
             data: 'last_access_at',
             name: 'last_access_at',
             width: 125,
             className: 'text-center'
           }, {
-            title: this.$i18n.t('validation.attributes.active'),
+            title: this.$t('validation.attributes.active'),
             data: 'active',
             name: 'active',
             orderable: false,
@@ -79,19 +79,19 @@
             width: 50,
             className: 'text-center'
           }, {
-            title: this.$i18n.t('labels.created_at'),
+            title: this.$t('labels.created_at'),
             data: 'created_at',
             name: 'created_at',
             width: 110,
             className: 'text-center'
           }, {
-            title: this.$i18n.t('labels.updated_at'),
+            title: this.$t('labels.updated_at'),
             data: 'updated_at',
             name: 'updated_at',
             width: 110,
             className: 'text-center'
           }, {
-            title: this.$i18n.t('labels.actions'),
+            title: this.$t('labels.actions'),
             data: 'actions',
             name: 'actions',
             orderable: false,
@@ -104,9 +104,9 @@
           rowId: 'id'
         },
         dataTableActions: {
-          destroy: this.$i18n.t('labels.backend.users.actions.destroy'),
-          enable: this.$i18n.t('labels.backend.users.actions.enable'),
-          disable: this.$i18n.t('labels.backend.users.actions.disable')
+          destroy: this.$t('labels.backend.users.actions.destroy'),
+          enable: this.$t('labels.backend.users.actions.enable'),
+          disable: this.$t('labels.backend.users.actions.disable')
         }
       }
     }

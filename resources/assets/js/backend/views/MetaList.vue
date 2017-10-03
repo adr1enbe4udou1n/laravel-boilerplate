@@ -40,44 +40,44 @@
             width: 15,
             className: 'select-checkbox'
           }, {
-            title: this.$i18n.t('validation.attributes.route'),
+            title: this.$t('validation.attributes.route'),
             data: 'route',
             name: 'route',
-            defaultContent: this.$i18n.t('labels.no_value'),
+            defaultContent: this.$t('labels.no_value'),
             width: 75
           }, {
-            title: this.$i18n.t('validation.attributes.metable_type'),
+            title: this.$t('validation.attributes.metable_type'),
             data: 'metable_type',
             name: 'metable_type',
-            defaultContent: this.$i18n.t('labels.no_value'),
+            defaultContent: this.$t('labels.no_value'),
             width: 75
           }, {
-            title: this.$i18n.t('validation.attributes.title'),
+            title: this.$t('validation.attributes.title'),
             data: 'title',
             name: 'translations.title',
-            defaultContent: this.$i18n.t('labels.no_value'),
+            defaultContent: this.$t('labels.no_value'),
             width: 150,
             responsivePriority: 1
           }, {
-            title: this.$i18n.t('validation.attributes.description'),
+            title: this.$t('validation.attributes.description'),
             data: 'description',
             name: 'translations.description',
-            defaultContent: this.$i18n.t('labels.no_value'),
+            defaultContent: this.$t('labels.no_value'),
             orderable: false
           }, {
-            title: this.$i18n.t('labels.created_at'),
+            title: this.$t('labels.created_at'),
             data: 'created_at',
             name: 'created_at',
             width: 110,
             className: 'text-center'
           }, {
-            title: this.$i18n.t('labels.updated_at'),
+            title: this.$t('labels.updated_at'),
             data: 'updated_at',
             name: 'updated_at',
             width: 110,
             className: 'text-center'
           }, {
-            title: this.$i18n.t('labels.actions'),
+            title: this.$t('labels.actions'),
             data: 'actions',
             name: 'actions',
             orderable: false,
@@ -90,7 +90,7 @@
           rowId: 'id'
         },
         dataTableActions: {
-          destroy: this.$i18n.t('labels.backend.metas.actions.destroy')
+          destroy: this.$t('labels.backend.metas.actions.destroy')
         }
       }
     }

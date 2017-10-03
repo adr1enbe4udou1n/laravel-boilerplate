@@ -1,7 +1,5 @@
 <?php
 
-Route::get('/', 'BackendController@index')
-    ->name('home');
 Route::get('routes/search', 'AjaxController@routesSearch')
     ->name('routes.search');
 Route::get('tags/search', 'AjaxController@tagsSearch')
@@ -17,9 +15,11 @@ Route::group(
 
         Route::post('form_settings/search', 'FormSettingController@search')
             ->name('form_settings.search');
+        Route::get('form_settings/{form_setting}/show', 'FormSettingController@show')
+            ->name('form_settings.show');
 
         Route::resource('form_settings', 'FormSettingController', [
-            'only' => ['show', 'store', 'update', 'destroy'],
+            'only' => ['store', 'update', 'destroy'],
         ]);
     }
 );
@@ -32,9 +32,11 @@ Route::group(
 
         Route::post('form_submissions/search', 'FormSubmissionController@search')
             ->name('form_submissions.search');
+        Route::get('form_submissions/{form_submission}/show', 'FormSubmissionController@show')
+            ->name('form_submissions.show');
 
         Route::resource('form_submissions', 'FormSubmissionController', [
-            'only' => ['show', 'destroy'],
+            'only' => ['destroy'],
         ]);
 
         Route::post('form_submissions/batch_action',
@@ -55,9 +57,11 @@ Route::group(
 
         Route::post('users/search', 'UserController@search')
             ->name('users.search');
+        Route::get('users/{user}/show', 'UserController@show')
+            ->name('users.show');
 
         Route::resource('users', 'UserController', [
-            'only' => ['show', 'store', 'update', 'destroy'],
+            'only' => ['store', 'update', 'destroy'],
         ]);
 
         Route::post('users/batch_action',
@@ -75,9 +79,11 @@ Route::group(
 
         Route::post('roles/search', 'RoleController@search')
             ->name('roles.search');
+        Route::get('roles/{role}/show', 'RoleController@show')
+            ->name('roles.show');
 
         Route::resource('roles', 'RoleController', [
-            'only' => ['show', 'store', 'update', 'destroy'],
+            'only' => ['store', 'update', 'destroy'],
         ]);
     }
 );
@@ -87,9 +93,11 @@ Route::group(
     function () {
         Route::post('metas/search', 'MetaController@search')
             ->name('metas.search');
+        Route::get('metas/{meta}/show', 'MetaController@show')
+            ->name('metas.show');
 
         Route::resource('metas', 'MetaController', [
-            'only' => ['show', 'store', 'update', 'destroy'],
+            'only' => ['store', 'update', 'destroy'],
         ]);
 
         Route::post('metas/batch_action',
@@ -107,9 +115,11 @@ Route::group(
 
         Route::post('redirections/search', 'RedirectionController@search')
             ->name('redirections.search');
+        Route::get('redirections/{redirection}/show', 'RedirectionController@show')
+            ->name('redirections.show');
 
         Route::resource('redirections', 'RedirectionController', [
-            'only' => ['show', 'store', 'update', 'destroy'],
+            'only' => ['store', 'update', 'destroy'],
         ]);
 
         Route::post('redirections/batch_action',
@@ -137,9 +147,11 @@ if (config('blog.enabled')) {
 
             Route::post('posts/search', 'PostController@search')
                 ->name('posts.search');
+            Route::get('posts/{post}/show', 'PostController@show')
+                ->name('posts.show');
 
             Route::resource('posts', 'PostController', [
-                'only' => ['show', 'store', 'update', 'destroy'],
+                'only' => ['store', 'update', 'destroy'],
             ]);
 
             Route::post('posts/batch_action',
@@ -149,3 +161,7 @@ if (config('blog.enabled')) {
         }
     );
 }
+
+Route::get('/{vue_capture?}', 'BackendController@index')
+    ->where('vue_capture', '[\/\w\.-]*')
+    ->name('home');

@@ -107,7 +107,7 @@
         formTypes: [
           {
             value: null,
-            text: `-- ${this.$i18n.t('validation.attributes.form_type')} --`
+            text: `-- ${this.$t('validation.attributes.form_type')} --`
           }
         ],
         modelName: 'form_setting',

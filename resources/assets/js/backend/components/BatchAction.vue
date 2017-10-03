@@ -28,12 +28,12 @@
         let action = this.action
 
         sweetalert2({
-          title: this.$i18n.t('labels.are_you_sure'),
+          title: this.$t('labels.are_you_sure'),
           type: 'warning',
           showCancelButton: true,
-          cancelButtonText: this.$i18n.t('buttons.cancel'),
+          cancelButtonText: this.$t('buttons.cancel'),
           confirmButtonColor: '#dd4b39',
-          confirmButtonText: this.$i18n.t('buttons.delete')
+          confirmButtonText: this.$t('buttons.delete')
         }).then(
           () => {
             this.$emit('action', action)

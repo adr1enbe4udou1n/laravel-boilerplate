@@ -103,9 +103,9 @@ class PostController extends BackendController
             })->addColumn('image', function (Post $post) {
                 $content = image_template_html('small', $post->featured_image_path, $post->title);
 
-                return "<a href=\"#/posts/{$post->id}/edit\">{$content}</a>";
+                return "<a href=\"/posts/{$post->id}/edit\" data-router-link>{$content}</a>";
             })->editColumn('title', function (Post $post) {
-                return "<a href=\"#/posts/{$post->id}/edit\">{$post->title}</a>";
+                return "<a href=\"/posts/{$post->id}/edit\" data-router-link>{$post->title}</a>";
             })->editColumn('status', function (Post $post) {
                 return state_html_label($post->state, trans($post->status_label));
             })->editColumn('pinned', function (Post $post) {

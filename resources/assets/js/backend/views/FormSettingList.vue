@@ -36,36 +36,36 @@
             type: 'post'
           },
           columns: [{
-            title: this.$i18n.t('validation.attributes.form_type'),
+            title: this.$t('validation.attributes.form_type'),
             data: 'name',
             name: 'name',
             width: 150,
             responsivePriority: 1
           }, {
-            title: this.$i18n.t('validation.attributes.recipients'),
+            title: this.$t('validation.attributes.recipients'),
             data: 'recipients',
             name: 'recipients',
             orderable: false
           }, {
-            title: this.$i18n.t('validation.attributes.message'),
+            title: this.$t('validation.attributes.message'),
             data: 'message',
             name: 'message',
-            defaultContent: this.$i18n.t('labels.no_value'),
+            defaultContent: this.$t('labels.no_value'),
             orderable: false
           }, {
-            title: this.$i18n.t('labels.created_at'),
+            title: this.$t('labels.created_at'),
             data: 'created_at',
             name: 'created_at',
             width: 110,
             className: 'text-center'
           }, {
-            title: this.$i18n.t('labels.updated_at'),
+            title: this.$t('labels.updated_at'),
             data: 'updated_at',
             name: 'updated_at',
             width: 110,
             className: 'text-center'
           }, {
-            title: this.$i18n.t('labels.actions'),
+            title: this.$t('labels.actions'),
             data: 'actions',
             name: 'actions',
             orderable: false,

@@ -48,7 +48,7 @@ class RoleController extends BackendController
             ]));
 
             return $query->editColumn('name', function (Role $role) {
-                return "<a href=\"#/roles/{$role->id}/edit\">{$role->name}</a>";
+                return "<a href=\"/roles/{$role->id}/edit\" data-router-link>{$role->name}</a>";
             })->addColumn('actions', function (Role $role) {
                 return $this->roles->getActionButtons($role);
             })->editColumn('created_at', function (Role $role) use ($request) {

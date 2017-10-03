@@ -36,45 +36,45 @@
             type: 'post'
           },
           columns: [{
-            title: this.$i18n.t('validation.attributes.name'),
+            title: this.$t('validation.attributes.name'),
             data: 'name',
             name: 'name',
             orderable: false,
             width: 150,
             responsivePriority: 1
           }, {
-            title: this.$i18n.t('validation.attributes.order'),
+            title: this.$t('validation.attributes.order'),
             data: 'order',
             name: 'order',
             width: 120,
             className: 'text-right'
           }, {
-            title: this.$i18n.t('validation.attributes.display_name'),
+            title: this.$t('validation.attributes.display_name'),
             data: 'display_name',
             name: 'display_name',
-            defaultContent: this.$i18n.t('labels.no_value'),
+            defaultContent: this.$t('labels.no_value'),
             orderable: false,
             width: 150
           }, {
-            title: this.$i18n.t('validation.attributes.description'),
+            title: this.$t('validation.attributes.description'),
             data: 'description',
             name: 'description',
-            defaultContent: this.$i18n.t('labels.no_value'),
+            defaultContent: this.$t('labels.no_value'),
             orderable: false
           }, {
-            title: this.$i18n.t('labels.created_at'),
+            title: this.$t('labels.created_at'),
             data: 'created_at',
             name: 'created_at',
             width: 110,
             className: 'text-center'
           }, {
-            title: this.$i18n.t('labels.updated_at'),
+            title: this.$t('labels.updated_at'),
             data: 'updated_at',
             name: 'updated_at',
             width: 110,
             className: 'text-center'
           }, {
-            title: this.$i18n.t('labels.actions'),
+            title: this.$t('labels.actions'),
             data: 'actions',
             name: 'actions',
             orderable: false,

@@ -362,7 +362,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     public function getActionButtons(Post $post)
     {
         $buttons = $this->getPreviewButtonHtml('blog.show', $post->slug)
-            .$this->getEditButtonHtml("#/posts/{$post->id}/edit")
+            .$this->getEditButtonHtml("/posts/{$post->id}/edit")
             .$this->getDeleteButtonHtml('admin.posts.destroy', $post, 'delete', $post);
 
         return $buttons;

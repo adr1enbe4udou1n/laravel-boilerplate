@@ -40,7 +40,7 @@
         }).catch(error => {
           // Not allowed error
           if (error.response.status === 403) {
-            toastr.error(this.$i18n.t('exceptions.unauthorized'))
+            toastr.error(this.$t('exceptions.unauthorized'))
             return
           }
 
@@ -51,7 +51,7 @@
           }
 
           // Generic error
-          toastr.error(this.$i18n.t('exceptions.general'))
+          toastr.error(this.$t('exceptions.general'))
         })
       }
     },
@@ -74,7 +74,7 @@
         lengthMenu: [[5, 10, 15, 25, 50, -1], [5, 10, 15, 25, 50, window.locale === 'en' ? 'All' : 'Tout']],
         buttons: [
           {
-            text: this.$i18n.t('labels.export'),
+            text: this.$t('labels.export'),
             extend: 'csvHtml5'
           }
         ],
@@ -92,13 +92,61 @@
 
             // Not allowed error
             if (xhr.status === 403) {
-              toastr.error(this.$i18n.t('exceptions.unauthorized'))
+              toastr.error(this.$t('exceptions.unauthorized'))
               return
             }
 
             // Generic error
-            toastr.error(this.$i18n.t('exceptions.general'))
+            toastr.error(this.$t('exceptions.general'))
           }
+        },
+        initComplete: (settings, json) => {
+          $('[data-router-link]').click((e) => {
+            e.preventDefault()
+            let url = $(e.currentTarget).attr('href')
+            this.$router.push(url)
+          })
+
+          $('[data-delete-link]').click((e) => {
+            e.preventDefault()
+            let url = $(e.currentTarget).attr('href')
+            let dataTable = $(e.currentTarget).closest('table').DataTable()
+
+            sweetalert2({
+              title: this.$t('labels.are_you_sure'),
+              type: 'warning',
+              showCancelButton: true,
+              cancelButtonText: this.$t('buttons.cancel'),
+              confirmButtonColor: '#dd4b39',
+              confirmButtonText: this.$t('buttons.delete')
+            }).then(
+              () => {
+                axios.delete(url)
+                  .then(response => {
+                    // Reload Datatables and keep current pager
+                    dataTable.ajax.reload(null, false)
+                    toastr[response.data.status](response.data.message)
+                  })
+                  .catch(error => {
+                    // Not allowed error
+                    if (error.response.status === 403) {
+                      toastr.error(this.$t('exceptions.unauthorized'))
+                      return
+                    }
+
+                    // Domain error
+                    if (error.response.data.error !== undefined) {
+                      toastr.error(error.response.data.error)
+                      return
+                    }
+
+                    // Generic error
+                    toastr.error(this.$t('exceptions.general'))
+                  })
+              },
+              () => {}
+            )
+          })
         }
       }
 
@@ -117,52 +165,6 @@
       $(document).on('preInit.dt', () => {
         let $actionWrapper = $container.find('.table-group-actions')
         $formAction.detach().appendTo($actionWrapper)
-      })
-
-      /**
-       * Delete actions from AJAX
-       */
-      $(document).ajaxComplete(() => {
-        $('[data-toggle="delete-row"]').click((e) => {
-          e.preventDefault()
-          let url = $(e.currentTarget).attr('href')
-          let dataTable = $(e.currentTarget).closest('table').DataTable()
-
-          sweetalert2({
-            title: this.$i18n.t('labels.are_you_sure'),
-            type: 'warning',
-            showCancelButton: true,
-            cancelButtonText: this.$i18n.t('buttons.cancel'),
-            confirmButtonColor: '#dd4b39',
-            confirmButtonText: this.$i18n.t('buttons.delete')
-          }).then(
-            () => {
-              axios.delete(url)
-                .then(response => {
-                  // Reload Datatables and keep current pager
-                  dataTable.ajax.reload(null, false)
-                  toastr[response.data.status](response.data.message)
-                })
-                .catch(error => {
-                  // Not allowed error
-                  if (error.response.status === 403) {
-                    toastr.error(this.$i18n.t('exceptions.unauthorized'))
-                    return
-                  }
-
-                  // Domain error
-                  if (error.response.data.error !== undefined) {
-                    toastr.error(error.response.data.error)
-                    return
-                  }
-
-                  // Generic error
-                  toastr.error(this.$i18n.t('exceptions.general'))
-                })
-            },
-            () => {}
-          )
-        })
       })
 
       $table.DataTable(options)

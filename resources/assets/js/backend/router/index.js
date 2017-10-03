@@ -23,9 +23,10 @@ import RedirectionList from '../views/RedirectionList.vue'
 
 Vue.use(Router)
 
-export default (i18n) => {
+export default (base, i18n) => {
   return new Router({
-    mode: 'hash',
+    mode: 'history',
+    base: `/${base}`,
     linkActiveClass: 'open active',
     scrollBehavior: () => ({y: 0}),
     routes: [
@@ -48,8 +49,6 @@ export default (i18n) => {
           },
           {
             path: 'posts',
-            redirect: '/posts/list',
-            name: 'post',
             component: {
               render (c) {
                 return c('router-view')
@@ -60,8 +59,8 @@ export default (i18n) => {
             },
             children: [
               {
-                path: 'list',
-                name: 'post_list',
+                path: '/',
+                name: 'posts',
                 component: PostList,
                 meta: {
                   title: i18n.t('labels.backend.posts.titles.index')
@@ -69,7 +68,7 @@ export default (i18n) => {
               },
               {
                 path: 'create',
-                name: 'post_create',
+                name: 'posts_create',
                 component: PostForm,
                 meta: {
                   title: i18n.t('labels.backend.posts.titles.create')
@@ -77,7 +76,7 @@ export default (i18n) => {
               },
               {
                 path: ':id/edit',
-                name: 'post_edit',
+                name: 'posts_edit',
                 component: PostForm,
                 props: true,
                 meta: {
@@ -88,8 +87,6 @@ export default (i18n) => {
           },
           {
             path: 'form-submissions',
-            redirect: '/form-submissions/list',
-            name: 'form_submission',
             component: {
               render (c) {
                 return c('router-view')
@@ -100,8 +97,8 @@ export default (i18n) => {
             },
             children: [
               {
-                path: 'list',
-                name: 'form_submission_list',
+                path: '/',
+                name: 'form_submissions',
                 component: FormSubmissionList,
                 meta: {
                   title: i18n.t('labels.backend.form_submissions.titles.index')
@@ -109,7 +106,7 @@ export default (i18n) => {
               },
               {
                 path: ':id/show',
-                name: 'form_submission_show',
+                name: 'form_submissions_show',
                 component: FormSubmissionShow,
                 props: true,
                 meta: {
@@ -120,8 +117,6 @@ export default (i18n) => {
           },
           {
             path: 'form-settings',
-            redirect: '/form-settings/list',
-            name: 'form_setting',
             component: {
               render (c) {
                 return c('router-view')
@@ -132,8 +127,8 @@ export default (i18n) => {
             },
             children: [
               {
-                path: 'list',
-                name: 'form_setting_list',
+                path: '/',
+                name: 'form_settings',
                 component: FormSettingList,
                 meta: {
                   title: i18n.t('labels.backend.form_settings.titles.index')
@@ -141,7 +136,7 @@ export default (i18n) => {
               },
               {
                 path: 'create',
-                name: 'form_setting_create',
+                name: 'form_settings_create',
                 component: FormSettingForm,
                 meta: {
                   title: i18n.t('labels.backend.form_settings.titles.create')
@@ -149,7 +144,7 @@ export default (i18n) => {
               },
               {
                 path: ':id/edit',
-                name: 'form_setting_edit',
+                name: 'form_settings_edit',
                 component: FormSettingForm,
                 props: true,
                 meta: {
@@ -160,8 +155,6 @@ export default (i18n) => {
           },
           {
             path: 'users',
-            redirect: '/users/list',
-            name: 'user',
             component: {
               render (c) {
                 return c('router-view')
@@ -172,8 +165,8 @@ export default (i18n) => {
             },
             children: [
               {
-                path: 'list',
-                name: 'user_list',
+                path: '/',
+                name: 'users',
                 component: UserList,
                 meta: {
                   title: i18n.t('labels.backend.users.titles.index')
@@ -181,7 +174,7 @@ export default (i18n) => {
               },
               {
                 path: 'create',
-                name: 'user_create',
+                name: 'users_create',
                 component: UserForm,
                 meta: {
                   title: i18n.t('labels.backend.users.titles.create')
@@ -189,7 +182,7 @@ export default (i18n) => {
               },
               {
                 path: ':id/edit',
-                name: 'user_edit',
+                name: 'users_edit',
                 component: UserForm,
                 props: true,
                 meta: {
@@ -200,8 +193,6 @@ export default (i18n) => {
           },
           {
             path: 'roles',
-            redirect: '/roles/list',
-            name: 'role',
             component: {
               render (c) {
                 return c('router-view')
@@ -212,8 +203,8 @@ export default (i18n) => {
             },
             children: [
               {
-                path: 'list',
-                name: 'role_list',
+                path: '/',
+                name: 'roles',
                 component: RoleList,
                 meta: {
                   title: i18n.t('labels.backend.roles.titles.index')
@@ -221,7 +212,7 @@ export default (i18n) => {
               },
               {
                 path: 'create',
-                name: 'role_create',
+                name: 'roles_create',
                 component: RoleForm,
                 meta: {
                   title: i18n.t('labels.backend.roles.titles.create')
@@ -229,7 +220,7 @@ export default (i18n) => {
               },
               {
                 path: ':id/edit',
-                name: 'role_edit',
+                name: 'roles_edit',
                 component: RoleForm,
                 props: true,
                 meta: {
@@ -240,8 +231,6 @@ export default (i18n) => {
           },
           {
             path: 'metas',
-            redirect: '/metas/list',
-            name: 'meta',
             component: {
               render (c) {
                 return c('router-view')
@@ -252,8 +241,8 @@ export default (i18n) => {
             },
             children: [
               {
-                path: 'list',
-                name: 'meta_list',
+                path: '/',
+                name: 'metas',
                 component: MetaList,
                 meta: {
                   title: i18n.t('labels.backend.metas.titles.index')
@@ -261,7 +250,7 @@ export default (i18n) => {
               },
               {
                 path: 'create',
-                name: 'meta_create',
+                name: 'metas_create',
                 component: MetaForm,
                 meta: {
                   title: i18n.t('labels.backend.metas.titles.create')
@@ -269,7 +258,7 @@ export default (i18n) => {
               },
               {
                 path: ':id/edit',
-                name: 'meta_edit',
+                name: 'metas_edit',
                 component: MetaForm,
                 props: true,
                 meta: {
@@ -280,8 +269,6 @@ export default (i18n) => {
           },
           {
             path: 'redirections',
-            redirect: '/redirections/list',
-            name: 'redirection',
             component: {
               render (c) {
                 return c('router-view')
@@ -292,8 +279,8 @@ export default (i18n) => {
             },
             children: [
               {
-                path: 'list',
-                name: 'redirection_list',
+                path: '/',
+                name: 'redirections',
                 component: RedirectionList,
                 meta: {
                   title: i18n.t('labels.backend.redirections.titles.index')
@@ -301,7 +288,7 @@ export default (i18n) => {
               },
               {
                 path: 'create',
-                name: 'redirection_create',
+                name: 'redirections_create',
                 component: RedirectionForm,
                 meta: {
                   title: i18n.t('labels.backend.redirections.titles.create')
@@ -309,7 +296,7 @@ export default (i18n) => {
               },
               {
                 path: ':id/edit',
-                name: 'redirection_edit',
+                name: 'redirections_edit',
                 component: RedirectionForm,
                 props: true,
                 meta: {

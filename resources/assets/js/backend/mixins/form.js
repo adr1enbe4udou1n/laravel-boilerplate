@@ -82,7 +82,7 @@ export default {
 
               // Not allowed error
               if (error.response.status === 403) {
-                toastr.error(this.$i18n.t('exceptions.unauthorized'))
+                toastr.error(this.$t('exceptions.unauthorized'))
                 return
               }
 
@@ -93,7 +93,7 @@ export default {
               }
 
               // Generic error
-              toastr.error(this.$i18n.t('exceptions.general'))
+              toastr.error(this.$t('exceptions.general'))
             })
             .then(() => {
               this.pending = false

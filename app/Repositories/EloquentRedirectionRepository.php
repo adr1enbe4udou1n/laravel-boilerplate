@@ -171,7 +171,7 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
      */
     public function getActionButtons(Redirection $redirection)
     {
-        $buttons = $this->getEditButtonHtml("#/redirections/{$redirection->id}/edit")
+        $buttons = $this->getEditButtonHtml("/redirections/{$redirection->id}/edit")
             .$this->getDeleteButtonHtml('admin.redirections.destroy', $redirection, 'delete redirections');
 
         return $buttons;
