@@ -99,54 +99,6 @@
             // Generic error
             toastr.error(this.$t('exceptions.general'))
           }
-        },
-        initComplete: (settings, json) => {
-          $('[data-router-link]').click((e) => {
-            e.preventDefault()
-            let url = $(e.currentTarget).attr('href')
-            this.$router.push(url)
-          })
-
-          $('[data-delete-link]').click((e) => {
-            e.preventDefault()
-            let url = $(e.currentTarget).attr('href')
-            let dataTable = $(e.currentTarget).closest('table').DataTable()
-
-            sweetalert2({
-              title: this.$t('labels.are_you_sure'),
-              type: 'warning',
-              showCancelButton: true,
-              cancelButtonText: this.$t('buttons.cancel'),
-              confirmButtonColor: '#dd4b39',
-              confirmButtonText: this.$t('buttons.delete')
-            }).then(
-              () => {
-                axios.delete(url)
-                  .then(response => {
-                    // Reload Datatables and keep current pager
-                    dataTable.ajax.reload(null, false)
-                    toastr[response.data.status](response.data.message)
-                  })
-                  .catch(error => {
-                    // Not allowed error
-                    if (error.response.status === 403) {
-                      toastr.error(this.$t('exceptions.unauthorized'))
-                      return
-                    }
-
-                    // Domain error
-                    if (error.response.data.error !== undefined) {
-                      toastr.error(error.response.data.error)
-                      return
-                    }
-
-                    // Generic error
-                    toastr.error(this.$t('exceptions.general'))
-                  })
-              },
-              () => {}
-            )
-          })
         }
       }
 
@@ -159,15 +111,64 @@
       $.extend(true, $.fn.dataTable.defaults, dataTableOptions)
       $.fn.dataTable.ext.errMode = 'none'
 
+      $table.DataTable(options)
+
+      $table.on('draw.dt', () => {
+        $('[data-router-link]').click((e) => {
+          e.preventDefault()
+          let url = $(e.currentTarget).attr('href')
+          this.$router.push(url)
+        })
+
+        $('[data-delete-link]').click((e) => {
+          e.preventDefault()
+          let url = $(e.currentTarget).attr('href')
+          let dataTable = $(e.currentTarget).closest('table').DataTable()
+
+          sweetalert2({
+            title: this.$t('labels.are_you_sure'),
+            type: 'warning',
+            showCancelButton: true,
+            cancelButtonText: this.$t('buttons.cancel'),
+            confirmButtonColor: '#dd4b39',
+            confirmButtonText: this.$t('buttons.delete')
+          }).then(
+            () => {
+              axios.delete(url)
+                .then(response => {
+                  // Reload Datatables and keep current pager
+                  dataTable.ajax.reload(null, false)
+                  toastr[response.data.status](response.data.message)
+                })
+                .catch(error => {
+                  // Not allowed error
+                  if (error.response.status === 403) {
+                    toastr.error(this.$t('exceptions.unauthorized'))
+                    return
+                  }
+
+                  // Domain error
+                  if (error.response.data.error !== undefined) {
+                    toastr.error(error.response.data.error)
+                    return
+                  }
+
+                  // Generic error
+                  toastr.error(this.$t('exceptions.general'))
+                })
+            },
+            () => {}
+          )
+        })
+      })
+
       /**
        * Integrate form actions into datatable layout
        */
-      $(document).on('preInit.dt', () => {
+      $table.on('preInit.dt', () => {
         let $actionWrapper = $container.find('.table-group-actions')
         $formAction.detach().appendTo($actionWrapper)
       })
-
-      $table.DataTable(options)
     }
   }
 </script>
