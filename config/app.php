@@ -214,24 +214,6 @@ return [
         /*
          * Package Service Providers...
          */
-        Laravel\Tinker\TinkerServiceProvider::class,
-        Laravel\Socialite\SocialiteServiceProvider::class,
-        Collective\Html\HtmlServiceProvider::class,
-        Yajra\DataTables\DataTablesServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class,
-        HieuLe\Active\ActiveServiceProvider::class,
-        Roumen\Sitemap\SitemapServiceProvider::class,
-        DaveJamesMiller\Breadcrumbs\BreadcrumbsServiceProvider::class,
-        Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
-        Dimsav\Translatable\TranslatableServiceProvider::class,
-        Maatwebsite\Excel\ExcelServiceProvider::class,
-        Cviebrock\EloquentSluggable\ServiceProvider::class,
-        Plank\Mediable\MediableServiceProvider::class,
-        Mews\Purifier\PurifierServiceProvider::class,
-        Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
-        MartinLindhe\VueInternationalizationGenerator\GeneratorProvider::class,
-        Tightenco\Ziggy\ZiggyServiceProvider::class,
-        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -289,17 +271,5 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
-        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-        'Form' => Collective\Html\FormFacade::class,
-        'Html' => Collective\Html\HtmlFacade::class,
-        'Image' => Intervention\Image\Facades\Image::class,
-        'Active' => HieuLe\Active\Facades\Active::class,
-        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
-        'LaravelLocalization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
-        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-        'MediaUploader' => Plank\Mediable\MediaUploaderFacade::class,
-        'Purifier' => Mews\Purifier\Facades\Purifier::class,
-        'SEOMeta' => Artesaos\SEOTools\Facades\SEOMeta::class,
     ],
 ];
