@@ -26,7 +26,7 @@ Vue.use(Router)
 export default (base, i18n) => {
   return new Router({
     mode: 'history',
-    base: `/${base}`,
+    base: base,
     linkActiveClass: 'open active',
     scrollBehavior: () => ({y: 0}),
     routes: [

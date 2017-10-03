@@ -52,7 +52,7 @@ Vue.component('ckeditor', CKEditor)
 Vue.component('datatable', DataTable)
 Vue.component('batch-action', BatchAction)
 
-let router = Router(window.settings.adminPathName, i18n)
+let router = Router(window.settings.adminHomePath, i18n)
 
 router.beforeEach((to, from, next) => {
   document.title = `${to.meta.title} | ${window.settings.appName}`
