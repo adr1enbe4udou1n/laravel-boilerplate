@@ -42,7 +42,7 @@
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" rel="alternate" :key="index" v-for="(locale, index) in this.$app.locales"
                        :hreflang="index"
-                       :href="`/${index}/${$app.adminPathName}#${$route.fullPath}`">
+                       :href="`/${index}/${$app.adminPathName}${$route.fullPath}`">
                         {{ locale.native }}
                     </a>
                 </div>
