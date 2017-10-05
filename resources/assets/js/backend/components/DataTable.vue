@@ -111,6 +111,14 @@
       $.extend(true, $.fn.dataTable.defaults, dataTableOptions)
       $.fn.dataTable.ext.errMode = 'none'
 
+      /**
+       * Integrate form actions into datatable layout
+       */
+      $(document).on('preInit.dt', () => {
+        let $actionWrapper = $container.find('.table-group-actions')
+        $formAction.detach().appendTo($actionWrapper)
+      })
+
       $table.DataTable(options)
 
       $table.on('draw.dt', () => {
@@ -160,14 +168,6 @@
             () => {}
           )
         })
-      })
-
-      /**
-       * Integrate form actions into datatable layout
-       */
-      $(document).on('preInit.dt', () => {
-        let $actionWrapper = $container.find('.table-group-actions')
-        $formAction.detach().appendTo($actionWrapper)
       })
     }
   }
