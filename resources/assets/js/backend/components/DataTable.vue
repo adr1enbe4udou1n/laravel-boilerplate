@@ -165,7 +165,7 @@
       /**
        * Integrate form actions into datatable layout
        */
-      $table.on('preInit.dt', () => {
+      $(document).on('preInit.dt', () => {
         let $actionWrapper = $container.find('.table-group-actions')
         $formAction.detach().appendTo($actionWrapper)
       })
