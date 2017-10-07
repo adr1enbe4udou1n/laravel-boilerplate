@@ -1,6 +1,6 @@
 {
-  "backend.css": "dist/css/backend.45e3cdceb92c9e4dc8b70c23e78e362e.css",
-  "backend.css.map": "dist/css/backend.45e3cdceb92c9e4dc8b70c23e78e362e.css.map",
+  "backend.css": "dist/css/backend.0c582ac1715659dc210014d060365dff.css",
+  "backend.css.map": "dist/css/backend.0c582ac1715659dc210014d060365dff.css.map",
   "backend.js": "dist/js/backend.4b8b553391457efa546d.js",
   "backend.js.map": "dist/js/backend.4b8b553391457efa546d.js.map",
   "ckeditor.js": "dist/js/ckeditor.8c4da8b8541012ac76dd.js",
@@ -19,8 +19,8 @@
   "fonts\\vendor\\slick.svg": "fonts/vendor/slick.svg?f97e3bbf73254b0112091d0192f17aec",
   "fonts\\vendor\\slick.ttf": "fonts/vendor/slick.ttf?d41f55a78e6f49a5512878df1737e58a",
   "fonts\\vendor\\slick.woff": "fonts/vendor/slick.woff?b7c9e1e479de3b53f1e4e30ebac2403a",
-  "frontend.css": "dist/css/frontend.7246a0b95f0ad23e5aa4d6339e9686c4.css",
-  "frontend.css.map": "dist/css/frontend.7246a0b95f0ad23e5aa4d6339e9686c4.css.map",
+  "frontend.css": "dist/css/frontend.1e62a6f8194941950a7e3b4c8ef3b3f7.css",
+  "frontend.css.map": "dist/css/frontend.1e62a6f8194941950a7e3b4c8ef3b3f7.css.map",
   "frontend.js": "dist/js/frontend.6d9c6df5b3845b1779e9.js",
   "frontend.js.map": "dist/js/frontend.6d9c6df5b3845b1779e9.js.map",
   "images\\logo-symbol.png": "images/logo-symbol.png?eaca174bbed1c4633466178546f52bce",
@@ -28,8 +28,8 @@
   "images\\vendor\\intl-tel-input\\build\\flags.png": "images/vendor/intl-tel-input/build/flags.png?ae33acae404631e997ef8d91dae08ccd",
   "images\\vendor\\intl-tel-input\\build\\flags@2x.png": "images/vendor/intl-tel-input/build/flags@2x.png?f2c77a6b7e26ff160fdb4193b383b1ea",
   "images\\vendor\\slick-carousel\\slick\\ajax-loader.gif": "images/vendor/slick-carousel/slick/ajax-loader.gif?68b0c4fcb84d239f261c1a5e65818142",
-  "manifest.js": "dist/js/manifest.32c36d8ce43a7a072588.js",
-  "manifest.js.map": "dist/js/manifest.32c36d8ce43a7a072588.js.map",
-  "vendor.js": "dist/js/vendor.98b48775d0fd613720da.js",
-  "vendor.js.map": "dist/js/vendor.98b48775d0fd613720da.js.map"
+  "manifest.js": "dist/js/manifest.e080569ad941ae061078.js",
+  "manifest.js.map": "dist/js/manifest.e080569ad941ae061078.js.map",
+  "vendor.js": "dist/js/vendor.6599f41f91d23e7e1c72.js",
+  "vendor.js.map": "dist/js/vendor.6599f41f91d23e7e1c72.js.map"
 }
