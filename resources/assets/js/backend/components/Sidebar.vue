@@ -65,6 +65,7 @@
                 </template>
             </ul>
         </nav>
+        <button class="sidebar-minimizer" type="button" @click="sidebarMinimize();brandMinimize()"></button>
     </div>
 </template>
 <script>
@@ -99,6 +100,12 @@
       handleClick (e) {
         e.preventDefault()
         e.target.parentElement.classList.toggle('open')
+      },
+      sidebarMinimize () {
+        document.body.classList.toggle('sidebar-minimized')
+      },
+      brandMinimize () {
+        document.body.classList.toggle('brand-minimized')
       }
     },
     watch: {
