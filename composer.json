@@ -1,6 +1,6 @@
 {
     "name": "adr1enbe4udou1n/laravel-boilerplate",
-    "description": "Laravel 5.5 Boilerplate based on Bootstrap 4 (beta) and 100% Vue.js backend.",
+    "description": "Laravel 5.5 Boilerplate based on Bootstrap 4 (beta) and Vue CoreUI for Backend.",
     "keywords": ["framework", "laravel", "boilerplate", "bootstrap 4 beta", "vue", "coreui"],
     "license": "MIT",
     "type": "project",
