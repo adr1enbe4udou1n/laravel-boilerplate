@@ -5,7 +5,7 @@
           :data-trans-button-confirm="$t('buttons.apply')"
     >
         <div class="form-group form-group-sm">
-            <select name="action" class="form-control mr-1" v-model="action">
+            <select name="action" class="custom-select mr-1" v-model="action">
                 <option v-for="(option, value) in options" :value="value">{{ option }}</option>
             </select>
             <input type="submit" class="btn btn-danger btn-md">
@@ -14,6 +14,8 @@
 </template>
 
 <script>
+  import sweetalert2 from 'sweetalert2'
+
   export default {
     props: ['options', 'url', 'datatableId'],
     data () {
@@ -25,9 +27,19 @@
       onSubmit (e) {
         let action = this.action
 
-        $.confirmSwal(e.currentTarget, () => {
-          this.$emit('action', action)
-        })
+        sweetalert2({
+          title: this.$t('labels.are_you_sure'),
+          type: 'warning',
+          showCancelButton: true,
+          cancelButtonText: this.$t('buttons.cancel'),
+          confirmButtonColor: '#dd4b39',
+          confirmButtonText: this.$t('buttons.delete')
+        }).then(
+          () => {
+            this.$emit('action', action)
+          },
+          () => {}
+        )
       }
     }
   }

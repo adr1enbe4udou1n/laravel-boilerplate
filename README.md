@@ -65,7 +65,7 @@
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-1. Fork it and clone
+1. `composer create-project --prefer-dist --stability=dev adr1enbe4udou1n/laravel-boilerplate my-new-project`
 2. Set database and environment variables from **.env.example**
 3. Set Web write permission if needed to `bootstrap/cache` and `storage` folders.
 4. Launch follow commands :
@@ -97,10 +97,10 @@ Both frontend and backend have dedicated login pages.
 
 ### Compiling assets with Webpack
 
-1. Install dependencies with `npm i`
-2. Launch `npm run watch` for compiling assets and start browsersync
+1. Install dependencies with `yarn`
+2. Launch `yarn watch` for compiling assets and start browsersync
 
-> Note : If assets modified, don't forget to launch `npm run production` before deploy on each production environment.
+> Note : If assets modified, don't forget to launch `yarn production` before deploy on each production environment.
 
 ### Permissions definitions
 

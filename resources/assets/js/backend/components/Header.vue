@@ -1,16 +1,12 @@
 <template>
-    <header class="app-header navbar navbar-expand-lg">
-        <button class="navbar-toggler d-lg-none" type="button" @click="mobileSidebarToggle">
+    <header class="app-header navbar">
+        <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button" @click="mobileSidebarToggle">
             &#9776;
         </button>
         <a class="navbar-brand" href="#"></a>
-        <ul class="nav navbar-nav d-md-down-none mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#" @click="sidebarMinimize">&#9776;</a>
-            </li>
-        </ul>
+        <button class="navbar-toggler sidebar-toggler d-md-down-none mr-auto" type="button" @click="sidebarToggle">&#9776;</button>
         <ul class="nav navbar-nav ml-auto mr-4">
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown px-2">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
                     <span class="d-md-down-none"><i class="icon-plus"></i> {{ $t('labels.add_new') }}</span>
                 </a>
@@ -35,19 +31,19 @@
                     </router-link>
                 </div>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown px-2">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
                     <span class="d-md-down-none">{{ $t('labels.language') }}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" rel="alternate" :key="index" v-for="(locale, index) in this.$app.locales"
                        :hreflang="index"
-                       :href="`/${index}/${$app.adminPathName}#${$route.fullPath}`">
+                       :href="`/${index}/${$app.adminPathName}${$route.fullPath}`">
                         {{ locale.native }}
                     </a>
                 </div>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown px-2">
                 <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
                     <img :src="this.$app.user.avatar" class="img-avatar" :alt="$t('labels.user.avatar')">
                     <span class="d-md-down-none">{{ this.$app.user.name }}</span>

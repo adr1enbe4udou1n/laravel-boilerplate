@@ -4,8 +4,8 @@ namespace App\Models;
 
 use App\Models\Traits\Metable;
 use App\Models\Traits\Taggable;
-use App\Models\Traits\Translatable;
 use Carbon\Carbon;
+use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Plank\Mediable\Media;

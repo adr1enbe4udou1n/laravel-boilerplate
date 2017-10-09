@@ -42,7 +42,10 @@ class Handler extends ExceptionHandler
         if ($this->shouldReport($exception)) {
             // Send mail error to editor if production
             if (app()->environment('production') && $mail = config('app.editor_alert_mail')) {
-                Mail::to($mail)->send(new ExceptionOccurred($exception));
+                try {
+                    Mail::to($mail)->send(new ExceptionOccurred($exception));
+                } catch (Exception $ex) {
+                }
             }
         }
 

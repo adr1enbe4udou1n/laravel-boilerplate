@@ -39,6 +39,7 @@
 
 <script>
   import axios from 'axios'
+  import toastr from 'toastr'
 
   export default {
     name: 'redirection_list',
@@ -63,40 +64,40 @@
             width: 15,
             className: 'select-checkbox'
           }, {
-            title: this.$i18n.t('validation.attributes.source_path'),
+            title: this.$t('validation.attributes.source_path'),
             data: 'source',
             name: 'source',
             responsivePriority: 1
           }, {
-            title: this.$i18n.t('validation.attributes.active'),
+            title: this.$t('validation.attributes.active'),
             data: 'active',
             name: 'active',
             orderable: false,
             width: 50,
             className: 'text-center'
           }, {
-            title: this.$i18n.t('validation.attributes.target_path'),
+            title: this.$t('validation.attributes.target_path'),
             data: 'target',
             name: 'target'
           }, {
-            title: this.$i18n.t('validation.attributes.redirect_type'),
+            title: this.$t('validation.attributes.redirect_type'),
             data: 'type',
             name: 'type',
             width: 150
           }, {
-            title: this.$i18n.t('labels.created_at'),
+            title: this.$t('labels.created_at'),
             data: 'created_at',
             name: 'created_at',
             width: 110,
             className: 'text-center'
           }, {
-            title: this.$i18n.t('labels.updated_at'),
+            title: this.$t('labels.updated_at'),
             data: 'updated_at',
             name: 'updated_at',
             width: 110,
             className: 'text-center'
           }, {
-            title: this.$i18n.t('labels.actions'),
+            title: this.$t('labels.actions'),
             data: 'actions',
             name: 'actions',
             orderable: false,
@@ -109,9 +110,9 @@
           rowId: 'id'
         },
         dataTableActions: {
-          destroy: this.$i18n.t('labels.backend.redirections.actions.destroy'),
-          enable: this.$i18n.t('labels.backend.redirections.actions.enable'),
-          disable: this.$i18n.t('labels.backend.redirections.actions.disable')
+          destroy: this.$t('labels.backend.redirections.actions.destroy'),
+          enable: this.$t('labels.backend.redirections.actions.enable'),
+          disable: this.$t('labels.backend.redirections.actions.disable')
         },
         importFile: null
       }
@@ -133,10 +134,10 @@
           .post(this.$app.route('admin.redirections.import'), data)
           .then(response => {
             dataTable.ajax.reload(null, false)
-            window.toastr[response.data.status](response.data.message)
+            toastr[response.data.status](response.data.message)
           })
           .catch(() => {
-            window.toastr.error(this.$i18n.t('exceptions.general'))
+            toastr.error(this.$t('exceptions.general'))
           })
       }
     }

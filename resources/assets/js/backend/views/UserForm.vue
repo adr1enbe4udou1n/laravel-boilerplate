@@ -57,12 +57,14 @@
                                     :horizontal="true"
                                     :label-cols="3"
                             >
-                                <b-form-toggle
-                                        id="active"
+                                <c-switch
                                         name="active"
-                                        value="1"
+                                        type="text"
+                                        variant="primary"
+                                        on="On"
+                                        off="Off"
                                         v-model="model.active"
-                                ></b-form-toggle>
+                                ></c-switch>
                             </b-form-fieldset>
 
                             <b-form-fieldset
@@ -146,6 +148,7 @@
 <script>
   import axios from 'axios'
   import form from '../mixins/form'
+  import 'pwstrength-bootstrap/dist/pwstrength-bootstrap'
 
   export default {
     name: 'user_form',

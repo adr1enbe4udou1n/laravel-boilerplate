@@ -20,7 +20,7 @@
                                 <select
                                         id="name"
                                         name="name"
-                                        class="form-control"
+                                        class="custom-select"
                                         v-validate="'required'"
                                         v-model="model.name"
                                 >
@@ -107,7 +107,7 @@
         formTypes: [
           {
             value: null,
-            text: `-- ${this.$i18n.t('validation.attributes.form_type')} --`
+            text: `-- ${this.$t('validation.attributes.form_type')} --`
           }
         ],
         modelName: 'form_setting',

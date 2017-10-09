@@ -5,14 +5,13 @@ const path = require('path')
 const webpack = require('webpack')
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
-const WebpackBundleSizeAnalyzerPlugin = require('webpack-bundle-size-analyzer').WebpackBundleSizeAnalyzerPlugin
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const production = process.env.NODE_ENV === 'production'
 const hmr = process.argv.includes('--hot')
@@ -126,10 +125,7 @@ module.exports = {
       'vue',
       'axios',
       'sweetalert2',
-      'slick-carousel',
-      'flatpickr',
-      'intl-tel-input',
-      'toastr'
+      'intl-tel-input'
     ],
     ckeditor: [
       'ckeditor'
@@ -252,7 +248,6 @@ module.exports = {
     new CopyWebpackPlugin(ckeditorCopyPatterns, {
       ignore: ckeditorIgnoredLanguages
     }),
-    new FriendlyErrorsWebpackPlugin(),
     new webpack.LoaderOptionsPlugin({
       minimize: production,
       options: {
@@ -260,6 +255,7 @@ module.exports = {
         output: {path: './'}
       }
     }),
+    new FriendlyErrorsPlugin(),
     new WebpackNotifierPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest'],
@@ -276,7 +272,6 @@ module.exports = {
       allChunks: true,
       disable: !production
     }),
-    new WebpackBundleSizeAnalyzerPlugin('./plain-report.txt'),
     new BrowserSyncPlugin(
       {
         host: browserSyncHost,
@@ -296,6 +291,7 @@ module.exports = {
     )
   ],
   resolve: {
+    extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
     }
@@ -328,21 +324,19 @@ if (hmr) {
 
 if (production) {
   plugins = [
-    new CleanWebpackPlugin(['dist', 'fonts/vendor', 'images/vendor'], {
-      root: path.resolve(__dirname, 'public')
-    }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
       }
     }),
-    new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
       compress: {
         warnings: false
       }
     }),
+    new webpack.optimize.ModuleConcatenationPlugin(),
+    new BundleAnalyzerPlugin(),
     new ManifestPlugin()
   ]
 }

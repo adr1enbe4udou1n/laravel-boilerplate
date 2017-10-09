@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Traits\Translatable;
+use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\HtmlString;
 
@@ -24,8 +24,8 @@ if (!function_exists('assets')) {
 
         if (app()->environment('local', 'testing')) {
             if (file_exists(public_path('/hot'))) {
-                $hmrHost = env('BROWSERSYNC_HOST');
-                $hmrPost = env('WEBPACKDEVSERVER_PORT');
+                $hmrHost = config('app.hmr_host');
+                $hmrPost = config('app.hmr_port');
 
                 return new HtmlString("//{$hmrHost}:{$hmrPost}{$path}");
             }

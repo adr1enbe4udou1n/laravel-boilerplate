@@ -18,7 +18,7 @@ trait HtmlActionsButtons
     {
         $title = '<i class="icon-magnifier" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.view').'"></i>';
 
-        return "<a href=\"{$url}\" class=\"btn btn-sm btn-success\">{$title}</a> ";
+        return "<a href=\"{$url}\" class=\"btn btn-sm btn-success\" data-router-link>{$title}</a> ";
     }
 
     /**
@@ -45,7 +45,7 @@ trait HtmlActionsButtons
     {
         $title = '<i class="icon-pencil" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.edit').'"></i>';
 
-        return "<a href=\"{$url}\" class=\"btn btn-sm btn-primary\">{$title}</a> ";
+        return "<a href=\"{$url}\" class=\"btn btn-sm btn-primary\" data-router-link>{$title}</a> ";
     }
 
     /**
@@ -64,10 +64,7 @@ trait HtmlActionsButtons
 
         $route = route($route, $parameters);
         $title = '<i class="icon-trash" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.delete').'"></i>';
-        $transCancel = trans('buttons.cancel');
-        $transConfirm = trans('buttons.delete');
-        $transTitle = trans('labels.are_you_sure');
 
-        return "<a href=\"{$route}\" class=\"btn btn-sm btn-danger\" data-toggle=\"delete-row\" data-trans-button-cancel=\"{$transCancel}\" data-trans-button-confirm=\"{$transConfirm}\" data-trans-title=\"{$transTitle}\">{$title}</a>";
+        return "<a href=\"{$route}\" class=\"btn btn-sm btn-danger\" data-delete-link>{$title}</a>";
     }
 }

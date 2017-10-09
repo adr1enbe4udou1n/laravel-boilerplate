@@ -221,12 +221,14 @@
                                             :horizontal="true"
                                             :label-cols="3"
                                     >
-                                        <b-form-toggle
-                                                id="pinned"
+                                        <c-switch
                                                 name="pinned"
-                                                value="1"
+                                                type="text"
+                                                variant="primary"
+                                                on="On"
+                                                off="Off"
                                                 v-model="model.pinned"
-                                        ></b-form-toggle>
+                                        ></c-switch>
                                     </b-form-fieldset>
 
                                     <b-form-fieldset
@@ -235,12 +237,14 @@
                                             :horizontal="true"
                                             :label-cols="3"
                                     >
-                                        <b-form-toggle
-                                                id="promoted"
+                                        <c-switch
                                                 name="promoted"
-                                                value="1"
+                                                type="text"
+                                                variant="primary"
+                                                on="On"
+                                                off="Off"
                                                 v-model="model.promoted"
-                                        ></b-form-toggle>
+                                        ></c-switch>
                                     </b-form-fieldset>
                                 </div>
                             </div>
