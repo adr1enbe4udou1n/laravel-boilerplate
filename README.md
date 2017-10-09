@@ -31,12 +31,12 @@
 
 * Based on Bootstrap 4 [CoreUI](https://github.com/mrholek/CoreUI-Free-Bootstrap-Admin-Template) theme with many useful plugins (DataTables, SweetAlert2, Flatpickr, CKEditor, etc.).
 * Entirely written with Vue components, including vue-route for instant client-side navigation
-* All main CRUD actions are ajaxified
-* Client-side validation with [vee-validate](https://github.com/baianat/vee-validate)
-* Native [vue-select](https://github.com/sagalbot/vue-select) component for powerful select system (autocomplete, tags, etc.)
+* All main CRUD actions are ajaxified.
+* Client-side validation with [vee-validate](https://github.com/baianat/vee-validate).
+* Native [vue-select](https://github.com/sagalbot/vue-select) component for powerful select system (autocomplete, tags, etc.).
 * Batch actions integrated within DataTables thanks to his select plugin.
 * Client-side CSV export feature included by buttons DataTable plugin.
-* Global search engine (for posts in this this boilerplate) thanks to Laravel Scout & TNTSearch
+* Global search engine (for posts in this this boilerplate) thanks to Laravel Scout & TNTSearch.
 
 #### Features included
 
