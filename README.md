@@ -89,6 +89,14 @@ php artisan storage:link
 php artisan migrate [--seed]
 ```
 
+### Initialize search index for posts
+
+```shell
+php artisan scout:import "App\Models\Post"
+```
+
+Laravel Scout takes care of updating posts index on CUD operations.
+
 ### Backend access
 
 The first user to register will be automatically super admin with no restriction and will cannot be deletable.
