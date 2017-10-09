@@ -36,7 +36,7 @@
 * Native [vue-select](https://github.com/sagalbot/vue-select) component for powerful select system (autocomplete, tags, etc.).
 * Batch actions integrated within DataTables thanks to his select plugin.
 * Client-side CSV export feature included by buttons DataTable plugin.
-* Global search engine (for posts in this this boilerplate) thanks to Laravel Scout & TNTSearch.
+* Instant search engine (for posts) thanks to Laravel Scout & TNTSearch.
 
 #### Features included
 
