@@ -7,6 +7,10 @@ export default (app, i18n, newPostsCount, pendingPostsCount) => {
       access: true
     },
     {
+      divider: true,
+      access: true
+    },
+    {
       title: true,
       name: i18n.t('labels.backend.sidebar.content'),
       access: app.blogEnabled && app.user.can('view own posts')
@@ -30,6 +34,10 @@ export default (app, i18n, newPostsCount, pendingPostsCount) => {
       ]
     },
     {
+      divider: true,
+      access: true
+    },
+    {
       title: true,
       name: i18n.t('labels.backend.sidebar.forms'),
       access: app.user.can('view form_submissions') || app.user.can('view form_settings')
@@ -47,6 +55,10 @@ export default (app, i18n, newPostsCount, pendingPostsCount) => {
       access: app.user.can('view form_settings')
     },
     {
+      divider: true,
+      access: true
+    },
+    {
       title: true,
       name: i18n.t('labels.backend.sidebar.access'),
       access: app.user.can('view users') || app.user.can('view roles')
@@ -62,6 +74,10 @@ export default (app, i18n, newPostsCount, pendingPostsCount) => {
       url: '/roles',
       icon: 'icon-shield',
       access: app.user.can('view roles')
+    },
+    {
+      divider: true,
+      access: true
     },
     {
       title: true,

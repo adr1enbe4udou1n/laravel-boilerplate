@@ -274,6 +274,7 @@ export default {
                     "redirection": "New redirection"
                 },
                 "sidebar": {
+                    "search": "Search",
                     "content": "Content management",
                     "forms": "Form management",
                     "access": "Access management",
@@ -1053,6 +1054,7 @@ export default {
                     "redirection": "Nouvelle redirection"
                 },
                 "sidebar": {
+                    "search": "Rechercher",
                     "content": "Gestion de contenu",
                     "forms": "Gestion des formulaires",
                     "access": "Gestion des accès",

@@ -128,6 +128,7 @@ return [
         ],
 
         'sidebar' => [
+            'search' => 'Search',
             'content' => 'Content management',
             'forms' => 'Form management',
             'access' => 'Access management',
