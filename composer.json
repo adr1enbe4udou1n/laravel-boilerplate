@@ -19,6 +19,7 @@
         "intervention/image": "^2.4",
         "intervention/imagecache": "^2.3",
         "laravel/framework": "5.5.*",
+        "laravel/scout": "^3.0",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.5",
@@ -28,6 +29,7 @@
         "mews/purifier": "^2.0",
         "plank/laravel-mediable": "^2.5",
         "roumen/sitemap": "^2.6",
+        "teamtnt/laravel-scout-tntsearch-driver": "^3.0",
         "tightenco/ziggy": "^0.4.0",
         "yajra/laravel-datatables-oracle": "^8.0"
     },

@@ -1,5 +1,7 @@
 <?php
 
+Route::get('index/search', 'AjaxController@search')
+    ->name('search');
 Route::get('routes/search', 'AjaxController@routesSearch')
     ->name('routes.search');
 Route::get('tags/search', 'AjaxController@tagsSearch')

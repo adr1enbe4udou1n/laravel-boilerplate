@@ -164,6 +164,7 @@ export default {
             "language": "Language",
             "actions": "Actions",
             "general": "General",
+            "search": "Search",
             "no_results": "No results available",
             "are_you_sure": "Are you sure ?",
             "yes": "Yes",
@@ -274,7 +275,6 @@ export default {
                     "redirection": "New redirection"
                 },
                 "sidebar": {
-                    "search": "Search",
                     "content": "Content management",
                     "forms": "Form management",
                     "access": "Access management",
@@ -944,6 +944,7 @@ export default {
             "language": "Langue",
             "actions": "Actions",
             "general": "Général",
+            "search": "Rechercher",
             "no_results": "Aucun résultat trouvé",
             "are_you_sure": "Etes-vous sûr ?",
             "yes": "Oui",
@@ -1054,7 +1055,6 @@ export default {
                     "redirection": "Nouvelle redirection"
                 },
                 "sidebar": {
-                    "search": "Rechercher",
                     "content": "Gestion de contenu",
                     "forms": "Gestion des formulaires",
                     "access": "Gestion des accès",

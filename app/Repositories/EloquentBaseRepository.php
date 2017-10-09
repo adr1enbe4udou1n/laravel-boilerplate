@@ -31,6 +31,17 @@ class EloquentBaseRepository implements BaseRepository
     }
 
     /**
+     * @param      $query
+     * @param null $callback
+     *
+     * @return \Laravel\Scout\Builder
+     */
+    public function search($query, $callback = null)
+    {
+        return $this->model->search($query, $callback);
+    }
+
+    /**
      * @param array $columns
      *
      * @return \Illuminate\Database\Eloquent\Builder

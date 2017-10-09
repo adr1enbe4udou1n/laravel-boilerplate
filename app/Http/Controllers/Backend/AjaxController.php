@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Repositories\Contracts\PostRepository;
 use App\Repositories\Contracts\TagRepository;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
@@ -14,25 +15,46 @@ use Mcamara\LaravelLocalization\LaravelLocalization;
 class AjaxController extends Controller
 {
     /**
-     * @var \App\Repositories\Contracts\TagRepository
+     * @var PostRepository
+     */
+    protected $posts;
+
+    /**
+     * @var TagRepository
      */
     protected $tags;
 
     /**
-     * @var \Mcamara\LaravelLocalization\LaravelLocalization
+     * @var LaravelLocalization
      */
     protected $localization;
 
     /**
      * AjaxController constructor.
      *
+     * @param \App\Repositories\Contracts\PostRepository       $posts
      * @param \App\Repositories\Contracts\TagRepository        $tags
      * @param \Mcamara\LaravelLocalization\LaravelLocalization $localization
      */
-    public function __construct(TagRepository $tags, LaravelLocalization $localization)
+    public function __construct(PostRepository $posts, TagRepository $tags, LaravelLocalization $localization)
     {
+        $this->posts = $posts;
         $this->tags = $tags;
         $this->localization = $localization;
+    }
+
+    /**
+     * Global index search.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return mixed
+     */
+    public function search(Request $request)
+    {
+        $query = $request->get('q');
+
+        return empty($query) ? [] : $this->posts->search($query)->take(50)->get();
     }
 
     /**

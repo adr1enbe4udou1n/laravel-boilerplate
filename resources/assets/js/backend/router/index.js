@@ -5,6 +5,7 @@ import Router from 'vue-router'
 import Full from '../containers/Full'
 
 // Views
+import Search from '../views/Search'
 import Dashboard from '../views/Dashboard'
 import PostForm from '../views/PostForm'
 import PostList from '../views/PostList'
@@ -39,6 +40,14 @@ export default (base, i18n) => {
           title: i18n.t('labels.frontend.titles.administration')
         },
         children: [
+          {
+            path: 'search',
+            name: 'search',
+            component: Search,
+            meta: {
+              title: i18n.t('labels.search')
+            }
+          },
           {
             path: 'dashboard',
             name: 'dashboard',

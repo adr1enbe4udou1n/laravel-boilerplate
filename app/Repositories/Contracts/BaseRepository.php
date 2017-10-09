@@ -13,6 +13,14 @@ interface BaseRepository
     public function query();
 
     /**
+     * @param      $query
+     * @param null $callback
+     *
+     * @return \Laravel\Scout\Builder
+     */
+    public function search($query, $callback = null);
+
+    /**
      * @param array $columns
      *
      * @return \Illuminate\Database\Eloquent\Builder

@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 use Plank\Mediable\Media;
 use Plank\Mediable\Mediable;
 
@@ -65,10 +66,13 @@ use Plank\Mediable\Mediable;
  */
 class Post extends Model
 {
+    use Searchable;
     use Mediable;
     use Taggable;
     use Metable;
     use Translatable;
+
+    public $asYouType = true;
 
     public $translatedAttributes = ['title', 'summary', 'body', 'slug'];
 
@@ -222,5 +226,20 @@ class Post extends Model
         $this->getMedia('featured image')->each(function (Media $media) {
             $media->delete();
         });
+    }
+
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray()
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'summary' => $this->description,
+            'body' => $this->body,
+        ];
     }
 }

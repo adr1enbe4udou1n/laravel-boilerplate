@@ -4,6 +4,7 @@ return [
     'language' => 'Language',
     'actions' => 'Actions',
     'general' => 'General',
+    'search' => 'Search',
     'no_results' => 'No results available',
     'are_you_sure' => 'Are you sure ?',
     'yes' => 'Yes',
@@ -128,7 +129,6 @@ return [
         ],
 
         'sidebar' => [
-            'search' => 'Search',
             'content' => 'Content management',
             'forms' => 'Form management',
             'access' => 'Access management',
