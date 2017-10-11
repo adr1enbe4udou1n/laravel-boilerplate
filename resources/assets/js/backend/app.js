@@ -19,12 +19,7 @@ import VueI18n from '../vue-i18n'
 import VeeValidate from '../vee-validate'
 import BootstrapVue from 'bootstrap-vue'
 import vSelect from 'vue-select'
-import FormFieldset from '.././components/FormFieldset'
-import InputGroup from '.././components/InputGroup'
-import FormCheckbox from '.././components/FormCheckbox'
-import FormRadio from '.././components/FormRadio'
 import Switch from './components/Switch'
-import Tooltip from '.././components/Tooltip'
 import Flatpickr from '.././components/Flatpickr'
 import CKEditor from '.././components/CKEditor'
 import DataTable from './components/DataTable'
@@ -45,11 +40,6 @@ Vue.use(BootstrapVue)
 Vue.component('v-select', vSelect)
 
 // Custom components
-Vue.component('b-form-fieldset', FormFieldset)
-Vue.component('b-input-group', InputGroup)
-Vue.component('b-form-checkbox', FormCheckbox)
-Vue.component('b-form-radio', FormRadio)
-Vue.component('b-tooltip', Tooltip)
 Vue.component('c-switch', Switch)
 Vue.component('flatpickr', Flatpickr)
 Vue.component('ckeditor', CKEditor)

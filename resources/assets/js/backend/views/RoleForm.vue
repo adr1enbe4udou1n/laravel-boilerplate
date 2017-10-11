@@ -96,19 +96,8 @@
                                 <div class="row">
                                     <div class="col-md-6 col-xl-4 mb-3" v-for="category in this.permissions">
                                         <h4>{{ $t(category.title) }}</h4>
-                                        <div class="custom-controls-stacked">
-                                            <b-tooltip v-for="permission in category.permissions"
-                                                       :key="permission.name"
-                                                       placement="left"
-                                                       :title="$i18n.t(permission['description'])">
-                                                <b-form-checkbox
-                                                        name="permissions[]"
-                                                        v-model="model.permissions"
-                                                        :value="permission.name">
-                                                    {{ $t(permission['display_name']) }}
-                                                </b-form-checkbox>
-                                            </b-tooltip>
-                                        </div>
+                                        <b-form-checkbox-group stacked v-model="model.permissions" name="permissions[]" :options="category.permissions">
+                                        </b-form-checkbox-group>
                                     </div>
                                 </div>
                             </div>
@@ -167,9 +156,17 @@
           }), 'category')
 
           this.permissions = Object.keys(categories).map(key => {
+            let permissions = []
+            categories[key].forEach((element) => {
+              permissions.push({
+                value: element.name,
+                text: this.$t(element.display_name)
+              })
+            })
+
             return {
               title: key,
-              permissions: categories[key]
+              permissions: permissions
             }
           })
         })
