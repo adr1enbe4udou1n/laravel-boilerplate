@@ -3,142 +3,133 @@
         <form @submit.prevent="onSubmit">
             <div class="row justify-content-center">
                 <div class="col-xl-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>
-                                {{ isNew ? $t('labels.backend.users.titles.create') : $t(
-                              'labels.backend.users.titles.edit')
-                                }}</h4>
-                        </div>
+                    <b-card>
+                        <h4 slot="header">{{ isNew ? $t('labels.backend.users.titles.create') : $t('labels.backend.users.titles.edit')}}</h4>
 
-                        <div class="card-body">
-                            <b-form-fieldset
-                                    name="name"
-                                    :label="$t('validation.attributes.name')"
-                                    :horizontal="true"
-                                    :label-cols="3"
-                                    :invalid-feedback="feedback('name')"
-                            >
-                                <b-input-group :left="iconUser">
-                                    <input
-                                            id="name"
-                                            name="name"
-                                            :placeholder="$t('validation.attributes.name')"
-                                            class="form-control"
-                                            v-model="model.name"
-                                            v-validate="'required'"
-                                    >
-                                </b-input-group>
-                            </b-form-fieldset>
+                        <b-form-fieldset
+                                name="name"
+                                :label="$t('validation.attributes.name')"
+                                :horizontal="true"
+                                :label-cols="3"
+                                :invalid-feedback="feedback('name')"
+                        >
+                            <b-input-group :left="iconUser">
+                                <input
+                                        id="name"
+                                        name="name"
+                                        :placeholder="$t('validation.attributes.name')"
+                                        class="form-control"
+                                        v-model="model.name"
+                                        v-validate="'required'"
+                                >
+                            </b-input-group>
+                        </b-form-fieldset>
 
-                            <b-form-fieldset
-                                    name="email"
-                                    :label="$t('validation.attributes.email')"
-                                    :horizontal="true"
-                                    :label-cols="3"
-                                    :invalid-feedback="feedback('email')"
-                            >
-                                <b-input-group :left="iconEnvelope">
-                                    <input
-                                            id="email"
-                                            name="email"
-                                            type="email"
-                                            :placeholder="$t('validation.attributes.email')"
-                                            class="form-control"
-                                            v-model="model.email"
-                                            v-validate="'required|email'"
-                                    >
-                                </b-input-group>
-                            </b-form-fieldset>
+                        <b-form-fieldset
+                                name="email"
+                                :label="$t('validation.attributes.email')"
+                                :horizontal="true"
+                                :label-cols="3"
+                                :invalid-feedback="feedback('email')"
+                        >
+                            <b-input-group :left="iconEnvelope">
+                                <input
+                                        id="email"
+                                        name="email"
+                                        type="email"
+                                        :placeholder="$t('validation.attributes.email')"
+                                        class="form-control"
+                                        v-model="model.email"
+                                        v-validate="'required|email'"
+                                >
+                            </b-input-group>
+                        </b-form-fieldset>
 
-                            <b-form-fieldset
+                        <b-form-fieldset
+                                name="active"
+                                :label="$t('validation.attributes.active')"
+                                :horizontal="true"
+                                :label-cols="3"
+                        >
+                            <c-switch
                                     name="active"
-                                    :label="$t('validation.attributes.active')"
-                                    :horizontal="true"
-                                    :label-cols="3"
-                            >
-                                <c-switch
-                                        name="active"
-                                        type="text"
-                                        variant="primary"
-                                        on="On"
-                                        off="Off"
-                                        v-model="model.active"
-                                ></c-switch>
-                            </b-form-fieldset>
+                                    type="text"
+                                    variant="primary"
+                                    on="On"
+                                    off="Off"
+                                    v-model="model.active"
+                            ></c-switch>
+                        </b-form-fieldset>
 
-                            <b-form-fieldset
+                        <b-form-fieldset
+                                name="password"
+                                :label="$t('validation.attributes.password')"
+                                :horizontal="true"
+                                :label-cols="3"
+                                :invalid-feedback="feedback('password')"
+                        >
+                            <input
+                                    id="password"
                                     name="password"
-                                    :label="$t('validation.attributes.password')"
-                                    :horizontal="true"
-                                    :label-cols="3"
-                                    :invalid-feedback="feedback('password')"
+                                    type="password"
+                                    :placeholder="$t('validation.attributes.password')"
+                                    class="form-control"
+                                    data-toggle="password-strength-meter"
+                                    v-model="model.password"
                             >
-                                <input
-                                        id="password"
-                                        name="password"
-                                        type="password"
-                                        :placeholder="$t('validation.attributes.password')"
-                                        class="form-control"
-                                        data-toggle="password-strength-meter"
-                                        v-model="model.password"
-                                >
-                            </b-form-fieldset>
+                        </b-form-fieldset>
 
-                            <b-form-fieldset
+                        <b-form-fieldset
+                                name="password_confirmation"
+                                :label="$t('validation.attributes.password_confirmation')"
+                                :horizontal="true"
+                                :label-cols="3"
+                                :invalid-feedback="feedback('password_confirmation')"
+                        >
+                            <input
+                                    id="password_confirmation"
                                     name="password_confirmation"
-                                    :label="$t('validation.attributes.password_confirmation')"
-                                    :horizontal="true"
-                                    :label-cols="3"
-                                    :invalid-feedback="feedback('password_confirmation')"
+                                    type="password"
+                                    :placeholder="$t('validation.attributes.password_confirmation')"
+                                    class="form-control"
+                                    v-model="model.password_confirmation"
                             >
-                                <input
-                                        id="password_confirmation"
-                                        name="password_confirmation"
-                                        type="password"
-                                        :placeholder="$t('validation.attributes.password_confirmation')"
-                                        class="form-control"
-                                        v-model="model.password_confirmation"
-                                >
-                            </b-form-fieldset>
+                        </b-form-fieldset>
 
-                            <b-form-fieldset
-                                    :label="$t('validation.attributes.roles')"
-                                    :horizontal="true"
-                                    :label-cols="3"
-                            >
-                                <div class="custom-controls-stacked">
-                                    <b-tooltip v-for="role in roles"
-                                               :key="role.id"
-                                               placement="left"
-                                               :title="role.description">
-                                        <b-form-checkbox
-                                                name="roles[]"
-                                                v-model="model.roles"
-                                                :value="role.id"
-                                        >
-                                            {{ role.display_name }}
-                                        </b-form-checkbox>
-                                    </b-tooltip>
-                                </div>
-                            </b-form-fieldset>
-                        </div>
+                        <b-form-fieldset
+                                :label="$t('validation.attributes.roles')"
+                                :horizontal="true"
+                                :label-cols="3"
+                        >
+                            <div class="custom-controls-stacked">
+                                <b-tooltip v-for="role in roles"
+                                           :key="role.id"
+                                           placement="left"
+                                           :title="role.description">
+                                    <b-form-checkbox
+                                            name="roles[]"
+                                            v-model="model.roles"
+                                            :value="role.id"
+                                    >
+                                        {{ role.display_name }}
+                                    </b-form-checkbox>
+                                </b-tooltip>
+                            </div>
+                        </b-form-fieldset>
 
-                        <div class="card-footer">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <router-link to="/users" class="btn btn-danger btn-sm">{{ $t('buttons.back') }}
-                                    </router-link>
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="submit" class="btn btn-success btn-sm pull-right"
-                                           :value="isNew ? $t('buttons.create') : $t('buttons.edit')"
-                                           :disabled="pending"
-                                           v-if="isNew || this.$app.user.can('edit users')">
-                                </div>
+                        <div class="row" slot="footer">
+                            <div class="col-md-6">
+                                <router-link to="/users" class="btn btn-danger btn-sm">{{ $t('buttons.back') }}
+                                </router-link>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="submit" class="btn btn-success btn-sm pull-right"
+                                       :value="isNew ? $t('buttons.create') : $t('buttons.edit')"
+                                       :disabled="pending"
+                                       v-if="isNew || this.$app.user.can('edit users')">
                             </div>
                         </div>
-                    </div>
+                    </b-card>
                 </div>
             </div>
         </form>

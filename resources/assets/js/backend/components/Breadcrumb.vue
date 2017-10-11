@@ -1,13 +1,5 @@
 <template>
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-            <a :href="this.$app.homePath">{{ $t('labels.frontend.titles.home') }}</a>
-        </li>
-        <li class="breadcrumb-item" v-for="(item, index) in list">
-            <span class="active" v-if="isLast(index)">{{ showName(item) }}</span>
-            <router-link :to="item.path === '' ? '/' : item.path" v-else>{{ showName(item) }}</router-link>
-        </li>
-    </ol>
+    <b-breadcrumb :items="items"/>
 </template>
 
 <script>
@@ -19,10 +11,24 @@
         default: () => []
       }
     },
+    computed: {
+      items () {
+        let items = [{
+          text: this.$t('labels.frontend.titles.home'),
+          href: this.$app.homePath
+        }]
+
+        this.list.forEach((element) => {
+          items.push({
+            text: this.showName(element),
+            to: element.path === '' ? '/' : element.path
+          })
+        })
+
+        return items
+      }
+    },
     methods: {
-      isLast (index) {
-        return index === this.list.length - 1
-      },
       showName (item) {
         if (item.meta && item.meta.title) {
           item = item.meta && item.meta.title

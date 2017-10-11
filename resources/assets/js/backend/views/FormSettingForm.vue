@@ -3,92 +3,83 @@
         <form @submit.prevent="onSubmit">
             <div class="row justify-content-center">
                 <div class="col-xl-6">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>
-                                {{ isNew ? $t('labels.backend.form_settings.titles.create') : $t('labels.backend.form_settings.titles.edit')
-                                }}</h4>
-                        </div>
-
-                        <div class="card-body">
-                            <b-form-fieldset
+                    <b-card>
+                        <h4 slot="header">{{ isNew ? $t('labels.backend.form_settings.titles.create') : $t('labels.backend.form_settings.titles.edit')}}</h4>
+                        <b-form-fieldset
+                                name="name"
+                                :label="$t('validation.attributes.form_type')"
+                                :horizontal="true"
+                                :label-cols="3"
+                        >
+                            <select
+                                    id="name"
                                     name="name"
-                                    :label="$t('validation.attributes.form_type')"
-                                    :horizontal="true"
-                                    :label-cols="3"
+                                    class="custom-select"
+                                    v-validate="'required'"
+                                    v-model="model.name"
                             >
-                                <select
-                                        id="name"
-                                        name="name"
-                                        class="custom-select"
-                                        v-validate="'required'"
-                                        v-model="model.name"
+                                <option
+                                        v-for="type in formTypes"
+                                        :key="type.value"
+                                        :value="type.value"
                                 >
-                                    <option
-                                            v-for="type in formTypes"
-                                            :key="type.value"
-                                            :value="type.value"
-                                    >
-                                        {{ type.text }}
-                                    </option>
-                                </select>
-                            </b-form-fieldset>
+                                    {{ type.text }}
+                                </option>
+                            </select>
+                        </b-form-fieldset>
 
-                            <b-form-fieldset
+                        <b-form-fieldset
+                                name="recipients"
+                                :label="$t('validation.attributes.recipients')"
+                                :description="$t('labels.backend.form_settings.descriptions.recipients')"
+                                :horizontal="true"
+                                :label-cols="3"
+                                :invalid-feedback="feedback('recipients')"
+                        >
+                            <textarea
+                                    id="recipients"
                                     name="recipients"
-                                    :label="$t('validation.attributes.recipients')"
-                                    :description="$t('labels.backend.form_settings.descriptions.recipients')"
-                                    :horizontal="true"
-                                    :label-cols="3"
-                                    :invalid-feedback="feedback('recipients')"
-                            >
-                                <textarea
-                                        id="recipients"
-                                        name="recipients"
-                                        :rows="5"
-                                        v-validate="'required'"
-                                        :placeholder="$t('validation.attributes.recipients')"
-                                        class="form-control"
-                                        v-model="model.recipients"
-                                ></textarea>
-                            </b-form-fieldset>
+                                    :rows="5"
+                                    v-validate="'required'"
+                                    :placeholder="$t('validation.attributes.recipients')"
+                                    class="form-control"
+                                    v-model="model.recipients"
+                            ></textarea>
+                        </b-form-fieldset>
 
-                            <b-form-fieldset
+                        <b-form-fieldset
+                                name="message"
+                                :label="$t('validation.attributes.message')"
+                                :description="$t('labels.backend.form_settings.descriptions.message')"
+                                :horizontal="true"
+                                :label-cols="3"
+                                :invalid-feedback="feedback('message')"
+                        >
+                            <textarea
+                                    id="message"
                                     name="message"
-                                    :label="$t('validation.attributes.message')"
-                                    :description="$t('labels.backend.form_settings.descriptions.message')"
-                                    :horizontal="true"
-                                    :label-cols="3"
-                                    :invalid-feedback="feedback('message')"
-                            >
-                                <textarea
-                                        id="message"
-                                        name="message"
-                                        :rows="5"
-                                        v-validate="'required'"
-                                        :placeholder="$t('validation.attributes.message')"
-                                        class="form-control"
-                                        v-model="model.message"
-                                ></textarea>
-                            </b-form-fieldset>
-                        </div>
+                                    :rows="5"
+                                    v-validate="'required'"
+                                    :placeholder="$t('validation.attributes.message')"
+                                    class="form-control"
+                                    v-model="model.message"
+                            ></textarea>
+                        </b-form-fieldset>
 
-                        <div class="card-footer">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <router-link to="/form-settings" class="btn btn-danger btn-sm">{{ $t('buttons.back')
-                                        }}
-                                    </router-link>
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="submit" class="btn btn-success btn-sm pull-right"
-                                           :value="isNew ? $t('buttons.create') : $t('buttons.edit')"
-                                           :disabled="pending"
-                                           v-if="isNew || this.$app.user.can('edit form_settings')">
-                                </div>
+                        <div class="row" slot="footer">
+                            <div class="col-md-6">
+                                <router-link to="/form-settings" class="btn btn-danger btn-sm">{{ $t('buttons.back')
+                                    }}
+                                </router-link>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="submit" class="btn btn-success btn-sm pull-right"
+                                       :value="isNew ? $t('buttons.create') : $t('buttons.edit')"
+                                       :disabled="pending"
+                                       v-if="isNew || this.$app.user.can('edit form_settings')">
                             </div>
                         </div>
-                    </div>
+                    </b-card>
                 </div>
             </div>
         </form>

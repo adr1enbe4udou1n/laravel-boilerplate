@@ -1,18 +1,16 @@
 <template>
     <div class="animated fadeIn">
-        <div class="card">
-            <div class="card-header">
+        <b-card>
+            <template slot="header">
                 <div class="pull-right mt-2" v-if="this.$app.user.can('create metas')">
                     <router-link to="/metas/create" class="btn btn-success btn-sm"><i class="icon-plus"></i>
                         {{ $t('buttons.metas.create') }}
                     </router-link>
                 </div>
                 <h4 class="mt-1">{{ $t('labels.backend.metas.titles.index') }}</h4>
-            </div>
-            <div class="card-body">
-                <datatable :options="dataTableOptions" :actions="dataTableActions" action-route-name="admin.metas.batch_action"></datatable>
-            </div>
-        </div>
+            </template>
+            <datatable :options="dataTableOptions" :actions="dataTableActions" action-route-name="admin.metas.batch_action"></datatable>
+        </b-card>
     </div>
 </template>
 

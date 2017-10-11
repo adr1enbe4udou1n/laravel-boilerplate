@@ -17,6 +17,7 @@ import 'datatables.net-buttons/js/buttons.html5'
 import Vue from 'vue'
 import VueI18n from '../vue-i18n'
 import VeeValidate from '../vee-validate'
+import BootstrapVue from 'bootstrap-vue'
 import vSelect from 'vue-select'
 import FormFieldset from '.././components/FormFieldset'
 import InputGroup from '.././components/InputGroup'
@@ -36,6 +37,9 @@ const i18n = VueI18n(window.locale)
 
 // VeeValidate
 VeeValidate(window.locale)
+
+// Bootstrap Vue
+Vue.use(BootstrapVue)
 
 // vue-select
 Vue.component('v-select', vSelect)

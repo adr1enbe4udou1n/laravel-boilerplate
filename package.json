@@ -19,6 +19,7 @@
     "babel-plugin-lodash": "^3.2.11",
     "babel-preset-env": "^1.6.0",
     "bootstrap": "^4.0.0-beta",
+    "bootstrap-vue": "^1.0.0-beta.9",
     "browser-sync": "^2.18.13",
     "browser-sync-webpack-plugin": "^1.2.0",
     "ckeditor": "^4.7.3",

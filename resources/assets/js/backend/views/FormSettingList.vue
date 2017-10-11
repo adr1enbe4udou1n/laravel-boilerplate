@@ -1,18 +1,16 @@
 <template>
     <div class="animated fadeIn">
-        <div class="card">
-            <div class="card-header">
+        <b-card>
+            <template slot="header">
                 <div class="pull-right mt-2" v-if="this.$app.user.can('create form_settings')">
                     <router-link to="/form-settings/create" class="btn btn-success btn-sm"><i class="icon-plus"></i>
                         {{ $t('buttons.form_settings.create') }}
                     </router-link>
                 </div>
                 <h4 class="mt-1">{{ $t('labels.backend.form_settings.titles.index') }}</h4>
-            </div>
-            <div class="card-body">
-                <datatable :options="dataTableOptions"></datatable>
-            </div>
-        </div>
+            </template>
+            <datatable :options="dataTableOptions"></datatable>
+        </b-card>
     </div>
 </template>
 

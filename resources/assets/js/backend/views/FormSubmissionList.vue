@@ -1,13 +1,9 @@
 <template>
     <div class="animated fadeIn">
-        <div class="card">
-            <div class="card-header">
-                <h4>{{ $t('labels.backend.form_submissions.titles.index') }}</h4>
-            </div>
-            <div class="card-body">
-                <datatable :options="dataTableOptions" :actions="dataTableActions" action-route-name="admin.form_submissions.batch_action"></datatable>
-            </div>
-        </div>
+        <b-card>
+            <h4 slot="header">{{ $t('labels.backend.form_submissions.titles.index') }}</h4>
+            <datatable :options="dataTableOptions" :actions="dataTableActions" action-route-name="admin.form_submissions.batch_action"></datatable>
+        </b-card>
     </div>
 </template>
 

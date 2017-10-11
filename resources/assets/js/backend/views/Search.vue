@@ -1,20 +1,14 @@
 <template>
   <div class="animated fadeIn">
     <template v-if="this.result.length">
-      <div class="card" v-for="item in this.result">
-        <div class="card-header">
-          <router-link :to="`/posts/${item.id}/edit`">{{ item.title }}</router-link>
-        </div>
-        <div class="card-body">
-          <span v-html="item.body"></span>
-        </div>
-      </div>
+      <b-card v-for="item in this.result" :key="item.id">
+        <router-link :to="`/posts/${item.id}/edit`" slot="header">{{ item.title }}</router-link>
+        <span v-html="item.body"></span>
+      </b-card>
     </template>
-    <div class="card" v-else>
-      <div class="card-body">
-        Aucun résultat
-      </div>
-    </div>
+    <b-card v-else>
+      Aucun résultat
+    </b-card>
   </div>
 </template>
 

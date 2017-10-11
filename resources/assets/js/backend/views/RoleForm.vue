@@ -3,139 +3,130 @@
         <form @submit.prevent="onSubmit">
             <div class="row justify-content-center">
                 <div class="col-xl-8">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>
-                                {{ isNew ? $t('labels.backend.roles.titles.create') : $t(
-                              'labels.backend.roles.titles.edit')
-                                }}</h4>
-                        </div>
+                    <b-card>
+                        <h4 slot="header">{{ isNew ? $t('labels.backend.roles.titles.create') : $t('labels.backend.roles.titles.edit')}}</h4>
 
-                        <div class="card-body">
-                            <b-form-fieldset
-                                    name="name"
-                                    :label="$t('validation.attributes.name')"
-                                    :horizontal="true"
-                                    :label-cols="2"
-                                    :invalid-feedback="feedback('name')"
-                            >
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <input
-                                                id="name"
-                                                name="name"
-                                                v-validate="'required'"
-                                                :placeholder="$t('validation.attributes.name')"
-                                                class="form-control"
-                                                v-model="model.name"
-                                        >
-                                    </div>
+                        <b-form-fieldset
+                                name="name"
+                                :label="$t('validation.attributes.name')"
+                                :horizontal="true"
+                                :label-cols="2"
+                                :invalid-feedback="feedback('name')"
+                        >
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input
+                                            id="name"
+                                            name="name"
+                                            v-validate="'required'"
+                                            :placeholder="$t('validation.attributes.name')"
+                                            class="form-control"
+                                            v-model="model.name"
+                                    >
                                 </div>
-                            </b-form-fieldset>
+                            </div>
+                        </b-form-fieldset>
 
-                            <b-form-fieldset
-                                    name="display_name"
-                                    :label="$t('validation.attributes.display_name')"
-                                    :horizontal="true"
-                                    :label-cols="2"
-                                    :invalid-feedback="feedback('display_name')"
-                            >
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <input
-                                                id="display_name"
-                                                name="display_name"
-                                                v-validate="'required'"
-                                                :placeholder="$t('validation.attributes.display_name')"
-                                                class="form-control"
-                                                v-model="model.display_name"
-                                        >
-                                    </div>
+                        <b-form-fieldset
+                                name="display_name"
+                                :label="$t('validation.attributes.display_name')"
+                                :horizontal="true"
+                                :label-cols="2"
+                                :invalid-feedback="feedback('display_name')"
+                        >
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input
+                                            id="display_name"
+                                            name="display_name"
+                                            v-validate="'required'"
+                                            :placeholder="$t('validation.attributes.display_name')"
+                                            class="form-control"
+                                            v-model="model.display_name"
+                                    >
                                 </div>
-                            </b-form-fieldset>
+                            </div>
+                        </b-form-fieldset>
 
-                            <b-form-fieldset
-                                    name="description"
-                                    :label="$t('validation.attributes.description')"
-                                    :horizontal="true"
-                                    :label-cols="2"
-                                    :invalid-feedback="feedback('description')"
-                            >
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <input
-                                                id="description"
-                                                name="description"
-                                                :placeholder="$t('validation.attributes.description')"
-                                                class="form-control"
-                                                v-model="model.description"
-                                        >
-                                    </div>
+                        <b-form-fieldset
+                                name="description"
+                                :label="$t('validation.attributes.description')"
+                                :horizontal="true"
+                                :label-cols="2"
+                                :invalid-feedback="feedback('description')"
+                        >
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input
+                                            id="description"
+                                            name="description"
+                                            :placeholder="$t('validation.attributes.description')"
+                                            class="form-control"
+                                            v-model="model.description"
+                                    >
                                 </div>
-                            </b-form-fieldset>
+                            </div>
+                        </b-form-fieldset>
 
-                            <b-form-fieldset
-                                    name="order"
-                                    :label="$t('validation.attributes.order')"
-                                    :horizontal="true"
-                                    :label-cols="2"
-                            >
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <input
-                                                id="order"
-                                                name="order"
-                                                type="number"
-                                                class="form-control"
-                                                v-validate="'required'"
-                                                v-model="model.order"
-                                                :invalid-feedback="feedback('order')"
-                                        >
-                                    </div>
+                        <b-form-fieldset
+                                name="order"
+                                :label="$t('validation.attributes.order')"
+                                :horizontal="true"
+                                :label-cols="2"
+                        >
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <input
+                                            id="order"
+                                            name="order"
+                                            type="number"
+                                            class="form-control"
+                                            v-validate="'required'"
+                                            v-model="model.order"
+                                            :invalid-feedback="feedback('order')"
+                                    >
                                 </div>
-                            </b-form-fieldset>
+                            </div>
+                        </b-form-fieldset>
 
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">{{ $t('validation.attributes.permissions')
-                                    }}</label>
-                                <div class="col-sm-10">
-                                    <div class="row">
-                                        <div class="col-md-6 col-xl-4 mb-3" v-for="category in this.permissions">
-                                            <h4>{{ $t(category.title) }}</h4>
-                                            <div class="custom-controls-stacked">
-                                                <b-tooltip v-for="permission in category.permissions"
-                                                           :key="permission.name"
-                                                           placement="left"
-                                                           :title="$i18n.t(permission['description'])">
-                                                    <b-form-checkbox
-                                                            name="permissions[]"
-                                                            v-model="model.permissions"
-                                                            :value="permission.name">
-                                                        {{ $t(permission['display_name']) }}
-                                                    </b-form-checkbox>
-                                                </b-tooltip>
-                                            </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">{{ $t('validation.attributes.permissions')
+                                }}</label>
+                            <div class="col-sm-10">
+                                <div class="row">
+                                    <div class="col-md-6 col-xl-4 mb-3" v-for="category in this.permissions">
+                                        <h4>{{ $t(category.title) }}</h4>
+                                        <div class="custom-controls-stacked">
+                                            <b-tooltip v-for="permission in category.permissions"
+                                                       :key="permission.name"
+                                                       placement="left"
+                                                       :title="$i18n.t(permission['description'])">
+                                                <b-form-checkbox
+                                                        name="permissions[]"
+                                                        v-model="model.permissions"
+                                                        :value="permission.name">
+                                                    {{ $t(permission['display_name']) }}
+                                                </b-form-checkbox>
+                                            </b-tooltip>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="card-footer">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <router-link to="/roles" class="btn btn-danger btn-sm">{{ $t('buttons.back') }}
-                                    </router-link>
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="submit" class="btn btn-success btn-sm pull-right"
-                                           :value="isNew ? $t('buttons.create') : $t('buttons.edit')"
-                                           :disabled="pending"
-                                           v-if="isNew || this.$app.user.can('edit roles')">
-                                </div>
+                        <div class="row" slot="footer">
+                            <div class="col-md-6">
+                                <router-link to="/roles" class="btn btn-danger btn-sm">{{ $t('buttons.back') }}
+                                </router-link>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="submit" class="btn btn-success btn-sm pull-right"
+                                       :value="isNew ? $t('buttons.create') : $t('buttons.edit')"
+                                       :disabled="pending"
+                                       v-if="isNew || this.$app.user.can('edit roles')">
                             </div>
                         </div>
-                    </div>
+                    </b-card>
                 </div>
             </div>
         </form>

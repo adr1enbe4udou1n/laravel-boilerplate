@@ -2,38 +2,32 @@
     <div class="animated fadeIn">
         <div class="row">
             <div class="col-xl-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>{{ $t('labels.backend.redirections.import.title') }}</h4>
-                    </div>
-                    <div class="card-body">
-                        <form class="form-inline" @submit.prevent="onFileImport">
-                            <input
-                                    type="file"
-                                    class="form-control"
-                                    @change="onFileChange"
-                            >
-                            <input type="submit" class="btn btn-warning btn-md ml-1"
-                                   :value="$t('buttons.redirections.import')">
-                        </form>
-                    </div>
-                </div>
+                <b-card>
+                    <h4 slot="header">{{ $t('labels.backend.redirections.import.title') }}</h4>
+                    <form class="form-inline" @submit.prevent="onFileImport">
+                        <input
+                                type="file"
+                                class="form-control"
+                                @change="onFileChange"
+                        >
+                        <input type="submit" class="btn btn-warning btn-md ml-1"
+                               :value="$t('buttons.redirections.import')">
+                    </form>
+                </b-card>
             </div>
         </div>
 
-        <div class="card">
-            <div class="card-header">
+        <b-card>
+            <template slot="header">
                 <div class="pull-right mt-2" v-if="this.$app.user.can('create redirections')">
                     <router-link to="/redirections/create" class="btn btn-success btn-sm"><i class="icon-plus"></i>
                         {{ $t('buttons.redirections.create') }}
                     </router-link>
                 </div>
                 <h4 class="mt-1">{{ $t('labels.backend.redirections.titles.index') }}</h4>
-            </div>
-            <div class="card-body">
-                <datatable :options="dataTableOptions" :actions="dataTableActions" action-route-name="admin.redirections.batch_action"></datatable>
-            </div>
-        </div>
+            </template>
+            <datatable :options="dataTableOptions" :actions="dataTableActions" action-route-name="admin.redirections.batch_action"></datatable>
+        </b-card>
     </div>
 </template>
 

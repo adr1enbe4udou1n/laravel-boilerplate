@@ -1,18 +1,16 @@
 <template>
     <div class="animated fadeIn">
-        <div class="card">
-            <div class="card-header">
+        <b-card>
+            <template slot="header">
                 <div class="pull-right mt-2" v-if="this.$app.user.can('create roles')">
                     <router-link to="/roles/create" class="btn btn-success btn-sm">
                         <i class="icon-plus"></i> {{ $t('buttons.roles.create') }}
                     </router-link>
                 </div>
                 <h4 class="mt-1">{{ $t('labels.backend.roles.titles.index') }}</h4>
-            </div>
-            <div class="card-body">
-                <datatable :options="dataTableOptions"></datatable>
-            </div>
-        </div>
+            </template>
+            <datatable :options="dataTableOptions"></datatable>
+        </b-card>
     </div>
 </template>
 
