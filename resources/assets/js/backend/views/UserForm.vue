@@ -18,7 +18,7 @@
                                     name="name"
                                     :placeholder="$t('validation.attributes.name')"
                                     v-model="model.name"
-                                    v-validate="'required'"
+                                    required
                             ></b-form-input>
                         </b-form-fieldset>
 
@@ -35,7 +35,7 @@
                                     type="email"
                                     :placeholder="$t('validation.attributes.email')"
                                     v-model="model.email"
-                                    v-validate="'required|email'"
+                                    required
                             ></b-form-input>
                         </b-form-fieldset>
 

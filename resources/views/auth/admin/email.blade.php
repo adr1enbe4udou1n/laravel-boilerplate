@@ -17,7 +17,7 @@
                             @component('components.fieldset', [
                                 'name' => 'email',
                             ])
-                                <input type="email" name="email" placeholder="@lang('validation.attributes.email')" class="form-control" required value="{{ old('email') }}">
+                                <input type="email" name="email" placeholder="@lang('validation.attributes.email')" class="form-control {{ is_invalid('email') }}" required value="{{ old('email') }}">
                             @endcomponent
 
                             <div class="form-group">

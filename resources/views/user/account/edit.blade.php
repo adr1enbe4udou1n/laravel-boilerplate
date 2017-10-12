@@ -9,7 +9,7 @@
     {{ Form::text('name', null, [
         'placeholder' => trans('validation.attributes.name'),
         'class' => 'form-control',
-        'v-validate' => "'required'"
+        'required' => true
     ]) }}
 @endcomponent
 
@@ -22,7 +22,7 @@
     {{ Form::email('email', null, [
         'title' => trans('validation.attributes.email'),
         'class' => 'form-control',
-        'v-validate' => "'required|email'"
+        'required' => true
     ]) }}
 @endcomponent
 
@@ -35,7 +35,7 @@
     {{ Form::select('locale', $locales, null, [
         'placeholder' => trans('labels.frontend.placeholders.locale'),
         'class' => 'custom-select',
-        'v-validate' => "'required'",
+        'required' => true
     ]) }}
 @endcomponent
 
@@ -48,7 +48,7 @@
     {{ Form::select('timezone', array_combine(array_values($timezones), $timezones), null, [
         'placeholder' => trans('labels.frontend.placeholders.timezone'),
         'class' => 'custom-select',
-        'v-validate' => "'required'",
+        'required' => true
     ]) }}
 @endcomponent
 

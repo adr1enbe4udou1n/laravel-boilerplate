@@ -15,7 +15,7 @@
                                     id="name"
                                     name="name"
                                     class="custom-select"
-                                    v-validate="'required'"
+                                    required
                                     v-model="model.name"
                             >
                                 <option
@@ -40,7 +40,7 @@
                                     id="recipients"
                                     name="recipients"
                                     :rows="5"
-                                    v-validate="'required'"
+                                    required
                                     :placeholder="$t('validation.attributes.recipients')"
                                     v-model="model.recipients"
                             ></b-form-textarea>
@@ -58,7 +58,7 @@
                                     id="message"
                                     name="message"
                                     :rows="5"
-                                    v-validate="'required'"
+                                    required
                                     :placeholder="$t('validation.attributes.message')"
                                     v-model="model.message"
                             ></b-form-textarea>

@@ -26,9 +26,6 @@ export default {
       }
     },
     feedback (name) {
-      if (this.errors.has(name)) {
-        return this.errors.first(name)
-      }
       if (this.validation.errors !== undefined && this.validation.errors.hasOwnProperty(name)) {
         return this.validation.errors[name][0]
       }

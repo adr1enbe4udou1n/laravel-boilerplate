@@ -1,6 +1,7 @@
 <?php
 
 use Dimsav\Translatable\Translatable;
+use Illuminate\Contracts\Support\MessageBag;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\HtmlString;
 
@@ -50,6 +51,23 @@ if (!function_exists('assets')) {
         }
 
         return new HtmlString($path);
+    }
+}
+
+if (!function_exists('is_invalid')) {
+    /**
+     *
+     * @param $name
+     * @param $class
+     *
+     * @return string
+     */
+    function is_invalid($name, $class = 'is-invalid')
+    {
+        /** @var MessageBag $errors */
+        $errors = session()->get('errors', new Illuminate\Support\MessageBag);
+
+        return $errors->has($name) ? $class : '';
     }
 }
 

@@ -19,7 +19,7 @@
                     'name' => 'name',
                     'title' => trans('validation.attributes.name'),
                 ])
-                    <input name="name" placeholder="@lang('validation.attributes.name')" class="form-control" v-validate="'required'" value="{{ old('name') }}">
+                    <input name="name" placeholder="@lang('validation.attributes.name')" class="form-control" required value="{{ old('name') }}">
                 @endcomponent
 
                 <div class="row">
@@ -47,7 +47,7 @@
                             'name' => 'email',
                             'title' => trans('validation.attributes.email'),
                         ])
-                            <input type="email" name="email" placeholder="@lang('validation.attributes.email')" class="form-control" v-validate="'required|email'" value="{{ old('email') }}">
+                            <input type="email" name="email" placeholder="@lang('validation.attributes.email')" class="form-control" required value="{{ old('email') }}">
                         @endcomponent
                     </div>
                     <div class="col-sm-6">
@@ -64,7 +64,7 @@
                     'name' => 'message',
                     'title' => trans('validation.attributes.message'),
                 ])
-                    <textarea name="message" placeholder="@lang('validation.attributes.message')" class="form-control" rows="5" v-validate="'required'">
+                    <textarea name="message" placeholder="@lang('validation.attributes.message')" class="form-control" rows="5" required>
                         {{ old('message') }}
                     </textarea>
                 @endcomponent

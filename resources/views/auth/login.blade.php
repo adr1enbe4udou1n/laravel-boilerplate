@@ -18,7 +18,7 @@
                             'label_cols' => 4
                         ])
                             <input type="email" name="email" placeholder="@lang('validation.attributes.email')"
-                                   class="form-control" v-validate="'required|email'" value="{{ old('email') }}">
+                                   class="form-control {{ is_invalid('email') }}" required value="{{ old('email') }}">
                         @endcomponent
 
                         @component('components.fieldset', [
@@ -28,7 +28,7 @@
                             'label_cols' => 4
                         ])
                             <input type="password" name="password" placeholder="@lang('validation.attributes.password')"
-                                   class="form-control" v-validate="'required'">
+                                   class="form-control" required>
                         @endcomponent
 
                         @if($isLocked)

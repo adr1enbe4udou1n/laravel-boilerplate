@@ -22,7 +22,7 @@
                             'name' => 'email',
                             'title' => trans('validation.attributes.email'),
                         ])
-                            <input type="email" name="email" placeholder="@lang('validation.attributes.email')" class="form-control" v-validate="'required|email'" value="{{ old('email') }}">
+                            <input type="email" name="email" placeholder="@lang('validation.attributes.email')" class="form-control {{ is_invalid('email') }}" required value="{{ old('email') }}">
                         @endcomponent
 
                         <div class="form-group row">

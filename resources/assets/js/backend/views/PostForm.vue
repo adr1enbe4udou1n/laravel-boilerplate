@@ -15,7 +15,7 @@
                             <b-form-input
                                     id="title"
                                     name="title"
-                                    v-validate="'required'"
+                                    required
                                     :placeholder="$t('validation.attributes.title')"
                                     v-model="model.title"
                             ></b-form-input>

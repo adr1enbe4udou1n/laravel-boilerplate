@@ -27,7 +27,7 @@
                             'label_cols' => 4
                         ])
                             <input type="email" name="email" placeholder="@lang('validation.attributes.email')"
-                                   class="form-control" v-validate="'required|email'" value="{{ old('email') }}">
+                                   class="form-control {{ is_invalid('email') }}" required value="{{ old('email') }}">
                         @endcomponent
 
                         @component('components.fieldset', [
@@ -37,7 +37,7 @@
                                 'label_cols' => 4
                             ])
                             <input type="password" name="password" placeholder="@lang('validation.attributes.password')"
-                                   class="form-control" v-validate="'required'" data-toggle="password-strength-meter">
+                                   class="form-control {{ is_invalid('password') }}" required data-toggle="password-strength-meter">
                         @endcomponent
 
                         @component('components.fieldset', [
@@ -48,7 +48,7 @@
                         ])
                             <input type="password" name="password_confirmation"
                                    placeholder="@lang('validation.attributes.password_confirmation')"
-                                   class="form-control" v-validate="'required'">
+                                   class="form-control {{ is_invalid('password_confirmation') }}" required>
                         @endcomponent
 
                         <div class="form-group row">

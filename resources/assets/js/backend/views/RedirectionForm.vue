@@ -16,7 +16,7 @@
                             <b-form-input
                                     id="source"
                                     name="source"
-                                    v-validate="'required'"
+                                    required
                                     :placeholder="$t('validation.attributes.source_path')"
                                     v-model="model.source"
                             ></b-form-input>
@@ -48,7 +48,7 @@
                             <b-form-input
                                     id="target"
                                     name="target"
-                                    v-validate="'required'"
+                                    required
                                     :placeholder="$t('validation.attributes.target_path')"
                                     v-model="model.target"
                             ></b-form-input>
@@ -59,7 +59,7 @@
                                 :horizontal="true"
                                 :label-cols="3"
                         >
-                            <b-form-radio-group stacked v-model="model.type" :options="redirectionTypes" name="type" v-validate="'required'">
+                            <b-form-radio-group stacked v-model="model.type" :options="redirectionTypes" name="type" required>
                             </b-form-radio-group>
                         </b-form-fieldset>
 

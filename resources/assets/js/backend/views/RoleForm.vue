@@ -18,7 +18,7 @@
                                     <b-form-input
                                             id="name"
                                             name="name"
-                                            v-validate="'required'"
+                                            required
                                             :placeholder="$t('validation.attributes.name')"
                                             v-model="model.name"
                                     ></b-form-input>
@@ -38,7 +38,7 @@
                                     <b-form-input
                                             id="display_name"
                                             name="display_name"
-                                            v-validate="'required'"
+                                            required
                                             :placeholder="$t('validation.attributes.display_name')"
                                             v-model="model.display_name"
                                     ></b-form-input>
@@ -77,7 +77,7 @@
                                             id="order"
                                             name="order"
                                             type="number"
-                                            v-validate="'required'"
+                                            required
                                             v-model="model.order"
                                             :invalid-feedback="feedback('order')"
                                     ></b-form-input>

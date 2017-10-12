@@ -9,7 +9,7 @@
     {{ Form::password('old_password', [
         'placeholder' => trans('validation.attributes.old_password'),
         'class' => 'form-control',
-        'v-validate' => "'required'"
+        'required' => true
     ]) }}
 @endcomponent
 
@@ -22,7 +22,7 @@
     {{ Form::password('password', [
         'placeholder' => trans('validation.attributes.new_password'),
         'class' => 'form-control',
-        'v-validate' => "'required'",
+        'required' => true,
         'data-toggle' => 'password-strength-meter'
     ]) }}
 @endcomponent
@@ -36,7 +36,7 @@
     {{ Form::password('password_confirmation', [
         'placeholder' => trans('validation.attributes.new_password_confirmation'),
         'class' => 'form-control',
-        'v-validate' => "'required'"
+        'required' => true
     ]) }}
 @endcomponent
 
