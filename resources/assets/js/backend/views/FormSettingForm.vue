@@ -36,15 +36,14 @@
                                 :label-cols="3"
                                 :invalid-feedback="feedback('recipients')"
                         >
-                            <textarea
+                            <b-form-textarea
                                     id="recipients"
                                     name="recipients"
                                     :rows="5"
                                     v-validate="'required'"
                                     :placeholder="$t('validation.attributes.recipients')"
-                                    class="form-control"
                                     v-model="model.recipients"
-                            ></textarea>
+                            ></b-form-textarea>
                         </b-form-fieldset>
 
                         <b-form-fieldset
@@ -55,15 +54,14 @@
                                 :label-cols="3"
                                 :invalid-feedback="feedback('message')"
                         >
-                            <textarea
+                            <b-form-textarea
                                     id="message"
                                     name="message"
                                     :rows="5"
                                     v-validate="'required'"
                                     :placeholder="$t('validation.attributes.message')"
-                                    class="form-control"
                                     v-model="model.message"
-                            ></textarea>
+                            ></b-form-textarea>
                         </b-form-fieldset>
 
                         <div class="row" slot="footer">

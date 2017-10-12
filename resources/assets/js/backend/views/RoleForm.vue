@@ -15,14 +15,13 @@
                         >
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input
+                                    <b-form-input
                                             id="name"
                                             name="name"
                                             v-validate="'required'"
                                             :placeholder="$t('validation.attributes.name')"
-                                            class="form-control"
                                             v-model="model.name"
-                                    >
+                                    ></b-form-input>
                                 </div>
                             </div>
                         </b-form-fieldset>
@@ -36,14 +35,13 @@
                         >
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input
+                                    <b-form-input
                                             id="display_name"
                                             name="display_name"
                                             v-validate="'required'"
                                             :placeholder="$t('validation.attributes.display_name')"
-                                            class="form-control"
                                             v-model="model.display_name"
-                                    >
+                                    ></b-form-input>
                                 </div>
                             </div>
                         </b-form-fieldset>
@@ -57,13 +55,12 @@
                         >
                             <div class="row">
                                 <div class="col-md-12">
-                                    <input
+                                    <b-form-input
                                             id="description"
                                             name="description"
                                             :placeholder="$t('validation.attributes.description')"
-                                            class="form-control"
                                             v-model="model.description"
-                                    >
+                                    ></b-form-input>
                                 </div>
                             </div>
                         </b-form-fieldset>
@@ -76,15 +73,14 @@
                         >
                             <div class="row">
                                 <div class="col-md-3">
-                                    <input
+                                    <b-form-input
                                             id="order"
                                             name="order"
                                             type="number"
-                                            class="form-control"
                                             v-validate="'required'"
                                             v-model="model.order"
                                             :invalid-feedback="feedback('order')"
-                                    >
+                                    ></b-form-input>
                                 </div>
                             </div>
                         </b-form-fieldset>

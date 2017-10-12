@@ -42,13 +42,12 @@
                                 :label-cols="3"
                                 :invalid-feedback="feedback('title')"
                         >
-                            <input
+                            <b-form-input
                                     id="title"
                                     name="title"
                                     :placeholder="$t('validation.attributes.title')"
-                                    class="form-control"
                                     v-model="model.title"
-                            >
+                            ></b-form-input>
                         </b-form-fieldset>
 
                         <b-form-fieldset
@@ -58,14 +57,13 @@
                                 :label-cols="3"
                                 :invalid-feedback="feedback('description')"
                         >
-                            <textarea
+                            <b-form-textarea
                                     id="description"
                                     name="description[meta]"
                                     :rows="5"
                                     :placeholder="$t('validation.attributes.description')"
-                                    class="form-control"
                                     v-model="model.description"
-                            ></textarea>
+                            ></b-form-textarea>
                         </b-form-fieldset>
 
                         <div class="row" slot="footer">

@@ -13,14 +13,13 @@
                                 :label-cols="3"
                                 :invalid-feedback="feedback('name')"
                         >
-                            <input
+                            <b-form-input
                                     id="name"
                                     name="name"
                                     :placeholder="$t('validation.attributes.name')"
-                                    class="form-control"
                                     v-model="model.name"
                                     v-validate="'required'"
-                            >
+                            ></b-form-input>
                         </b-form-fieldset>
 
                         <b-form-fieldset
@@ -30,15 +29,14 @@
                                 :label-cols="3"
                                 :invalid-feedback="feedback('email')"
                         >
-                            <input
+                            <b-form-input
                                     id="email"
                                     name="email"
                                     type="email"
                                     :placeholder="$t('validation.attributes.email')"
-                                    class="form-control"
                                     v-model="model.email"
                                     v-validate="'required|email'"
-                            >
+                            ></b-form-input>
                         </b-form-fieldset>
 
                         <b-form-fieldset
@@ -64,15 +62,14 @@
                                 :label-cols="3"
                                 :invalid-feedback="feedback('password')"
                         >
-                            <input
+                            <b-form-input
                                     id="password"
                                     name="password"
                                     type="password"
                                     :placeholder="$t('validation.attributes.password')"
-                                    class="form-control"
                                     data-toggle="password-strength-meter"
                                     v-model="model.password"
-                            >
+                            ></b-form-input>
                         </b-form-fieldset>
 
                         <b-form-fieldset
@@ -82,14 +79,13 @@
                                 :label-cols="3"
                                 :invalid-feedback="feedback('password_confirmation')"
                         >
-                            <input
+                            <b-form-input
                                     id="password_confirmation"
                                     name="password_confirmation"
                                     type="password"
                                     :placeholder="$t('validation.attributes.password_confirmation')"
-                                    class="form-control"
                                     v-model="model.password_confirmation"
-                            >
+                            ></b-form-input>
                         </b-form-fieldset>
 
                         <b-form-fieldset

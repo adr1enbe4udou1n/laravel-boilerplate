@@ -12,14 +12,13 @@
                                 :label-cols="2"
                                 :invalid-feedback="feedback('title')"
                         >
-                            <input
+                            <b-form-input
                                     id="title"
                                     name="title"
-                                    class="form-control"
                                     v-validate="'required'"
                                     :placeholder="$t('validation.attributes.title')"
                                     v-model="model.title"
-                            >
+                            ></b-form-input>
                         </b-form-fieldset>
 
                         <b-form-fieldset
@@ -29,14 +28,13 @@
                                 :label-cols="2"
                                 :invalid-feedback="feedback('summary')"
                         >
-                            <textarea
+                            <b-form-textarea
                                     id="summary"
                                     name="summary"
                                     :rows="5"
                                     :placeholder="$t('validation.attributes.summary')"
-                                    class="form-control"
                                     v-model="model.summary"
-                            ></textarea>
+                            ></b-form-textarea>
                         </b-form-fieldset>
 
                         <b-form-fieldset
@@ -247,13 +245,12 @@
                                             :horizontal="true"
                                             :label-cols="2"
                                     >
-                                        <input
+                                        <b-form-input
                                                 id="meta-title"
                                                 name="meta[title]"
-                                                class="form-control"
                                                 :placeholder="$t('labels.backend.posts.placeholders.meta_title')"
                                                 v-model="model.title"
-                                        >
+                                        ></b-form-input>
                                     </b-form-fieldset>
 
                                     <b-form-fieldset
@@ -263,14 +260,13 @@
                                             :horizontal="true"
                                             :label-cols="2"
                                     >
-                                        <textarea
+                                        <b-form-textarea
                                                 id="meta-description"
                                                 name="meta[description]"
                                                 :rows="5"
                                                 :placeholder="$t('labels.backend.posts.placeholders.meta_description')"
-                                                class="form-control"
                                                 v-model="model.description"
-                                        ></textarea>
+                                        ></b-form-textarea>
                                     </b-form-fieldset>
                                 </b-card-body>
                             </b-collapse>

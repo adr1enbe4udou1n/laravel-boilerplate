@@ -13,14 +13,13 @@
                                 :label-cols="3"
                                 :invalid-feedback="feedback('source')"
                         >
-                            <input
+                            <b-form-input
                                     id="source"
                                     name="source"
                                     v-validate="'required'"
                                     :placeholder="$t('validation.attributes.source_path')"
-                                    class="form-control"
                                     v-model="model.source"
-                            >
+                            ></b-form-input>
                         </b-form-fieldset>
 
                         <b-form-fieldset
@@ -46,14 +45,13 @@
                                 :label-cols="3"
                                 :invalid-feedback="feedback('target')"
                         >
-                            <input
+                            <b-form-input
                                     id="target"
                                     name="target"
                                     v-validate="'required'"
                                     :placeholder="$t('validation.attributes.target_path')"
-                                    class="form-control"
                                     v-model="model.target"
-                            >
+                            ></b-form-input>
                         </b-form-fieldset>
 
                         <b-form-fieldset
