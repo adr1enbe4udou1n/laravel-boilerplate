@@ -6,12 +6,12 @@
                     <b-card>
                         <h4 slot="header">{{ isNew ? $t('labels.backend.roles.titles.create') : $t('labels.backend.roles.titles.edit')}}</h4>
 
-                        <b-form-fieldset
+                        <b-form-group
                                 name="name"
                                 :label="$t('validation.attributes.name')"
                                 :horizontal="true"
                                 :label-cols="2"
-                                :invalid-feedback="feedback('name')"
+                                :feedback="feedback('name')"
                         >
                             <div class="row">
                                 <div class="col-md-6">
@@ -21,17 +21,18 @@
                                             required
                                             :placeholder="$t('validation.attributes.name')"
                                             v-model="model.name"
+                                            :state="state('name')"
                                     ></b-form-input>
                                 </div>
                             </div>
-                        </b-form-fieldset>
+                        </b-form-group>
 
-                        <b-form-fieldset
+                        <b-form-group
                                 name="display_name"
                                 :label="$t('validation.attributes.display_name')"
                                 :horizontal="true"
                                 :label-cols="2"
-                                :invalid-feedback="feedback('display_name')"
+                                :feedback="feedback('display_name')"
                         >
                             <div class="row">
                                 <div class="col-md-6">
@@ -41,17 +42,18 @@
                                             required
                                             :placeholder="$t('validation.attributes.display_name')"
                                             v-model="model.display_name"
+                                            :state="state('display_name')"
                                     ></b-form-input>
                                 </div>
                             </div>
-                        </b-form-fieldset>
+                        </b-form-group>
 
-                        <b-form-fieldset
+                        <b-form-group
                                 name="description"
                                 :label="$t('validation.attributes.description')"
                                 :horizontal="true"
                                 :label-cols="2"
-                                :invalid-feedback="feedback('description')"
+                                :feedback="feedback('description')"
                         >
                             <div class="row">
                                 <div class="col-md-12">
@@ -60,12 +62,13 @@
                                             name="description"
                                             :placeholder="$t('validation.attributes.description')"
                                             v-model="model.description"
+                                            :state="state('description')"
                                     ></b-form-input>
                                 </div>
                             </div>
-                        </b-form-fieldset>
+                        </b-form-group>
 
-                        <b-form-fieldset
+                        <b-form-group
                                 name="order"
                                 :label="$t('validation.attributes.order')"
                                 :horizontal="true"
@@ -79,11 +82,10 @@
                                             type="number"
                                             required
                                             v-model="model.order"
-                                            :invalid-feedback="feedback('order')"
                                     ></b-form-input>
                                 </div>
                             </div>
-                        </b-form-fieldset>
+                        </b-form-group>
 
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">{{ $t('validation.attributes.permissions')

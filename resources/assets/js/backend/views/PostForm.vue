@@ -5,12 +5,12 @@
                 <div class="col-xl-8">
                     <b-card>
                         <h4 slot="header">{{ isNew ? $t('labels.backend.posts.titles.create') : $t('labels.backend.posts.titles.edit')}}</h4>
-                        <b-form-fieldset
+                        <b-form-group
                                 name="title"
                                 :label="$t('validation.attributes.title')"
                                 :horizontal="true"
                                 :label-cols="2"
-                                :invalid-feedback="feedback('title')"
+                                :feedback="feedback('title')"
                         >
                             <b-form-input
                                     id="title"
@@ -18,15 +18,16 @@
                                     required
                                     :placeholder="$t('validation.attributes.title')"
                                     v-model="model.title"
+                                    :state="state('title')"
                             ></b-form-input>
-                        </b-form-fieldset>
+                        </b-form-group>
 
-                        <b-form-fieldset
+                        <b-form-group
                                 name="summary"
                                 :label="$t('validation.attributes.summary')"
                                 :horizontal="true"
                                 :label-cols="2"
-                                :invalid-feedback="feedback('summary')"
+                                :feedback="feedback('summary')"
                         >
                             <b-form-textarea
                                     id="summary"
@@ -34,24 +35,26 @@
                                     :rows="5"
                                     :placeholder="$t('validation.attributes.summary')"
                                     v-model="model.summary"
+                                    :state="state('summary')"
                             ></b-form-textarea>
-                        </b-form-fieldset>
+                        </b-form-group>
 
-                        <b-form-fieldset
+                        <b-form-group
                                 name="body"
                                 :label="$t('validation.attributes.body')"
                                 :horizontal="true"
                                 :label-cols="2"
-                                :invalid-feedback="feedback('body')"
+                                :feedback="feedback('body')"
                         >
                             <ckeditor
                                     id="body"
                                     name="body"
                                     v-model="model.body"
+                                    :state="state('body')"
                             ></ckeditor>
-                        </b-form-fieldset>
+                        </b-form-group>
 
-                        <b-form-fieldset
+                        <b-form-group
                                 name="tags"
                                 :label="$t('validation.attributes.tags')"
                                 :horizontal="true"
@@ -69,14 +72,15 @@
                             >
                                 <span slot="no-options">{{ $t('labels.no_results') }}</span>
                             </v-select>
-                        </b-form-fieldset>
+                        </b-form-group>
 
-                        <b-form-fieldset
+                        <b-form-group
                                 name="featured_image"
                                 :label="$t('validation.attributes.image')"
                                 :horizontal="true"
                                 :label-cols="2"
-                                :invalid-feedback="feedback('featured_image')"
+                                :feedback="feedback('featured_image')"
+                                :state="state('featured_image')"
                         >
                             <div class="media">
                                 <img v-if="model.featured_image_path !== null" class="mr-2"
@@ -96,7 +100,7 @@
                                     </p>
                                 </div>
                             </div>
-                        </b-form-fieldset>
+                        </b-form-group>
 
                         <div class="row" slot="footer">
                             <div class="col-md-6">
@@ -146,13 +150,12 @@
                                         </div>
                                     </template>
 
-                                    <b-form-fieldset
+                                    <b-form-group
                                             v-if="this.$app.user.can('publish posts')"
                                             name="published_at"
                                             :label="$t('validation.attributes.published_at')"
                                             :horizontal="true"
                                             :label-cols="3"
-                                            :invalid-feedback="feedback('published_at')"
                                     >
                                         <div role="group" class="input-group">
                                             <flatpickr
@@ -168,15 +171,14 @@
                                                 <i class="icon-close"></i>
                                             </div>
                                         </div>
-                                    </b-form-fieldset>
+                                    </b-form-group>
 
-                                    <b-form-fieldset
+                                    <b-form-group
                                             v-if="this.$app.user.can('publish posts')"
                                             name="unpublished_at"
                                             :label="$t('validation.attributes.unpublished_at')"
                                             :horizontal="true"
                                             :label-cols="3"
-                                            :invalid-feedback="feedback('unpublished_at')"
                                     >
                                         <div role="group" class="input-group">
                                             <flatpickr
@@ -192,9 +194,9 @@
                                                 <i class="icon-close"></i>
                                             </div>
                                         </div>
-                                    </b-form-fieldset>
+                                    </b-form-group>
 
-                                    <b-form-fieldset
+                                    <b-form-group
                                             name="pinned"
                                             :label="$t('validation.attributes.pinned')"
                                             :horizontal="true"
@@ -208,9 +210,9 @@
                                                 off="Off"
                                                 v-model="model.pinned"
                                         ></c-switch>
-                                    </b-form-fieldset>
+                                    </b-form-group>
 
-                                    <b-form-fieldset
+                                    <b-form-group
                                             name="promoted"
                                             :label="$t('validation.attributes.promoted')"
                                             :horizontal="true"
@@ -224,7 +226,7 @@
                                                 off="Off"
                                                 v-model="model.promoted"
                                         ></c-switch>
-                                    </b-form-fieldset>
+                                    </b-form-group>
                                 </b-card-body>
                             </b-collapse>
                         </b-card>
@@ -238,7 +240,7 @@
                             </b-card-header>
                             <b-collapse id="collapseTwo" accordion="post-accordion" role="tabpanel">
                                 <b-card-body>
-                                    <b-form-fieldset
+                                    <b-form-group
                                             name="meta-title"
                                             :label="$t('validation.attributes.title')"
                                             :description="$t('labels.backend.posts.descriptions.meta_title')"
@@ -251,9 +253,9 @@
                                                 :placeholder="$t('labels.backend.posts.placeholders.meta_title')"
                                                 v-model="model.title"
                                         ></b-form-input>
-                                    </b-form-fieldset>
+                                    </b-form-group>
 
-                                    <b-form-fieldset
+                                    <b-form-group
                                             name="meta-description"
                                             :label="$t('validation.attributes.description')"
                                             :description="$t('labels.backend.posts.descriptions.meta_description')"
@@ -267,7 +269,7 @@
                                                 :placeholder="$t('labels.backend.posts.placeholders.meta_description')"
                                                 v-model="model.description"
                                         ></b-form-textarea>
-                                    </b-form-fieldset>
+                                    </b-form-group>
                                 </b-card-body>
                             </b-collapse>
                         </b-card>

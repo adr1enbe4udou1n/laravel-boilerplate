@@ -26,77 +26,78 @@ export default {
       }
     },
     feedback (name) {
-      if (this.validation.errors !== undefined && this.validation.errors.hasOwnProperty(name)) {
+      if (this.state(name)) {
         return this.validation.errors[name][0]
       }
     },
+    state (name) {
+      return this.validation.errors !== undefined && this.validation.errors.hasOwnProperty(name)
+        ? 'invalid'
+        : null
+    },
     onSubmit () {
-      this.$validator.validateAll().then(result => {
-        if (result) {
-          this.pending = true
-          let router = this.$router
-          let action = this.isNew ? this.$app.route(
-            `admin.${this.modelName}s.store`) : this.$app.route(
-            `admin.${this.modelName}s.update`, {[this.modelName]: this.id})
+      this.pending = true
+      let router = this.$router
+      let action = this.isNew ? this.$app.route(
+        `admin.${this.modelName}s.store`) : this.$app.route(
+        `admin.${this.modelName}s.update`, {[this.modelName]: this.id})
 
-          let data = new FormData()
-          Object.keys(this.model).forEach(key => {
-            if (this.model[key] === null) {
-              data.append(key, '')
-              return
-            }
-            if (typeof (this.model[key]) === 'boolean') {
-              data.append(key, this.model[key] ? 1 : 0)
-              return
-            }
-            if (Array.isArray(this.model[key])) {
-              this.model[key].forEach(val => {
-                data.append(`${key}[]`, val)
-              })
-              return
-            }
-
-            data.append(key, this.model[key])
+      let data = new FormData()
+      Object.keys(this.model).forEach(key => {
+        if (this.model[key] === null) {
+          data.append(key, '')
+          return
+        }
+        if (typeof (this.model[key]) === 'boolean') {
+          data.append(key, this.model[key] ? 1 : 0)
+          return
+        }
+        if (Array.isArray(this.model[key])) {
+          this.model[key].forEach(val => {
+            data.append(`${key}[]`, val)
           })
+          return
+        }
 
-          if (!this.isNew) {
-            data.append('_method', 'PATCH')
+        data.append(key, this.model[key])
+      })
+
+      if (!this.isNew) {
+        data.append('_method', 'PATCH')
+      }
+
+      axios.post(action, data)
+        .then(response => {
+          toastr[response.data.status](response.data.message)
+          if (this.listPath) {
+            router.push(this.listPath)
+          }
+        })
+        .catch(error => {
+          // Validation errors
+          if (error.response.status === 422) {
+            this.validation = error.response.data
+            return
           }
 
-          axios.post(action, data)
-            .then(response => {
-              toastr[response.data.status](response.data.message)
-              if (this.listPath) {
-                router.push(this.listPath)
-              }
-            })
-            .catch(error => {
-              // Validation errors
-              if (error.response.status === 422) {
-                this.validation = error.response.data
-                return
-              }
+          // Not allowed error
+          if (error.response.status === 403) {
+            toastr.error(this.$t('exceptions.unauthorized'))
+            return
+          }
 
-              // Not allowed error
-              if (error.response.status === 403) {
-                toastr.error(this.$t('exceptions.unauthorized'))
-                return
-              }
+          // Domain error
+          if (error.response.data.message !== undefined) {
+            toastr.error(error.response.data.message)
+            return
+          }
 
-              // Domain error
-              if (error.response.data.message !== undefined) {
-                toastr.error(error.response.data.message)
-                return
-              }
-
-              // Generic error
-              toastr.error(this.$t('exceptions.general'))
-            })
-            .then(() => {
-              this.pending = false
-            })
-        }
-      })
+          // Generic error
+          toastr.error(this.$t('exceptions.general'))
+        })
+        .then(() => {
+          this.pending = false
+        })
     }
   },
   created () {

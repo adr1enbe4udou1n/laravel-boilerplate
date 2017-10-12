@@ -17,12 +17,13 @@
                             </div>
                         </template>
                         <template v-else>
-                            <b-form-fieldset
+                            <b-form-group
                                     name="route"
                                     :label="$t('validation.attributes.route')"
                                     :horizontal="true"
                                     :label-cols="3"
-                                    :invalid-feedback="feedback('route')"
+                                    :feedback="feedback('route')"
+                                    :state="state('route')"
                             >
                                 <v-select
                                         id="route"
@@ -32,30 +33,31 @@
                                         :placeholder="$t('labels.placeholders.route')"
                                         :on-search="getRoutes"
                                 ></v-select>
-                            </b-form-fieldset>
+                            </b-form-group>
                         </template>
 
-                        <b-form-fieldset
+                        <b-form-group
                                 name="title"
                                 :label="$t('validation.attributes.title')"
                                 :horizontal="true"
                                 :label-cols="3"
-                                :invalid-feedback="feedback('title')"
+                                :feedback="feedback('title')"
                         >
                             <b-form-input
                                     id="title"
                                     name="title"
                                     :placeholder="$t('validation.attributes.title')"
                                     v-model="model.title"
+                                    :state="state('title')"
                             ></b-form-input>
-                        </b-form-fieldset>
+                        </b-form-group>
 
-                        <b-form-fieldset
+                        <b-form-group
                                 name="description"
                                 :label="$t('validation.attributes.description')"
                                 :horizontal="true"
                                 :label-cols="3"
-                                :invalid-feedback="feedback('description')"
+                                :feedback="feedback('description')"
                         >
                             <b-form-textarea
                                     id="description"
@@ -63,8 +65,9 @@
                                     :rows="5"
                                     :placeholder="$t('validation.attributes.description')"
                                     v-model="model.description"
+                                    :state="state('description')"
                             ></b-form-textarea>
-                        </b-form-fieldset>
+                        </b-form-group>
 
                         <div class="row" slot="footer">
                             <div class="col-md-6">

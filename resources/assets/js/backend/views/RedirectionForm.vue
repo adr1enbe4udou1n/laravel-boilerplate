@@ -6,12 +6,12 @@
                     <b-card>
                         <h4 class="header">{{ isNew ? $t('labels.backend.redirections.titles.create') : $t('labels.backend.redirections.titles.edit')}}</h4>
 
-                        <b-form-fieldset
+                        <b-form-group
                                 name="source"
                                 :label="$t('validation.attributes.source_path')"
                                 :horizontal="true"
                                 :label-cols="3"
-                                :invalid-feedback="feedback('source')"
+                                :feedback="feedback('source')"
                         >
                             <b-form-input
                                     id="source"
@@ -19,10 +19,11 @@
                                     required
                                     :placeholder="$t('validation.attributes.source_path')"
                                     v-model="model.source"
+                                    :state="state('source')"
                             ></b-form-input>
-                        </b-form-fieldset>
+                        </b-form-group>
 
-                        <b-form-fieldset
+                        <b-form-group
                                 name="active"
                                 :label="$t('validation.attributes.active')"
                                 :horizontal="true"
@@ -36,14 +37,14 @@
                                     off="Off"
                                     v-model="model.active"
                             ></c-switch>
-                        </b-form-fieldset>
+                        </b-form-group>
 
-                        <b-form-fieldset
+                        <b-form-group
                                 name="target"
                                 :label="$t('validation.attributes.target_path')"
                                 :horizontal="true"
                                 :label-cols="3"
-                                :invalid-feedback="feedback('target')"
+                                :feedback="feedback('target')"
                         >
                             <b-form-input
                                     id="target"
@@ -51,17 +52,18 @@
                                     required
                                     :placeholder="$t('validation.attributes.target_path')"
                                     v-model="model.target"
+                                    :state="state('target')"
                             ></b-form-input>
-                        </b-form-fieldset>
+                        </b-form-group>
 
-                        <b-form-fieldset
+                        <b-form-group
                                 :label="$t('validation.attributes.redirect_type')"
                                 :horizontal="true"
                                 :label-cols="3"
                         >
                             <b-form-radio-group stacked v-model="model.type" :options="redirectionTypes" name="type" required>
                             </b-form-radio-group>
-                        </b-form-fieldset>
+                        </b-form-group>
 
                         <div class="row" slot="footer">
                             <div class="col-md-6">

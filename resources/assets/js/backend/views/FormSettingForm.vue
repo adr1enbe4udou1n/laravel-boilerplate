@@ -5,7 +5,7 @@
                 <div class="col-xl-6">
                     <b-card>
                         <h4 slot="header">{{ isNew ? $t('labels.backend.form_settings.titles.create') : $t('labels.backend.form_settings.titles.edit')}}</h4>
-                        <b-form-fieldset
+                        <b-form-group
                                 name="name"
                                 :label="$t('validation.attributes.form_type')"
                                 :horizontal="true"
@@ -26,15 +26,15 @@
                                     {{ type.text }}
                                 </option>
                             </select>
-                        </b-form-fieldset>
+                        </b-form-group>
 
-                        <b-form-fieldset
+                        <b-form-group
                                 name="recipients"
                                 :label="$t('validation.attributes.recipients')"
                                 :description="$t('labels.backend.form_settings.descriptions.recipients')"
                                 :horizontal="true"
                                 :label-cols="3"
-                                :invalid-feedback="feedback('recipients')"
+                                :feedback="feedback('recipients')"
                         >
                             <b-form-textarea
                                     id="recipients"
@@ -43,16 +43,17 @@
                                     required
                                     :placeholder="$t('validation.attributes.recipients')"
                                     v-model="model.recipients"
+                                    :state="state('recipients')"
                             ></b-form-textarea>
-                        </b-form-fieldset>
+                        </b-form-group>
 
-                        <b-form-fieldset
+                        <b-form-group
                                 name="message"
                                 :label="$t('validation.attributes.message')"
                                 :description="$t('labels.backend.form_settings.descriptions.message')"
                                 :horizontal="true"
                                 :label-cols="3"
-                                :invalid-feedback="feedback('message')"
+                                :feedback="feedback('message')"
                         >
                             <b-form-textarea
                                     id="message"
@@ -61,8 +62,9 @@
                                     required
                                     :placeholder="$t('validation.attributes.message')"
                                     v-model="model.message"
+                                    :state="state('message')"
                             ></b-form-textarea>
-                        </b-form-fieldset>
+                        </b-form-group>
 
                         <div class="row" slot="footer">
                             <div class="col-md-6">
