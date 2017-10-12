@@ -94,7 +94,11 @@
                                 <div class="row">
                                     <div class="col-md-6 col-xl-4 mb-3" v-for="category in this.permissions">
                                         <h4>{{ $t(category.title) }}</h4>
-                                        <b-form-checkbox-group stacked v-model="model.permissions" name="permissions[]" :options="category.permissions">
+                                        <b-form-checkbox-group stacked v-model="model.permissions" name="permissions[]">
+                                            <b-form-checkbox v-for="permission in category.permissions" :key="permission.name"
+                                                             v-b-tooltip.left :title="$t(permission.description)" :value="permission.name">
+                                                {{ $t(permission.display_name) }}
+                                            </b-form-checkbox>
                                         </b-form-checkbox-group>
                                     </div>
                                 </div>
@@ -156,17 +160,9 @@
           }), 'category')
 
           this.permissions = Object.keys(categories).map(key => {
-            let permissions = []
-            categories[key].forEach((element) => {
-              permissions.push({
-                value: element.name,
-                text: this.$t(element.display_name)
-              })
-            })
-
             return {
               title: key,
-              permissions: permissions
+              permissions: categories[key]
             }
           })
         })

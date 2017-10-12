@@ -97,7 +97,11 @@
                                 :horizontal="true"
                                 :label-cols="3"
                         >
-                            <b-form-checkbox-group stacked v-model="model.roles" name="roles[]" :options="roles">
+                            <b-form-checkbox-group stacked v-model="model.roles" name="roles[]">
+                                <b-form-checkbox v-for="role in roles" :key="role.id"
+                                                 v-b-tooltip.left :title="role.description" :value="role.id">
+                                    {{ role.display_name }}
+                                </b-form-checkbox>
                             </b-form-checkbox-group>
                         </b-form-group>
 
@@ -149,12 +153,7 @@
       axios
         .get(this.$app.route(`admin.users.get_roles`))
         .then(response => {
-          response.data.forEach((element) => {
-            this.roles.push({
-              value: element.id,
-              text: element.display_name
-            })
-          })
+          this.roles = response.data
         })
 
       this.fetchData()
