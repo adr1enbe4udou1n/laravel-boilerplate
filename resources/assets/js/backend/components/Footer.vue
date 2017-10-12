@@ -2,7 +2,7 @@
     <footer class="app-footer">
         <strong>Copyright &copy; {{ new Date().getFullYear() }} <a
                 href="/" target="_blank">{{ name }}</a>.
-        </strong> {{ $t("labels.all_rights_reserved") }}
+        </strong>&nbsp;{{ $t("labels.all_rights_reserved") }}
         <span class="ml-auto">
             <template v-if="editorName !== ''">
                 <template v-if="editorSiteUrl !== ''">

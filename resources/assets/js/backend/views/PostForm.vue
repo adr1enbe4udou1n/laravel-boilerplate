@@ -146,8 +146,7 @@
                                                 }}</label>
                                             <div class="col-lg-9">
                                                 <label class="col-form-label">
-                                                    <span :class="`badge badge-${model.state}`">{{ $t(model.status_label)
-                                                        }}</span>
+                                                    <b-badge :variant="model.state">{{ $t(model.status_label) }}</b-badge>
                                                 </label>
                                             </div>
                                         </div>

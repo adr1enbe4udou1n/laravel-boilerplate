@@ -2,8 +2,7 @@
   <router-link :to="url" :class="classList">
     <i :class="icon"></i> {{name}}
     <template v-for="badge in badges">
-      <span :class="`badge badge-${badge.variant}`"
-            :title="badge.name">{{ badge.text }}</span>
+      <b-badge :variant="badge.variant" :title="badge.name">{{ badge.text }}</b-badge>
     </template>
   </router-link>
 </template>

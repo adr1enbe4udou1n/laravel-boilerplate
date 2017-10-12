@@ -42,40 +42,20 @@
                 <b-card>
                     <h4 slot="header">{{ $t('labels.backend.dashboard.last_posts') }}</h4>
                     <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover">
-                            <thead>
-                            <tr>
-                                <th>{{ $t('validation.attributes.title') }}</th>
-                                <th>{{ $t('validation.attributes.status') }}</th>
-                                <th>{{ $t('validation.attributes.pinned') }}</th>
-                                <th>{{ $t('validation.attributes.summary') }}</th>
-                                <th class="text-center" style="width: 100px">{{ $t('labels.published_at') }}</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <template v-if="posts.length > 0">
-                                <tr v-for="post in posts">
-                                    <td>
-                                        <router-link :to="`/posts/${post.id}/edit`">
-                                            {{ post.title }}
-                                        </router-link>
-                                    </td>
-                                    <td><span :class="`badge badge-${post.state}`">{{ $t(post.status_label)
-                                        }}</span></td>
-                                    <td><span
-                                            :class="`badge badge-${post.pinned ? 'success' : 'danger'}`">{{ post.pinned ? $t('labels.yes') : $t('labels.no')
-                                        }}</span></td>
-                                    <td>{{ post.summary }}</td>
-                                    <td class="text-center">{{ post.published_at }}</td>
-                                </tr>
+                        <b-table striped bordered hover show-empty :fields="post_fields" :items="posts"
+                            :emptyText="$t('labels.no_results')">
+                            <template slot="title" scope="row">
+                                <router-link :to="`/posts/${row.item.id}/edit`">
+                                    {{ row.value }}
+                                </router-link>
                             </template>
-                            <tr v-else>
-                                <td valign="top" colspan="6"
-                                    class="text-center">{{ $t('labels.no_results') }}
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                            <template slot="status" scope="row">
+                                <b-badge :variant="row.item.state">{{ $t(row.item.status_label) }}</b-badge>
+                            </template>
+                            <template slot="pinned" scope="row">
+                                <b-badge :variant="row.value ? 'success' : 'danger'">{{ row.value ? $t('labels.yes') : $t('labels.no') }}</b-badge>
+                            </template>
+                        </b-table>
                     </div>
                     <router-link to="/posts" class="btn btn-primary pull-right">
                         {{ $t('labels.backend.dashboard.all_posts') }}
@@ -98,7 +78,14 @@
         publishedPostsCount: 0,
         activeUsersCount: 0,
         formSubmissionsCount: 0,
-        posts: {}
+        post_fields: {
+          title: { label: this.$t('validation.attributes.title') },
+          status: { label: this.$t('validation.attributes.status') },
+          pinned: { label: this.$t('validation.attributes.pinned') },
+          summary: { label: this.$t('validation.attributes.summary') },
+          published_at: { label: this.$t('validation.attributes.published_at'), 'class': 'text-center' }
+        },
+        posts: []
       }
     },
     created () {
