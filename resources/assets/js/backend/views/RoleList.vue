@@ -3,9 +3,9 @@
         <b-card>
             <template slot="header">
                 <div class="pull-right mt-2" v-if="this.$app.user.can('create roles')">
-                    <router-link to="/roles/create" class="btn btn-success btn-sm">
+                    <b-button to="/roles/create" variant="success" size="sm">
                         <i class="icon-plus"></i> {{ $t('buttons.roles.create') }}
-                    </router-link>
+                    </b-button>
                 </div>
                 <h4 class="mt-1">{{ $t('labels.backend.roles.titles.index') }}</h4>
             </template>

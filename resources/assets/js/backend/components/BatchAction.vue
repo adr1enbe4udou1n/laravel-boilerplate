@@ -8,7 +8,7 @@
             <select name="action" class="custom-select mr-1" v-model="action">
                 <option v-for="(option, value) in options" :value="value">{{ option }}</option>
             </select>
-            <input type="submit" class="btn btn-danger btn-md">
+            <b-button type="submit" variant="danger" size="md">{{ $t('labels.validate') }}</b-button>
         </div>
     </form>
 </template>

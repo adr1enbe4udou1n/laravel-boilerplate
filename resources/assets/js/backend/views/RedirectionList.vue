@@ -10,8 +10,9 @@
                                 class="form-control"
                                 @change="onFileChange"
                         >
-                        <input type="submit" class="btn btn-warning btn-md ml-1"
-                               :value="$t('buttons.redirections.import')">
+                        <b-button type="submit" variant="warning" size="md" class="ml-1">
+                            {{ $t('buttons.redirections.import') }}
+                        </b-button>
                     </form>
                 </b-card>
             </div>
@@ -20,9 +21,9 @@
         <b-card>
             <template slot="header">
                 <div class="pull-right mt-2" v-if="this.$app.user.can('create redirections')">
-                    <router-link to="/redirections/create" class="btn btn-success btn-sm"><i class="icon-plus"></i>
-                        {{ $t('buttons.redirections.create') }}
-                    </router-link>
+                    <b-button to="/redirections/create" variant="success" size="sm">
+                        <i class="icon-plus"></i> {{ $t('buttons.redirections.create') }}
+                    </b-button>
                 </div>
                 <h4 class="mt-1">{{ $t('labels.backend.redirections.titles.index') }}</h4>
             </template>

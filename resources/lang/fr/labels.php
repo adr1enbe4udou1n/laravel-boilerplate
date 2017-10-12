@@ -5,6 +5,7 @@ return [
     'actions' => 'Actions',
     'general' => 'Général',
     'search' => 'Rechercher',
+    'validate' => 'Valider',
     'no_results' => 'Aucun résultat trouvé',
     'are_you_sure' => 'Etes-vous sûr ?',
     'yes' => 'Oui',

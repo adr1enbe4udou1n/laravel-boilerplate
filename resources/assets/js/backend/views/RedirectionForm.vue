@@ -61,31 +61,22 @@
                                 :horizontal="true"
                                 :label-cols="3"
                         >
-                            <div class="custom-controls-stacked">
-                                <b-form-radio
-                                        name="type"
-                                        v-validate="'required'"
-                                        v-for="(label, type) in redirectionTypes"
-                                        :key="type"
-                                        v-model="model.type"
-                                        :value="type"
-                                >
-                                    {{ label }}
-                                </b-form-radio>
-                            </div>
+                            <b-form-radio-group stacked v-model="model.type" :options="redirectionTypes" name="type" v-validate="'required'">
+                            </b-form-radio-group>
                         </b-form-fieldset>
 
                         <div class="row" slot="footer">
                             <div class="col-md-6">
-                                <router-link to="/redirections" class="btn btn-danger btn-sm">{{ $t('buttons.back')
-                                    }}
-                                </router-link>
+                                <b-button to="/redirections" variant="danger" size="sm">
+                                    {{ $t('buttons.back') }}
+                                </b-button>
                             </div>
                             <div class="col-md-6">
-                                <input type="submit" class="btn btn-success btn-sm pull-right"
-                                       :value="isNew ? $t('buttons.create') : $t('buttons.edit')"
-                                       :disabled="pending"
-                                       v-if="isNew || this.$app.user.can('edit redirections')">
+                                <b-button type="submit" variant="success" size="sm" class="pull-right"
+                                          :disabled="pending"
+                                          v-if="isNew || this.$app.user.can('edit redirections')">
+                                    {{ isNew ? $t('buttons.create') : $t('buttons.edit') }}
+                                </b-button>
                             </div>
                         </div>
                     </b-card>

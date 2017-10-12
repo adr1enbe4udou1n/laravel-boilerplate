@@ -3,9 +3,9 @@
         <b-card>
             <template slot="header">
                 <div class="pull-right mt-2" v-if="this.$app.user.can('create metas')">
-                    <router-link to="/metas/create" class="btn btn-success btn-sm"><i class="icon-plus"></i>
-                        {{ $t('buttons.metas.create') }}
-                    </router-link>
+                    <b-button to="/metas/create" variant="success" size="sm">
+                        <i class="icon-plus"></i> {{ $t('buttons.metas.create') }}
+                    </b-button>
                 </div>
                 <h4 class="mt-1">{{ $t('labels.backend.metas.titles.index') }}</h4>
             </template>

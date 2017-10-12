@@ -102,28 +102,18 @@
 
                         <div class="row" slot="footer">
                             <div class="col-md-6">
-                                <router-link to="/posts"
-                                             class="btn btn-danger btn-sm">{{ $t('buttons.back') }}
-                                </router-link>
+                                <b-button to="/posts" variant="danger" size="sm">
+                                    {{ $t('buttons.back') }}
+                                </b-button>
                             </div>
                             <div class="col-md-6">
                                 <input name="status" type="hidden" value="publish">
-                                <div class="btn-group pull-right"
-                                     v-if="isNew || this.$app.user.can('edit posts') || this.$app.user.can('edit own posts')">
-                                    <input type="submit" class="btn btn-success btn-sm pull-right"
-                                           :value="$t('buttons.posts.save_and_publish')"
-                                           @click="model.status = 'publish'" :disabled="pending">
-                                    <button type="button"
-                                            class="btn btn-success btn-sm dropdown-toggle dropdown-toggle-split"
-                                            data-toggle="dropdown" aria-expanded="false" id="save-and-publish">
-                                        <span class="sr-only"></span>
-                                    </button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);"
-                                           @click="model.status = 'draft'; onSubmit()">{{ $t('buttons.posts.save_as_draft')
-                                            }}</a>
-                                    </div>
-                                </div>
+
+                                <b-dropdown right split :text="$t('buttons.posts.save_and_publish')" class="pull-right"
+                                            variant="success" size="sm" @click="model.status = 'publish'; onSubmit()" :disabled="pending"
+                                            v-if="isNew || this.$app.user.can('edit posts') || this.$app.user.can('edit own posts')">
+                                    <b-dropdown-item @click="model.status = 'draft'; onSubmit()">{{ $t('buttons.posts.save_as_draft') }}</b-dropdown-item>
+                                </b-dropdown>
                             </div>
                         </div>
                     </b-card>

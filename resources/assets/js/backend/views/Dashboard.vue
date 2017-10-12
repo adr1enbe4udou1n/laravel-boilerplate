@@ -57,9 +57,9 @@
                             </template>
                         </b-table>
                     </div>
-                    <router-link to="/posts" class="btn btn-primary pull-right">
+                    <b-button to="/posts" variant="primary" class="pull-right">
                         {{ $t('labels.backend.dashboard.all_posts') }}
-                    </router-link>
+                    </b-button>
                 </b-card>
             </div>
         </div>

@@ -68,15 +68,16 @@
 
                         <div class="row" slot="footer">
                             <div class="col-md-6">
-                                <router-link to="/form-settings" class="btn btn-danger btn-sm">{{ $t('buttons.back')
-                                    }}
-                                </router-link>
+                                <b-button to="/form-settings" variant="danger" size="sm">
+                                    {{ $t('buttons.back') }}
+                                </b-button>
                             </div>
                             <div class="col-md-6">
-                                <input type="submit" class="btn btn-success btn-sm pull-right"
-                                       :value="isNew ? $t('buttons.create') : $t('buttons.edit')"
-                                       :disabled="pending"
-                                       v-if="isNew || this.$app.user.can('edit form_settings')">
+                                <b-button type="submit" variant="success" size="sm" class="pull-right"
+                                          :disabled="pending"
+                                          v-if="isNew || this.$app.user.can('edit form_settings')">
+                                    {{ isNew ? $t('buttons.create') : $t('buttons.edit') }}
+                                </b-button>
                             </div>
                         </div>
                     </b-card>

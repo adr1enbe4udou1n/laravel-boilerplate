@@ -7,7 +7,6 @@
                     <table class="table table-striped table-hover" v-if="submission !== null">
                         <tbody>
                         <tr v-for="(value, name) in JSON.parse(submission.data)">
-
                             <th>{{ $t(`validation.attributes.${name}`) }}</th>
                             <td>{{ value }}</td>
                         </tr>
