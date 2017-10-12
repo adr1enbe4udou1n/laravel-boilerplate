@@ -13,16 +13,14 @@
                                 :label-cols="3"
                                 :invalid-feedback="feedback('name')"
                         >
-                            <b-input-group :left="iconUser">
-                                <input
-                                        id="name"
-                                        name="name"
-                                        :placeholder="$t('validation.attributes.name')"
-                                        class="form-control"
-                                        v-model="model.name"
-                                        v-validate="'required'"
-                                >
-                            </b-input-group>
+                            <input
+                                    id="name"
+                                    name="name"
+                                    :placeholder="$t('validation.attributes.name')"
+                                    class="form-control"
+                                    v-model="model.name"
+                                    v-validate="'required'"
+                            >
                         </b-form-fieldset>
 
                         <b-form-fieldset
@@ -32,17 +30,15 @@
                                 :label-cols="3"
                                 :invalid-feedback="feedback('email')"
                         >
-                            <b-input-group :left="iconEnvelope">
-                                <input
-                                        id="email"
-                                        name="email"
-                                        type="email"
-                                        :placeholder="$t('validation.attributes.email')"
-                                        class="form-control"
-                                        v-model="model.email"
-                                        v-validate="'required|email'"
-                                >
-                            </b-input-group>
+                            <input
+                                    id="email"
+                                    name="email"
+                                    type="email"
+                                    :placeholder="$t('validation.attributes.email')"
+                                    class="form-control"
+                                    v-model="model.email"
+                                    v-validate="'required|email'"
+                            >
                         </b-form-fieldset>
 
                         <b-form-fieldset
@@ -134,8 +130,6 @@
     mixins: [form],
     data () {
       return {
-        iconUser: '<i class="icon-user"></i>',
-        iconEnvelope: '<i class="icon-envelope"></i>',
         roles: [],
         modelName: 'user',
         listPath: '/users',

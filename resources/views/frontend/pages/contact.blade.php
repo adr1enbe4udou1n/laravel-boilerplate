@@ -47,11 +47,7 @@
                             'name' => 'email',
                             'title' => trans('validation.attributes.email'),
                         ])
-                            @component('components.input-group', [
-                                'left' => '<i class="icon-envelope"></i>'
-                            ])
-                                <input type="email" name="email" placeholder="@lang('validation.attributes.email')" class="form-control" v-validate="'required|email'" value="{{ old('email') }}">
-                            @endcomponent
+                            <input type="email" name="email" placeholder="@lang('validation.attributes.email')" class="form-control" v-validate="'required|email'" value="{{ old('email') }}">
                         @endcomponent
                     </div>
                     <div class="col-sm-6">

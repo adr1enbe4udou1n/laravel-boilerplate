@@ -17,11 +17,7 @@
                             @component('components.fieldset', [
                                 'name' => 'email',
                             ])
-                                @component('components.input-group', [
-                                    'left' => '<i class="icon-user"></i>'
-                                ])
-                                    <input type="email" name="email" placeholder="@lang('validation.attributes.email')" class="form-control" required value="{{ old('email') }}">
-                                @endcomponent
+                                <input type="email" name="email" placeholder="@lang('validation.attributes.email')" class="form-control" required value="{{ old('email') }}">
                             @endcomponent
 
                             <div class="form-group">

@@ -16,23 +16,15 @@
                             @component('components.fieldset', [
                                 'name' => 'email',
                             ])
-                                @component('components.input-group', [
-                                    'left' => '<i class="icon-user"></i>'
-                                ])
-                                    <input type="email" name="email" placeholder="@lang('validation.attributes.email')"
-                                           class="form-control" required value="{{ old('email') }}">
-                                @endcomponent
+                                <input type="email" name="email" placeholder="@lang('validation.attributes.email')"
+                                       class="form-control" required value="{{ old('email') }}">
                             @endcomponent
 
                             @component('components.fieldset', [
                                 'name' => 'password',
                             ])
-                                @component('components.input-group', [
-                                    'left' => '<i class="icon-lock"></i>'
-                                ])
-                                    <input type="password" name="password" placeholder="@lang('validation.attributes.password')"
-                                           class="form-control" required>
-                                @endcomponent
+                                <input type="password" name="password" placeholder="@lang('validation.attributes.password')"
+                                       class="form-control" required>
                             @endcomponent
 
                             @if($isLocked)

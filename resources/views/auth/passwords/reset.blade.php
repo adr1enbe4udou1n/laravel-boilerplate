@@ -26,12 +26,8 @@
                             'horizontal' => true,
                             'label_cols' => 4
                         ])
-                            @component('components.input-group', [
-                                'left' => '<i class="icon-user"></i>'
-                            ])
-                                <input type="email" name="email" placeholder="@lang('validation.attributes.email')"
-                                       class="form-control" v-validate="'required|email'" value="{{ old('email') }}">
-                            @endcomponent
+                            <input type="email" name="email" placeholder="@lang('validation.attributes.email')"
+                                   class="form-control" v-validate="'required|email'" value="{{ old('email') }}">
                         @endcomponent
 
                         @component('components.fieldset', [

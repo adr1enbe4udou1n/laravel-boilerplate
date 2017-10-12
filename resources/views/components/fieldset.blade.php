@@ -1,4 +1,4 @@
-<div class="form-group row{{ $errors->has($name) ? ' is-invalid' : '' }}" :class="{'is-invalid': errors.has('{{ $name }}') }">
+<div class="form-group row">
     @isset($title)
         <label for="{{ $name }}" class="{{ isset($horizontal) && $horizontal ? "col-md-{$label_cols} col-form-label" : 'col-12 form-control-label' }}">{{ $title }}</label>
     @endisset
