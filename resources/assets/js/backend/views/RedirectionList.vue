@@ -23,7 +23,7 @@
                 </div>
                 <h4 class="mt-1">{{ $t('labels.backend.redirections.titles.index') }}</h4>
             </template>
-            <datatable :options="dataTableOptions" :actions="dataTableActions" action-route-name="admin.redirections.batch_action"></datatable>
+            <datatable ref="redirectionsDatatable" :options="dataTableOptions" :actions="dataTableActions" action-route-name="admin.redirections.batch_action"></datatable>
         </b-card>
     </div>
 </template>
@@ -110,15 +110,13 @@
     },
     methods: {
       onFileImport () {
-        let dataTable = $('#dataTableBuilder').DataTable()
-
         let data = new FormData()
         data.append('import', this.importFile)
 
         axios
           .post(this.$app.route('admin.redirections.import'), data)
           .then(response => {
-            dataTable.ajax.reload(null, false)
+            this.$refs.redirectionsDatatable.refresh()
             toastr[response.data.status](response.data.message)
           })
           .catch(() => {

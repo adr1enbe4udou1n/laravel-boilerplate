@@ -121,9 +121,27 @@ module.exports = {
     vendor: [
       'jquery',
       'vue',
+      'vue-router',
       'axios',
       'sweetalert2',
       'intl-tel-input'
+    ],
+    vendor_frontend: [
+      'bootstrap',
+      'cookieconsent',
+      'slick-carousel'
+    ],
+    vendor_backend: [
+      'bootstrap-vue',
+      'vue-select',
+      'flatpickr',
+      'datatables.net',
+      'datatables.net-bs4',
+      'datatables.net-select',
+      'datatables.net-buttons',
+      'datatables.net-buttons-bs4',
+      'datatables.net-responsive',
+      'datatables.net-responsive-bs4'
     ],
     ckeditor: [
       'ckeditor'
@@ -257,7 +275,7 @@ module.exports = {
     new FriendlyErrorsPlugin(),
     new WebpackNotifierPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor', 'manifest'],
+      names: ['vendor_frontend', 'vendor_backend', 'vendor', 'manifest'],
       minChunks: Infinity
     }),
     new LodashModuleReplacementPlugin({

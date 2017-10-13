@@ -28,6 +28,10 @@
       }
     },
     methods: {
+      refresh () {
+        let dataTable = $(this.$el).find('table').DataTable()
+        dataTable.ajax.reload(null, false)
+      },
       onBulkAction ($name) {
         let dataTable = $(this.$el).find('table').DataTable()
         axios.post(this.$app.route(this.actionRouteName), {

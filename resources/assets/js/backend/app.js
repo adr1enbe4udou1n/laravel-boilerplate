@@ -1,4 +1,12 @@
-// Datatables
+
+/**
+ * Axios
+ */
+import axios from 'axios'
+
+/**
+ * Datatable
+ */
 import 'datatables.net'
 import 'datatables.net-bs4'
 import 'datatables.net-select'
@@ -22,6 +30,17 @@ import DataTable from './components/DataTable'
 import BatchAction from './components/BatchAction'
 import Router from './router'
 import App from './App.vue'
+
+/**
+ * Axios CSRF init
+ */
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
+
+let token = document.head.querySelector('meta[name="csrf-token"]')
+
+if (token) {
+  axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content
+}
 
 /**
  * JS Settings App
