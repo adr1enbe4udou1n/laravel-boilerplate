@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar-form">
-    <input type="search" class="form-control" :placeholder="$t('labels.search')" @keyup="onSearch"
-           v-model="query"/>
+    <b-form-input type="search" :placeholder="$t('labels.search')" @keyup="onSearch"
+                  v-model="query"></b-form-input>
   </div>
 </template>
 <script>

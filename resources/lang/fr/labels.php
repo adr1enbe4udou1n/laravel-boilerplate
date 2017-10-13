@@ -6,6 +6,8 @@ return [
     'general' => 'Général',
     'search' => 'Rechercher',
     'validate' => 'Valider',
+    'choose_file' => 'Sélectionner un fichier',
+    'no_file_chosen' => 'Aucun fichier sélectionné',
     'no_results' => 'Aucun résultat trouvé',
     'are_you_sure' => 'Etes-vous sûr ?',
     'yes' => 'Oui',

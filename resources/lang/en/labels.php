@@ -6,6 +6,8 @@ return [
     'general' => 'General',
     'search' => 'Search',
     'validate' => 'Validate',
+    'choose_file' => 'Choose File',
+    'no_file_chosen' => 'No file chosen',
     'no_results' => 'No results available',
     'are_you_sure' => 'Are you sure ?',
     'yes' => 'Yes',

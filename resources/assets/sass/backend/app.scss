@@ -1,15 +1,21 @@
+
 // Variables
 @import "variables";
+
+// Fonts
+@import "~font-awesome/scss/font-awesome";
+@import "~simple-line-icons/scss/simple-line-icons";
+
+// Bootstrap vue specific CSS
+@import '~bootstrap-vue/dist/bootstrap-vue.css';
 
 // Init coreui admin
 @import "../../vendor/coreui/scss/style";
 
 // Plugins
-@import "node_modules/font-awesome/scss/font-awesome";
-@import "node_modules/simple-line-icons/scss/simple-line-icons";
-@import "node_modules/toastr/toastr.scss";
-@import "node_modules/sweetalert2/src/sweetalert2";
-@import "node_modules/flatpickr/dist/flatpickr";
+@import "~toastr/toastr.scss";
+@import "~sweetalert2/src/sweetalert2";
+@import "~flatpickr/dist/flatpickr";
 
 // Datatables
 @import "datatables";

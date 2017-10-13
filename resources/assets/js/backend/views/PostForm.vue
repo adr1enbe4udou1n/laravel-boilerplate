@@ -44,13 +44,11 @@
                                 :label="$t('validation.attributes.body')"
                                 :horizontal="true"
                                 :label-cols="2"
-                                :feedback="feedback('body')"
                         >
                             <ckeditor
                                     id="body"
                                     name="body"
                                     v-model="model.body"
-                                    :state="state('body')"
                             ></ckeditor>
                         </b-form-group>
 
@@ -80,7 +78,6 @@
                                 :horizontal="true"
                                 :label-cols="2"
                                 :feedback="feedback('featured_image')"
-                                :state="state('featured_image')"
                         >
                             <div class="media">
                                 <img v-if="model.featured_image_path !== null" class="mr-2"
@@ -88,13 +85,14 @@
 
                                 <div class="media-body">
                                     <h6>{{ $t('labels.upload_image') }}</h6>
-                                    <input
+                                    <b-form-file
                                             id="featured_image"
                                             name="featured_image"
-                                            type="file"
-                                            class="form-control"
-                                            @change="onFileChange"
-                                    >
+                                            :placeholder="$t('labels.no_file_chosen')"
+                                            :choose-label="$t('labels.choose_file')"
+                                            v-model="model.featured_image"
+                                            :state="state('featured_image')"
+                                    ></b-form-file>
                                     <p class="form-text text-muted">
                                         {{ $t('labels.descriptions.allowed_image_types') }}
                                     </p>
@@ -332,12 +330,6 @@
           .then(response => {
             this.tagsOptions = response.data.items
           })
-      },
-      onFileChange (e) {
-        let files = e.target.files || e.dataTransfer.files
-        if (!files.length) return
-
-        this.model.featured_image = files[0]
       }
     }
   }

@@ -4,13 +4,9 @@
             <div class="col-xl-6">
                 <b-card>
                     <h4 slot="header">{{ $t('labels.backend.redirections.import.title') }}</h4>
-                    <form class="form-inline" @submit.prevent="onFileImport">
-                        <input
-                                type="file"
-                                class="form-control"
-                                @change="onFileChange"
-                        >
-                        <b-button type="submit" variant="warning" size="md" class="ml-1">
+                    <form @submit.prevent="onFileImport">
+                        <b-form-file required :placeholder="$t('labels.no_file_chosen')" :choose-label="$t('labels.choose_file')" v-model="importFile"></b-form-file>
+                        <b-button type="submit" variant="warning" class="mt-3">
                             {{ $t('buttons.redirections.import') }}
                         </b-button>
                     </form>
@@ -113,12 +109,6 @@
       }
     },
     methods: {
-      onFileChange (e) {
-        let files = e.target.files || e.dataTransfer.files
-        if (!files.length) return
-
-        this.importFile = files[0]
-      },
       onFileImport () {
         let dataTable = $('#dataTableBuilder').DataTable()
 
