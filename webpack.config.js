@@ -135,6 +135,9 @@ module.exports = {
       'bootstrap-vue',
       'vue-select',
       'flatpickr',
+      'moment',
+      'chart.js',
+      'vue-chartjs',
       'datatables.net',
       'datatables.net-bs4',
       'datatables.net-select',
@@ -262,6 +265,7 @@ module.exports = {
       Popper: ['popper.js', 'default']
     }),
     new webpack.IgnorePlugin(/jsdom$/),
+    new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /fr/),
     new CopyWebpackPlugin(ckeditorCopyPatterns, {
       ignore: ckeditorIgnoredLanguages
     }),

@@ -36,6 +36,17 @@
                         </b-card>
                     </div>
                 </div>
+
+                <b-card header="Line Chart">
+                    <div class="chart-wrapper">
+                        <line-example/>
+                    </div>
+                </b-card>
+                <b-card header="Pie Chart">
+                    <div class="chart-wrapper">
+                        <pie-example/>
+                    </div>
+                </b-card>
             </div>
 
             <div class="col-xl" v-if="this.$app.user.can('view own posts')">
@@ -68,9 +79,15 @@
 
 <script>
   import axios from 'axios'
+  import LineExample from './charts/LineExample'
+  import PieExample from './charts/PieExample'
 
   export default {
     name: 'dashboard',
+    components: {
+      LineExample,
+      PieExample
+    },
     data () {
       return {
         newPostsCount: 0,
