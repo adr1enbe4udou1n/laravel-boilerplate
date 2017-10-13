@@ -21,6 +21,7 @@ import 'datatables.net-buttons/js/buttons.html5'
  */
 import Vue from 'vue'
 import VueI18n from '../vue-i18n'
+import VeeValidate from '../vee-validate'
 import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.esm'
 import vSelect from 'vue-select'
 import Switch from './components/Switch'
@@ -49,6 +50,7 @@ let jsonSettings = $('[data-settings-selector="settings-json"]').text()
 let settings = jsonSettings ? JSON.parse(jsonSettings) : {}
 
 const i18n = VueI18n(settings.locale)
+VeeValidate(settings.locale)
 
 // Bootstrap Vue
 Vue.use(BootstrapVue)

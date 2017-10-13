@@ -11,10 +11,14 @@ import sweetalert2 from 'sweetalert2'
  */
 import Vue from 'vue'
 import VueI18n from '../vue-i18n'
+import VeeValidate from '../vee-validate'
 import Panel from '../components/Panel.vue'
 
 // Locale
 const i18n = VueI18n(window.locale)
+
+// VeeValidate
+VeeValidate(window.locale)
 
 // Components
 Vue.component('panel', Panel)

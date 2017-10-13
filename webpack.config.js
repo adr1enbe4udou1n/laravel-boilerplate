@@ -124,7 +124,8 @@ module.exports = {
       'vue-router',
       'axios',
       'sweetalert2',
-      'intl-tel-input'
+      'intl-tel-input',
+      'vee-validate'
     ],
     vendor_frontend: [
       'bootstrap',
@@ -279,7 +280,19 @@ module.exports = {
     new FriendlyErrorsPlugin(),
     new WebpackNotifierPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor_frontend', 'vendor_backend', 'vendor', 'manifest'],
+      name: 'vendor',
+      chunks: ['backend', 'frontend']
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor_backend',
+      chunks: ['backend']
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor_frontend',
+      chunks: ['frontend']
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest',
       minChunks: Infinity
     }),
     new LodashModuleReplacementPlugin({
