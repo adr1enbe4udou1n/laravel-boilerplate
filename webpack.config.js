@@ -118,10 +118,14 @@ module.exports = {
       './resources/assets/js/backend/app.js',
       './resources/assets/sass/backend/app.scss'
     ],
+    locales: [
+      './resources/assets/js/vue-i18n-locales.generated.js'
+    ],
     vendor: [
       'jquery',
       'vue',
       'vue-router',
+      'vue-i18n',
       'axios',
       'sweetalert2',
       'intl-tel-input',
@@ -136,7 +140,6 @@ module.exports = {
       'bootstrap-vue',
       'vue-select',
       'flatpickr',
-      'moment',
       'chart.js',
       'vue-chartjs',
       'datatables.net',
@@ -290,6 +293,10 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor_frontend',
       chunks: ['frontend']
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      names: 'locales',
+      chunks: ['backend', 'frontend']
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',

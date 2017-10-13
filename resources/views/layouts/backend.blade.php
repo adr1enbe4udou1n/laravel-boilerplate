@@ -28,6 +28,7 @@
     <script src="{{ assets('js/vendor.js') }}"></script>
     <script src="{{ assets('js/vendor_backend.js') }}"></script>
     <script src="{{ assets('js/ckeditor.js') }}"></script>
+    <script src="{{ assets('js/locales.js') }}"></script>
     <script src="{{ assets('js/backend.js') }}"></script>
 
     @yield('scripts')
