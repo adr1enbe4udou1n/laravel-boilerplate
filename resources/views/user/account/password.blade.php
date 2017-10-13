@@ -1,6 +1,6 @@
 {{ Form::open(['route' => ['user.password.change'], 'class' => 'form-horizontal', 'method' => 'PATCH']) }}
 
-@component('components.fieldset', [
+@component('components.form-group', [
     'name' => 'old_password',
     'title' => trans('validation.attributes.old_password'),
     'horizontal' => true,
@@ -13,7 +13,7 @@
     ]) }}
 @endcomponent
 
-@component('components.fieldset', [
+@component('components.form-group', [
     'name' => 'password',
     'title' => trans('validation.attributes.new_password'),
     'horizontal' => true,
@@ -27,7 +27,7 @@
     ]) }}
 @endcomponent
 
-@component('components.fieldset', [
+@component('components.form-group', [
     'name' => 'password_confirmation',
     'title' => trans('validation.attributes.new_password_confirmation'),
     'horizontal' => true,

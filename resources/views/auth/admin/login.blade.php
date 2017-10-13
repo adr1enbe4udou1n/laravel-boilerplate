@@ -13,14 +13,14 @@
                         <form action="{{ route('login') }}" method="post">
                             {{ csrf_field() }}
 
-                            @component('components.fieldset', [
+                            @component('components.form-group', [
                                 'name' => 'email',
                             ])
                                 <input type="email" name="email" placeholder="@lang('validation.attributes.email')"
                                        class="form-control {{ is_invalid('email') }}" required value="{{ old('email') }}">
                             @endcomponent
 
-                            @component('components.fieldset', [
+                            @component('components.form-group', [
                                 'name' => 'password',
                             ])
                                 <input type="password" name="password" placeholder="@lang('validation.attributes.password')"

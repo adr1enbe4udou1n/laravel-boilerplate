@@ -15,7 +15,7 @@
             <form action="{{ route('contact') }}" method="POST">
                 {{ csrf_field() }}
 
-                @component('components.fieldset', [
+                @component('components.form-group', [
                     'name' => 'name',
                     'title' => trans('validation.attributes.name'),
                 ])
@@ -24,7 +24,7 @@
 
                 <div class="row">
                     <div class="col-sm-6">
-                        @component('components.fieldset', [
+                        @component('components.form-group', [
                             'name' => 'postal_code',
                             'title' => trans('validation.attributes.postal_code'),
                         ])
@@ -32,7 +32,7 @@
                         @endcomponent
                     </div>
                     <div class="col-sm-6">
-                        @component('components.fieldset', [
+                        @component('components.form-group', [
                             'name' => 'city',
                             'title' => trans('validation.attributes.city'),
                         ])
@@ -43,7 +43,7 @@
 
                 <div class="row">
                     <div class="col-sm-6">
-                        @component('components.fieldset', [
+                        @component('components.form-group', [
                             'name' => 'email',
                             'title' => trans('validation.attributes.email'),
                         ])
@@ -51,7 +51,7 @@
                         @endcomponent
                     </div>
                     <div class="col-sm-6">
-                        @component('components.fieldset', [
+                        @component('components.form-group', [
                             'name' => 'phone',
                             'title' => trans('validation.attributes.phone'),
                         ])
@@ -60,7 +60,7 @@
                     </div>
                 </div>
 
-                @component('components.fieldset', [
+                @component('components.form-group', [
                     'name' => 'message',
                     'title' => trans('validation.attributes.message'),
                 ])

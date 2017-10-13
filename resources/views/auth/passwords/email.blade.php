@@ -18,7 +18,7 @@
                     <form method="POST" action="{{ route('password.email') }}">
                         {{ csrf_field() }}
 
-                        @component('components.fieldset', [
+                        @component('components.form-group', [
                             'name' => 'email',
                             'title' => trans('validation.attributes.email'),
                         ])

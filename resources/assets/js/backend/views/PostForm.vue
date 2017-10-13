@@ -245,7 +245,7 @@
                                             :label="$t('validation.attributes.title')"
                                             :description="$t('labels.backend.posts.descriptions.meta_title')"
                                             :horizontal="true"
-                                            :label-cols="2"
+                                            :label-cols="3"
                                     >
                                         <b-form-input
                                                 id="meta-title"
@@ -260,7 +260,7 @@
                                             :label="$t('validation.attributes.description')"
                                             :description="$t('labels.backend.posts.descriptions.meta_description')"
                                             :horizontal="true"
-                                            :label-cols="2"
+                                            :label-cols="3"
                                     >
                                         <b-form-textarea
                                                 id="meta-description"

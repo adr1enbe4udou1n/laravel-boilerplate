@@ -10,6 +10,7 @@
     <!-- JS settings -->
     <script type="application/json" data-settings-selector="settings-json">
         {!! json_encode([
+            'locale' => app()->getLocale(),
             'appName' => config('app.name'),
             'homePath' => route('home'),
             'adminHomePath' => route('admin.home', [], false),

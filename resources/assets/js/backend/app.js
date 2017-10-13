@@ -1,6 +1,3 @@
-
-import './../bootstrap'
-
 // Datatables
 import 'datatables.net'
 import 'datatables.net-bs4'
@@ -16,7 +13,7 @@ import 'datatables.net-buttons/js/buttons.html5'
  */
 import Vue from 'vue'
 import VueI18n from '../vue-i18n'
-import BootstrapVue from 'bootstrap-vue'
+import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.esm'
 import vSelect from 'vue-select'
 import Switch from './components/Switch'
 import Flatpickr from '.././components/Flatpickr'
@@ -26,8 +23,13 @@ import BatchAction from './components/BatchAction'
 import Router from './router'
 import App from './App.vue'
 
-window.locale = $('html').attr('lang')
-const i18n = VueI18n(window.locale)
+/**
+ * JS Settings App
+ */
+let jsonSettings = $('[data-settings-selector="settings-json"]').text()
+let settings = jsonSettings ? JSON.parse(jsonSettings) : {}
+
+const i18n = VueI18n(settings.locale)
 
 // Bootstrap Vue
 Vue.use(BootstrapVue)
@@ -42,14 +44,16 @@ Vue.component('ckeditor', CKEditor)
 Vue.component('datatable', DataTable)
 Vue.component('batch-action', BatchAction)
 
-let router = Router(window.settings.adminHomePath, i18n)
+let router = Router(settings.adminHomePath, i18n)
 
 router.beforeEach((to, from, next) => {
-  document.title = `${to.meta.title} | ${window.settings.appName}`
+  document.title = `${to.meta.title} | ${settings.appName}`
   next()
 })
 
-Vue.prototype.$app = window.settings
+Vue.prototype.$app = settings
+
+// Register Ziggy route function
 Vue.prototype.$app.route = window.route
 
 if (Vue.prototype.$app.user) {

@@ -1,6 +1,6 @@
 {{ Form::model($loggedInUser, ['route' => 'user.account.update', 'class' => 'form-horizontal', 'method' => 'PATCH']) }}
 
-@component('components.fieldset', [
+@component('components.form-group', [
     'name' => 'name',
     'title' => trans('validation.attributes.name'),
     'horizontal' => true,
@@ -13,7 +13,7 @@
     ]) }}
 @endcomponent
 
-@component('components.fieldset', [
+@component('components.form-group', [
     'name' => 'email',
     'title' => trans('validation.attributes.email'),
     'horizontal' => true,
@@ -26,7 +26,7 @@
     ]) }}
 @endcomponent
 
-@component('components.fieldset', [
+@component('components.form-group', [
     'name' => 'locale',
     'title' => trans('validation.attributes.locale'),
     'horizontal' => true,
@@ -39,7 +39,7 @@
     ]) }}
 @endcomponent
 
-@component('components.fieldset', [
+@component('components.form-group', [
     'name' => 'timezone',
     'title' => trans('validation.attributes.timezone'),
     'horizontal' => true,

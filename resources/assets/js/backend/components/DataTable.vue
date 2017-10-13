@@ -71,7 +71,7 @@
        * Default options
        */
       let dataTableOptions = {
-        lengthMenu: [[5, 10, 15, 25, 50, -1], [5, 10, 15, 25, 50, window.locale === 'en' ? 'All' : 'Tout']],
+        lengthMenu: [[5, 10, 15, 25, 50, -1], [5, 10, 15, 25, 50, this.$app.locale === 'en' ? 'All' : 'Tout']],
         buttons: [
           {
             text: this.$t('labels.export'),
@@ -102,9 +102,9 @@
         }
       }
 
-      if (window.locale !== 'en') {
+      if (this.$app.locale !== 'en') {
         dataTableOptions['language'] = {
-          url: `/i18n/datatables.${window.locale}.json`
+          url: `/i18n/datatables.${this.$app.locale}.json`
         }
       }
 

@@ -20,7 +20,7 @@
 
                         <input type="hidden" name="token" value="{{ $token }}">
 
-                        @component('components.fieldset', [
+                        @component('components.form-group', [
                             'name' => 'email',
                             'title' => trans('validation.attributes.email'),
                             'horizontal' => true,
@@ -30,7 +30,7 @@
                                    class="form-control {{ is_invalid('email') }}" required value="{{ old('email') }}">
                         @endcomponent
 
-                        @component('components.fieldset', [
+                        @component('components.form-group', [
                                 'name' => 'password',
                                 'title' => trans('validation.attributes.password'),
                                 'horizontal' => true,
@@ -40,7 +40,7 @@
                                    class="form-control {{ is_invalid('password') }}" required data-toggle="password-strength-meter">
                         @endcomponent
 
-                        @component('components.fieldset', [
+                        @component('components.form-group', [
                             'name' => 'password_confirmation',
                             'title' => trans('validation.attributes.password_confirmation'),
                             'horizontal' => true,

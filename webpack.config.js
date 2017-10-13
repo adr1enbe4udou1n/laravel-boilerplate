@@ -120,8 +120,6 @@ module.exports = {
     ],
     vendor: [
       'jquery',
-      'popper.js',
-      'bootstrap',
       'vue',
       'axios',
       'sweetalert2',

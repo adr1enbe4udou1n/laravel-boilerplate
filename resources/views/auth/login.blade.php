@@ -11,7 +11,7 @@
                     <form method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
-                        @component('components.fieldset', [
+                        @component('components.form-group', [
                             'name' => 'email',
                             'title' => trans('validation.attributes.email'),
                             'horizontal' => true,
@@ -21,7 +21,7 @@
                                    class="form-control {{ is_invalid('email') }}" required value="{{ old('email') }}">
                         @endcomponent
 
-                        @component('components.fieldset', [
+                        @component('components.form-group', [
                             'name' => 'password',
                             'title' => trans('validation.attributes.password'),
                             'horizontal' => true,
