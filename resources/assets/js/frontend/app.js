@@ -14,19 +14,8 @@ import VueI18n from '../vue-i18n'
 import VeeValidate from '../vee-validate'
 import Panel from '../components/Panel.vue'
 
-// Locale
-const i18n = VueI18n(window.locale)
-
-// VeeValidate
-VeeValidate(window.locale)
-
 // Components
 Vue.component('panel', Panel)
-
-// Init
-new Vue({
-  i18n
-}).$mount('#app')
 
 /**
  * Font
@@ -65,6 +54,17 @@ window.addEventListener('load', () => {
 
 (function ($) {
   window.locale = $('html').attr('lang')
+
+  // Locale
+  const i18n = VueI18n(window.locale)
+
+  // VeeValidate
+  VeeValidate(window.locale)
+
+  // Init Vue
+  new Vue({
+    i18n
+  }).$mount('#app')
 
   /**
    * Place the CSRF token as a header on all pages for access in AJAX requests

@@ -281,7 +281,7 @@ module.exports = {
     new WebpackNotifierPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      chunks: ['backend', 'frontend']
+      chunks: ['vendor_backend', 'vendor_frontend']
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor_backend',

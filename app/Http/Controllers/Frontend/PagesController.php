@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Repositories\Contracts\FormSettingRepository;
 use App\Repositories\Contracts\FormSubmissionRepository;
+use Arcanedev\NoCaptcha\Rules\CaptchaRule;
 use Illuminate\Http\Request;
 
 class PagesController extends FrontendController
@@ -44,7 +45,7 @@ class PagesController extends FrontendController
                 'name' => 'required',
                 'email' => 'required|email',
                 'message' => 'required',
-                'g-recaptcha-response' => 'required|captcha',
+                'g-recaptcha-response' => ['required', new CaptchaRule],
             ]);
 
             $this->formSubmissions->store('contact', $request->input());

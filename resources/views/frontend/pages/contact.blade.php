@@ -19,7 +19,7 @@
                     'name' => 'name',
                     'title' => trans('validation.attributes.name'),
                 ])
-                    <input name="name" placeholder="@lang('validation.attributes.name')" class="form-control" required value="{{ old('name') }}">
+                    <input name="name" placeholder="@lang('validation.attributes.name')" class="form-control {{ is_invalid('name') }}" :class="{'is-invalid': errors.has('name') }" v-validate="'required'" value="{{ old('name') }}">
                 @endcomponent
 
                 <div class="row">
@@ -47,7 +47,7 @@
                             'name' => 'email',
                             'title' => trans('validation.attributes.email'),
                         ])
-                            <input type="email" name="email" placeholder="@lang('validation.attributes.email')" class="form-control" required value="{{ old('email') }}">
+                            <input type="email" name="email" placeholder="@lang('validation.attributes.email')" class="form-control {{ is_invalid('email') }}" :class="{'is-invalid': errors.has('email') }" v-validate="'required|email'" value="{{ old('email') }}">
                         @endcomponent
                     </div>
                     <div class="col-sm-6">
@@ -55,7 +55,7 @@
                             'name' => 'phone',
                             'title' => trans('validation.attributes.phone'),
                         ])
-                            <input type="tel" name="phone" placeholder="@lang('validation.attributes.phone')" class="form-control" value="{{ old('phone') }}">
+                            <input type="tel" name="phone" placeholder="@lang('validation.attributes.phone')" class="form-control {{ is_invalid('phone') }}" :class="{'is-invalid': errors.has('phone') }" v-validate="'required|phone'" value="{{ old('phone') }}">
                         @endcomponent
                     </div>
                 </div>
@@ -64,13 +64,13 @@
                     'name' => 'message',
                     'title' => trans('validation.attributes.message'),
                 ])
-                    <textarea name="message" placeholder="@lang('validation.attributes.message')" class="form-control" rows="5" required>
+                    <textarea name="message" placeholder="@lang('validation.attributes.message')" class="form-control {{ is_invalid('message') }}" :class="{'is-invalid': errors.has('message') }" rows="5" v-validate="'required'">
                         {{ old('message') }}
                     </textarea>
                 @endcomponent
 
                 <div class="form-group">
-                    {!! app('captcha')->display($attributes = [], $lang = app()->getLocale()); !!}
+                    {!! Captcha::display() !!}
                 </div>
 
                 <div class="form-group">
@@ -79,4 +79,8 @@
             </form>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    {!! Captcha::script() !!}
 @endsection

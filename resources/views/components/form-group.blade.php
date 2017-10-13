@@ -9,7 +9,12 @@
 
         @if ($errors->has($name))
             <div class="invalid-feedback">
-                {{ $errors->first($name) }}
+                <span v-if="errors.has('{{ $name }}')" v-cloak>@{{ errors.first('{{{ $name }}}') }}</span>
+                <span v-else>{{ $errors->first($name) }}</span>
+            </div>
+        @else
+            <div class="invalid-feedback" v-if="errors.has('{{ $name }}')">
+                @{{ errors.first('{{{ $name }}}') }}
             </div>
         @endif
 
