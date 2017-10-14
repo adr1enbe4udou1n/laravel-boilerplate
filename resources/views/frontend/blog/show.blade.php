@@ -4,7 +4,7 @@
 
 @section('highlight')
     <div class="cover">
-        <img src="{{ $post->featured_image_url }}" alt="{{ $post->title }}" class="img-fluid">
+        <img src="{{ url("storage/{$post->featured_image_path}") }}" alt="{{ $post->title }}" class="img-fluid">
     </div>
     <div class="post-title">
         <h1 class="pb-3 pt-2">{{ $post->title }}</h1>

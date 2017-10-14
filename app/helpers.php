@@ -56,7 +56,6 @@ if (!function_exists('assets')) {
 
 if (!function_exists('is_invalid')) {
     /**
-     *
      * @param $name
      * @param $class
      *
@@ -65,7 +64,7 @@ if (!function_exists('is_invalid')) {
     function is_invalid($name, $class = 'is-invalid')
     {
         /** @var MessageBag $errors */
-        $errors = session()->get('errors', new Illuminate\Support\MessageBag);
+        $errors = session()->get('errors', new Illuminate\Support\MessageBag());
 
         return $errors->has($name) ? $class : '';
     }

@@ -45,7 +45,7 @@ class PagesController extends FrontendController
                 'name' => 'required',
                 'email' => 'required|email',
                 'message' => 'required',
-                'g-recaptcha-response' => ['required', new CaptchaRule],
+                'g-recaptcha-response' => ['required', new CaptchaRule()],
             ]);
 
             $this->formSubmissions->store('contact', $request->input());

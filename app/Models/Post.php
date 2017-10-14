@@ -25,7 +25,6 @@ use Plank\Mediable\Mediable;
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property mixed $featured_image_path
- * @property mixed $featured_image_url
  * @property mixed $meta_description
  * @property mixed $meta_title
  * @property mixed $published
@@ -153,11 +152,6 @@ class Post extends Model
         }
 
         return 'placeholder.png';
-    }
-
-    public function getFeaturedImageUrlAttribute()
-    {
-        return config('filesystems.disks.public.url').'/'.$this->getFeaturedImagePathAttribute();
     }
 
     public function getMetaTitleAttribute()

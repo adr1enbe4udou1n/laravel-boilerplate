@@ -1,5 +1,5 @@
-# Laravel Boilerplate
-> This is a Bootstrap 4 starter kit site with full user account registration/management and backend based on Laravel 5.5, inspired by the popular [Laravel 5 Boilerplate](https://github.com/rappasoft/laravel-5-boilerplate). Unit & feature tests are not integrated yet, therefore this project isn't rock-solid for now. 
+# Laravel BS4 Vue CoreUI Boilerplate
+> This is a Bootstrap 4 starter kit site with lite blogging feature, user account registration/management and full Vue CoreUI Backend based on Laravel 5.5, inspired by the popular [Laravel 5 Boilerplate](https://github.com/rappasoft/laravel-5-boilerplate). Unit & feature tests are not integrated yet, therefore this project isn't rock-solid for now. 
 
 [![Build Status](https://drone.pc-world.fr/api/badges/adr1enbe4udou1n/laravel-boilerplate/status.svg)](https://drone.pc-world.fr/adr1enbe4udou1n/laravel-boilerplate)
 [![License](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/license)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
@@ -17,50 +17,51 @@
 
 ### Frontend
 
-* Bootstrap 4 (beta) Frontend with basic home-about-contact and legal mentions pages.
-* [Slick carousel](http://kenwheeler.github.io/slick/) and [Cookie Consent](https://cookieconsent.insites.com/) integrated.
-* Blog section, including navigation by tags & authors.
-* Intervention image cache for dynamic optimized images.
-* Login throttle by recaptcha & password strength meter.
-* Frontend user space and profile management. Email validation included. Registration can be disabled by environment parameter.
-* Social login with all supported socialite providers (facebook/twitter/linkedin/github/bitbucket).
+* Bootstrap 4 (beta) Frontend with basic home-about-contact and legal mentions pages,
+* [Slick carousel](http://kenwheeler.github.io/slick/) and [Cookie Consent](https://cookieconsent.insites.com/) integrated,
+* Client-side validation with [vee-validate](https://github.com/baianat/vee-validate),
+* Blog section, including navigation by tags & authors,
+* [Intervention image](https://github.com/Intervention/image) for dynamic optimized images with cache plugin,
+* Login throttle by recaptcha & [password strength meter](https://github.com/ablanco/jquery.pwstrength.bootstrap),
+* Frontend user space and profile management. Email validation included. Registration can be disabled by environment parameter,
+* [Laravel Socialite](https://github.com/laravel/socialite) included with all supported socialite providers (facebook/twitter/linkedin/github/bitbucket).
 
 ### Backend
 
 #### Underlying layer
 
-* Based on Bootstrap 4 [CoreUI](https://github.com/mrholek/CoreUI-Free-Bootstrap-Admin-Template) theme with many useful plugins (DataTables, SweetAlert2, Flatpickr, CKEditor, etc.).
-* Entirely written with Vue components, including vue-route for instant client-side navigation
-* All main CRUD actions are ajaxified.
-* Client-side validation with [vee-validate](https://github.com/baianat/vee-validate).
-* Native [vue-select](https://github.com/sagalbot/vue-select) component for powerful select system (autocomplete, tags, etc.).
-* Batch actions integrated within DataTables thanks to his select plugin.
-* Client-side CSV export feature included by buttons DataTable plugin.
-* Instant search engine (for posts) thanks to Laravel Scout & TNTSearch.
+* Based on Bootstrap 4 [CoreUI](https://github.com/mrholek/CoreUI-Free-Bootstrap-Admin-Template) theme with many useful plugins ([DataTables](https://www.datatables.net/), [SweetAlert2](https://limonte.github.io/sweetalert2/), [Flatpickr](https://chmln.github.io/flatpickr/), CKEditor, etc.),
+* Entirely written with Vue components thanks to [Bootstrap-Vue](https://bootstrap-vue.js.org/),
+* Vue-route for instant client-side navigation,
+* All main CRUD actions are ajaxified,
+* Native [vue-select](https://github.com/sagalbot/vue-select) component for powerful select system (autocomplete, tags, etc.),
+* Batch actions integrated within DataTables with use of his select plugin,
+* Client-side CSV export feature included by buttons DataTable plugin,
+* Instant search engine (for posts) thanks to [Laravel Scout](https://github.com/laravel/scout) & [TNTSearch](https://github.com/teamtnt/tntsearch).
 
 #### Features included
 
-* User and permissions management (classic users <-> roles <-> permissions structure).
-* Impersonation feature for quick user context testing.
-* Frontend forms module, including settings (recipients and translatable message confirmation) & submissions management.
-* Posts management for frontend blog, with granular publication permissions (classic draft-pending-published workflow). Posts include title, summary, html body, tags, featured image, metas. They can be published at specific datetime and pinned if needed. Specific user can be limited to modify own posts only, according to his permissions.
+* User and permissions management (classic users <-> roles <-> permissions structure),
+* Impersonation feature for quick user context testing,
+* Frontend forms module, including settings (recipients and translatable message confirmation) & submissions management,
+* Posts management for frontend blog, with granular publication permissions (classic draft-pending-published workflow). Posts include title, summary, html body, tags, featured image, metas. They can be published and/or unpublished at specific datetime and pinned if needed. Specific user can have limited access to his own posts only, according to his permissions,
 * No media manager interface included with this boilerplate, but the "uploadimage" CKEditor plugin is installed in order to support direct drag & drop image files.
 
 ### Localization & SEO
 
-* Multilingual ready thanks to [Laravel Localization](https://github.com/mcamara/laravel-localization) package. Each routes are prefixed by locale in URL for best SEO support. For this boilerplate, EN & FR locales are 100% supported, including translated routes.
-* Model Field Translatable support with [Laravel Translatable](https://github.com/dimsav/laravel-translatable), used for contact form confirmed message, metatags and posts.
-* Robots and Sitemap integrated, including multilingual alternates.
-* Full Metatags manager interface with translatable title & description. Meta entity can be either linked to route or specific entity like post.
+* Multilingual ready thanks to [Laravel Localization](https://github.com/mcamara/laravel-localization) package. Each routes are prefixed by locale in URL for best SEO support. For this boilerplate, EN & FR locales are 100% supported, including translated routes,
+* Model Field Translatable support with [Laravel Translatable](https://github.com/dimsav/laravel-translatable), used for contact form confirmed message, metatags and posts,
+* Robots and Sitemap integrated, including multilingual alternates,
+* Full Metatags manager interface with translatable title & description. Meta entity can be either linked to route or specific entity like post,
 * 301/302 redirections manager interface, with CSV/XLSX import feature.
 
 ### Developer Specific
 
-* Server-side (blade) and client-side (vue) form components bootstrap helpers.
-* Usage of [Laravel-Mediable](https://github.com/plank/laravel-mediable) package for orderable media model management, used for featured image on posts.
-* Permissions configuration based on config file rather than database.
-* Form types defined on config file for settings & submission support. This boilerplate include just one "contact form" type.
-* Custom webpack integration rather than laravel mix, for better flexibility (cf bellow).
+* Usage of [Laravel-Mediable](https://github.com/plank/laravel-mediable) package for orderable media model management, used for featured image on posts,
+* Permissions configuration based on config file rather than database,
+* Form types defined on config file for settings & submission support. This boilerplate include just one "contact form" type,
+* Custom webpack integration rather than laravel mix, for better flexibility (cf bellow),
+* [Laravel Debugbar](https://github.com/barryvdh/laravel-debugbar) & [Laravel IDE Helper](https://github.com/barryvdh/laravel-ide-helper) included.
 
 ## Install
 
@@ -109,15 +110,15 @@ Both frontend and backend have dedicated login pages.
 1. Install dependencies with `yarn`
 2. Launch `yarn watch` for compiling assets and start browsersync
 
-> Note : If assets modified, don't forget to launch `yarn production` before deploy on each production environment.
+> Note : If assets modified, don't forget to launch `yarn prod` before deploy on each production environment.
 
 ### Permissions definitions
 
-Unlike other known project as [ENTRUST](https://github.com/Zizaco/entrust) or [laravel-permission](https://github.com/spatie/laravel-permission), which are well suited for generic roles/permissions, i preferred a more lite and integrated custom solution.
+Unlike other known project as [ENTRUST](https://github.com/Zizaco/entrust) or [laravel-permission](https://github.com/spatie/laravel-permission), which are very well suited for generic roles/permissions, i preferred a more lite and integrated custom solution.
 
-You will especially note that relations between roles and permissions are a bit different, while links between users and roles stay a classic many-to-many relationship. Instead of store all permissions into specific SQL table and link them with roles by a many-to-many relationship, these latter must be directly defined in a specific config file permissions. Roles just own only a list of permissions key names.
+The mainly difference is that instead of store all permissions into specific SQL table, there are directly defined in a specific config file permissions. SQL side, roles entities relies only to a list of permissions key names.
 
-Indeed i feel this approach even more logical for maintainability simply because permissions are hardly tied to the application with Laravel Authorization. This is anyway the standard way in CMS as Drupal where each module have specific config permission file. Permissions should be only owned by developers.
+Indeed i feel this approach better for maintainability simply because permissions are hardly tied to the application with Laravel Authorization. This is anyway the standard way in CMS as Drupal where each module have specific config permission file. Permissions should be only owned by developers.
 
 ### Note on Laravel Mix
 
@@ -125,7 +126,7 @@ You will observe that this boilerplate does not use [Laravel Mix](https://github
 
 Laravel Mix still stay awesome for newcomers thanks to his laravel-like webpack fluent API, but, even if Laravel Mix can be easily overridden, for this project i preferred use my custom framework-free webpack setup in order to have total control of assets workflow.
 
-For instance, with this custom setup HMR work natively with configurable port and productions assets are correctly cleanup after each compilation in specific "dist" directory.
+For instance, with this custom setup HMR work natively with configurable port and productions assets are bundled into specific "dist" directory.
 
 This webpack setup is a direct recovery from my other little side-project [Express Boilerplate](https://github.com/adr1enbe4udou1n/express-boilerplate) which is optimized for quick prototype frontend development based on express Node framework.
 
@@ -147,9 +148,10 @@ This webpack setup is a direct recovery from my other little side-project [Expre
 - [x] <s>Facebook/Twitter/Google Sign in with socialite package</s>
 - [x] <s>Blog system (posts, publication date, multilangue, HTML wysiwyg, tags, featured image, medias, public user profile)</s>
 - [x] <s>Dashboard</s>
-- [x] <s>Switch to full Bootstrap 4 beta for both Frontend & Backend</s>
-- [x] <s>Create client-side Vue components Form Helpers</s>
-- [x] <s>With previous task done, then why not consider 100% client-side Vue backend with vue-route ? Will be nice but seems a lot to do...</s>
+- [x] <s>Switch to full Bootstrap 4 beta for both Frontend & CoreUI Backend</s>
+- [x] <s>Migrate to 100% client-side Vue backend with vue-route</s>
+- [x] <s>Migrate to Bootstrap-Vue</s>
+- [x] <s>Webpack bundle size optimizations</s>
 - [ ] Refactor & debug
 - [ ] Inclusion of unit/featured/browser tests
 
