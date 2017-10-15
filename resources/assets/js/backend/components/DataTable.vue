@@ -1,10 +1,10 @@
 <template>
-    <div class="table-container">
-        <table class="table table-striped table-bordered table-hover"
-               cellspacing="0"
-               width="100%"></table>
-        <batch-action v-if="actions !== null" :options="actions" @action="onBulkAction"></batch-action>
-    </div>
+  <div class="table-container">
+    <table class="table table-striped table-bordered table-hover"
+           cellspacing="0"
+           width="100%"></table>
+    <batch-action v-if="actions !== null" :options="actions" @action="onBulkAction"></batch-action>
+  </div>
 </template>
 
 <script>

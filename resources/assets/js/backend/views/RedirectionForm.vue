@@ -1,89 +1,90 @@
 <template>
-    <div class="animated fadeIn">
-        <form @submit.prevent="onSubmit">
-            <div class="row justify-content-center">
-                <div class="col-xl-6">
-                    <b-card>
-                        <h4 class="header">{{ isNew ? $t('labels.backend.redirections.titles.create') : $t('labels.backend.redirections.titles.edit')}}</h4>
+  <div class="animated fadeIn">
+    <form @submit.prevent="onSubmit">
+      <div class="row justify-content-center">
+        <div class="col-xl-6">
+          <b-card>
+            <h4 class="header">{{ isNew ? $t('labels.backend.redirections.titles.create') : $t(
+              'labels.backend.redirections.titles.edit')}}</h4>
 
-                        <b-form-group
-                                name="source"
-                                :label="$t('validation.attributes.source_path')"
-                                :horizontal="true"
-                                :label-cols="3"
-                                :feedback="feedback('source')"
-                        >
-                            <b-form-input
-                                    id="source"
-                                    name="source"
-                                    required
-                                    :placeholder="$t('validation.attributes.source_path')"
-                                    v-model="model.source"
-                                    :state="state('source')"
-                            ></b-form-input>
-                        </b-form-group>
+            <b-form-group
+              name="source"
+              :label="$t('validation.attributes.source_path')"
+              :horizontal="true"
+              :label-cols="3"
+              :feedback="feedback('source')"
+            >
+              <b-form-input
+                id="source"
+                name="source"
+                required
+                :placeholder="$t('validation.attributes.source_path')"
+                v-model="model.source"
+                :state="state('source')"
+              ></b-form-input>
+            </b-form-group>
 
-                        <b-form-group
-                                name="active"
-                                :label="$t('validation.attributes.active')"
-                                :horizontal="true"
-                                :label-cols="3"
-                        >
-                            <c-switch
-                                    name="active"
-                                    type="text"
-                                    variant="primary"
-                                    on="On"
-                                    off="Off"
-                                    v-model="model.active"
-                            ></c-switch>
-                        </b-form-group>
+            <b-form-group
+              name="active"
+              :label="$t('validation.attributes.active')"
+              :horizontal="true"
+              :label-cols="3"
+            >
+              <c-switch
+                name="active"
+                type="text"
+                variant="primary"
+                on="On"
+                off="Off"
+                v-model="model.active"
+              ></c-switch>
+            </b-form-group>
 
-                        <b-form-group
-                                name="target"
-                                :label="$t('validation.attributes.target_path')"
-                                :horizontal="true"
-                                :label-cols="3"
-                                :feedback="feedback('target')"
-                        >
-                            <b-form-input
-                                    id="target"
-                                    name="target"
-                                    required
-                                    :placeholder="$t('validation.attributes.target_path')"
-                                    v-model="model.target"
-                                    :state="state('target')"
-                            ></b-form-input>
-                        </b-form-group>
+            <b-form-group
+              name="target"
+              :label="$t('validation.attributes.target_path')"
+              :horizontal="true"
+              :label-cols="3"
+              :feedback="feedback('target')"
+            >
+              <b-form-input
+                id="target"
+                name="target"
+                required
+                :placeholder="$t('validation.attributes.target_path')"
+                v-model="model.target"
+                :state="state('target')"
+              ></b-form-input>
+            </b-form-group>
 
-                        <b-form-group
-                                :label="$t('validation.attributes.redirect_type')"
-                                :horizontal="true"
-                                :label-cols="3"
-                        >
-                            <b-form-radio-group stacked v-model="model.type" :options="redirectionTypes" name="type" required>
-                            </b-form-radio-group>
-                        </b-form-group>
+            <b-form-group
+              :label="$t('validation.attributes.redirect_type')"
+              :horizontal="true"
+              :label-cols="3"
+            >
+              <b-form-radio-group stacked v-model="model.type" :options="redirectionTypes" name="type" required>
+              </b-form-radio-group>
+            </b-form-group>
 
-                        <div class="row" slot="footer">
-                            <div class="col-md-6">
-                                <b-button to="/redirections" variant="danger" size="sm">
-                                    {{ $t('buttons.back') }}
-                                </b-button>
-                            </div>
-                            <div class="col-md-6">
-                                <b-button type="submit" variant="success" size="sm" class="pull-right"
-                                          :disabled="pending"
-                                          v-if="isNew || this.$app.user.can('edit redirections')">
-                                    {{ isNew ? $t('buttons.create') : $t('buttons.edit') }}
-                                </b-button>
-                            </div>
-                        </div>
-                    </b-card>
-                </div>
+            <div class="row" slot="footer">
+              <div class="col-md-6">
+                <b-button to="/redirections" variant="danger" size="sm">
+                  {{ $t('buttons.back') }}
+                </b-button>
+              </div>
+              <div class="col-md-6">
+                <b-button type="submit" variant="success" size="sm" class="pull-right"
+                          :disabled="pending"
+                          v-if="isNew || this.$app.user.can('edit redirections')">
+                  {{ isNew ? $t('buttons.create') : $t('buttons.edit') }}
+                </b-button>
+              </div>
             </div>
-        </form>
-    </div>
+          </b-card>
+        </div>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script>

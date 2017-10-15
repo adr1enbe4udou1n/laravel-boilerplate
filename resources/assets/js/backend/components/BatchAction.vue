@@ -1,16 +1,16 @@
 <template>
-    <form class="form-inline" @submit.prevent="onSubmit"
-          :data-trans-title="$t('labels.are_you_sure')"
-          :data-trans-button-cancel="$t('buttons.cancel')"
-          :data-trans-button-confirm="$t('buttons.apply')"
-    >
-        <div class="form-group form-group-sm">
-            <select name="action" class="custom-select mr-1" v-model="action">
-                <option v-for="(option, value) in options" :value="value">{{ option }}</option>
-            </select>
-            <b-button type="submit" variant="danger">{{ $t('labels.validate') }}</b-button>
-        </div>
-    </form>
+  <form class="form-inline" @submit.prevent="onSubmit"
+        :data-trans-title="$t('labels.are_you_sure')"
+        :data-trans-button-cancel="$t('buttons.cancel')"
+        :data-trans-button-confirm="$t('buttons.apply')"
+  >
+    <div class="form-group form-group-sm">
+      <select name="action" class="custom-select mr-1" v-model="action">
+        <option v-for="(option, value) in options" :value="value">{{ option }}</option>
+      </select>
+      <b-button type="submit" variant="danger">{{ $t('labels.validate') }}</b-button>
+    </div>
+  </form>
 </template>
 
 <script>

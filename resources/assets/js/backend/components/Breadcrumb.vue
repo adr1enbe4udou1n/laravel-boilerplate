@@ -1,5 +1,5 @@
 <template>
-    <b-breadcrumb :items="items"/>
+  <b-breadcrumb :items="items"/>
 </template>
 
 <script>
@@ -13,10 +13,12 @@
     },
     computed: {
       items () {
-        let items = [{
-          text: this.$t('labels.frontend.titles.home'),
-          href: this.$app.homePath
-        }]
+        let items = [
+          {
+            text: this.$t('labels.frontend.titles.home'),
+            href: this.$app.homePath
+          }
+        ]
 
         this.list.forEach((element) => {
           items.push({
