@@ -14,7 +14,8 @@ VeeValidate.Validator.addLocale(french)
 
 export default locale => {
   Vue.use(VeeValidate, {
-    locale: locale
+    locale: locale,
+    fieldsBagName: 'formFields'
   })
 
   VeeValidate.Validator.extend('phone', (value, [inputId]) => {

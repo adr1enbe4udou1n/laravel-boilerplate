@@ -1,10 +1,11 @@
 <template>
   <header class="app-header navbar">
     <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button" @click="mobileSidebarToggle">
-      &#9776;
+      <span class="navbar-toggler-icon"></span>
     </button>
     <b-link class="navbar-brand" to="#"></b-link>
-    <button class="navbar-toggler sidebar-toggler d-md-down-none mr-auto" type="button" @click="sidebarToggle">&#9776;
+    <button class="navbar-toggler sidebar-toggler d-md-down-none mr-auto" type="button" @click="sidebarToggle">
+      <span class="navbar-toggler-icon"></span>
     </button>
     <ul class="nav navbar-nav ml-auto">
       <b-dropdown class="px-2" variant="link">
@@ -56,7 +57,9 @@
         </b-dropdown-item>
       </b-dropdown>
     </ul>
-    <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" @click="asideToggle">&#9776;</button>
+    <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" @click="asideToggle">
+      <span class="navbar-toggler-icon"></span>
+    </button>
   </header>
 </template>
 

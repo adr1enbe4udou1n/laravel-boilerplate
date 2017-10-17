@@ -55,15 +55,15 @@
           <div class="table-responsive">
             <b-table striped bordered hover show-empty :fields="post_fields" :items="posts"
                      :emptyText="$t('labels.no_results')">
-              <template slot="title" scope="row">
+              <template slot="title" slot-scope="row">
                 <router-link :to="`/posts/${row.item.id}/edit`">
                   {{ row.value }}
                 </router-link>
               </template>
-              <template slot="status" scope="row">
+              <template slot="status" slot-scope="row">
                 <b-badge :variant="row.item.state">{{ $t(row.item.status_label) }}</b-badge>
               </template>
-              <template slot="pinned" scope="row">
+              <template slot="pinned" slot-scope="row">
                 <b-badge :variant="row.value ? 'success' : 'danger'">{{ row.value ? $t('labels.yes') : $t('labels.no')
                   }}
                 </b-badge>
