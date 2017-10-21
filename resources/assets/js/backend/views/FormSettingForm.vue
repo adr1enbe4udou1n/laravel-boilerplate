@@ -15,7 +15,7 @@
               <select
                 id="name"
                 name="name"
-                class="custom-select"
+                class="form-control"
                 required
                 v-model="model.name"
               >

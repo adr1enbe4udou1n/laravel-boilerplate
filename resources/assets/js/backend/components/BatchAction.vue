@@ -5,7 +5,7 @@
         :data-trans-button-confirm="$t('buttons.apply')"
   >
     <div class="form-group form-group-sm">
-      <select name="action" class="custom-select mr-1" v-model="action">
+      <select name="action" class="form-control mr-1" v-model="action">
         <option v-for="(option, value) in options" :value="value">{{ option }}</option>
       </select>
       <b-button type="submit" variant="danger">{{ $t('labels.validate') }}</b-button>
