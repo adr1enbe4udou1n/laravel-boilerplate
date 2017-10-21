@@ -17,9 +17,7 @@ const production = process.env.NODE_ENV === 'production'
 const hmr = process.argv.includes('--hot')
 
 const browserSyncHost = process.env.BROWSERSYNC_HOST || 'localhost'
-const browserSyncPort = parseInt(process.env.BROWSERSYNC_PORT || '3000', 10)
-const webpackDevServerPort = parseInt(process.env.WEBPACKDEVSERVER_PORT ||
-  '8080', 10)
+const webpackDevServerPort = parseInt(process.env.WEBPACKDEVSERVER_PORT || '8080', 10)
 
 // Hot reloading file for Laravel detection
 const hotfilename = 'public/hot'
@@ -316,15 +314,23 @@ module.exports = {
     new BrowserSyncPlugin(
       {
         host: browserSyncHost,
-        port: browserSyncPort,
+        port: parseInt(process.env.BROWSERSYNC_PORT || '3000', 10),
         open: browserSyncHost === 'localhost' ? 'local' : 'external',
-        proxy: process.env.BROWSERSYNC_PROXY,
+        proxy: process.env.BROWSERSYNC_PROXY || 'localhost:8000',
         files: [
           'app/**/*.php',
           'resources/views/**/*.php',
           'public/js/**/*.js',
           'public/css/**/*.css'
-        ]
+        ],
+        snippetOptions: {
+          rule: {
+            match: /(<\/body>|<\/pre>)/i,
+            fn: function (snippet, match) {
+              return snippet + match
+            }
+          }
+        }
       },
       {
         reload: false
