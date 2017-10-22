@@ -13,9 +13,9 @@
             v-html="$t('labels.alerts.not_confirmed', {'route': this.$app.route('user.confirmation.send') })"></span>
         </b-alert>
         <breadcrumb :list="list"/>
-        <div class="container-fluid">
+        <b-container fluid>
           <router-view :key="this.$route.name"></router-view>
-        </div>
+        </b-container>
       </main>
       <AppAside/>
     </div>

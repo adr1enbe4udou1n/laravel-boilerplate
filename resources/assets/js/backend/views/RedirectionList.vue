@@ -1,7 +1,7 @@
 <template>
   <div class="animated fadeIn">
-    <div class="row">
-      <div class="col-xl-6">
+    <b-row>
+      <b-col xl="6">
         <b-card>
           <h4 slot="header">{{ $t('labels.backend.redirections.import.title') }}</h4>
           <form @submit.prevent="onFileImport">
@@ -12,8 +12,8 @@
             </b-button>
           </form>
         </b-card>
-      </div>
-    </div>
+      </b-col>
+    </b-row>
 
     <b-card>
       <template slot="header">

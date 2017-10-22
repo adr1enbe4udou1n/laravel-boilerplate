@@ -1,8 +1,8 @@
 <template>
   <div class="animated fadeIn">
     <form @submit.prevent="onSubmit">
-      <div class="row">
-        <div class="col-xl-8">
+      <b-row>
+        <b-col xl="8">
           <b-card>
             <h4 slot="header">{{ isNew ? $t('labels.backend.posts.titles.create') : $t(
               'labels.backend.posts.titles.edit')}}</h4>
@@ -101,13 +101,13 @@
               </div>
             </b-form-group>
 
-            <div class="row" slot="footer">
-              <div class="col-md-6">
+            <b-row slot="footer">
+              <b-col md>
                 <b-button to="/posts" variant="danger" size="sm">
                   {{ $t('buttons.back') }}
                 </b-button>
-              </div>
-              <div class="col-md-6">
+              </b-col>
+              <b-col md>
                 <input name="status" type="hidden" value="publish">
 
                 <b-dropdown right split :text="$t('buttons.posts.save_and_publish')" class="pull-right"
@@ -117,12 +117,12 @@
                   <b-dropdown-item @click="model.status = 'draft'; onSubmit()">{{ $t('buttons.posts.save_as_draft') }}
                   </b-dropdown-item>
                 </b-dropdown>
-              </div>
-            </div>
+              </b-col>
+            </b-row>
           </b-card>
-        </div>
-        <div class="col-xl-4">
-          <div id="" role="tablist">
+        </b-col>
+        <b-col xl="4">
+          <div role="tablist">
             <b-card no-body class="mb-0">
               <b-card-header header-tag="header" role="tab">
                 <h5>
@@ -137,17 +137,17 @@
                     <div class="form-group row">
                       <label class="col-lg-3 col-form-label">{{ $t('validation.attributes.status')
                         }}</label>
-                      <div class="col-lg-9">
+                      <b-col lg="9">
                         <label class="col-form-label">
                           <b-badge :variant="model.state">{{ $t(model.status_label) }}</b-badge>
                         </label>
-                      </div>
+                      </b-col>
                     </div>
                     <div class="form-group row">
                       <label class="col-lg-3 col-form-label">{{ $t('labels.author') }}</label>
-                      <div class="col-lg-9">
+                      <b-col lg="9">
                         <label class="col-form-label">{{ model.owner.name }}</label>
-                      </div>
+                      </b-col>
                     </div>
                   </template>
 
@@ -275,8 +275,8 @@
               </b-collapse>
             </b-card>
           </div>
-        </div>
-      </div>
+        </b-col>
+      </b-row>
     </form>
   </div>
 </template>

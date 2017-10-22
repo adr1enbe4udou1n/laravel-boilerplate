@@ -1,41 +1,41 @@
 <template>
   <div class="animated fadeIn">
-    <div class="row">
-      <div class="col-xl">
-        <div class="row" v-if="this.$app.user.can('view own posts')">
-          <div class="col-sm">
+    <b-row>
+      <b-col xl>
+        <b-row v-if="this.$app.user.can('view own posts')">
+          <b-col sm>
             <b-card bg-variant="danger" text-variant="white">
               <h4 class="mb-0">{{ newPostsCount }}</h4>
               <p>{{ $t('labels.backend.dashboard.new_posts') }}</p>
             </b-card>
-          </div>
-          <div class="col-sm">
+          </b-col>
+          <b-col sm>
             <b-card bg-variant="warning" text-variant="white">
               <h4 class="mb-0">{{ pendingPostsCount }}</h4>
               <p>{{ $t('labels.backend.dashboard.pending_posts') }}</p>
             </b-card>
-          </div>
-          <div class="col-sm">
+          </b-col>
+          <b-col sm>
             <b-card bg-variant="success" text-variant="white">
               <h4 class="mb-0">{{ publishedPostsCount }}</h4>
               <p>{{ $t('labels.backend.dashboard.published_posts') }}</p>
             </b-card>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm" v-if="this.$app.user.can('view users')">
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col sm v-if="this.$app.user.can('view users')">
             <b-card bg-variant="primary" text-variant="white">
               <h4 class="mb-0">{{ activeUsersCount }}</h4>
               <p>{{ $t('labels.backend.dashboard.active_users') }}</p>
             </b-card>
-          </div>
-          <div class="col-sm" v-if="this.$app.user.can('view form_submissions')">
+          </b-col>
+          <b-col sm v-if="this.$app.user.can('view form_submissions')">
             <b-card bg-variant="info" text-variant="white">
               <h4 class="mb-0">{{ formSubmissionsCount }}</h4>
               <p>{{ $t('labels.backend.dashboard.form_submissions') }}</p>
             </b-card>
-          </div>
-        </div>
+          </b-col>
+        </b-row>
 
         <b-card header="Line Chart">
           <div class="chart-wrapper">
@@ -47,35 +47,33 @@
             <pie-example/>
           </div>
         </b-card>
-      </div>
+      </b-col>
 
-      <div class="col-xl" v-if="this.$app.user.can('view own posts')">
+      <b-col xl v-if="this.$app.user.can('view own posts')">
         <b-card>
           <h4 slot="header">{{ $t('labels.backend.dashboard.last_posts') }}</h4>
-          <div class="table-responsive">
-            <b-table striped bordered hover show-empty :fields="post_fields" :items="posts"
-                     :emptyText="$t('labels.no_results')">
-              <template slot="title" slot-scope="row">
-                <router-link :to="`/posts/${row.item.id}/edit`">
-                  {{ row.value }}
-                </router-link>
-              </template>
-              <template slot="status" slot-scope="row">
-                <b-badge :variant="row.item.state">{{ $t(row.item.status_label) }}</b-badge>
-              </template>
-              <template slot="pinned" slot-scope="row">
-                <b-badge :variant="row.value ? 'success' : 'danger'">{{ row.value ? $t('labels.yes') : $t('labels.no')
-                  }}
-                </b-badge>
-              </template>
-            </b-table>
-          </div>
+          <b-table striped bordered hover responsive show-empty :fields="post_fields" :items="posts"
+                   :emptyText="$t('labels.no_results')">
+            <template slot="title" slot-scope="row">
+              <router-link :to="`/posts/${row.item.id}/edit`">
+                {{ row.value }}
+              </router-link>
+            </template>
+            <template slot="status" slot-scope="row">
+              <b-badge :variant="row.item.state">{{ $t(row.item.status_label) }}</b-badge>
+            </template>
+            <template slot="pinned" slot-scope="row">
+              <b-badge :variant="row.value ? 'success' : 'danger'">{{ row.value ? $t('labels.yes') : $t('labels.no')
+                }}
+              </b-badge>
+            </template>
+          </b-table>
           <b-button to="/posts" variant="primary" class="pull-right">
             {{ $t('labels.backend.dashboard.all_posts') }}
           </b-button>
         </b-card>
-      </div>
-    </div>
+      </b-col>
+    </b-row>
   </div>
 </template>
 

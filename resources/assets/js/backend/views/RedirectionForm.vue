@@ -1,10 +1,10 @@
 <template>
   <div class="animated fadeIn">
     <form @submit.prevent="onSubmit">
-      <div class="row justify-content-center">
-        <div class="col-xl-6">
+      <b-row class="justify-content-center">
+        <b-col xl="6">
           <b-card>
-            <h4 class="header">{{ isNew ? $t('labels.backend.redirections.titles.create') : $t(
+            <h4 slot="header">{{ isNew ? $t('labels.backend.redirections.titles.create') : $t(
               'labels.backend.redirections.titles.edit')}}</h4>
 
             <b-form-group
@@ -66,23 +66,23 @@
               </b-form-radio-group>
             </b-form-group>
 
-            <div class="row" slot="footer">
-              <div class="col-md-6">
+            <b-row slot="footer">
+              <b-col md>
                 <b-button to="/redirections" variant="danger" size="sm">
                   {{ $t('buttons.back') }}
                 </b-button>
-              </div>
-              <div class="col-md-6">
+              </b-col>
+              <b-col md>
                 <b-button type="submit" variant="success" size="sm" class="pull-right"
                           :disabled="pending"
                           v-if="isNew || this.$app.user.can('edit redirections')">
                   {{ isNew ? $t('buttons.create') : $t('buttons.edit') }}
                 </b-button>
-              </div>
-            </div>
+              </b-col>
+            </b-row>
           </b-card>
-        </div>
-      </div>
+        </b-col>
+      </b-row>
     </form>
   </div>
 </template>

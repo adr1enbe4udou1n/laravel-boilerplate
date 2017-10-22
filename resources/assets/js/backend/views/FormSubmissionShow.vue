@@ -1,7 +1,7 @@
 <template>
   <div class="animated fadeIn">
-    <div class="row justify-content-center">
-      <div class="col-xl-6">
+    <b-row class="justify-content-center">
+      <b-col xl="6">
         <b-card>
           <h4 slot="header">{{ $t('labels.backend.form_submissions.titles.show') }}</h4>
           <table class="table table-striped table-hover" v-if="submission !== null">
@@ -17,8 +17,8 @@
             </tbody>
           </table>
         </b-card>
-      </div>
-    </div>
+      </b-col>
+    </b-row>
   </div>
 </template>
 

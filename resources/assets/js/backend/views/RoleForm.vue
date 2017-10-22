@@ -1,8 +1,8 @@
 <template>
   <div class="animated fadeIn">
     <form @submit.prevent="onSubmit">
-      <div class="row justify-content-center">
-        <div class="col-xl-8">
+      <b-row class="justify-content-center">
+        <b-col xl="8">
           <b-card>
             <h4 slot="header">{{ isNew ? $t('labels.backend.roles.titles.create') : $t(
               'labels.backend.roles.titles.edit')}}</h4>
@@ -14,8 +14,8 @@
               :label-cols="2"
               :feedback="feedback('name')"
             >
-              <div class="row">
-                <div class="col-md-6">
+              <b-row>
+                <b-col md="6">
                   <b-form-input
                     id="name"
                     name="name"
@@ -24,8 +24,8 @@
                     v-model="model.name"
                     :state="state('name')"
                   ></b-form-input>
-                </div>
-              </div>
+                </b-col>
+              </b-row>
             </b-form-group>
 
             <b-form-group
@@ -35,8 +35,8 @@
               :label-cols="2"
               :feedback="feedback('display_name')"
             >
-              <div class="row">
-                <div class="col-md-6">
+              <b-row>
+                <b-col md="6">
                   <b-form-input
                     id="display_name"
                     name="display_name"
@@ -45,8 +45,8 @@
                     v-model="model.display_name"
                     :state="state('display_name')"
                   ></b-form-input>
-                </div>
-              </div>
+                </b-col>
+              </b-row>
             </b-form-group>
 
             <b-form-group
@@ -56,17 +56,13 @@
               :label-cols="2"
               :feedback="feedback('description')"
             >
-              <div class="row">
-                <div class="col-md-12">
-                  <b-form-input
-                    id="description"
-                    name="description"
-                    :placeholder="$t('validation.attributes.description')"
-                    v-model="model.description"
-                    :state="state('description')"
-                  ></b-form-input>
-                </div>
-              </div>
+              <b-form-input
+                id="description"
+                name="description"
+                :placeholder="$t('validation.attributes.description')"
+                v-model="model.description"
+                :state="state('description')"
+              ></b-form-input>
             </b-form-group>
 
             <b-form-group
@@ -75,8 +71,8 @@
               :horizontal="true"
               :label-cols="2"
             >
-              <div class="row">
-                <div class="col-md-3">
+              <b-row>
+                <b-col md="3">
                   <b-form-input
                     id="order"
                     name="order"
@@ -84,16 +80,16 @@
                     required
                     v-model="model.order"
                   ></b-form-input>
-                </div>
-              </div>
+                </b-col>
+              </b-row>
             </b-form-group>
 
             <div class="form-group row">
               <label class="col-sm-2 col-form-label">{{ $t('validation.attributes.permissions')
                 }}</label>
-              <div class="col-sm-10">
-                <div class="row">
-                  <div class="col-md-6 col-xl-4 mb-3" v-for="category in this.permissions">
+              <b-col sm="10">
+                <b-row>
+                  <b-col md="6" xl="4" class="mb-3" v-for="category in this.permissions" :key="category.title">
                     <h4>{{ $t(category.title) }}</h4>
                     <b-form-checkbox-group stacked v-model="model.permissions" name="permissions[]">
                       <b-form-checkbox v-for="permission in category.permissions" :key="permission.name"
@@ -101,28 +97,28 @@
                         {{ $t(permission.display_name) }}
                       </b-form-checkbox>
                     </b-form-checkbox-group>
-                  </div>
-                </div>
-              </div>
+                  </b-col>
+                </b-row>
+              </b-col>
             </div>
 
-            <div class="row" slot="footer">
-              <div class="col-md-6">
+            <b-row slot="footer">
+              <b-col md>
                 <b-button to="/roles" variant="danger" size="sm">
                   {{ $t('buttons.back') }}
                 </b-button>
-              </div>
-              <div class="col-md-6">
+              </b-col>
+              <b-col md>
                 <b-button type="submit" variant="success" size="sm" class="pull-right"
                           :disabled="pending"
                           v-if="isNew || this.$app.user.can('edit roles')">
                   {{ isNew ? $t('buttons.create') : $t('buttons.edit') }}
                 </b-button>
-              </div>
-            </div>
+              </b-col>
+            </b-row>
           </b-card>
-        </div>
-      </div>
+        </b-col>
+      </b-row>
     </form>
   </div>
 </template>
