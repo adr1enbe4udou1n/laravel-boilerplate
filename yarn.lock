@@ -2549,11 +2549,11 @@ eslint-plugin-import@^2.8.0:
     minimatch "^3.0.3"
     read-pkg-up "^2.0.0"
 
-eslint-plugin-node@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-node/-/eslint-plugin-node-5.2.0.tgz#e1efca04a385516cff3f2f04027ce8c5ae6db749"
+eslint-plugin-node@^5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-node/-/eslint-plugin-node-5.2.1.tgz#80df3253c4d7901045ec87fa660a284e32bdca29"
   dependencies:
-    ignore "^3.3.3"
+    ignore "^3.3.6"
     minimatch "^3.0.4"
     resolve "^1.3.3"
     semver "5.3.0"
@@ -3667,6 +3667,10 @@ ieee754@^1.1.4:
 ignore@^3.3.3:
   version "3.3.5"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.3.5.tgz#c4e715455f6073a8d7e5dae72d2fc9d71663dba6"
+
+ignore@^3.3.6:
+  version "3.3.6"
+  resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.3.6.tgz#b6f3196b38ed92f0c86e52f6f79b7fc4c8266c8d"
 
 imagemin-gifsicle@^5.1.0:
   version "5.2.0"
@@ -6843,9 +6847,9 @@ svgo@^0.7.0:
     sax "~1.2.1"
     whet.extend "~0.9.9"
 
-sweetalert2@^6.11.0:
-  version "6.11.0"
-  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-6.11.0.tgz#a0cb1cf4661a711467b028b54026384d74851ea7"
+sweetalert2@^6.11.1:
+  version "6.11.1"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-6.11.1.tgz#ddedb8d75ba049c6d3da5f8a7e99f976b14bd380"
 
 table@^4.0.1:
   version "4.0.1"
