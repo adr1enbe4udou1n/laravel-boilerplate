@@ -5,9 +5,7 @@ Route::group(
     function () {
         if (config('account.can_register')) {
             // Registration Routes...
-            Route::get('register',
-                'RegisterController@showRegistrationForm'
-            )->name('register');
+            Route::get('register', 'RegisterController@showRegistrationForm')->name('register');
             Route::post('register', 'RegisterController@register');
         }
 
