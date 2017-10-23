@@ -38,20 +38,34 @@ class Role extends Model
 {
     use Translatable;
 
-    public $translatedAttributes = ['display_name', 'description'];
+    /**
+     * The attributes that are translatable.
+     *
+     * @var array
+     */
+    public $translatedAttributes = [
+        'display_name', 
+        'description',
+    ];
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable
-        = [
-            'name',
-            'order',
-        ];
+    protected $fillable = [
+        'name',
+        'order',
+    ];
 
-    protected $with = ['translations'];
+    /**
+     * The relationship that are eager loaded.
+     *
+     * @var array
+     */
+    protected $with = [
+        'translations',
+    ];
 
     /**
      * Many-to-Many relations with Role.

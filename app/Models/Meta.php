@@ -42,6 +42,11 @@ class Meta extends Model
 {
     use Translatable;
 
+    /**
+     * The attributes that are translatable.
+     *
+     * @var array
+     */
     public $translatedAttributes = ['title', 'description'];
 
     /**
@@ -49,12 +54,18 @@ class Meta extends Model
      *
      * @var array
      */
-    protected $fillable
-        = [
-            'route',
-        ];
+    protected $fillable= [
+        'route',
+    ];
 
-    protected $with = ['translations'];
+    /**
+     * The relationship that are eager loaded.
+     *
+     * @var array
+     */
+    protected $with = [
+        'translations'
+    ];
 
     public function metable()
     {

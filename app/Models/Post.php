@@ -73,17 +73,44 @@ class Post extends Model
 
     public $asYouType = true;
 
-    public $translatedAttributes = ['title', 'summary', 'body', 'slug'];
+    /**
+     * The attributes that are translatable.
+     *
+     * @var array
+     */
+    public $translatedAttributes = [
+        'title', 
+        'summary', 
+        'body', 
+        'slug',
+    ];
 
+     /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
     protected $dates = [
         'published_at',
         'unpublished_at',
     ];
 
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
     protected $appends = [
-        'state', 'status_label', 'featured_image_path',
+        'state', 
+        'status_label', 
+        'featured_image_path',
     ];
 
+    /**
+     * The attributes that are eager loaded.
+     *
+     * @var array
+     */
     protected $casts = [
         'pinned' => 'boolean',
         'promoted' => 'boolean',

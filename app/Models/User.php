@@ -56,6 +56,11 @@ class User extends Authenticatable
     use Notifiable;
     use Sluggable;
 
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
     protected $dates = [
         'last_access_at',
         'created_at',
@@ -68,31 +73,39 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable
-        = [
-            'name',
-            'email',
-            'active',
-            'locale',
-            'timezone',
-        ];
+    protected $fillable = [
+        'name',
+        'email',
+        'active',
+        'locale',
+        'timezone',
+    ];
 
     /**
      * The attributes that should be hidden for arrays.
      *
      * @var array
      */
-    protected $hidden
-        = [
-            'password',
-            'confirmation_token',
-            'remember_token',
-        ];
+    protected $hidden = [
+        'password',
+        'confirmation_token',
+        'remember_token',
+    ];
 
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
     protected $casts = [
         'active' => 'boolean',
     ];
 
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
     protected $appends = [
       'avatar',
     ];

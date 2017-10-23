@@ -27,5 +27,14 @@ use Illuminate\Database\Eloquent\Model;
 class RoleTranslation extends Model
 {
     public $timestamps = false;
-    protected $fillable = ['display_name', 'description'];
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+    	'display_name', 
+    	'description',
+    ];
 }

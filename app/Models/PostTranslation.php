@@ -35,7 +35,18 @@ class PostTranslation extends Model
     use Sluggable;
 
     public $timestamps = false;
-    protected $fillable = ['title', 'summary', 'body', 'slug'];
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'title',
+        'summary', 
+        'body', 
+        'slug',
+    ];
 
     /**
      * @return array

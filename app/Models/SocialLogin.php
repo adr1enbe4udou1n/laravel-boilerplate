@@ -24,5 +24,14 @@ use Illuminate\Database\Eloquent\Model;
  */
 class SocialLogin extends Model
 {
-    protected $fillable = ['user_id', 'provider', 'provider_id'];
+	/**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+    	'user_id',
+    	'provider', 
+    	'provider_id',
+    ];
 }

@@ -29,7 +29,10 @@ class Tag extends Model
      *
      * @var array
      */
-    protected $fillable = ['locale', 'name'];
+    protected $fillable = [
+        'locale', 
+        'name',
+    ];
 
     public $timestamps = false;
 

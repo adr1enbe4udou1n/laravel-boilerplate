@@ -21,5 +21,13 @@ use Illuminate\Database\Eloquent\Model;
 class FormSettingTranslation extends Model
 {
     public $timestamps = false;
-    protected $fillable = ['message'];
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+    	'message',
+    ];
 }

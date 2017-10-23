@@ -24,5 +24,14 @@ use Illuminate\Database\Eloquent\Model;
 class MetaTranslation extends Model
 {
     public $timestamps = false;
-    protected $fillable = ['title', 'description'];
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+    	'title',
+    	'description',
+    ];
 }

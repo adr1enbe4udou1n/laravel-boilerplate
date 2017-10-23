@@ -41,20 +41,33 @@ class FormSetting extends Model
 {
     use Translatable;
 
-    public $translatedAttributes = ['message'];
+    /**
+     * The attributes that are translatable.
+     *
+     * @var array
+     */
+    public $translatedAttributes = [
+        'message'
+    ];
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable
-        = [
-            'name',
-            'recipients',
-        ];
+    protected $fillable = [
+        'name',
+        'recipients',
+    ];
 
-    protected $with = ['translations'];
+    /**
+     * The relationship that are eager loaded.
+     *
+     * @var array
+     */
+    protected $with = [
+        'translations',
+    ];
 
     public function getArrayRecipientsAttribute()
     {
