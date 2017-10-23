@@ -48,7 +48,7 @@ class FormSettingController extends BackendController
             ]));
 
             return $query->editColumn('name', function (FormSetting $formSetting) {
-                return trans("forms.{$formSetting->name}.display_name");
+                return __("forms.{$formSetting->name}.display_name");
             })->addColumn('actions', function (FormSetting $formSetting) {
                 return $this->formSettings->getActionButtons($formSetting);
             })->editColumn('created_at', function (FormSetting $formSetting) use ($request) {
@@ -69,7 +69,7 @@ class FormSettingController extends BackendController
         $formTypes = collect(config('forms'));
 
         $formTypes->transform(function ($item) {
-            return trans($item['display_name']);
+            return __($item['display_name']);
         });
 
         return $formTypes;
@@ -96,7 +96,7 @@ class FormSettingController extends BackendController
 
         $this->formSettings->store($request->input());
 
-        return $this->RedirectResponse($request, trans('alerts.backend.form_settings.created'));
+        return $this->RedirectResponse($request, __('alerts.backend.form_settings.created'));
     }
 
     /**
@@ -111,7 +111,7 @@ class FormSettingController extends BackendController
 
         $this->formSettings->update($formSetting, $request->input());
 
-        return $this->RedirectResponse($request, trans('alerts.backend.form_settings.updated'));
+        return $this->RedirectResponse($request, __('alerts.backend.form_settings.updated'));
     }
 
     /**
@@ -126,6 +126,6 @@ class FormSettingController extends BackendController
 
         $this->formSettings->destroy($formSetting);
 
-        return $this->RedirectResponse($request, trans('alerts.backend.form_settings.deleted'));
+        return $this->RedirectResponse($request, __('alerts.backend.form_settings.deleted'));
     }
 }

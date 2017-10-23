@@ -68,7 +68,7 @@ class AccountController extends Controller
         $this->account->update($request->input());
 
         return redirect()->route('user.account')
-            ->withFlashSuccess(trans('labels.user.profile_updated'));
+            ->withFlashSuccess(__('labels.user.profile_updated'));
     }
 
     /**
@@ -79,7 +79,7 @@ class AccountController extends Controller
         $this->account->sendConfirmation();
 
         return redirect()->back()
-            ->withFlashSuccess(trans('labels.user.email_confirmation_sended'));
+            ->withFlashSuccess(__('labels.user.email_confirmation_sended'));
     }
 
     /**
@@ -94,7 +94,7 @@ class AccountController extends Controller
         $this->account->confirmEmail($token);
 
         return redirect()->route('user.account')
-            ->withFlashSuccess(trans('labels.user.email_confirmed'));
+            ->withFlashSuccess(__('labels.user.email_confirmed'));
     }
 
     /**
@@ -116,7 +116,7 @@ class AccountController extends Controller
         );
 
         return redirect()->route('user.account')
-            ->withFlashSuccess(trans('labels.user.password_updated'));
+            ->withFlashSuccess(__('labels.user.password_updated'));
     }
 
     /**
@@ -135,6 +135,6 @@ class AccountController extends Controller
         $request->session()->regenerate();
 
         return redirect()->route('home')
-            ->withFlashSuccess(trans('labels.user.account_deleted'));
+            ->withFlashSuccess(__('labels.user.account_deleted'));
     }
 }

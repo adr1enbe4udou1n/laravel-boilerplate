@@ -49,11 +49,11 @@ class EloquentFormSettingRepository extends EloquentBaseRepository implements Fo
         $formSetting = $this->make($input);
 
         if ($this->find($formSetting->name)) {
-            throw new GeneralException(trans('exceptions.backend.form_settings.already_exist'));
+            throw new GeneralException(__('exceptions.backend.form_settings.already_exist'));
         }
 
         if (! $formSetting->save()) {
-            throw new GeneralException(trans('exceptions.backend.form_settings.create'));
+            throw new GeneralException(__('exceptions.backend.form_settings.create'));
         }
 
         return $formSetting;
@@ -73,11 +73,11 @@ class EloquentFormSettingRepository extends EloquentBaseRepository implements Fo
         if (($existingFormSetting = $this->find($formSetting->name))
           && $existingFormSetting->id !== $formSetting->id
         ) {
-            throw new GeneralException(trans('exceptions.backend.form_settings.already_exist'));
+            throw new GeneralException(__('exceptions.backend.form_settings.already_exist'));
         }
 
         if (! $formSetting->update($input)) {
-            throw new GeneralException(trans('exceptions.backend.form_settings.update'));
+            throw new GeneralException(__('exceptions.backend.form_settings.update'));
         }
 
         return $formSetting;
@@ -93,7 +93,7 @@ class EloquentFormSettingRepository extends EloquentBaseRepository implements Fo
     public function destroy(FormSetting $formSetting)
     {
         if (! $formSetting->delete()) {
-            throw new GeneralException(trans('exceptions.backend.form_settings.delete'));
+            throw new GeneralException(__('exceptions.backend.form_settings.delete'));
         }
 
         return true;

@@ -32,7 +32,7 @@ class ExceptionOccurred extends Mailable
      */
     public function build()
     {
-        return $this->subject(trans('mails.alert.subject'))
+        return $this->subject(__('mails.alert.subject'))
             ->markdown('emails.exception-occurred')
             ->withMessage($this->exception->getMessage())
             ->withTrace($this->exception->getTraceAsString());

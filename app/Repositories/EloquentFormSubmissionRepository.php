@@ -52,7 +52,7 @@ class EloquentFormSubmissionRepository extends EloquentBaseRepository implements
                 return true;
             }
 
-            throw new GeneralException(trans('exceptions.backend.form_submissions.create'));
+            throw new GeneralException(__('exceptions.backend.form_submissions.create'));
         });
 
         return $formSubmission;
@@ -68,7 +68,7 @@ class EloquentFormSubmissionRepository extends EloquentBaseRepository implements
     public function destroy(FormSubmission $formSubmission)
     {
         if (! $formSubmission->delete()) {
-            throw new GeneralException(trans('exceptions.backend.form_submissions.delete'));
+            throw new GeneralException(__('exceptions.backend.form_submissions.delete'));
         }
 
         return true;
@@ -89,7 +89,7 @@ class EloquentFormSubmissionRepository extends EloquentBaseRepository implements
                 return true;
             }
 
-            throw new GeneralException(trans('exceptions.backend.form_submissions.delete'));
+            throw new GeneralException(__('exceptions.backend.form_submissions.delete'));
         });
 
         return true;

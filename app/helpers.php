@@ -110,7 +110,7 @@ if (! function_exists('boolean_html_label')) {
     {
         return state_html_label(
             $boolean ? 'success' : 'danger',
-            $boolean ? trans('labels.yes') : trans('labels.no')
+            $boolean ? __('labels.yes') : __('labels.no')
         );
     }
 }

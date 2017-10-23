@@ -62,8 +62,8 @@
     <script type="application/json" data-settings-selector="settings-json">
         {!! json_encode([
             'cookieconsent' => [
-                'message' => trans('labels.cookieconsent.message'),
-                'dismiss' => trans('labels.cookieconsent.dismiss'),
+                'message' => __('labels.cookieconsent.message'),
+                'dismiss' => __('labels.cookieconsent.dismiss'),
             ],
         ]) !!}
     </script>

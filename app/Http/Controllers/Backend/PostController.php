@@ -107,7 +107,7 @@ class PostController extends BackendController
             })->editColumn('title', function (Post $post) {
                 return "<a href=\"/posts/{$post->id}/edit\" data-router-link>{$post->title}</a>";
             })->editColumn('status', function (Post $post) {
-                return state_html_label($post->state, trans($post->status_label));
+                return state_html_label($post->state, __($post->status_label));
             })->editColumn('pinned', function (Post $post) {
                 return boolean_html_label($post->pinned);
             })->editColumn('promoted', function (Post $post) {
@@ -156,7 +156,7 @@ class PostController extends BackendController
             $this->posts->saveAsDraft($post, $request->input(), $request->file('featured_image'));
         }
 
-        return $this->RedirectResponse($request, trans('alerts.backend.posts.created'));
+        return $this->RedirectResponse($request, __('alerts.backend.posts.created'));
     }
 
     /**
@@ -181,7 +181,7 @@ class PostController extends BackendController
             $this->posts->saveAsDraft($post, $request->input(), $request->file('featured_image'));
         }
 
-        return $this->RedirectResponse($request, trans('alerts.backend.posts.updated'));
+        return $this->RedirectResponse($request, __('alerts.backend.posts.updated'));
     }
 
     /**
@@ -196,7 +196,7 @@ class PostController extends BackendController
 
         $this->posts->destroy($post);
 
-        return $this->RedirectResponse($request, trans('alerts.backend.posts.deleted'));
+        return $this->RedirectResponse($request, __('alerts.backend.posts.deleted'));
     }
 
     /**
@@ -215,7 +215,7 @@ class PostController extends BackendController
 
                 $this->posts->batchDestroy($ids);
 
-                return $this->RedirectResponse($request, trans('alerts.backend.posts.bulk_destroyed'));
+                return $this->RedirectResponse($request, __('alerts.backend.posts.bulk_destroyed'));
                 break;
             case 'publish':
                 $this->authorize('edit posts');
@@ -223,27 +223,27 @@ class PostController extends BackendController
                 $this->posts->batchPublish($ids);
 
                 if (Gate::check('publish posts')) {
-                    return $this->RedirectResponse($request, trans('alerts.backend.posts.bulk_published'));
+                    return $this->RedirectResponse($request, __('alerts.backend.posts.bulk_published'));
                 }
 
-                return $this->RedirectResponse($request, trans('alerts.backend.posts.bulk_pending', 'warning'));
+                return $this->RedirectResponse($request, __('alerts.backend.posts.bulk_pending', 'warning'));
                 break;
             case 'pin':
                 $this->authorize('edit posts');
 
                 $this->posts->batchPin($ids);
 
-                return $this->RedirectResponse($request, trans('alerts.backend.posts.bulk_pinned'));
+                return $this->RedirectResponse($request, __('alerts.backend.posts.bulk_pinned'));
                 break;
             case 'promote':
                 $this->authorize('edit posts');
 
                 $this->posts->batchPromote($ids);
 
-                return $this->RedirectResponse($request, trans('alerts.backend.posts.bulk_promoted'));
+                return $this->RedirectResponse($request, __('alerts.backend.posts.bulk_promoted'));
                 break;
         }
 
-        return $this->RedirectResponse($request, trans('alerts.backend.actions.invalid'), 'error');
+        return $this->RedirectResponse($request, __('alerts.backend.actions.invalid'), 'error');
     }
 }

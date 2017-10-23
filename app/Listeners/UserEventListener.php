@@ -14,7 +14,7 @@ class UserEventListener
      */
     public function onCreated(UserCreated $event)
     {
-        Log::notice(trans('logs.backend.users.created', ['user' => $event->user->id]));
+        Log::notice(__('logs.backend.users.created', ['user' => $event->user->id]));
     }
 
     /**
@@ -22,7 +22,7 @@ class UserEventListener
      */
     public function onUpdated(UserUpdated $event)
     {
-        Log::notice(trans('logs.backend.users.updated', ['user' => $event->user->id]));
+        Log::notice(__('logs.backend.users.updated', ['user' => $event->user->id]));
     }
 
     /**
@@ -30,7 +30,7 @@ class UserEventListener
      */
     public function onDeleted(UserDeleted $event)
     {
-        Log::notice(trans('logs.backend.users.deleted', ['user' => $event->user->id]));
+        Log::notice(__('logs.backend.users.deleted', ['user' => $event->user->id]));
     }
 
     /**

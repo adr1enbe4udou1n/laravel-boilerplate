@@ -13,7 +13,7 @@
 
                         @component('components.form-group', [
                             'name' => 'email',
-                            'title' => trans('validation.attributes.email'),
+                            'title' => __('validation.attributes.email'),
                             'horizontal' => true,
                             'label_cols' => 4
                         ])
@@ -23,7 +23,7 @@
 
                         @component('components.form-group', [
                             'name' => 'password',
-                            'title' => trans('validation.attributes.password'),
+                            'title' => __('validation.attributes.password'),
                             'horizontal' => true,
                             'label_cols' => 4
                         ])

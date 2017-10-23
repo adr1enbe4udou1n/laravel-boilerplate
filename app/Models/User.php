@@ -130,7 +130,7 @@ class User extends Authenticatable
     public function getFormattedRolesAttribute()
     {
         return $this->is_super_admin
-            ? trans('labels.user.super_admin')
+            ? __('labels.user.super_admin')
             : $this->roles->implode('display_name', ', ');
     }
 

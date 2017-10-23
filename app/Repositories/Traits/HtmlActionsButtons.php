@@ -16,7 +16,7 @@ trait HtmlActionsButtons
      */
     public function getShowButtonHtml($url)
     {
-        $title = '<i class="icon-magnifier" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.view').'"></i>';
+        $title = '<i class="icon-magnifier" data-toggle="tooltip" data-placement="top" title="'.__('buttons.view').'"></i>';
 
         return "<a href=\"{$url}\" class=\"btn btn-sm btn-success\" data-router-link>{$title}</a> ";
     }
@@ -29,7 +29,7 @@ trait HtmlActionsButtons
      */
     public function getPreviewButtonHtml($route, $parameters)
     {
-        $title = '<i class="icon-eye" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.preview').'"></i>';
+        $title = '<i class="icon-eye" data-toggle="tooltip" data-placement="top" title="'.__('buttons.preview').'"></i>';
 
         $route = route($route, $parameters);
 
@@ -43,7 +43,7 @@ trait HtmlActionsButtons
      */
     public function getEditButtonHtml($url)
     {
-        $title = '<i class="icon-pencil" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.edit').'"></i>';
+        $title = '<i class="icon-pencil" data-toggle="tooltip" data-placement="top" title="'.__('buttons.edit').'"></i>';
 
         return "<a href=\"{$url}\" class=\"btn btn-sm btn-primary\" data-router-link>{$title}</a> ";
     }
@@ -63,7 +63,7 @@ trait HtmlActionsButtons
         }
 
         $route = route($route, $parameters);
-        $title = '<i class="icon-trash" data-toggle="tooltip" data-placement="top" title="'.trans('buttons.delete').'"></i>';
+        $title = '<i class="icon-trash" data-toggle="tooltip" data-placement="top" title="'.__('buttons.delete').'"></i>';
 
         return "<a href=\"{$route}\" class=\"btn btn-sm btn-danger\" data-delete-link>{$title}</a>";
     }

@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', trans('labels.user.titles.account'))
+@section('title', __('labels.user.titles.account'))
 
 @section('content')
     <div class="card">

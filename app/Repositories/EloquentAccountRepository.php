@@ -74,7 +74,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
         $user->last_access_at = Carbon::now();
 
         if (! $user->save()) {
-            throw new GeneralException(trans('exceptions.backend.users.update'));
+            throw new GeneralException(__('exceptions.backend.users.update'));
         }
 
         session(['permissions' => $user->getPermissions()]);
@@ -102,7 +102,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
         if (! $user) {
             // Registration is not enabled
             if (! config('account.can_register')) {
-                throw new GeneralException(trans('exceptions.frontend.auth.registration_disabled'));
+                throw new GeneralException(__('exceptions.frontend.auth.registration_disabled'));
             }
 
             $user = $this->users->store([
@@ -156,7 +156,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
     public function loginAs(User $user)
     {
         if ($user->is_super_admin) {
-            throw new GeneralException(trans('exceptions.backend.users.first_user_cannot_be_impersonated'));
+            throw new GeneralException(__('exceptions.backend.users.first_user_cannot_be_impersonated'));
         }
 
         $authenticatedUser = auth()->user();
@@ -213,7 +213,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
     public function update(array $input)
     {
         if (! config('account.updating_enabled')) {
-            throw new GeneralException(trans('exceptions.frontend.user.updating_disabled'));
+            throw new GeneralException(__('exceptions.frontend.user.updating_disabled'));
         }
 
         $user = auth()->user();
@@ -226,7 +226,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
         if ($user->isDirty('email')) {
             // Emails have to be unique
             if ($this->query()->whereEmail($user->email)->exists()) {
-                throw new GeneralException(trans('exceptions.frontend.user.email_taken'));
+                throw new GeneralException(__('exceptions.frontend.user.email_taken'));
             }
 
             $user->confirmed = false;
@@ -247,7 +247,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
     public function changePassword($oldPassword, $newPassword)
     {
         if (! config('account.updating_enabled')) {
-            throw new GeneralException(trans('exceptions.frontend.user.updating_disabled'));
+            throw new GeneralException(__('exceptions.frontend.user.updating_disabled'));
         }
 
         $user = auth()->user();
@@ -261,7 +261,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
             return $user->save();
         }
 
-        throw new GeneralException(trans('exceptions.frontend.user.password_mismatch'));
+        throw new GeneralException(__('exceptions.frontend.user.password_mismatch'));
     }
 
     /**
@@ -321,11 +321,11 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
         $user = $this->query()->find($user->id);
 
         if ($user->is_super_admin) {
-            throw new GeneralException(trans('exceptions.backend.users.first_user_cannot_be_destroyed'));
+            throw new GeneralException(__('exceptions.backend.users.first_user_cannot_be_destroyed'));
         }
 
         if (! $user->delete()) {
-            throw new GeneralException(trans('exceptions.frontend.user.delete_account'));
+            throw new GeneralException(__('exceptions.frontend.user.delete_account'));
         }
 
         return true;

@@ -51,7 +51,7 @@ class FormSubmissionController extends BackendController
             ]));
 
             return $query->editColumn('type', function (FormSubmission $formSubmission) {
-                return trans("forms.{$formSubmission->type}.display_name");
+                return __("forms.{$formSubmission->type}.display_name");
             })->addColumn('actions', function (FormSubmission $formSubmission) {
                 return $this->formSubmissions->getActionButtons($formSubmission);
             })->editColumn('created_at', function (FormSubmission $formSubmission) use ($request) {
@@ -86,7 +86,7 @@ class FormSubmissionController extends BackendController
 
         $this->formSubmissions->destroy($form_submission);
 
-        return $this->RedirectResponse($request, trans('alerts.backend.form_submissions.deleted'));
+        return $this->RedirectResponse($request, __('alerts.backend.form_submissions.deleted'));
     }
 
     /**
@@ -105,10 +105,10 @@ class FormSubmissionController extends BackendController
 
                 $this->formSubmissions->batchDestroy($ids);
 
-                return $this->RedirectResponse($request, trans('alerts.backend.form_submissions.bulk_destroyed'));
+                return $this->RedirectResponse($request, __('alerts.backend.form_submissions.bulk_destroyed'));
                 break;
         }
 
-        return $this->RedirectResponse($request, trans('alerts.backend.actions.invalid'), 'error');
+        return $this->RedirectResponse($request, __('alerts.backend.actions.invalid'), 'error');
     }
 }

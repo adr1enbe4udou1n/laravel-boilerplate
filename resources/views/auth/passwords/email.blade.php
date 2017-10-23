@@ -20,7 +20,7 @@
 
                         @component('components.form-group', [
                             'name' => 'email',
-                            'title' => trans('validation.attributes.email'),
+                            'title' => __('validation.attributes.email'),
                         ])
                             <input type="email" name="email" placeholder="@lang('validation.attributes.email')" class="form-control {{ is_invalid('email') }}" required value="{{ old('email') }}">
                         @endcomponent

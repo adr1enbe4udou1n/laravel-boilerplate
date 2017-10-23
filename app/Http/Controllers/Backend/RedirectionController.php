@@ -79,7 +79,7 @@ class RedirectionController extends BackendController
         $redirections = config('redirections');
 
         array_walk($redirections, function (&$item) {
-            $item = trans($item);
+            $item = __($item);
         });
 
         return $redirections;
@@ -96,7 +96,7 @@ class RedirectionController extends BackendController
 
         $this->redirections->store($request->input());
 
-        return $this->RedirectResponse($request, trans('alerts.backend.redirections.created'));
+        return $this->RedirectResponse($request, __('alerts.backend.redirections.created'));
     }
 
     /**
@@ -111,7 +111,7 @@ class RedirectionController extends BackendController
 
         $this->redirections->update($redirection, $request->input());
 
-        return $this->RedirectResponse($request, trans('alerts.backend.redirections.updated'));
+        return $this->RedirectResponse($request, __('alerts.backend.redirections.updated'));
     }
 
     /**
@@ -126,7 +126,7 @@ class RedirectionController extends BackendController
 
         $this->redirections->destroy($redirection);
 
-        return $this->RedirectResponse($request, trans('alerts.backend.redirections.deleted'));
+        return $this->RedirectResponse($request, __('alerts.backend.redirections.deleted'));
     }
 
     /**
@@ -145,25 +145,25 @@ class RedirectionController extends BackendController
 
                 $this->redirections->batchDestroy($ids);
 
-                return $this->RedirectResponse($request, trans('alerts.backend.redirections.bulk_destroyed'));
+                return $this->RedirectResponse($request, __('alerts.backend.redirections.bulk_destroyed'));
                 break;
             case 'enable':
                 $this->authorize('edit redirections');
 
                 $this->redirections->batchEnable($ids);
 
-                return $this->RedirectResponse($request, trans('alerts.backend.redirections.bulk_enabled'));
+                return $this->RedirectResponse($request, __('alerts.backend.redirections.bulk_enabled'));
                 break;
             case 'disable':
                 $this->authorize('edit redirections');
 
                 $this->redirections->batchDisable($ids);
 
-                return $this->RedirectResponse($request, trans('alerts.backend.redirections.bulk_disabled'));
+                return $this->RedirectResponse($request, __('alerts.backend.redirections.bulk_disabled'));
                 break;
         }
 
-        return $this->RedirectResponse($request, trans('alerts.backend.actions.invalid'), 'error');
+        return $this->RedirectResponse($request, __('alerts.backend.actions.invalid'), 'error');
     }
 
     /**
@@ -178,6 +178,6 @@ class RedirectionController extends BackendController
 
         $import->handleImport();
 
-        return $this->RedirectResponse($request, trans('alerts.backend.redirections.file_imported'));
+        return $this->RedirectResponse($request, __('alerts.backend.redirections.file_imported'));
     }
 }

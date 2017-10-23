@@ -167,7 +167,7 @@ class SeoController extends Controller
         foreach ($this->getLocalesWithoutDefault() as $localeCode => $properties) {
             $translations[] = [
                 'language' => $localeCode,
-                'url' => url("$localeCode/".trans("routes.$routeName", [], $localeCode)),
+                'url' => url("$localeCode/".__("routes.$routeName", [], $localeCode)),
             ];
         }
 

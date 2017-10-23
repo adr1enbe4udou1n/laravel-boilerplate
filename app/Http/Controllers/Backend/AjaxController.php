@@ -72,7 +72,7 @@ class AjaxController extends Controller
 
         $items = [];
 
-        $routes = trans('routes');
+        $routes = __('routes');
 
         foreach ($routes as $name => $uri) {
             /* @var Route $route */

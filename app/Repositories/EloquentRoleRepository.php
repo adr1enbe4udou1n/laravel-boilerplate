@@ -38,7 +38,7 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
         $role = $this->make($input);
 
         if (! $this->save($role, $input)) {
-            throw new GeneralException(trans('exceptions.backend.roles.create'));
+            throw new GeneralException(__('exceptions.backend.roles.create'));
         }
 
         return $role;
@@ -58,7 +58,7 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
         $role->fill($input);
 
         if (! $this->save($role, $input)) {
-            throw new GeneralException(trans('exceptions.backend.roles.update'));
+            throw new GeneralException(__('exceptions.backend.roles.update'));
         }
 
         return $role;
@@ -99,7 +99,7 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
     public function destroy(Role $role)
     {
         if (! $role->delete()) {
-            throw new GeneralException(trans('exceptions.backend.roles.delete'));
+            throw new GeneralException(__('exceptions.backend.roles.delete'));
         }
 
         return true;

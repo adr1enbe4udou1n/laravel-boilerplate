@@ -252,7 +252,7 @@ class LoginController extends Controller
         }
 
         if (! $user->active) {
-            return redirect()->route('login')->withFlashError(trans('labels.auth.disabled'));
+            return redirect()->route('login')->withFlashError(__('labels.auth.disabled'));
         }
 
         auth()->login($user, true);

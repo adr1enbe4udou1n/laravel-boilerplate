@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', trans('labels.frontend.titles.contact'))
+@section('title', __('labels.frontend.titles.contact'))
 
 @section('body_class', 'page-contact')
 
@@ -17,7 +17,7 @@
 
                 @component('components.form-group', [
                     'name' => 'name',
-                    'title' => trans('validation.attributes.name'),
+                    'title' => __('validation.attributes.name'),
                 ])
                     <input name="name" placeholder="@lang('validation.attributes.name')" class="form-control {{ is_invalid('name') }}" :class="{'is-invalid': errors.has('name') }" v-validate="'required'" value="{{ old('name') }}">
                 @endcomponent
@@ -26,7 +26,7 @@
                     <div class="col-sm-6">
                         @component('components.form-group', [
                             'name' => 'postal_code',
-                            'title' => trans('validation.attributes.postal_code'),
+                            'title' => __('validation.attributes.postal_code'),
                         ])
                             <input name="postal_code" placeholder="@lang('validation.attributes.postal_code')" class="form-control" value="{{ old('postal_code') }}">
                         @endcomponent
@@ -34,7 +34,7 @@
                     <div class="col-sm-6">
                         @component('components.form-group', [
                             'name' => 'city',
-                            'title' => trans('validation.attributes.city'),
+                            'title' => __('validation.attributes.city'),
                         ])
                             <input name="city" placeholder="@lang('validation.attributes.city')" class="form-control" value="{{ old('city') }}">
                         @endcomponent
@@ -45,7 +45,7 @@
                     <div class="col-sm-6">
                         @component('components.form-group', [
                             'name' => 'email',
-                            'title' => trans('validation.attributes.email'),
+                            'title' => __('validation.attributes.email'),
                         ])
                             <input type="email" name="email" placeholder="@lang('validation.attributes.email')" class="form-control {{ is_invalid('email') }}" :class="{'is-invalid': errors.has('email') }" v-validate="'required|email'" value="{{ old('email') }}">
                         @endcomponent
@@ -53,7 +53,7 @@
                     <div class="col-sm-6">
                         @component('components.form-group', [
                             'name' => 'phone',
-                            'title' => trans('validation.attributes.phone'),
+                            'title' => __('validation.attributes.phone'),
                         ])
                             <input type="tel" name="phone" placeholder="@lang('validation.attributes.phone')" class="form-control {{ is_invalid('phone') }}" :class="{'is-invalid': errors.has('phone') }" v-validate="'required|phone'" value="{{ old('phone') }}">
                         @endcomponent
@@ -62,7 +62,7 @@
 
                 @component('components.form-group', [
                     'name' => 'message',
-                    'title' => trans('validation.attributes.message'),
+                    'title' => __('validation.attributes.message'),
                 ])
                     <textarea name="message" placeholder="@lang('validation.attributes.message')" class="form-control {{ is_invalid('message') }}" :class="{'is-invalid': errors.has('message') }" rows="5" v-validate="'required'">
                         {{ old('message') }}

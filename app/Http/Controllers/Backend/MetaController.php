@@ -49,7 +49,7 @@ class MetaController extends BackendController
             ]));
 
             return $query->editColumn('metable_type', function (Meta $meta) {
-                return $meta->metable_type ? trans("labels.morphs.{$meta->metable_type}", ['id' => $meta->metable_id]) : null;
+                return $meta->metable_type ? __("labels.morphs.{$meta->metable_type}", ['id' => $meta->metable_id]) : null;
             })->addColumn('actions', function (Meta $meta) {
                 return $this->metas->getActionButtons($meta);
             })->editColumn('created_at', function (Meta $meta) use ($request) {
@@ -83,7 +83,7 @@ class MetaController extends BackendController
 
         $this->metas->store($request->input());
 
-        return $this->RedirectResponse($request, trans('alerts.backend.metas.created'));
+        return $this->RedirectResponse($request, __('alerts.backend.metas.created'));
     }
 
     /**
@@ -98,7 +98,7 @@ class MetaController extends BackendController
 
         $this->metas->update($meta, $request->input());
 
-        return $this->RedirectResponse($request, trans('alerts.backend.metas.updated'));
+        return $this->RedirectResponse($request, __('alerts.backend.metas.updated'));
     }
 
     /**
@@ -113,7 +113,7 @@ class MetaController extends BackendController
 
         $this->metas->destroy($meta);
 
-        return $this->RedirectResponse($request, trans('alerts.backend.metas.deleted'));
+        return $this->RedirectResponse($request, __('alerts.backend.metas.deleted'));
     }
 
     /**
@@ -132,10 +132,10 @@ class MetaController extends BackendController
 
                 $this->metas->batchDestroy($ids);
 
-                return $this->RedirectResponse($request, trans('alerts.backend.metas.bulk_destroyed'));
+                return $this->RedirectResponse($request, __('alerts.backend.metas.bulk_destroyed'));
                 break;
         }
 
-        return $this->RedirectResponse($request, trans('alerts.backend.actions.invalid'), 'error');
+        return $this->RedirectResponse($request, __('alerts.backend.actions.invalid'), 'error');
     }
 }

@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', trans('labels.frontend.titles.legal_mentions'))
+@section('title', __('labels.frontend.titles.legal_mentions'))
 
 @section('body_class', 'page-legal-mentions')
 

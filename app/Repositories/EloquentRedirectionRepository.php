@@ -49,11 +49,11 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
         $redirection = $this->make($input);
 
         if ($this->find($redirection->source)) {
-            throw new GeneralException(trans('exceptions.backend.redirections.already_exist'));
+            throw new GeneralException(__('exceptions.backend.redirections.already_exist'));
         }
 
         if (! $redirection->save()) {
-            throw new GeneralException(trans('exceptions.backend.redirections.create'));
+            throw new GeneralException(__('exceptions.backend.redirections.create'));
         }
 
         return $redirection;
@@ -73,11 +73,11 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
         if (($existingRedirection = $this->find($redirection->source))
             && $existingRedirection->id !== $redirection->id
         ) {
-            throw new GeneralException(trans('exceptions.backend.redirections.already_exist'));
+            throw new GeneralException(__('exceptions.backend.redirections.already_exist'));
         }
 
         if (! $redirection->update($input)) {
-            throw new GeneralException(trans('exceptions.backend.redirections.update'));
+            throw new GeneralException(__('exceptions.backend.redirections.update'));
         }
 
         return $redirection;
@@ -93,7 +93,7 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
     public function destroy(Redirection $redirection)
     {
         if (! $redirection->delete()) {
-            throw new GeneralException(trans('exceptions.backend.redirections.delete'));
+            throw new GeneralException(__('exceptions.backend.redirections.delete'));
         }
 
         return true;
@@ -114,7 +114,7 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
                 return true;
             }
 
-            throw new GeneralException(trans('exceptions.backend.redirections.delete'));
+            throw new GeneralException(__('exceptions.backend.redirections.delete'));
         });
 
         return true;
@@ -136,7 +136,7 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
                 return true;
             }
 
-            throw new GeneralException(trans('exceptions.backend.redirections.update'));
+            throw new GeneralException(__('exceptions.backend.redirections.update'));
         });
 
         return true;
@@ -158,7 +158,7 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
                 return true;
             }
 
-            throw new GeneralException(trans('exceptions.backend.redirections.update'));
+            throw new GeneralException(__('exceptions.backend.redirections.update'));
         });
 
         return true;

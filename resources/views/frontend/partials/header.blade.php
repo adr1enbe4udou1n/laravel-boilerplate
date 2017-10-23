@@ -24,7 +24,7 @@
                 @if (count(config('laravellocalization.supportedLocales')) > 1)
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {{ trans('labels.language') }}
+                            {{ __('labels.language') }}
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdown01">

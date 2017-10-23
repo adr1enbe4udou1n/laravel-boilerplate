@@ -151,7 +151,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     {
         if ($post->exists) {
             if (! Gate::check('update', $post)) {
-                throw new GeneralException(trans('exceptions.backend.posts.save'));
+                throw new GeneralException(__('exceptions.backend.posts.save'));
             }
         } else {
             $post->user_id = auth()->id();
@@ -164,7 +164,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
 
         DB::transaction(function () use ($post, $input, $image) {
             if (! $post->save()) {
-                throw new GeneralException(trans('exceptions.backend.posts.save'));
+                throw new GeneralException(__('exceptions.backend.posts.save'));
             }
 
             if (isset($input['meta'])) {
@@ -215,7 +215,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     public function destroy(Post $post)
     {
         if (! $post->delete()) {
-            throw new GeneralException(trans('exceptions.backend.posts.delete'));
+            throw new GeneralException(__('exceptions.backend.posts.delete'));
         }
 
         return true;
@@ -292,7 +292,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
                 }
             }
 
-            throw new GeneralException(trans('exceptions.backend.posts.update'));
+            throw new GeneralException(__('exceptions.backend.posts.update'));
         });
     }
 
@@ -318,7 +318,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
                 return true;
             }
 
-            throw new GeneralException(trans('exceptions.backend.posts.update'));
+            throw new GeneralException(__('exceptions.backend.posts.update'));
         });
 
         return true;
@@ -346,7 +346,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
                 return true;
             }
 
-            throw new GeneralException(trans('exceptions.backend.posts.update'));
+            throw new GeneralException(__('exceptions.backend.posts.update'));
         });
 
         return true;

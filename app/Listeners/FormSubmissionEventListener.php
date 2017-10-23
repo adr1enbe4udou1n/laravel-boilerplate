@@ -30,7 +30,7 @@ class FormSubmissionEventListener
      */
     public function onCreated(FormSubmissionCreated $event)
     {
-        Log::notice(trans('logs.backend.form_submissions.created',
+        Log::notice(__('logs.backend.form_submissions.created',
             ['form_submission' => $event->formSubmission->id]));
 
         $formSetting = $this->formSettings->find($event->formSubmission->type);

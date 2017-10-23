@@ -96,7 +96,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
         }
 
         if (! $this->save($user, $input)) {
-            throw new GeneralException(trans('exceptions.backend.users.create'));
+            throw new GeneralException(__('exceptions.backend.users.create'));
         }
 
         event(new UserCreated($user));
@@ -116,17 +116,17 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
     public function update(User $user, array $input)
     {
         if (! $this->canEdit($user)) {
-            throw new GeneralException(trans('exceptions.backend.users.first_user_cannot_be_edited'));
+            throw new GeneralException(__('exceptions.backend.users.first_user_cannot_be_edited'));
         }
 
         $user->fill(Arr::except($input, 'password'));
 
         if ($user->is_super_admin && ! $user->active) {
-            throw new GeneralException(trans('exceptions.backend.users.first_user_cannot_be_disabled'));
+            throw new GeneralException(__('exceptions.backend.users.first_user_cannot_be_disabled'));
         }
 
         if (! $this->save($user, $input)) {
-            throw new GeneralException(trans('exceptions.backend.users.update'));
+            throw new GeneralException(__('exceptions.backend.users.update'));
         }
 
         event(new UserUpdated($user));
@@ -159,7 +159,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
 
             foreach ($roles as $id) {
                 if (! $allowedRoles->has($id)) {
-                    throw new GeneralException(trans('exceptions.backend.users.cannot_set_superior_roles'));
+                    throw new GeneralException(__('exceptions.backend.users.cannot_set_superior_roles'));
                 }
             }
         }
@@ -179,11 +179,11 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
     public function destroy(User $user)
     {
         if (! $this->canDelete($user)) {
-            throw new GeneralException(trans('exceptions.backend.users.first_user_cannot_be_destroyed'));
+            throw new GeneralException(__('exceptions.backend.users.first_user_cannot_be_destroyed'));
         }
 
         if (! $user->delete()) {
-            throw new GeneralException(trans('exceptions.backend.users.delete'));
+            throw new GeneralException(__('exceptions.backend.users.delete'));
         }
 
         event(new UserDeleted($user));
@@ -206,7 +206,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
                 return true;
             }
 
-            throw new GeneralException(trans('exceptions.backend.users.delete'));
+            throw new GeneralException(__('exceptions.backend.users.delete'));
         });
 
         return true;
@@ -228,7 +228,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
                 return true;
             }
 
-            throw new GeneralException(trans('exceptions.backend.users.update'));
+            throw new GeneralException(__('exceptions.backend.users.update'));
         });
 
         return true;
@@ -250,7 +250,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
                 return true;
             }
 
-            throw new GeneralException(trans('exceptions.backend.users.update'));
+            throw new GeneralException(__('exceptions.backend.users.update'));
         });
 
         return true;
@@ -294,7 +294,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
         if ($this->canImpersonate($user)) {
             $title
                 = '<i class="icon-lock" data-toggle="tooltip" data-placement="top" title="'
-                .trans('buttons.login-as', ['name' => $user->name]).'"></i>';
+                .__('buttons.login-as', ['name' => $user->name]).'"></i>';
 
             $route = route('login-as', $user);
 

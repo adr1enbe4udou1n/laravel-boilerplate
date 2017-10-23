@@ -89,7 +89,7 @@ class RoleController extends BackendController
 
         $this->roles->store($request->input());
 
-        return $this->RedirectResponse($request, trans('alerts.backend.roles.created'));
+        return $this->RedirectResponse($request, __('alerts.backend.roles.created'));
     }
 
     /**
@@ -104,7 +104,7 @@ class RoleController extends BackendController
 
         $this->roles->update($role, $request->input());
 
-        return $this->RedirectResponse($request, trans('alerts.backend.roles.updated'));
+        return $this->RedirectResponse($request, __('alerts.backend.roles.updated'));
     }
 
     /**
@@ -119,6 +119,6 @@ class RoleController extends BackendController
 
         $this->roles->destroy($role);
 
-        return $this->RedirectResponse($request, trans('alerts.backend.roles.deleted'));
+        return $this->RedirectResponse($request, __('alerts.backend.roles.deleted'));
     }
 }

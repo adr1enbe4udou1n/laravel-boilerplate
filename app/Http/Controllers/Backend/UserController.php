@@ -122,7 +122,7 @@ class UserController extends BackendController
 
         $this->users->store($request->input());
 
-        return $this->RedirectResponse($request, trans('alerts.backend.users.created'));
+        return $this->RedirectResponse($request, __('alerts.backend.users.created'));
     }
 
     /**
@@ -139,7 +139,7 @@ class UserController extends BackendController
 
         $this->users->update($user, $request->input());
 
-        return $this->RedirectResponse($request, trans('alerts.backend.users.updated'));
+        return $this->RedirectResponse($request, __('alerts.backend.users.updated'));
     }
 
     /**
@@ -154,7 +154,7 @@ class UserController extends BackendController
 
         $this->users->destroy($user);
 
-        return $this->RedirectResponse($request, trans('alerts.backend.users.deleted'));
+        return $this->RedirectResponse($request, __('alerts.backend.users.deleted'));
     }
 
     /**
@@ -173,24 +173,24 @@ class UserController extends BackendController
 
                 $this->users->batchDestroy($ids);
 
-                return $this->RedirectResponse($request, trans('alerts.backend.users.bulk_destroyed'));
+                return $this->RedirectResponse($request, __('alerts.backend.users.bulk_destroyed'));
                 break;
             case 'enable':
                 $this->authorize('edit users');
 
                 $this->users->batchEnable($ids);
 
-                return $this->RedirectResponse($request, trans('alerts.backend.users.bulk_enabled'));
+                return $this->RedirectResponse($request, __('alerts.backend.users.bulk_enabled'));
                 break;
             case 'disable':
                 $this->authorize('edit users');
 
                 $this->users->batchDisable($ids);
 
-                return $this->RedirectResponse($request, trans('alerts.backend.users.bulk_disabled'));
+                return $this->RedirectResponse($request, __('alerts.backend.users.bulk_disabled'));
                 break;
         }
 
-        return $this->RedirectResponse($request, trans('alerts.backend.actions.invalid'), 'error');
+        return $this->RedirectResponse($request, __('alerts.backend.actions.invalid'), 'error');
     }
 }

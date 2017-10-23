@@ -50,11 +50,11 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
         $meta = $this->make($input);
 
         if ($this->find($meta->route)) {
-            throw new GeneralException(trans('exceptions.backend.metas.already_exist'));
+            throw new GeneralException(__('exceptions.backend.metas.already_exist'));
         }
 
         if (! $meta->save()) {
-            throw new GeneralException(trans('exceptions.backend.metas.create'));
+            throw new GeneralException(__('exceptions.backend.metas.create'));
         }
 
         return $meta;
@@ -75,12 +75,12 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
             $existingMeta = $this->find($meta->route);
 
             if ($existingMeta->id !== $meta->id) {
-                throw new GeneralException(trans('exceptions.backend.metas.already_exist'));
+                throw new GeneralException(__('exceptions.backend.metas.already_exist'));
             }
         }
 
         if (! $meta->update($input)) {
-            throw new GeneralException(trans('exceptions.backend.metas.update'));
+            throw new GeneralException(__('exceptions.backend.metas.update'));
         }
 
         return $meta;
@@ -96,7 +96,7 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
     public function destroy(Meta $meta)
     {
         if (! $meta->delete()) {
-            throw new GeneralException(trans('exceptions.backend.metas.delete'));
+            throw new GeneralException(__('exceptions.backend.metas.delete'));
         }
 
         return true;
@@ -117,7 +117,7 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
                 return true;
             }
 
-            throw new GeneralException(trans('exceptions.backend.metas.delete'));
+            throw new GeneralException(__('exceptions.backend.metas.delete'));
         });
 
         return true;

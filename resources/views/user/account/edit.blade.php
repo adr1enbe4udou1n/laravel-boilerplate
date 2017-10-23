@@ -2,12 +2,12 @@
 
 @component('components.form-group', [
     'name' => 'name',
-    'title' => trans('validation.attributes.name'),
+    'title' => __('validation.attributes.name'),
     'horizontal' => true,
     'label_cols' => 4
 ])
     {{ Form::text('name', null, [
-        'placeholder' => trans('validation.attributes.name'),
+        'placeholder' => __('validation.attributes.name'),
         'class' => 'form-control',
         'required' => true
     ]) }}
@@ -15,12 +15,12 @@
 
 @component('components.form-group', [
     'name' => 'email',
-    'title' => trans('validation.attributes.email'),
+    'title' => __('validation.attributes.email'),
     'horizontal' => true,
     'label_cols' => 4
 ])
     {{ Form::email('email', null, [
-        'title' => trans('validation.attributes.email'),
+        'title' => __('validation.attributes.email'),
         'class' => 'form-control',
         'required' => true
     ]) }}
@@ -28,12 +28,12 @@
 
 @component('components.form-group', [
     'name' => 'locale',
-    'title' => trans('validation.attributes.locale'),
+    'title' => __('validation.attributes.locale'),
     'horizontal' => true,
     'label_cols' => 4
 ])
     {{ Form::select('locale', $locales, null, [
-        'placeholder' => trans('labels.frontend.placeholders.locale'),
+        'placeholder' => __('labels.frontend.placeholders.locale'),
         'class' => 'form-control',
         'required' => true
     ]) }}
@@ -41,12 +41,12 @@
 
 @component('components.form-group', [
     'name' => 'timezone',
-    'title' => trans('validation.attributes.timezone'),
+    'title' => __('validation.attributes.timezone'),
     'horizontal' => true,
     'label_cols' => 4
 ])
     {{ Form::select('timezone', array_combine(array_values($timezones), $timezones), null, [
-        'placeholder' => trans('labels.frontend.placeholders.timezone'),
+        'placeholder' => __('labels.frontend.placeholders.timezone'),
         'class' => 'form-control',
         'required' => true
     ]) }}

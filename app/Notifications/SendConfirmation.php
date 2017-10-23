@@ -63,9 +63,9 @@ class SendConfirmation extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage())
-            ->subject(trans('mails.email_confirmation.subject'))
-            ->line(trans('mails.email_confirmation.intro'))
-            ->action(trans('mails.email_confirmation.action'), route('user.email.confirm', $this->token))
-            ->line(trans('mails.email_confirmation.outro'));
+            ->subject(__('mails.email_confirmation.subject'))
+            ->line(__('mails.email_confirmation.intro'))
+            ->action(__('mails.email_confirmation.action'), route('user.email.confirm', $this->token))
+            ->line(__('mails.email_confirmation.outro'));
     }
 }

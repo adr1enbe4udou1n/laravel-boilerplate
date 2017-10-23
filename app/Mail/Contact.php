@@ -36,7 +36,7 @@ class Contact extends Mailable
     {
         $data = (array) json_decode($this->formSubmission->data);
 
-        return $this->subject(trans("mails.{$this->formSubmission->type}.subject"))
+        return $this->subject(__("mails.{$this->formSubmission->type}.subject"))
             ->markdown('emails.contact')
             ->withData(Arr::except($data, 'message'))
             ->withMessage($data['message']);

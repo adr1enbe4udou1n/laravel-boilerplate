@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', trans('labels.frontend.titles.blog'))
+@section('title', __('labels.frontend.titles.blog'))
 
 @section('body_class', 'page-blog')
 
