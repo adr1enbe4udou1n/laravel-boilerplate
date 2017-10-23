@@ -3,7 +3,7 @@
 
 [![Build Status](https://drone.pc-world.fr/api/badges/adr1enbe4udou1n/laravel-boilerplate/status.svg)](https://drone.pc-world.fr/adr1enbe4udou1n/laravel-boilerplate)
 [![License](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/license)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
-[![StyleCI](https://styleci.io/repos/75558440/shield?style=plastic)](https://styleci.io/repos/75558440/shield?style=plastic)
+[![StyleCI](https://styleci.io/repos/75558440/shield?branch=master)](https://styleci.io/repos/75558440)
 
 ## Demo
 
