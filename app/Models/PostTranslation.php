@@ -43,8 +43,8 @@ class PostTranslation extends Model
      */
     protected $fillable = [
         'title',
-        'summary', 
-        'body', 
+        'summary',
+        'body',
         'slug',
     ];
 
