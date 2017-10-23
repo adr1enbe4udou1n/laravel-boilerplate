@@ -15,13 +15,11 @@
     @if (count(config('laravellocalization.supportedLocales')) > 1)
     @include('partials.alternates')
     @endif
-    @yield('metas')
 
     <!-- Styles -->
     @if (app()->environment('production'))
     <link rel="stylesheet" href="{{ assets('css/frontend.css') }}">
     @endif
-    @yield('styles')
 </head>
 <body class="@yield('body_class')">
     @include('frontend.scripts.gtmiframe')
@@ -75,6 +73,6 @@
     <script src="{{ assets('js/locales.js') }}"></script>
     <script src="{{ assets('js/frontend.js') }}"></script>
 
-    @yield('scripts')
+    @stack('scripts')
 </body>
 </html>

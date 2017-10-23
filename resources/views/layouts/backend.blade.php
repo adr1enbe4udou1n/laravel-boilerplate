@@ -30,7 +30,5 @@
     <script src="{{ assets('js/ckeditor.js') }}"></script>
     <script src="{{ assets('js/locales.js') }}"></script>
     <script src="{{ assets('js/backend.js') }}"></script>
-
-    @yield('scripts')
 </body>
 </html>
