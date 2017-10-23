@@ -2,19 +2,19 @@
 
 namespace App\Repositories;
 
+use Exception;
+use App\Models\User;
 use App\Events\UserCreated;
 use App\Events\UserDeleted;
 use App\Events\UserUpdated;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\DB;
 use App\Exceptions\GeneralException;
-use App\Models\User;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Contracts\Config\Repository;
 use App\Repositories\Contracts\RoleRepository;
 use App\Repositories\Contracts\UserRepository;
 use App\Repositories\Traits\HtmlActionsButtons;
-use Exception;
-use Illuminate\Contracts\Config\Repository;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Gate;
 use Mcamara\LaravelLocalization\LaravelLocalization;
 
 /**
@@ -95,7 +95,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
             $user->timezone = $this->config->get('app.timezone');
         }
 
-        if (!$this->save($user, $input)) {
+        if (! $this->save($user, $input)) {
             throw new GeneralException(trans('exceptions.backend.users.create'));
         }
 
@@ -115,17 +115,17 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
      */
     public function update(User $user, array $input)
     {
-        if (!$this->canEdit($user)) {
+        if (! $this->canEdit($user)) {
             throw new GeneralException(trans('exceptions.backend.users.first_user_cannot_be_edited'));
         }
 
         $user->fill(Arr::except($input, 'password'));
 
-        if ($user->is_super_admin && !$user->active) {
+        if ($user->is_super_admin && ! $user->active) {
             throw new GeneralException(trans('exceptions.backend.users.first_user_cannot_be_disabled'));
         }
 
-        if (!$this->save($user, $input)) {
+        if (! $this->save($user, $input)) {
             throw new GeneralException(trans('exceptions.backend.users.update'));
         }
 
@@ -144,21 +144,21 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
      */
     private function save(User $user, array $input)
     {
-        if (isset($input['password']) && !empty($input['password'])) {
+        if (isset($input['password']) && ! empty($input['password'])) {
             $user->password = bcrypt($input['password']);
         }
 
-        if (!$user->save()) {
+        if (! $user->save()) {
             return false;
         }
 
         $roles = $input['roles'] ?? [];
 
-        if (!empty($roles)) {
+        if (! empty($roles)) {
             $allowedRoles = $this->roles->getAllowedRoles()->keyBy('id');
 
             foreach ($roles as $id) {
-                if (!$allowedRoles->has($id)) {
+                if (! $allowedRoles->has($id)) {
                     throw new GeneralException(trans('exceptions.backend.users.cannot_set_superior_roles'));
                 }
             }
@@ -178,11 +178,11 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
      */
     public function destroy(User $user)
     {
-        if (!$this->canDelete($user)) {
+        if (! $this->canDelete($user)) {
             throw new GeneralException(trans('exceptions.backend.users.first_user_cannot_be_destroyed'));
         }
 
-        if (!$user->delete()) {
+        if (! $user->delete()) {
             throw new GeneralException(trans('exceptions.backend.users.delete'));
         }
 
@@ -259,7 +259,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
     private function canImpersonate(User $user)
     {
         if (Gate::check('impersonate users')) {
-            return !$user->is_super_admin
+            return ! $user->is_super_admin
                 && session()->get('admin_user_id') !== $user->id
                 && $user->id !== auth()->id();
         }
@@ -269,12 +269,12 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
 
     public function canEdit(User $user)
     {
-        return !$user->is_super_admin || 1 === auth()->id();
+        return ! $user->is_super_admin || 1 === auth()->id();
     }
 
     public function canDelete(User $user)
     {
-        return !$user->is_super_admin && $user->id !== auth()->id();
+        return ! $user->is_super_admin && $user->id !== auth()->id();
     }
 
     /**

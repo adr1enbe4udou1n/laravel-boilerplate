@@ -2,11 +2,11 @@
 
 namespace App\Repositories;
 
-use App\Exceptions\GeneralException;
-use App\Models\FormSetting;
-use App\Repositories\Contracts\FormSettingRepository;
-use App\Repositories\Traits\HtmlActionsButtons;
 use Exception;
+use App\Models\FormSetting;
+use App\Exceptions\GeneralException;
+use App\Repositories\Traits\HtmlActionsButtons;
+use App\Repositories\Contracts\FormSettingRepository;
 
 /**
  * Class EloquentFormSettingRepository.
@@ -52,7 +52,7 @@ class EloquentFormSettingRepository extends EloquentBaseRepository implements Fo
             throw new GeneralException(trans('exceptions.backend.form_settings.already_exist'));
         }
 
-        if (!$formSetting->save()) {
+        if (! $formSetting->save()) {
             throw new GeneralException(trans('exceptions.backend.form_settings.create'));
         }
 
@@ -76,7 +76,7 @@ class EloquentFormSettingRepository extends EloquentBaseRepository implements Fo
             throw new GeneralException(trans('exceptions.backend.form_settings.already_exist'));
         }
 
-        if (!$formSetting->update($input)) {
+        if (! $formSetting->update($input)) {
             throw new GeneralException(trans('exceptions.backend.form_settings.update'));
         }
 
@@ -92,7 +92,7 @@ class EloquentFormSettingRepository extends EloquentBaseRepository implements Fo
      */
     public function destroy(FormSetting $formSetting)
     {
-        if (!$formSetting->delete()) {
+        if (! $formSetting->delete()) {
             throw new GeneralException(trans('exceptions.backend.form_settings.delete'));
         }
 

@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\User;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Laravel\Socialite\AbstractUser;
 use App\Exceptions\GeneralException;
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use Laravel\Socialite\Facades\Socialite;
 use App\Repositories\Contracts\AccountRepository;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Laravel\Socialite\AbstractUser;
-use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
@@ -251,7 +251,7 @@ class LoginController extends Controller
             return redirect()->route('login')->withFlashError($e->getMessage());
         }
 
-        if (!$user->active) {
+        if (! $user->active) {
             return redirect()->route('login')->withFlashError(trans('labels.auth.disabled'));
         }
 

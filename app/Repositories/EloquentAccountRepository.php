@@ -2,19 +2,19 @@
 
 namespace App\Repositories;
 
-use App\Exceptions\GeneralException;
-use App\Models\SocialLogin;
-use App\Models\User;
-use App\Notifications\SendConfirmation;
-use App\Repositories\Contracts\AccountRepository;
-use App\Repositories\Contracts\UserRepository;
-use Carbon\Carbon;
 use Exception;
-use Illuminate\Contracts\Auth\Authenticatable;
+use Carbon\Carbon;
+use App\Models\User;
+use App\Models\SocialLogin;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Laravel\Socialite\AbstractUser;
+use App\Exceptions\GeneralException;
+use Illuminate\Support\Facades\Hash;
+use App\Notifications\SendConfirmation;
+use App\Repositories\Contracts\UserRepository;
+use Illuminate\Contracts\Auth\Authenticatable;
+use App\Repositories\Contracts\AccountRepository;
 
 /**
  * Class EloquentAccountRepository.
@@ -73,7 +73,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
 
         $user->last_access_at = Carbon::now();
 
-        if (!$user->save()) {
+        if (! $user->save()) {
             throw new GeneralException(trans('exceptions.backend.users.update'));
         }
 
@@ -99,9 +99,9 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
         /** @var User $user */
         $user = $this->users->query()->whereEmail($user_email)->first();
 
-        if (!$user) {
+        if (! $user) {
             // Registration is not enabled
-            if (!config('account.can_register')) {
+            if (! config('account.can_register')) {
                 throw new GeneralException(trans('exceptions.frontend.auth.registration_disabled'));
             }
 
@@ -113,7 +113,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
         }
 
         // Save new provider if needed
-        if (!$user->getProvider($provider)) {
+        if (! $user->getProvider($provider)) {
             $user->providers()->save(new SocialLogin([
                 'provider' => $provider,
                 'provider_id' => $data->getId(),
@@ -167,7 +167,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
             return redirect()->route('admin.home');
         }
 
-        if (!session()->get('admin_user_id')) {
+        if (! session()->get('admin_user_id')) {
             session(['admin_user_id' => $authenticatedUser->id]);
             session(['admin_user_name' => $authenticatedUser->name]);
             session(['temp_user_id' => $user->id]);
@@ -212,7 +212,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
      */
     public function update(array $input)
     {
-        if (!config('account.updating_enabled')) {
+        if (! config('account.updating_enabled')) {
             throw new GeneralException(trans('exceptions.frontend.user.updating_disabled'));
         }
 
@@ -246,7 +246,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
      */
     public function changePassword($oldPassword, $newPassword)
     {
-        if (!config('account.updating_enabled')) {
+        if (! config('account.updating_enabled')) {
             throw new GeneralException(trans('exceptions.frontend.user.updating_disabled'));
         }
 
@@ -324,7 +324,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
             throw new GeneralException(trans('exceptions.backend.users.first_user_cannot_be_destroyed'));
         }
 
-        if (!$user->delete()) {
+        if (! $user->delete()) {
             throw new GeneralException(trans('exceptions.frontend.user.delete_account'));
         }
 

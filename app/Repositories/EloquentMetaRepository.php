@@ -2,12 +2,12 @@
 
 namespace App\Repositories;
 
-use App\Exceptions\GeneralException;
+use Exception;
 use App\Models\Meta;
+use Illuminate\Support\Facades\DB;
+use App\Exceptions\GeneralException;
 use App\Repositories\Contracts\MetaRepository;
 use App\Repositories\Traits\HtmlActionsButtons;
-use Exception;
-use Illuminate\Support\Facades\DB;
 
 /**
  * Class EloquentMetaRepository.
@@ -53,7 +53,7 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
             throw new GeneralException(trans('exceptions.backend.metas.already_exist'));
         }
 
-        if (!$meta->save()) {
+        if (! $meta->save()) {
             throw new GeneralException(trans('exceptions.backend.metas.create'));
         }
 
@@ -79,7 +79,7 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
             }
         }
 
-        if (!$meta->update($input)) {
+        if (! $meta->update($input)) {
             throw new GeneralException(trans('exceptions.backend.metas.update'));
         }
 
@@ -95,7 +95,7 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
      */
     public function destroy(Meta $meta)
     {
-        if (!$meta->delete()) {
+        if (! $meta->delete()) {
             throw new GeneralException(trans('exceptions.backend.metas.delete'));
         }
 

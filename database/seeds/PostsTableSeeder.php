@@ -1,11 +1,11 @@
 <?php
 
+use App\Models\Tag;
 use App\Models\Meta;
 use App\Models\Post;
-use App\Models\Tag;
 use App\Models\User;
-use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
+use Illuminate\Database\Seeder;
 
 class PostsTableSeeder extends Seeder
 {

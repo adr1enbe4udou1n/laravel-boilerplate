@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests\StoreFormSettingRequest;
-use App\Http\Requests\UpdateFormSettingRequest;
 use App\Models\FormSetting;
-use App\Repositories\Contracts\FormSettingRepository;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use App\Http\Requests\StoreFormSettingRequest;
+use App\Http\Requests\UpdateFormSettingRequest;
+use App\Repositories\Contracts\FormSettingRepository;
 
 class FormSettingController extends BackendController
 {

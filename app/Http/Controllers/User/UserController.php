@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\User;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Contracts\UserRepository;
-use Illuminate\Http\Request;
 
 class UserController extends Controller
 {

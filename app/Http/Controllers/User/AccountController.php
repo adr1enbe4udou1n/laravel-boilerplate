@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\User;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\View\Factory;
 use App\Http\Requests\UpdateAccountRequest;
 use App\Repositories\Contracts\AccountRepository;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Http\Request;
 use Mcamara\LaravelLocalization\LaravelLocalization;
 
 class AccountController extends Controller

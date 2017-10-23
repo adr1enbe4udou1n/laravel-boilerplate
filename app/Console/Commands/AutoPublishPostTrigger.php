@@ -2,11 +2,11 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Post;
-use App\Repositories\Contracts\PostRepository;
 use Carbon\Carbon;
+use App\Models\Post;
 use Illuminate\Console\Command;
 use Illuminate\Database\Eloquent\Builder;
+use App\Repositories\Contracts\PostRepository;
 
 class AutoPublishPostTrigger extends Command
 {

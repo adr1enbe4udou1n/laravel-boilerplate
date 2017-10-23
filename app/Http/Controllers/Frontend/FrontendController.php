@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\Contracts\PostRepository;
-use App\Repositories\Contracts\TagRepository;
-use App\Repositories\Contracts\UserRepository;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Route;
+use App\Repositories\Contracts\TagRepository;
+use App\Repositories\Contracts\PostRepository;
+use App\Repositories\Contracts\UserRepository;
 
 class FrontendController extends Controller
 {

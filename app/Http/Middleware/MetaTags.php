@@ -2,9 +2,9 @@
 
 namespace App\Http\Middleware;
 
-use App\Repositories\Contracts\MetaRepository;
-use Artesaos\SEOTools\Facades\SEOMeta;
 use Closure;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use App\Repositories\Contracts\MetaRepository;
 
 class MetaTags
 {

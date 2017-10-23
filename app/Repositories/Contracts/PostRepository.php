@@ -2,8 +2,8 @@
 
 namespace App\Repositories\Contracts;
 
-use App\Models\Post;
 use App\Models\Tag;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\UploadedFile;
 

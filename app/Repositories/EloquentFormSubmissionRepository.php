@@ -2,13 +2,13 @@
 
 namespace App\Repositories;
 
-use App\Events\FormSubmissionCreated;
-use App\Exceptions\GeneralException;
-use App\Models\FormSubmission;
-use App\Repositories\Contracts\FormSubmissionRepository;
-use App\Repositories\Traits\HtmlActionsButtons;
 use Illuminate\Support\Arr;
+use App\Models\FormSubmission;
 use Illuminate\Support\Facades\DB;
+use App\Exceptions\GeneralException;
+use App\Events\FormSubmissionCreated;
+use App\Repositories\Traits\HtmlActionsButtons;
+use App\Repositories\Contracts\FormSubmissionRepository;
 
 /**
  * Class EloquentFormSubmissionRepository.
@@ -67,7 +67,7 @@ class EloquentFormSubmissionRepository extends EloquentBaseRepository implements
      */
     public function destroy(FormSubmission $formSubmission)
     {
-        if (!$formSubmission->delete()) {
+        if (! $formSubmission->delete()) {
             throw new GeneralException(trans('exceptions.backend.form_submissions.delete'));
         }
 

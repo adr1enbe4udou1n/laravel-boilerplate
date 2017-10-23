@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Models\User;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
-use App\Models\User;
+use Yajra\DataTables\Facades\DataTables;
 use App\Repositories\Contracts\RoleRepository;
 use App\Repositories\Contracts\UserRepository;
-use Illuminate\Http\Request;
-use Yajra\DataTables\Facades\DataTables;
 
 class UserController extends BackendController
 {
@@ -96,7 +96,7 @@ class UserController extends BackendController
      */
     public function show(User $user)
     {
-        if (!$this->users->canEdit($user)) {
+        if (! $this->users->canEdit($user)) {
             // Only Super admin can access himself
             abort(403);
         }

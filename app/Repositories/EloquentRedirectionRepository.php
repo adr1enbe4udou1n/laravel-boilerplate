@@ -2,12 +2,12 @@
 
 namespace App\Repositories;
 
-use App\Exceptions\GeneralException;
-use App\Models\Redirection;
-use App\Repositories\Contracts\RedirectionRepository;
-use App\Repositories\Traits\HtmlActionsButtons;
 use Exception;
+use App\Models\Redirection;
 use Illuminate\Support\Facades\DB;
+use App\Exceptions\GeneralException;
+use App\Repositories\Traits\HtmlActionsButtons;
+use App\Repositories\Contracts\RedirectionRepository;
 
 /**
  * Class EloquentRedirectionRepository.
@@ -52,7 +52,7 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
             throw new GeneralException(trans('exceptions.backend.redirections.already_exist'));
         }
 
-        if (!$redirection->save()) {
+        if (! $redirection->save()) {
             throw new GeneralException(trans('exceptions.backend.redirections.create'));
         }
 
@@ -76,7 +76,7 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
             throw new GeneralException(trans('exceptions.backend.redirections.already_exist'));
         }
 
-        if (!$redirection->update($input)) {
+        if (! $redirection->update($input)) {
             throw new GeneralException(trans('exceptions.backend.redirections.update'));
         }
 
@@ -92,7 +92,7 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
      */
     public function destroy(Redirection $redirection)
     {
-        if (!$redirection->delete()) {
+        if (! $redirection->delete()) {
             throw new GeneralException(trans('exceptions.backend.redirections.delete'));
         }
 

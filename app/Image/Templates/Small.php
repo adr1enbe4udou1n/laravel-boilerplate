@@ -2,8 +2,8 @@
 
 namespace App\Image\Templates;
 
-use Intervention\Image\Filters\FilterInterface;
 use Intervention\Image\Image;
+use Intervention\Image\Filters\FilterInterface;
 
 class Small implements FilterInterface
 {

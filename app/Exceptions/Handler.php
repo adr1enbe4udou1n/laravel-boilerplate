@@ -2,11 +2,11 @@
 
 namespace App\Exceptions;
 
-use App\Mail\ExceptionOccurred;
 use Exception;
+use App\Mail\ExceptionOccurred;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Illuminate\Support\Facades\Mail;
 
 class Handler extends ExceptionHandler
 {

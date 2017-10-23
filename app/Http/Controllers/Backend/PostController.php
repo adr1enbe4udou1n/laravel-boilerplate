@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Requests\StorePostRequest;
-use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
-use App\Repositories\Contracts\PostRepository;
-use App\Repositories\Contracts\TagRepository;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Database\Eloquent\Builder;
+use App\Repositories\Contracts\TagRepository;
+use App\Repositories\Contracts\PostRepository;
 
 class PostController extends BackendController
 {
@@ -59,7 +59,7 @@ class PostController extends BackendController
     {
         $query = $this->posts->query();
 
-        if (!Gate::check('view posts')) {
+        if (! Gate::check('view posts')) {
             // Filter to only current user's posts
             $query->whereUserId(auth()->id());
         }
@@ -90,7 +90,7 @@ class PostController extends BackendController
                 'updated_at',
             ]);
 
-            if (!Gate::check('view posts')) {
+            if (! Gate::check('view posts')) {
                 // Filter to only current user's posts
                 $query->whereUserId(auth()->id());
             }

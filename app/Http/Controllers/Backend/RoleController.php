@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Models\Role;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreRoleRequest;
 use App\Http\Requests\UpdateRoleRequest;
-use App\Models\Role;
-use App\Repositories\Contracts\RoleRepository;
-use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use App\Repositories\Contracts\RoleRepository;
 
 class RoleController extends BackendController
 {

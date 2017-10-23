@@ -27,7 +27,7 @@ class UpdateMetaRequest extends FormRequest
         /** @var Meta $meta */
         $meta = $this->route('meta');
 
-        if (!$meta->metable_type) {
+        if (! $meta->metable_type) {
             return [
                 'route' => "required|unique:metas,route,{$meta->id}",
             ];

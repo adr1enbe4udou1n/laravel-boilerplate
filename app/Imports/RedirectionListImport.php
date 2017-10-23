@@ -21,7 +21,5 @@ class RedirectionListImport extends ExcelFile
         if ($file = Input::file('import')) {
             return $file->getPathname();
         }
-
-        return null;
     }
 }

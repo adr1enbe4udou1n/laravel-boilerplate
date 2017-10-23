@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Models\Redirection;
+use Illuminate\Http\Request;
+use App\Imports\RedirectionListImport;
+use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\StoreRedirectionRequest;
 use App\Http\Requests\UpdateRedirectionRequest;
-use App\Imports\RedirectionListImport;
-use App\Models\Redirection;
 use App\Repositories\Contracts\RedirectionRepository;
-use Illuminate\Http\Request;
-use Yajra\DataTables\Facades\DataTables;
 
 class RedirectionController extends BackendController
 {
