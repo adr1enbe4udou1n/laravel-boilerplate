@@ -2,20 +2,20 @@
 
 namespace App\Repositories;
 
-use App\Exceptions\GeneralException;
-use App\Models\Post;
-use App\Models\PostTranslation;
 use App\Models\Tag;
+use App\Models\Post;
 use App\Models\User;
-use App\Repositories\Contracts\PostRepository;
-use App\Repositories\Contracts\TagRepository;
-use App\Repositories\Traits\HtmlActionsButtons;
-use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
-use Mcamara\LaravelLocalization\LaravelLocalization;
+use App\Models\PostTranslation;
+use Illuminate\Http\UploadedFile;
 use Plank\Mediable\MediaUploader;
+use Illuminate\Support\Facades\DB;
+use App\Exceptions\GeneralException;
+use Illuminate\Support\Facades\Gate;
+use App\Repositories\Contracts\TagRepository;
+use App\Repositories\Contracts\PostRepository;
+use App\Repositories\Traits\HtmlActionsButtons;
+use Mcamara\LaravelLocalization\LaravelLocalization;
 
 /**
  * Class EloquentPostRepository.
@@ -104,8 +104,6 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
         if ($postTranslation) {
             return $postTranslation->post;
         }
-
-        return null;
     }
 
     /**
@@ -152,25 +150,25 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     private function save(Post $post, array $input, UploadedFile $image = null)
     {
         if ($post->exists) {
-            if (!Gate::check('update', $post)) {
+            if (! Gate::check('update', $post)) {
                 throw new GeneralException(trans('exceptions.backend.posts.save'));
             }
         } else {
             $post->user_id = auth()->id();
         }
 
-        if (Post::PUBLISHED === $post->status && !Gate::check('publish posts')) {
+        if (Post::PUBLISHED === $post->status && ! Gate::check('publish posts')) {
             // User with no publish permissions must go to moderation awaiting
             $post->status = Post::PENDING;
         }
 
         DB::transaction(function () use ($post, $input, $image) {
-            if (!$post->save()) {
+            if (! $post->save()) {
                 throw new GeneralException(trans('exceptions.backend.posts.save'));
             }
 
             if (isset($input['meta'])) {
-                if (!$post->meta) {
+                if (! $post->meta) {
                     $post->meta()->create($input['meta']);
                 } else {
                     $post->meta->update($input['meta']);
@@ -216,7 +214,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      */
     public function destroy(Post $post)
     {
-        if (!$post->delete()) {
+        if (! $post->delete()) {
             throw new GeneralException(trans('exceptions.backend.posts.delete'));
         }
 
@@ -247,7 +245,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
         DB::transaction(function () use ($ids) {
             $query = $this->batchQuery($ids);
 
-            if (!Gate::check('delete posts')) {
+            if (! Gate::check('delete posts')) {
                 // Filter to only current user's posts
                 $query->whereUserId(auth()->id());
             }
@@ -278,7 +276,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
         DB::transaction(function () use ($ids) {
             $query = $this->batchQuery($ids);
 
-            if (!Gate::check('edit posts')) {
+            if (! Gate::check('edit posts')) {
                 // Filter to only current user's posts
                 $query->whereUserId(auth()->id());
             }
@@ -311,7 +309,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
         DB::transaction(function () use ($ids) {
             $query = $this->batchQuery($ids);
 
-            if (!Gate::check('edit posts')) {
+            if (! Gate::check('edit posts')) {
                 // Filter to only current user's posts
                 $query->whereUserId(auth()->id());
             }
@@ -339,7 +337,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
         DB::transaction(function () use ($ids) {
             $query = $this->batchQuery($ids);
 
-            if (!Gate::check('edit posts')) {
+            if (! Gate::check('edit posts')) {
                 // Filter to only current user's posts
                 $query->whereUserId(auth()->id());
             }

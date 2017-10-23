@@ -2,11 +2,11 @@
 
 namespace App\Repositories;
 
-use App\Exceptions\GeneralException;
+use Exception;
 use App\Models\Role;
+use App\Exceptions\GeneralException;
 use App\Repositories\Contracts\RoleRepository;
 use App\Repositories\Traits\HtmlActionsButtons;
-use Exception;
 
 /**
  * Class EloquentRoleRepository.
@@ -37,7 +37,7 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
         /** @var Role $role */
         $role = $this->make($input);
 
-        if (!$this->save($role, $input)) {
+        if (! $this->save($role, $input)) {
             throw new GeneralException(trans('exceptions.backend.roles.create'));
         }
 
@@ -57,7 +57,7 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
     {
         $role->fill($input);
 
-        if (!$this->save($role, $input)) {
+        if (! $this->save($role, $input)) {
             throw new GeneralException(trans('exceptions.backend.roles.update'));
         }
 
@@ -74,7 +74,7 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
      */
     private function save(Role $role, array $input)
     {
-        if (!$role->save($input)) {
+        if (! $role->save($input)) {
             return false;
         }
 
@@ -98,7 +98,7 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
      */
     public function destroy(Role $role)
     {
-        if (!$role->delete()) {
+        if (! $role->delete()) {
             throw new GeneralException(trans('exceptions.backend.roles.delete'));
         }
 
@@ -112,7 +112,7 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
     {
         $authenticatedUser = auth()->user();
 
-        if (!$authenticatedUser) {
+        if (! $authenticatedUser) {
             return [];
         }
 

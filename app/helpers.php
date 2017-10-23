@@ -1,11 +1,11 @@
 <?php
 
-use Dimsav\Translatable\Translatable;
-use Illuminate\Contracts\Support\MessageBag;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\HtmlString;
+use Dimsav\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Support\MessageBag;
 
-if (!function_exists('assets')) {
+if (! function_exists('assets')) {
     /**
      * Get the path to a versioned Mix file.
      *
@@ -19,7 +19,7 @@ if (!function_exists('assets')) {
     {
         static $manifest;
 
-        if (!starts_with($path, '/')) {
+        if (! starts_with($path, '/')) {
             $path = "/{$path}";
         }
 
@@ -36,7 +36,7 @@ if (!function_exists('assets')) {
             }
         }
 
-        if (!$manifest
+        if (! $manifest
             && file_exists($manifestPath = public_path('/manifest.json'))
         ) {
             $manifest = json_decode(file_get_contents($manifestPath), true);
@@ -54,7 +54,7 @@ if (!function_exists('assets')) {
     }
 }
 
-if (!function_exists('is_invalid')) {
+if (! function_exists('is_invalid')) {
     /**
      * @param $name
      * @param $class
@@ -70,7 +70,7 @@ if (!function_exists('is_invalid')) {
     }
 }
 
-if (!function_exists('home_route')) {
+if (! function_exists('home_route')) {
     /**
      * Return the route to the "home" page depending on authentication/authorization status.
      *
@@ -86,7 +86,7 @@ if (!function_exists('home_route')) {
     }
 }
 
-if (!function_exists('is_admin_route')) {
+if (! function_exists('is_admin_route')) {
     /**
      * @param \Illuminate\Http\Request $request
      *
@@ -100,7 +100,7 @@ if (!function_exists('is_admin_route')) {
     }
 }
 
-if (!function_exists('boolean_html_label')) {
+if (! function_exists('boolean_html_label')) {
     /**
      * @param $boolean boolean
      *
@@ -115,7 +115,7 @@ if (!function_exists('boolean_html_label')) {
     }
 }
 
-if (!function_exists('state_html_label')) {
+if (! function_exists('state_html_label')) {
     /**
      * @param $state
      * @param $label
@@ -128,7 +128,7 @@ if (!function_exists('state_html_label')) {
     }
 }
 
-if (!function_exists('image_template_url')) {
+if (! function_exists('image_template_url')) {
     /**
      * @param $template
      * @param $image_path
@@ -141,7 +141,7 @@ if (!function_exists('image_template_url')) {
     }
 }
 
-if (!function_exists('image_template_html')) {
+if (! function_exists('image_template_html')) {
     /**
      * @param $template
      * @param $image_path
@@ -157,7 +157,7 @@ if (!function_exists('image_template_html')) {
     }
 }
 
-if (!function_exists('localize_url')) {
+if (! function_exists('localize_url')) {
     function localize_url($locale = null, $attributes = [], Model $translatable = null)
     {
         $url = null;

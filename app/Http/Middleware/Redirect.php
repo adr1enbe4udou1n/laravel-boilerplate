@@ -2,8 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use App\Repositories\Contracts\RedirectionRepository;
 use Closure;
+use App\Repositories\Contracts\RedirectionRepository;
 
 class Redirect
 {

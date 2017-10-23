@@ -2,8 +2,8 @@
 
 namespace App\Listeners;
 
-use App\Repositories\Contracts\AccountRepository;
 use Illuminate\Auth\Events\Login;
+use App\Repositories\Contracts\AccountRepository;
 
 class LoginEventListener
 {

@@ -2,8 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use Carbon\Carbon;
 use Closure;
+use Carbon\Carbon;
 use Mcamara\LaravelLocalization\LaravelLocalization;
 
 class SetLocale

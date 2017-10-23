@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Models\Post;
 use App\Models\Tag;
+use App\Models\Post;
 use App\Models\User;
-use App\Repositories\Contracts\PostRepository;
-use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use App\Repositories\Contracts\PostRepository;
 
 class BlogController extends FrontendController
 {
@@ -55,7 +55,7 @@ class BlogController extends FrontendController
     public function show(Post $post, Request $request)
     {
         // If not published, only user with edit access can see it
-        if (!$post->published && !Gate::check('update', $post)) {
+        if (! $post->published && ! Gate::check('update', $post)) {
             abort(404);
         }
 

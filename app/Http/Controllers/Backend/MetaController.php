@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Models\Meta;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreMetaRequest;
 use App\Http\Requests\UpdateMetaRequest;
-use App\Models\Meta;
-use App\Repositories\Contracts\MetaRepository;
-use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use App\Repositories\Contracts\MetaRepository;
 
 class MetaController extends BackendController
 {

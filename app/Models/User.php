@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
-use App\Notifications\ResetPassword as ResetPasswordNotification;
-use Cviebrock\EloquentSluggable\Sluggable;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Builder;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\ResetPassword as ResetPasswordNotification;
 
 /**
  * App\Models\User.
@@ -143,7 +143,7 @@ class User extends Authenticatable
 
         foreach ($this->roles as $role) {
             foreach ($role->permissions as $permission) {
-                if (!in_array($permission, $permissions, true)) {
+                if (! in_array($permission, $permissions, true)) {
                     $permissions[] = $permission;
                 }
             }

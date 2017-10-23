@@ -3,8 +3,8 @@
 namespace App\Repositories\Contracts;
 
 use App\Models\User;
-use Illuminate\Contracts\Auth\Authenticatable;
 use Laravel\Socialite\AbstractUser;
+use Illuminate\Contracts\Auth\Authenticatable;
 
 /**
  * Interface AccountRepository.

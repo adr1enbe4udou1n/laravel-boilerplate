@@ -1,7 +1,7 @@
 <?php
 
-use App\Models\Post;
 use App\Models\Tag;
+use App\Models\Post;
 use App\Models\User;
 use DaveJamesMiller\Breadcrumbs\BreadcrumbsGenerator;
 

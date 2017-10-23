@@ -2,11 +2,11 @@
 
 namespace App\Mail;
 
-use App\Models\FormSubmission;
+use Illuminate\Support\Arr;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
+use App\Models\FormSubmission;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Arr;
 
 class Contact extends Mailable
 {

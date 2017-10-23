@@ -2,11 +2,11 @@
 
 namespace App\Imports;
 
-use App\Repositories\Contracts\RedirectionRepository;
 use Illuminate\Http\Response;
-use Maatwebsite\Excel\Collections\CellCollection;
-use Maatwebsite\Excel\Collections\RowCollection;
 use Maatwebsite\Excel\Files\ImportHandler;
+use Maatwebsite\Excel\Collections\RowCollection;
+use Maatwebsite\Excel\Collections\CellCollection;
+use App\Repositories\Contracts\RedirectionRepository;
 
 class RedirectionListImportHandler implements ImportHandler
 {

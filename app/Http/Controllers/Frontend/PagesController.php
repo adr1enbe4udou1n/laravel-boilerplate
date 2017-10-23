@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use Illuminate\Http\Request;
+use Arcanedev\NoCaptcha\Rules\CaptchaRule;
 use App\Repositories\Contracts\FormSettingRepository;
 use App\Repositories\Contracts\FormSubmissionRepository;
-use Arcanedev\NoCaptcha\Rules\CaptchaRule;
-use Illuminate\Http\Request;
 
 class PagesController extends FrontendController
 {

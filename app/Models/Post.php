@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
-use App\Models\Traits\Metable;
-use App\Models\Traits\Taggable;
 use Carbon\Carbon;
-use Dimsav\Translatable\Translatable;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
 use Plank\Mediable\Media;
 use Plank\Mediable\Mediable;
+use Laravel\Scout\Searchable;
+use App\Models\Traits\Metable;
+use App\Models\Traits\Taggable;
+use Dimsav\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 /**
  * App\Models\Post.
@@ -156,12 +156,12 @@ class Post extends Model
 
     public function getMetaTitleAttribute()
     {
-        return null !== $this->meta && !empty($this->meta->title) ? $this->meta->title : $this->title;
+        return null !== $this->meta && ! empty($this->meta->title) ? $this->meta->title : $this->title;
     }
 
     public function getMetaDescriptionAttribute()
     {
-        return null !== $this->meta && !empty($this->meta->description) ? $this->meta->description : $this->summary;
+        return null !== $this->meta && ! empty($this->meta->description) ? $this->meta->description : $this->summary;
     }
 
     public function owner()
