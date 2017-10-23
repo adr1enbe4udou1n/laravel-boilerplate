@@ -1,7 +1,7 @@
 export default (app, i18n, newPostsCount, pendingPostsCount) => {
   return [
     {
-      name: 'Dashboard',
+      name: i18n.t('labels.backend.titles.dashboard'),
       url: '/dashboard',
       icon: 'icon-speedometer',
       access: true

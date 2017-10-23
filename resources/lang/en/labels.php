@@ -140,7 +140,6 @@ return [
 
         'titles' => [
             'dashboard' => 'Dashboard',
-            'metas' => 'Metas management',
         ],
 
         'users' => [

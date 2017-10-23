@@ -140,7 +140,6 @@ return [
 
         'titles' => [
             'dashboard' => 'Tableau de bord',
-            'metas' => 'Gestion des metas',
         ],
 
         'users' => [

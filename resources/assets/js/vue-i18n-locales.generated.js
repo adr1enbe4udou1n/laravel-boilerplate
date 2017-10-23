@@ -284,8 +284,7 @@ export default {
                     "seo": "SEO settings"
                 },
                 "titles": {
-                    "dashboard": "Dashboard",
-                    "metas": "Metas management"
+                    "dashboard": "Dashboard"
                 },
                 "users": {
                     "titles": {
@@ -1067,8 +1066,7 @@ export default {
                     "seo": "Paramétrages SEO"
                 },
                 "titles": {
-                    "dashboard": "Tableau de bord",
-                    "metas": "Gestion des metas"
+                    "dashboard": "Tableau de bord"
                 },
                 "users": {
                     "titles": {
