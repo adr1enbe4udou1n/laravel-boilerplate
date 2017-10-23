@@ -52,7 +52,7 @@
       }
     },
     mounted () {
-      if (window.locale === 'fr') {
+      if (this.$app.locale === 'fr') {
         Flatpickr.localize(FlatpickrLocaleFr['fr'])
       }
       if (!this.fp) {

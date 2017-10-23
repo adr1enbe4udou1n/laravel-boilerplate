@@ -44,7 +44,7 @@
       window.CKEDITOR.replace(this.id, {
         extraPlugins: plugins.join(','),
         removePlugins: 'resize,wysiwygarea',
-        language: window.locale,
+        language: this.$app.locale,
         toolbar: [
           {name: 'basicstyles', items: ['Bold', 'Italic']},
           {name: 'links', items: ['Link', 'Unlink']},
