@@ -121,9 +121,19 @@ class Post extends Model
      *
      * @var array
      */
-    protected $fillable = ['status', 'published_at', 'unpublished_at', 'pinned', 'promoted'];
+    protected $fillable = [
+        'status',
+        'published_at',
+        'unpublished_at',
+        'pinned',
+        'promoted',
+    ];
 
-    protected $with = ['translations', 'media', 'owner'];
+    protected $with = [
+        'translations',
+        'media',
+        'owner',
+    ];
 
     protected static function boot()
     {

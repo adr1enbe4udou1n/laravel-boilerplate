@@ -24,6 +24,8 @@ class Tag extends Model
 {
     use Sluggable;
 
+    public $timestamps = false;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -33,8 +35,6 @@ class Tag extends Model
         'locale',
         'name',
     ];
-
-    public $timestamps = false;
 
     /**
      * @return array

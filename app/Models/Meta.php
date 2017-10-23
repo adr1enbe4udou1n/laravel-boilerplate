@@ -47,7 +47,10 @@ class Meta extends Model
      *
      * @var array
      */
-    public $translatedAttributes = ['title', 'description'];
+    public $translatedAttributes = [
+        'title',
+        'description',
+    ];
 
     /**
      * The attributes that are mass assignable.

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>{{ trans('labels.http.500.title') }}</title>
+    <title>{{ __('labels.http.500.title') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <style>

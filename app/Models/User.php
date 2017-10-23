@@ -63,9 +63,6 @@ class User extends Authenticatable
      */
     protected $dates = [
         'last_access_at',
-        'created_at',
-        'updated_at',
-        'deleted_at',
     ];
 
     /**
