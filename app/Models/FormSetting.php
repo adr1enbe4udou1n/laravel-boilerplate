@@ -47,7 +47,7 @@ class FormSetting extends Model
      * @var array
      */
     public $translatedAttributes = [
-        'message'
+        'message',
     ];
 
     /**

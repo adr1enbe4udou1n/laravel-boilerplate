@@ -34,7 +34,7 @@ class RoleTranslation extends Model
      * @var array
      */
     protected $fillable = [
-    	'display_name', 
-    	'description',
+        'display_name',
+        'description',
     ];
 }

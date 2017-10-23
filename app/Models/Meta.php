@@ -54,7 +54,7 @@ class Meta extends Model
      *
      * @var array
      */
-    protected $fillable= [
+    protected $fillable = [
         'route',
     ];
 
@@ -64,7 +64,7 @@ class Meta extends Model
      * @var array
      */
     protected $with = [
-        'translations'
+        'translations',
     ];
 
     public function metable()

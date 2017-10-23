@@ -30,7 +30,7 @@ class Tag extends Model
      * @var array
      */
     protected $fillable = [
-        'locale', 
+        'locale',
         'name',
     ];
 

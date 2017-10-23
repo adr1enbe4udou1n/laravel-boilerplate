@@ -79,13 +79,13 @@ class Post extends Model
      * @var array
      */
     public $translatedAttributes = [
-        'title', 
-        'summary', 
-        'body', 
+        'title',
+        'summary',
+        'body',
         'slug',
     ];
 
-     /**
+    /**
      * The attributes that should be mutated to dates.
      *
      * @var array
@@ -101,8 +101,8 @@ class Post extends Model
      * @var array
      */
     protected $appends = [
-        'state', 
-        'status_label', 
+        'state',
+        'status_label',
         'featured_image_path',
     ];
 

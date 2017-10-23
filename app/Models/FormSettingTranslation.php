@@ -28,6 +28,6 @@ class FormSettingTranslation extends Model
      * @var array
      */
     protected $fillable = [
-    	'message',
+        'message',
     ];
 }
