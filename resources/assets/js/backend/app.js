@@ -24,11 +24,15 @@ import VueI18n from '../vue-i18n'
 import VeeValidate from '../vee-validate'
 import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.esm'
 import vSelect from 'vue-select'
+
+// CoreUI components
 import Switch from './components/Switch'
-import Flatpickr from '.././components/Flatpickr'
-import CKEditor from '.././components/CKEditor'
-import DataTable from './components/DataTable'
-import BatchAction from './components/BatchAction'
+
+// Vendor plugins components
+import DataTable from './components/plugins/DataTable'
+import CKEditor from './components/plugins/CKEditor'
+import Flatpickr from './components/plugins/Flatpickr'
+
 import Router from './router'
 import App from './App.vue'
 
@@ -63,7 +67,6 @@ Vue.component('c-switch', Switch)
 Vue.component('flatpickr', Flatpickr)
 Vue.component('ckeditor', CKEditor)
 Vue.component('datatable', DataTable)
-Vue.component('batch-action', BatchAction)
 
 let router = Router(settings.adminHomePath, i18n)
 

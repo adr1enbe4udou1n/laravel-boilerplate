@@ -3,7 +3,7 @@
     <table class="table table-striped table-bordered table-hover"
            cellspacing="0"
            width="100%"></table>
-    <batch-action v-if="actions !== null" :options="actions" @action="onBulkAction"></batch-action>
+    <BatchAction v-if="actions !== null" :options="actions" @action="onBulkAction"></BatchAction>
   </div>
 </template>
 
@@ -11,8 +11,12 @@
   import axios from 'axios'
   import sweetalert2 from 'sweetalert2'
   import toastr from 'toastr'
+  import BatchAction from './BatchAction'
 
   export default {
+    components: {
+      BatchAction
+    },
     props: {
       options: {
         type: Object,

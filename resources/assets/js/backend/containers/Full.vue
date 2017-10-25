@@ -28,11 +28,11 @@
   import axios from 'axios'
   import nav from '../_nav'
 
+  import AppAside from '../components/Aside'
+  import Breadcrumb from '../components/Breadcrumb'
+  import AppFooter from '../components/Footer'
   import AppHeader from '../components/Header'
   import Sidebar from '../components/Sidebar'
-  import AppAside from '../components/Aside.vue'
-  import AppFooter from '../components/Footer'
-  import Breadcrumb from '../components/Breadcrumb'
 
   export default {
     name: 'full',
