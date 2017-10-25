@@ -309,7 +309,7 @@ module.exports = {
         ? 'dist/css/[name].[contenthash].css'
         : 'css/[name].css',
       allChunks: true,
-      disable: !production
+      disable: hmr
     }),
     new BrowserSyncPlugin(
       {

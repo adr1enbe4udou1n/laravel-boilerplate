@@ -17,7 +17,7 @@
     @endif
 
     <!-- Styles -->
-    @if (app()->environment('production'))
+    @if (!$hmr)
     <link rel="stylesheet" href="{{ assets('css/frontend.css') }}">
     @endif
 </head>

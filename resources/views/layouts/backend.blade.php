@@ -10,8 +10,8 @@
 
     <title>Administration | {{ config('app.name') }}</title>
 
-    <!-- Custom Styles -->
-    @if (app()->environment('production'))
+    <!-- Styles -->
+    @if (!$hmr)
     <link rel="stylesheet" href="{{ assets('css/backend.css') }}">
     @endif
 </head>

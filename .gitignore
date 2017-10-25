@@ -18,4 +18,5 @@ yarn-error.log
 /_ide_helper.php
 
 # Dev Builded Files
+/public/css
 /public/js

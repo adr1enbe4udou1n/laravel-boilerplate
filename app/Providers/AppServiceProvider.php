@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\EloquentTagRepository;
 use App\Repositories\EloquentMetaRepository;
@@ -50,6 +51,8 @@ class AppServiceProvider extends ServiceProvider
             // Force Route URL (useful for multi-device development)
             URL::forceRootUrl($root);
         }
+
+        View::share('hmr', file_exists(public_path('/hot')));
     }
 
     /**
