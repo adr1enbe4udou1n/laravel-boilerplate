@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4911e599a51fc2a47f442c0c27ec1a66",
+    "content-hash": "c0415e7c7f011609a2f749d582d07109",
     "packages": [
         {
             "name": "arcanedev/no-captcha",
@@ -129,22 +129,22 @@
         },
         {
             "name": "artesaos/seotools",
-            "version": "0.10.0",
+            "version": "v0.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/artesaos/seotools.git",
-                "reference": "6cdd1787aa36ac0c1a63155fb84a27934f426c93"
+                "reference": "c6d22055be1f730cfaa589b9e71ddd92c397606e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/artesaos/seotools/zipball/6cdd1787aa36ac0c1a63155fb84a27934f426c93",
-                "reference": "6cdd1787aa36ac0c1a63155fb84a27934f426c93",
+                "url": "https://api.github.com/repos/artesaos/seotools/zipball/c6d22055be1f730cfaa589b9e71ddd92c397606e",
+                "reference": "c6d22055be1f730cfaa589b9e71ddd92c397606e",
                 "shasum": ""
             },
             "require": {
                 "illuminate/config": "~5",
                 "illuminate/support": "~5",
-                "php": ">=5.4.0"
+                "php": ">=7.0"
             },
             "require-dev": {
                 "mockery/mockery": "^0.9.4",
@@ -153,6 +153,19 @@
                 "phpunit/phpunit": "^4.0|^5.0"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Artesaos\\SEOTools\\Providers\\SEOToolsServiceProvider"
+                    ],
+                    "aliases": {
+                        "SEOMeta": "Artesaos\\SEOTools\\Facades\\SEOMeta",
+                        "OpenGraph": "Artesaos\\SEOTools\\Facades\\OpenGraph",
+                        "Twitter": "Artesaos\\SEOTools\\Facades\\TwitterCard",
+                        "SEO": "Artesaos\\SEOTools\\Facades\\SEOTools"
+                    }
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Artesaos\\SEOTools\\": "src/SEOTools/"
@@ -178,7 +191,7 @@
                 "seotools",
                 "webmaster"
             ],
-            "time": "2016-10-27T03:03:45+00:00"
+            "time": "2017-09-25T15:00:31+00:00"
         },
         {
             "name": "cocur/slugify",
@@ -1650,16 +1663,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.5.18",
+            "version": "v5.5.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "1cc21baac11551377734b8c17ead17db4c34fe21"
+                "reference": "c678100e84934ec85c9f8bc26bd0a60222682719"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/1cc21baac11551377734b8c17ead17db4c34fe21",
-                "reference": "1cc21baac11551377734b8c17ead17db4c34fe21",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/c678100e84934ec85c9f8bc26bd0a60222682719",
+                "reference": "c678100e84934ec85c9f8bc26bd0a60222682719",
                 "shasum": ""
             },
             "require": {
@@ -1777,7 +1790,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-10-19T12:50:26+00:00"
+            "time": "2017-10-25T19:10:45+00:00"
         },
         {
             "name": "laravel/scout",
@@ -4427,16 +4440,16 @@
         },
         {
             "name": "yajra/laravel-datatables-oracle",
-            "version": "v8.1.1",
+            "version": "v8.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yajra/laravel-datatables.git",
-                "reference": "70ea9184e00cc2e09a9c8772858c5fe04338b3fc"
+                "reference": "9bb45b445d3a9deb6a62e6974d2651bf15180d2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/70ea9184e00cc2e09a9c8772858c5fe04338b3fc",
-                "reference": "70ea9184e00cc2e09a9c8772858c5fe04338b3fc",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/9bb45b445d3a9deb6a62e6974d2651bf15180d2f",
+                "reference": "9bb45b445d3a9deb6a62e6974d2651bf15180d2f",
                 "shasum": ""
             },
             "require": {
@@ -4493,7 +4506,7 @@
                 "jquery",
                 "laravel"
             ],
-            "time": "2017-10-17T03:09:05+00:00"
+            "time": "2017-10-25T01:24:37+00:00"
         }
     ],
     "packages-dev": [

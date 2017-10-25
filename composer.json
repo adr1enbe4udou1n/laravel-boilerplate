@@ -8,7 +8,7 @@
         "php": "^7.1",
         "ext-gd": "*",
         "arcanedev/no-captcha": "^5.0",
-        "artesaos/seotools": "^0.10.0",
+        "artesaos/seotools": "^0.11.1",
         "cviebrock/eloquent-sluggable": "^4.3",
         "davejamesmiller/laravel-breadcrumbs": "^4.0",
         "dimsav/laravel-translatable": "^8.0",
