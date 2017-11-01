@@ -116,10 +116,8 @@ module.exports = {
       './resources/assets/js/backend/app.js',
       './resources/assets/sass/backend/app.scss'
     ],
-    locales: [
-      './resources/assets/js/vue-i18n-locales.generated.js'
-    ],
     vendor: [
+      './resources/assets/js/vue-i18n-locales.generated.js',
       'jquery',
       'vue',
       'vue-router',
@@ -285,10 +283,6 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor_backend',
       chunks: ['backend']
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'locales',
-      chunks: ['backend', 'frontend']
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
