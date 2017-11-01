@@ -131,6 +131,11 @@ module.exports = {
       'pwstrength-bootstrap/dist/pwstrength-bootstrap',
       'vee-validate'
     ],
+    vendor_frontend: [
+      'bootstrap',
+      'cookieconsent',
+      'slick-carousel'
+    ],
     vendor_backend: [
       'bootstrap-vue',
       'vue-select',
@@ -279,15 +284,19 @@ module.exports = {
     new WebpackNotifierPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      chunks: ['frontend', 'backend', 'vendor_backend']
+      chunks: ['vendor_backend', 'vendor_frontend']
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'locales',
-      chunks: ['frontend', 'backend']
+      name: 'vendor_frontend',
+      chunks: ['frontend']
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor_backend',
       chunks: ['backend']
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'locales',
+      chunks: ['frontend', 'backend']
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
