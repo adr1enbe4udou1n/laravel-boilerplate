@@ -116,9 +116,6 @@ module.exports = {
       './resources/assets/js/backend/app.js',
       './resources/assets/sass/backend/app.scss'
     ],
-    locales: [
-      './resources/assets/js/vue-i18n-locales.generated.js'
-    ],
     vendor: [
       'jquery',
       'vue',
@@ -149,6 +146,9 @@ module.exports = {
       'datatables.net-buttons-bs4',
       'datatables.net-responsive',
       'datatables.net-responsive-bs4'
+    ],
+    locales: [
+      './resources/assets/js/vue-i18n-locales.generated.js'
     ],
     ckeditor: [
       'ckeditor'
@@ -283,23 +283,7 @@ module.exports = {
     new FriendlyErrorsPlugin(),
     new WebpackNotifierPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      chunks: ['vendor_backend', 'vendor_frontend']
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor_frontend',
-      chunks: ['frontend']
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor_backend',
-      chunks: ['backend']
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'locales',
-      chunks: ['frontend', 'backend']
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest',
+      names: ['locales', 'vendor_frontend', 'vendor_backend', 'vendor', 'manifest'],
       minChunks: Infinity
     }),
     new LodashModuleReplacementPlugin({
