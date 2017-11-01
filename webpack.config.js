@@ -127,9 +127,7 @@ module.exports = {
       'axios',
       'sweetalert2',
       'intl-tel-input',
-      'vee-validate'
-    ],
-    vendor_frontend: [
+      'vee-validate',
       'bootstrap',
       'cookieconsent',
       'slick-carousel'
@@ -282,18 +280,14 @@ module.exports = {
     new WebpackNotifierPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      chunks: ['vendor_backend', 'vendor_frontend']
+      chunks: ['frontend', 'vendor_backend']
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor_backend',
       chunks: ['backend']
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor_frontend',
-      chunks: ['frontend']
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      names: 'locales',
+      name: 'locales',
       chunks: ['backend', 'frontend']
     }),
     new webpack.optimize.CommonsChunkPlugin({
