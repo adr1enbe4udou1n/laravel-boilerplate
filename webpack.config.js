@@ -125,10 +125,7 @@ module.exports = {
       'axios',
       'sweetalert2',
       'intl-tel-input',
-      'vee-validate',
-      'bootstrap',
-      'cookieconsent',
-      'slick-carousel'
+      'vee-validate'
     ],
     vendor_backend: [
       'bootstrap-vue',
@@ -278,7 +275,7 @@ module.exports = {
     new WebpackNotifierPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      chunks: ['frontend', 'vendor_backend']
+      chunks: ['frontend', 'backend']
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor_backend',
