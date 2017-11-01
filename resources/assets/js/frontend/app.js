@@ -1,6 +1,5 @@
 
 import './../bootstrap'
-import 'cookieconsent'
 import 'slick-carousel'
 import 'intl-tel-input'
 import 'pwstrength-bootstrap/dist/pwstrength-bootstrap'
@@ -15,42 +14,7 @@ import VeeValidate from '../vee-validate'
 import Panel from '../components/Panel.vue'
 
 // Components
-Vue.component('panel', Panel)
-
-/**
- * Font
- */
-const WebFont = require('webfontloader')
-
-WebFont.load({
-  google: {
-    families: ['Roboto']
-  }
-})
-
-/**
- * Cookie Consent
- */
-window.addEventListener('load', () => {
-  window.cookieconsent.initialise({
-    'palette': {
-      'popup': {
-        'background': '#fff',
-        'text': '#777'
-      },
-      'button': {
-        'background': '#3097d1',
-        'text': '#ffffff'
-      }
-    },
-    'showLink': false,
-    'theme': 'edgeless',
-    'content': {
-      'message': window.settings.cookieconsent.message,
-      'dismiss': window.settings.cookieconsent.dismiss
-    }
-  })
-});
+Vue.component('panel', Panel);
 
 (function ($) {
   window.locale = $('html').attr('lang')
