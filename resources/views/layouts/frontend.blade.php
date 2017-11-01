@@ -69,6 +69,7 @@
     <!-- Scripts -->
     <script src="{{ assets('js/manifest.js') }}"></script>
     <script src="{{ assets('js/vendor.js') }}"></script>
+    <script src="{{ assets('js/locales.js') }}"></script>
     <script src="{{ assets('js/frontend.js') }}"></script>
 
     @stack('scripts')
