@@ -11,10 +11,6 @@ trim_trailing_whitespace = true
 [*.md]
 trim_trailing_whitespace = false
 
-[*.yml]
-indent_style = space
-indent_size = 2
-
-[*.{js,vue}]
+[*.{js,scss,vue,yml}]
 indent_style = space
 indent_size = 2
