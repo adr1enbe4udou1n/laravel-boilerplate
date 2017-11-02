@@ -80,7 +80,6 @@ window.addEventListener('load', () => {
    */
   $('[data-toggle="slider"]')
     .not('.slick-initialized')
-    .removeAttr('hidden')
     .slick({
       dots: true,
       infinite: true,

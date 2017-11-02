@@ -69,14 +69,12 @@ iframe {
   margin-bottom: 0;
 }
 
-.slick-list {
-  .slick-loading & {
-    background: none;
-  }
-}
-
 .custom-control-indicator, .custom-control-description, .switch-label, .switch-handle {
   margin-top: .25rem;
+}
+
+[data-toggle="slider"]:not(.slick-initialized) {
+  display: none;
 }
 
 .slick-slide {

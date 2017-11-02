@@ -1,4 +1,4 @@
-<div data-toggle="slider" hidden>
+<div data-toggle="slider">
     <div><h3>1</h3></div>
     <div><h3>2</h3></div>
     <div><h3>3</h3></div>
