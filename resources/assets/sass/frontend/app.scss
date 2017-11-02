@@ -74,7 +74,7 @@ iframe {
 }
 
 [data-toggle="slider"]:not(.slick-initialized) {
-  display: none;
+  visibility: hidden;
 }
 
 .slick-slide {
