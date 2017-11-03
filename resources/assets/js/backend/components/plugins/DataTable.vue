@@ -8,6 +8,15 @@
 </template>
 
 <script>
+  import 'datatables.net'
+  import 'datatables.net-bs4'
+  import 'datatables.net-select'
+  import 'datatables.net-buttons'
+  import 'datatables.net-buttons-bs4'
+  import 'datatables.net-responsive'
+  import 'datatables.net-responsive-bs4'
+  import 'datatables.net-buttons/js/buttons.html5'
+
   import axios from 'axios'
   import sweetalert2 from 'sweetalert2'
   import toastr from 'toastr'

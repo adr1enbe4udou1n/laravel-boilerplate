@@ -1,21 +1,3 @@
-
-/**
- * Axios
- */
-import axios from 'axios'
-
-/**
- * Datatable
- */
-import 'datatables.net'
-import 'datatables.net-bs4'
-import 'datatables.net-select'
-import 'datatables.net-buttons'
-import 'datatables.net-buttons-bs4'
-import 'datatables.net-responsive'
-import 'datatables.net-responsive-bs4'
-import 'datatables.net-buttons/js/buttons.html5'
-
 /**
  * Vue
  */
@@ -25,6 +7,11 @@ import VeeValidate from '../vee-validate'
 import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.esm'
 import vSelect from 'vue-select'
 
+/**
+ * Axios
+ */
+import axios from 'axios'
+
 // CoreUI components
 import Switch from './components/Switch'
 
@@ -33,7 +20,8 @@ import DataTable from './components/plugins/DataTable'
 import CKEditor from './components/plugins/CKEditor'
 import Flatpickr from './components/plugins/Flatpickr'
 
-import Router from './router'
+import { createRouter } from './router'
+import { createStore } from './store'
 import App from './App.vue'
 
 /**
@@ -68,7 +56,9 @@ Vue.component('flatpickr', Flatpickr)
 Vue.component('ckeditor', CKEditor)
 Vue.component('datatable', DataTable)
 
-let router = Router(settings.adminHomePath, i18n)
+// Init router and store
+const router = createRouter(settings.adminHomePath, i18n)
+const store = createStore(window.route)
 
 router.beforeEach((to, from, next) => {
   document.title = `${to.meta.title} | ${settings.appName}`
@@ -95,6 +85,7 @@ if (document.getElementById('app') !== null) {
   new Vue({
     i18n,
     router,
+    store,
     template: '<App/>',
     components: {App}
   }).$mount('#app')

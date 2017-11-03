@@ -25,7 +25,6 @@
 </template>
 
 <script>
-  import axios from 'axios'
   import nav from '../_nav'
 
   import AppAside from '../components/Aside'
@@ -45,9 +44,7 @@
     },
     data () {
       return {
-        nav: [],
-        newPostsCount: 0,
-        pendingPostsCount: 0
+        nav: []
       }
     },
     computed: {
@@ -64,23 +61,18 @@
     },
     methods: {
       initNav () {
-        this.nav = nav(this.$app, this.$i18n, this.newPostsCount, this.pendingPostsCount)
+        this.nav = nav(
+          this.$app,
+          this.$i18n,
+          this.$store.state.counters.newPostsCount,
+          this.$store.state.counters.pendingPostsCount
+        )
       },
       fetchData () {
-        if (this.$app.user.can('view own posts')) {
-          axios
-            .get(this.$app.route('admin.posts.draft.counter'))
-            .then(response => {
-              this.newPostsCount = response.data
-              this.initNav()
-            })
-          axios
-            .get(this.$app.route('admin.posts.pending.counter'))
-            .then(response => {
-              this.pendingPostsCount = response.data
-              this.initNav()
-            })
-        }
+        this.$store.dispatch('LOAD_COUNTERS')
+          .then(response => {
+            this.initNav()
+          })
       }
     },
     watch: {

@@ -120,6 +120,7 @@ module.exports = {
       'jquery',
       'vue',
       'vue-router',
+      'vuex',
       'vue-i18n',
       'axios',
       'sweetalert2',

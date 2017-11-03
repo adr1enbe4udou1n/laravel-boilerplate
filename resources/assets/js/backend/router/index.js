@@ -24,7 +24,7 @@ import RedirectionList from '../views/RedirectionList'
 
 Vue.use(Router)
 
-export default (base, i18n) => {
+export function createRouter (base, i18n) {
   return new Router({
     mode: 'history',
     base: base,

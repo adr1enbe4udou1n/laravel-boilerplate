@@ -1,4 +1,3 @@
-
 import './../bootstrap'
 import 'cookieconsent'
 import 'slick-carousel'

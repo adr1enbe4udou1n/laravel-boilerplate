@@ -235,7 +235,7 @@
               <b-card-header header-tag="header" role="tab">
                 <h5>
                   <a href="#" v-b-toggle.collapseTwo>
-                    {{ $t('labels.backend.titles.metas') }}
+                    {{ $t('labels.backend.metas.titles.main') }}
                   </a>
                 </h5>
               </b-card-header>
