@@ -55,7 +55,7 @@
     "jquery": "^3.2.1",
     "lodash": "^4.17.4",
     "lodash-webpack-plugin": "^0.11.4",
-    "node-sass": "^4.5.3",
+    "node-sass": "^4.6.0",
     "popper.js": "^1.12.6",
     "postcss-loader": "^2.0.8",
     "pwstrength-bootstrap": "^2.1.1",
