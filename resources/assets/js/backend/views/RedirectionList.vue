@@ -32,7 +32,6 @@
 
 <script>
   import axios from 'axios'
-  import toastr from 'toastr'
 
   export default {
     name: 'redirection_list',
@@ -120,10 +119,10 @@
           .post(this.$app.route('admin.redirections.import'), data)
           .then(response => {
             this.$refs.redirectionsDatatable.refresh()
-            toastr[response.data.status](response.data.message)
+            window.toastr[response.data.status](response.data.message)
           })
           .catch(() => {
-            toastr.error(this.$t('exceptions.general'))
+            window.toastr.error(this.$t('exceptions.general'))
           })
       }
     }

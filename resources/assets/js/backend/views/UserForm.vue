@@ -130,7 +130,6 @@
 <script>
   import axios from 'axios'
   import form from '../mixins/form'
-  import 'pwstrength-bootstrap/dist/pwstrength-bootstrap'
 
   export default {
     name: 'user_form',

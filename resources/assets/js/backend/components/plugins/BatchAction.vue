@@ -14,8 +14,6 @@
 </template>
 
 <script>
-  import sweetalert2 from 'sweetalert2'
-
   export default {
     props: ['options', 'url', 'datatableId'],
     data () {
@@ -27,7 +25,7 @@
       onSubmit (e) {
         let action = this.action
 
-        sweetalert2({
+        window.toastr({
           title: this.$t('labels.are_you_sure'),
           type: 'warning',
           showCancelButton: true,

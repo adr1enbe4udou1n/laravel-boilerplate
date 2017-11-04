@@ -13,9 +13,6 @@
 </template>
 
 <script type="text/javascript">
-  import Flatpickr from 'flatpickr'
-  import FlatpickrLocaleFr from 'flatpickr/dist/l10n/fr'
-
   export default {
     props: {
       value: {
@@ -53,11 +50,11 @@
     },
     mounted () {
       if (this.$app.locale === 'fr') {
-        Flatpickr.localize(FlatpickrLocaleFr['fr'])
+        window.Flatpickr.localize(window.FlatpickrLocaleFr['fr'])
       }
       if (!this.fp) {
         let elem = this.config.wrap ? this.$el.parentNode : this.$el
-        this.fp = new Flatpickr(elem, this.config)
+        this.fp = new window.Flatpickr(elem, this.config)
       }
     },
     beforeDestroy () {

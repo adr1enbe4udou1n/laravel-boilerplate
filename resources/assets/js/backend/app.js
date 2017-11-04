@@ -1,3 +1,5 @@
+import './load-client-scripts'
+
 /**
  * Vue
  */
@@ -56,15 +58,6 @@ Vue.component('flatpickr', Flatpickr)
 Vue.component('ckeditor', CKEditor)
 Vue.component('datatable', DataTable)
 
-// Init router and store
-const router = createRouter(settings.adminHomePath, i18n)
-const store = createStore(window.route)
-
-router.beforeEach((to, from, next) => {
-  document.title = `${to.meta.title} | ${settings.appName}`
-  next()
-})
-
 Vue.prototype.$app = settings
 
 // Register Ziggy route function
@@ -80,13 +73,29 @@ if (Vue.prototype.$app.user) {
   }
 }
 
-// Init
-if (document.getElementById('app') !== null) {
-  new Vue({
+export function createApp () {
+  // Init router and store
+  const router = createRouter(settings.adminHomePath, i18n)
+  const store = createStore(window.route)
+
+  router.beforeEach((to, from, next) => {
+    document.title = `${to.meta.title} | ${settings.appName}`
+    next()
+  })
+
+  const app = new Vue({
     i18n,
     router,
     store,
     template: '<App/>',
     components: {App}
-  }).$mount('#app')
+  })
+
+  return { app, router, store }
+}
+
+// Init App
+if (document.getElementById('app') !== null) {
+  const { app } = createApp()
+  app.$mount('#app')
 }

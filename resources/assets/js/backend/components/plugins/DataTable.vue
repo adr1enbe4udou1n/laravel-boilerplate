@@ -8,18 +8,7 @@
 </template>
 
 <script>
-  import 'datatables.net'
-  import 'datatables.net-bs4'
-  import 'datatables.net-select'
-  import 'datatables.net-buttons'
-  import 'datatables.net-buttons-bs4'
-  import 'datatables.net-responsive'
-  import 'datatables.net-responsive-bs4'
-  import 'datatables.net-buttons/js/buttons.html5'
-
   import axios from 'axios'
-  import sweetalert2 from 'sweetalert2'
-  import toastr from 'toastr'
   import BatchAction from './BatchAction'
 
   export default {
@@ -53,22 +42,22 @@
         }).then(response => {
           // Reload Datatables and keep current pager
           dataTable.ajax.reload(null, false)
-          toastr[response.data.status](response.data.message)
+          window.toastr[response.data.status](response.data.message)
         }).catch(error => {
           // Not allowed error
           if (error.response.status === 403) {
-            toastr.error(this.$t('exceptions.unauthorized'))
+            window.toastr.error(this.$t('exceptions.unauthorized'))
             return
           }
 
           // Domain error
           if (error.response.data.message !== undefined) {
-            toastr.error(error.response.data.message)
+            window.toastr.error(error.response.data.message)
             return
           }
 
           // Generic error
-          toastr.error(this.$t('exceptions.general'))
+          window.toastr.error(this.$t('exceptions.general'))
         })
       }
     },
@@ -109,12 +98,12 @@
 
             // Not allowed error
             if (xhr.status === 403) {
-              toastr.error(this.$t('exceptions.unauthorized'))
+              window.toastr.error(this.$t('exceptions.unauthorized'))
               return
             }
 
             // Generic error
-            toastr.error(this.$t('exceptions.general'))
+            window.toastr.error(this.$t('exceptions.general'))
           }
         }
       }
@@ -150,7 +139,7 @@
           let url = $(e.currentTarget).attr('href')
           let dataTable = $(e.currentTarget).closest('table').DataTable()
 
-          sweetalert2({
+          window.swal({
             title: this.$t('labels.are_you_sure'),
             type: 'warning',
             showCancelButton: true,
@@ -163,23 +152,23 @@
                 .then(response => {
                   // Reload Datatables and keep current pager
                   dataTable.ajax.reload(null, false)
-                  toastr[response.data.status](response.data.message)
+                  window.toastr[response.data.status](response.data.message)
                 })
                 .catch(error => {
                   // Not allowed error
                   if (error.response.status === 403) {
-                    toastr.error(this.$t('exceptions.unauthorized'))
+                    window.toastr.error(this.$t('exceptions.unauthorized'))
                     return
                   }
 
                   // Domain error
                   if (error.response.data.error !== undefined) {
-                    toastr.error(error.response.data.error)
+                    window.toastr.error(error.response.data.error)
                     return
                   }
 
                   // Generic error
-                  toastr.error(this.$t('exceptions.general'))
+                  window.toastr.error(this.$t('exceptions.general'))
                 })
             },
             () => {}
