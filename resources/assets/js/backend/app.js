@@ -4,7 +4,7 @@ import './load-client-scripts'
  * Vue
  */
 import Vue from 'vue'
-import VueI18n from '../vue-i18n'
+
 import VeeValidate from '../vee-validate'
 import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.esm'
 import vSelect from 'vue-select'
@@ -24,6 +24,7 @@ import Flatpickr from './components/plugins/Flatpickr'
 
 import { createRouter } from './router'
 import { createStore } from './store'
+import { createLocales } from '../vue-i18n'
 import App from './App.vue'
 
 /**
@@ -43,7 +44,6 @@ if (token) {
 let jsonSettings = $('[data-settings-selector="settings-json"]').text()
 let settings = jsonSettings ? JSON.parse(jsonSettings) : {}
 
-const i18n = VueI18n(settings.locale)
 VeeValidate(settings.locale)
 
 // Bootstrap Vue
@@ -75,6 +75,7 @@ if (Vue.prototype.$app.user) {
 
 export function createApp () {
   // Init router and store
+  const i18n = createLocales(settings.locale)
   const router = createRouter(settings.adminHomePath, i18n)
   const store = createStore(window.route)
 
@@ -84,9 +85,9 @@ export function createApp () {
   })
 
   const app = new Vue({
-    i18n,
     router,
     store,
+    i18n,
     template: '<App/>',
     components: {App}
   })

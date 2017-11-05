@@ -67,7 +67,7 @@
     "style-loader": "^0.19.0",
     "sweetalert2": "^6.11.4",
     "toastr": "^2.1.2",
-    "uglify-js": "^3.1.6",
+    "uglify-js": "^3.1.7",
     "vee-validate": "^2.0.0-rc.21",
     "vue": "^2.5.3",
     "vue-chartjs": "^3.0.0",

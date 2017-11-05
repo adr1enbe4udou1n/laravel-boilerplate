@@ -5,26 +5,13 @@ import './load-client-scripts'
  * Vue
  */
 import Vue from 'vue'
-import VueI18n from '../vue-i18n'
+import { createLocales } from '../vue-i18n'
 import VeeValidate from '../vee-validate'
 import Panel from '../components/Panel'
 
 // eslint-disable-next-line no-unexpected-multiline
 (($) => {
   window.locale = $('html').attr('lang')
-
-  // Locale
-  const i18n = VueI18n(window.locale)
-
-  // VeeValidate
-  VeeValidate(window.locale)
-
-  Vue.component('panel', Panel)
-
-  // Init Vue
-  new Vue({
-    i18n
-  }).$mount('#app')
 
   /**
    * Place the CSRF token as a header on all pages for access in AJAX requests
@@ -122,3 +109,24 @@ import Panel from '../components/Panel'
     window.location.hash = e.target.hash
   })
 })(jQuery)
+
+/**
+ * Vue
+ */
+VeeValidate(window.locale)
+
+Vue.component('panel', Panel)
+
+export function createApp () {
+  const i18n = createLocales(window.locale)
+
+  const app = new Vue({
+    i18n
+  })
+
+  return { app }
+}
+
+// Init App
+const { app } = createApp()
+app.$mount('#app')
