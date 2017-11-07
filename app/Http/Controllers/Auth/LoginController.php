@@ -85,8 +85,7 @@ class LoginController extends Controller
     public function showAdminLoginForm(Request $request)
     {
         return view('auth.admin.login')
-            ->withIsLocked($this->hasTooManyLoginAttempts($request))
-            ->withSocialiteLinks(self::getSocialLinks());
+            ->withIsLocked($this->hasTooManyLoginAttempts($request));
     }
 
     /**
