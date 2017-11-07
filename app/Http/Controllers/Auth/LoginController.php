@@ -9,6 +9,7 @@ use Laravel\Socialite\AbstractUser;
 use App\Exceptions\GeneralException;
 use App\Http\Controllers\Controller;
 use Laravel\Socialite\Facades\Socialite;
+use Arcanedev\NoCaptcha\Rules\CaptchaRule;
 use App\Repositories\Contracts\AccountRepository;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -150,7 +151,7 @@ class LoginController extends Controller
         ];
 
         if ($this->hasTooManyLoginAttempts($request)) {
-            $rules['g-recaptcha-response'] = 'required|captcha';
+            $rules['g-recaptcha-response'] = ['required', new CaptchaRule()];
         }
 
         $this->validate($request, $rules);

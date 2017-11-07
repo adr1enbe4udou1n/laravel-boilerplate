@@ -30,5 +30,7 @@
     <script src="{{ Html::asset('js/ckeditor.js') }}"></script>
     <script src="{{ Html::asset('js/locales.js') }}"></script>
     <script src="{{ Html::asset('js/backend.js') }}"></script>
+
+    @stack('scripts')
 </body>
 </html>
