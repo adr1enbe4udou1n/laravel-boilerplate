@@ -28,6 +28,10 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+    protected $maxAttempts = 5;
+
+    protected $decayMinutes = 10;
+
     /**
      * @var \App\Repositories\Contracts\AccountRepository
      */
@@ -110,20 +114,6 @@ class LoginController extends Controller
         }
 
         return $socialiteHtml;
-    }
-
-    /**
-     * Determine if the user has too many failed login attempts.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return bool
-     */
-    protected function hasTooManyLoginAttempts(Request $request)
-    {
-        return $this->limiter()->tooManyAttempts(
-            $this->throttleKey($request), 3, 10
-        );
     }
 
     /**
