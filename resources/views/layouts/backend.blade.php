@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     @if (!$hmr)
-    <link rel="stylesheet" href="{{ assets('css/backend.css') }}">
+    <link rel="stylesheet" href="{{ Html::asset('css/backend.css') }}">
     @endif
 </head>
 <body class="app @yield('body_class')">
@@ -24,11 +24,11 @@
     <script>
         window.CKEDITOR_BASEPATH = '/vendor/ckeditor/';
     </script>
-    <script src="{{ assets('js/manifest.js') }}"></script>
-    <script src="{{ assets('js/vendor.js') }}"></script>
-    <script src="{{ assets('js/vendor_backend.js') }}"></script>
-    <script src="{{ assets('js/ckeditor.js') }}"></script>
-    <script src="{{ assets('js/locales.js') }}"></script>
-    <script src="{{ assets('js/backend.js') }}"></script>
+    <script src="{{ Html::asset('js/manifest.js') }}"></script>
+    <script src="{{ Html::asset('js/vendor.js') }}"></script>
+    <script src="{{ Html::asset('js/vendor_backend.js') }}"></script>
+    <script src="{{ Html::asset('js/ckeditor.js') }}"></script>
+    <script src="{{ Html::asset('js/locales.js') }}"></script>
+    <script src="{{ Html::asset('js/backend.js') }}"></script>
 </body>
 </html>

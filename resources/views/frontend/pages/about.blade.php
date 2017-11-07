@@ -36,9 +36,9 @@
         </div>
     </div>
 
-    <panel title="Vue Panel Component" v-cloak>
+    <b-card header="Vue Panel Component" class="mb-3" v-cloak>
         <p>Hey ! I'm a Vue Panel component !</p>
-    </panel>
+    </b-card>
 
     <div class="card mb-3">
         <div class="card-header">

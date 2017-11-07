@@ -117,11 +117,11 @@ module.exports = {
       './resources/assets/sass/backend/app.scss'
     ],
     vendor: [
-      'jquery',
       'vue',
       'vue-router',
       'vuex',
       'vue-i18n',
+      'bootstrap-vue',
       'axios',
       'sweetalert2',
       'toastr',
@@ -135,7 +135,6 @@ module.exports = {
       'slick-carousel'
     ],
     vendor_backend: [
-      'bootstrap-vue',
       'vue-select',
       'flatpickr',
       'chart.js',

@@ -18,3 +18,9 @@ window.swal = swal
 window.toastr = toastr
 window.Flatpickr = Flatpickr
 window.FlatpickrLocaleFr = FlatpickrLocaleFr
+
+/**
+ * JS Settings App
+ */
+let jsonSettings = $('[data-settings-selector="settings-json"]').text()
+window.settings = jsonSettings ? JSON.parse(jsonSettings) : {}

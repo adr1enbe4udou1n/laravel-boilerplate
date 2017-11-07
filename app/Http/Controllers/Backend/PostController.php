@@ -101,9 +101,10 @@ class PostController extends BackendController
             return $query->addColumn('actions', function (Post $post) {
                 return $this->posts->getActionButtons($post);
             })->addColumn('image', function (Post $post) {
-                $content = image_template_html('small', $post->featured_image_path, $post->title);
+                $url = image_template_url('small', $post->featured_image_path);
 
-                return "<a href=\"/posts/{$post->id}/edit\" data-router-link>{$content}</a>";
+                return "<a href=\"/posts/{$post->id}/edit\" data-router-link>"
+                    ."<img src=\"$url\" alt=\"{$post->title}\"></a>";
             })->editColumn('title', function (Post $post) {
                 return "<a href=\"/posts/{$post->id}/edit\" data-router-link>{$post->title}</a>";
             })->editColumn('status', function (Post $post) {

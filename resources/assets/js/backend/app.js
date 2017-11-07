@@ -1,18 +1,12 @@
 import './load-client-scripts'
 
-/**
- * Vue
- */
+// Vue & axios
 import Vue from 'vue'
+import '../axios-config'
 
 import VeeValidate from '../vee-validate'
 import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.esm'
 import vSelect from 'vue-select'
-
-/**
- * Axios
- */
-import axios from 'axios'
 
 // CoreUI components
 import Switch from './components/Switch'
@@ -25,18 +19,8 @@ import Flatpickr from './components/plugins/Flatpickr'
 import { createRouter } from './router'
 import { createStore } from './store'
 import { createLocales } from '../vue-i18n'
+
 import App from './App.vue'
-
-/**
- * Axios CSRF init
- */
-axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
-
-let token = document.head.querySelector('meta[name="csrf-token"]')
-
-if (token) {
-  axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content
-}
 
 /**
  * JS Settings App
@@ -44,6 +28,9 @@ if (token) {
 let jsonSettings = $('[data-settings-selector="settings-json"]').text()
 let settings = jsonSettings ? JSON.parse(jsonSettings) : {}
 
+/**
+ * Vue Init
+ */
 VeeValidate(settings.locale)
 
 // Bootstrap Vue

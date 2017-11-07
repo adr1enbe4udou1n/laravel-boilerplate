@@ -18,7 +18,7 @@
 
     <!-- Styles -->
     @if (!$hmr)
-    <link rel="stylesheet" href="{{ assets('css/frontend.css') }}">
+    <link rel="stylesheet" href="{{ Html::asset('css/frontend.css') }}">
     @endif
 </head>
 <body class="@yield('body_class')">
@@ -67,11 +67,11 @@
     </script>
 
     <!-- Scripts -->
-    <script src="{{ assets('js/manifest.js') }}"></script>
-    <script src="{{ assets('js/vendor.js') }}"></script>
-    <script src="{{ assets('js/vendor_frontend.js') }}"></script>
-    <script src="{{ assets('js/locales.js') }}"></script>
-    <script src="{{ assets('js/frontend.js') }}"></script>
+    <script src="{{ Html::asset('js/manifest.js') }}"></script>
+    <script src="{{ Html::asset('js/vendor.js') }}"></script>
+    <script src="{{ Html::asset('js/vendor_frontend.js') }}"></script>
+    <script src="{{ Html::asset('js/locales.js') }}"></script>
+    <script src="{{ Html::asset('js/frontend.js') }}"></script>
 
     @stack('scripts')
 </body>

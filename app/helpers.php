@@ -1,58 +1,8 @@
 <?php
 
-use Illuminate\Support\HtmlString;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Support\MessageBag;
-
-if (! function_exists('assets')) {
-    /**
-     * Get the path to a versioned Mix file.
-     *
-     * @param string $path
-     *
-     * @throws \Exception
-     *
-     * @return mixed
-     */
-    function assets($path)
-    {
-        static $manifest;
-
-        if (! starts_with($path, '/')) {
-            $path = "/{$path}";
-        }
-
-        if (app()->environment('local', 'testing')) {
-            if (file_exists(public_path('/hot'))) {
-                $hmrHost = config('app.hmr_host');
-                $hmrPost = config('app.hmr_port');
-
-                return new HtmlString("//{$hmrHost}:{$hmrPost}{$path}");
-            }
-
-            if (file_exists(public_path($path))) {
-                return new HtmlString($path);
-            }
-        }
-
-        if (! $manifest
-            && file_exists($manifestPath = public_path('/manifest.json'))
-        ) {
-            $manifest = json_decode(file_get_contents($manifestPath), true);
-        }
-
-        if ($manifest) {
-            $name = basename($path);
-
-            if (array_key_exists($name, $manifest)) {
-                return new HtmlString("/{$manifest[$name]}");
-            }
-        }
-
-        return new HtmlString($path);
-    }
-}
 
 if (! function_exists('is_invalid')) {
     /**
@@ -138,22 +88,6 @@ if (! function_exists('image_template_url')) {
     function image_template_url($template, $image_path)
     {
         return url(config('imagecache.route')."/$template/$image_path");
-    }
-}
-
-if (! function_exists('image_template_html')) {
-    /**
-     * @param $template
-     * @param $image_path
-     * @param $alt
-     *
-     * @return string
-     */
-    function image_template_html($template, $image_path, $alt = null)
-    {
-        $url = image_template_url($template, $image_path);
-
-        return "<img src=\"$url\" alt=\"$alt\">";
     }
 }
 
