@@ -28,6 +28,7 @@
         "mcamara/laravel-localization": "^1.2",
         "mews/purifier": "^2.0",
         "plank/laravel-mediable": "^2.5",
+        "renatomarinho/laravel-page-speed": "^1.8",
         "roumen/sitemap": "^2.6",
         "teamtnt/laravel-scout-tntsearch-driver": "^3.0",
         "tightenco/ziggy": "^0.4.0",
