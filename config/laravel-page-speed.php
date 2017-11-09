@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Enable Laravel Page Speed
@@ -57,7 +56,6 @@ return [
         '*.m4v',
         '*.torrent',
         '_debugbar/*',
-        'imagecache/*'
+        'imagecache/*',
     ],
-
 ];
