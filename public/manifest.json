@@ -1,8 +1,8 @@
 {
   "backend.css": "dist/css/backend.0fa0a27c062e261231b6e57725e9d88a.css",
   "backend.css.map": "dist/css/backend.0fa0a27c062e261231b6e57725e9d88a.css.map",
-  "backend.js": "dist/js/backend.2a8707bdf2d1f8673708.js",
-  "backend.js.map": "dist/js/backend.2a8707bdf2d1f8673708.js.map",
+  "backend.js": "dist/js/backend.f0abc2d5dbf97cfa303f.js",
+  "backend.js.map": "dist/js/backend.f0abc2d5dbf97cfa303f.js.map",
   "ckeditor.js": "dist/js/ckeditor.a41e2601ade8a3087162.js",
   "ckeditor.js.map": "dist/js/ckeditor.a41e2601ade8a3087162.js.map",
   "fonts\\vendor\\Simple-Line-Icons.eot": "fonts/vendor/Simple-Line-Icons.eot?f33df365d6d0255b586f2920355e94d7",
@@ -30,12 +30,12 @@
   "images\\vendor\\slick-carousel\\slick\\ajax-loader.gif": "images/vendor/slick-carousel/slick/ajax-loader.gif?68b0c4fcb84d239f261c1a5e65818142",
   "locales.js": "dist/js/locales.158ccb2a701a5e94a19d.js",
   "locales.js.map": "dist/js/locales.158ccb2a701a5e94a19d.js.map",
-  "manifest.js": "dist/js/manifest.43c4ef492f07a826531c.js",
-  "manifest.js.map": "dist/js/manifest.43c4ef492f07a826531c.js.map",
+  "manifest.js": "dist/js/manifest.38d61c2e597d49d5f318.js",
+  "manifest.js.map": "dist/js/manifest.38d61c2e597d49d5f318.js.map",
   "vendor.js": "dist/js/vendor.41afc274b51715499483.js",
   "vendor.js.map": "dist/js/vendor.41afc274b51715499483.js.map",
-  "vendor_backend.js": "dist/js/vendor_backend.32dd5a986b9b99cfccd3.js",
-  "vendor_backend.js.map": "dist/js/vendor_backend.32dd5a986b9b99cfccd3.js.map",
+  "vendor_backend.js": "dist/js/vendor_backend.500c0b41c3c5c0c9b689.js",
+  "vendor_backend.js.map": "dist/js/vendor_backend.500c0b41c3c5c0c9b689.js.map",
   "vendor_frontend.js": "dist/js/vendor_frontend.b906b7ada9ac7c6c8766.js",
   "vendor_frontend.js.map": "dist/js/vendor_frontend.b906b7ada9ac7c6c8766.js.map"
 }

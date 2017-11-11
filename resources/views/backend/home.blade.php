@@ -6,7 +6,7 @@
     <div id="app"></div>
 @endsection
 
-@section('scripts_settings')
+@push('scripts')
     <!-- JS settings -->
     <script type="application/json" data-settings-selector="settings-json">
         {!! json_encode([
@@ -28,4 +28,15 @@
 
     <!-- Named routes -->
     @routes()
-@endsection
+
+    <!-- Scripts -->
+    <script>
+        window.CKEDITOR_BASEPATH = '/vendor/ckeditor/';
+    </script>
+    <script src="{{ Html::asset('js/manifest.js') }}"></script>
+    <script src="{{ Html::asset('js/vendor.js') }}"></script>
+    <script src="{{ Html::asset('js/vendor_backend.js') }}"></script>
+    <script src="{{ Html::asset('js/ckeditor.js') }}"></script>
+    <script src="{{ Html::asset('js/locales.js') }}"></script>
+    <script src="{{ Html::asset('js/backend.js') }}"></script>
+@endpush

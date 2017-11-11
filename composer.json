@@ -31,7 +31,7 @@
         "renatomarinho/laravel-page-speed": "^1.8",
         "roumen/sitemap": "^2.6",
         "teamtnt/laravel-scout-tntsearch-driver": "^3.0",
-        "tightenco/ziggy": "^0.4.0",
+        "tightenco/ziggy": "^0.4.1",
         "yajra/laravel-datatables-oracle": "^8.0"
     },
     "require-dev": {
