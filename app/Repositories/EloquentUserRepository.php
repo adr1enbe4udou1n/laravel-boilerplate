@@ -298,7 +298,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
 
             $route = route('login-as', $user);
 
-            $buttons .= "<a href=\"{$route}\" class=\"btn btn-sm btn-warning\">{$title}</a> ";
+            $buttons .= "<a href=\"{$route}\" class=\"btn btn-sm btn-warning\">{$title}</a>&nbsp;";
         }
 
         if ($this->canDelete($user)) {

@@ -18,7 +18,7 @@ trait HtmlActionsButtons
     {
         $title = '<i class="icon-magnifier" data-toggle="tooltip" data-placement="top" title="'.__('buttons.view').'"></i>';
 
-        return "<a href=\"{$url}\" class=\"btn btn-sm btn-success\" data-router-link>{$title}</a> ";
+        return "<a href=\"{$url}\" class=\"btn btn-sm btn-success\" data-router-link>{$title}</a>&nbsp;";
     }
 
     /**
@@ -33,7 +33,7 @@ trait HtmlActionsButtons
 
         $route = route($route, $parameters);
 
-        return "<a href=\"{$route}\" class=\"btn btn-sm btn-success\" target=\"_blank\">{$title}</a> ";
+        return "<a href=\"{$route}\" class=\"btn btn-sm btn-success\" target=\"_blank\">{$title}</a>&nbsp;";
     }
 
     /**
@@ -45,7 +45,7 @@ trait HtmlActionsButtons
     {
         $title = '<i class="icon-pencil" data-toggle="tooltip" data-placement="top" title="'.__('buttons.edit').'"></i>';
 
-        return "<a href=\"{$url}\" class=\"btn btn-sm btn-primary\" data-router-link>{$title}</a> ";
+        return "<a href=\"{$url}\" class=\"btn btn-sm btn-primary\" data-router-link>{$title}</a>&nbsp;";
     }
 
     /**
