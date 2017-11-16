@@ -3046,9 +3046,9 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
-flatpickr@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.1.0.tgz#529ade4b0dcba1ff6bb33709fce745a77ad8628c"
+flatpickr@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.1.2.tgz#2bbebe46e1fd74d7ef10bf987229aa23eaac1265"
 
 flatten@^1.0.2:
   version "1.0.2"
@@ -5513,6 +5513,10 @@ popper.js@^1.12.6:
   version "1.12.6"
   resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.12.6.tgz#91e12a97b07815258b76915d64044e8ac053d426"
 
+popper.js@^1.12.9:
+  version "1.12.9"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.12.9.tgz#0dfbc2dff96c451bb332edcfcfaaf566d331d5b3"
+
 portfinder@^1.0.9:
   version "1.0.13"
   resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.13.tgz#bb32ecd87c27104ae6ee44b5a3ccbf0ebb1aede9"
@@ -6953,9 +6957,9 @@ svgo@^0.7.0:
     sax "~1.2.1"
     whet.extend "~0.9.9"
 
-sweetalert2@^6.11.5:
-  version "6.11.5"
-  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-6.11.5.tgz#a1ede34089225eb864898f4b613db4fec5dbe334"
+sweetalert2@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-7.0.0.tgz#6e4214a72c3fd6cdbdc94b0b7bed61055a1af50f"
 
 table@^4.0.1:
   version "4.0.1"
@@ -7460,9 +7464,9 @@ vue-style-loader@^3.0.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-template-compiler@^2.5.3:
-  version "2.5.3"
-  resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.5.3.tgz#ab631b0694e211a6aaf0d800102b37836aae36a4"
+vue-template-compiler@^2.5.4:
+  version "2.5.4"
+  resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.5.4.tgz#e104a80b69afbf37b56e0f2f91ff2037976e6d06"
   dependencies:
     de-indent "^1.0.2"
     he "^1.1.0"
@@ -7471,9 +7475,9 @@ vue-template-es2015-compiler@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
 
-vue@^2.5.3:
-  version "2.5.3"
-  resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.3.tgz#e1a3b1f49b6e93e574ce040b95cbc873912fecc1"
+vue@^2.5.4:
+  version "2.5.4"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.4.tgz#4405e30b856875553e8fadb0ebf50f51ffc443f5"
 
 vuex@^3.0.1:
   version "3.0.1"
