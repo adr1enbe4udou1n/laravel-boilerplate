@@ -5,7 +5,7 @@ import Vue from 'vue'
 import '../axios-config'
 
 import VeeValidate from '../vee-validate'
-import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.esm'
+import BootstrapVue from 'bootstrap-vue'
 import vSelect from 'vue-select'
 
 // CoreUI components
