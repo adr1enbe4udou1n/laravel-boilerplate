@@ -146,8 +146,8 @@
             cancelButtonText: this.$t('buttons.cancel'),
             confirmButtonColor: '#dd4b39',
             confirmButtonText: this.$t('buttons.delete')
-          }).then(
-            () => {
+          }).then((result) => {
+            if (result.value) {
               axios.delete(url)
                 .then(response => {
                   // Reload Datatables and keep current pager
@@ -170,9 +170,8 @@
                   // Generic error
                   window.toastr.error(this.$t('exceptions.general'))
                 })
-            },
-            () => {}
-          )
+            }
+          })
         })
       })
     }

@@ -25,19 +25,18 @@
       onSubmit (e) {
         let action = this.action
 
-        window.toastr({
+        window.swal({
           title: this.$t('labels.are_you_sure'),
           type: 'warning',
           showCancelButton: true,
           cancelButtonText: this.$t('buttons.cancel'),
           confirmButtonColor: '#dd4b39',
-          confirmButtonText: this.$t('buttons.delete')
-        }).then(
-          () => {
+          confirmButtonText: this.$t('buttons.confirm')
+        }).then((result) => {
+          if (result.value) {
             this.$emit('action', action)
-          },
-          () => {}
-        )
+          }
+        })
       }
     }
   }

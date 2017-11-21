@@ -112,12 +112,11 @@ window.addEventListener('load', () => {
       cancelButtonText: $(e.currentTarget).attr('data-trans-button-cancel'),
       confirmButtonColor: '#dd4b39',
       confirmButtonText: $(e.currentTarget).attr('data-trans-button-confirm')
-    }).then(
-      () => {
+    }).then((result) => {
+      if (result.value) {
         $(e.target).closest('form').submit()
-      },
-      () => {}
-    )
+      }
+    })
   })
 
   $('[data-toggle="password-strength-meter"]').pwstrength({
