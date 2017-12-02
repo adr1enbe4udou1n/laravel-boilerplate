@@ -8,26 +8,26 @@
 </template>
 
 <script>
-export default {
-  props: {
-    name: {
-      type: String,
-      default: ''
+  export default {
+    props: {
+      name: {
+        type: String,
+        default: ''
+      },
+      url: {
+        type: String,
+        default: ''
+      },
+      icon: {
+        type: String,
+        default: ''
+      }
     },
-    url: {
-      type: String,
-      default: ''
-    },
-    icon: {
-      type: String,
-      default: ''
-    }
-  },
-  methods: {
-    handleClick (e) {
-      e.preventDefault()
-      e.target.parentElement.classList.toggle('open')
+    methods: {
+      handleClick (e) {
+        e.preventDefault()
+        e.target.parentElement.classList.toggle('open')
+      }
     }
   }
-}
 </script>
