@@ -13,8 +13,8 @@ import Switch from './components/Switch'
 
 // Vendor plugins components
 import DataTable from './components/plugins/DataTable'
-import CKEditor from './components/plugins/CKEditor'
-import Flatpickr from './components/plugins/Flatpickr'
+import RichTextEditor from './components/plugins/RichTextEditor'
+import DateTimePicker from './components/plugins/DateTimePicker'
 
 import { createRouter } from './router'
 import { createStore } from './store'
@@ -41,9 +41,9 @@ Vue.component('v-select', vSelect)
 
 // Custom components
 Vue.component('c-switch', Switch)
-Vue.component('flatpickr', Flatpickr)
-Vue.component('ckeditor', CKEditor)
-Vue.component('datatable', DataTable)
+Vue.component('p-datetimepicker', DateTimePicker)
+Vue.component('p-richtexteditor', RichTextEditor)
+Vue.component('p-datatable', DataTable)
 
 Vue.prototype.$app = settings
 

@@ -1,6 +1,5 @@
 require('dotenv').config()
 const fs = require('fs')
-const _ = require('lodash')
 const path = require('path')
 const webpack = require('webpack')
 
@@ -10,7 +9,6 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
@@ -30,82 +28,6 @@ if (fs.existsSync(hotfilename)) {
 if (hmr) {
   fs.writeFileSync(hotfilename, 'hot reloading')
 }
-
-let ckeditorLocales = ['en', 'fr']
-let ckeditorPlugins = [
-  'a11yhelp',
-  'about',
-  'autogrow',
-  'dialog',
-  'divarea',
-  'filetools',
-  'image',
-  'image2',
-  'lineutils',
-  'link',
-  'magicline',
-  'notificationaggregator',
-  'pastefromword',
-  'scayt',
-  'specialchar',
-  'table',
-  'tableselection',
-  'tabletools',
-  'uploadimage',
-  'uploadwidget',
-  'widget',
-  'widgetselection',
-  'wsc'
-]
-
-// Locales to exclude from ckeditor core, including plugins
-let ckeditorIgnoredLanguages = []
-
-fs.readdirSync('node_modules/ckeditor/lang').forEach((file) => {
-  if (_.some(ckeditorLocales, (locale) => {
-    return file === `${locale}.js`
-  }) === false) {
-    ckeditorIgnoredLanguages.push(file)
-  }
-})
-
-let ckeditorCopyPatterns = [
-  {
-    from: 'node_modules/ckeditor/lang',
-    to: 'vendor/ckeditor/lang'
-  },
-  {
-    from: 'node_modules/ckeditor/plugins/icons.png',
-    to: 'vendor/ckeditor/plugins'
-  },
-  {
-    from: 'node_modules/ckeditor/plugins/icons_hidpi.png',
-    to: 'vendor/ckeditor/plugins'
-  },
-  {
-    from: 'node_modules/ckeditor/skins/moono-lisa',
-    to: 'vendor/ckeditor/skins/moono-lisa'
-  },
-  {
-    from: 'node_modules/ckeditor/config.js',
-    to: 'vendor/ckeditor'
-  },
-  {
-    from: 'node_modules/ckeditor/contents.css',
-    to: 'vendor/ckeditor'
-  },
-  {
-    from: 'node_modules/ckeditor/styles.js',
-    to: 'vendor/ckeditor'
-  }
-]
-
-ckeditorPlugins.forEach((plugin) => {
-  ckeditorCopyPatterns.push({
-    from: `node_modules/ckeditor/plugins/${plugin}`,
-    to: `vendor/ckeditor/plugins/${plugin}`
-  })
-})
 
 module.exports = {
   entry: {
@@ -139,6 +61,7 @@ module.exports = {
       'vue-select',
       'flatpickr',
       'chart.js',
+      'quill',
       'vue-chartjs',
       'datatables.net',
       'datatables.net-bs4',
@@ -150,9 +73,6 @@ module.exports = {
     ],
     locales: [
       './resources/assets/js/vue-i18n-locales.generated.js'
-    ],
-    ckeditor: [
-      'ckeditor'
     ]
   },
   output: {
@@ -271,9 +191,6 @@ module.exports = {
     }),
     new webpack.IgnorePlugin(/jsdom$/),
     new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /fr/),
-    new CopyWebpackPlugin(ckeditorCopyPatterns, {
-      ignore: ckeditorIgnoredLanguages
-    }),
     new webpack.LoaderOptionsPlugin({
       minimize: production,
       options: {
@@ -333,7 +250,7 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: production ? 'source-map' : 'cheap-module-eval-source-map',
+  devtool: production ? 'cheap-source-map' : 'inline-source-map',
   devServer: {
     headers: {
       'Access-Control-Allow-Origin': '*'

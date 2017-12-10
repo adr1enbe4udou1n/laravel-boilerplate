@@ -46,11 +46,10 @@
               :horizontal="true"
               :label-cols="2"
             >
-              <ckeditor
+              <p-richtexteditor
                 id="body"
-                name="body"
                 v-model="model.body"
-              ></ckeditor>
+              ></p-richtexteditor>
             </b-form-group>
 
             <b-form-group
@@ -159,12 +158,12 @@
                     :label-cols="3"
                   >
                     <div role="group" class="input-group">
-                      <flatpickr
+                      <p-datetimepicker
                         id="published_at"
                         name="published_at"
                         :config="config"
                         v-model="model.published_at"
-                      ></flatpickr>
+                      ></p-datetimepicker>
                       <div class="input-group-addon" data-toggle>
                         <i class="icon-calendar"></i>
                       </div>
@@ -182,12 +181,12 @@
                     :label-cols="3"
                   >
                     <div role="group" class="input-group">
-                      <flatpickr
+                      <p-datetimepicker
                         id="unpublished_at"
                         name="unpublished_at"
                         :config="config"
                         v-model="model.unpublished_at"
-                      ></flatpickr>
+                      ></p-datetimepicker>
                       <div class="input-group-addon" data-toggle>
                         <i class="icon-calendar"></i>
                       </div>

@@ -9,7 +9,7 @@
         </div>
         <h4 class="mt-1">{{ $t('labels.backend.roles.titles.index') }}</h4>
       </template>
-      <datatable :options="dataTableOptions"></datatable>
+      <p-datatable :options="dataTableOptions"></p-datatable>
     </b-card>
   </div>
 </template>

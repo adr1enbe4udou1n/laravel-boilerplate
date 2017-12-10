@@ -24,8 +24,8 @@
         </div>
         <h4 class="mt-1">{{ $t('labels.backend.redirections.titles.index') }}</h4>
       </template>
-      <datatable ref="redirectionsDatatable" :options="dataTableOptions" :actions="dataTableActions"
-                 action-route-name="admin.redirections.batch_action"></datatable>
+      <p-datatable ref="redirectionsDatatable" :options="dataTableOptions" :actions="dataTableActions"
+                 action-route-name="admin.redirections.batch_action"></p-datatable>
     </b-card>
   </div>
 </template>

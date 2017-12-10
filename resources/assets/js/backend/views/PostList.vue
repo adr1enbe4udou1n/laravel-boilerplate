@@ -9,8 +9,8 @@
         </div>
         <h4 class="mt-1">{{ $t('labels.backend.posts.titles.index') }}</h4>
       </template>
-      <datatable :options="dataTableOptions" :actions="dataTableActions"
-                 action-route-name="admin.posts.batch_action"></datatable>
+      <p-datatable :options="dataTableOptions" :actions="dataTableActions"
+                 action-route-name="admin.posts.batch_action"></p-datatable>
     </b-card>
   </div>
 </template>

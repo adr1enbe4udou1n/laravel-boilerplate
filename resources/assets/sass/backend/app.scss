@@ -16,6 +16,7 @@
 @import "~toastr/toastr.scss";
 @import "~sweetalert2/src/sweetalert2";
 @import "~flatpickr/dist/flatpickr";
+@import "~quill/dist/quill.snow";
 
 // Datatables
 @import "datatables";
@@ -67,7 +68,6 @@ body .v-select {
   white-space: nowrap;
 }
 
-body .cke_wysiwyg_div {
-  min-height: 200px;
-  padding: 15px;
+.ql-container {
+  height: initial;
 }

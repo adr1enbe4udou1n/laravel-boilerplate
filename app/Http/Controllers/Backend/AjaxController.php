@@ -112,32 +112,4 @@ class AjaxController extends Controller
             'items' => $tags,
         ];
     }
-
-    /**
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return array
-     */
-    public function imageUpload(Request $request)
-    {
-        /** @var \Illuminate\Http\UploadedFile $uploadedImage */
-        $uploadedImage = $request->file('upload');
-
-        // Resize image below 600px width if needed
-        $image = Image::make($uploadedImage->openFile())->widen(200, function ($constraint) {
-            $constraint->upsize();
-        });
-
-        $imageName = Str::random(32);
-        $imagePath = "editor/{$imageName}.{$uploadedImage->extension()}";
-
-        Storage::disk('public')->put($imagePath, $image->stream());
-
-        return [
-            'uploaded' => true,
-            'url' => "/storage/$imagePath",
-            'width' => $image->width(),
-            'height' => $image->height(),
-        ];
-    }
 }
