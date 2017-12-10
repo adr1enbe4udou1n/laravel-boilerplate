@@ -53,7 +53,7 @@
           {name: 'styles', items: ['Format']},
           {name: 'document', items: ['Source']}
         ],
-        uploadUrl: `${this.$root.adminPath}/images/upload`
+        uploadUrl: `${this.$app.adminHomePath}/images/upload`
       })
 
       this.instance.on('blur', () => {
