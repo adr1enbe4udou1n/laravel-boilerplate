@@ -10,7 +10,7 @@ import Vue from 'vue'
 import VeeValidate from 'vee-validate'
 import french from 'vee-validate/dist/locale/fr'
 
-VeeValidate.Validator.addLocale(french)
+VeeValidate.Validator.localize('fr', french)
 
 export default locale => {
   Vue.use(VeeValidate, {
