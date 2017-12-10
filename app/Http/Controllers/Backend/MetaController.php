@@ -40,7 +40,7 @@ class MetaController extends BackendController
         if ($request->isXmlHttpRequest()) {
             /** @var \Yajra\DataTables\EloquentDataTable $query */
             $query = DataTables::of($this->metas->select([
-                'id',
+                'metas.id',
                 'route',
                 'metable_type',
                 'metable_id',

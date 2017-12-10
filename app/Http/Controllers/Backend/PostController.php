@@ -81,7 +81,7 @@ class PostController extends BackendController
         if ($request->isXmlHttpRequest()) {
             /** @var Builder $query */
             $query = $this->posts->select([
-                'id',
+                'posts.id',
                 'user_id',
                 'status',
                 'pinned',
