@@ -260,16 +260,16 @@
         },
         {
             "name": "cviebrock/eloquent-sluggable",
-            "version": "4.3.0",
+            "version": "4.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cviebrock/eloquent-sluggable.git",
-                "reference": "2407515c00bd4148c6ce8156f5f82e1a6349cac3"
+                "reference": "4c491cb28b18dd8efe075fa781845163fedbcbb0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cviebrock/eloquent-sluggable/zipball/2407515c00bd4148c6ce8156f5f82e1a6349cac3",
-                "reference": "2407515c00bd4148c6ce8156f5f82e1a6349cac3",
+                "url": "https://api.github.com/repos/cviebrock/eloquent-sluggable/zipball/4c491cb28b18dd8efe075fa781845163fedbcbb0",
+                "reference": "4c491cb28b18dd8efe075fa781845163fedbcbb0",
                 "shasum": ""
             },
             "require": {
@@ -318,7 +318,7 @@
                 "slug",
                 "sluggable"
             ],
-            "time": "2017-08-31T18:16:01+00:00"
+            "time": "2017-12-12T19:15:16+00:00"
         },
         {
             "name": "davejamesmiller/laravel-breadcrumbs",
@@ -1666,16 +1666,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.5.24",
+            "version": "v5.5.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "06135405bb1f736dac5e9529ed1541fc446c9c0f"
+                "reference": "0a5b6112f325c56ae5a6679c08a0a10723153fe0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/06135405bb1f736dac5e9529ed1541fc446c9c0f",
-                "reference": "06135405bb1f736dac5e9529ed1541fc446c9c0f",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/0a5b6112f325c56ae5a6679c08a0a10723153fe0",
+                "reference": "0a5b6112f325c56ae5a6679c08a0a10723153fe0",
                 "shasum": ""
             },
             "require": {
@@ -1755,6 +1755,7 @@
                 "guzzlehttp/guzzle": "Required to use the Mailgun and Mandrill mail drivers and the ping methods on schedules (~6.0).",
                 "laravel/tinker": "Required to use the tinker console command (~1.0).",
                 "league/flysystem-aws-s3-v3": "Required to use the Flysystem S3 driver (~1.0).",
+                "league/flysystem-cached-adapter": "Required to use Flysystem caching (~1.0).",
                 "league/flysystem-rackspace": "Required to use the Flysystem Rackspace driver (~1.0).",
                 "nexmo/client": "Required to use the Nexmo transport (~1.0).",
                 "pda/pheanstalk": "Required to use the beanstalk queue driver (~3.0).",
@@ -1795,7 +1796,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-12-07T01:28:21+00:00"
+            "time": "2017-12-11T14:59:28+00:00"
         },
         {
             "name": "laravel/scout",
@@ -3058,16 +3059,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.8.15",
+            "version": "v0.8.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "b1d289c2cb03a2f8249912c53e96ced38f879926"
+                "reference": "d4c8eab0683dc056f2ca54ca67f5388527c068b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/b1d289c2cb03a2f8249912c53e96ced38f879926",
-                "reference": "b1d289c2cb03a2f8249912c53e96ced38f879926",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/d4c8eab0683dc056f2ca54ca67f5388527c068b1",
+                "reference": "d4c8eab0683dc056f2ca54ca67f5388527c068b1",
                 "shasum": ""
             },
             "require": {
@@ -3075,14 +3076,13 @@
                 "jakub-onderka/php-console-highlighter": "0.3.*",
                 "nikic/php-parser": "~1.3|~2.0|~3.0",
                 "php": ">=5.3.9",
-                "symfony/console": "~2.3.10|^2.4.2|~3.0",
-                "symfony/var-dumper": "~2.7|~3.0"
+                "symfony/console": "~2.3.10|^2.4.2|~3.0|~4.0",
+                "symfony/var-dumper": "~2.7|~3.0|~4.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "~1.11",
                 "hoa/console": "~3.16|~1.14",
                 "phpunit/phpunit": "^4.8.35|^5.4.3",
-                "symfony/finder": "~2.1|~3.0"
+                "symfony/finder": "~2.1|~3.0|~4.0"
             },
             "suggest": {
                 "ext-pcntl": "Enabling the PCNTL extension makes PsySH a lot happier :)",
@@ -3127,7 +3127,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2017-11-16T14:29:51+00:00"
+            "time": "2017-12-10T21:49:27+00:00"
         },
         {
             "name": "ramsey/uuid",
@@ -4302,16 +4302,16 @@
         },
         {
             "name": "teamtnt/laravel-scout-tntsearch-driver",
-            "version": "v3.0.4",
+            "version": "v3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/teamtnt/laravel-scout-tntsearch-driver.git",
-                "reference": "a58861c7b549a96d629051129867966cc68752ec"
+                "reference": "989920335036adc990cb95a5895b2509b81633d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/teamtnt/laravel-scout-tntsearch-driver/zipball/a58861c7b549a96d629051129867966cc68752ec",
-                "reference": "a58861c7b549a96d629051129867966cc68752ec",
+                "url": "https://api.github.com/repos/teamtnt/laravel-scout-tntsearch-driver/zipball/989920335036adc990cb95a5895b2509b81633d6",
+                "reference": "989920335036adc990cb95a5895b2509b81633d6",
                 "shasum": ""
             },
             "require": {
@@ -4323,7 +4323,7 @@
                 "illuminate/support": "~5.4",
                 "laravel/scout": "*",
                 "php": ">=5.6.4",
-                "teamtnt/tntsearch": "1.0.*"
+                "teamtnt/tntsearch": "1.2.*"
             },
             "require-dev": {
                 "mockery/mockery": "~0.9",
@@ -4365,20 +4365,20 @@
                 "search",
                 "tntsearch"
             ],
-            "time": "2017-08-31T19:45:22+00:00"
+            "time": "2017-12-08T22:36:41+00:00"
         },
         {
             "name": "teamtnt/tntsearch",
-            "version": "v1.0.7",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/teamtnt/tntsearch.git",
-                "reference": "97e31a259fe289e21519386b0f326b7fdf27579e"
+                "reference": "b81ce826db20a07ccc51276e274eeaf0dead6330"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/teamtnt/tntsearch/zipball/97e31a259fe289e21519386b0f326b7fdf27579e",
-                "reference": "97e31a259fe289e21519386b0f326b7fdf27579e",
+                "url": "https://api.github.com/repos/teamtnt/tntsearch/zipball/b81ce826db20a07ccc51276e274eeaf0dead6330",
+                "reference": "b81ce826db20a07ccc51276e274eeaf0dead6330",
                 "shasum": ""
             },
             "require": {
@@ -4421,7 +4421,7 @@
                 "teamtnt",
                 "tntsearch"
             ],
-            "time": "2017-09-09T21:43:22+00:00"
+            "time": "2017-12-08T22:33:25+00:00"
         },
         {
             "name": "tightenco/ziggy",

@@ -49,7 +49,9 @@
     },
     watch: {
       value (newValue) {
-        this.editor.clipboard.dangerouslyPasteHTML(newValue)
+        if (newValue !== this.editor.root.innerHTML) {
+          this.editor.clipboard.dangerouslyPasteHTML(newValue)
+        }
       }
     }
   }
