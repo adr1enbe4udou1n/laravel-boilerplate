@@ -1666,16 +1666,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.5.25",
+            "version": "v5.5.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "0a5b6112f325c56ae5a6679c08a0a10723153fe0"
+                "reference": "b4fb6eeb227b7327b4ca7f92263b693ec9ac9875"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/0a5b6112f325c56ae5a6679c08a0a10723153fe0",
-                "reference": "0a5b6112f325c56ae5a6679c08a0a10723153fe0",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/b4fb6eeb227b7327b4ca7f92263b693ec9ac9875",
+                "reference": "b4fb6eeb227b7327b4ca7f92263b693ec9ac9875",
                 "shasum": ""
             },
             "require": {
@@ -1796,7 +1796,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-12-11T14:59:28+00:00"
+            "time": "2017-12-20T15:43:48+00:00"
         },
         {
             "name": "laravel/scout",
@@ -1927,16 +1927,16 @@
         },
         {
             "name": "laravel/tinker",
-            "version": "v1.0.2",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/tinker.git",
-                "reference": "203978fd67f118902acff95925847e70b72e3daf"
+                "reference": "852c2abe0b0991555a403f1c0583e64de6acb4a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/tinker/zipball/203978fd67f118902acff95925847e70b72e3daf",
-                "reference": "203978fd67f118902acff95925847e70b72e3daf",
+                "url": "https://api.github.com/repos/laravel/tinker/zipball/852c2abe0b0991555a403f1c0583e64de6acb4a6",
+                "reference": "852c2abe0b0991555a403f1c0583e64de6acb4a6",
                 "shasum": ""
             },
             "require": {
@@ -1945,7 +1945,7 @@
                 "illuminate/support": "~5.1",
                 "php": ">=5.5.9",
                 "psy/psysh": "0.7.*|0.8.*",
-                "symfony/var-dumper": "~3.0"
+                "symfony/var-dumper": "~3.0|~4.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.0|~5.0"
@@ -1986,7 +1986,7 @@
                 "laravel",
                 "psysh"
             ],
-            "time": "2017-07-13T13:11:05+00:00"
+            "time": "2017-12-18T16:25:11+00:00"
         },
         {
             "name": "laravelcollective/html",
@@ -2279,16 +2279,16 @@
         },
         {
             "name": "martinlindhe/laravel-vue-i18n-generator",
-            "version": "0.1.19",
+            "version": "0.1.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/martinlindhe/laravel-vue-i18n-generator.git",
-                "reference": "507fa3d481ffeae429caf31fb462450dc5d43677"
+                "reference": "4fd4bf89c549c80715087f0e2c1f072b690db7ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/martinlindhe/laravel-vue-i18n-generator/zipball/507fa3d481ffeae429caf31fb462450dc5d43677",
-                "reference": "507fa3d481ffeae429caf31fb462450dc5d43677",
+                "url": "https://api.github.com/repos/martinlindhe/laravel-vue-i18n-generator/zipball/4fd4bf89c549c80715087f0e2c1f072b690db7ad",
+                "reference": "4fd4bf89c549c80715087f0e2c1f072b690db7ad",
                 "shasum": ""
             },
             "require": {
@@ -2328,7 +2328,7 @@
                 "laravel",
                 "vue-i18n"
             ],
-            "time": "2017-10-15T06:56:43+00:00"
+            "time": "2017-12-21T08:53:54+00:00"
         },
         {
             "name": "mcamara/laravel-localization",
@@ -4302,16 +4302,16 @@
         },
         {
             "name": "teamtnt/laravel-scout-tntsearch-driver",
-            "version": "v3.0.5",
+            "version": "v3.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/teamtnt/laravel-scout-tntsearch-driver.git",
-                "reference": "989920335036adc990cb95a5895b2509b81633d6"
+                "reference": "e5d81a856e6ab391d58e90a17bbcb2643c0d92d5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/teamtnt/laravel-scout-tntsearch-driver/zipball/989920335036adc990cb95a5895b2509b81633d6",
-                "reference": "989920335036adc990cb95a5895b2509b81633d6",
+                "url": "https://api.github.com/repos/teamtnt/laravel-scout-tntsearch-driver/zipball/e5d81a856e6ab391d58e90a17bbcb2643c0d92d5",
+                "reference": "e5d81a856e6ab391d58e90a17bbcb2643c0d92d5",
                 "shasum": ""
             },
             "require": {
@@ -4323,7 +4323,7 @@
                 "illuminate/support": "~5.4",
                 "laravel/scout": "*",
                 "php": ">=5.6.4",
-                "teamtnt/tntsearch": "1.2.*"
+                "teamtnt/tntsearch": "1.3.*"
             },
             "require-dev": {
                 "mockery/mockery": "~0.9",
@@ -4365,20 +4365,20 @@
                 "search",
                 "tntsearch"
             ],
-            "time": "2017-12-08T22:36:41+00:00"
+            "time": "2017-12-18T22:49:54+00:00"
         },
         {
             "name": "teamtnt/tntsearch",
-            "version": "v1.2.0",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/teamtnt/tntsearch.git",
-                "reference": "b81ce826db20a07ccc51276e274eeaf0dead6330"
+                "reference": "06d68e160b7477633c6f96ec33cdcddc10e01945"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/teamtnt/tntsearch/zipball/b81ce826db20a07ccc51276e274eeaf0dead6330",
-                "reference": "b81ce826db20a07ccc51276e274eeaf0dead6330",
+                "url": "https://api.github.com/repos/teamtnt/tntsearch/zipball/06d68e160b7477633c6f96ec33cdcddc10e01945",
+                "reference": "06d68e160b7477633c6f96ec33cdcddc10e01945",
                 "shasum": ""
             },
             "require": {
@@ -4421,7 +4421,7 @@
                 "teamtnt",
                 "tntsearch"
             ],
-            "time": "2017-12-08T22:33:25+00:00"
+            "time": "2017-12-18T22:44:47+00:00"
         },
         {
             "name": "tightenco/ziggy",
@@ -6140,16 +6140,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "6.5.4",
+            "version": "6.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "1b2f933d5775f9237369deaa2d2bfbf9d652be4c"
+                "reference": "83d27937a310f2984fd575686138597147bdc7df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/1b2f933d5775f9237369deaa2d2bfbf9d652be4c",
-                "reference": "1b2f933d5775f9237369deaa2d2bfbf9d652be4c",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/83d27937a310f2984fd575686138597147bdc7df",
+                "reference": "83d27937a310f2984fd575686138597147bdc7df",
                 "shasum": ""
             },
             "require": {
@@ -6220,7 +6220,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-12-10T08:06:19+00:00"
+            "time": "2017-12-17T06:31:19+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -6328,16 +6328,16 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "1174d9018191e93cb9d719edec01257fc05f8158"
+                "reference": "b11c729f95109b56a0fe9650c6a63a0fcd8c439f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/1174d9018191e93cb9d719edec01257fc05f8158",
-                "reference": "1174d9018191e93cb9d719edec01257fc05f8158",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/b11c729f95109b56a0fe9650c6a63a0fcd8c439f",
+                "reference": "b11c729f95109b56a0fe9650c6a63a0fcd8c439f",
                 "shasum": ""
             },
             "require": {
@@ -6388,7 +6388,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2017-11-03T07:16:52+00:00"
+            "time": "2017-12-22T14:50:35+00:00"
         },
         {
             "name": "sebastian/diff",
