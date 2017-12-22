@@ -1,4 +1,4 @@
-import './load-client-scripts'
+import loadClientScripts from './load-client-scripts'
 
 // Vue & axios
 import Vue from 'vue'
@@ -29,6 +29,9 @@ export function createApp () {
   return { app }
 }
 
-// Init App
+// Init Vue App
 const { app } = createApp()
 app.$mount('#app')
+
+// Load Client Scripts
+loadClientScripts()
