@@ -1,11 +1,21 @@
 {
-  "plugins": ["lodash"],
   "presets": [
     ["env", {
       "modules": false,
       "targets": {
-        "browsers": ["> 1%", "last 2 versions"]
+        "browsers": ["> 2%"],
+        "uglify": true
       }
     }]
+  ],
+  "plugins": [
+    "lodash",
+    "transform-object-rest-spread",
+    [
+      "transform-runtime", {
+        "polyfill": false,
+        "helpers": false
+      }
+    ]
   ]
 }
