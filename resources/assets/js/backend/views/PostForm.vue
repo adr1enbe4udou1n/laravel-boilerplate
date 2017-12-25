@@ -329,7 +329,7 @@
               q: search
             }
           })
-          .then(response => {
+          .then((response) => {
             this.tagsOptions = response.data.items
           })
       }

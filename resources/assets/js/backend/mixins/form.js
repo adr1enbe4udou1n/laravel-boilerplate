@@ -19,7 +19,7 @@ export default {
         axios
           .get(this.$app.route(`admin.${this.modelName}s.show`,
             {[this.modelName]: this.id}))
-          .then(response => {
+          .then((response) => {
             this.model = response.data
           })
       }
@@ -42,7 +42,7 @@ export default {
         `admin.${this.modelName}s.update`, {[this.modelName]: this.id})
 
       let data = new FormData()
-      Object.keys(this.model).forEach(key => {
+      Object.keys(this.model).forEach((key) => {
         if (this.model[key] === null) {
           data.append(key, '')
           return
@@ -52,7 +52,7 @@ export default {
           return
         }
         if (Array.isArray(this.model[key])) {
-          this.model[key].forEach(val => {
+          this.model[key].forEach((val) => {
             data.append(`${key}[]`, val)
           })
           return
@@ -66,13 +66,13 @@ export default {
       }
 
       axios.post(action, data)
-        .then(response => {
+        .then((response) => {
           window.toastr[response.data.status](response.data.message)
           if (this.listPath) {
             router.push(this.listPath)
           }
         })
-        .catch(error => {
+        .catch((error) => {
           // Validation errors
           if (error.response.status === 422) {
             this.validation = error.response.data

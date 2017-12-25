@@ -110,7 +110,7 @@
     created () {
       axios
         .get(this.$app.route(`admin.redirections.get_redirection_types`))
-        .then(response => {
+        .then((response) => {
           this.redirectionTypes = response.data
         })
 

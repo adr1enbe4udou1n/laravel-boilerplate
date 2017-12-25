@@ -104,7 +104,7 @@
       if (this.$app.user.can('view own posts')) {
         axios
           .get(this.$app.route('admin.posts.latest'))
-          .then(response => {
+          .then((response) => {
             this.posts = response.data
           })
       }

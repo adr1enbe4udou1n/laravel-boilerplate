@@ -70,7 +70,7 @@
       },
       fetchData () {
         this.$store.dispatch('LOAD_COUNTERS')
-          .then(response => {
+          .then(() => {
             this.initNav()
           })
       }

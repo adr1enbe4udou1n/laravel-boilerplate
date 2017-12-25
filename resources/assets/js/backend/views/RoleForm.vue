@@ -151,12 +151,12 @@
     created () {
       axios
         .get(this.$app.route(`admin.roles.get_permissions`))
-        .then(response => {
+        .then((response) => {
           let categories = _.groupBy(_.forEach(response.data, (value, key) => {
             value['name'] = key
           }), 'category')
 
-          this.permissions = Object.keys(categories).map(key => {
+          this.permissions = Object.keys(categories).map((key) => {
             return {
               title: key,
               permissions: categories[key]

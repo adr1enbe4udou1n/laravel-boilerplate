@@ -39,11 +39,11 @@
         axios.post(this.$app.route(this.actionRouteName), {
           action: $name,
           ids: dataTable.rows({selected: true}).ids().toArray()
-        }).then(response => {
+        }).then((response) => {
           // Reload Datatables and keep current pager
           dataTable.ajax.reload(null, false)
           window.toastr[response.data.status](response.data.message)
-        }).catch(error => {
+        }).catch((error) => {
           // Not allowed error
           if (error.response.status === 403) {
             window.toastr.error(this.$t('exceptions.unauthorized'))
@@ -149,12 +149,12 @@
           }).then((result) => {
             if (result.value) {
               axios.delete(url)
-                .then(response => {
+                .then((response) => {
                   // Reload Datatables and keep current pager
                   dataTable.ajax.reload(null, false)
                   window.toastr[response.data.status](response.data.message)
                 })
-                .catch(error => {
+                .catch((error) => {
                   // Not allowed error
                   if (error.response.status === 403) {
                     window.toastr.error(this.$t('exceptions.unauthorized'))

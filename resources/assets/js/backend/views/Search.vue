@@ -34,7 +34,7 @@
                 q: this.$route.query.q
               }
             })
-            .then(response => {
+            .then((response) => {
               this.result = response.data
             })
         }

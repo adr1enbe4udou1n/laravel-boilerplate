@@ -152,7 +152,7 @@
     created () {
       axios
         .get(this.$app.route(`admin.users.get_roles`))
-        .then(response => {
+        .then((response) => {
           this.roles = response.data
         })
 

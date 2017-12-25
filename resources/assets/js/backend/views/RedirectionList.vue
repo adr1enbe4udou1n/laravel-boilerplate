@@ -117,7 +117,7 @@
 
         axios
           .post(this.$app.route('admin.redirections.import'), data)
-          .then(response => {
+          .then((response) => {
             this.$refs.redirectionsDatatable.refresh()
             window.toastr[response.data.status](response.data.message)
           })

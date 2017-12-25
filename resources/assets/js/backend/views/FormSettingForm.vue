@@ -115,7 +115,7 @@
     created () {
       axios
         .get(this.$app.route(`admin.${this.modelName}s.get_form_types`))
-        .then(response => {
+        .then((response) => {
           for (let propertyName in response.data) {
             this.formTypes.push({
               value: propertyName,

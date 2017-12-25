@@ -121,7 +121,7 @@
               q: search
             }
           })
-          .then(response => {
+          .then((response) => {
             this.routes = response.data.items
           })
       }
