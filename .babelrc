@@ -1,18 +1,24 @@
 {
   "presets": [
-    ["env", {
-      "modules": false,
-      "targets": {
-        "browsers": ["> 2%"],
-        "uglify": true
+    [
+      "env",
+      {
+        "modules": false,
+        "targets": {
+          "browsers": [
+            "> 2%"
+          ],
+          "uglify": true
+        }
       }
-    }]
+    ]
   ],
   "plugins": [
     "lodash",
     "transform-object-rest-spread",
     [
-      "transform-runtime", {
+      "transform-runtime",
+      {
         "polyfill": false,
         "helpers": false
       }
