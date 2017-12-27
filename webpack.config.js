@@ -14,9 +14,11 @@ const BundleAnalyzerPlugin = require(
 const production = process.env.NODE_ENV === 'production'
 const devServerPort = parseInt(process.env.DEV_SERVER_PORT || '8080', 10)
 
+const publicPathFolder = '/dist/'
+
 const publicPath = production
-  ? '/dist/'
-  : `http://localhost:${devServerPort}/dist/`
+  ? publicPathFolder
+  : `http://localhost:${devServerPort}${publicPathFolder}`
 
 module.exports = {
   entry: {
@@ -65,7 +67,7 @@ module.exports = {
     ]
   },
   output: {
-    path: path.resolve(__dirname, 'public/dist'),
+    path: path.resolve(__dirname, 'public' + publicPathFolder),
     filename: production ? 'js/[name].[chunkhash].js' : 'js/[name].js',
     publicPath
   },
@@ -183,11 +185,7 @@ module.exports = {
     new webpack.IgnorePlugin(/jsdom$/),
     new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /fr/),
     new webpack.LoaderOptionsPlugin({
-      minimize: production,
-      options: {
-        context: __dirname,
-        output: path.resolve(__dirname, 'public/dist/')
-      }
+      minimize: production
     }),
     new FriendlyErrorsPlugin(),
     new WebpackNotifierPlugin(),
@@ -227,7 +225,6 @@ module.exports = {
   devtool: production ? 'source-map' : 'inline-source-map',
   devServer: {
     contentBase: path.resolve(__dirname, 'public'),
-    publicPath: '/dist/',
     headers: {
       'Access-Control-Allow-Origin': '*'
     },
