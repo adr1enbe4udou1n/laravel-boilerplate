@@ -18,6 +18,7 @@
         "hieu-le/active": "^3.3",
         "intervention/image": "^2.4",
         "intervention/imagecache": "^2.3",
+        "laravel/dusk": "^2.0",
         "laravel/framework": "5.5.*",
         "laravel/scout": "^3.0",
         "laravel/socialite": "^3.0",
@@ -31,16 +32,14 @@
         "renatomarinho/laravel-page-speed": "^1.8",
         "roumen/sitemap": "^2.6",
         "teamtnt/laravel-scout-tntsearch-driver": "^3.0",
-        "tightenco/ziggy": "^0.4.1",
+        "tightenco/ziggy": "^0.6.0",
         "yajra/laravel-datatables-oracle": "^8.0"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^3.0",
         "barryvdh/laravel-ide-helper": "^2.4",
         "filp/whoops": "~2.0",
         "friendsofphp/php-cs-fixer": "^2.7",
         "fzaninotto/faker": "~1.4",
-        "laravel/dusk": "~2.0",
         "mockery/mockery": "^1.0",
         "phpunit/phpunit": "~6.0"
     },

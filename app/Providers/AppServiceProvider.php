@@ -46,13 +46,6 @@ class AppServiceProvider extends ServiceProvider
             // Force SSL if isSecure does not detect HTTPS
             URL::forceScheme('https');
         }
-
-        if ($root = config('app.url_root')) {
-            // Force Route URL (useful for multi-device development)
-            URL::forceRootUrl($root);
-        }
-
-        View::share('hmr', file_exists(public_path('/hot')));
     }
 
     /**

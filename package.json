@@ -2,10 +2,8 @@
   "private": true,
   "scripts": {
     "clean": "rimraf public/dist public/fonts/vendor public/images/vendor",
-    "dev": "cross-env NODE_ENV=development webpack --progress --hide-modules",
-    "watch": "cross-env NODE_ENV=development webpack --watch --progress --hide-modules",
-    "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
-    "prod": "npm run clean && cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "dev": "webpack-dev-server --inline --hot",
+    "build": "npm run clean && cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "devDependencies": {
     "autoprefixer": "^7.2.3",
@@ -19,8 +17,6 @@
     "babel-preset-env": "^1.6.1",
     "bootstrap": "4.0.0-beta.2",
     "bootstrap-vue": "^1.4.0",
-    "browser-sync": "^2.21.0",
-    "browser-sync-webpack-plugin": "^1.2.0",
     "chart.js": "^2.7.1",
     "cookieconsent": "^3.0.4",
     "cross-env": "^5.1.3",

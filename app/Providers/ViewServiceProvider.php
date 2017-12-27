@@ -16,35 +16,14 @@ class ViewServiceProvider extends ServiceProvider
         HtmlFacade::macro('asset', function ($path) {
             static $manifest;
 
-            if (! starts_with($path, '/')) {
-                $path = "/{$path}";
-            }
-
-            if (app()->environment('local', 'testing')) {
-                if (file_exists(public_path('/hot'))) {
-                    $hmrHost = config('app.hmr_host');
-                    $hmrPost = config('app.hmr_port');
-
-                    return "//{$hmrHost}:{$hmrPost}{$path}";
-                }
-
-                if (file_exists(public_path($path))) {
-                    return $path;
-                }
-            }
-
             if (! $manifest
-                && file_exists($manifestPath = public_path('/manifest.json'))
+                && file_exists($manifestPath = public_path('/dist/manifest.json'))
             ) {
                 $manifest = json_decode(file_get_contents($manifestPath), true);
             }
 
-            if ($manifest) {
-                $name = basename($path);
-
-                if (isset($manifest[$name])) {
-                    return "/{$manifest[$name]}";
-                }
+            if ($manifest && isset($manifest[$path])) {
+                return $manifest[$path];
             }
 
             return $path;

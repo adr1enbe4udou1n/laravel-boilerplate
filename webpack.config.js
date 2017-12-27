@@ -1,5 +1,4 @@
 require('dotenv').config()
-const fs = require('fs')
 const path = require('path')
 const webpack = require('webpack')
 
@@ -8,26 +7,16 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
 const ManifestPlugin = require('webpack-manifest-plugin')
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const BundleAnalyzerPlugin = require(
+  'webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const production = process.env.NODE_ENV === 'production'
-const hmr = process.argv.includes('--hot')
+const devServerPort = parseInt(process.env.DEV_SERVER_PORT || '8080', 10)
 
-const browserSyncHost = process.env.BROWSERSYNC_HOST || 'localhost'
-const webpackDevServerPort = parseInt(process.env.WEBPACKDEVSERVER_PORT || '8080', 10)
-
-// Hot reloading file for Laravel detection
-const hotfilename = 'public/hot'
-
-if (fs.existsSync(hotfilename)) {
-  fs.unlinkSync(hotfilename)
-}
-
-if (hmr) {
-  fs.writeFileSync(hotfilename, 'hot reloading')
-}
+const publicPath = production
+  ? '/dist/'
+  : `http://localhost:${devServerPort}/dist/`
 
 module.exports = {
   entry: {
@@ -76,9 +65,9 @@ module.exports = {
     ]
   },
   output: {
-    path: path.resolve(__dirname, 'public'),
-    filename: production ? 'dist/js/[name].[chunkhash].js' : 'js/[name].js',
-    publicPath: hmr ? `http://${browserSyncHost}:${webpackDevServerPort}/` : '/'
+    path: path.resolve(__dirname, 'public/dist'),
+    filename: production ? 'js/[name].[chunkhash].js' : 'js/[name].js',
+    publicPath
   },
   module: {
     rules: [
@@ -111,7 +100,8 @@ module.exports = {
                 outputStyle: 'expanded',
                 sourceMap: true
               }
-            }]
+            }
+          ]
         })
       },
       {
@@ -156,7 +146,7 @@ module.exports = {
                     /((.*(node_modules))|images|image|img|assets)\//g, ''
                   ) + '?[hash]'
               },
-              publicPath: '/'
+              publicPath
             }
           },
           {
@@ -177,7 +167,8 @@ module.exports = {
             }
 
             return 'fonts/vendor/[name].[ext]?[hash]'
-          }
+          },
+          publicPath
         }
       }
     ]
@@ -195,13 +186,19 @@ module.exports = {
       minimize: production,
       options: {
         context: __dirname,
-        output: {path: './'}
+        output: path.resolve(__dirname, 'public/dist/')
       }
     }),
     new FriendlyErrorsPlugin(),
     new WebpackNotifierPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
-      names: ['locales', 'vendor_frontend', 'vendor_backend', 'vendor', 'manifest'],
+      names: [
+        'locales',
+        'vendor_frontend',
+        'vendor_backend',
+        'vendor',
+        'manifest'
+      ],
       minChunks: Infinity
     }),
     new LodashModuleReplacementPlugin({
@@ -209,37 +206,14 @@ module.exports = {
       shorthands: true
     }),
     new ExtractTextPlugin({
-      filename: production
-        ? 'dist/css/[name].[contenthash].css'
-        : 'css/[name].css',
-      allChunks: true,
-      disable: hmr
+      filename: production ? 'css/[name].[contenthash].css' : 'css/[name].css',
+      allChunks: false,
+      disable: !production
     }),
-    new BrowserSyncPlugin(
-      {
-        host: browserSyncHost,
-        port: parseInt(process.env.BROWSERSYNC_PORT || '3000', 10),
-        open: browserSyncHost === 'localhost' ? 'local' : 'external',
-        proxy: process.env.BROWSERSYNC_PROXY || 'localhost:8000',
-        files: [
-          'app/**/*.php',
-          'resources/views/**/*.php',
-          'public/js/**/*.js',
-          'public/css/**/*.css'
-        ],
-        snippetOptions: {
-          rule: {
-            match: /(<\/body>|<\/pre>)/i,
-            fn: function (snippet, match) {
-              return snippet + match
-            }
-          }
-        }
-      },
-      {
-        reload: false
-      }
-    )
+    new ManifestPlugin({
+      publicPath,
+      writeToFileEmit: true
+    })
   ],
   resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -250,28 +224,23 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: production ? 'cheap-source-map' : 'inline-source-map',
+  devtool: production ? 'source-map' : 'inline-source-map',
   devServer: {
+    contentBase: path.resolve(__dirname, 'public'),
+    publicPath: '/dist/',
     headers: {
       'Access-Control-Allow-Origin': '*'
     },
-    contentBase: path.resolve('public'),
-    historyApiFallback: true,
-    noInfo: true,
     compress: true,
-    quiet: true,
-    host: browserSyncHost,
-    port: webpackDevServerPort
+    historyApiFallback: true,
+    watchOptions: {
+      ignored: /node_modules/
+    },
+    port: devServerPort
   }
 }
 
 let plugins = []
-
-if (hmr) {
-  plugins = [
-    new webpack.NamedModulesPlugin()
-  ]
-}
 
 if (production) {
   plugins = [
@@ -285,8 +254,11 @@ if (production) {
       sourceMap: true
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new BundleAnalyzerPlugin(),
-    new ManifestPlugin()
+    new BundleAnalyzerPlugin()
+  ]
+} else {
+  plugins = [
+    new webpack.NamedModulesPlugin()
   ]
 }
 

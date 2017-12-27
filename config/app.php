@@ -159,8 +159,6 @@ return [
 
     'url_force_https' => env('URL_FORCE_HTTPS', false),
 
-    'url_root' => env('URL_ROOT'),
-
     /*
     |--------------------------------------------------------------------------
     | Dev config
@@ -168,10 +166,6 @@ return [
     */
 
     'faker_locale' => env('FAKER_LOCALE', 'en_US'),
-
-    'hmr_host' => env('BROWSERSYNC_HOST', 'localhost'),
-
-    'hmr_port' => env('WEBPACKDEVSERVER_PORT', 8080),
 
     /*
     |--------------------------------------------------------------------------
