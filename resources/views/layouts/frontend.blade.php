@@ -17,8 +17,12 @@
     @endif
 
     <!-- Styles -->
-    @if (app()->environment('production'))
-    <link rel="stylesheet" href="{{ Html::asset('frontend.css') }}">
+    @if (!$hmr)
+    <link rel="stylesheet" href="{{ Html::asset('css/frontend.css') }}">
+    @else
+    <script src="{{ Html::asset('manifest.js') }}"></script>
+    <script src="{{ Html::asset('js/vendor.js') }}"></script>
+    <script src="{{ Html::asset('css/frontend.js') }}"></script>
     @endif
 </head>
 <body class="@yield('body_class')">
@@ -67,11 +71,13 @@
     </script>
 
     <!-- Scripts -->
+    @if (!$hmr)
     <script src="{{ Html::asset('manifest.js') }}"></script>
-    <script src="{{ Html::asset('vendor.js') }}"></script>
-    <script src="{{ Html::asset('vendor_frontend.js') }}"></script>
-    <script src="{{ Html::asset('locales.js') }}"></script>
-    <script src="{{ Html::asset('frontend.js') }}"></script>
+    <script src="{{ Html::asset('js/vendor.js') }}"></script>
+    @endif
+    <script src="{{ Html::asset('js/vendor_frontend.js') }}"></script>
+    <script src="{{ Html::asset('js/locales.js') }}"></script>
+    <script src="{{ Html::asset('js/frontend.js') }}"></script>
 
     @stack('scripts')
 </body>

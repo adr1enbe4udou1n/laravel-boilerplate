@@ -30,9 +30,11 @@
     @routes()
 
     <!-- Scripts -->
+    @if (!$hmr)
     <script src="{{ Html::asset('manifest.js') }}"></script>
-    <script src="{{ Html::asset('vendor.js') }}"></script>
-    <script src="{{ Html::asset('vendor_backend.js') }}"></script>
-    <script src="{{ Html::asset('locales.js') }}"></script>
-    <script src="{{ Html::asset('backend.js') }}"></script>
+    <script src="{{ Html::asset('js/vendor.js') }}"></script>
+    @endif
+    <script src="{{ Html::asset('js/vendor_backend.js') }}"></script>
+    <script src="{{ Html::asset('js/locales.js') }}"></script>
+    <script src="{{ Html::asset('js/backend.js') }}"></script>
 @endpush

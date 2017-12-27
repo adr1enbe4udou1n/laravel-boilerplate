@@ -11,8 +11,12 @@
     <title>Administration | {{ config('app.name') }}</title>
 
     <!-- Styles -->
-    @if (app()->environment('production'))
-    <link rel="stylesheet" href="{{ Html::asset('backend.css') }}">
+    @if (!$hmr)
+    <link rel="stylesheet" href="{{ Html::asset('css/backend.css') }}">
+    @else
+    <script src="{{ Html::asset('manifest.js') }}"></script>
+    <script src="{{ Html::asset('js/vendor.js') }}"></script>
+    <script src="{{ Html::asset('css/backend.js') }}"></script>
     @endif
 </head>
 <body class="app @yield('body_class')">

@@ -1,8 +1,10 @@
 {
   "private": true,
   "scripts": {
+    "build": "rimraf public/build && webpack --progress --hide-modules",
+    "watch": "rimraf public/build && webpack --watch --progress --hide-modules",
     "dev": "webpack-dev-server --hot",
-    "build": "rimraf public/dist && cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "prod": "rimraf public/dist && cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "devDependencies": {
     "autoprefixer": "^7.2.3",

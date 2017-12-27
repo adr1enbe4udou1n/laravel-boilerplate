@@ -1,5 +1,6 @@
 require('dotenv').config()
 const path = require('path')
+const fs = require('fs')
 const webpack = require('webpack')
 
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
@@ -11,26 +12,31 @@ const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 const BundleAnalyzerPlugin = require(
   'webpack-bundle-analyzer').BundleAnalyzerPlugin
 
+const hmr = process.argv.includes('--hot')
 const production = process.env.NODE_ENV === 'production'
 const devServerPort = parseInt(process.env.DEV_SERVER_PORT || '8080', 10)
 
-const publicPathFolder = '/dist/'
+const publicPathFolder = production ? '/dist/' : '/build/'
+const publicPath = hmr ? `http://localhost:${devServerPort}${publicPathFolder}` : publicPathFolder
 
-const publicPath = production
-  ? publicPathFolder
-  : `http://localhost:${devServerPort}${publicPathFolder}`
+// Hot manifest
+const hotfilename = 'public/build/hot'
+
+if (fs.existsSync(hotfilename)) {
+  fs.unlinkSync(hotfilename)
+}
+
+if (hmr) {
+  fs.writeFileSync(hotfilename, 'hot reloading')
+}
 
 module.exports = {
   entry: {
-    frontend: [
-      './resources/assets/js/frontend/app.js',
-      './resources/assets/sass/frontend/app.scss'
-    ],
-    backend: [
-      './resources/assets/js/backend/app.js',
-      './resources/assets/sass/backend/app.scss'
-    ],
-    vendor: [
+    'js/frontend': './resources/assets/js/frontend/app.js',
+    'css/frontend': './resources/assets/sass/frontend/app.scss',
+    'js/backend': './resources/assets/js/backend/app.js',
+    'css/backend': './resources/assets/sass/backend/app.scss',
+    'js/vendor': [
       'vue',
       'vue-router',
       'vuex',
@@ -43,12 +49,12 @@ module.exports = {
       'pwstrength-bootstrap/dist/pwstrength-bootstrap',
       'vee-validate'
     ],
-    vendor_frontend: [
+    'js/vendor_frontend': [
       'bootstrap',
       'cookieconsent',
       'slick-carousel'
     ],
-    vendor_backend: [
+    'js/vendor_backend': [
       'vue-select',
       'flatpickr',
       'chart.js',
@@ -62,13 +68,13 @@ module.exports = {
       'datatables.net-responsive',
       'datatables.net-responsive-bs4'
     ],
-    locales: [
+    'js/locales': [
       './resources/assets/js/vue-i18n-locales.generated.js'
     ]
   },
   output: {
     path: path.resolve(__dirname, 'public' + publicPathFolder),
-    filename: production ? 'js/[name].[chunkhash].js' : 'js/[name].js',
+    filename: production ? '[name].[chunkhash].js' : '[name].js',
     publicPath
   },
   module: {
@@ -192,11 +198,11 @@ module.exports = {
     }),
     new WebpackNotifierPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
-      names: [
-        'locales',
-        'vendor_frontend',
-        'vendor_backend',
-        'vendor',
+      name: [
+        'js/locales',
+        'js/vendor_frontend',
+        'js/vendor_backend',
+        'js/vendor',
         'manifest'
       ],
       minChunks: Infinity
@@ -206,9 +212,9 @@ module.exports = {
       shorthands: true
     }),
     new ExtractTextPlugin({
-      filename: production ? 'css/[name].[contenthash].css' : 'css/[name].css',
+      filename: production ? '[name].[contenthash].css' : '[name].css',
       allChunks: false,
-      disable: !production
+      disable: hmr
     }),
     new ManifestPlugin({
       publicPath,
