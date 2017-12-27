@@ -1,9 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "clean": "rimraf public/dist public/fonts/vendor public/images/vendor",
     "dev": "webpack-dev-server --inline --hot",
-    "build": "npm run clean && cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "build": "rimraf public/dist && cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "devDependencies": {
     "autoprefixer": "^7.2.3",
