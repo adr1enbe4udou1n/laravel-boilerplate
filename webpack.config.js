@@ -187,7 +187,9 @@ module.exports = {
     new webpack.LoaderOptionsPlugin({
       minimize: production
     }),
-    new FriendlyErrorsPlugin(),
+    new FriendlyErrorsPlugin({
+      clearConsole: false
+    }),
     new WebpackNotifierPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       names: [
@@ -228,8 +230,10 @@ module.exports = {
     headers: {
       'Access-Control-Allow-Origin': '*'
     },
-    compress: true,
     historyApiFallback: true,
+    compress: true,
+    noInfo: true,
+    quiet: true,
     watchOptions: {
       ignored: /node_modules/
     },
