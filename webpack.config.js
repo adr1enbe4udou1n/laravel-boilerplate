@@ -20,7 +20,7 @@ const publicPathFolder = production ? '/dist/' : '/build/'
 const publicPath = hmr ? `http://localhost:${devServerPort}${publicPathFolder}` : publicPathFolder
 
 // Hot manifest
-const hotfilename = 'public/build/hot'
+const hotfilename = 'public/hot'
 
 if (fs.existsSync(hotfilename)) {
   fs.unlinkSync(hotfilename)
