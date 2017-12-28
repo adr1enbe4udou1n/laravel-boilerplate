@@ -61,7 +61,6 @@
 * Permissions configuration based on config file rather than database,
 * Form types defined on config file for settings & submission support. This boilerplate include just one "contact form" type,
 * Custom webpack integration rather than laravel mix, for better flexibility (cf bellow),
-* [Laravel Debugbar](https://github.com/barryvdh/laravel-debugbar) & [Laravel IDE Helper](https://github.com/barryvdh/laravel-ide-helper) included.
 
 ## Install
 
@@ -108,9 +107,10 @@ Both frontend and backend have dedicated login pages.
 ### Compiling assets with Webpack
 
 1. Install dependencies with `yarn`
-2. Launch `yarn watch` for compiling assets and start browsersync
+2. Launch `yarn dev` for compiling assets and start dev-server with HMR enabled
 
-> Note : If assets modified, don't forget to launch `yarn prod` before deploy on each production environment.
+> N1 : Use `yarn watch` if you prefer old school auto-building without HMR  
+> N2 : If assets modified, don't forget to launch `yarn prod` before deploy on each production environment.
 
 ### Permissions definitions
 
@@ -127,8 +127,6 @@ You will observe that this boilerplate does not use [Laravel Mix](https://github
 Laravel Mix still stay awesome for newcomers thanks to his laravel-like webpack fluent API, but, even if Laravel Mix can be easily overridden, for this project i preferred use my custom framework-free webpack setup in order to have total control of assets workflow.
 
 For instance, with this custom setup HMR work natively with configurable port and productions assets are bundled into specific "dist" directory.
-
-This webpack setup is a direct recovery from my other little side-project [Express Boilerplate](https://github.com/adr1enbe4udou1n/express-boilerplate) which is optimized for quick prototype frontend development based on express Node framework.
 
 ## TODO
 
@@ -152,8 +150,7 @@ This webpack setup is a direct recovery from my other little side-project [Expre
 - [x] <s>Migrate to 100% client-side Vue backend with vue-route</s>
 - [x] <s>Migrate to Bootstrap-Vue</s>
 - [x] <s>Webpack bundle size optimizations</s>
-- [ ] Refactor & debug
-- [ ] Inclusion of unit/featured/browser tests
+- [ ] Inclusion of unit/featured/browser tests (stand by for now)
 
 ## License
 
