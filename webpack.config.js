@@ -32,11 +32,15 @@ if (hmr) {
 
 module.exports = {
   entry: {
-    'js/frontend': './resources/assets/js/frontend/app.js',
-    'css/frontend': './resources/assets/sass/frontend/app.scss',
-    'js/backend': './resources/assets/js/backend/app.js',
-    'css/backend': './resources/assets/sass/backend/app.scss',
-    'js/vendor': [
+    frontend: [
+      './resources/assets/js/frontend/app.js',
+      './resources/assets/sass/frontend/app.scss'
+    ],
+    backend: [
+      './resources/assets/js/backend/app.js',
+      './resources/assets/sass/backend/app.scss'
+    ],
+    vendor: [
       'vue',
       'vue-router',
       'vuex',
@@ -49,12 +53,12 @@ module.exports = {
       'pwstrength-bootstrap/dist/pwstrength-bootstrap',
       'vee-validate'
     ],
-    'js/vendor_frontend': [
+    vendor_frontend: [
       'bootstrap',
       'cookieconsent',
       'slick-carousel'
     ],
-    'js/vendor_backend': [
+    vendor_backend: [
       'vue-select',
       'flatpickr',
       'chart.js',
@@ -68,13 +72,13 @@ module.exports = {
       'datatables.net-responsive',
       'datatables.net-responsive-bs4'
     ],
-    'js/locales': [
+    locales: [
       './resources/assets/js/vue-i18n-locales.generated.js'
     ]
   },
   output: {
     path: path.resolve(__dirname, 'public' + publicPathFolder),
-    filename: production ? '[name].[chunkhash].js' : '[name].js',
+    filename: production ? 'js/[name].[chunkhash].js' : 'js/[name].js',
     publicPath
   },
   module: {
@@ -199,10 +203,10 @@ module.exports = {
     new WebpackNotifierPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: [
-        'js/locales',
-        'js/vendor_frontend',
-        'js/vendor_backend',
-        'js/vendor',
+        'locales',
+        'vendor_frontend',
+        'vendor_backend',
+        'vendor',
         'manifest'
       ],
       minChunks: Infinity
@@ -212,7 +216,7 @@ module.exports = {
       shorthands: true
     }),
     new ExtractTextPlugin({
-      filename: production ? '[name].[contenthash].css' : '[name].css',
+      filename: production ? 'css/[name].[contenthash].css' : 'css/[name].css',
       allChunks: false,
       disable: hmr
     }),
