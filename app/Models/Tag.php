@@ -7,18 +7,6 @@ use Cviebrock\EloquentSluggable\Sluggable;
 
 /**
  * App\Models\Tag.
- *
- * @property int $id
- * @property string $locale
- * @property string $name
- * @property string $slug
- *
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Tag findSimilarSlugs(\Illuminate\Database\Eloquent\Model $model, $attribute, $config, $slug)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Tag whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Tag whereLocale($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Tag whereName($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Tag whereSlug($value)
- * @mixin \Eloquent
  */
 class Tag extends Model
 {

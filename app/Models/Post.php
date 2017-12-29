@@ -15,54 +15,6 @@ use Illuminate\Database\Eloquent\Builder;
 
 /**
  * App\Models\Post.
- *
- * @property int $id
- * @property int|null $user_id
- * @property int $status
- * @property bool $promoted
- * @property bool $pinned
- * @property \Carbon\Carbon|null $published_at
- * @property string|null $unpublished_at
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property mixed $featured_image_path
- * @property mixed $meta_description
- * @property mixed $meta_title
- * @property mixed $published
- * @property mixed $state
- * @property mixed $status_label
- * @property \Illuminate\Database\Eloquent\Collection|\Plank\Mediable\Media[] $media
- * @property \App\Models\Meta $meta
- * @property \App\Models\User|null $owner
- * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Tag[] $tags
- * @property \Illuminate\Database\Eloquent\Collection|\App\Models\PostTranslation[] $translations
- *
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post listsTranslations($translationField)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post notTranslatedIn($locale = null)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post orWhereTranslation($key, $value, $locale = null)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post orWhereTranslationLike($key, $value, $locale = null)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post published()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post translated()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post translatedIn($locale = null)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post whereHasMedia($tags, $match_all = false)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post whereHasMediaMatchAll($tags)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post wherePinned($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post wherePromoted($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post wherePublishedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post whereTranslation($key, $value, $locale = null)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post whereTranslationLike($key, $value, $locale = null)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post whereUnpublishedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post whereUserId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post withMedia($tags = array(), $match_all = false)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post withMediaMatchAll($tags = array())
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post withOwner(\App\Models\User $user)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post withTag(\App\Models\Tag $tag)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Post withTranslation()
- * @mixin \Eloquent
  */
 class Post extends Model
 {

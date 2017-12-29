@@ -8,24 +8,6 @@ use Illuminate\Database\Eloquent\Builder;
 
 /**
  * App\Models\Redirection.
- *
- * @property int $id
- * @property string $source
- * @property bool $active
- * @property string $target
- * @property string $type
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
- *
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Redirection actives()
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Redirection whereActive($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Redirection whereCreatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Redirection whereId($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Redirection whereSource($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Redirection whereTarget($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Redirection whereType($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Redirection whereUpdatedAt($value)
- * @mixin \Eloquent
  */
 class Redirection extends Model
 {
