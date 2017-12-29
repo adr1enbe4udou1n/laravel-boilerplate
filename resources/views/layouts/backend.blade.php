@@ -11,8 +11,8 @@
     <title>Administration | {{ config('app.name') }}</title>
 
     <!-- Styles -->
-    @if (!$hmr)
-    <link rel="stylesheet" href="{{ Html::asset('backend.css') }}">
+    @if ($stylePath = Html::asset('backend.css'))
+    <link rel="stylesheet" href="{{ $stylePath }}">
     @endif
 </head>
 <body class="app @yield('body_class')">

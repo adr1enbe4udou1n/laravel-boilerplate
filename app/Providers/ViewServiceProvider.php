@@ -28,7 +28,7 @@ class ViewServiceProvider extends ServiceProvider
                 return $manifest[$path];
             }
 
-            return $path;
+            return null;
         });
 
         /*

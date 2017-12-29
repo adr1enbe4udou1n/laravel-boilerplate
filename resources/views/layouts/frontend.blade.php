@@ -17,8 +17,8 @@
     @endif
 
     <!-- Styles -->
-    @if (!$hmr)
-    <link rel="stylesheet" href="{{ Html::asset('frontend.css') }}">
+    @if ($stylePath = Html::asset('frontend.css'))
+    <link rel="stylesheet" href="{{ $stylePath }}">
     @endif
 </head>
 <body class="@yield('body_class')">

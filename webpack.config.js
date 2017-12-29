@@ -1,6 +1,5 @@
 require('dotenv').config()
 const path = require('path')
-const fs = require('fs')
 const webpack = require('webpack')
 
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
@@ -9,8 +8,7 @@ const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
-const BundleAnalyzerPlugin = require(
-  'webpack-bundle-analyzer').BundleAnalyzerPlugin
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const hmr = process.argv.includes('--hot')
 const production = process.env.NODE_ENV === 'production'
@@ -18,17 +16,6 @@ const devServerPort = parseInt(process.env.DEV_SERVER_PORT || '8080', 10)
 
 const publicPathFolder = production ? '/dist/' : '/build/'
 const publicPath = hmr ? `http://localhost:${devServerPort}${publicPathFolder}` : publicPathFolder
-
-// Hot manifest
-const hotfilename = 'public/hot'
-
-if (fs.existsSync(hotfilename)) {
-  fs.unlinkSync(hotfilename)
-}
-
-if (hmr) {
-  fs.writeFileSync(hotfilename, 'hot reloading')
-}
 
 module.exports = {
   entry: {

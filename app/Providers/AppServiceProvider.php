@@ -46,8 +46,6 @@ class AppServiceProvider extends ServiceProvider
             // Force SSL if isSecure does not detect HTTPS
             URL::forceScheme('https');
         }
-
-        View::share('hmr', file_exists(public_path('hot')));
     }
 
     /**
