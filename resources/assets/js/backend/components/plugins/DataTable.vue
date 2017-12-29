@@ -1,47 +1,134 @@
 <template>
   <div class="table-container">
-    <table class="table table-striped table-bordered table-hover"
-           cellspacing="0"
-           width="100%"></table>
-    <BatchAction v-if="actions !== null" :options="actions" @action="onBulkAction"></BatchAction>
+    <b-row>
+      <b-col md="4" class="mb-3">
+        <b-form inline>
+          <label class="mr-2">{{ $t('labels.show') }}</label>
+          <b-form-select :options="pageOptions" v-model="perPage" class="mr-2" @input="onPagerChanged"></b-form-select>
+          <label >{{ $t('labels.entries') }}</label>
+        </b-form>
+      </b-col>
+    </b-row>
+    <slot></slot>
+    <b-row>
+      <b-col md="4">
+        <b-batch-action :options="actions" @action="onBulkAction"></b-batch-action>
+      </b-col>
+      <b-col md="4">
+        <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" v-if="totalRows > perPage"
+                      :class="[ 'justify-content-center' ]" @input="onPagerChanged"></b-pagination>
+      </b-col>
+    </b-row>
   </div>
 </template>
 
 <script>
   import axios from 'axios'
-  import BatchAction from './BatchAction'
 
   export default {
-    components: {
-      BatchAction
-    },
     props: {
-      options: {
-        type: Object,
+      searchRoute: {
+        type: String,
+        default: null
+      },
+      deleteRoute: {
+        type: String,
+        default: null
+      },
+      actionRoute: {
+        type: String,
         default: null
       },
       actions: {
         type: Object,
         default: null
-      },
-      actionRouteName: {
-        type: String,
-        default: null
+      }
+    },
+    data () {
+      return {
+        sortBy: null,
+        sortDesc: false,
+        currentPage: 1,
+        perPage: 10,
+        totalRows: 0,
+        pageOptions: [ 5, 10, 15, 25, 50 ]
       }
     },
     methods: {
-      refresh () {
-        let dataTable = $(this.$el).find('table').DataTable()
-        dataTable.ajax.reload(null, false)
+      onPagerChanged () {
+        this.refresh(this.sortBy, this.sortDesc)
       },
-      onBulkAction ($name) {
-        let dataTable = $(this.$el).find('table').DataTable()
-        axios.post(this.$app.route(this.actionRouteName), {
-          action: $name,
-          ids: dataTable.rows({selected: true}).ids().toArray()
+      refresh (sortBy, sortDesc) {
+        this.sortBy = sortBy
+        this.sortDesc = sortDesc
+
+        axios.get(this.$app.route(this.searchRoute), {
+          params: {
+            page: this.currentPage,
+            perPage: this.perPage,
+            column: this.sortBy,
+            direction: this.sortDesc ? 'desc' : 'asc'
+          }
+        })
+          .then((response) => {
+            this.totalRows = response.data.total
+
+            this.$emit('data-loaded', response.data.data)
+          })
+          .catch((error) => {
+            // Domain error
+            if (error.response.data.error !== undefined) {
+              window.toastr.error(error.response.data.error)
+              return
+            }
+
+            // Generic error
+            window.toastr.error(this.$t('exceptions.general'))
+          })
+      },
+      deleteRow (id) {
+        window.swal({
+          title: this.$t('labels.are_you_sure'),
+          type: 'warning',
+          showCancelButton: true,
+          cancelButtonText: this.$t('buttons.cancel'),
+          confirmButtonColor: '#dd4b39',
+          confirmButtonText: this.$t('buttons.delete')
+        }).then((result) => {
+          if (result.value) {
+            axios.delete(this.$app.route(this.deleteRoute, {id}))
+              .then((response) => {
+                // Reload Datatables and keep current pager
+                window.toastr[response.data.status](response.data.message)
+              })
+              .catch((error) => {
+                // Not allowed error
+                if (error.response.status === 403) {
+                  window.toastr.error(this.$t('exceptions.unauthorized'))
+                  return
+                }
+
+                // Domain error
+                if (error.response.data.error !== undefined) {
+                  window.toastr.error(error.response.data.error)
+                  return
+                }
+
+                // Generic error
+                window.toastr.error(this.$t('exceptions.general'))
+              })
+          }
+        })
+      },
+      onBulkAction (name) {
+        // Récupérer les éléments sélectionnés ??
+        let ids = []
+
+        axios.post(this.$app.route(this.actionRoute), {
+          action: name,
+          ids
         }).then((response) => {
           // Reload Datatables and keep current pager
-          dataTable.ajax.reload(null, false)
           window.toastr[response.data.status](response.data.message)
         }).catch((error) => {
           // Not allowed error
@@ -60,120 +147,6 @@
           window.toastr.error(this.$t('exceptions.general'))
         })
       }
-    },
-    mounted () {
-      let options = this.options
-      let $container = $(this.$el)
-      let $table = $container.find('table')
-      let $formAction = $container.find('form')
-
-      /**
-       * Fix remove form-inline
-       */
-      $.extend($.fn.dataTable.ext.classes, {
-        sWrapper: 'dataTables_wrapper dt-bootstrap4'
-      })
-      /**
-       * Default options
-       */
-      let dataTableOptions = {
-        lengthMenu: [[5, 10, 15, 25, 50, -1], [5, 10, 15, 25, 50, this.$app.locale === 'en' ? 'All' : 'Tout']],
-        buttons: [
-          {
-            text: this.$t('labels.export'),
-            extend: 'csvHtml5'
-          }
-        ],
-        dom:
-        '<\'row\'<\'col-md-4\'l><\'col-md-4 text-center\'i><\'col-md-4\'f>>' +
-        '<\'row\'<\'col\'tr>>' +
-        '<\'row\'<\'col-md-4 table-group-actions\'><\'col-md-4\'p><\'col-md-4 text-right\'B>>',
-        ajax: {
-          error: (xhr) => {
-            // If not logged, force redirect
-            if (xhr.status === 401) {
-              window.location = this.$app.route('admin.login')
-              return
-            }
-
-            // Not allowed error
-            if (xhr.status === 403) {
-              window.toastr.error(this.$t('exceptions.unauthorized'))
-              return
-            }
-
-            // Generic error
-            window.toastr.error(this.$t('exceptions.general'))
-          }
-        }
-      }
-
-      if (this.$app.locale !== 'en') {
-        dataTableOptions['language'] = {
-          url: `/i18n/datatables.${this.$app.locale}.json`
-        }
-      }
-
-      $.extend(true, $.fn.dataTable.defaults, dataTableOptions)
-      $.fn.dataTable.ext.errMode = 'none'
-
-      /**
-       * Integrate form actions into datatable layout
-       */
-      $(document).on('preInit.dt', () => {
-        let $actionWrapper = $container.find('.table-group-actions')
-        $formAction.detach().appendTo($actionWrapper)
-      })
-
-      $table.DataTable(options)
-
-      $table.on('draw.dt', () => {
-        $('[data-router-link]').click((e) => {
-          e.preventDefault()
-          let url = $(e.currentTarget).attr('href')
-          this.$router.push(url)
-        })
-
-        $('[data-delete-link]').click((e) => {
-          e.preventDefault()
-          let url = $(e.currentTarget).attr('href')
-          let dataTable = $(e.currentTarget).closest('table').DataTable()
-
-          window.swal({
-            title: this.$t('labels.are_you_sure'),
-            type: 'warning',
-            showCancelButton: true,
-            cancelButtonText: this.$t('buttons.cancel'),
-            confirmButtonColor: '#dd4b39',
-            confirmButtonText: this.$t('buttons.delete')
-          }).then((result) => {
-            if (result.value) {
-              axios.delete(url)
-                .then((response) => {
-                  // Reload Datatables and keep current pager
-                  dataTable.ajax.reload(null, false)
-                  window.toastr[response.data.status](response.data.message)
-                })
-                .catch((error) => {
-                  // Not allowed error
-                  if (error.response.status === 403) {
-                    window.toastr.error(this.$t('exceptions.unauthorized'))
-                    return
-                  }
-
-                  // Domain error
-                  if (error.response.data.error !== undefined) {
-                    window.toastr.error(error.response.data.error)
-                    return
-                  }
-
-                  // Generic error
-                  window.toastr.error(this.$t('exceptions.general'))
-                })
-            }
-          })
-        })
-      })
     }
   }
 </script>

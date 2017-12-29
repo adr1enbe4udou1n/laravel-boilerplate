@@ -50,10 +50,13 @@ class UserController extends BackendController
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            return $this->users->query()
-                ->with('roles')
-                ->orderBy($request->get('column'), $request->get('direction'))
-                ->paginate($request->get('perPage', 10), [
+            $query = $this->users->query()->with('roles');
+
+            if ($column = $request->get('column')) {
+                $query->orderBy($request->get('column'), $request->get('direction') ?? 'asc');
+            }
+
+            return $query->paginate($request->get('perPage', 10), [
                 'id',
                 'name',
                 'email',
@@ -73,7 +76,7 @@ class UserController extends BackendController
      */
     public function show(User $user)
     {
-        if (! $this->users->canEdit($user)) {
+        if (! $user->can_edit) {
             // Only Super admin can access himself
             abort(403);
         }
