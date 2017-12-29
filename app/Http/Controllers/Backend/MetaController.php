@@ -32,21 +32,25 @@ class MetaController extends BackendController
      *
      * @throws \Exception
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Http\JsonResponse
      */
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            return $this->metas->select([
+            $query = $this->metas->query();
+
+            if ($column = $request->get('column')) {
+                $query->orderBy($request->get('column'), $request->get('direction') ?? 'asc');
+            }
+
+            return $query->paginate($request->get('perPage'), [
                 'metas.id',
                 'route',
                 'metable_type',
                 'metable_id',
                 'created_at',
                 'updated_at',
-            ])
-              ->forPage(0, 10)
-              ->get();
+            ]);
         }
     }
 

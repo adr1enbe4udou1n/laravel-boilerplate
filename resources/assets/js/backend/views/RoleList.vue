@@ -9,7 +9,39 @@
         </div>
         <h4 class="mt-1">{{ $t('labels.backend.roles.titles.index') }}</h4>
       </template>
-      <b-datatable :options="dataTableOptions"></b-datatable>
+      <b-datatable ref="datatable"
+                   @data-loaded="onDataLoaded"
+                   search-route="admin.roles.search"
+                   delete-route="admin.roles.destroy"
+                   :lengthChange="false" :paging="false">
+        <b-table striped
+                 bordered
+                 show-empty
+                 stacked="md"
+                 no-local-sorting
+                 :empty-text="$t('labels.no_results')"
+                 :empty-filtered-text="$t('labels.no_results')"
+                 :fields="fields"
+                 :items="items"
+                 :sort-by="sortBy"
+                 :sort-desc="sortDesc"
+                 @sort-changed="onSort"
+        >
+          <template slot="name" slot-scope="row">
+            <router-link :to="`/roles/${row.item.id}/edit`">
+              {{row.value}}
+            </router-link>
+          </template>
+          <template slot="actions" slot-scope="row">
+            <b-button v-if="row.item.can_edit" size="sm" variant="primary" :to="`/roles/${row.item.id}/edit`" v-b-tooltip.hover :title="$t('buttons.edit')" class="mr-1">
+              <i class="icon-pencil"></i>
+            </b-button>
+            <b-button v-if="row.item.can_delete" size="sm" variant="danger" v-b-tooltip.hover :title="$t('buttons.delete')" @click.stop="onDelete(row.value.id)">
+              <i class="icon-trash"></i>
+            </b-button>
+          </template>
+        </b-table>
+      </b-datatable>
     </b-card>
   </div>
 </template>
@@ -19,70 +51,32 @@
     name: 'role_list',
     data () {
       return {
-        dataTableOptions: {
-          responsive: true,
-          serverSide: true,
-          processing: true,
-          autoWidth: false,
-          lengthChange: false,
-          searching: false,
-          paging: false,
-          info: false,
-          buttons: [],
-          ajax: {
-            url: this.$app.route('admin.roles.search'),
-            type: 'post'
-          },
-          columns: [
-            {
-              title: this.$t('validation.attributes.name'),
-              data: 'name',
-              name: 'name',
-              orderable: false,
-              width: 150,
-              responsivePriority: 1
-            }, {
-              title: this.$t('validation.attributes.order'),
-              data: 'order',
-              name: 'order',
-              width: 120,
-              className: 'text-right'
-            }, {
-              title: this.$t('validation.attributes.display_name'),
-              data: 'display_name',
-              name: 'display_name',
-              defaultContent: this.$t('labels.no_value'),
-              orderable: false,
-              width: 150
-            }, {
-              title: this.$t('validation.attributes.description'),
-              data: 'description',
-              name: 'description',
-              defaultContent: this.$t('labels.no_value'),
-              orderable: false
-            }, {
-              title: this.$t('labels.created_at'),
-              data: 'created_at',
-              name: 'created_at',
-              width: 110,
-              className: 'text-center'
-            }, {
-              title: this.$t('labels.updated_at'),
-              data: 'updated_at',
-              name: 'updated_at',
-              width: 110,
-              className: 'text-center'
-            }, {
-              title: this.$t('labels.actions'),
-              data: 'actions',
-              name: 'actions',
-              orderable: false,
-              width: 75,
-              className: 'nowrap',
-              responsivePriority: 2
-            }],
-          order: [[1, 'asc']]
-        }
+        items: [],
+        fields: [
+          { key: 'name', label: this.$t('validation.attributes.name'), sortable: true },
+          { key: 'order', label: this.$t('validation.attributes.order'), 'class': 'text-right', sortable: true },
+          { key: 'display_name', label: this.$t('validation.attributes.display_name') },
+          { key: 'description', label: this.$t('validation.attributes.description') },
+          { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
+          { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
+          { key: 'actions', label: this.$t('labels.actions') }
+        ],
+        sortBy: 'order',
+        sortDesc: false
+      }
+    },
+    mounted () {
+      this.$refs.datatable.refresh(this.sortBy, this.sortDesc)
+    },
+    methods: {
+      onDataLoaded (items) {
+        this.items = items
+      },
+      onSort (ctx) {
+        this.$refs.datatable.refresh(ctx.sortBy, ctx.sortDesc)
+      },
+      onDelete (id) {
+        this.$refs.datatable.deleteRow(id)
       }
     }
   }

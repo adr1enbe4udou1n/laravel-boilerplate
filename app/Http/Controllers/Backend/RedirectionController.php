@@ -33,12 +33,18 @@ class RedirectionController extends BackendController
      *
      * @throws \Exception
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Http\JsonResponse
      */
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            return $this->redirections->select([
+            $query = $this->redirections->query();
+
+            if ($column = $request->get('column')) {
+                $query->orderBy($request->get('column'), $request->get('direction') ?? 'asc');
+            }
+
+            return $query->paginate($request->get('perPage'), [
                 'id',
                 'source',
                 'active',
@@ -46,9 +52,7 @@ class RedirectionController extends BackendController
                 'type',
                 'created_at',
                 'updated_at',
-            ])
-              ->forPage(0, 10)
-              ->get();
+            ]);
         }
     }
 

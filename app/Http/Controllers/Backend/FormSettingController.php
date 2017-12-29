@@ -32,19 +32,24 @@ class FormSettingController extends BackendController
      *
      * @throws \Exception
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Http\JsonResponse
      */
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            return $this->formSettings->select([
+            $query = $this->formSettings->query();
+
+            if ($column = $request->get('column')) {
+                $query->orderBy($request->get('column'), $request->get('direction') ?? 'asc');
+            }
+
+            return $query->paginate($request->get('perPage'), [
                 'id',
                 'name',
                 'recipients',
                 'created_at',
                 'updated_at',
-            ])
-              ->get();
+            ]);
         }
     }
 

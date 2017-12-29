@@ -56,7 +56,7 @@ class UserController extends BackendController
                 $query->orderBy($request->get('column'), $request->get('direction') ?? 'asc');
             }
 
-            return $query->paginate($request->get('perPage', 10), [
+            return $query->paginate($request->get('perPage'), [
                 'id',
                 'name',
                 'email',

@@ -73,13 +73,24 @@ class PostController extends BackendController
      *
      * @throws \Exception
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Http\JsonResponse
      */
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
             /** @var Builder $query */
-            $query = $this->posts->select([
+            $query = $this->posts->query();
+
+            if (! Gate::check('view posts')) {
+                // Filter to only current user's posts
+                $query->whereUserId(auth()->id());
+            }
+
+            if ($column = $request->get('column')) {
+                $query->orderBy($request->get('column'), $request->get('direction') ?? 'asc');
+            }
+
+            return $query->paginate($request->get('perPage'), [
                 'posts.id',
                 'user_id',
                 'status',
@@ -88,15 +99,6 @@ class PostController extends BackendController
                 'created_at',
                 'updated_at',
             ]);
-
-            if (! Gate::check('view posts')) {
-                // Filter to only current user's posts
-                $query->whereUserId(auth()->id());
-            }
-
-            return $query
-              ->forPage(0, 10)
-              ->get();
         }
     }
 

@@ -2,7 +2,7 @@
   <div class="table-container">
     <b-row>
       <b-col md="4" class="mb-3">
-        <b-form inline>
+        <b-form inline v-if="lengthChange">
           <label class="mr-2">{{ $t('labels.show') }}</label>
           <b-form-select :options="pageOptions" v-model="perPage" class="mr-2" @input="onPagerChanged"></b-form-select>
           <label >{{ $t('labels.entries') }}</label>
@@ -12,10 +12,10 @@
     <slot></slot>
     <b-row>
       <b-col md="4">
-        <b-batch-action :options="actions" @action="onBulkAction"></b-batch-action>
+        <b-batch-action v-if="actions" :options="actions" @action="onBulkAction"></b-batch-action>
       </b-col>
       <b-col md="4">
-        <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" v-if="totalRows > perPage"
+        <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" v-if="paging && totalRows > perPage"
                       :class="[ 'justify-content-center' ]" @input="onPagerChanged"></b-pagination>
       </b-col>
     </b-row>
@@ -27,6 +27,14 @@
 
   export default {
     props: {
+      lengthChange: {
+        type: Boolean,
+        default: true
+      },
+      paging: {
+        type: Boolean,
+        default: true
+      },
       searchRoute: {
         type: String,
         default: null
@@ -49,7 +57,7 @@
         sortBy: null,
         sortDesc: false,
         currentPage: 1,
-        perPage: 10,
+        perPage: 15,
         totalRows: 0,
         pageOptions: [ 5, 10, 15, 25, 50 ]
       }
