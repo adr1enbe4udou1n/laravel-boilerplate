@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\FormSetting;
 use Illuminate\Http\Request;
-use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\StoreFormSettingRequest;
 use App\Http\Requests\UpdateFormSettingRequest;
 use App\Repositories\Contracts\FormSettingRepository;
@@ -38,26 +37,14 @@ class FormSettingController extends BackendController
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            /** @var \Yajra\DataTables\EloquentDataTable $query */
-            $query = DataTables::of($this->formSettings->select([
+            return $this->formSettings->select([
                 'id',
                 'name',
                 'recipients',
                 'created_at',
                 'updated_at',
-            ]));
-
-            return $query->editColumn('name', function (FormSetting $formSetting) {
-                return __("forms.{$formSetting->name}.display_name");
-            })->addColumn('actions', function (FormSetting $formSetting) {
-                return $this->formSettings->getActionButtons($formSetting);
-            })->editColumn('created_at', function (FormSetting $formSetting) use ($request) {
-                return $formSetting->created_at->setTimezone($request->user()->timezone);
-            })->editColumn('updated_at', function (FormSetting $formSetting) use ($request) {
-                return $formSetting->updated_at->setTimezone($request->user()->timezone);
-            })
-                ->rawColumns(['actions'])
-                ->make(true);
+            ])
+              ->get();
         }
     }
 

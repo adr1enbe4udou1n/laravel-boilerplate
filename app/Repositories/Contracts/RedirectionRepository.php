@@ -58,11 +58,4 @@ interface RedirectionRepository extends BaseRepository
      * @return mixed
      */
     public function batchDisable(array $ids);
-
-    /**
-     * @param \App\Models\Redirection $redirection
-     *
-     * @return mixed
-     */
-    public function getActionButtons(Redirection $redirection);
 }

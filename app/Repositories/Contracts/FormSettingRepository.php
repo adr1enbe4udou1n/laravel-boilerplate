@@ -37,11 +37,4 @@ interface FormSettingRepository extends BaseRepository
      * @return mixed
      */
     public function destroy(FormSetting $formSetting);
-
-    /**
-     * @param \App\Models\FormSetting $formSetting
-     *
-     * @return mixed
-     */
-    public function getActionButtons(FormSetting $formSetting);
 }

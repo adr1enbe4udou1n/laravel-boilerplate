@@ -70,6 +70,18 @@ class Meta extends Model
         'translations',
     ];
 
+    protected $appends = ['can_edit', 'can_delete'];
+
+    public function getCanEditAttribute()
+    {
+        return true;
+    }
+
+    public function getCanDeleteAttribute()
+    {
+        return Gate::check('access all backend') || Gate::check('delete metas');
+    }
+
     public function metable()
     {
         return $this->morphTo();

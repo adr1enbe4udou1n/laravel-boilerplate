@@ -6,7 +6,6 @@ use App\Models\Meta;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreMetaRequest;
 use App\Http\Requests\UpdateMetaRequest;
-use Yajra\DataTables\Facades\DataTables;
 use App\Repositories\Contracts\MetaRepository;
 
 class MetaController extends BackendController
@@ -38,27 +37,16 @@ class MetaController extends BackendController
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            /** @var \Yajra\DataTables\EloquentDataTable $query */
-            $query = DataTables::of($this->metas->select([
+            return $this->metas->select([
                 'metas.id',
                 'route',
                 'metable_type',
                 'metable_id',
                 'created_at',
                 'updated_at',
-            ]));
-
-            return $query->editColumn('metable_type', function (Meta $meta) {
-                return $meta->metable_type ? __("labels.morphs.{$meta->metable_type}", ['id' => $meta->metable_id]) : null;
-            })->addColumn('actions', function (Meta $meta) {
-                return $this->metas->getActionButtons($meta);
-            })->editColumn('created_at', function (Meta $meta) use ($request) {
-                return $meta->created_at->setTimezone($request->user()->timezone);
-            })->editColumn('updated_at', function (Meta $meta) use ($request) {
-                return $meta->updated_at->setTimezone($request->user()->timezone);
-            })
-                ->rawColumns(['actions'])
-                ->make(true);
+            ])
+              ->forPage(0, 10)
+              ->get();
         }
     }
 

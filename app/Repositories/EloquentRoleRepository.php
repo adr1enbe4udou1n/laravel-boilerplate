@@ -6,15 +6,12 @@ use Exception;
 use App\Models\Role;
 use App\Exceptions\GeneralException;
 use App\Repositories\Contracts\RoleRepository;
-use App\Repositories\Traits\HtmlActionsButtons;
 
 /**
  * Class EloquentRoleRepository.
  */
 class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepository
 {
-    use HtmlActionsButtons;
-
     /**
      * EloquentRoleRepository constructor.
      *
@@ -136,18 +133,5 @@ class EloquentRoleRepository extends EloquentBaseRepository implements RoleRepos
         });
 
         return $roles;
-    }
-
-    /**
-     * @param \App\Models\Role $role
-     *
-     * @return mixed
-     */
-    public function getActionButtons(Role $role)
-    {
-        $buttons = $this->getEditButtonHtml("/roles/{$role->id}/edit")
-            .$this->getDeleteButtonHtml('admin.roles.destroy', $role, 'delete roles');
-
-        return $buttons;
     }
 }

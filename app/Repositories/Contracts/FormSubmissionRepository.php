@@ -30,11 +30,4 @@ interface FormSubmissionRepository extends BaseRepository
      * @return mixed
      */
     public function batchDestroy(array $ids);
-
-    /**
-     * @param \App\Models\FormSubmission $formSubmission
-     *
-     * @return mixed
-     */
-    public function getActionButtons(FormSubmission $formSubmission);
 }

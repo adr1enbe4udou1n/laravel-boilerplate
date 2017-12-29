@@ -6,7 +6,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
-use Yajra\DataTables\Facades\DataTables;
 use App\Repositories\Contracts\RoleRepository;
 use App\Repositories\Contracts\UserRepository;
 
@@ -46,13 +45,15 @@ class UserController extends BackendController
      *
      * @throws \Exception
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Http\JsonResponse
      */
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            /** @var \Yajra\DataTables\EloquentDataTable $query */
-            $query = DataTables::of($this->users->select([
+            return $this->users->query()
+                ->with('roles')
+                ->orderBy($request->get('column'), $request->get('direction'))
+                ->paginate($request->get('perPage', 10), [
                 'id',
                 'name',
                 'email',
@@ -61,31 +62,7 @@ class UserController extends BackendController
                 'last_access_at',
                 'created_at',
                 'updated_at',
-            ])->with('roles'));
-
-            return $query->editColumn('name', function (User $user) {
-                if ($this->users->canEdit($user)) {
-                    return "<a href=\"/users/{$user->id}/edit\" data-router-link>{$user->name}</a>";
-                }
-
-                return $user->name;
-            })->editColumn('confirmed', function (User $user) {
-                return boolean_html_label($user->confirmed);
-            })->editColumn('active', function (User $user) {
-                return boolean_html_label($user->active);
-            })->editColumn('roles', function (User $user) {
-                return $user->formatted_roles;
-            })->addColumn('actions', function (User $user) {
-                return $this->users->getActionButtons($user);
-            })->addColumn('last_access_at', function (User $user) use ($request) {
-                return $user->last_access_at ? $user->last_access_at->setTimezone($request->user()->timezone) : null;
-            })->editColumn('created_at', function (User $user) use ($request) {
-                return $user->created_at->setTimezone($request->user()->timezone);
-            })->editColumn('updated_at', function (User $user) use ($request) {
-                return $user->updated_at->setTimezone($request->user()->timezone);
-            })
-                ->rawColumns(['name', 'confirmed', 'active', 'actions'])
-                ->make(true);
+            ]);
         }
     }
 

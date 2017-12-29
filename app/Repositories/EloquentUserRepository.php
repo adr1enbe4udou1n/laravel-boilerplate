@@ -10,11 +10,9 @@ use App\Events\UserUpdated;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use App\Exceptions\GeneralException;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Contracts\Config\Repository;
 use App\Repositories\Contracts\RoleRepository;
 use App\Repositories\Contracts\UserRepository;
-use App\Repositories\Traits\HtmlActionsButtons;
 use Mcamara\LaravelLocalization\LaravelLocalization;
 
 /**
@@ -22,8 +20,6 @@ use Mcamara\LaravelLocalization\LaravelLocalization;
  */
 class EloquentUserRepository extends EloquentBaseRepository implements UserRepository
 {
-    use HtmlActionsButtons;
-
     /**
      * @var \Mcamara\LaravelLocalization\LaravelLocalization
      */
@@ -254,57 +250,5 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
         });
 
         return true;
-    }
-
-    private function canImpersonate(User $user)
-    {
-        if (Gate::check('impersonate users')) {
-            return ! $user->is_super_admin
-                && session()->get('admin_user_id') !== $user->id
-                && $user->id !== auth()->id();
-        }
-
-        return false;
-    }
-
-    public function canEdit(User $user)
-    {
-        return ! $user->is_super_admin || 1 === auth()->id();
-    }
-
-    public function canDelete(User $user)
-    {
-        return ! $user->is_super_admin && $user->id !== auth()->id();
-    }
-
-    /**
-     * @param \App\Models\User $user
-     *
-     * @return string
-     */
-    public function getActionButtons(User $user)
-    {
-        $buttons = '';
-
-        // Only super admin user can edit himself
-        if ($this->canEdit($user)) {
-            $buttons .= $this->getEditButtonHtml("/users/{$user->id}/edit");
-        }
-
-        if ($this->canImpersonate($user)) {
-            $title
-                = '<i class="icon-lock" data-toggle="tooltip" data-placement="top" title="'
-                .__('buttons.login-as', ['name' => $user->name]).'"></i>';
-
-            $route = route('login-as', $user);
-
-            $buttons .= "<a href=\"{$route}\" class=\"btn btn-sm btn-warning\">{$title}</a>&nbsp;";
-        }
-
-        if ($this->canDelete($user)) {
-            $buttons .= $this->getDeleteButtonHtml('admin.users.destroy', $user, 'delete users');
-        }
-
-        return $buttons;
     }
 }

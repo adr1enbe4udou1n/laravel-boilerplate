@@ -63,14 +63,7 @@ module.exports = {
       'flatpickr',
       'chart.js',
       'quill',
-      'vue-chartjs',
-      'datatables.net',
-      'datatables.net-bs4',
-      'datatables.net-select',
-      'datatables.net-buttons',
-      'datatables.net-buttons-bs4',
-      'datatables.net-responsive',
-      'datatables.net-responsive-bs4'
+      'vue-chartjs'
     ],
     locales: [
       './resources/assets/js/vue-i18n-locales.generated.js'

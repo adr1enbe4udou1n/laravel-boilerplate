@@ -7,15 +7,12 @@ use App\Models\Meta;
 use Illuminate\Support\Facades\DB;
 use App\Exceptions\GeneralException;
 use App\Repositories\Contracts\MetaRepository;
-use App\Repositories\Traits\HtmlActionsButtons;
 
 /**
  * Class EloquentMetaRepository.
  */
 class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepository
 {
-    use HtmlActionsButtons;
-
     /**
      * EloquentMetaRepository constructor.
      *
@@ -121,18 +118,5 @@ class EloquentMetaRepository extends EloquentBaseRepository implements MetaRepos
         });
 
         return true;
-    }
-
-    /**
-     * @param \App\Models\Meta $meta
-     *
-     * @return mixed
-     */
-    public function getActionButtons(Meta $meta)
-    {
-        $buttons = $this->getEditButtonHtml("/metas/{$meta->id}/edit")
-            .$this->getDeleteButtonHtml('admin.metas.destroy', $meta, 'delete metas');
-
-        return $buttons;
     }
 }

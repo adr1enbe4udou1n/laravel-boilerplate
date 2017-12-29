@@ -6,7 +6,6 @@ use Exception;
 use App\Models\Redirection;
 use Illuminate\Support\Facades\DB;
 use App\Exceptions\GeneralException;
-use App\Repositories\Traits\HtmlActionsButtons;
 use App\Repositories\Contracts\RedirectionRepository;
 
 /**
@@ -14,8 +13,6 @@ use App\Repositories\Contracts\RedirectionRepository;
  */
 class EloquentRedirectionRepository extends EloquentBaseRepository implements RedirectionRepository
 {
-    use HtmlActionsButtons;
-
     /**
      * EloquentRedirectionRepository constructor.
      *
@@ -162,18 +159,5 @@ class EloquentRedirectionRepository extends EloquentBaseRepository implements Re
         });
 
         return true;
-    }
-
-    /**
-     * @param \App\Models\Redirection $redirection
-     *
-     * @return mixed
-     */
-    public function getActionButtons(Redirection $redirection)
-    {
-        $buttons = $this->getEditButtonHtml("/redirections/{$redirection->id}/edit")
-            .$this->getDeleteButtonHtml('admin.redirections.destroy', $redirection, 'delete redirections');
-
-        return $buttons;
     }
 }

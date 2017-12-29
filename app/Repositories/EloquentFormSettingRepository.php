@@ -5,7 +5,6 @@ namespace App\Repositories;
 use Exception;
 use App\Models\FormSetting;
 use App\Exceptions\GeneralException;
-use App\Repositories\Traits\HtmlActionsButtons;
 use App\Repositories\Contracts\FormSettingRepository;
 
 /**
@@ -13,8 +12,6 @@ use App\Repositories\Contracts\FormSettingRepository;
  */
 class EloquentFormSettingRepository extends EloquentBaseRepository implements FormSettingRepository
 {
-    use HtmlActionsButtons;
-
     /**
      * EloquentFormSettingRepository constructor.
      *
@@ -97,18 +94,5 @@ class EloquentFormSettingRepository extends EloquentBaseRepository implements Fo
         }
 
         return true;
-    }
-
-    /**
-     * @param \App\Models\FormSetting $formSetting
-     *
-     * @return mixed
-     */
-    public function getActionButtons(FormSetting $formSetting)
-    {
-        $buttons = $this->getEditButtonHtml("/form-settings/{$formSetting->id}/edit")
-            .$this->getDeleteButtonHtml('admin.form_settings.destroy', $formSetting, 'delete form_settings');
-
-        return $buttons;
     }
 }

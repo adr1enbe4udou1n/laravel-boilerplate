@@ -35,11 +35,4 @@ interface RoleRepository extends BaseRepository
      * @return \Illuminate\Support\Collection
      */
     public function getAllowedRoles();
-
-    /**
-     * @param \App\Models\Role $role
-     *
-     * @return mixed
-     */
-    public function getActionButtons(Role $role);
 }

@@ -1875,56 +1875,6 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
-datatables.net-bs4@^1.10.15, datatables.net-bs4@^1.10.16:
-  version "1.10.16"
-  resolved "https://registry.yarnpkg.com/datatables.net-bs4/-/datatables.net-bs4-1.10.16.tgz#9eee67cfa8565bd3807a603a188305f7d0e20e32"
-  dependencies:
-    datatables.net "1.10.16"
-    jquery ">=1.7"
-
-datatables.net-buttons-bs4@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/datatables.net-buttons-bs4/-/datatables.net-buttons-bs4-1.5.1.tgz#496c60005721e01f43baa58172631112f4fa5a64"
-  dependencies:
-    datatables.net-bs4 "^1.10.15"
-    datatables.net-buttons "1.5.1"
-    jquery ">=1.7"
-
-datatables.net-buttons@1.5.1, datatables.net-buttons@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/datatables.net-buttons/-/datatables.net-buttons-1.5.1.tgz#cdb35c0c8b0260cd45b0df6b39f6da815357febb"
-  dependencies:
-    datatables.net "^1.10.15"
-    jquery ">=1.7"
-
-datatables.net-responsive-bs4@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/datatables.net-responsive-bs4/-/datatables.net-responsive-bs4-2.2.1.tgz#eb3544fbb596bb16559ba9da993ebde4da2a5168"
-  dependencies:
-    datatables.net-bs4 "^1.10.15"
-    datatables.net-responsive "2.2.1"
-    jquery ">=1.7"
-
-datatables.net-responsive@2.2.1, datatables.net-responsive@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/datatables.net-responsive/-/datatables.net-responsive-2.2.1.tgz#0cb29bc822516c635d87649682fcd86ba1847fed"
-  dependencies:
-    datatables.net "^1.10.15"
-    jquery ">=1.7"
-
-datatables.net-select@^1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/datatables.net-select/-/datatables.net-select-1.2.4.tgz#799eed5d8cfcf21e4502b49c61e84fc4b5f457f7"
-  dependencies:
-    datatables.net "^1.10.15"
-    jquery ">=1.7"
-
-datatables.net@1.10.16, datatables.net@^1.10.15, datatables.net@^1.10.16:
-  version "1.10.16"
-  resolved "https://registry.yarnpkg.com/datatables.net/-/datatables.net-1.10.16.tgz#4b052d1082824261b68eed9d22741b711d3d2469"
-  dependencies:
-    jquery ">=1.7"
-
 date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
@@ -4092,7 +4042,7 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
 
-jquery@>=1.12.0, jquery@>=1.7, jquery@>=3.0.0, jquery@^3.2.1:
+jquery@>=1.12.0, jquery@>=3.0.0, jquery@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
 

@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
-use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Database\Eloquent\Builder;
 use App\Repositories\Contracts\TagRepository;
 use App\Repositories\Contracts\PostRepository;
@@ -95,31 +94,9 @@ class PostController extends BackendController
                 $query->whereUserId(auth()->id());
             }
 
-            /** @var \Yajra\DataTables\EloquentDataTable $query */
-            $query = DataTables::of($query);
-
-            return $query->addColumn('actions', function (Post $post) {
-                return $this->posts->getActionButtons($post);
-            })->addColumn('image', function (Post $post) {
-                $url = image_template_url('small', $post->featured_image_path);
-
-                return "<a href=\"/posts/{$post->id}/edit\" data-router-link>"
-                    ."<img src=\"$url\" alt=\"{$post->title}\"></a>";
-            })->editColumn('title', function (Post $post) {
-                return "<a href=\"/posts/{$post->id}/edit\" data-router-link>{$post->title}</a>";
-            })->editColumn('status', function (Post $post) {
-                return state_html_label($post->state, __($post->status_label));
-            })->editColumn('pinned', function (Post $post) {
-                return boolean_html_label($post->pinned);
-            })->editColumn('promoted', function (Post $post) {
-                return boolean_html_label($post->promoted);
-            })->editColumn('created_at', function (Post $post) use ($request) {
-                return $post->created_at->setTimezone($request->user()->timezone);
-            })->editColumn('updated_at', function (Post $post) use ($request) {
-                return $post->updated_at->setTimezone($request->user()->timezone);
-            })
-                ->rawColumns(['image', 'title', 'status', 'pinned', 'promoted', 'actions'])
-                ->make(true);
+            return $query
+              ->forPage(0, 10)
+              ->get();
         }
     }
 

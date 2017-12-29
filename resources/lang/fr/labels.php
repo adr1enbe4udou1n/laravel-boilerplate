@@ -9,6 +9,8 @@ return [
     'choose_file' => 'Sélectionner un fichier',
     'no_file_chosen' => 'Aucun fichier sélectionné',
     'no_results' => 'Aucun résultat trouvé',
+    'show' => 'Afficher',
+    'entries' => 'éléments',
     'are_you_sure' => 'Etes-vous sûr ?',
     'yes' => 'Oui',
     'no' => 'Non',

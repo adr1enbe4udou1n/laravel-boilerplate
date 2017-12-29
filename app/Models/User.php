@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Builder;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -104,8 +105,34 @@ class User extends Authenticatable
      * @var array
      */
     protected $appends = [
-      'avatar',
+        'avatar',
+        'can_edit',
+        'can_delete',
+        'can_impersonate',
     ];
+
+    public function getCanEditAttribute()
+    {
+        return ! $this->is_super_admin || 1 === auth()->id();
+    }
+
+    public function getCanDeleteAttribute()
+    {
+        return ! $this->is_super_admin && $this->id !== auth()->id() && (
+            Gate::check('access all backend') || Gate::check('delete users')
+        );
+    }
+
+    public function getCanImpersonateAttribute()
+    {
+        if (Gate::check('impersonate users')) {
+            return ! $this->is_super_admin
+                && session()->get('admin_user_id') !== $this->id
+                && $this->id !== auth()->id();
+        }
+
+        return false;
+    }
 
     public function scopeActives(Builder $query)
     {

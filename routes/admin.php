@@ -23,7 +23,7 @@ Route::group(
     function () {
         Route::get('form_submissions/counter', 'FormSubmissionController@getFormSubmissionCounter')->name('form_submissions.counter');
 
-        Route::post('form_submissions/search', 'FormSubmissionController@search')->name('form_submissions.search');
+        Route::get('form_submissions/search', 'FormSubmissionController@search')->name('form_submissions.search');
         Route::get('form_submissions/{form_submission}/show', 'FormSubmissionController@show')->name('form_submissions.show');
 
         Route::resource('form_submissions', 'FormSubmissionController', [
@@ -41,8 +41,7 @@ Route::group(
 
         Route::get('users/roles', 'UserController@getRoles')->name('users.get_roles');
 
-        Route::post('users/search', 'UserController@search')->name('users.search');
-
+        Route::get('users/search', 'UserController@search')->name('users.search');
         Route::get('users/{user}/show', 'UserController@show')->name('users.show');
 
         Route::resource('users', 'UserController', [
@@ -58,8 +57,7 @@ Route::group(
     function () {
         Route::get('roles/permissions', 'RoleController@getPermissions')->name('roles.get_permissions');
 
-        Route::post('roles/search', 'RoleController@search')->name('roles.search');
-
+        Route::get('roles/search', 'RoleController@search')->name('roles.search');
         Route::get('roles/{role}/show', 'RoleController@show')->name('roles.show');
 
         Route::resource('roles', 'RoleController', [
@@ -71,7 +69,7 @@ Route::group(
 Route::group(
     ['middleware' => ['can:view metas']],
     function () {
-        Route::post('metas/search', 'MetaController@search')->name('metas.search');
+        Route::get('metas/search', 'MetaController@search')->name('metas.search');
         Route::get('metas/{meta}/show', 'MetaController@show')->name('metas.show');
 
         Route::resource('metas', 'MetaController', [
@@ -87,8 +85,9 @@ Route::group(
     function () {
         Route::get('redirections/redirection_types', 'RedirectionController@getRedirectionTypes')->name('redirections.get_redirection_types');
 
-        Route::post('redirections/search', 'RedirectionController@search')->name('redirections.search');
+        Route::get('redirections/search', 'RedirectionController@search')->name('redirections.search');
         Route::get('redirections/{redirection}/show', 'RedirectionController@show')->name('redirections.show');
+
         Route::resource('redirections', 'RedirectionController', [
             'only' => ['store', 'update', 'destroy'],
         ]);
@@ -108,7 +107,7 @@ if (config('blog.enabled')) {
             Route::get('posts/published_counter', 'PostController@getPublishedPostCounter')->name('posts.published.counter');
             Route::get('posts/latest', 'PostController@getLastestPosts')->name('posts.latest');
 
-            Route::post('posts/search', 'PostController@search')->name('posts.search');
+            Route::get('posts/search', 'PostController@search')->name('posts.search');
             Route::get('posts/{post}/show', 'PostController@show')->name('posts.show');
 
             Route::resource('posts', 'PostController', [

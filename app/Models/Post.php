@@ -8,6 +8,7 @@ use Plank\Mediable\Mediable;
 use Laravel\Scout\Searchable;
 use App\Models\Traits\Metable;
 use App\Models\Traits\Taggable;
+use Illuminate\Support\Facades\Gate;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
@@ -104,6 +105,8 @@ class Post extends Model
         'state',
         'status_label',
         'featured_image_path',
+        'can_edit',
+        'can_delete',
     ];
 
     /**
@@ -134,6 +137,16 @@ class Post extends Model
         'media',
         'owner',
     ];
+
+    public function getCanEditAttribute()
+    {
+        return true;
+    }
+
+    public function getCanDeleteAttribute()
+    {
+        return Gate::check('access all backend') || Gate::check('delete', $this);
+    }
 
     protected static function boot()
     {

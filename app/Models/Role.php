@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\Gate;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
@@ -66,6 +67,18 @@ class Role extends Model
     protected $with = [
         'translations',
     ];
+
+    protected $appends = ['can_edit', 'can_delete'];
+
+    public function getCanEditAttribute()
+    {
+        return true;
+    }
+
+    public function getCanDeleteAttribute()
+    {
+        return Gate::check('access all backend') || Gate::check('delete roles');
+    }
 
     /**
      * Many-to-Many relations with Role.

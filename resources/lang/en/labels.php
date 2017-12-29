@@ -9,6 +9,8 @@ return [
     'choose_file' => 'Choose File',
     'no_file_chosen' => 'No file chosen',
     'no_results' => 'No results available',
+    'show' => 'Show',
+    'entries' => 'entries',
     'are_you_sure' => 'Are you sure ?',
     'yes' => 'Yes',
     'no' => 'No',

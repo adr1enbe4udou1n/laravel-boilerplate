@@ -44,11 +44,4 @@ interface MetaRepository extends BaseRepository
      * @return mixed
      */
     public function batchDestroy(array $ids);
-
-    /**
-     * @param \App\Models\Meta $meta
-     *
-     * @return mixed
-     */
-    public function getActionButtons(Meta $meta);
 }

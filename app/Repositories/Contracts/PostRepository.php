@@ -92,11 +92,4 @@ interface PostRepository extends BaseRepository
      * @return mixed
      */
     public function batchPin(array $ids);
-
-    /**
-     * @param \App\Models\Post $post
-     *
-     * @return mixed
-     */
-    public function getActionButtons(Post $post);
 }

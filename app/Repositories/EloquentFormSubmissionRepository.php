@@ -7,7 +7,6 @@ use App\Models\FormSubmission;
 use Illuminate\Support\Facades\DB;
 use App\Exceptions\GeneralException;
 use App\Events\FormSubmissionCreated;
-use App\Repositories\Traits\HtmlActionsButtons;
 use App\Repositories\Contracts\FormSubmissionRepository;
 
 /**
@@ -15,8 +14,6 @@ use App\Repositories\Contracts\FormSubmissionRepository;
  */
 class EloquentFormSubmissionRepository extends EloquentBaseRepository implements FormSubmissionRepository
 {
-    use HtmlActionsButtons;
-
     /**
      * EloquentFormSubmissionRepository constructor.
      *
@@ -93,18 +90,5 @@ class EloquentFormSubmissionRepository extends EloquentBaseRepository implements
         });
 
         return true;
-    }
-
-    /**
-     * @param \App\Models\FormSubmission $formSubmission
-     *
-     * @return mixed
-     */
-    public function getActionButtons(FormSubmission $formSubmission)
-    {
-        $buttons = $this->getShowButtonHtml("/form-submissions/{$formSubmission->id}/show")
-            .$this->getDeleteButtonHtml('admin.form_submissions.destroy', $formSubmission, 'delete form_submissions');
-
-        return $buttons;
     }
 }

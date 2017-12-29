@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Backend;
 use App\Models\Redirection;
 use Illuminate\Http\Request;
 use App\Imports\RedirectionListImport;
-use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\StoreRedirectionRequest;
 use App\Http\Requests\UpdateRedirectionRequest;
 use App\Repositories\Contracts\RedirectionRepository;
@@ -39,8 +38,7 @@ class RedirectionController extends BackendController
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            /** @var \Yajra\DataTables\EloquentDataTable $query */
-            $query = DataTables::of($this->redirections->select([
+            return $this->redirections->select([
                 'id',
                 'source',
                 'active',
@@ -48,19 +46,9 @@ class RedirectionController extends BackendController
                 'type',
                 'created_at',
                 'updated_at',
-            ]));
-
-            return $query->editColumn('active', function (Redirection $redirection) {
-                return boolean_html_label($redirection->active);
-            })->addColumn('actions', function (Redirection $redirection) {
-                return $this->redirections->getActionButtons($redirection);
-            })->editColumn('created_at', function (Redirection $redirection) use ($request) {
-                return $redirection->created_at->setTimezone($request->user()->timezone);
-            })->editColumn('updated_at', function (Redirection $redirection) use ($request) {
-                return $redirection->updated_at->setTimezone($request->user()->timezone);
-            })
-                ->rawColumns(['active', 'actions'])
-                ->make(true);
+            ])
+              ->forPage(0, 10)
+              ->get();
         }
     }
 

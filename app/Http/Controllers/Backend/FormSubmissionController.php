@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use App\Models\FormSubmission;
-use Yajra\DataTables\Facades\DataTables;
 use App\Repositories\Contracts\FormSubmissionRepository;
 
 class FormSubmissionController extends BackendController
@@ -41,26 +40,15 @@ class FormSubmissionController extends BackendController
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            /** @var \Yajra\DataTables\EloquentDataTable $query */
-            $query = DataTables::of($this->formSubmissions->select([
+            return $this->formSubmissions->select([
                 'id',
                 'type',
                 'data',
                 'created_at',
                 'updated_at',
-            ]));
-
-            return $query->editColumn('type', function (FormSubmission $formSubmission) {
-                return __("forms.{$formSubmission->type}.display_name");
-            })->addColumn('actions', function (FormSubmission $formSubmission) {
-                return $this->formSubmissions->getActionButtons($formSubmission);
-            })->editColumn('created_at', function (FormSubmission $formSubmission) use ($request) {
-                return $formSubmission->created_at->setTimezone($request->user()->timezone);
-            })->editColumn('updated_at', function (FormSubmission $formSubmission) use ($request) {
-                return $formSubmission->updated_at->setTimezone($request->user()->timezone);
-            })
-                ->rawColumns(['actions'])
-                ->make(true);
+            ])
+              ->forPage(0, 10)
+              ->get();
         }
     }
 

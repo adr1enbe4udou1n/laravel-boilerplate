@@ -6,7 +6,6 @@ use App\Models\Role;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreRoleRequest;
 use App\Http\Requests\UpdateRoleRequest;
-use Yajra\DataTables\Facades\DataTables;
 use App\Repositories\Contracts\RoleRepository;
 
 class RoleController extends BackendController
@@ -38,26 +37,14 @@ class RoleController extends BackendController
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            /** @var \Yajra\DataTables\EloquentDataTable $query */
-            $query = DataTables::of($this->roles->select([
+            return $this->roles->select([
               'id',
               'name',
               'order',
               'created_at',
               'updated_at',
-            ]));
-
-            return $query->editColumn('name', function (Role $role) {
-                return "<a href=\"/roles/{$role->id}/edit\" data-router-link>{$role->name}</a>";
-            })->addColumn('actions', function (Role $role) {
-                return $this->roles->getActionButtons($role);
-            })->editColumn('created_at', function (Role $role) use ($request) {
-                return $role->created_at->setTimezone($request->user()->timezone);
-            })->editColumn('updated_at', function (Role $role) use ($request) {
-                return $role->updated_at->setTimezone($request->user()->timezone);
-            })
-              ->rawColumns(['name', 'actions'])
-              ->make(true);
+            ])
+              ->get();
         }
     }
 

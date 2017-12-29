@@ -14,7 +14,6 @@ use App\Exceptions\GeneralException;
 use Illuminate\Support\Facades\Gate;
 use App\Repositories\Contracts\TagRepository;
 use App\Repositories\Contracts\PostRepository;
-use App\Repositories\Traits\HtmlActionsButtons;
 use Mcamara\LaravelLocalization\LaravelLocalization;
 
 /**
@@ -22,8 +21,6 @@ use Mcamara\LaravelLocalization\LaravelLocalization;
  */
 class EloquentPostRepository extends EloquentBaseRepository implements PostRepository
 {
-    use HtmlActionsButtons;
-
     /**
      * @var \Mcamara\LaravelLocalization\LaravelLocalization
      */
@@ -350,19 +347,5 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
         });
 
         return true;
-    }
-
-    /**
-     * @param \App\Models\Post $post
-     *
-     * @return string
-     */
-    public function getActionButtons(Post $post)
-    {
-        $buttons = $this->getPreviewButtonHtml('blog.show', $post->slug)
-            .$this->getEditButtonHtml("/posts/{$post->id}/edit")
-            .$this->getDeleteButtonHtml('admin.posts.destroy', $post, 'delete', $post);
-
-        return $buttons;
     }
 }
