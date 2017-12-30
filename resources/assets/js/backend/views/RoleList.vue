@@ -36,7 +36,7 @@
             <b-button v-if="row.item.can_edit" size="sm" variant="primary" :to="`/roles/${row.item.id}/edit`" v-b-tooltip.hover :title="$t('buttons.edit')" class="mr-1">
               <i class="icon-pencil"></i>
             </b-button>
-            <b-button v-if="row.item.can_delete" size="sm" variant="danger" v-b-tooltip.hover :title="$t('buttons.delete')" @click.stop="onDelete(row.value.id)">
+            <b-button v-if="row.item.can_delete" size="sm" variant="danger" v-b-tooltip.hover :title="$t('buttons.delete')" @click.stop="onDelete(row.item.id)">
               <i class="icon-trash"></i>
             </b-button>
           </template>
@@ -59,7 +59,7 @@
           { key: 'description', label: this.$t('validation.attributes.description') },
           { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
           { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
-          { key: 'actions', label: this.$t('labels.actions') }
+          { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
         ],
         sortBy: 'order',
         sortDesc: false

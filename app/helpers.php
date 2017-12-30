@@ -50,34 +50,6 @@ if (! function_exists('is_admin_route')) {
     }
 }
 
-if (! function_exists('boolean_html_label')) {
-    /**
-     * @param $boolean boolean
-     *
-     * @return string
-     */
-    function boolean_html_label($boolean)
-    {
-        return state_html_label(
-            $boolean ? 'success' : 'danger',
-            $boolean ? __('labels.yes') : __('labels.no')
-        );
-    }
-}
-
-if (! function_exists('state_html_label')) {
-    /**
-     * @param $state
-     * @param $label
-     *
-     * @return string
-     */
-    function state_html_label($state, $label)
-    {
-        return "<span class=\"badge badge-{$state}\">{$label}</span>";
-    }
-}
-
 if (! function_exists('image_template_url')) {
     /**
      * @param $template

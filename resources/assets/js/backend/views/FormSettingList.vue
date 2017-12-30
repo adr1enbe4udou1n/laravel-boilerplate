@@ -9,7 +9,39 @@
         </div>
         <h4 class="mt-1">{{ $t('labels.backend.form_settings.titles.index') }}</h4>
       </template>
-      <b-datatable :options="dataTableOptions"></b-datatable>
+      <b-datatable ref="datatable"
+                   @data-loaded="onDataLoaded"
+                   search-route="admin.form_settings.search"
+                   delete-route="admin.form_settings.destroy"
+                   :lengthChange="false" :paging="false">
+        <b-table striped
+                 bordered
+                 show-empty
+                 stacked="md"
+                 no-local-sorting
+                 :empty-text="$t('labels.no_results')"
+                 :empty-filtered-text="$t('labels.no_results')"
+                 :fields="fields"
+                 :items="items"
+                 :sort-by="sortBy"
+                 :sort-desc="sortDesc"
+                 @sort-changed="onSort"
+        >
+          <template slot="name" slot-scope="row">
+            <router-link :to="`/form-submissions/${row.item.id}/edit`">
+              {{row.value}}
+            </router-link>
+          </template>
+          <template slot="actions" slot-scope="row">
+            <b-button v-if="row.item.can_edit" size="sm" variant="primary" :to="`/form-settings/${row.item.id}/edit`" v-b-tooltip.hover :title="$t('buttons.edit')" class="mr-1">
+              <i class="icon-pencil"></i>
+            </b-button>
+            <b-button v-if="row.item.can_delete" size="sm" variant="danger" v-b-tooltip.hover :title="$t('buttons.delete')" @click.stop="onDelete(row.item.id)">
+              <i class="icon-trash"></i>
+            </b-button>
+          </template>
+        </b-table>
+      </b-datatable>
     </b-card>
   </div>
 </template>
@@ -19,62 +51,31 @@
     name: 'form_setting_list',
     data () {
       return {
-        dataTableOptions: {
-          responsive: true,
-          serverSide: true,
-          processing: true,
-          autoWidth: false,
-          lengthChange: false,
-          searching: false,
-          paging: false,
-          info: false,
-          buttons: [],
-          ajax: {
-            url: this.$app.route('admin.form_settings.search'),
-            type: 'post'
-          },
-          columns: [
-            {
-              title: this.$t('validation.attributes.form_type'),
-              data: 'name',
-              name: 'name',
-              width: 150,
-              responsivePriority: 1
-            }, {
-              title: this.$t('validation.attributes.recipients'),
-              data: 'recipients',
-              name: 'recipients',
-              orderable: false
-            }, {
-              title: this.$t('validation.attributes.message'),
-              data: 'message',
-              name: 'message',
-              defaultContent: this.$t('labels.no_value'),
-              orderable: false
-            }, {
-              title: this.$t('labels.created_at'),
-              data: 'created_at',
-              name: 'created_at',
-              width: 110,
-              className: 'text-center'
-            }, {
-              title: this.$t('labels.updated_at'),
-              data: 'updated_at',
-              name: 'updated_at',
-              width: 110,
-              className: 'text-center'
-            }, {
-              title: this.$t('labels.actions'),
-              data: 'actions',
-              name: 'actions',
-              orderable: false,
-              width: 75,
-              className: 'nowrap',
-              responsivePriority: 2
-            }],
-          order: [[0, 'asc']],
-          rowId: 'id'
-        }
+        items: [],
+        fields: [
+          { key: 'name', label: this.$t('validation.attributes.form_type'), sortable: true },
+          { key: 'recipients', label: this.$t('validation.attributes.recipients') },
+          { key: 'message', label: this.$t('validation.attributes.message') },
+          { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
+          { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
+          { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
+        ],
+        sortBy: 'name',
+        sortDesc: false
+      }
+    },
+    mounted () {
+      this.$refs.datatable.refresh(this.sortBy, this.sortDesc)
+    },
+    methods: {
+      onDataLoaded (items) {
+        this.items = items
+      },
+      onSort (ctx) {
+        this.$refs.datatable.refresh(ctx.sortBy, ctx.sortDesc)
+      },
+      onDelete (id) {
+        this.$refs.datatable.deleteRow(id)
       }
     }
   }

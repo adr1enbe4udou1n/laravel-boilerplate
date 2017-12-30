@@ -57,6 +57,7 @@ class Post extends Model
         'state',
         'status_label',
         'featured_image_path',
+        'thumbnail_image_path',
         'can_edit',
         'can_delete',
     ];
@@ -154,6 +155,11 @@ class Post extends Model
         }
 
         return 'placeholder.png';
+    }
+
+    public function getThumbnailImagePathAttribute()
+    {
+        return image_template_url('small', $this->featured_image_path);
     }
 
     public function getMetaTitleAttribute()

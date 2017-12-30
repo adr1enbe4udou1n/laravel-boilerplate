@@ -24,8 +24,37 @@
         </div>
         <h4 class="mt-1">{{ $t('labels.backend.redirections.titles.index') }}</h4>
       </template>
-      <b-datatable ref="redirectionsDatatable" :options="dataTableOptions" :actions="dataTableActions"
-                 action-route-name="admin.redirections.batch_action"></b-datatable>
+      <b-datatable ref="datatable"
+                   @data-loaded="onDataLoaded"
+                   search-route="admin.redirections.search"
+                   delete-route="admin.redirections.destroy"
+                   action-route="admin.redirections.batch_action" :actions="actions">
+        <b-table striped
+                 bordered
+                 show-empty
+                 stacked="md"
+                 no-local-sorting
+                 :empty-text="$t('labels.no_results')"
+                 :empty-filtered-text="$t('labels.no_results')"
+                 :fields="fields"
+                 :items="items"
+                 :sort-by="sortBy"
+                 :sort-desc="sortDesc"
+                 @sort-changed="onSort"
+        >
+          <template slot="active" slot-scope="row">
+            <b-badge :variant="row.value ? 'success' : 'danger'">{{ row.value ? $t('labels.yes') : $t('labels.no') }}</b-badge>
+          </template>
+          <template slot="actions" slot-scope="row">
+            <b-button v-if="row.item.can_edit" size="sm" variant="primary" :to="`/redirections/${row.item.id}/edit`" v-b-tooltip.hover :title="$t('buttons.edit')" class="mr-1">
+              <i class="icon-pencil"></i>
+            </b-button>
+            <b-button v-if="row.item.can_delete" size="sm" variant="danger" v-b-tooltip.hover :title="$t('buttons.delete')" @click.stop="onDelete(row.item.id)">
+              <i class="icon-trash"></i>
+            </b-button>
+          </template>
+        </b-table>
+      </b-datatable>
     </b-card>
   </div>
 </template>
@@ -37,72 +66,19 @@
     name: 'redirection_list',
     data () {
       return {
-        dataTableOptions: {
-          responsive: true,
-          serverSide: true,
-          processing: true,
-          autoWidth: false,
-          ajax: {
-            url: this.$app.route('admin.redirections.search'),
-            type: 'post'
-          },
-          columns: [
-            {
-              defaultContent: '',
-              title: '',
-              data: 'checkbox',
-              name: 'checkbox',
-              orderable: false,
-              searchable: false,
-              width: 15,
-              className: 'select-checkbox'
-            }, {
-              title: this.$t('validation.attributes.source_path'),
-              data: 'source',
-              name: 'source',
-              responsivePriority: 1
-            }, {
-              title: this.$t('validation.attributes.active'),
-              data: 'active',
-              name: 'active',
-              orderable: false,
-              width: 50,
-              className: 'text-center'
-            }, {
-              title: this.$t('validation.attributes.target_path'),
-              data: 'target',
-              name: 'target'
-            }, {
-              title: this.$t('validation.attributes.redirect_type'),
-              data: 'type',
-              name: 'type',
-              width: 150
-            }, {
-              title: this.$t('labels.created_at'),
-              data: 'created_at',
-              name: 'created_at',
-              width: 110,
-              className: 'text-center'
-            }, {
-              title: this.$t('labels.updated_at'),
-              data: 'updated_at',
-              name: 'updated_at',
-              width: 110,
-              className: 'text-center'
-            }, {
-              title: this.$t('labels.actions'),
-              data: 'actions',
-              name: 'actions',
-              orderable: false,
-              width: 75,
-              className: 'nowrap',
-              responsivePriority: 2
-            }],
-          select: {style: 'os'},
-          order: [[1, 'asc']],
-          rowId: 'id'
-        },
-        dataTableActions: {
+        items: [],
+        fields: [
+          { key: 'source', label: this.$t('validation.attributes.source_path'), sortable: true },
+          { key: 'active', label: this.$t('validation.attributes.active'), 'class': 'text-center' },
+          { key: 'target', label: this.$t('validation.attributes.target_path'), sortable: true },
+          { key: 'type', label: this.$t('validation.attributes.redirect_type'), 'class': 'text-center' },
+          { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
+          { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
+          { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
+        ],
+        sortBy: 'created_at',
+        sortDesc: true,
+        actions: {
           destroy: this.$t('labels.backend.redirections.actions.destroy'),
           enable: this.$t('labels.backend.redirections.actions.enable'),
           disable: this.$t('labels.backend.redirections.actions.disable')
@@ -110,7 +86,19 @@
         importFile: null
       }
     },
+    mounted () {
+      this.$refs.datatable.refresh(this.sortBy, this.sortDesc)
+    },
     methods: {
+      onDataLoaded (items) {
+        this.items = items
+      },
+      onSort (ctx) {
+        this.$refs.datatable.refresh(ctx.sortBy, ctx.sortDesc)
+      },
+      onDelete (id) {
+        this.$refs.datatable.deleteRow(id)
+      },
       onFileImport () {
         let data = new FormData()
         data.append('import', this.importFile)

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\Gate;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 

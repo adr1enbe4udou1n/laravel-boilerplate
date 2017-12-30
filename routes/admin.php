@@ -9,7 +9,7 @@ Route::group(
     function () {
         Route::get('form_settings/form_types', 'FormSettingController@getFormTypes')->name('form_settings.get_form_types');
 
-        Route::post('form_settings/search', 'FormSettingController@search')->name('form_settings.search');
+        Route::get('form_settings/search', 'FormSettingController@search')->name('form_settings.search');
         Route::get('form_settings/{form_setting}/show', 'FormSettingController@show')->name('form_settings.show');
 
         Route::resource('form_settings', 'FormSettingController', [

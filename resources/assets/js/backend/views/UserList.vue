@@ -48,7 +48,7 @@
             <b-button v-if="row.item.can_impersonate" size="sm" variant="warning" :href="`/users/${row.item.id}/login-as`" v-b-tooltip.hover :title="$t('buttons.login-as', { name: row.item.name })" class="mr-1">
               <i class="icon-lock"></i>
             </b-button>
-            <b-button v-if="row.item.can_delete" size="sm" variant="danger" v-b-tooltip.hover :title="$t('buttons.delete')" @click.stop="onDelete(row.value.id)">
+            <b-button v-if="row.item.can_delete" size="sm" variant="danger" v-b-tooltip.hover :title="$t('buttons.delete')" @click.stop="onDelete(row.item.id)">
               <i class="icon-trash"></i>
             </b-button>
           </template>
@@ -73,7 +73,7 @@
           { key: 'active', label: this.$t('validation.attributes.active'), 'class': 'text-center' },
           { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
           { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
-          { key: 'actions', label: this.$t('labels.actions') }
+          { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
         ],
         sortBy: 'updated_at',
         sortDesc: true,

@@ -9,8 +9,34 @@
         </div>
         <h4 class="mt-1">{{ $t('labels.backend.metas.titles.index') }}</h4>
       </template>
-      <b-datatable :options="dataTableOptions" :actions="dataTableActions"
-                 action-route-name="admin.metas.batch_action"></b-datatable>
+      <b-datatable ref="datatable"
+                   @data-loaded="onDataLoaded"
+                   search-route="admin.metas.search"
+                   delete-route="admin.metas.destroy"
+                   action-route="admin.metas.batch_action" :actions="actions">
+        <b-table striped
+                 bordered
+                 show-empty
+                 stacked="md"
+                 no-local-sorting
+                 :empty-text="$t('labels.no_results')"
+                 :empty-filtered-text="$t('labels.no_results')"
+                 :fields="fields"
+                 :items="items"
+                 :sort-by="sortBy"
+                 :sort-desc="sortDesc"
+                 @sort-changed="onSort"
+        >
+          <template slot="actions" slot-scope="row">
+            <b-button v-if="row.item.can_edit" size="sm" variant="primary" :to="`/metas/${row.item.id}/edit`" v-b-tooltip.hover :title="$t('buttons.edit')" class="mr-1">
+              <i class="icon-pencil"></i>
+            </b-button>
+            <b-button v-if="row.item.can_delete" size="sm" variant="danger" v-b-tooltip.hover :title="$t('buttons.delete')" @click.stop="onDelete(row.item.id)">
+              <i class="icon-trash"></i>
+            </b-button>
+          </template>
+        </b-table>
+      </b-datatable>
     </b-card>
   </div>
 </template>
@@ -20,78 +46,35 @@
     name: 'meta_list',
     data () {
       return {
-        dataTableOptions: {
-          responsive: true,
-          serverSide: true,
-          processing: true,
-          autoWidth: false,
-          ajax: {
-            url: this.$app.route('admin.metas.search'),
-            type: 'post'
-          },
-          columns: [
-            {
-              defaultContent: '',
-              title: '',
-              data: 'checkbox',
-              name: 'checkbox',
-              orderable: false,
-              searchable: false,
-              width: 15,
-              className: 'select-checkbox'
-            }, {
-              title: this.$t('validation.attributes.route'),
-              data: 'route',
-              name: 'route',
-              defaultContent: this.$t('labels.no_value'),
-              width: 75
-            }, {
-              title: this.$t('validation.attributes.metable_type'),
-              data: 'metable_type',
-              name: 'metable_type',
-              defaultContent: this.$t('labels.no_value'),
-              width: 75
-            }, {
-              title: this.$t('validation.attributes.title'),
-              data: 'title',
-              name: 'translations.title',
-              defaultContent: this.$t('labels.no_value'),
-              width: 150,
-              responsivePriority: 1
-            }, {
-              title: this.$t('validation.attributes.description'),
-              data: 'description',
-              name: 'translations.description',
-              defaultContent: this.$t('labels.no_value'),
-              orderable: false
-            }, {
-              title: this.$t('labels.created_at'),
-              data: 'created_at',
-              name: 'created_at',
-              width: 110,
-              className: 'text-center'
-            }, {
-              title: this.$t('labels.updated_at'),
-              data: 'updated_at',
-              name: 'updated_at',
-              width: 110,
-              className: 'text-center'
-            }, {
-              title: this.$t('labels.actions'),
-              data: 'actions',
-              name: 'actions',
-              orderable: false,
-              width: 75,
-              className: 'nowrap',
-              responsivePriority: 2
-            }],
-          select: {style: 'os'},
-          order: [[5, 'desc']],
-          rowId: 'id'
-        },
-        dataTableActions: {
+        items: [],
+        fields: [
+          { key: 'route', label: this.$t('validation.attributes.route'), sortable: true },
+          { key: 'metable_type', label: this.$t('validation.attributes.metable_type'), sortable: true },
+          { key: 'title', label: this.$t('validation.attributes.title'), sortable: true },
+          { key: 'description', label: this.$t('validation.attributes.description') },
+          { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
+          { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
+          { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
+        ],
+        sortBy: 'created_at',
+        sortDesc: true,
+        actions: {
           destroy: this.$t('labels.backend.metas.actions.destroy')
         }
+      }
+    },
+    mounted () {
+      this.$refs.datatable.refresh(this.sortBy, this.sortDesc)
+    },
+    methods: {
+      onDataLoaded (items) {
+        this.items = items
+      },
+      onSort (ctx) {
+        this.$refs.datatable.refresh(ctx.sortBy, ctx.sortDesc)
+      },
+      onDelete (id) {
+        this.$refs.datatable.deleteRow(id)
       }
     }
   }
