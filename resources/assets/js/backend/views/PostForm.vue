@@ -322,6 +322,13 @@
       }
     },
     methods: {
+      onModelChanged () {
+        if (this.model.tags) {
+          this.model.tags = this.model.tags.map((item) => {
+            return item.name
+          })
+        }
+      },
       getTags (search) {
         axios
           .get(this.$app.route('admin.tags.search'), {

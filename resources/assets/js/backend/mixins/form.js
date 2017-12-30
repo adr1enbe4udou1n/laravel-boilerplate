@@ -21,8 +21,11 @@ export default {
             {[this.modelName]: this.id}))
           .then((response) => {
             this.model = response.data
+            this.onModelChanged()
           })
       }
+    },
+    onModelChanged () {
     },
     feedback (name) {
       if (this.state(name)) {

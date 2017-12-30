@@ -18,6 +18,15 @@ class User extends Authenticatable
     use Sluggable;
 
     /**
+     * The relationship that are eager loaded.
+     *
+     * @var array
+     */
+    protected $with = [
+        'roles',
+    ];
+
+    /**
      * The attributes that should be mutated to dates.
      *
      * @var array

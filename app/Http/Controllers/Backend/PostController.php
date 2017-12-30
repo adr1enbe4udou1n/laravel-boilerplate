@@ -111,8 +111,6 @@ class PostController extends BackendController
     {
         $this->authorize('view', $post);
 
-        $post->tags = $post->tags()->pluck('name');
-
         return $post;
     }
 

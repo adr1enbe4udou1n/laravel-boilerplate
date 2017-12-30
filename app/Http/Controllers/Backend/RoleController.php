@@ -60,8 +60,6 @@ class RoleController extends BackendController
      */
     public function show(Role $role)
     {
-        $role->permissions = $role->permissions()->pluck('name');
-
         return $role;
     }
 

@@ -70,7 +70,6 @@
                 name="password"
                 type="password"
                 :placeholder="$t('validation.attributes.password')"
-                data-toggle="password-strength-meter"
                 v-model="model.password"
                 :state="state('password')"
               ></b-form-input>
@@ -164,6 +163,15 @@
           bootstrap4: true
         }
       })
+    },
+    methods: {
+      onModelChanged () {
+        if (this.model.roles) {
+          this.model.roles = this.model.roles.map((item) => {
+            return item.id
+          })
+        }
+      }
     }
   }
 </script>

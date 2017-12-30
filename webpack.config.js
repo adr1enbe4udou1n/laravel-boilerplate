@@ -35,15 +35,16 @@ module.exports = {
       'bootstrap-vue',
       'axios',
       'sweetalert2',
-      'toastr',
-      'intl-tel-input',
       'pwstrength-bootstrap/dist/pwstrength-bootstrap',
+      'toastr',
       'vee-validate'
     ],
     vendor_frontend: [
       'bootstrap',
       'cookieconsent',
-      'slick-carousel'
+      'intl-tel-input',
+      'slick-carousel',
+      'webfontloader'
     ],
     vendor_backend: [
       'vue-select',

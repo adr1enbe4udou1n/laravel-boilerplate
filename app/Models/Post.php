@@ -86,6 +86,7 @@ class Post extends Model
     ];
 
     protected $with = [
+        'tags',
         'translations',
         'media',
         'owner',

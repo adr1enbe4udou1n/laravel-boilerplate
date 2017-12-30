@@ -165,6 +165,15 @@
         })
 
       this.fetchData()
+    },
+    methods: {
+      onModelChanged () {
+        if (this.model.permissions) {
+          this.model.permissions = this.model.permissions.map((item) => {
+            return item.name
+          })
+        }
+      }
     }
   }
 </script>
