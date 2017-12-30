@@ -111,7 +111,7 @@
         this.$refs.datatable.sort(ctx.sortBy, ctx.sortDesc)
       },
       onDelete (id) {
-        this.$refs.datatable.deleteRow(id)
+        this.$refs.datatable.deleteRow({ post: id })
       },
       onBulkActionSuccess () {
         this.selected = []

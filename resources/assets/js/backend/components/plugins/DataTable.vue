@@ -133,7 +133,7 @@
             window.toastr.error(this.$t('exceptions.general'))
           })
       },
-      deleteRow (id) {
+      deleteRow (params) {
         window.swal({
           title: this.$t('labels.are_you_sure'),
           type: 'warning',
@@ -143,7 +143,7 @@
           confirmButtonText: this.$t('buttons.delete')
         }).then((result) => {
           if (result.value) {
-            axios.delete(this.$app.route(this.deleteRoute, {id}))
+            axios.delete(this.$app.route(this.deleteRoute, params))
               .then((response) => {
                 this.refresh()
                 window.toastr[response.data.status](response.data.message)

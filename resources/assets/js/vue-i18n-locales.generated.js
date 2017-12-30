@@ -826,8 +826,9 @@ export default {
                     "created": "Redirection créée",
                     "updated": "Redirection mise à jour",
                     "deleted": "Redirection supprimée",
-                    "bulk_destroyed": "Redirections sélectionnés supprimés",
-                    "bulk_enabled": "Redirections sélectionnés activés",
+                    "bulk_destroyed": "Redirections sélectionnées supprimées",
+                    "bulk_enabled": "Redirections sélectionnées activées",
+                    "bulk_disabled": "Redirections sélectionnées désactivées",
                     "file_imported": "Fichier importé avec succès"
                 },
                 "posts": {

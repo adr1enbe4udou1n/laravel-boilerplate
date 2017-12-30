@@ -103,7 +103,7 @@
         this.$refs.datatable.sort(ctx.sortBy, ctx.sortDesc)
       },
       onDelete (id) {
-        this.$refs.datatable.deleteRow(id)
+        this.$refs.datatable.deleteRow({ redirection: id })
       },
       onBulkActionSuccess () {
         this.selected = []
@@ -115,7 +115,7 @@
         axios
           .post(this.$app.route('admin.redirections.import'), data)
           .then((response) => {
-            this.$refs.redirectionsDatatable.refresh()
+            this.$refs.datatable.refresh()
             window.toastr[response.data.status](response.data.message)
           })
           .catch(() => {
