@@ -116,6 +116,11 @@
       onBulkActionSuccess () {
         this.selected = []
       }
+    },
+    watch: {
+      selected (value) {
+        this.$refs.datatable.selected = value
+      }
     }
   }
 </script>

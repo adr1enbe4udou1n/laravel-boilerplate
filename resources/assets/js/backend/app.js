@@ -13,7 +13,6 @@ import Switch from './components/Switch'
 
 // Vendor plugins components
 import DataTable from './components/plugins/DataTable'
-import BatchAction from './components/plugins/BatchAction'
 import RichTextEditor from './components/plugins/RichTextEditor'
 import DateTimePicker from './components/plugins/DateTimePicker'
 
@@ -45,7 +44,6 @@ Vue.component('c-switch', Switch)
 Vue.component('p-datetimepicker', DateTimePicker)
 Vue.component('p-richtexteditor', RichTextEditor)
 Vue.component('b-datatable', DataTable)
-Vue.component('b-batch-action', BatchAction)
 
 Vue.prototype.$app = settings
 

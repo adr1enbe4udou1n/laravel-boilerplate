@@ -122,6 +122,11 @@
             window.toastr.error(this.$t('exceptions.general'))
           })
       }
+    },
+    watch: {
+      selected (value) {
+        this.$refs.datatable.selected = value
+      }
     }
   }
 </script>

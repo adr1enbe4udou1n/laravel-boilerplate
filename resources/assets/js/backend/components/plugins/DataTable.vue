@@ -21,7 +21,14 @@
     <slot></slot>
     <b-row>
       <b-col md="4">
-        <b-batch-action v-if="actions" :options="actions" @action="onBulkAction"></b-batch-action>
+        <form class="form-inline" @submit.prevent="onBulkAction">
+          <div class="form-group form-group-sm">
+            <select name="action" class="form-control mr-1" v-model="action">
+              <option v-for="(action, value) in actions" :value="value">{{ action }}</option>
+            </select>
+            <b-button type="submit" variant="danger">{{ $t('labels.validate') }}</b-button>
+          </div>
+        </form>
       </b-col>
       <b-col md="4">
         <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" v-if="paging && totalRows > perPage"
@@ -86,7 +93,8 @@
         totalRows: 0,
         pageOptions: [ 5, 10, 15, 25, 50 ],
         searchQuery: null,
-        selected: []
+        selected: [],
+        action: Object.keys(this.actions)[0]
       }
     },
     mounted () {
@@ -159,29 +167,40 @@
           }
         })
       },
-      onBulkAction (name) {
-        axios.post(this.$app.route(this.actionRoute), {
-          action: name,
-          ids: this.selected
-        }).then((response) => {
-          this.refresh()
-          this.$emit('bulk-action-success')
-          window.toastr[response.data.status](response.data.message)
-        }).catch((error) => {
-          // Not allowed error
-          if (error.response.status === 403) {
-            window.toastr.error(this.$t('exceptions.unauthorized'))
-            return
-          }
+      onBulkAction () {
+        window.swal({
+          title: this.$t('labels.are_you_sure'),
+          type: 'warning',
+          showCancelButton: true,
+          cancelButtonText: this.$t('buttons.cancel'),
+          confirmButtonColor: '#dd4b39',
+          confirmButtonText: this.$t('buttons.confirm')
+        }).then((result) => {
+          if (result.value) {
+            axios.post(this.$app.route(this.actionRoute), {
+              action: this.action,
+              ids: this.selected
+            }).then((response) => {
+              this.refresh()
+              this.$emit('bulk-action-success')
+              window.toastr[response.data.status](response.data.message)
+            }).catch((error) => {
+              // Not allowed error
+              if (error.response.status === 403) {
+                window.toastr.error(this.$t('exceptions.unauthorized'))
+                return
+              }
 
-          // Domain error
-          if (error.response.data.message !== undefined) {
-            window.toastr.error(error.response.data.message)
-            return
-          }
+              // Domain error
+              if (error.response.data.message !== undefined) {
+                window.toastr.error(error.response.data.message)
+                return
+              }
 
-          // Generic error
-          window.toastr.error(this.$t('exceptions.general'))
+              // Generic error
+              window.toastr.error(this.$t('exceptions.general'))
+            })
+          }
         })
       }
     }
