@@ -8,9 +8,6 @@ return [
     'validate' => 'Valider',
     'choose_file' => 'Sélectionner un fichier',
     'no_file_chosen' => 'Aucun fichier sélectionné',
-    'no_results' => 'Aucun résultat trouvé',
-    'show' => 'Afficher',
-    'entries' => 'éléments',
     'are_you_sure' => 'Etes-vous sûr ?',
     'yes' => 'Oui',
     'no' => 'Non',
@@ -26,6 +23,15 @@ return [
     'no_value' => 'Aucune valeur',
     'upload_image' => 'Transférer une image',
     'all_rights_reserved' => 'Tous droits réservés.',
+
+    'datatables' => [
+        'no_results' => 'Aucun résultat trouvé',
+        'no_matched_results' => 'Aucun résultat correspondant à votre recherche',
+        'show_per_page' => 'Afficher',
+        'entries_per_page' => 'éléments par page',
+        'search' => 'Rechercher',
+        'infos' => 'Affichage de l\'élément :offset_start à :offset_end sur :total éléments',
+    ],
 
     'morphs' => [
         'post' => 'Article, identifiant :id',

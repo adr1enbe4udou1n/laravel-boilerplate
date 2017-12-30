@@ -10,17 +10,19 @@
         <h4 class="mt-1">{{ $t('labels.backend.roles.titles.index') }}</h4>
       </template>
       <b-datatable ref="datatable"
+                   :sort-by="sortBy"
+                   :sort-desc="sortDesc"
                    @data-loaded="onDataLoaded"
                    search-route="admin.roles.search"
                    delete-route="admin.roles.destroy"
-                   :lengthChange="false" :paging="false">
+                   :lengthChange="false" :paging="false" :infos="false" :search="false">
         <b-table striped
                  bordered
                  show-empty
                  stacked="md"
                  no-local-sorting
-                 :empty-text="$t('labels.no_results')"
-                 :empty-filtered-text="$t('labels.no_results')"
+                 :empty-text="$t('labels.datatables.no_results')"
+                 :empty-filtered-text="$t('labels.datatables.no_matched_results')"
                  :fields="fields"
                  :items="items"
                  :sort-by="sortBy"
@@ -65,15 +67,12 @@
         sortDesc: false
       }
     },
-    mounted () {
-      this.$refs.datatable.refresh(this.sortBy, this.sortDesc)
-    },
     methods: {
       onDataLoaded (items) {
         this.items = items
       },
       onSort (ctx) {
-        this.$refs.datatable.refresh(ctx.sortBy, ctx.sortDesc)
+        this.$refs.datatable.sort(ctx.sortBy, ctx.sortDesc)
       },
       onDelete (id) {
         this.$refs.datatable.deleteRow(id)

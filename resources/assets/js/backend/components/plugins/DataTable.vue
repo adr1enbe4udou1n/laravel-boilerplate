@@ -3,9 +3,18 @@
     <b-row>
       <b-col md="4" class="mb-3">
         <b-form inline v-if="lengthChange">
-          <label class="mr-2">{{ $t('labels.show') }}</label>
+          <label class="mr-2">{{ $t('labels.datatables.show_per_page') }}</label>
           <b-form-select :options="pageOptions" v-model="perPage" class="mr-2" @input="onPagerChanged"></b-form-select>
-          <label >{{ $t('labels.entries') }}</label>
+          <label>{{ $t('labels.datatables.entries_per_page') }}</label>
+        </b-form>
+      </b-col>
+      <b-col md="4" class="mb-3 text-center">
+        <label class="mt-2" v-if="infos">{{ $t('labels.datatables.infos', { offset_start: perPage * (currentPage - 1) + 1, offset_end: perPage * currentPage, total: totalRows }) }}</label>
+      </b-col>
+      <b-col md="4" class="mb-3">
+        <b-form inline v-if="search" class="d-flex justify-content-end">
+          <label class="mr-2">{{ $t('labels.datatables.search') }}</label>
+          <b-form-input v-model="searchQuery" @input="onSearch"></b-form-input>
         </b-form>
       </b-col>
     </b-row>
@@ -16,7 +25,7 @@
       </b-col>
       <b-col md="4">
         <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" v-if="paging && totalRows > perPage"
-                      :class="[ 'justify-content-center' ]" @input="onPagerChanged"></b-pagination>
+                      class="justify-content-center" @input="onPagerChanged"></b-pagination>
       </b-col>
     </b-row>
   </div>
@@ -27,11 +36,27 @@
 
   export default {
     props: {
+      sortBy: {
+        type: String,
+        default: null
+      },
+      sortDesc: {
+        type: Boolean,
+        default: false
+      },
       lengthChange: {
         type: Boolean,
         default: true
       },
       paging: {
+        type: Boolean,
+        default: true
+      },
+      infos: {
+        type: Boolean,
+        default: true
+      },
+      search: {
         type: Boolean,
         default: true
       },
@@ -54,28 +79,37 @@
     },
     data () {
       return {
-        sortBy: null,
-        sortDesc: false,
+        currentSortBy: this.sortBy,
+        currentSortDesc: this.sortDesc,
         currentPage: 1,
         perPage: 15,
         totalRows: 0,
-        pageOptions: [ 5, 10, 15, 25, 50 ]
+        pageOptions: [ 5, 10, 15, 25, 50 ],
+        searchQuery: null
       }
     },
+    mounted () {
+      this.refresh()
+    },
     methods: {
+      onSearch () {
+      },
       onPagerChanged () {
         this.refresh(this.sortBy, this.sortDesc)
       },
-      refresh (sortBy, sortDesc) {
-        this.sortBy = sortBy
-        this.sortDesc = sortDesc
-
+      sort (sortBy, sortDesc) {
+        this.currentSortBy = sortBy
+        this.currentSortDesc = sortDesc
+        console.log(sortDesc)
+        this.refresh()
+      },
+      refresh () {
         axios.get(this.$app.route(this.searchRoute), {
           params: {
             page: this.currentPage,
             perPage: this.perPage,
-            column: this.sortBy,
-            direction: this.sortDesc ? 'desc' : 'asc'
+            column: this.currentSortBy,
+            direction: this.currentSortDesc ? 'desc' : 'asc'
           }
         })
           .then((response) => {

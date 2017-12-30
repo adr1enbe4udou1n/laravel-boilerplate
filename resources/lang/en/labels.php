@@ -9,8 +9,6 @@ return [
     'choose_file' => 'Choose File',
     'no_file_chosen' => 'No file chosen',
     'no_results' => 'No results available',
-    'show' => 'Show',
-    'entries' => 'entries',
     'are_you_sure' => 'Are you sure ?',
     'yes' => 'Yes',
     'no' => 'No',
@@ -26,6 +24,15 @@ return [
     'no_value' => 'No value',
     'upload_image' => 'Upload image',
     'all_rights_reserved' => 'All rights reserved.',
+
+    'datatables' => [
+        'no_results' => 'No results available',
+        'no_matched_results' => 'No matched results available',
+        'show_per_page' => 'Show',
+        'entries_per_page' => 'entries per page',
+        'search' => 'Search',
+        'infos' => 'Showing :offset_start to :offset_end of :total entries',
+    ],
 
     'morphs' => [
         'post' => 'Post, identity :id',

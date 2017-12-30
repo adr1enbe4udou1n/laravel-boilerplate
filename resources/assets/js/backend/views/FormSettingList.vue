@@ -11,16 +11,18 @@
       </template>
       <b-datatable ref="datatable"
                    @data-loaded="onDataLoaded"
+                   :sort-by="sortBy"
+                   :sort-desc="sortDesc"
                    search-route="admin.form_settings.search"
                    delete-route="admin.form_settings.destroy"
-                   :lengthChange="false" :paging="false">
+                   :lengthChange="false" :paging="false" :infos="false" :search="false">
         <b-table striped
                  bordered
                  show-empty
                  stacked="md"
                  no-local-sorting
-                 :empty-text="$t('labels.no_results')"
-                 :empty-filtered-text="$t('labels.no_results')"
+                 :empty-text="$t('labels.datatables.no_results')"
+                 :empty-filtered-text="$t('labels.datatables.no_matched_results')"
                  :fields="fields"
                  :items="items"
                  :sort-by="sortBy"
@@ -64,15 +66,12 @@
         sortDesc: false
       }
     },
-    mounted () {
-      this.$refs.datatable.refresh(this.sortBy, this.sortDesc)
-    },
     methods: {
       onDataLoaded (items) {
         this.items = items
       },
       onSort (ctx) {
-        this.$refs.datatable.refresh(ctx.sortBy, ctx.sortDesc)
+        this.$refs.datatable.sort(ctx.sortBy, ctx.sortDesc)
       },
       onDelete (id) {
         this.$refs.datatable.deleteRow(id)
