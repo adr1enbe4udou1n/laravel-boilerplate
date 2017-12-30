@@ -31,13 +31,13 @@
 
 #### Underlying layer
 
-* Based on Bootstrap 4 [CoreUI](https://github.com/mrholek/CoreUI-Free-Bootstrap-Admin-Template) theme with many useful plugins ([DataTables](https://www.datatables.net/), [SweetAlert2](https://limonte.github.io/sweetalert2/), [Flatpickr](https://chmln.github.io/flatpickr/), [Quill](https://quilljs.com/), etc.),
+* Based on Bootstrap 4 [CoreUI](https://github.com/mrholek/CoreUI-Free-Bootstrap-Admin-Template) theme with many useful plugins ([SweetAlert2](https://limonte.github.io/sweetalert2/), [Flatpickr](https://chmln.github.io/flatpickr/), [Quill](https://quilljs.com/), etc.),
 * Entirely written with Vue components thanks to [Bootstrap-Vue](https://bootstrap-vue.js.org/),
 * Vue-route for instant client-side navigation,
+* Native Vue Datatable, with everywhere search input and batch actions features,
 * All main CRUD actions are ajaxified,
 * Native [vue-select](https://github.com/sagalbot/vue-select) component for powerful select system (autocomplete, tags, etc.),
-* Batch actions integrated within DataTables with use of his select plugin,
-* Client-side CSV export feature included by buttons DataTable plugin,
+* Batch actions integrated within DataTables,
 * Instant search engine (for posts) thanks to [Laravel Scout](https://github.com/laravel/scout) & [TNTSearch](https://github.com/teamtnt/tntsearch).
 
 #### Features included
@@ -138,7 +138,6 @@ For instance, with this custom setup HMR work natively with configurable port an
 - [x] <s>Form submissions management</s>
 - [x] <s>Client validation with vee-validate</s>
 - [x] <s>301 redirection management with CSV/XLS import</s>
-- [x] <s>Export Datatables to CSV/Excel buttons</s>
 - [x] <s>Own account deletion</s>
 - [x] <s>Account language & timezone selection</s>
 - [x] <s>Account mail confirmation</s>

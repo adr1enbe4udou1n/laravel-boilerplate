@@ -53,7 +53,7 @@
     "simple-line-icons": "^2.4.1",
     "slick-carousel": "^1.8.1",
     "style-loader": "^0.19.1",
-    "sweetalert2": "^7.2.0",
+    "sweetalert2": "^7.3.0",
     "toastr": "^2.1.4",
     "uglifyjs-webpack-plugin": "^1.1.5",
     "vee-validate": "^2.0.0",
