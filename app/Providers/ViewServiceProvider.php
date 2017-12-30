@@ -27,8 +27,6 @@ class ViewServiceProvider extends ServiceProvider
             if ($manifest && isset($manifest[$path])) {
                 return $manifest[$path];
             }
-
-            return null;
         });
 
         /*

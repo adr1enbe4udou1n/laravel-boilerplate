@@ -27,6 +27,7 @@ return PhpCsFixer\Config::create()
         'ordered_imports' => ['sortAlgorithm' => 'length'],
         'php_unit_strict' => true,
         'phpdoc_order' => true,
+        'simplified_null_return' => true,
         'strict_comparison' => true,
         'strict_param' => true,
     ])
