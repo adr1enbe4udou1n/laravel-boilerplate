@@ -4,7 +4,7 @@
       <b-col md="4" class="mb-3">
         <b-form inline v-if="lengthChange">
           <label class="mr-2">{{ $t('labels.datatables.show_per_page') }}</label>
-          <b-form-select :options="pageOptions" v-model="perPage" class="mr-2" @input="onPagerChanged"></b-form-select>
+          <b-form-select :options="pageOptions" v-model="perPage" class="mr-2" @input="refresh"></b-form-select>
           <label>{{ $t('labels.datatables.entries_per_page') }}</label>
         </b-form>
       </b-col>
@@ -14,7 +14,7 @@
       <b-col md="4" class="mb-3">
         <b-form inline v-if="search" class="d-flex justify-content-end">
           <label class="mr-2">{{ $t('labels.datatables.search') }}</label>
-          <b-form-input v-model="searchQuery" @input="onSearch"></b-form-input>
+          <b-form-input v-model="searchQuery" @input="refresh"></b-form-input>
         </b-form>
       </b-col>
     </b-row>
@@ -25,7 +25,7 @@
       </b-col>
       <b-col md="4">
         <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" v-if="paging && totalRows > perPage"
-                      class="justify-content-center" @input="onPagerChanged"></b-pagination>
+                      class="justify-content-center" @input="refresh"></b-pagination>
       </b-col>
     </b-row>
   </div>
@@ -92,11 +92,6 @@
       this.refresh()
     },
     methods: {
-      onSearch () {
-      },
-      onPagerChanged () {
-        this.refresh(this.sortBy, this.sortDesc)
-      },
       sort (sortBy, sortDesc) {
         this.currentSortBy = sortBy
         this.currentSortDesc = sortDesc
@@ -109,7 +104,8 @@
             page: this.currentPage,
             perPage: this.perPage,
             column: this.currentSortBy,
-            direction: this.currentSortDesc ? 'desc' : 'asc'
+            direction: this.currentSortDesc ? 'desc' : 'asc',
+            search: this.searchQuery
           }
         })
           .then((response) => {

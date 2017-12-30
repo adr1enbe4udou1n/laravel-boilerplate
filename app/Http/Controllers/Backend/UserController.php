@@ -50,13 +50,7 @@ class UserController extends BackendController
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            $query = $this->users->query()->with('roles');
-
-            if ($column = $request->get('column')) {
-                $query->orderBy($request->get('column'), $request->get('direction') ?? 'asc');
-            }
-
-            return $query->paginate($request->get('perPage'), [
+            return $this->searchQuery($request, $this->users->query(), [
                 'id',
                 'name',
                 'email',
@@ -65,6 +59,9 @@ class UserController extends BackendController
                 'last_access_at',
                 'created_at',
                 'updated_at',
+            ], [
+                'name',
+                'email',
             ]);
         }
     }
@@ -100,7 +97,7 @@ class UserController extends BackendController
 
         $this->users->store($request->input());
 
-        return $this->RedirectResponse($request, __('alerts.backend.users.created'));
+        return $this->redirectResponse($request, __('alerts.backend.users.created'));
     }
 
     /**
@@ -117,7 +114,7 @@ class UserController extends BackendController
 
         $this->users->update($user, $request->input());
 
-        return $this->RedirectResponse($request, __('alerts.backend.users.updated'));
+        return $this->redirectResponse($request, __('alerts.backend.users.updated'));
     }
 
     /**
@@ -132,7 +129,7 @@ class UserController extends BackendController
 
         $this->users->destroy($user);
 
-        return $this->RedirectResponse($request, __('alerts.backend.users.deleted'));
+        return $this->redirectResponse($request, __('alerts.backend.users.deleted'));
     }
 
     /**
@@ -151,24 +148,24 @@ class UserController extends BackendController
 
                 $this->users->batchDestroy($ids);
 
-                return $this->RedirectResponse($request, __('alerts.backend.users.bulk_destroyed'));
+                return $this->redirectResponse($request, __('alerts.backend.users.bulk_destroyed'));
                 break;
             case 'enable':
                 $this->authorize('edit users');
 
                 $this->users->batchEnable($ids);
 
-                return $this->RedirectResponse($request, __('alerts.backend.users.bulk_enabled'));
+                return $this->redirectResponse($request, __('alerts.backend.users.bulk_enabled'));
                 break;
             case 'disable':
                 $this->authorize('edit users');
 
                 $this->users->batchDisable($ids);
 
-                return $this->RedirectResponse($request, __('alerts.backend.users.bulk_disabled'));
+                return $this->redirectResponse($request, __('alerts.backend.users.bulk_disabled'));
                 break;
         }
 
-        return $this->RedirectResponse($request, __('alerts.backend.actions.invalid'), 'error');
+        return $this->redirectResponse($request, __('alerts.backend.actions.invalid'), 'error');
     }
 }

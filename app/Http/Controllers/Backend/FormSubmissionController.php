@@ -40,18 +40,14 @@ class FormSubmissionController extends BackendController
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            $query = $this->formSubmissions->query();
-
-            if ($column = $request->get('column')) {
-                $query->orderBy($request->get('column'), $request->get('direction') ?? 'asc');
-            }
-
-            return $query->paginate($request->get('perPage'), [
+            return $this->searchQuery($request, $this->formSubmissions->query(), [
                 'id',
                 'type',
                 'data',
                 'created_at',
                 'updated_at',
+            ], [
+                'data',
             ]);
         }
     }
@@ -78,7 +74,7 @@ class FormSubmissionController extends BackendController
 
         $this->formSubmissions->destroy($form_submission);
 
-        return $this->RedirectResponse($request, __('alerts.backend.form_submissions.deleted'));
+        return $this->redirectResponse($request, __('alerts.backend.form_submissions.deleted'));
     }
 
     /**
@@ -97,10 +93,10 @@ class FormSubmissionController extends BackendController
 
                 $this->formSubmissions->batchDestroy($ids);
 
-                return $this->RedirectResponse($request, __('alerts.backend.form_submissions.bulk_destroyed'));
+                return $this->redirectResponse($request, __('alerts.backend.form_submissions.bulk_destroyed'));
                 break;
         }
 
-        return $this->RedirectResponse($request, __('alerts.backend.actions.invalid'), 'error');
+        return $this->redirectResponse($request, __('alerts.backend.actions.invalid'), 'error');
     }
 }

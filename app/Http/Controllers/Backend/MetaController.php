@@ -37,19 +37,18 @@ class MetaController extends BackendController
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            $query = $this->metas->query();
-
-            if ($column = $request->get('column')) {
-                $query->orderBy($request->get('column'), $request->get('direction') ?? 'asc');
-            }
-
-            return $query->paginate($request->get('perPage'), [
+            return $this->searchQuery($request, $this->metas->query(), [
                 'metas.id',
                 'route',
                 'metable_type',
                 'metable_id',
                 'created_at',
                 'updated_at',
+            ], [
+                'translations' => [
+                    'title',
+                    'description',
+                ],
             ]);
         }
     }
@@ -75,7 +74,7 @@ class MetaController extends BackendController
 
         $this->metas->store($request->input());
 
-        return $this->RedirectResponse($request, __('alerts.backend.metas.created'));
+        return $this->redirectResponse($request, __('alerts.backend.metas.created'));
     }
 
     /**
@@ -90,7 +89,7 @@ class MetaController extends BackendController
 
         $this->metas->update($meta, $request->input());
 
-        return $this->RedirectResponse($request, __('alerts.backend.metas.updated'));
+        return $this->redirectResponse($request, __('alerts.backend.metas.updated'));
     }
 
     /**
@@ -105,7 +104,7 @@ class MetaController extends BackendController
 
         $this->metas->destroy($meta);
 
-        return $this->RedirectResponse($request, __('alerts.backend.metas.deleted'));
+        return $this->redirectResponse($request, __('alerts.backend.metas.deleted'));
     }
 
     /**
@@ -124,10 +123,10 @@ class MetaController extends BackendController
 
                 $this->metas->batchDestroy($ids);
 
-                return $this->RedirectResponse($request, __('alerts.backend.metas.bulk_destroyed'));
+                return $this->redirectResponse($request, __('alerts.backend.metas.bulk_destroyed'));
                 break;
         }
 
-        return $this->RedirectResponse($request, __('alerts.backend.actions.invalid'), 'error');
+        return $this->redirectResponse($request, __('alerts.backend.actions.invalid'), 'error');
     }
 }

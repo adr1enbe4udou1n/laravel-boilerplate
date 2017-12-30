@@ -37,13 +37,7 @@ class FormSettingController extends BackendController
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            $query = $this->formSettings->query();
-
-            if ($column = $request->get('column')) {
-                $query->orderBy($request->get('column'), $request->get('direction') ?? 'asc');
-            }
-
-            return $query->paginate($request->get('perPage'), [
+            return $this->searchQuery($request, $this->formSettings->query(), [
                 'id',
                 'name',
                 'recipients',
@@ -88,7 +82,7 @@ class FormSettingController extends BackendController
 
         $this->formSettings->store($request->input());
 
-        return $this->RedirectResponse($request, __('alerts.backend.form_settings.created'));
+        return $this->redirectResponse($request, __('alerts.backend.form_settings.created'));
     }
 
     /**
@@ -103,7 +97,7 @@ class FormSettingController extends BackendController
 
         $this->formSettings->update($formSetting, $request->input());
 
-        return $this->RedirectResponse($request, __('alerts.backend.form_settings.updated'));
+        return $this->redirectResponse($request, __('alerts.backend.form_settings.updated'));
     }
 
     /**
@@ -118,6 +112,6 @@ class FormSettingController extends BackendController
 
         $this->formSettings->destroy($formSetting);
 
-        return $this->RedirectResponse($request, __('alerts.backend.form_settings.deleted'));
+        return $this->redirectResponse($request, __('alerts.backend.form_settings.deleted'));
     }
 }

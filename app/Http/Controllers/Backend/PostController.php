@@ -86,11 +86,7 @@ class PostController extends BackendController
                 $query->whereUserId(auth()->id());
             }
 
-            if ($column = $request->get('column')) {
-                $query->orderBy($request->get('column'), $request->get('direction') ?? 'asc');
-            }
-
-            return $query->paginate($request->get('perPage'), [
+            return $this->searchQuery($request, $query, [
                 'posts.id',
                 'user_id',
                 'status',
@@ -98,6 +94,13 @@ class PostController extends BackendController
                 'promoted',
                 'created_at',
                 'updated_at',
+            ], [
+                'translations' => [
+                    'title',
+                    'summary',
+                    'body',
+                    'slug',
+                ],
             ]);
         }
     }
@@ -134,7 +137,7 @@ class PostController extends BackendController
             $this->posts->saveAsDraft($post, $request->input(), $request->file('featured_image'));
         }
 
-        return $this->RedirectResponse($request, __('alerts.backend.posts.created'));
+        return $this->redirectResponse($request, __('alerts.backend.posts.created'));
     }
 
     /**
@@ -159,7 +162,7 @@ class PostController extends BackendController
             $this->posts->saveAsDraft($post, $request->input(), $request->file('featured_image'));
         }
 
-        return $this->RedirectResponse($request, __('alerts.backend.posts.updated'));
+        return $this->redirectResponse($request, __('alerts.backend.posts.updated'));
     }
 
     /**
@@ -174,7 +177,7 @@ class PostController extends BackendController
 
         $this->posts->destroy($post);
 
-        return $this->RedirectResponse($request, __('alerts.backend.posts.deleted'));
+        return $this->redirectResponse($request, __('alerts.backend.posts.deleted'));
     }
 
     /**
@@ -193,7 +196,7 @@ class PostController extends BackendController
 
                 $this->posts->batchDestroy($ids);
 
-                return $this->RedirectResponse($request, __('alerts.backend.posts.bulk_destroyed'));
+                return $this->redirectResponse($request, __('alerts.backend.posts.bulk_destroyed'));
                 break;
             case 'publish':
                 $this->authorize('edit posts');
@@ -201,27 +204,27 @@ class PostController extends BackendController
                 $this->posts->batchPublish($ids);
 
                 if (Gate::check('publish posts')) {
-                    return $this->RedirectResponse($request, __('alerts.backend.posts.bulk_published'));
+                    return $this->redirectResponse($request, __('alerts.backend.posts.bulk_published'));
                 }
 
-                return $this->RedirectResponse($request, __('alerts.backend.posts.bulk_pending', 'warning'));
+                return $this->redirectResponse($request, __('alerts.backend.posts.bulk_pending', 'warning'));
                 break;
             case 'pin':
                 $this->authorize('edit posts');
 
                 $this->posts->batchPin($ids);
 
-                return $this->RedirectResponse($request, __('alerts.backend.posts.bulk_pinned'));
+                return $this->redirectResponse($request, __('alerts.backend.posts.bulk_pinned'));
                 break;
             case 'promote':
                 $this->authorize('edit posts');
 
                 $this->posts->batchPromote($ids);
 
-                return $this->RedirectResponse($request, __('alerts.backend.posts.bulk_promoted'));
+                return $this->redirectResponse($request, __('alerts.backend.posts.bulk_promoted'));
                 break;
         }
 
-        return $this->RedirectResponse($request, __('alerts.backend.actions.invalid'), 'error');
+        return $this->redirectResponse($request, __('alerts.backend.actions.invalid'), 'error');
     }
 }

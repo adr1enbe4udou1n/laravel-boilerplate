@@ -37,13 +37,7 @@ class RoleController extends BackendController
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            $query = $this->roles->query();
-
-            if ($column = $request->get('column')) {
-                $query->orderBy($request->get('column'), $request->get('direction') ?? 'asc');
-            }
-
-            return $query->paginate($request->get('perPage'), [
+            return $this->searchQuery($request, $this->roles->query(), [
                 'id',
                 'name',
                 'order',
@@ -79,7 +73,7 @@ class RoleController extends BackendController
 
         $this->roles->store($request->input());
 
-        return $this->RedirectResponse($request, __('alerts.backend.roles.created'));
+        return $this->redirectResponse($request, __('alerts.backend.roles.created'));
     }
 
     /**
@@ -94,7 +88,7 @@ class RoleController extends BackendController
 
         $this->roles->update($role, $request->input());
 
-        return $this->RedirectResponse($request, __('alerts.backend.roles.updated'));
+        return $this->redirectResponse($request, __('alerts.backend.roles.updated'));
     }
 
     /**
@@ -109,6 +103,6 @@ class RoleController extends BackendController
 
         $this->roles->destroy($role);
 
-        return $this->RedirectResponse($request, __('alerts.backend.roles.deleted'));
+        return $this->redirectResponse($request, __('alerts.backend.roles.deleted'));
     }
 }
