@@ -15,7 +15,8 @@
                    @data-loaded="onDataLoaded"
                    search-route="admin.posts.search"
                    delete-route="admin.posts.destroy"
-                   action-route="admin.posts.batch_action" :actions="actions">
+                   action-route="admin.posts.batch_action" :actions="actions"
+                   @bulk-action-success="onBulkActionSuccess">
         <b-table striped
                  bordered
                  show-empty
@@ -29,6 +30,10 @@
                  :sort-desc="sortDesc"
                  @sort-changed="onSort"
         >
+          <template slot="HEAD_checkbox" slot-scope="data"></template>
+          <template slot="checkbox" slot-scope="row">
+            <b-form-checkbox :value="row.item.id" v-model="selected"></b-form-checkbox>
+          </template>
           <template slot="image" slot-scope="row">
             <router-link :to="`/posts/${row.item.id}/edit`">
               <img :src="row.item.thumbnail_image_path" :alt="row.item.title">
@@ -75,7 +80,9 @@
     data () {
       return {
         items: [],
+        selected: [],
         fields: [
+          { key: 'checkbox' },
           { key: 'image', label: this.$t('validation.attributes.image'), sortable: true },
           { key: 'title', label: this.$t('validation.attributes.title') },
           { key: 'status', label: this.$t('validation.attributes.status'), 'class': 'text-center' },
@@ -105,6 +112,9 @@
       },
       onDelete (id) {
         this.$refs.datatable.deleteRow(id)
+      },
+      onBulkActionSuccess () {
+        this.selected = []
       }
     }
   }

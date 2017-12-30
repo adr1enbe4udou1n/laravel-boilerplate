@@ -30,7 +30,8 @@
                    @data-loaded="onDataLoaded"
                    search-route="admin.redirections.search"
                    delete-route="admin.redirections.destroy"
-                   action-route="admin.redirections.batch_action" :actions="actions">
+                   action-route="admin.redirections.batch_action" :actions="actions"
+                   @bulk-action-success="onBulkActionSuccess">
         <b-table striped
                  bordered
                  show-empty
@@ -44,6 +45,10 @@
                  :sort-desc="sortDesc"
                  @sort-changed="onSort"
         >
+          <template slot="HEAD_checkbox" slot-scope="data"></template>
+          <template slot="checkbox" slot-scope="row">
+            <b-form-checkbox :value="row.item.id" v-model="selected"></b-form-checkbox>
+          </template>
           <template slot="active" slot-scope="row">
             <b-badge :variant="row.value ? 'success' : 'danger'">{{ row.value ? $t('labels.yes') : $t('labels.no') }}</b-badge>
           </template>
@@ -69,7 +74,9 @@
     data () {
       return {
         items: [],
+        selected: [],
         fields: [
+          { key: 'checkbox' },
           { key: 'source', label: this.$t('validation.attributes.source_path'), sortable: true },
           { key: 'active', label: this.$t('validation.attributes.active'), 'class': 'text-center' },
           { key: 'target', label: this.$t('validation.attributes.target_path'), sortable: true },
@@ -97,6 +104,9 @@
       },
       onDelete (id) {
         this.$refs.datatable.deleteRow(id)
+      },
+      onBulkActionSuccess () {
+        this.selected = []
       },
       onFileImport () {
         let data = new FormData()

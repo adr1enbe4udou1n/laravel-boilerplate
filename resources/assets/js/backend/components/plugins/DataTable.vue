@@ -85,7 +85,8 @@
         perPage: 15,
         totalRows: 0,
         pageOptions: [ 5, 10, 15, 25, 50 ],
-        searchQuery: null
+        searchQuery: null,
+        selected: []
       }
     },
     mounted () {
@@ -136,7 +137,7 @@
           if (result.value) {
             axios.delete(this.$app.route(this.deleteRoute, {id}))
               .then((response) => {
-                // Reload Datatables and keep current pager
+                this.refresh()
                 window.toastr[response.data.status](response.data.message)
               })
               .catch((error) => {
@@ -159,14 +160,12 @@
         })
       },
       onBulkAction (name) {
-        // Récupérer les éléments sélectionnés ??
-        let ids = []
-
         axios.post(this.$app.route(this.actionRoute), {
           action: name,
-          ids
+          ids: this.selected
         }).then((response) => {
-          // Reload Datatables and keep current pager
+          this.refresh()
+          this.$emit('bulk-action-success')
           window.toastr[response.data.status](response.data.message)
         }).catch((error) => {
           // Not allowed error

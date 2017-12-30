@@ -15,7 +15,8 @@
                    @data-loaded="onDataLoaded"
                    search-route="admin.metas.search"
                    delete-route="admin.metas.destroy"
-                   action-route="admin.metas.batch_action" :actions="actions">
+                   action-route="admin.metas.batch_action" :actions="actions"
+                   @bulk-action-success="onBulkActionSuccess">
         <b-table striped
                  bordered
                  show-empty
@@ -29,6 +30,10 @@
                  :sort-desc="sortDesc"
                  @sort-changed="onSort"
         >
+          <template slot="HEAD_checkbox" slot-scope="data"></template>
+          <template slot="checkbox" slot-scope="row">
+            <b-form-checkbox :value="row.item.id" v-model="selected"></b-form-checkbox>
+          </template>
           <template slot="actions" slot-scope="row">
             <b-button v-if="row.item.can_edit" size="sm" variant="primary" :to="`/metas/${row.item.id}/edit`" v-b-tooltip.hover :title="$t('buttons.edit')" class="mr-1">
               <i class="icon-pencil"></i>
@@ -49,7 +54,9 @@
     data () {
       return {
         items: [],
+        selected: [],
         fields: [
+          { key: 'checkbox' },
           { key: 'route', label: this.$t('validation.attributes.route'), sortable: true },
           { key: 'metable_type', label: this.$t('validation.attributes.metable_type'), sortable: true },
           { key: 'title', label: this.$t('validation.attributes.title'), sortable: true },
@@ -74,6 +81,9 @@
       },
       onDelete (id) {
         this.$refs.datatable.deleteRow(id)
+      },
+      onBulkActionSuccess () {
+        this.selected = []
       }
     }
   }
