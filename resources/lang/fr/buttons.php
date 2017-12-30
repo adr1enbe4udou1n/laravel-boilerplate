@@ -7,6 +7,7 @@ return [
     'create' => 'Créer',
     'delete' => 'Supprimer',
     'confirm' => 'Valider',
+    'show' => 'Voir',
     'edit' => 'Editer',
     'update' => 'Mettre à jour',
     'view' => 'Voir',
