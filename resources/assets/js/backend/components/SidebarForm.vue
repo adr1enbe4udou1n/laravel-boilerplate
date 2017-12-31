@@ -8,7 +8,6 @@
     name: 'sidebar-form',
     methods: {
       onSearch (value) {
-        console.log('ok')
         this.$router.push({path: '/search', query: {q: value}})
       }
     }
