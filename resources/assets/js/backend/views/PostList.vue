@@ -9,15 +9,14 @@
         </div>
         <h4 class="mt-1">{{ $t('labels.backend.posts.titles.index') }}</h4>
       </template>
-      <b-datatable ref="datatable"
-                   :sort-by="sortBy"
-                   :sort-desc="sortDesc"
-                   @data-loaded="onDataLoaded"
+      <b-datatable ref="datasource"
+                   @context-changed="onContextChanged"
                    search-route="admin.posts.search"
                    delete-route="admin.posts.destroy"
                    action-route="admin.posts.batch_action" :actions="actions"
                    @bulk-action-success="onBulkActionSuccess">
-        <b-table striped
+        <b-table ref="datatable"
+                 striped
                  bordered
                  show-empty
                  stacked="md"
@@ -25,10 +24,10 @@
                  :empty-text="$t('labels.datatables.no_results')"
                  :empty-filtered-text="$t('labels.datatables.no_matched_results')"
                  :fields="fields"
-                 :items="items"
-                 :sort-by="sortBy"
-                 :sort-desc="sortDesc"
-                 @sort-changed="onSort"
+                 :items="dataLoadProvider"
+                 sort-by="created_at"
+                 :sort-desc="true"
+                 :busy.sync="isBusy"
         >
           <template slot="HEAD_checkbox" slot-scope="data"></template>
           <template slot="checkbox" slot-scope="row">
@@ -79,7 +78,7 @@
     name: 'post_list',
     data () {
       return {
-        items: [],
+        isBusy: false,
         selected: [],
         fields: [
           { key: 'checkbox' },
@@ -93,8 +92,6 @@
           { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
           { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
         ],
-        sortBy: 'created_at',
-        sortDesc: true,
         actions: {
           destroy: this.$t('labels.backend.posts.actions.destroy'),
           publish: this.$t('labels.backend.posts.actions.publish'),
@@ -104,14 +101,14 @@
       }
     },
     methods: {
-      onDataLoaded (items) {
-        this.items = items
+      dataLoadProvider (ctx) {
+        return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
       },
-      onSort (ctx) {
-        this.$refs.datatable.sort(ctx.sortBy, ctx.sortDesc)
+      onContextChanged () {
+        return this.$refs.datatable.refresh()
       },
       onDelete (id) {
-        this.$refs.datatable.deleteRow({ post: id })
+        this.$refs.datasource.deleteRow({ post: id })
       },
       onBulkActionSuccess () {
         this.selected = []
@@ -119,7 +116,7 @@
     },
     watch: {
       selected (value) {
-        this.$refs.datatable.selected = value
+        this.$refs.datasource.selected = value
       }
     }
   }

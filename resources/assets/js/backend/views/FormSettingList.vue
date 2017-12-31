@@ -9,14 +9,13 @@
         </div>
         <h4 class="mt-1">{{ $t('labels.backend.form_settings.titles.index') }}</h4>
       </template>
-      <b-datatable ref="datatable"
-                   @data-loaded="onDataLoaded"
-                   :sort-by="sortBy"
-                   :sort-desc="sortDesc"
+      <b-datatable ref="datasource"
+                   @context-changed="onContextChanged"
                    search-route="admin.form_settings.search"
                    delete-route="admin.form_settings.destroy"
                    :lengthChange="false" :paging="false" :infos="false" :search="false">
-        <b-table striped
+        <b-table ref="datatable"
+                 striped
                  bordered
                  show-empty
                  stacked="md"
@@ -24,10 +23,10 @@
                  :empty-text="$t('labels.datatables.no_results')"
                  :empty-filtered-text="$t('labels.datatables.no_matched_results')"
                  :fields="fields"
-                 :items="items"
-                 :sort-by="sortBy"
-                 :sort-desc="sortDesc"
-                 @sort-changed="onSort"
+                 :items="dataLoadProvider"
+                 sort-by="name"
+                 :sort-desc="false"
+                 :busy.sync="isBusy"
         >
           <template slot="name" slot-scope="row">
             <router-link :to="`/form-submissions/${row.item.id}/edit`">
@@ -53,7 +52,7 @@
     name: 'form_setting_list',
     data () {
       return {
-        items: [],
+        isBusy: false,
         fields: [
           { key: 'name', label: this.$t('validation.attributes.form_type'), sortable: true },
           { key: 'recipients', label: this.$t('validation.attributes.recipients') },
@@ -61,20 +60,18 @@
           { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
           { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
           { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
-        ],
-        sortBy: 'name',
-        sortDesc: false
+        ]
       }
     },
     methods: {
-      onDataLoaded (items) {
-        this.items = items
+      dataLoadProvider (ctx) {
+        return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
       },
-      onSort (ctx) {
-        this.$refs.datatable.sort(ctx.sortBy, ctx.sortDesc)
+      onContextChanged () {
+        return this.$refs.datatable.refresh()
       },
       onDelete (id) {
-        this.$refs.datatable.deleteRow({ form_setting: id })
+        this.$refs.datasource.deleteRow({ form_setting: id })
       }
     }
   }

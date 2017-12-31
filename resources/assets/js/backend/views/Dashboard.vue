@@ -52,7 +52,7 @@
       <b-col xl v-if="this.$app.user.can('view own posts')">
         <b-card>
           <h4 slot="header">{{ $t('labels.backend.dashboard.last_posts') }}</h4>
-          <b-table striped bordered hover responsive show-empty :fields="post_fields" :items="posts"
+          <b-table striped bordered hover show-empty :fields="post_fields" :items="posts"
                    :emptyText="$t('labels.no_results')">
             <template slot="title" slot-scope="row">
               <router-link :to="`/posts/${row.item.id}/edit`">

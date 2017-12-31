@@ -2,15 +2,14 @@
   <div class="animated fadeIn">
     <b-card>
       <h4 slot="header">{{ $t('labels.backend.form_submissions.titles.index') }}</h4>
-      <b-datatable ref="datatable"
-                   @data-loaded="onDataLoaded"
-                   :sort-by="sortBy"
-                   :sort-desc="sortDesc"
+      <b-datatable ref="datasource"
+                   @context-changed="onContextChanged"
                    search-route="admin.form_submissions.search"
                    delete-route="admin.form_submissions.destroy"
                    action-route="admin.form_submissions.batch_action" :actions="actions"
                    @bulk-action-success="onBulkActionSuccess">
-        <b-table striped
+        <b-table ref="datatable"
+                 striped
                  bordered
                  show-empty
                  stacked="md"
@@ -18,10 +17,10 @@
                  :empty-text="$t('labels.datatables.no_results')"
                  :empty-filtered-text="$t('labels.datatables.no_matched_results')"
                  :fields="fields"
-                 :items="items"
-                 :sort-by="sortBy"
-                 :sort-desc="sortDesc"
-                 @sort-changed="onSort"
+                 :items="dataLoadProvider"
+                 sort-by="created_at"
+                 :sort-desc="true"
+                 :busy.sync="isBusy"
         >
           <template slot="HEAD_checkbox" slot-scope="data"></template>
           <template slot="checkbox" slot-scope="row">
@@ -51,7 +50,7 @@
     name: 'form_submission_list',
     data () {
       return {
-        items: [],
+        isBusy: false,
         selected: [],
         fields: [
           { key: 'checkbox' },
@@ -60,22 +59,20 @@
           { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
           { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
         ],
-        sortBy: 'created_at',
-        sortDesc: true,
         actions: {
           destroy: this.$t('labels.backend.form_submissions.actions.destroy')
         }
       }
     },
     methods: {
-      onDataLoaded (items) {
-        this.items = items
+      dataLoadProvider (ctx) {
+        return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
       },
-      onSort (ctx) {
-        this.$refs.datatable.sort(ctx.sortBy, ctx.sortDesc)
+      onContextChanged () {
+        return this.$refs.datatable.refresh()
       },
       onDelete (id) {
-        this.$refs.datatable.deleteRow({ form_submission: id })
+        this.$refs.datasource.deleteRow({ form_submission: id })
       },
       onBulkActionSuccess () {
         this.selected = []
@@ -83,7 +80,7 @@
     },
     watch: {
       selected (value) {
-        this.$refs.datatable.selected = value
+        this.$refs.datasource.selected = value
       }
     }
   }

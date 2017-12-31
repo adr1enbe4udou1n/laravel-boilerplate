@@ -9,15 +9,14 @@
         </div>
         <h4 class="mt-1">{{ $t('labels.backend.users.titles.index') }}</h4>
       </template>
-      <b-datatable ref="datatable"
-                   @data-loaded="onDataLoaded"
-                   :sort-by="sortBy"
-                   :sort-desc="sortDesc"
+      <b-datatable ref="datasource"
+                   @context-changed="onContextChanged"
                    search-route="admin.users.search"
                    delete-route="admin.users.destroy"
                    action-route="admin.users.batch_action" :actions="actions"
                    @bulk-action-success="onBulkActionSuccess">
-        <b-table striped
+        <b-table ref="datatable"
+                 striped
                  bordered
                  show-empty
                  stacked="md"
@@ -25,10 +24,10 @@
                  :empty-text="$t('labels.datatables.no_results')"
                  :empty-filtered-text="$t('labels.datatables.no_matched_results')"
                  :fields="fields"
-                 :items="items"
-                 :sort-by="sortBy"
-                 :sort-desc="sortDesc"
-                 @sort-changed="onSort"
+                 :items="dataLoadProvider"
+                 sort-by="updated_at"
+                 :sort-desc="true"
+                 :busy.sync="isBusy"
         >
           <template slot="HEAD_checkbox" slot-scope="data"></template>
           <template slot="checkbox" slot-scope="row">
@@ -70,8 +69,8 @@
     name: 'user_list',
     data () {
       return {
-        items: [],
         selected: [],
+        isBusy: false,
         fields: [
           { key: 'checkbox' },
           { key: 'name', label: this.$t('validation.attributes.name'), sortable: true },
@@ -84,8 +83,6 @@
           { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
           { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
         ],
-        sortBy: 'updated_at',
-        sortDesc: true,
         actions: {
           destroy: this.$t('labels.backend.users.actions.destroy'),
           enable: this.$t('labels.backend.users.actions.enable'),
@@ -94,27 +91,27 @@
       }
     },
     methods: {
-      onDataLoaded (items) {
-        this.items = items
+      dataLoadProvider (ctx) {
+        return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
+      },
+      onContextChanged () {
+        return this.$refs.datatable.refresh()
+      },
+      onDelete (id) {
+        this.$refs.datasource.deleteRow({ user: id })
+      },
+      onBulkActionSuccess () {
+        this.selected = []
       },
       formatRoles (roles) {
         return roles.map((key) => {
           return key.display_name
         }).join(', ')
-      },
-      onSort (ctx) {
-        this.$refs.datatable.sort(ctx.sortBy, ctx.sortDesc)
-      },
-      onDelete (id) {
-        this.$refs.datatable.deleteRow({ user: id })
-      },
-      onBulkActionSuccess () {
-        this.selected = []
       }
     },
     watch: {
       selected (value) {
-        this.$refs.datatable.selected = value
+        this.$refs.datasource.selected = value
       }
     }
   }

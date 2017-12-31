@@ -4,6 +4,7 @@ return [
     'language' => 'Langue',
     'actions' => 'Actions',
     'general' => 'Général',
+    'no_results' => 'Aucun résultat trouvé',
     'search' => 'Rechercher',
     'validate' => 'Valider',
     'choose_file' => 'Sélectionner un fichier',

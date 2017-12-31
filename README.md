@@ -126,7 +126,7 @@ You will observe that this boilerplate does not use [Laravel Mix](https://github
 
 Laravel Mix still stay awesome for newcomers thanks to his laravel-like webpack fluent API, but, even if Laravel Mix can be easily overridden, for this project i preferred use my custom framework-free webpack setup in order to have total control of assets workflow.
 
-For instance, with this custom setup HMR work natively with configurable port and productions assets are bundled into specific "dist" directory.
+For instance, with this custom setup HMR work natively with configurable port (essential for easy vue admin developpement) and productions assets are bundled into specific "dist" directory.
 
 ## TODO
 
@@ -149,6 +149,7 @@ For instance, with this custom setup HMR work natively with configurable port an
 - [x] <s>Migrate to 100% client-side Vue backend with vue-route</s>
 - [x] <s>Migrate to Bootstrap-Vue</s>
 - [x] <s>Webpack bundle size optimizations</s>
+- [x] <s>Get rid of jquery datatables</s>
 - [ ] Inclusion of unit/featured/browser tests (stand by for now)
 
 ## License

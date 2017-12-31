@@ -4,7 +4,7 @@
       <b-col md="4" class="mb-3">
         <b-form inline v-if="lengthChange">
           <label class="mr-2">{{ $t('labels.datatables.show_per_page') }}</label>
-          <b-form-select :options="pageOptions" v-model="perPage" class="mr-2" @input="refresh"></b-form-select>
+          <b-form-select :options="pageOptions" v-model="perPage" class="mr-2" @input="onContextChanged"></b-form-select>
           <label>{{ $t('labels.datatables.entries_per_page') }}</label>
         </b-form>
       </b-col>
@@ -14,14 +14,14 @@
       <b-col md="4" class="mb-3">
         <b-form inline v-if="search" class="d-flex justify-content-end">
           <label class="mr-2">{{ $t('labels.datatables.search') }}</label>
-          <b-form-input v-model="searchQuery" @input="refresh"></b-form-input>
+          <b-form-input v-model="searchQuery" @input="onContextChanged"></b-form-input>
         </b-form>
       </b-col>
     </b-row>
     <slot></slot>
     <b-row>
       <b-col md="4">
-        <form class="form-inline" @submit.prevent="onBulkAction">
+        <form class="form-inline" @submit.prevent="onBulkAction" v-if="actions">
           <div class="form-group form-group-sm">
             <select name="action" class="form-control mr-1" v-model="action">
               <option v-for="(action, value) in actions" :value="value">{{ action }}</option>
@@ -32,7 +32,7 @@
       </b-col>
       <b-col md="4">
         <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" v-if="paging && totalRows > perPage"
-                      class="justify-content-center" @input="refresh"></b-pagination>
+                      class="justify-content-center" @input="onContextChanged"></b-pagination>
       </b-col>
     </b-row>
   </div>
@@ -43,14 +43,6 @@
 
   export default {
     props: {
-      sortBy: {
-        type: String,
-        default: null
-      },
-      sortDesc: {
-        type: Boolean,
-        default: false
-      },
       lengthChange: {
         type: Boolean,
         default: true
@@ -81,56 +73,54 @@
       },
       actions: {
         type: Object,
-        default: null
+        default: () => {}
       }
     },
     data () {
       return {
-        currentSortBy: this.sortBy,
-        currentSortDesc: this.sortDesc,
         currentPage: 1,
         perPage: 15,
         totalRows: 0,
         pageOptions: [ 5, 10, 15, 25, 50 ],
         searchQuery: null,
         selected: [],
-        action: Object.keys(this.actions)[0]
+        action: null
       }
     },
     mounted () {
-      this.refresh()
+      if (this.actions) {
+        this.action = Object.keys(this.actions)[0]
+      }
     },
     methods: {
-      sort (sortBy, sortDesc) {
-        this.currentSortBy = sortBy
-        this.currentSortDesc = sortDesc
-        console.log(sortDesc)
-        this.refresh()
+      onContextChanged () {
+        this.$emit('context-changed')
       },
-      refresh () {
-        axios.get(this.$app.route(this.searchRoute), {
+      loadData (sortBy, sortDesc) {
+        return axios.get(this.$app.route(this.searchRoute), {
           params: {
             page: this.currentPage,
             perPage: this.perPage,
-            column: this.currentSortBy,
-            direction: this.currentSortDesc ? 'desc' : 'asc',
+            column: sortBy,
+            direction: sortDesc ? 'desc' : 'asc',
             search: this.searchQuery
           }
         })
           .then((response) => {
             this.totalRows = response.data.total
 
-            this.$emit('data-loaded', response.data.data)
+            return response.data.data
           })
           .catch((error) => {
             // Domain error
             if (error.response.data.error !== undefined) {
               window.toastr.error(error.response.data.error)
-              return
+              return []
             }
 
             // Generic error
             window.toastr.error(this.$t('exceptions.general'))
+            return []
           })
       },
       deleteRow (params) {
