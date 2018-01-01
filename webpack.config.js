@@ -50,7 +50,6 @@ module.exports = {
       'vue-select',
       'flatpickr',
       'chart.js',
-      'quill',
       'vue-chartjs'
     ],
     locales: [

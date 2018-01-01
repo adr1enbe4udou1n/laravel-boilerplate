@@ -48,6 +48,7 @@
             >
               <p-richtexteditor
                 id="body"
+                name="body"
                 v-model="model.body"
               ></p-richtexteditor>
             </b-form-group>

@@ -1,6 +1,6 @@
 <template>
 
-  <div :id="id"></div>
+  <textarea :id="id" :name="name" :value="value"></textarea>
 
 </template>
 
@@ -8,6 +8,9 @@
   export default {
     props: {
       id: {
+        type: String
+      },
+      name: {
         type: String
       },
       placeholder: {
@@ -24,35 +27,36 @@
       }
     },
     mounted () {
-      let toolbarOptions = [
-        [{'header': [1, 2, 3, 4, 5, 6, false]}],
-        ['bold', 'italic', 'underline', 'strike'],
-        ['blockquote', 'code-block'],
-
-        [{'list': 'ordered'}, {'list': 'bullet'}],
-        [{'script': 'sub'}, {'script': 'super'}],
-
-        ['link', 'image', 'video', 'formula']
-      ]
-
-      this.editor = new window.Quill(`#${this.id}`, {
-        modules: {
-          toolbar: toolbarOptions
-        },
-        placeholder: this.placeholder,
-        theme: 'snow'
-      })
-
-      this.editor.on('text-change', () => {
-        this.$emit('input', this.editor.root.innerHTML)
-      })
+      window.ClassicEditor
+        .create(document.querySelector(`#${this.id}`), {
+          toolbar: [ 'headings', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'undo', 'redo' ],
+          heading: {
+            options: [
+              { modelElement: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+              { modelElement: 'heading2', viewElement: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
+              { modelElement: 'heading3', viewElement: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' }
+            ]
+          }
+        })
+        .then((editor) => {
+          editor.document.on('change', () => {
+            this.$emit('input', editor.getData())
+          })
+          this.editor = editor
+        })
+        .catch((error) => {
+          console.error(error)
+        })
     },
     watch: {
       value (newValue) {
-        if (newValue !== this.editor.root.innerHTML) {
-          this.editor.clipboard.dangerouslyPasteHTML(newValue)
+        if (newValue !== this.editor.getData()) {
+          this.editor.setData(newValue)
         }
       }
+    },
+    beforeDestroy () {
+      this.editor.destroy()
     }
   }
 </script>
