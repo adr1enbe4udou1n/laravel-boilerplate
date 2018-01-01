@@ -31,7 +31,7 @@
 
 #### Underlying layer
 
-* Based on Bootstrap 4 [CoreUI](https://github.com/mrholek/CoreUI-Free-Bootstrap-Admin-Template) theme with many useful plugins ([SweetAlert2](https://limonte.github.io/sweetalert2/), [Flatpickr](https://chmln.github.io/flatpickr/), [Quill](https://quilljs.com/), etc.),
+* Based on Bootstrap 4 [CoreUI](https://github.com/mrholek/CoreUI-Free-Bootstrap-Admin-Template) theme with many useful plugins ([SweetAlert2](https://limonte.github.io/sweetalert2/), [Flatpickr](https://chmln.github.io/flatpickr/), [CKEditor 5](https://ckeditor.com/), etc.),
 * Entirely written with Vue components thanks to [Bootstrap-Vue](https://bootstrap-vue.js.org/),
 * Vue-route for instant client-side navigation,
 * Native Vue Datatable, with everywhere search input and batch actions features,
@@ -46,6 +46,7 @@
 * Impersonation feature for quick user context testing,
 * Frontend forms module, including settings (recipients and translatable message confirmation) & submissions management,
 * Posts management for frontend blog, with granular publication permissions (classic draft-pending-published workflow). Posts include title, summary, html body, tags, featured image, metas. They can be published and/or unpublished at specific datetime and pinned if needed. Specific user can have limited access to his own posts only, according to his permissions,
+* Wysiwyg drag & drop image upload.
 
 ### Localization & SEO
 
