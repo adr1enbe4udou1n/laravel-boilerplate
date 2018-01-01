@@ -13,8 +13,8 @@
 @endsection
 
 @section('content')
-    <div class="post-body">
-        {!! clean($post->body) !!}
+    <div class="wysiwyg-content">
+        {!! strip_tags($post->body, config('app.allowable_tags')) !!}
     </div>
 
     <nav class="nav">

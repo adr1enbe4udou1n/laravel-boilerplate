@@ -36,6 +36,18 @@
               { modelElement: 'heading2', viewElement: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
               { modelElement: 'heading3', viewElement: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' }
             ]
+          },
+          image: {
+            toolbar: [ 'imageStyleFull', 'imageStyleAlignLeft', 'imageStyleAlignCenter', 'imageStyleAlignRight', '|', 'imageTextAlternative' ],
+            styles: [
+              'imageStyleFull',
+              'imageStyleAlignLeft',
+              'imageStyleAlignCenter',
+              'imageStyleAlignRight'
+            ]
+          },
+          ckfinder: {
+            uploadUrl: this.$app.route('admin.images.upload')
           }
         })
         .then((editor) => {
