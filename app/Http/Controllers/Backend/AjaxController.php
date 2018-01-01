@@ -124,7 +124,7 @@ class AjaxController extends Controller
         $uploadedImage = $request->file('upload');
 
         // Resize image below 600px width if needed
-        $image = Image::make($uploadedImage->openFile())->widen(200, function ($constraint) {
+        $image = Image::make($uploadedImage->openFile())->widen(600, function ($constraint) {
             $constraint->upsize();
         });
 
