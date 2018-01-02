@@ -30,14 +30,14 @@
     @routes()
 
     <!-- CDN -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-alpha.2/classic/ckeditor.js"></script>
+    <script defer src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script defer src="https://cdn.ckeditor.com/ckeditor5/1.0.0-alpha.2/classic/ckeditor.js"></script>
 
     <!-- Scripts -->
-    <script src="{{ Html::asset('manifest.js') }}"></script>
-    <script src="{{ Html::asset('vendor.js') }}"></script>
-    <script src="{{ Html::asset('vendor_backend.js') }}"></script>
-    <script src="{{ Html::asset('locales.js') }}"></script>
-    <script src="{{ Html::asset('backend.js') }}"></script>
+    <script defer src="{{ Html::asset('manifest.js') }}"></script>
+    <script defer src="{{ Html::asset('vendor.js') }}"></script>
+    <script defer src="{{ Html::asset('vendor_backend.js') }}"></script>
+    <script defer src="{{ Html::asset('locales.js') }}"></script>
+    <script defer src="{{ Html::asset('backend.js') }}"></script>
 @endpush
