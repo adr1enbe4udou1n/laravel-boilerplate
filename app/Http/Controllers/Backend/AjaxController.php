@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Backend;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 use App\Http\Controllers\Controller;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 use App\Repositories\Contracts\TagRepository;
 use App\Repositories\Contracts\PostRepository;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
 use Mcamara\LaravelLocalization\LaravelLocalization;
 
 class AjaxController extends Controller

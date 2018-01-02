@@ -7,7 +7,7 @@
     "prod": "rimraf public/dist && cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "devDependencies": {
-    "autoprefixer": "^7.2.3",
+    "autoprefixer": "^7.2.4",
     "axios": "^0.17.1",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.1.2",
@@ -52,7 +52,7 @@
     "simple-line-icons": "^2.4.1",
     "slick-carousel": "^1.8.1",
     "style-loader": "^0.19.1",
-    "sweetalert2": "^7.3.0",
+    "sweetalert2": "^7.3.1",
     "toastr": "^2.1.4",
     "uglifyjs-webpack-plugin": "^1.1.5",
     "vee-validate": "^2.0.0",
