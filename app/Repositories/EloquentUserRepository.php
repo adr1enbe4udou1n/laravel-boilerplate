@@ -111,7 +111,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
      */
     public function update(User $user, array $input)
     {
-        if (! $this->canEdit($user)) {
+        if (! $user->can_edit) {
             throw new GeneralException(__('exceptions.backend.users.first_user_cannot_be_edited'));
         }
 

@@ -28,16 +28,15 @@ module.exports = {
       './resources/assets/sass/backend/app.scss'
     ],
     vendor: [
+      'axios',
+      'bootstrap-vue',
+      'pwstrength-bootstrap/dist/pwstrength-bootstrap',
+      'sweetalert2',
+      'vee-validate',
       'vue',
       'vue-router',
       'vuex',
-      'vue-i18n',
-      'bootstrap-vue',
-      'axios',
-      'sweetalert2',
-      'pwstrength-bootstrap/dist/pwstrength-bootstrap',
-      'toastr',
-      'vee-validate'
+      'vue-i18n'
     ],
     vendor_frontend: [
       'bootstrap',
@@ -47,10 +46,11 @@ module.exports = {
       'webfontloader'
     ],
     vendor_backend: [
-      'vue-select',
-      'flatpickr',
       'chart.js',
-      'vue-chartjs'
+      'flatpickr',
+      'toastr',
+      'vue-chartjs',
+      'vue-select'
     ],
     locales: [
       './resources/assets/js/vue-i18n-locales.generated.js'
@@ -166,12 +166,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-      Popper: ['popper.js', 'default']
-    }),
     new webpack.IgnorePlugin(/jsdom$/),
     new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /fr/),
     new webpack.LoaderOptionsPlugin({
@@ -210,6 +204,10 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
     }
+  },
+  externals: {
+    jquery: 'jQuery',
+    'popper.js': 'Popper'
   },
   performance: {
     hints: false

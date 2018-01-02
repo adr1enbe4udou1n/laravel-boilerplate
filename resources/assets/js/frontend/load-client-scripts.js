@@ -55,15 +55,6 @@ export default () => {
     window.locale = $('html').attr('lang')
 
     /**
-     * Place the CSRF token as a header on all pages for access in AJAX requests
-     */
-    $.ajaxSetup({
-      headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
-    })
-
-    /**
      * Slick
      */
     $('[data-toggle="slider"]')
