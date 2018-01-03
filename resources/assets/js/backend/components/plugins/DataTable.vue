@@ -114,12 +114,12 @@
           .catch((error) => {
             // Domain error
             if (error.response.data.error !== undefined) {
-              window.toastr.error(error.response.data.error)
+              this.$app.error(error.response.data.error)
               return []
             }
 
             // Generic error
-            window.toastr.error(this.$t('exceptions.general'))
+            this.$app.error(this.$t('exceptions.general'))
             return []
           })
       },
@@ -173,22 +173,22 @@
             }).then((response) => {
               this.refresh()
               this.$emit('bulk-action-success')
-              window.toastr[response.data.status](response.data.message)
+              this.$app[response.data.status](response.data.message)
             }).catch((error) => {
               // Not allowed error
               if (error.response.status === 403) {
-                window.toastr.error(this.$t('exceptions.unauthorized'))
+                this.$app.error(this.$t('exceptions.unauthorized'))
                 return
               }
 
               // Domain error
               if (error.response.data.message !== undefined) {
-                window.toastr.error(error.response.data.message)
+                this.$app.error(error.response.data.message)
                 return
               }
 
               // Generic error
-              window.toastr.error(this.$t('exceptions.general'))
+              this.$app.error(this.$t('exceptions.general'))
             })
           }
         })
