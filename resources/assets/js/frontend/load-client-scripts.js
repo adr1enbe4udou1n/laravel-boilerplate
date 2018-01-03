@@ -9,8 +9,8 @@ import WebFont from 'webfontloader'
 /**
  * JS Settings App
  */
-let jsonSettings = $('[data-settings-selector="settings-json"]').text()
-window.settings = jsonSettings ? JSON.parse(jsonSettings) : {}
+let jsonSettings = document.querySelector('[data-settings-selector="settings-json"]')
+window.settings = jsonSettings ? JSON.parse(jsonSettings.textContent) : {}
 
 window.swal = swal
 

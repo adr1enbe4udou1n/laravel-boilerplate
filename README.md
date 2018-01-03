@@ -32,7 +32,7 @@
 #### Underlying layer
 
 * Based on Bootstrap 4 [CoreUI](https://github.com/mrholek/CoreUI-Free-Bootstrap-Admin-Template) theme with many useful plugins ([SweetAlert2](https://limonte.github.io/sweetalert2/), [Flatpickr](https://chmln.github.io/flatpickr/), [CKEditor 5](https://ckeditor.com/), etc.),
-* Entirely written with Vue components thanks to [Bootstrap-Vue](https://bootstrap-vue.js.org/),
+* Entirely written with Vue components thanks to [Bootstrap-Vue](https://bootstrap-vue.js.org/), absolutely no jQuery dependency,
 * Vue-route for instant client-side navigation,
 * Native Vue Datatable, with everywhere search input and batch actions features,
 * All main CRUD actions are ajaxified,

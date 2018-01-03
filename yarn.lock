@@ -4032,7 +4032,7 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
 
-jquery@>=1.12.0, jquery@>=3.0.0:
+jquery@>=3.0.0:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
 
@@ -4912,6 +4912,10 @@ normalize-url@^1.4.0:
     prepend-http "^1.0.0"
     query-string "^4.1.0"
     sort-keys "^1.0.0"
+
+noty@^3.2.0-beta:
+  version "3.2.0-beta"
+  resolved "https://registry.yarnpkg.com/noty/-/noty-3.2.0-beta.tgz#cd1117277a1b83c9b08dfc78f968c6c5960d3cfa"
 
 npm-run-path@^2.0.0:
   version "2.0.2"
@@ -6745,9 +6749,9 @@ svgo@^0.7.0:
     sax "~1.2.1"
     whet.extend "~0.9.9"
 
-sweetalert2@^7.3.1:
-  version "7.3.1"
-  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-7.3.1.tgz#ea44f0affdb6e3ee58e649f13e8bbb0604c0bb8f"
+sweetalert2@^7.3.2:
+  version "7.3.2"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-7.3.2.tgz#744c7ca5ab398d1bf82f2cd9bcd9e9b2572935f5"
 
 table@^4.0.1:
   version "4.0.1"
@@ -6886,12 +6890,6 @@ to-fast-properties@^1.0.3:
 to-fast-properties@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-2.0.0.tgz#dc5e698cbd079265bc73e0377681a4e4e83f616e"
-
-toastr@^2.1.4:
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/toastr/-/toastr-2.1.4.tgz#8b43be64fb9d0c414871446f2db8e8ca4e95f181"
-  dependencies:
-    jquery ">=1.12.0"
 
 tough-cookie@~2.3.0, tough-cookie@~2.3.2:
   version "2.3.3"

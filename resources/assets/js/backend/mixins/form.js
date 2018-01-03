@@ -70,7 +70,7 @@ export default {
 
       axios.post(action, data)
         .then((response) => {
-          window.toastr[response.data.status](response.data.message)
+          this.$app[response.data.status](response.data.message)
           if (this.listPath) {
             router.push(this.listPath)
           }
@@ -84,18 +84,18 @@ export default {
 
           // Not allowed error
           if (error.response.status === 403) {
-            window.toastr.error(this.$t('exceptions.unauthorized'))
+            this.$app.error(this.$t('exceptions.unauthorized'))
             return
           }
 
           // Domain error
           if (error.response.data.message !== undefined) {
-            window.toastr.error(error.response.data.message)
+            this.$app.error(error.response.data.message)
             return
           }
 
           // Generic error
-          window.toastr.error(this.$t('exceptions.general'))
+          this.$app.error(this.$t('exceptions.general'))
         })
         .then(() => {
           this.pending = false

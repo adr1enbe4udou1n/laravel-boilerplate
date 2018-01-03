@@ -13,7 +13,8 @@
 @import "../../vendor/coreui/scss/style";
 
 // Plugins
-@import "~toastr/toastr.scss";
+@import "~noty/src/noty";
+@import "~noty/src/themes/bootstrap-v4";
 @import "~sweetalert2/src/sweetalert2";
 @import "~flatpickr/dist/flatpickr";
 

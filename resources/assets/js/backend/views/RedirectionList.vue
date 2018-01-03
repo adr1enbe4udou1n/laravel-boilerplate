@@ -113,10 +113,10 @@
           .post(this.$app.route('admin.redirections.import'), data)
           .then((response) => {
             this.$refs.datatable.refresh()
-            window.toastr[response.data.status](response.data.message)
+            this.$app[response.data.status](response.data.message)
           })
           .catch(() => {
-            window.toastr.error(this.$t('exceptions.general'))
+            this.$app.error(this.$t('exceptions.general'))
           })
       }
     },

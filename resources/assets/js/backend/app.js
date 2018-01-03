@@ -21,17 +21,12 @@ import { createStore } from './store'
 import { createLocales } from '../vue-i18n'
 
 import App from './App.vue'
-
-/**
- * JS Settings App
- */
-let jsonSettings = $('[data-settings-selector="settings-json"]').text()
-let settings = jsonSettings ? JSON.parse(jsonSettings) : {}
+import Noty from 'noty'
 
 /**
  * Vue Init
  */
-VeeValidate(settings.locale)
+VeeValidate(window.settings.locale)
 
 // Bootstrap Vue
 Vue.use(BootstrapVue)
@@ -45,7 +40,7 @@ Vue.component('p-datetimepicker', DateTimePicker)
 Vue.component('p-richtexteditor', RichTextEditor)
 Vue.component('b-datatable', DataTable)
 
-Vue.prototype.$app = settings
+Vue.prototype.$app = window.settings
 
 // Register Ziggy route function
 Vue.prototype.$app.route = window.route
@@ -60,14 +55,44 @@ if (Vue.prototype.$app.user) {
   }
 }
 
+let noty = (type, text) => {
+  new Noty({
+    layout: 'topRight',
+    theme: 'bootstrap-v4',
+    timeout: 2000,
+    text,
+    type
+  }).show()
+}
+
+Vue.prototype.$app.alert = (text) => {
+  noty('alert', text)
+}
+
+Vue.prototype.$app.success = (text) => {
+  noty('success', text)
+}
+
+Vue.prototype.$app.error = (text) => {
+  noty('error', text)
+}
+
+Vue.prototype.$app.warning = (text) => {
+  noty('warning', text)
+}
+
+Vue.prototype.$app.info = (text) => {
+  noty('info', text)
+}
+
 export function createApp () {
   // Init router and store
-  const i18n = createLocales(settings.locale)
-  const router = createRouter(settings.adminHomePath, i18n)
+  const i18n = createLocales(window.settings.locale)
+  const router = createRouter(window.settings.adminHomePath, i18n)
   const store = createStore(window.route)
 
   router.beforeEach((to, from, next) => {
-    document.title = `${to.meta.title} | ${settings.appName}`
+    document.title = `${to.meta.title} | ${window.settings.appName}`
     next()
   })
 

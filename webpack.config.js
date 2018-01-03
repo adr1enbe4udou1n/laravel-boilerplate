@@ -30,7 +30,6 @@ module.exports = {
     vendor: [
       'axios',
       'bootstrap-vue',
-      'pwstrength-bootstrap/dist/pwstrength-bootstrap',
       'sweetalert2',
       'vee-validate',
       'vue',
@@ -42,13 +41,14 @@ module.exports = {
       'bootstrap',
       'cookieconsent',
       'intl-tel-input',
+      'pwstrength-bootstrap/dist/pwstrength-bootstrap',
       'slick-carousel',
       'webfontloader'
     ],
     vendor_backend: [
       'chart.js',
       'flatpickr',
-      'toastr',
+      'noty',
       'vue-chartjs',
       'vue-select'
     ],
