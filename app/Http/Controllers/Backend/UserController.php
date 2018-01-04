@@ -171,6 +171,7 @@ class UserController extends BackendController
 
     public function activeToggle(User $user)
     {
+        $this->authorize('edit users');
         $user->update(['active' => ! $user->active]);
     }
 }

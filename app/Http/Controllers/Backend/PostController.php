@@ -230,11 +230,13 @@ class PostController extends BackendController
 
     public function pinToggle(Post $post)
     {
+        $this->authorize('edit posts');
         $post->update(['pinned' => ! $post->pinned]);
     }
 
     public function promoteToggle(Post $post)
     {
+        $this->authorize('edit posts');
         $post->update(['promoted' => ! $post->promoted]);
     }
 }

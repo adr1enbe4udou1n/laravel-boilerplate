@@ -157,6 +157,7 @@ class RedirectionController extends BackendController
 
     public function activeToggle(Redirection $redirection)
     {
+        $this->authorize('edit redirections');
         $redirection->update(['active' => ! $redirection->active]);
     }
 
