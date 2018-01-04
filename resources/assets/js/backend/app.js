@@ -40,77 +40,82 @@ Vue.component('p-datetimepicker', DateTimePicker)
 Vue.component('p-richtexteditor', RichTextEditor)
 Vue.component('b-datatable', DataTable)
 
-Vue.prototype.$app = window.settings
-
-// Register Ziggy route function
-Vue.prototype.$app.route = window.route
-
-/**
- * Client-side permissions
- */
-if (Vue.prototype.$app.user) {
-  Vue.prototype.$app.user.can = (permission) => {
-    if (Vue.prototype.$app.user.id === 1 ||
-      Vue.prototype.$app.permissions.includes('access all backend')) {
-      return true
-    }
-    return Vue.prototype.$app.permissions.includes(permission)
-  }
-}
-
-/**
- * Notifications
- */
-let noty = (type, text) => {
-  new Noty({
-    layout: 'topRight',
-    theme: 'bootstrap-v4',
-    timeout: 2000,
-    text,
-    type
-  }).show()
-}
-
-Vue.prototype.$app.noty = {
-  alert: (text) => {
-    noty('alert', text)
-  },
-  success: (text) => {
-    noty('success', text)
-  },
-  error: (text) => {
-    noty('error', text)
-  },
-  warning: (text) => {
-    noty('warning', text)
-  },
-  info: (text) => {
-    noty('info', text)
-  }
-}
-
-Vue.prototype.$app.error = (error) => {
-  // Not allowed error
-  if (error.response.status === 403) {
-    noty('error', this.$t('exceptions.unauthorized'))
-    return
-  }
-
-  // Domain error
-  if (error.response.data.error !== undefined) {
-    noty('error', error.response.data.message)
-    return
-  }
-
-  // Generic error
-  noty('error', this.$t('exceptions.general'))
-}
-
 export function createApp () {
   // Init router and store
   const i18n = createLocales(window.settings.locale)
   const router = createRouter(window.settings.adminHomePath, i18n)
   const store = createStore(window.route)
+
+  /**
+   * Server-side settings
+   */
+  Vue.prototype.$app = window.settings
+
+  /**
+   * Server-side named routes function router
+   */
+  Vue.prototype.$app.route = window.route
+
+  /**
+   * Client-side permissions
+   */
+  if (Vue.prototype.$app.user) {
+    Vue.prototype.$app.user.can = (permission) => {
+      if (Vue.prototype.$app.user.id === 1 ||
+        Vue.prototype.$app.permissions.includes('access all backend')) {
+        return true
+      }
+      return Vue.prototype.$app.permissions.includes(permission)
+    }
+  }
+
+  /**
+   * Notifications
+   */
+  let noty = (type, text) => {
+    new Noty({
+      layout: 'topRight',
+      theme: 'bootstrap-v4',
+      timeout: 2000,
+      text,
+      type
+    }).show()
+  }
+
+  Vue.prototype.$app.noty = {
+    alert: (text) => {
+      noty('alert', text)
+    },
+    success: (text) => {
+      noty('success', text)
+    },
+    error: (text) => {
+      noty('error', text)
+    },
+    warning: (text) => {
+      noty('warning', text)
+    },
+    info: (text) => {
+      noty('info', text)
+    }
+  }
+
+  Vue.prototype.$app.error = (error) => {
+    // Not allowed error
+    if (error.response.status === 403) {
+      noty('error', i18n.t('exceptions.unauthorized'))
+      return
+    }
+
+    // Domain error
+    if (error.response.data.error !== undefined) {
+      noty('error', error.response.data.message)
+      return
+    }
+
+    // Generic error
+    noty('error', i18n.t('exceptions.general'))
+  }
 
   router.beforeEach((to, from, next) => {
     document.title = `${to.meta.title} | ${window.settings.appName}`
