@@ -43,7 +43,7 @@
     "lodash-webpack-plugin": "^0.11.4",
     "node-sass": "^4.7.2",
     "noty": "^3.2.0-beta",
-    "postcss-loader": "^2.0.9",
+    "postcss-loader": "^2.0.10",
     "pwstrength-bootstrap": "^2.1.1",
     "resolve-url-loader": "^2.2.1",
     "rimraf": "^2.6.2",
