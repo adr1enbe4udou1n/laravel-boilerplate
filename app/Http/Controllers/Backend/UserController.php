@@ -168,4 +168,9 @@ class UserController extends BackendController
 
         return $this->redirectResponse($request, __('alerts.backend.actions.invalid'), 'error');
     }
+
+    public function activeToggle(User $user)
+    {
+        $user->update(['active' => ! $user->active]);
+    }
 }

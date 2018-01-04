@@ -50,6 +50,7 @@ Route::group(
         ]);
 
         Route::post('users/batch_action', 'UserController@batchAction')->name('users.batch_action');
+        Route::post('users/{user}/active', 'UserController@activeToggle')->name('users.active');
     }
 );
 
@@ -94,6 +95,7 @@ Route::group(
         ]);
 
         Route::post('redirections/batch_action', 'RedirectionController@batchAction')->name('redirections.batch_action');
+        Route::post('redirections/{redirection}/active', 'RedirectionController@activeToggle')->name('redirections.active');
 
         Route::post('redirections/import', 'RedirectionController@import')->name('redirections.import');
     }
@@ -116,6 +118,8 @@ if (config('blog.enabled')) {
             ]);
 
             Route::post('posts/batch_action', 'PostController@batchAction')->name('posts.batch_action');
+            Route::post('posts/{post}/pinned', 'PostController@pinToggle')->name('posts.pinned');
+            Route::post('posts/{post}/promoted', 'PostController@promoteToggle')->name('posts.promoted');
         }
     );
 }

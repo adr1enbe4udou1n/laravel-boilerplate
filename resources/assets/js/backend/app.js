@@ -45,6 +45,9 @@ Vue.prototype.$app = window.settings
 // Register Ziggy route function
 Vue.prototype.$app.route = window.route
 
+/**
+ * Client-side permissions
+ */
 if (Vue.prototype.$app.user) {
   Vue.prototype.$app.user.can = (permission) => {
     if (Vue.prototype.$app.user.id === 1 ||
@@ -55,6 +58,9 @@ if (Vue.prototype.$app.user) {
   }
 }
 
+/**
+ * Notifications
+ */
 let noty = (type, text) => {
   new Noty({
     layout: 'topRight',
@@ -65,24 +71,39 @@ let noty = (type, text) => {
   }).show()
 }
 
-Vue.prototype.$app.alert = (text) => {
-  noty('alert', text)
+Vue.prototype.$app.noty = {
+  alert: (text) => {
+    noty('alert', text)
+  },
+  success: (text) => {
+    noty('success', text)
+  },
+  error: (text) => {
+    noty('error', text)
+  },
+  warning: (text) => {
+    noty('warning', text)
+  },
+  info: (text) => {
+    noty('info', text)
+  }
 }
 
-Vue.prototype.$app.success = (text) => {
-  noty('success', text)
-}
+Vue.prototype.$app.error = (error) => {
+  // Not allowed error
+  if (error.response.status === 403) {
+    noty('error', this.$t('exceptions.unauthorized'))
+    return
+  }
 
-Vue.prototype.$app.error = (text) => {
-  noty('error', text)
-}
+  // Domain error
+  if (error.response.data.error !== undefined) {
+    noty('error', error.response.data.message)
+    return
+  }
 
-Vue.prototype.$app.warning = (text) => {
-  noty('warning', text)
-}
-
-Vue.prototype.$app.info = (text) => {
-  noty('info', text)
+  // Generic error
+  noty('error', this.$t('exceptions.general'))
 }
 
 export function createApp () {
@@ -104,11 +125,11 @@ export function createApp () {
     components: {App}
   })
 
-  return { app, router, store }
+  return {app, router, store}
 }
 
 // Init App
 if (document.getElementById('app') !== null) {
-  const { app } = createApp()
+  const {app} = createApp()
   app.$mount('#app')
 }

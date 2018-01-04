@@ -227,4 +227,14 @@ class PostController extends BackendController
 
         return $this->redirectResponse($request, __('alerts.backend.actions.invalid'), 'error');
     }
+
+    public function pinToggle(Post $post)
+    {
+        $post->update(['pinned' => ! $post->pinned]);
+    }
+
+    public function promoteToggle(Post $post)
+    {
+        $post->update(['promoted' => ! $post->promoted]);
+    }
 }

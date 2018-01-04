@@ -48,10 +48,10 @@
             <b-badge :variant="row.item.state">{{ $t(row.item.status_label) }}</b-badge>
           </template>
           <template slot="pinned" slot-scope="row">
-            <b-badge :variant="row.value ? 'success' : 'danger'">{{ row.value ? $t('labels.yes') : $t('labels.no') }}</b-badge>
+            <c-switch v-if="row.item.can_edit" type="text" variant="primary" on="On" off="Off" :checked="row.value" @change="onPinToggle(row.item.id)"></c-switch>
           </template>
           <template slot="promoted" slot-scope="row">
-            <b-badge :variant="row.value ? 'success' : 'danger'">{{ row.value ? $t('labels.yes') : $t('labels.no') }}</b-badge>
+            <c-switch v-if="row.item.can_edit" type="text" variant="primary" on="On" off="Off" :checked="row.value" @change="onPromoteToggle(row.item.id)"></c-switch>
           </template>
           <template slot="owner" slot-scope="row">
             {{ row.item.owner.name }}
@@ -74,6 +74,8 @@
 </template>
 
 <script>
+  import axios from 'axios'
+
   export default {
     name: 'post_list',
     data () {
@@ -112,6 +114,18 @@
       },
       onBulkActionSuccess () {
         this.selected = []
+      },
+      onPinToggle (id) {
+        axios.post(this.$app.route('admin.posts.pinned', {post: id}))
+          .catch((error) => {
+            this.$app.error(error)
+          })
+      },
+      onPromoteToggle (id) {
+        axios.post(this.$app.route('admin.posts.promoted', {post: id}))
+          .catch((error) => {
+            this.$app.error(error)
+          })
       }
     },
     watch: {

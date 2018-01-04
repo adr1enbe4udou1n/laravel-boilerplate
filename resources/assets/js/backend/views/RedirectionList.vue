@@ -49,7 +49,7 @@
             <b-form-checkbox :value="row.item.id" v-model="selected"></b-form-checkbox>
           </template>
           <template slot="active" slot-scope="row">
-            <b-badge :variant="row.value ? 'success' : 'danger'">{{ row.value ? $t('labels.yes') : $t('labels.no') }}</b-badge>
+            <c-switch v-if="row.item.can_edit" type="text" variant="primary" on="On" off="Off" :checked="row.value" @change="onActiveToggle(row.item.id)"></c-switch>
           </template>
           <template slot="actions" slot-scope="row">
             <b-button v-if="row.item.can_edit" size="sm" variant="primary" :to="`/redirections/${row.item.id}/edit`" v-b-tooltip.hover :title="$t('buttons.edit')" class="mr-1">
@@ -105,6 +105,12 @@
       onBulkActionSuccess () {
         this.selected = []
       },
+      onActiveToggle (id) {
+        axios.post(this.$app.route('admin.redirections.active', {redirection: id}))
+          .catch((error) => {
+            this.$app.error(error)
+          })
+      },
       onFileImport () {
         let data = new FormData()
         data.append('import', this.importFile)
@@ -113,10 +119,10 @@
           .post(this.$app.route('admin.redirections.import'), data)
           .then((response) => {
             this.$refs.datatable.refresh()
-            this.$app[response.data.status](response.data.message)
+            this.$app.noty[response.data.status](response.data.message)
           })
-          .catch(() => {
-            this.$app.error(this.$t('exceptions.general'))
+          .catch((error) => {
+            this.$app.error(error)
           })
       }
     },

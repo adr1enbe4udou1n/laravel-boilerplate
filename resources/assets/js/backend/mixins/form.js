@@ -70,7 +70,7 @@ export default {
 
       axios.post(action, data)
         .then((response) => {
-          this.$app[response.data.status](response.data.message)
+          this.$app.noty[response.data.status](response.data.message)
           if (this.listPath) {
             router.push(this.listPath)
           }

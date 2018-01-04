@@ -112,14 +112,7 @@
             return response.data.data
           })
           .catch((error) => {
-            // Domain error
-            if (error.response.data.error !== undefined) {
-              this.$app.error(error.response.data.error)
-              return []
-            }
-
-            // Generic error
-            this.$app.error(this.$t('exceptions.general'))
+            this.$app.error(error)
             return []
           })
       },
@@ -136,23 +129,10 @@
             axios.delete(this.$app.route(this.deleteRoute, params))
               .then((response) => {
                 this.refresh()
-                this.$app[response.data.status](response.data.message)
+                this.$app.noty[response.data.status](response.data.message)
               })
               .catch((error) => {
-                // Not allowed error
-                if (error.response.status === 403) {
-                  this.$app.error(this.$t('exceptions.unauthorized'))
-                  return
-                }
-
-                // Domain error
-                if (error.response.data.error !== undefined) {
-                  this.$app.error(error.response.data.message)
-                  return
-                }
-
-                // Generic error
-                this.$app.error(this.$t('exceptions.general'))
+                this.$app.error(error)
               })
           }
         })
@@ -173,22 +153,9 @@
             }).then((response) => {
               this.refresh()
               this.$emit('bulk-action-success')
-              this.$app[response.data.status](response.data.message)
+              this.$app.noty[response.data.status](response.data.message)
             }).catch((error) => {
-              // Not allowed error
-              if (error.response.status === 403) {
-                this.$app.error(this.$t('exceptions.unauthorized'))
-                return
-              }
-
-              // Domain error
-              if (error.response.data.message !== undefined) {
-                this.$app.error(error.response.data.message)
-                return
-              }
-
-              // Generic error
-              this.$app.error(this.$t('exceptions.general'))
+              this.$app.error(error)
             })
           }
         })

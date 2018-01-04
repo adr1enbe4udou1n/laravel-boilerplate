@@ -155,6 +155,11 @@ class RedirectionController extends BackendController
         return $this->redirectResponse($request, __('alerts.backend.actions.invalid'), 'error');
     }
 
+    public function activeToggle(Redirection $redirection)
+    {
+        $redirection->update(['active' => ! $redirection->active]);
+    }
+
     /**
      * @param \Illuminate\Http\Request           $request
      * @param \App\Imports\RedirectionListImport $import

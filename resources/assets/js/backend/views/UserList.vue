@@ -25,8 +25,6 @@
                  :empty-filtered-text="$t('labels.datatables.no_matched_results')"
                  :fields="fields"
                  :items="dataLoadProvider"
-                 sort-by="updated_at"
-                 :sort-desc="true"
                  :busy.sync="isBusy"
         >
           <template slot="HEAD_checkbox" slot-scope="data"></template>
@@ -42,7 +40,7 @@
             <b-badge :variant="row.value ? 'success' : 'danger'">{{ row.value ? $t('labels.yes') : $t('labels.no') }}</b-badge>
           </template>
           <template slot="active" slot-scope="row">
-            <b-badge :variant="row.value ? 'success' : 'danger'">{{ row.value ? $t('labels.yes') : $t('labels.no') }}</b-badge>
+            <c-switch v-if="row.item.can_edit" type="text" variant="primary" on="On" off="Off" :checked="row.value" @change="onActiveToggle(row.item.id)"></c-switch>
           </template>
           <template slot="roles" slot-scope="row">
             {{ formatRoles(row.value) }}
@@ -65,6 +63,8 @@
 </template>
 
 <script>
+  import axios from 'axios'
+
   export default {
     name: 'user_list',
     data () {
@@ -99,6 +99,12 @@
       },
       onDelete (id) {
         this.$refs.datasource.deleteRow({ user: id })
+      },
+      onActiveToggle (id) {
+        axios.post(this.$app.route('admin.users.active', {user: id}))
+          .catch((error) => {
+            this.$app.error(error)
+          })
       },
       onBulkActionSuccess () {
         this.selected = []
