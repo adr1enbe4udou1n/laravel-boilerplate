@@ -29,9 +29,8 @@
                  :busy.sync="isBusy"
         >
           <template slot="name" slot-scope="row">
-            <router-link :to="`/form-submissions/${row.item.id}/edit`">
-              {{row.value}}
-            </router-link>
+            <router-link v-if="row.item.can_edit" :to="`/form-submissions/${row.item.id}/edit`" v-text="row.value"></router-link>
+            <span v-else v-text="row.value"></span>
           </template>
           <template slot="actions" slot-scope="row">
             <b-button v-if="row.item.can_edit" size="sm" variant="primary" :to="`/form-settings/${row.item.id}/edit`" v-b-tooltip.hover :title="$t('buttons.edit')" class="mr-1">

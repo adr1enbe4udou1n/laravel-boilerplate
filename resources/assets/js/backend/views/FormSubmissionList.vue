@@ -27,9 +27,8 @@
             <b-form-checkbox :value="row.item.id" v-model="selected"></b-form-checkbox>
           </template>
           <template slot="name" slot-scope="row">
-            <router-link :to="`/form-submissions/${row.item.id}/edit`">
-              {{row.value}}
-            </router-link>
+            <router-link v-if="row.item.can_edit" :to="`/form-submissions/${row.item.id}/edit`" v-text="row.value"></router-link>
+            <span v-else v-text="row.value"></span>
           </template>
           <template slot="actions" slot-scope="row">
             <b-button size="sm" variant="success" :to="`/form-submissions/${row.item.id}/show`" v-b-tooltip.hover :title="$t('buttons.show')" class="mr-1">

@@ -32,9 +32,8 @@
             <b-form-checkbox :value="row.item.id" v-model="selected"></b-form-checkbox>
           </template>
           <template slot="name" slot-scope="row">
-            <router-link :to="`/users/${row.item.id}/edit`">
-              {{row.value}}
-            </router-link>
+            <router-link v-if="row.item.can_edit" :to="`/users/${row.item.id}/edit`" v-text="row.value"></router-link>
+            <span v-else v-text="row.value"></span>
           </template>
           <template slot="confirmed" slot-scope="row">
             <b-badge :variant="row.value ? 'success' : 'danger'">{{ row.value ? $t('labels.yes') : $t('labels.no') }}</b-badge>
