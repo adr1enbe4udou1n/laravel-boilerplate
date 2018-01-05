@@ -118,10 +118,6 @@ module.exports = {
         loader: 'babel-loader?cacheDirectory'
       },
       {
-        test: /\.html$/,
-        loader: 'html-loader'
-      },
-      {
         test: /\.(png|jpe?g|gif)$/,
         loaders: [
           {
