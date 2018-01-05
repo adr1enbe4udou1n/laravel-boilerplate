@@ -67,14 +67,13 @@
     </script>
 
     <!-- CDN -->
-    <script defer src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script defer src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 
     <!-- Scripts -->
     <script defer src="{{ Html::asset('manifest.js') }}"></script>
-    <script defer src="{{ Html::asset('vendor.js') }}"></script>
-    <script defer src="{{ Html::asset('vendor_frontend.js') }}"></script>
     <script defer src="{{ Html::asset('locales.js') }}"></script>
+    <script defer src="{{ Html::asset('vendor_frontend.js') }}"></script>
     <script defer src="{{ Html::asset('frontend.js') }}"></script>
 
     @stack('scripts')

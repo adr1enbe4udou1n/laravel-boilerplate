@@ -27,31 +27,6 @@ module.exports = {
       './resources/assets/js/backend/app.js',
       './resources/assets/sass/backend/app.scss'
     ],
-    vendor: [
-      'axios',
-      'bootstrap-vue',
-      'sweetalert2',
-      'vee-validate',
-      'vue',
-      'vue-router',
-      'vuex',
-      'vue-i18n'
-    ],
-    vendor_frontend: [
-      'bootstrap',
-      'cookieconsent',
-      'intl-tel-input',
-      'pwstrength-bootstrap/dist/pwstrength-bootstrap',
-      'slick-carousel',
-      'webfontloader'
-    ],
-    vendor_backend: [
-      'chart.js',
-      'flatpickr',
-      'noty',
-      'vue-chartjs',
-      'vue-select'
-    ],
     locales: [
       './resources/assets/js/vue-i18n-locales.generated.js'
     ]
@@ -172,11 +147,22 @@ module.exports = {
     }),
     new WebpackNotifierPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
-      name: [
+      name: 'vendor_frontend',
+      chunks: ['frontend'],
+      minChunks: (module) => {
+        return module.context && module.context.includes('node_modules')
+      }
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor_backend',
+      chunks: ['backend'],
+      minChunks: (module) => {
+        return module.context && module.context.includes('node_modules')
+      }
+    }),
+    new webpack.optimize.CommonsChunkPlugin({
+      names: [
         'locales',
-        'vendor_frontend',
-        'vendor_backend',
-        'vendor',
         'manifest'
       ],
       minChunks: Infinity
