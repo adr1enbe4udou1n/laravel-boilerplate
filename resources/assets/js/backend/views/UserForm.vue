@@ -128,44 +128,44 @@
 </template>
 
 <script>
-  import axios from 'axios'
-  import form from '../mixins/form'
+import axios from 'axios'
+import form from '../mixins/form'
 
-  export default {
-    name: 'user_form',
-    mixins: [form],
-    data () {
-      return {
-        roles: [],
-        modelName: 'user',
-        listPath: '/users',
-        model: {
-          name: null,
-          email: null,
-          active: true,
-          password: null,
-          confirm_password: null,
-          roles: []
-        }
+export default {
+  name: 'user_form',
+  mixins: [form],
+  data () {
+    return {
+      roles: [],
+      modelName: 'user',
+      listPath: '/users',
+      model: {
+        name: null,
+        email: null,
+        active: true,
+        password: null,
+        confirm_password: null,
+        roles: []
       }
-    },
-    created () {
-      axios
-        .get(this.$app.route(`admin.users.get_roles`))
-        .then((response) => {
-          this.roles = response.data
-        })
+    }
+  },
+  created () {
+    axios
+      .get(this.$app.route(`admin.users.get_roles`))
+      .then((response) => {
+        this.roles = response.data
+      })
 
-      this.fetchData()
-    },
-    methods: {
-      onModelChanged () {
-        if (this.model.roles) {
-          this.model.roles = this.model.roles.map((item) => {
-            return item.id
-          })
-        }
+    this.fetchData()
+  },
+  methods: {
+    onModelChanged () {
+      if (this.model.roles) {
+        this.model.roles = this.model.roles.map((item) => {
+          return item.id
+        })
       }
     }
   }
+}
 </script>

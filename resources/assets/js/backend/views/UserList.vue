@@ -62,62 +62,62 @@
 </template>
 
 <script>
-  import axios from 'axios'
+import axios from 'axios'
 
-  export default {
-    name: 'user_list',
-    data () {
-      return {
-        selected: [],
-        isBusy: false,
-        fields: [
-          { key: 'checkbox' },
-          { key: 'name', label: this.$t('validation.attributes.name'), sortable: true },
-          { key: 'email', label: this.$t('validation.attributes.email'), sortable: true },
-          { key: 'confirmed', label: this.$t('validation.attributes.confirmed'), 'class': 'text-center' },
-          { key: 'roles', label: this.$t('validation.attributes.roles') },
-          { key: 'last_access_at', label: this.$t('labels.last_access_at'), 'class': 'text-center', sortable: true },
-          { key: 'active', label: this.$t('validation.attributes.active'), 'class': 'text-center' },
-          { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
-          { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
-          { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
-        ],
-        actions: {
-          destroy: this.$t('labels.backend.users.actions.destroy'),
-          enable: this.$t('labels.backend.users.actions.enable'),
-          disable: this.$t('labels.backend.users.actions.disable')
-        }
-      }
-    },
-    methods: {
-      dataLoadProvider (ctx) {
-        return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
-      },
-      onContextChanged () {
-        return this.$refs.datatable.refresh()
-      },
-      onDelete (id) {
-        this.$refs.datasource.deleteRow({ user: id })
-      },
-      onActiveToggle (id) {
-        axios.post(this.$app.route('admin.users.active', {user: id}))
-          .catch((error) => {
-            this.$app.error(error)
-          })
-      },
-      onBulkActionSuccess () {
-        this.selected = []
-      },
-      formatRoles (roles) {
-        return roles.map((key) => {
-          return key.display_name
-        }).join(', ')
-      }
-    },
-    watch: {
-      selected (value) {
-        this.$refs.datasource.selected = value
+export default {
+  name: 'user_list',
+  data () {
+    return {
+      selected: [],
+      isBusy: false,
+      fields: [
+        { key: 'checkbox' },
+        { key: 'name', label: this.$t('validation.attributes.name'), sortable: true },
+        { key: 'email', label: this.$t('validation.attributes.email'), sortable: true },
+        { key: 'confirmed', label: this.$t('validation.attributes.confirmed'), 'class': 'text-center' },
+        { key: 'roles', label: this.$t('validation.attributes.roles') },
+        { key: 'last_access_at', label: this.$t('labels.last_access_at'), 'class': 'text-center', sortable: true },
+        { key: 'active', label: this.$t('validation.attributes.active'), 'class': 'text-center' },
+        { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
+        { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
+        { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
+      ],
+      actions: {
+        destroy: this.$t('labels.backend.users.actions.destroy'),
+        enable: this.$t('labels.backend.users.actions.enable'),
+        disable: this.$t('labels.backend.users.actions.disable')
       }
     }
+  },
+  methods: {
+    dataLoadProvider (ctx) {
+      return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
+    },
+    onContextChanged () {
+      return this.$refs.datatable.refresh()
+    },
+    onDelete (id) {
+      this.$refs.datasource.deleteRow({ user: id })
+    },
+    onActiveToggle (id) {
+      axios.post(this.$app.route('admin.users.active', {user: id}))
+        .catch((error) => {
+          this.$app.error(error)
+        })
+    },
+    onBulkActionSuccess () {
+      this.selected = []
+    },
+    formatRoles (roles) {
+      return roles.map((key) => {
+        return key.display_name
+      }).join(', ')
+    }
+  },
+  watch: {
+    selected (value) {
+      this.$refs.datasource.selected = value
+    }
   }
+}
 </script>

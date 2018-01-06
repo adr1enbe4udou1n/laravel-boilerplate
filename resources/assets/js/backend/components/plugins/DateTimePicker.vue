@@ -13,68 +13,68 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      value: {
-        default: null,
-        required: true
-      },
-      config: {
-        type: Object,
-        default: () => ({
-          wrap: false
-        })
-      },
-      placeholder: {
-        type: String
-      },
-      inputClass: {
-        type: [String, Object]
-      },
-      name: {
-        type: String
-      },
-      required: {
-        type: Boolean,
-        default: false
-      },
-      id: {
-        type: String
-      }
+export default {
+  props: {
+    value: {
+      default: null,
+      required: true
     },
-    data () {
-      return {
-        mutableValue: this.value,
-        fp: null
-      }
+    config: {
+      type: Object,
+      default: () => ({
+        wrap: false
+      })
     },
-    mounted () {
-      if (this.$app.locale === 'fr') {
-        window.Flatpickr.localize(window.FlatpickrLocaleFr['fr'])
-      }
-      if (!this.fp) {
-        let elem = this.config.wrap ? this.$el.parentNode : this.$el
-        this.fp = new window.Flatpickr(elem, this.config)
-      }
+    placeholder: {
+      type: String
     },
-    beforeDestroy () {
-      if (this.fp) {
-        this.fp.destroy()
-        this.fp = null
-      }
+    inputClass: {
+      type: [String, Object]
     },
-    watch: {
-      config (newConfig) {
-        this.fp.config = Object.assign(this.fp.config, newConfig)
-        this.fp.redraw()
-        this.fp.setDate(this.value, true)
-      },
-      mutableValue (newValue) {
-        this.$emit('input', newValue)
-      },
-      value (newValue) {
-        this.fp && this.fp.setDate(newValue, true)
-      }
+    name: {
+      type: String
+    },
+    required: {
+      type: Boolean,
+      default: false
+    },
+    id: {
+      type: String
+    }
+  },
+  data () {
+    return {
+      mutableValue: this.value,
+      fp: null
+    }
+  },
+  mounted () {
+    if (this.$app.locale === 'fr') {
+      window.Flatpickr.localize(window.FlatpickrLocaleFr['fr'])
+    }
+    if (!this.fp) {
+      let elem = this.config.wrap ? this.$el.parentNode : this.$el
+      this.fp = new window.Flatpickr(elem, this.config)
+    }
+  },
+  beforeDestroy () {
+    if (this.fp) {
+      this.fp.destroy()
+      this.fp = null
+    }
+  },
+  watch: {
+    config (newConfig) {
+      this.fp.config = Object.assign(this.fp.config, newConfig)
+      this.fp.redraw()
+      this.fp.setDate(this.value, true)
+    },
+    mutableValue (newValue) {
+      this.$emit('input', newValue)
+    },
+    value (newValue) {
+      this.fp && this.fp.setDate(newValue, true)
     }
   }
+}
 </script>

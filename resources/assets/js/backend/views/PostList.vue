@@ -73,64 +73,64 @@
 </template>
 
 <script>
-  import axios from 'axios'
+import axios from 'axios'
 
-  export default {
-    name: 'post_list',
-    data () {
-      return {
-        isBusy: false,
-        selected: [],
-        fields: [
-          { key: 'checkbox' },
-          { key: 'image', label: this.$t('validation.attributes.image'), sortable: true },
-          { key: 'title', label: this.$t('validation.attributes.title') },
-          { key: 'status', label: this.$t('validation.attributes.status'), 'class': 'text-center' },
-          { key: 'pinned', label: this.$t('validation.attributes.pinned'), 'class': 'text-center' },
-          { key: 'promoted', label: this.$t('validation.attributes.promoted'), 'class': 'text-center' },
-          { key: 'owner', label: this.$t('labels.author') },
-          { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
-          { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
-          { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
-        ],
-        actions: {
-          destroy: this.$t('labels.backend.posts.actions.destroy'),
-          publish: this.$t('labels.backend.posts.actions.publish'),
-          pin: this.$t('labels.backend.posts.actions.pin'),
-          promote: this.$t('labels.backend.posts.actions.promote')
-        }
-      }
-    },
-    methods: {
-      dataLoadProvider (ctx) {
-        return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
-      },
-      onContextChanged () {
-        return this.$refs.datatable.refresh()
-      },
-      onDelete (id) {
-        this.$refs.datasource.deleteRow({ post: id })
-      },
-      onBulkActionSuccess () {
-        this.selected = []
-      },
-      onPinToggle (id) {
-        axios.post(this.$app.route('admin.posts.pinned', {post: id}))
-          .catch((error) => {
-            this.$app.error(error)
-          })
-      },
-      onPromoteToggle (id) {
-        axios.post(this.$app.route('admin.posts.promoted', {post: id}))
-          .catch((error) => {
-            this.$app.error(error)
-          })
-      }
-    },
-    watch: {
-      selected (value) {
-        this.$refs.datasource.selected = value
+export default {
+  name: 'post_list',
+  data () {
+    return {
+      isBusy: false,
+      selected: [],
+      fields: [
+        { key: 'checkbox' },
+        { key: 'image', label: this.$t('validation.attributes.image'), sortable: true },
+        { key: 'title', label: this.$t('validation.attributes.title') },
+        { key: 'status', label: this.$t('validation.attributes.status'), 'class': 'text-center' },
+        { key: 'pinned', label: this.$t('validation.attributes.pinned'), 'class': 'text-center' },
+        { key: 'promoted', label: this.$t('validation.attributes.promoted'), 'class': 'text-center' },
+        { key: 'owner', label: this.$t('labels.author') },
+        { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
+        { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
+        { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
+      ],
+      actions: {
+        destroy: this.$t('labels.backend.posts.actions.destroy'),
+        publish: this.$t('labels.backend.posts.actions.publish'),
+        pin: this.$t('labels.backend.posts.actions.pin'),
+        promote: this.$t('labels.backend.posts.actions.promote')
       }
     }
+  },
+  methods: {
+    dataLoadProvider (ctx) {
+      return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
+    },
+    onContextChanged () {
+      return this.$refs.datatable.refresh()
+    },
+    onDelete (id) {
+      this.$refs.datasource.deleteRow({ post: id })
+    },
+    onBulkActionSuccess () {
+      this.selected = []
+    },
+    onPinToggle (id) {
+      axios.post(this.$app.route('admin.posts.pinned', {post: id}))
+        .catch((error) => {
+          this.$app.error(error)
+        })
+    },
+    onPromoteToggle (id) {
+      axios.post(this.$app.route('admin.posts.promoted', {post: id}))
+        .catch((error) => {
+          this.$app.error(error)
+        })
+    }
+  },
+  watch: {
+    selected (value) {
+      this.$refs.datasource.selected = value
+    }
   }
+}
 </script>

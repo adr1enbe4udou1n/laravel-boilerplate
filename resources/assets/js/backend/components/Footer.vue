@@ -17,8 +17,8 @@
   </footer>
 </template>
 <script>
-  export default {
-    name: 'c-footer',
-    props: ['name', 'editorName', 'editorSiteUrl']
-  }
+export default {
+  name: 'c-footer',
+  props: ['name', 'editorName', 'editorSiteUrl']
+}
 </script>

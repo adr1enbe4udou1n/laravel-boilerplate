@@ -89,42 +89,42 @@
 </template>
 
 <script>
-  import axios from 'axios'
-  import form from '../mixins/form'
+import axios from 'axios'
+import form from '../mixins/form'
 
-  export default {
-    name: 'form_setting_form',
-    mixins: [form],
-    data () {
-      return {
-        formTypes: [
-          {
-            value: null,
-            text: `-- ${this.$t('validation.attributes.form_type')} --`
-          }
-        ],
-        modelName: 'form_setting',
-        listPath: '/form-settings',
-        model: {
-          name: null,
-          recipients: null,
-          message: null
+export default {
+  name: 'form_setting_form',
+  mixins: [form],
+  data () {
+    return {
+      formTypes: [
+        {
+          value: null,
+          text: `-- ${this.$t('validation.attributes.form_type')} --`
         }
+      ],
+      modelName: 'form_setting',
+      listPath: '/form-settings',
+      model: {
+        name: null,
+        recipients: null,
+        message: null
       }
-    },
-    created () {
-      axios
-        .get(this.$app.route(`admin.${this.modelName}s.get_form_types`))
-        .then((response) => {
-          for (let propertyName in response.data) {
-            this.formTypes.push({
-              value: propertyName,
-              text: response.data[propertyName]
-            })
-          }
-        })
-
-      this.fetchData()
     }
+  },
+  created () {
+    axios
+      .get(this.$app.route(`admin.${this.modelName}s.get_form_types`))
+      .then((response) => {
+        for (let propertyName in response.data) {
+          this.formTypes.push({
+            value: propertyName,
+            text: response.data[propertyName]
+          })
+        }
+      })
+
+    this.fetchData()
   }
+}
 </script>

@@ -25,58 +25,58 @@
 </template>
 
 <script>
-  import nav from '../_nav'
+import nav from '../_nav'
 
-  import AppAside from '../components/Aside'
-  import Breadcrumb from '../components/Breadcrumb'
-  import AppFooter from '../components/Footer'
-  import AppHeader from '../components/Header'
-  import Sidebar from '../components/Sidebar'
+import AppAside from '../components/Aside'
+import Breadcrumb from '../components/Breadcrumb'
+import AppFooter from '../components/Footer'
+import AppHeader from '../components/Header'
+import Sidebar from '../components/Sidebar'
 
-  export default {
-    name: 'full',
-    components: {
-      AppHeader,
-      Sidebar,
-      AppAside,
-      AppFooter,
-      Breadcrumb
-    },
-    data () {
-      return {
-        nav: []
-      }
-    },
-    computed: {
-      name () {
-        return this.$route.name
-      },
-      list () {
-        return this.$route.matched
-      }
-    },
-    created () {
-      this.initNav()
-      this.fetchData()
-    },
-    methods: {
-      initNav () {
-        this.nav = nav(
-          this.$app,
-          this.$i18n,
-          this.$store.state.counters.newPostsCount,
-          this.$store.state.counters.pendingPostsCount
-        )
-      },
-      fetchData () {
-        this.$store.dispatch('LOAD_COUNTERS')
-          .then(() => {
-            this.initNav()
-          })
-      }
-    },
-    watch: {
-      '$route': 'fetchData'
+export default {
+  name: 'full',
+  components: {
+    AppHeader,
+    Sidebar,
+    AppAside,
+    AppFooter,
+    Breadcrumb
+  },
+  data () {
+    return {
+      nav: []
     }
+  },
+  computed: {
+    name () {
+      return this.$route.name
+    },
+    list () {
+      return this.$route.matched
+    }
+  },
+  created () {
+    this.initNav()
+    this.fetchData()
+  },
+  methods: {
+    initNav () {
+      this.nav = nav(
+        this.$app,
+        this.$i18n,
+        this.$store.state.counters.newPostsCount,
+        this.$store.state.counters.pendingPostsCount
+      )
+    },
+    fetchData () {
+      this.$store.dispatch('LOAD_COUNTERS')
+        .then(() => {
+          this.initNav()
+        })
+    }
+  },
+  watch: {
+    '$route': 'fetchData'
   }
+}
 </script>

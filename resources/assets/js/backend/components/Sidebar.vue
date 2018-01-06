@@ -7,27 +7,27 @@
         <template v-for="(item, index) in navItems">
           <template v-if="item.access">
             <template v-if="item.title">
-              <SidebarNavTitle :name="item.name" :classes="item.class" :wrapper="item.wrapper"/>
+              <SidebarNavTitle :key="index" :name="item.name" :classes="item.class" :wrapper="item.wrapper"/>
             </template>
             <template v-else-if="item.divider">
-              <SidebarNavDivider :classes="item.class"/>
+              <SidebarNavDivider :key="index" :classes="item.class"/>
             </template>
             <template v-else>
               <template v-if="item.children">
                 <!-- First level dropdown -->
-                <SidebarNavDropdown :name="item.name" :url="item.url" :icon="item.icon">
+                <SidebarNavDropdown :key="index" :name="item.name" :url="item.url" :icon="item.icon">
                   <template v-for="(childL1, index) in item.children">
                     <template v-if="childL1.children">
                       <!-- Second level dropdown -->
-                      <SidebarNavDropdown :name="childL1.name" :url="childL1.url" :icon="childL1.icon">
-                        <li class="nav-item" v-for="(childL2, index) in childL1.children">
+                      <SidebarNavDropdown :key="index" :name="childL1.name" :url="childL1.url" :icon="childL1.icon">
+                        <li class="nav-item" v-for="(childL2, index) in childL1.children" :key="index">
                           <SidebarNavLink :name="childL2.name" :url="childL2.url" :icon="childL2.icon"
                                           :badges="childL2.badges" :variant="item.variant"/>
                         </li>
                       </SidebarNavDropdown>
                     </template>
                     <template v-else>
-                      <SidebarNavItem :classes="item.class">
+                      <SidebarNavItem :key="index" :classes="item.class">
                         <SidebarNavLink :name="childL1.name" :url="childL1.url" :icon="childL1.icon"
                                         :badges="childL1.badges" :variant="item.variant"/>
                       </SidebarNavItem>
@@ -36,7 +36,7 @@
                 </SidebarNavDropdown>
               </template>
               <template v-else>
-                <SidebarNavItem :classes="item.class">
+                <SidebarNavItem :key="index" :classes="item.class">
                   <SidebarNavLink :name="item.name" :url="item.url" :icon="item.icon" :badges="item.badges"
                                   :variant="item.variant"/>
                 </SidebarNavItem>
@@ -50,51 +50,51 @@
   </div>
 </template>
 <script>
-  import SidebarForm from './SidebarForm'
-  import SidebarHeader from './SidebarHeader'
-  import SidebarMinimizer from './SidebarMinimizer'
-  import SidebarNavDivider from './SidebarNavDivider'
-  import SidebarNavDropdown from './SidebarNavDropdown'
-  import SidebarNavLink from './SidebarNavLink'
-  import SidebarNavTitle from './SidebarNavTitle'
-  import SidebarNavItem from './SidebarNavItem'
+import SidebarForm from './SidebarForm'
+import SidebarHeader from './SidebarHeader'
+import SidebarMinimizer from './SidebarMinimizer'
+import SidebarNavDivider from './SidebarNavDivider'
+import SidebarNavDropdown from './SidebarNavDropdown'
+import SidebarNavLink from './SidebarNavLink'
+import SidebarNavTitle from './SidebarNavTitle'
+import SidebarNavItem from './SidebarNavItem'
 
-  export default {
-    name: 'sidebar',
-    props: {
-      navItems: {
-        type: Array,
-        required: true,
-        default: () => []
-      }
+export default {
+  name: 'sidebar',
+  props: {
+    navItems: {
+      type: Array,
+      required: true,
+      default: () => []
+    }
+  },
+  components: {
+    SidebarForm,
+    SidebarHeader,
+    SidebarMinimizer,
+    SidebarNavDivider,
+    SidebarNavDropdown,
+    SidebarNavLink,
+    SidebarNavTitle,
+    SidebarNavItem
+  },
+  methods: {
+    handleClick (e) {
+      e.preventDefault()
+      e.target.parentElement.classList.toggle('open')
     },
-    components: {
-      SidebarForm,
-      SidebarHeader,
-      SidebarMinimizer,
-      SidebarNavDivider,
-      SidebarNavDropdown,
-      SidebarNavLink,
-      SidebarNavTitle,
-      SidebarNavItem
+    sidebarMinimize () {
+      document.body.classList.toggle('sidebar-minimized')
     },
-    methods: {
-      handleClick (e) {
-        e.preventDefault()
-        e.target.parentElement.classList.toggle('open')
-      },
-      sidebarMinimize () {
-        document.body.classList.toggle('sidebar-minimized')
-      },
-      brandMinimize () {
-        document.body.classList.toggle('brand-minimized')
-      }
+    brandMinimize () {
+      document.body.classList.toggle('brand-minimized')
     }
   }
+}
 </script>
 
 <style lang="css">
-  .nav-link {
-    cursor: pointer;
-  }
+.nav-link {
+  cursor: pointer;
+}
 </style>

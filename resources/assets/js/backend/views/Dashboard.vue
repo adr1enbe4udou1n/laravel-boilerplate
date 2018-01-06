@@ -78,36 +78,36 @@
 </template>
 
 <script>
-  import axios from 'axios'
-  import LineExample from './charts/LineExample'
-  import PieExample from './charts/PieExample'
+import axios from 'axios'
+import LineExample from './charts/LineExample'
+import PieExample from './charts/PieExample'
 
-  export default {
-    name: 'dashboard',
-    components: {
-      LineExample,
-      PieExample
-    },
-    data () {
-      return {
-        post_fields: {
-          title: {label: this.$t('validation.attributes.title')},
-          status: {label: this.$t('validation.attributes.status')},
-          pinned: {label: this.$t('validation.attributes.pinned')},
-          summary: {label: this.$t('validation.attributes.summary')},
-          published_at: {label: this.$t('validation.attributes.published_at'), 'class': 'text-center'}
-        },
-        posts: []
-      }
-    },
-    created () {
-      if (this.$app.user.can('view own posts')) {
-        axios
-          .get(this.$app.route('admin.posts.latest'))
-          .then((response) => {
-            this.posts = response.data
-          })
-      }
+export default {
+  name: 'dashboard',
+  components: {
+    LineExample,
+    PieExample
+  },
+  data () {
+    return {
+      post_fields: {
+        title: {label: this.$t('validation.attributes.title')},
+        status: {label: this.$t('validation.attributes.status')},
+        pinned: {label: this.$t('validation.attributes.pinned')},
+        summary: {label: this.$t('validation.attributes.summary')},
+        published_at: {label: this.$t('validation.attributes.published_at'), 'class': 'text-center'}
+      },
+      posts: []
+    }
+  },
+  created () {
+    if (this.$app.user.can('view own posts')) {
+      axios
+        .get(this.$app.route('admin.posts.latest'))
+        .then((response) => {
+          this.posts = response.data
+        })
     }
   }
+}
 </script>

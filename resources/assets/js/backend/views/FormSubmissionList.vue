@@ -45,42 +45,42 @@
 </template>
 
 <script>
-  export default {
-    name: 'form_submission_list',
-    data () {
-      return {
-        isBusy: false,
-        selected: [],
-        fields: [
-          { key: 'checkbox' },
-          { key: 'type', label: this.$t('validation.attributes.form_type'), sortable: true },
-          { key: 'data', label: this.$t('validation.attributes.form_data') },
-          { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
-          { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
-        ],
-        actions: {
-          destroy: this.$t('labels.backend.form_submissions.actions.destroy')
-        }
-      }
-    },
-    methods: {
-      dataLoadProvider (ctx) {
-        return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
-      },
-      onContextChanged () {
-        return this.$refs.datatable.refresh()
-      },
-      onDelete (id) {
-        this.$refs.datasource.deleteRow({ form_submission: id })
-      },
-      onBulkActionSuccess () {
-        this.selected = []
-      }
-    },
-    watch: {
-      selected (value) {
-        this.$refs.datasource.selected = value
+export default {
+  name: 'form_submission_list',
+  data () {
+    return {
+      isBusy: false,
+      selected: [],
+      fields: [
+        { key: 'checkbox' },
+        { key: 'type', label: this.$t('validation.attributes.form_type'), sortable: true },
+        { key: 'data', label: this.$t('validation.attributes.form_data') },
+        { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
+        { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
+      ],
+      actions: {
+        destroy: this.$t('labels.backend.form_submissions.actions.destroy')
       }
     }
+  },
+  methods: {
+    dataLoadProvider (ctx) {
+      return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
+    },
+    onContextChanged () {
+      return this.$refs.datatable.refresh()
+    },
+    onDelete (id) {
+      this.$refs.datasource.deleteRow({ form_submission: id })
+    },
+    onBulkActionSuccess () {
+      this.selected = []
+    }
+  },
+  watch: {
+    selected (value) {
+      this.$refs.datasource.selected = value
+    }
   }
+}
 </script>

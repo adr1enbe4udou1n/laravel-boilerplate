@@ -88,33 +88,33 @@
 </template>
 
 <script>
-  import axios from 'axios'
-  import form from '../mixins/form'
+import axios from 'axios'
+import form from '../mixins/form'
 
-  export default {
-    name: 'redirection_form',
-    mixins: [form],
-    data () {
-      return {
-        redirectionTypes: {},
-        modelName: 'redirection',
-        listPath: '/redirections',
-        model: {
-          source: null,
-          active: true,
-          target: null,
-          type: 301
-        }
+export default {
+  name: 'redirection_form',
+  mixins: [form],
+  data () {
+    return {
+      redirectionTypes: {},
+      modelName: 'redirection',
+      listPath: '/redirections',
+      model: {
+        source: null,
+        active: true,
+        target: null,
+        type: 301
       }
-    },
-    created () {
-      axios
-        .get(this.$app.route(`admin.redirections.get_redirection_types`))
-        .then((response) => {
-          this.redirectionTypes = response.data
-        })
-
-      this.fetchData()
     }
+  },
+  created () {
+    axios
+      .get(this.$app.route(`admin.redirections.get_redirection_types`))
+      .then((response) => {
+        this.redirectionTypes = response.data
+      })
+
+    this.fetchData()
   }
+}
 </script>

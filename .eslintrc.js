@@ -1,16 +1,17 @@
 module.exports = {
   root: true,
-  parser: 'babel-eslint',
   parserOptions: {
+    parser: 'babel-eslint',
+    ecmaVersion: 2017,
     sourceType: 'module'
   },
   env: {
     browser: true,
     jquery: true
   },
-  extends: 'standard',
-  plugins: [
-    'html'
+  extends: [
+    'standard',
+    'plugin:vue/essential'
   ],
   rules: {
     'arrow-parens': 'error',

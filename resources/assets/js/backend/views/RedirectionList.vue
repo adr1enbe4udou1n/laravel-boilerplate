@@ -66,70 +66,70 @@
 </template>
 
 <script>
-  import axios from 'axios'
+import axios from 'axios'
 
-  export default {
-    name: 'redirection_list',
-    data () {
-      return {
-        isBusy: false,
-        selected: [],
-        fields: [
-          { key: 'checkbox' },
-          { key: 'source', label: this.$t('validation.attributes.source_path'), sortable: true },
-          { key: 'active', label: this.$t('validation.attributes.active'), 'class': 'text-center' },
-          { key: 'target', label: this.$t('validation.attributes.target_path'), sortable: true },
-          { key: 'type', label: this.$t('validation.attributes.redirect_type'), 'class': 'text-center' },
-          { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
-          { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
-          { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
-        ],
-        actions: {
-          destroy: this.$t('labels.backend.redirections.actions.destroy'),
-          enable: this.$t('labels.backend.redirections.actions.enable'),
-          disable: this.$t('labels.backend.redirections.actions.disable')
-        },
-        importFile: null
-      }
+export default {
+  name: 'redirection_list',
+  data () {
+    return {
+      isBusy: false,
+      selected: [],
+      fields: [
+        { key: 'checkbox' },
+        { key: 'source', label: this.$t('validation.attributes.source_path'), sortable: true },
+        { key: 'active', label: this.$t('validation.attributes.active'), 'class': 'text-center' },
+        { key: 'target', label: this.$t('validation.attributes.target_path'), sortable: true },
+        { key: 'type', label: this.$t('validation.attributes.redirect_type'), 'class': 'text-center' },
+        { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
+        { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
+        { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
+      ],
+      actions: {
+        destroy: this.$t('labels.backend.redirections.actions.destroy'),
+        enable: this.$t('labels.backend.redirections.actions.enable'),
+        disable: this.$t('labels.backend.redirections.actions.disable')
+      },
+      importFile: null
+    }
+  },
+  methods: {
+    dataLoadProvider (ctx) {
+      return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
     },
-    methods: {
-      dataLoadProvider (ctx) {
-        return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
-      },
-      onContextChanged () {
-        return this.$refs.datatable.refresh()
-      },
-      onDelete (id) {
-        this.$refs.datasource.deleteRow({ redirection: id })
-      },
-      onBulkActionSuccess () {
-        this.selected = []
-      },
-      onActiveToggle (id) {
-        axios.post(this.$app.route('admin.redirections.active', {redirection: id}))
-          .catch((error) => {
-            this.$app.error(error)
-          })
-      },
-      onFileImport () {
-        let data = new FormData()
-        data.append('import', this.importFile)
+    onContextChanged () {
+      return this.$refs.datatable.refresh()
+    },
+    onDelete (id) {
+      this.$refs.datasource.deleteRow({ redirection: id })
+    },
+    onBulkActionSuccess () {
+      this.selected = []
+    },
+    onActiveToggle (id) {
+      axios.post(this.$app.route('admin.redirections.active', {redirection: id}))
+        .catch((error) => {
+          this.$app.error(error)
+        })
+    },
+    onFileImport () {
+      let data = new FormData()
+      data.append('import', this.importFile)
 
-        axios
-          .post(this.$app.route('admin.redirections.import'), data)
-          .then((response) => {
-            this.$refs.datatable.refresh()
-            this.$app.noty[response.data.status](response.data.message)
-          })
-          .catch((error) => {
-            this.$app.error(error)
-          })
-      }
-    },
-    watch: {
-      selected (value) {
-        this.$refs.datasource.selected = value
-      }
+      axios
+        .post(this.$app.route('admin.redirections.import'), data)
+        .then((response) => {
+          this.$refs.datatable.refresh()
+          this.$app.noty[response.data.status](response.data.message)
+        })
+        .catch((error) => {
+          this.$app.error(error)
+        })
+    }
+  },
+  watch: {
+    selected (value) {
+      this.$refs.datasource.selected = value
     }
   }
+}
 </script>

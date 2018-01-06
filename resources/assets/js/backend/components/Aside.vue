@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  export default {
-    name: 'c-aside'
-  }
+export default {
+  name: 'c-aside'
+}
 </script>

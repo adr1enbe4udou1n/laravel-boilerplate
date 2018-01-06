@@ -124,56 +124,56 @@
 </template>
 
 <script>
-  import axios from 'axios'
-  import form from '../mixins/form'
+import axios from 'axios'
+import form from '../mixins/form'
 
-  import _ from 'lodash'
-  // eslint-disable-next-line no-unused-vars
-  import { groupBy, forEach } from 'lodash/collection'
+import _ from 'lodash'
+// eslint-disable-next-line no-unused-vars
+import { groupBy, forEach } from 'lodash/collection'
 
-  export default {
-    name: 'role_form',
-    mixins: [form],
-    data () {
-      return {
-        permissions: [],
-        modelName: 'role',
-        listPath: '/roles',
-        model: {
-          name: null,
-          display_name: null,
-          description: null,
-          order: 0,
-          permissions: []
-        }
+export default {
+  name: 'role_form',
+  mixins: [form],
+  data () {
+    return {
+      permissions: [],
+      modelName: 'role',
+      listPath: '/roles',
+      model: {
+        name: null,
+        display_name: null,
+        description: null,
+        order: 0,
+        permissions: []
       }
-    },
-    created () {
-      axios
-        .get(this.$app.route(`admin.roles.get_permissions`))
-        .then((response) => {
-          let categories = _.groupBy(_.forEach(response.data, (value, key) => {
-            value['name'] = key
-          }), 'category')
+    }
+  },
+  created () {
+    axios
+      .get(this.$app.route(`admin.roles.get_permissions`))
+      .then((response) => {
+        let categories = _.groupBy(_.forEach(response.data, (value, key) => {
+          value['name'] = key
+        }), 'category')
 
-          this.permissions = Object.keys(categories).map((key) => {
-            return {
-              title: key,
-              permissions: categories[key]
-            }
-          })
+        this.permissions = Object.keys(categories).map((key) => {
+          return {
+            title: key,
+            permissions: categories[key]
+          }
         })
+      })
 
-      this.fetchData()
-    },
-    methods: {
-      onModelChanged () {
-        if (this.model.permissions) {
-          this.model.permissions = this.model.permissions.map((item) => {
-            return item.name
-          })
-        }
+    this.fetchData()
+  },
+  methods: {
+    onModelChanged () {
+      if (this.model.permissions) {
+        this.model.permissions = this.model.permissions.map((item) => {
+          return item.name
+        })
       }
     }
   }
+}
 </script>

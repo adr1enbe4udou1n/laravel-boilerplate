@@ -282,65 +282,65 @@
 </template>
 
 <script>
-  import axios from 'axios'
-  import form from '../mixins/form'
+import axios from 'axios'
+import form from '../mixins/form'
 
-  export default {
-    name: 'post_form',
-    mixins: [form],
-    data () {
-      return {
-        config: {
-          wrap: true,
-          time_24hr: true,
-          enableTime: true
-        },
-        modelName: 'post',
-        listPath: '/posts',
-        tagsOptions: [],
-        model: {
-          title: null,
-          summary: null,
-          body: null,
-          tags: [],
-          featured_image: null,
-          featured_image_path: null,
-          status: null,
-          state: null,
-          status_label: null,
-          owner: {
-            name: null
-          },
-          published_at: null,
-          unpublished_at: null,
-          pinned: null,
-          promoted: null,
-          meta: {
-            title: null,
-            description: null
-          }
-        }
-      }
-    },
-    methods: {
-      onModelChanged () {
-        if (this.model.tags) {
-          this.model.tags = this.model.tags.map((item) => {
-            return item.name
-          })
-        }
+export default {
+  name: 'post_form',
+  mixins: [form],
+  data () {
+    return {
+      config: {
+        wrap: true,
+        time_24hr: true,
+        enableTime: true
       },
-      getTags (search) {
-        axios
-          .get(this.$app.route('admin.tags.search'), {
-            params: {
-              q: search
-            }
-          })
-          .then((response) => {
-            this.tagsOptions = response.data.items
-          })
+      modelName: 'post',
+      listPath: '/posts',
+      tagsOptions: [],
+      model: {
+        title: null,
+        summary: null,
+        body: null,
+        tags: [],
+        featured_image: null,
+        featured_image_path: null,
+        status: null,
+        state: null,
+        status_label: null,
+        owner: {
+          name: null
+        },
+        published_at: null,
+        unpublished_at: null,
+        pinned: null,
+        promoted: null,
+        meta: {
+          title: null,
+          description: null
+        }
       }
     }
+  },
+  methods: {
+    onModelChanged () {
+      if (this.model.tags) {
+        this.model.tags = this.model.tags.map((item) => {
+          return item.name
+        })
+      }
+    },
+    getTags (search) {
+      axios
+        .get(this.$app.route('admin.tags.search'), {
+          params: {
+            q: search
+          }
+        })
+        .then((response) => {
+          this.tagsOptions = response.data.items
+        })
+    }
   }
+}
 </script>

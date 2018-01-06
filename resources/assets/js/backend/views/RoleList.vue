@@ -47,32 +47,32 @@
 </template>
 
 <script>
-  export default {
-    name: 'role_list',
-    data () {
-      return {
-        isBusy: false,
-        fields: [
-          { key: 'name', label: this.$t('validation.attributes.name'), sortable: true },
-          { key: 'order', label: this.$t('validation.attributes.order'), 'class': 'text-right', sortable: true },
-          { key: 'display_name', label: this.$t('validation.attributes.display_name') },
-          { key: 'description', label: this.$t('validation.attributes.description') },
-          { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
-          { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
-          { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
-        ]
-      }
+export default {
+  name: 'role_list',
+  data () {
+    return {
+      isBusy: false,
+      fields: [
+        { key: 'name', label: this.$t('validation.attributes.name'), sortable: true },
+        { key: 'order', label: this.$t('validation.attributes.order'), 'class': 'text-right', sortable: true },
+        { key: 'display_name', label: this.$t('validation.attributes.display_name') },
+        { key: 'description', label: this.$t('validation.attributes.description') },
+        { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
+        { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
+        { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
+      ]
+    }
+  },
+  methods: {
+    dataLoadProvider (ctx) {
+      return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
     },
-    methods: {
-      dataLoadProvider (ctx) {
-        return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
-      },
-      onContextChanged () {
-        return this.$refs.datatable.refresh()
-      },
-      onDelete (id) {
-        this.$refs.datasource.deleteRow({ role: id })
-      }
+    onContextChanged () {
+      return this.$refs.datatable.refresh()
+    },
+    onDelete (id) {
+      this.$refs.datasource.deleteRow({ role: id })
     }
   }
+}
 </script>

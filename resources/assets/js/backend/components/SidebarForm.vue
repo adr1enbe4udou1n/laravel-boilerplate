@@ -3,13 +3,14 @@
     <b-form-input type="search" :placeholder="$t('labels.search')" @input="onSearch"></b-form-input>
   </div>
 </template>
+
 <script>
-  export default {
-    name: 'sidebar-form',
-    methods: {
-      onSearch (value) {
-        this.$router.push({path: '/search', query: {q: value}})
-      }
+export default {
+  name: 'sidebar-form',
+  methods: {
+    onSearch (value) {
+      this.$router.push({path: '/search', query: {q: value}})
     }
   }
+}
 </script>

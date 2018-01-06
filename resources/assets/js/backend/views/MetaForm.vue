@@ -93,38 +93,38 @@
 </template>
 
 <script>
-  import axios from 'axios'
-  import form from '../mixins/form'
+import axios from 'axios'
+import form from '../mixins/form'
 
-  export default {
-    name: 'meta_form',
-    mixins: [form],
-    data () {
-      return {
-        routes: [],
-        modelName: 'meta',
-        listPath: '/metas',
-        model: {
-          metable_type: null,
-          metable_id: null,
-          route: null,
-          title: null,
-          description: null
-        }
-      }
-    },
-    methods: {
-      getRoutes (search) {
-        axios
-          .get(this.$app.route('admin.routes.search'), {
-            params: {
-              q: search
-            }
-          })
-          .then((response) => {
-            this.routes = response.data.items
-          })
+export default {
+  name: 'meta_form',
+  mixins: [form],
+  data () {
+    return {
+      routes: [],
+      modelName: 'meta',
+      listPath: '/metas',
+      model: {
+        metable_type: null,
+        metable_id: null,
+        route: null,
+        title: null,
+        description: null
       }
     }
+  },
+  methods: {
+    getRoutes (search) {
+      axios
+        .get(this.$app.route('admin.routes.search'), {
+          params: {
+            q: search
+          }
+        })
+        .then((response) => {
+          this.routes = response.data.items
+        })
+    }
   }
+}
 </script>

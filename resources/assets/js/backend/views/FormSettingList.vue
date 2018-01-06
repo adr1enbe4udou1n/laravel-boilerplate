@@ -47,31 +47,31 @@
 </template>
 
 <script>
-  export default {
-    name: 'form_setting_list',
-    data () {
-      return {
-        isBusy: false,
-        fields: [
-          { key: 'name', label: this.$t('validation.attributes.form_type'), sortable: true },
-          { key: 'recipients', label: this.$t('validation.attributes.recipients') },
-          { key: 'message', label: this.$t('validation.attributes.message') },
-          { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
-          { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
-          { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
-        ]
-      }
+export default {
+  name: 'form_setting_list',
+  data () {
+    return {
+      isBusy: false,
+      fields: [
+        { key: 'name', label: this.$t('validation.attributes.form_type'), sortable: true },
+        { key: 'recipients', label: this.$t('validation.attributes.recipients') },
+        { key: 'message', label: this.$t('validation.attributes.message') },
+        { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
+        { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
+        { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
+      ]
+    }
+  },
+  methods: {
+    dataLoadProvider (ctx) {
+      return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
     },
-    methods: {
-      dataLoadProvider (ctx) {
-        return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
-      },
-      onContextChanged () {
-        return this.$refs.datatable.refresh()
-      },
-      onDelete (id) {
-        this.$refs.datasource.deleteRow({ form_setting: id })
-      }
+    onContextChanged () {
+      return this.$refs.datatable.refresh()
+    },
+    onDelete (id) {
+      this.$refs.datasource.deleteRow({ form_setting: id })
     }
   }
+}
 </script>

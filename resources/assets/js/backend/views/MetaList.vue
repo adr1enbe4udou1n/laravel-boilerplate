@@ -48,45 +48,45 @@
 </template>
 
 <script>
-  export default {
-    name: 'meta_list',
-    data () {
-      return {
-        isBusy: false,
-        selected: [],
-        fields: [
-          { key: 'checkbox' },
-          { key: 'route', label: this.$t('validation.attributes.route'), sortable: true },
-          { key: 'metable_type', label: this.$t('validation.attributes.metable_type'), sortable: true },
-          { key: 'title', label: this.$t('validation.attributes.title'), sortable: true },
-          { key: 'description', label: this.$t('validation.attributes.description') },
-          { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
-          { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
-          { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
-        ],
-        actions: {
-          destroy: this.$t('labels.backend.metas.actions.destroy')
-        }
-      }
-    },
-    methods: {
-      dataLoadProvider (ctx) {
-        return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
-      },
-      onContextChanged () {
-        return this.$refs.datatable.refresh()
-      },
-      onDelete (id) {
-        this.$refs.datasource.deleteRow({ meta: id })
-      },
-      onBulkActionSuccess () {
-        this.selected = []
-      }
-    },
-    watch: {
-      selected (value) {
-        this.$refs.datasource.selected = value
+export default {
+  name: 'meta_list',
+  data () {
+    return {
+      isBusy: false,
+      selected: [],
+      fields: [
+        { key: 'checkbox' },
+        { key: 'route', label: this.$t('validation.attributes.route'), sortable: true },
+        { key: 'metable_type', label: this.$t('validation.attributes.metable_type'), sortable: true },
+        { key: 'title', label: this.$t('validation.attributes.title'), sortable: true },
+        { key: 'description', label: this.$t('validation.attributes.description') },
+        { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
+        { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
+        { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
+      ],
+      actions: {
+        destroy: this.$t('labels.backend.metas.actions.destroy')
       }
     }
+  },
+  methods: {
+    dataLoadProvider (ctx) {
+      return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
+    },
+    onContextChanged () {
+      return this.$refs.datatable.refresh()
+    },
+    onDelete (id) {
+      this.$refs.datasource.deleteRow({ meta: id })
+    },
+    onBulkActionSuccess () {
+      this.selected = []
+    }
+  },
+  watch: {
+    selected (value) {
+      this.$refs.datasource.selected = value
+    }
   }
+}
 </script>

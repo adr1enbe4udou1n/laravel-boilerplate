@@ -126,8 +126,8 @@ export function createApp () {
     router,
     store,
     i18n,
-    template: '<App/>',
-    components: {App}
+    components: {App},
+    template: '<App/>'
   })
 
   return {app, router, store}

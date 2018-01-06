@@ -13,35 +13,35 @@
 </template>
 
 <script>
-  import axios from 'axios'
+import axios from 'axios'
 
-  export default {
-    name: 'search',
-    data () {
-      return {
-        result: []
-      }
-    },
-    created () {
-      this.fetchData()
-    },
-    methods: {
-      fetchData () {
-        if (this.$route.query.q) {
-          axios
-            .get(this.$app.route('admin.search'), {
-              params: {
-                q: this.$route.query.q
-              }
-            })
-            .then((response) => {
-              this.result = response.data
-            })
-        }
-      }
-    },
-    watch: {
-      '$route': 'fetchData'
+export default {
+  name: 'search',
+  data () {
+    return {
+      result: []
     }
+  },
+  created () {
+    this.fetchData()
+  },
+  methods: {
+    fetchData () {
+      if (this.$route.query.q) {
+        axios
+          .get(this.$app.route('admin.search'), {
+            params: {
+              q: this.$route.query.q
+            }
+          })
+          .then((response) => {
+            this.result = response.data
+          })
+      }
+    }
+  },
+  watch: {
+    '$route': 'fetchData'
   }
+}
 </script>
