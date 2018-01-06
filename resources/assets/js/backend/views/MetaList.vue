@@ -49,7 +49,7 @@
 
 <script>
 export default {
-  name: 'meta_list',
+  name: 'MetaList',
   data () {
     return {
       isBusy: false,
@@ -69,6 +69,11 @@ export default {
       }
     }
   },
+  watch: {
+    selected (value) {
+      this.$refs.datasource.selected = value
+    }
+  },
   methods: {
     dataLoadProvider (ctx) {
       return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
@@ -81,11 +86,6 @@ export default {
     },
     onBulkActionSuccess () {
       this.selected = []
-    }
-  },
-  watch: {
-    selected (value) {
-      this.$refs.datasource.selected = value
     }
   }
 }

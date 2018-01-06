@@ -16,8 +16,8 @@
 export default {
   props: {
     value: {
-      default: null,
-      required: true
+      type: String,
+      default: null
     },
     config: {
       type: Object,
@@ -26,26 +26,43 @@ export default {
       })
     },
     placeholder: {
-      type: String
+      type: String,
+      default: null
     },
     inputClass: {
-      type: [String, Object]
+      type: [String, Object],
+      default: null
     },
     name: {
-      type: String
+      type: String,
+      default: null
     },
     required: {
       type: Boolean,
       default: false
     },
     id: {
-      type: String
+      type: String,
+      default: null
     }
   },
   data () {
     return {
       mutableValue: this.value,
       fp: null
+    }
+  },
+  watch: {
+    config (newConfig) {
+      this.fp.config = Object.assign(this.fp.config, newConfig)
+      this.fp.redraw()
+      this.fp.setDate(this.value, true)
+    },
+    mutableValue (newValue) {
+      this.$emit('input', newValue)
+    },
+    value (newValue) {
+      this.fp && this.fp.setDate(newValue, true)
     }
   },
   mounted () {
@@ -61,19 +78,6 @@ export default {
     if (this.fp) {
       this.fp.destroy()
       this.fp = null
-    }
-  },
-  watch: {
-    config (newConfig) {
-      this.fp.config = Object.assign(this.fp.config, newConfig)
-      this.fp.redraw()
-      this.fp.setDate(this.value, true)
-    },
-    mutableValue (newValue) {
-      this.$emit('input', newValue)
-    },
-    value (newValue) {
-      this.fp && this.fp.setDate(newValue, true)
     }
   }
 }

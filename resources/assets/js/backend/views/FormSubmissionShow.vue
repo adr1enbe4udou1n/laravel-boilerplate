@@ -6,14 +6,14 @@
           <h4 slot="header">{{ $t('labels.backend.form_submissions.titles.show') }}</h4>
           <table class="table table-striped table-hover" v-if="submission !== null">
             <tbody>
-            <tr v-for="(value, name) in JSON.parse(submission.data)" :key="name">
-              <th>{{ $t(`validation.attributes.${name}`) }}</th>
-              <td>{{ value }}</td>
-            </tr>
-            <tr>
-              <th>{{ $t('labels.created_at') }}</th>
-              <td>{{ submission.created_at }}</td>
-            </tr>
+              <tr v-for="(value, name) in JSON.parse(submission.data)" :key="name">
+                <th>{{ $t(`validation.attributes.${name}`) }}</th>
+                <td>{{ value }}</td>
+              </tr>
+              <tr>
+                <th>{{ $t('labels.created_at') }}</th>
+                <td>{{ submission.created_at }}</td>
+              </tr>
             </tbody>
           </table>
         </b-card>
@@ -26,8 +26,13 @@
 import axios from 'axios'
 
 export default {
-  name: 'form_submission_form',
-  props: ['id'],
+  name: 'FormSubmissionForm',
+  props: {
+    id: {
+      type: String,
+      default: null
+    }
+  },
   data () {
     return {
       submission: null

@@ -4,8 +4,7 @@
       <b-row class="justify-content-center">
         <b-col xl="6">
           <b-card>
-            <h4 slot="header">{{ isNew ? $t('labels.backend.redirections.titles.create') : $t(
-              'labels.backend.redirections.titles.edit')}}</h4>
+            <h4 slot="header">{{ isNew ? $t('labels.backend.redirections.titles.create') : $t('labels.backend.redirections.titles.edit') }}</h4>
 
             <b-form-group
               name="source"
@@ -92,7 +91,7 @@ import axios from 'axios'
 import form from '../mixins/form'
 
 export default {
-  name: 'redirection_form',
+  name: 'RedirectionForm',
   mixins: [form],
   data () {
     return {

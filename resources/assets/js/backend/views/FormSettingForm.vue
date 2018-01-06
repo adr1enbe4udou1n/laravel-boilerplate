@@ -4,8 +4,7 @@
       <b-row class="justify-content-center">
         <b-col xl="6">
           <b-card>
-            <h4 slot="header">{{ isNew ? $t('labels.backend.form_settings.titles.create') : $t(
-              'labels.backend.form_settings.titles.edit')}}</h4>
+            <h4 slot="header">{{ isNew ? $t('labels.backend.form_settings.titles.create') : $t('labels.backend.form_settings.titles.edit') }}</h4>
             <b-form-group
               name="name"
               :label="$t('validation.attributes.form_type')"
@@ -93,7 +92,7 @@ import axios from 'axios'
 import form from '../mixins/form'
 
 export default {
-  name: 'form_setting_form',
+  name: 'FormSettingForm',
   mixins: [form],
   data () {
     return {

@@ -65,7 +65,7 @@
 import axios from 'axios'
 
 export default {
-  name: 'user_list',
+  name: 'UserList',
   data () {
     return {
       selected: [],
@@ -87,6 +87,11 @@ export default {
         enable: this.$t('labels.backend.users.actions.enable'),
         disable: this.$t('labels.backend.users.actions.disable')
       }
+    }
+  },
+  watch: {
+    selected (value) {
+      this.$refs.datasource.selected = value
     }
   },
   methods: {
@@ -112,11 +117,6 @@ export default {
       return roles.map((key) => {
         return key.display_name
       }).join(', ')
-    }
-  },
-  watch: {
-    selected (value) {
-      this.$refs.datasource.selected = value
     }
   }
 }

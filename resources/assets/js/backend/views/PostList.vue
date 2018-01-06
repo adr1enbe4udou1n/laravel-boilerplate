@@ -76,7 +76,7 @@
 import axios from 'axios'
 
 export default {
-  name: 'post_list',
+  name: 'PostList',
   data () {
     return {
       isBusy: false,
@@ -99,6 +99,11 @@ export default {
         pin: this.$t('labels.backend.posts.actions.pin'),
         promote: this.$t('labels.backend.posts.actions.promote')
       }
+    }
+  },
+  watch: {
+    selected (value) {
+      this.$refs.datasource.selected = value
     }
   },
   methods: {
@@ -125,11 +130,6 @@ export default {
         .catch((error) => {
           this.$app.error(error)
         })
-    }
-  },
-  watch: {
-    selected (value) {
-      this.$refs.datasource.selected = value
     }
   }
 }

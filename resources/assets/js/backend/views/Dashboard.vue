@@ -39,12 +39,12 @@
 
         <b-card header="Line Chart">
           <div class="chart-wrapper">
-            <line-example/>
+            <line-example></line-example>
           </div>
         </b-card>
         <b-card header="Pie Chart">
           <div class="chart-wrapper">
-            <pie-example/>
+            <pie-example></pie-example>
           </div>
         </b-card>
       </b-col>
@@ -53,7 +53,7 @@
         <b-card>
           <h4 slot="header">{{ $t('labels.backend.dashboard.last_posts') }}</h4>
           <b-table striped bordered hover show-empty :fields="post_fields" :items="posts"
-                   :emptyText="$t('labels.no_results')">
+                   :empty-text="$t('labels.no_results')">
             <template slot="title" slot-scope="row">
               <router-link :to="`/posts/${row.item.id}/edit`">
                 {{ row.value }}
@@ -63,8 +63,7 @@
               <b-badge :variant="row.item.state">{{ $t(row.item.status_label) }}</b-badge>
             </template>
             <template slot="pinned" slot-scope="row">
-              <b-badge :variant="row.value ? 'success' : 'danger'">{{ row.value ? $t('labels.yes') : $t('labels.no')
-                }}
+              <b-badge :variant="row.value ? 'success' : 'danger'">{{ row.value ? $t('labels.yes') : $t('labels.no') }}
               </b-badge>
             </template>
           </b-table>
@@ -83,7 +82,7 @@ import LineExample from './charts/LineExample'
 import PieExample from './charts/PieExample'
 
 export default {
-  name: 'dashboard',
+  name: 'Dashboard',
   components: {
     LineExample,
     PieExample

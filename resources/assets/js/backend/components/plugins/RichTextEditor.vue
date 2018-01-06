@@ -8,22 +8,32 @@
 export default {
   props: {
     id: {
-      type: String
+      type: String,
+      default: null
     },
     name: {
-      type: String
+      type: String,
+      default: null
     },
     placeholder: {
       type: String,
       default: null
     },
     value: {
+      type: String,
       default: null
     }
   },
   data () {
     return {
       editor: null
+    }
+  },
+  watch: {
+    value (newValue) {
+      if (newValue !== this.editor.getData()) {
+        this.editor.setData(newValue)
+      }
     }
   },
   mounted () {
@@ -59,13 +69,6 @@ export default {
       .catch((error) => {
         console.error(error)
       })
-  },
-  watch: {
-    value (newValue) {
-      if (newValue !== this.editor.getData()) {
-        this.editor.setData(newValue)
-      }
-    }
   },
   beforeDestroy () {
     this.editor.destroy()

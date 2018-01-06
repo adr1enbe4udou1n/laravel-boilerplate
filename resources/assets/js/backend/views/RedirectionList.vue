@@ -69,7 +69,7 @@
 import axios from 'axios'
 
 export default {
-  name: 'redirection_list',
+  name: 'RedirectionList',
   data () {
     return {
       isBusy: false,
@@ -90,6 +90,11 @@ export default {
         disable: this.$t('labels.backend.redirections.actions.disable')
       },
       importFile: null
+    }
+  },
+  watch: {
+    selected (value) {
+      this.$refs.datasource.selected = value
     }
   },
   methods: {
@@ -124,11 +129,6 @@ export default {
         .catch((error) => {
           this.$app.error(error)
         })
-    }
-  },
-  watch: {
-    selected (value) {
-      this.$refs.datasource.selected = value
     }
   }
 }

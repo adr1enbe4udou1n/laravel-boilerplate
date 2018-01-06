@@ -1,7 +1,7 @@
 <template>
   <div class="animated fadeIn">
-    <template v-if="this.result.length">
-      <b-card v-for="item in this.result" :key="item.id">
+    <template v-if="result.length">
+      <b-card v-for="item in result" :key="item.id">
         <router-link :to="`/posts/${item.id}/edit`" slot="header">{{ item.title }}</router-link>
         <span v-html="item.body"></span>
       </b-card>
@@ -16,11 +16,14 @@
 import axios from 'axios'
 
 export default {
-  name: 'search',
+  name: 'AppSearch',
   data () {
     return {
       result: []
     }
+  },
+  watch: {
+    '$route': 'fetchData'
   },
   created () {
     this.fetchData()
@@ -39,9 +42,6 @@ export default {
           })
       }
     }
-  },
-  watch: {
-    '$route': 'fetchData'
   }
 }
 </script>

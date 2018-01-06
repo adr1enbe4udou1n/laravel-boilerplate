@@ -1,7 +1,6 @@
 <template>
   <footer class="app-footer">
-    <strong>Copyright &copy; {{ new Date().getFullYear() }} <a
-      href="/" target="_blank">{{ name }}</a>.
+    <strong>Copyright &copy; {{ new Date().getFullYear() }} <a href="/" target="_blank">{{ name }}</a>.
     </strong>&nbsp;{{ $t("labels.all_rights_reserved") }}
     <span class="ml-auto">
       <template v-if="editorName !== ''">
@@ -18,7 +17,20 @@
 </template>
 <script>
 export default {
-  name: 'c-footer',
-  props: ['name', 'editorName', 'editorSiteUrl']
+  name: 'AppFooter',
+  props: {
+    name: {
+      type: String,
+      default: ''
+    },
+    editorName: {
+      type: String,
+      default: ''
+    },
+    editorSiteUrl: {
+      type: String,
+      default: ''
+    }
+  }
 }
 </script>

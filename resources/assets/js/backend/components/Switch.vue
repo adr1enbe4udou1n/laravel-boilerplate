@@ -23,12 +23,15 @@ export default {
   },
   props: {
     value: {
+      type: Boolean,
       default: true
     },
     uncheckedValue: {
+      type: Boolean,
       default: false
     },
     checked: {
+      type: Boolean,
       default: false
     },
     type: {

@@ -1,26 +1,24 @@
 <template>
   <div class="app">
-    <AppHeader/>
+    <AppHeader></AppHeader>
     <div class="app-body">
-      <Sidebar :navItems="nav"/>
+      <Sidebar :nav-items="nav"></Sidebar>
       <main class="main">
         <b-alert variant="warning" class="alert-top mb-0" :show="this.$app.isImpersonation">
-          <span
-            v-html="$t('labels.alerts.login_as', {'name': this.$app.user.name, 'route': this.$app.route('logout-as'), 'admin': this.$app.usurperName})"></span>
+          <span v-html="$t('labels.alerts.login_as', {'name': this.$app.user.name, 'route': this.$app.route('logout-as'), 'admin': this.$app.usurperName})"></span>
         </b-alert>
         <b-alert variant="warning" class="alert-top mb-0" :show="!this.$app.user.confirmed">
-          <span
-            v-html="$t('labels.alerts.not_confirmed', {'route': this.$app.route('user.confirmation.send') })"></span>
+          <span v-html="$t('labels.alerts.not_confirmed', {'route': this.$app.route('user.confirmation.send') })"></span>
         </b-alert>
-        <breadcrumb :list="list"/>
+        <breadcrumb :list="list"></breadcrumb>
         <b-container fluid>
           <router-view :key="this.$route.name"></router-view>
         </b-container>
       </main>
-      <AppAside/>
+      <AppAside></AppAside>
     </div>
     <AppFooter :name="this.$app.appName" :editor-name="this.$app.editorName"
-               :editor-site-url="this.$app.editorSiteUrl"/>
+               :editor-site-url="this.$app.editorSiteUrl"></AppFooter>
   </div>
 </template>
 
@@ -34,7 +32,7 @@ import AppHeader from '../components/Header'
 import Sidebar from '../components/Sidebar'
 
 export default {
-  name: 'full',
+  name: 'Full',
   components: {
     AppHeader,
     Sidebar,
@@ -55,6 +53,9 @@ export default {
       return this.$route.matched
     }
   },
+  watch: {
+    '$route': 'fetchData'
+  },
   created () {
     this.initNav()
     this.fetchData()
@@ -74,9 +75,6 @@ export default {
           this.initNav()
         })
     }
-  },
-  watch: {
-    '$route': 'fetchData'
   }
 }
 </script>

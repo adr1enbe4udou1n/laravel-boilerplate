@@ -13,7 +13,7 @@
                    @context-changed="onContextChanged"
                    search-route="admin.roles.search"
                    delete-route="admin.roles.destroy"
-                   :lengthChange="false" :paging="false" :infos="false" :search="false">
+                   :length-change="false" :paging="false" :infos="false" :search="false">
         <b-table ref="datatable"
                  striped
                  bordered
@@ -48,7 +48,7 @@
 
 <script>
 export default {
-  name: 'role_list',
+  name: 'RoleList',
   data () {
     return {
       isBusy: false,

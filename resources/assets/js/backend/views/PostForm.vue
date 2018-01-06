@@ -4,8 +4,7 @@
       <b-row>
         <b-col xl="8">
           <b-card>
-            <h4 slot="header">{{ isNew ? $t('labels.backend.posts.titles.create') : $t(
-              'labels.backend.posts.titles.edit')}}</h4>
+            <h4 slot="header">{{ isNew ? $t('labels.backend.posts.titles.create') : $t('labels.backend.posts.titles.edit') }}</h4>
             <b-form-group
               name="title"
               :label="$t('validation.attributes.title')"
@@ -135,8 +134,7 @@
                 <b-card-body>
                   <template v-if="!isNew">
                     <div class="form-group row">
-                      <label class="col-lg-3 col-form-label">{{ $t('validation.attributes.status')
-                        }}</label>
+                      <label class="col-lg-3 col-form-label">{{ $t('validation.attributes.status') }}</label>
                       <b-col lg="9">
                         <label class="col-form-label">
                           <b-badge :variant="model.state">{{ $t(model.status_label) }}</b-badge>
@@ -286,7 +284,7 @@ import axios from 'axios'
 import form from '../mixins/form'
 
 export default {
-  name: 'post_form',
+  name: 'PostForm',
   mixins: [form],
   data () {
     return {

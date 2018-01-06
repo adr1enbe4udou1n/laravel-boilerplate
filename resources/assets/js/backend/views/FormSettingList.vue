@@ -13,7 +13,7 @@
                    @context-changed="onContextChanged"
                    search-route="admin.form_settings.search"
                    delete-route="admin.form_settings.destroy"
-                   :lengthChange="false" :paging="false" :infos="false" :search="false">
+                   :length-change="false" :paging="false" :infos="false" :search="false">
         <b-table ref="datatable"
                  striped
                  bordered
@@ -48,7 +48,7 @@
 
 <script>
 export default {
-  name: 'form_setting_list',
+  name: 'FormSettingList',
   data () {
     return {
       isBusy: false,

@@ -4,8 +4,7 @@
       <b-row class="justify-content-center">
         <b-col xl="6">
           <b-card>
-            <h4 slot="header">{{ isNew ? $t('labels.backend.users.titles.create') : $t(
-              'labels.backend.users.titles.edit')}}</h4>
+            <h4 slot="header">{{ isNew ? $t('labels.backend.users.titles.create') : $t('labels.backend.users.titles.edit') }}</h4>
 
             <b-form-group
               name="name"
@@ -132,7 +131,7 @@ import axios from 'axios'
 import form from '../mixins/form'
 
 export default {
-  name: 'user_form',
+  name: 'UserForm',
   mixins: [form],
   data () {
     return {

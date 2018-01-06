@@ -65,7 +65,7 @@
 
 <script>
 export default {
-  name: 'c-header',
+  name: 'AppHeader',
   methods: {
     sidebarToggle (e) {
       e.preventDefault()

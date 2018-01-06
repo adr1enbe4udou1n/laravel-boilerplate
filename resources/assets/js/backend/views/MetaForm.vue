@@ -4,17 +4,13 @@
       <b-row class="justify-content-center">
         <b-col xl="6">
           <b-card>
-            <h4 slot="header">{{ isNew ? $t('labels.backend.metas.titles.create') : $t(
-              'labels.backend.metas.titles.edit')}}</h4>
+            <h4 slot="header">{{ isNew ? $t('labels.backend.metas.titles.create') : $t('labels.backend.metas.titles.edit') }}</h4>
 
-            <template v-if="this.model.metable_type !== null">
+            <template v-if="model.metable_type !== null">
               <div class="form-group row">
-                <label class="col-lg-3 col-form-label">{{ $t('validation.attributes.metable_type')
-                  }}</label>
+                <label class="col-lg-3 col-form-label">{{ $t('validation.attributes.metable_type') }}</label>
                 <b-col lg="9">
-                  <label class="col-form-label">{{ $t(`labels.morphs.${this.model.metable_type}`,
-                    {'id': this.model.metable_id})
-                    }}</label>
+                  <label class="col-form-label">{{ $t(`labels.morphs.${model.metable_type}`, {'id': model.metable_id}) }}</label>
                 </b-col>
               </div>
             </template>
@@ -80,7 +76,7 @@
               <b-col md>
                 <b-button type="submit" variant="success" size="sm" class="pull-right"
                           :disabled="pending"
-                          v-if="isNew || this.$app.user.can('edit metas')">
+                          v-if="isNew || $app.user.can('edit metas')">
                   {{ isNew ? $t('buttons.create') : $t('buttons.edit') }}
                 </b-button>
               </b-col>
@@ -97,7 +93,7 @@ import axios from 'axios'
 import form from '../mixins/form'
 
 export default {
-  name: 'meta_form',
+  name: 'MetaForm',
   mixins: [form],
   data () {
     return {

@@ -11,12 +11,22 @@ module.exports = {
   },
   extends: [
     'standard',
-    'plugin:vue/essential'
+    'plugin:vue/recommended'
   ],
   rules: {
     'arrow-parens': 'error',
     'generator-star-spacing': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'prefer-arrow-callback': 'error'
+    'prefer-arrow-callback': 'error',
+    'vue/max-attributes-per-line': 'off',
+    'vue/html-self-closing': ['error', {
+      html: {
+        void: 'never',
+        normal: 'never',
+        component: 'never'
+      },
+      svg: 'never',
+      math: 'never'
+    }]
   }
 }

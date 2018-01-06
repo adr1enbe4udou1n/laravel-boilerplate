@@ -1,13 +1,13 @@
 <template>
   <div v-if="isExternalLink">
     <a :href="url" :class="classList">
-      <i :class="icon"></i> {{name}}
+      <i :class="icon"></i> {{ name }}
       <b-badge v-for="(badge, index) in badges" :key="index" :variant="badge.variant" :title="badge.name">{{ badge.text }}</b-badge>
     </a>
   </div>
   <div v-else>
     <router-link :to="url" :class="classList">
-      <i :class="icon"></i> {{name}}
+      <i :class="icon"></i> {{ name }}
       <b-badge v-for="(badge, index) in badges" :key="index" :variant="badge.variant" :title="badge.name">{{ badge.text }}</b-badge>
     </router-link>
   </div>
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'sidebar-nav-link',
+  name: 'SidebarNavLink',
   props: {
     name: {
       type: String,

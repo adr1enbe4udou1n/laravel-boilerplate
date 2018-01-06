@@ -4,8 +4,7 @@
       <b-row class="justify-content-center">
         <b-col xl="8">
           <b-card>
-            <h4 slot="header">{{ isNew ? $t('labels.backend.roles.titles.create') : $t(
-              'labels.backend.roles.titles.edit')}}</h4>
+            <h4 slot="header">{{ isNew ? $t('labels.backend.roles.titles.create') : $t('labels.backend.roles.titles.edit') }}</h4>
 
             <b-form-group
               name="name"
@@ -85,11 +84,10 @@
             </b-form-group>
 
             <div class="form-group row">
-              <label class="col-sm-2 col-form-label">{{ $t('validation.attributes.permissions')
-                }}</label>
+              <label class="col-sm-2 col-form-label">{{ $t('validation.attributes.permissions') }}</label>
               <b-col sm="10">
                 <b-row>
-                  <b-col md="6" xl="4" class="mb-3" v-for="category in this.permissions" :key="category.title">
+                  <b-col md="6" xl="4" class="mb-3" v-for="category in permissions" :key="category.title">
                     <h4>{{ $t(category.title) }}</h4>
                     <b-form-checkbox-group stacked v-model="model.permissions" name="permissions[]">
                       <b-form-checkbox v-for="permission in category.permissions" :key="permission.name"
@@ -132,7 +130,7 @@ import _ from 'lodash'
 import { groupBy, forEach } from 'lodash/collection'
 
 export default {
-  name: 'role_form',
+  name: 'RoleForm',
   mixins: [form],
   data () {
     return {
