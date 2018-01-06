@@ -213,6 +213,12 @@ module.exports = {
 
 let plugins = []
 
+if (hmr) {
+  plugins = [
+    new webpack.NamedModulesPlugin()
+  ]
+}
+
 if (production) {
   plugins = [
     new webpack.DefinePlugin({
@@ -226,10 +232,6 @@ if (production) {
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new BundleAnalyzerPlugin()
-  ]
-} else {
-  plugins = [
-    new webpack.NamedModulesPlugin()
   ]
 }
 
