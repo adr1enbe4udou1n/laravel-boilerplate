@@ -5,6 +5,7 @@ import 'pwstrength-bootstrap/dist/pwstrength-bootstrap'
 import 'cookieconsent'
 import swal from 'sweetalert2'
 import WebFont from 'webfontloader'
+import Turbolinks from 'turbolinks'
 
 /**
  * JS Settings App
@@ -13,8 +14,11 @@ let jsonSettings = document.querySelector('[data-settings-selector="settings-jso
 window.settings = jsonSettings ? JSON.parse(jsonSettings.textContent) : {}
 
 window.swal = swal
+window.locale = $('html').attr('lang')
 
-export default () => {
+export default (createApp) => {
+  Turbolinks.start()
+
   /**
    * Font
    */
@@ -46,13 +50,14 @@ export default () => {
         'dismiss': window.settings.cookieconsent.dismiss
       }
     })
-  });
+  })
 
-  /**
-   * jQuery Plugins Init
-   */
-  (($) => {
-    window.locale = $('html').attr('lang')
+  document.addEventListener('turbolinks:load', () => {
+    /**
+     * Vue Mounting
+     */
+    const { app } = createApp()
+    app.$mount('#app')
 
     /**
      * Slick
@@ -139,5 +144,5 @@ export default () => {
     $('a[data-toggle="tab"]').on('show.bs.tab', (e) => {
       window.location.hash = e.target.hash
     })
-  })(jQuery)
+  })
 }

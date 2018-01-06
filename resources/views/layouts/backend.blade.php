@@ -14,9 +14,6 @@
     @if ($stylePath = Html::asset('backend.css'))
     <link rel="stylesheet" href="{{ $stylePath }}">
     @endif
-</head>
-<body class="app @yield('body_class')">
-    @yield('body')
 
     <!-- JS settings -->
     <script type="application/json" data-settings-selector="settings-json">
@@ -49,6 +46,9 @@
     <script defer src="{{ Html::asset('locales.js') }}"></script>
     <script defer src="{{ Html::asset('vendor_backend.js') }}"></script>
     <script defer src="{{ Html::asset('backend.js') }}"></script>
+</head>
+<body class="app @yield('body_class')">
+    @yield('body')
 
     @stack('scripts')
 </body>

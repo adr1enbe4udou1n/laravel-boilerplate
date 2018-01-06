@@ -4,23 +4,19 @@ import loadClientScripts from './load-client-scripts'
 import Vue from 'vue'
 import { axios } from '../axios-config'
 
-import VeeValidate from '../vee-validate'
 import BootstrapVue from 'bootstrap-vue'
 
-import { createLocales } from '../vue-i18n'
+import { createLocales } from '../vue-i18n-config'
+import { createValidator } from '../vee-validate-config'
 
 window.axios = axios
-
-/**
- * Vue Init
- */
-VeeValidate(window.locale)
 
 // Bootstrap Vue
 Vue.use(BootstrapVue)
 
 export function createApp () {
   const i18n = createLocales(window.locale)
+  createValidator(window.locale)
 
   const app = new Vue({
     i18n
@@ -29,9 +25,5 @@ export function createApp () {
   return { app }
 }
 
-// Init Vue App
-const { app } = createApp()
-app.$mount('#app')
-
 // Load Client Scripts
-loadClientScripts()
+loadClientScripts(createApp)

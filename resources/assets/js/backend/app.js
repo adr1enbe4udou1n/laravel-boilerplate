@@ -4,7 +4,6 @@ import './load-client-scripts'
 import Vue from 'vue'
 import '../axios-config'
 
-import VeeValidate from '../vee-validate'
 import BootstrapVue from 'bootstrap-vue'
 import vSelect from 'vue-select'
 
@@ -18,15 +17,11 @@ import DateTimePicker from './components/plugins/DateTimePicker'
 
 import { createRouter } from './router'
 import { createStore } from './store'
-import { createLocales } from '../vue-i18n'
+import { createLocales } from '../vue-i18n-config'
+import { createValidator } from '../vee-validate-config'
 
 import App from './App.vue'
 import Noty from 'noty'
-
-/**
- * Vue Init
- */
-VeeValidate(window.settings.locale)
 
 // Bootstrap Vue
 Vue.use(BootstrapVue)
@@ -45,6 +40,7 @@ export function createApp () {
   const i18n = createLocales(window.settings.locale)
   const router = createRouter(window.settings.adminHomePath, i18n)
   const store = createStore(window.route)
+  createValidator(window.settings.locale)
 
   /**
    * Server-side settings
