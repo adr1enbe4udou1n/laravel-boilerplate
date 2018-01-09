@@ -18,7 +18,6 @@ import DateTimePicker from './components/plugins/DateTimePicker'
 import { createRouter } from './router'
 import { createStore } from './store'
 import { createLocales } from '../vue-i18n-config'
-import { createValidator } from '../vee-validate-config'
 
 import App from './App.vue'
 import Noty from 'noty'
@@ -40,7 +39,6 @@ export function createApp () {
   const i18n = createLocales(window.settings.locale)
   const router = createRouter(window.settings.adminHomePath, i18n)
   const store = createStore(window.route)
-  createValidator(window.settings.locale)
 
   /**
    * Server-side settings

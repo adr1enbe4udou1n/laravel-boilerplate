@@ -20,7 +20,6 @@
 
 * Bootstrap 4 (beta) Frontend with basic home-about-contact and legal mentions pages,
 * [Slick carousel](http://kenwheeler.github.io/slick/) and [Cookie Consent](https://cookieconsent.insites.com/) integrated,
-* Client-side validation with [vee-validate](https://github.com/baianat/vee-validate),
 * Blog section, including navigation by tags & authors,
 * [Intervention image](https://github.com/Intervention/image) for dynamic optimized images with cache plugin,
 * Login throttle by recaptcha & [password strength meter](https://github.com/ablanco/jquery.pwstrength.bootstrap),
