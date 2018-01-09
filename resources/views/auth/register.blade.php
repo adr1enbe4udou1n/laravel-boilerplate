@@ -10,46 +10,10 @@
                         <form method="POST" action="{{ route('register') }}">
                             {{ csrf_field() }}
 
-                            @component('components.form-group', [
-                                'name' => 'name',
-                                'title' => __('validation.attributes.name'),
-                                'horizontal' => true,
-                                'label_cols' => 3
-                            ])
-                                <input name="name" placeholder="@lang('validation.attributes.name')"
-                                       class="form-control {{ is_invalid('name') }}" required value="{{ old('name') }}">
-                            @endcomponent
-
-                            @component('components.form-group', [
-                                'name' => 'email',
-                                'title' => __('validation.attributes.email'),
-                                'horizontal' => true,
-                                'label_cols' => 3
-                            ])
-                                <input type="email" name="email" placeholder="@lang('validation.attributes.email')"
-                                       class="form-control {{ is_invalid('email') }}" required value="{{ old('email') }}">
-                            @endcomponent
-
-                            @component('components.form-group', [
-                                'name' => 'password',
-                                'title' => __('validation.attributes.password'),
-                                'horizontal' => true,
-                                'label_cols' => 3
-                            ])
-                                <input type="password" name="password" placeholder="@lang('validation.attributes.password')"
-                                       class="form-control {{ is_invalid('password') }}" required data-toggle="password-strength-meter">
-                            @endcomponent
-
-                            @component('components.form-group', [
-                                'name' => 'password_confirmation',
-                                'title' => __('validation.attributes.password_confirmation'),
-                                'horizontal' => true,
-                                'label_cols' => 3
-                            ])
-                                <input type="password" name="password_confirmation"
-                                       placeholder="@lang('validation.attributes.password_confirmation')"
-                                       class="form-control {{ is_invalid('password_confirmation') }}" required>
-                            @endcomponent
+                            {{ Form::bsText('name', __('validation.attributes.name'), null, ['required', 'placeholder' => __('validation.attributes.name')], 3) }}
+                            {{ Form::bsEmail('email', __('validation.attributes.email'), null, ['required', 'placeholder' => __('validation.attributes.email')], 3) }}
+                            {{ Form::bsPassword('password', __('validation.attributes.password'), ['required', 'placeholder' => __('validation.attributes.password'), 'data-toggle' => 'password-strength-meter'], 3) }}
+                            {{ Form::bsPassword('password_confirmation', __('validation.attributes.password_confirmation'), ['required', 'placeholder' => __('validation.attributes.password_confirmation')], 3) }}
 
                             <div class="form-group row">
                                 <div class="col-md-9 ml-auto">

@@ -15,59 +15,27 @@
             <form action="{{ route('contact') }}" method="POST">
                 {{ csrf_field() }}
 
-                @component('components.form-group', [
-                    'name' => 'name',
-                    'title' => __('validation.attributes.name'),
-                ])
-                    <input name="name" placeholder="@lang('validation.attributes.name')" class="form-control {{ is_invalid('name') }}" :class="{'is-invalid': errors.has('name') }" required v-validate="'required'" value="{{ old('name') }}">
-                @endcomponent
+                {{ Form::bsText('name', __('validation.attributes.name'), null, ['required', 'placeholder' => __('validation.attributes.name')]) }}
 
                 <div class="row">
                     <div class="col-sm-6">
-                        @component('components.form-group', [
-                            'name' => 'postal_code',
-                            'title' => __('validation.attributes.postal_code'),
-                        ])
-                            <input name="postal_code" placeholder="@lang('validation.attributes.postal_code')" class="form-control" value="{{ old('postal_code') }}">
-                        @endcomponent
+                        {{ Form::bsText('postal_code', __('validation.attributes.postal_code'), null, ['placeholder' => __('validation.attributes.postal_code')]) }}
                     </div>
                     <div class="col-sm-6">
-                        @component('components.form-group', [
-                            'name' => 'city',
-                            'title' => __('validation.attributes.city'),
-                        ])
-                            <input name="city" placeholder="@lang('validation.attributes.city')" class="form-control" value="{{ old('city') }}">
-                        @endcomponent
+                        {{ Form::bsText('city', __('validation.attributes.city'), null, ['placeholder' => __('validation.attributes.city')]) }}
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-sm-6">
-                        @component('components.form-group', [
-                            'name' => 'email',
-                            'title' => __('validation.attributes.email'),
-                        ])
-                            <input type="email" name="email" placeholder="@lang('validation.attributes.email')" class="form-control {{ is_invalid('email') }}" :class="{'is-invalid': errors.has('email') }" required v-validate="'required|email'" value="{{ old('email') }}">
-                        @endcomponent
+                        {{ Form::bsEmail('email', __('validation.attributes.email'), null, ['required', 'placeholder' => __('validation.attributes.email')]) }}
                     </div>
                     <div class="col-sm-6">
-                        @component('components.form-group', [
-                            'name' => 'phone',
-                            'title' => __('validation.attributes.phone'),
-                        ])
-                            <input type="tel" name="phone" placeholder="@lang('validation.attributes.phone')" class="form-control {{ is_invalid('phone') }}" :class="{'is-invalid': errors.has('phone') }" v-validate="'phone'" value="{{ old('phone') }}">
-                        @endcomponent
+                        {{ Form::bsTel('phone', __('validation.attributes.phone'), null, ['required', 'placeholder' => __('validation.attributes.phone')]) }}
                     </div>
                 </div>
 
-                @component('components.form-group', [
-                    'name' => 'message',
-                    'title' => __('validation.attributes.message'),
-                ])
-                    <textarea name="message" placeholder="@lang('validation.attributes.message')" class="form-control {{ is_invalid('message') }}" :class="{'is-invalid': errors.has('message') }" rows="5" required v-validate="'required'">
-                        {{ old('message') }}
-                    </textarea>
-                @endcomponent
+                {{ Form::bsTextarea('message', __('validation.attributes.message'), null, ['required', 'placeholder' => __('validation.attributes.message'), 'rows' => 5]) }}
 
                 <div class="form-group">
                     {!! Captcha::display() !!}

@@ -11,25 +11,8 @@
                     <form method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
-                        @component('components.form-group', [
-                            'name' => 'email',
-                            'title' => __('validation.attributes.email'),
-                            'horizontal' => true,
-                            'label_cols' => 4
-                        ])
-                            <input type="email" name="email" placeholder="@lang('validation.attributes.email')"
-                                   class="form-control {{ is_invalid('email') }}" required value="{{ old('email') }}">
-                        @endcomponent
-
-                        @component('components.form-group', [
-                            'name' => 'password',
-                            'title' => __('validation.attributes.password'),
-                            'horizontal' => true,
-                            'label_cols' => 4
-                        ])
-                            <input type="password" name="password" placeholder="@lang('validation.attributes.password')"
-                                   class="form-control" required>
-                        @endcomponent
+                        {{ Form::bsText('email', __('validation.attributes.email'), null, ['required', 'placeholder' => __('validation.attributes.email')], 4) }}
+                        {{ Form::bsPassword('password', __('validation.attributes.password'), ['required', 'placeholder' => __('validation.attributes.password')], 4) }}
 
                         @if($isLocked)
                         <div class="form-group row">
@@ -41,11 +24,7 @@
 
                         <div class="form-group row">
                             <div class="col-md-8 ml-auto">
-                                <label class="custom-control custom-checkbox">
-                                    <input type="checkbox" name="remember" class="custom-control-input">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">@lang('labels.user.remember')</span>
-                                </label>
+                                {{ Form::bsCheckbox('remember', __('labels.user.remember')) }}
                             </div>
                         </div>
 

@@ -18,12 +18,7 @@
                     <form method="POST" action="{{ route('password.email') }}">
                         {{ csrf_field() }}
 
-                        @component('components.form-group', [
-                            'name' => 'email',
-                            'title' => __('validation.attributes.email'),
-                        ])
-                            <input type="email" name="email" placeholder="@lang('validation.attributes.email')" class="form-control {{ is_invalid('email') }}" required value="{{ old('email') }}">
-                        @endcomponent
+                        {{ Form::bsText('email', __('validation.attributes.email'), null, ['required', 'placeholder' => __('validation.attributes.email')]) }}
 
                         <div class="form-group row">
                             <div class="col-md-6">

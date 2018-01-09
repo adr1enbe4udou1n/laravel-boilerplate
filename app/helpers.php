@@ -2,23 +2,6 @@
 
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Contracts\Support\MessageBag;
-
-if (! function_exists('is_invalid')) {
-    /**
-     * @param $name
-     * @param $class
-     *
-     * @return string
-     */
-    function is_invalid($name, $class = 'is-invalid')
-    {
-        /** @var MessageBag $errors */
-        $errors = session()->get('errors', new Illuminate\Support\MessageBag());
-
-        return $errors->has($name) ? $class : '';
-    }
-}
 
 if (! function_exists('home_route')) {
     /**

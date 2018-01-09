@@ -13,19 +13,8 @@
                         <form action="{{ route('login') }}" method="post">
                             {{ csrf_field() }}
 
-                            @component('components.form-group', [
-                                'name' => 'email',
-                            ])
-                                <input type="email" name="email" placeholder="@lang('validation.attributes.email')"
-                                       class="form-control {{ is_invalid('email') }}" required value="{{ old('email') }}">
-                            @endcomponent
-
-                            @component('components.form-group', [
-                                'name' => 'password',
-                            ])
-                                <input type="password" name="password" placeholder="@lang('validation.attributes.password')"
-                                       class="form-control" required>
-                            @endcomponent
+                            {{ Form::bsText('email', null, null, ['required', 'placeholder' => __('validation.attributes.email')]) }}
+                            {{ Form::bsPassword('password', null, ['required', 'placeholder' => __('validation.attributes.password')]) }}
 
                             @if($isLocked)
                                 <div class="form-group">
@@ -34,11 +23,7 @@
                             @endif
                             <div class="form-group">
                                 <div class="checkbox">
-                                    <label class="custom-control custom-checkbox">
-                                        <input type="checkbox" name="remember" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <span class="custom-control-description">@lang('labels.user.remember')</span>
-                                    </label>
+                                    {{ Form::bsCheckbox('remember', __('labels.user.remember')) }}
                                 </div>
                             </div>
                             <div class="row">

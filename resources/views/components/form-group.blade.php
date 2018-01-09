@@ -1,6 +1,10 @@
 <div class="form-group @if(isset($horizontal) && $horizontal)row @endif">
     @isset($title)
-    <label for="{{ $name }}" @if(isset($horizontal) && $horizontal)class="col-md-{{ $label_cols }} col-form-label" @endif>{{ $title }}</label>
+        @if(isset($horizontal) && $horizontal)
+        {{ Form::label($name, $title, ['class' => "col-md-{$label_cols} col-form-label"]) }}
+        @else
+        {{ Form::label($name, $title) }}
+        @endif
     @endisset
 
     @if(isset($horizontal) && $horizontal)

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Collective\Html\FormFacade;
 use Collective\Html\HtmlFacade;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -13,6 +14,17 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        FormFacade::component('bsText', 'components.form.input', ['name', 'title', 'value' => null, 'attributes' => [], 'label_cols' => null, 'type' => 'text']);
+        FormFacade::component('bsEmail', 'components.form.input', ['name', 'title', 'value' => null, 'attributes' => [], 'label_cols' => null, 'type' => 'email']);
+        FormFacade::component('bsTel', 'components.form.input', ['name', 'title', 'value' => null, 'attributes' => [], 'label_cols' => null, 'type' => 'tel']);
+        FormFacade::component('bsNumber', 'components.form.input', ['name', 'title', 'value' => null, 'attributes' => [], 'label_cols' => null, 'type' => 'number']);
+        FormFacade::component('bsDatetime', 'components.form.input', ['name', 'title', 'value' => null, 'attributes' => [], 'label_cols' => null, 'type' => 'datetime']);
+        FormFacade::component('bsPassword', 'components.form.input', ['name', 'title', 'attributes' => [], 'label_cols' => null, 'value' => '', 'type' => 'password']);
+        FormFacade::component('bsFile', 'components.form.input', ['name', 'title', 'attributes' => [], 'label_cols' => null, 'value' => null, 'type' => 'file']);
+        FormFacade::component('bsTextarea', 'components.form.textarea', ['name', 'title', 'value' => null, 'attributes' => [], 'label_cols' => null]);
+        FormFacade::component('bsSelect', 'components.form.select', ['name', 'title', 'list' => [], 'selected' => null, 'attributes' => [], 'label_cols' => null]);
+        FormFacade::component('bsCheckbox', 'components.form.custom-control', ['name', 'description', 'value' => null, 'type' => 'checkbox']);
+
         HtmlFacade::macro('asset', function ($path) {
             static $manifest;
 

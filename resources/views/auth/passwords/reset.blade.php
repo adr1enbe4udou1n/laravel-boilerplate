@@ -20,36 +20,9 @@
 
                         <input type="hidden" name="token" value="{{ $token }}">
 
-                        @component('components.form-group', [
-                            'name' => 'email',
-                            'title' => __('validation.attributes.email'),
-                            'horizontal' => true,
-                            'label_cols' => 4
-                        ])
-                            <input type="email" name="email" placeholder="@lang('validation.attributes.email')"
-                                   class="form-control {{ is_invalid('email') }}" required value="{{ old('email') }}">
-                        @endcomponent
-
-                        @component('components.form-group', [
-                                'name' => 'password',
-                                'title' => __('validation.attributes.password'),
-                                'horizontal' => true,
-                                'label_cols' => 4
-                            ])
-                            <input type="password" name="password" placeholder="@lang('validation.attributes.password')"
-                                   class="form-control {{ is_invalid('password') }}" required data-toggle="password-strength-meter">
-                        @endcomponent
-
-                        @component('components.form-group', [
-                            'name' => 'password_confirmation',
-                            'title' => __('validation.attributes.password_confirmation'),
-                            'horizontal' => true,
-                            'label_cols' => 4
-                        ])
-                            <input type="password" name="password_confirmation"
-                                   placeholder="@lang('validation.attributes.password_confirmation')"
-                                   class="form-control {{ is_invalid('password_confirmation') }}" required>
-                        @endcomponent
+                        {{ Form::bsEmail('email', __('validation.attributes.email'), null, ['required', 'placeholder' => __('validation.attributes.email')], 4) }}
+                        {{ Form::bsPassword('password', __('validation.attributes.password'), ['required', 'placeholder' => __('validation.attributes.password'), 'data-toggle' => 'password-strength-meter'], 4) }}
+                        {{ Form::bsPassword('password_confirmation', __('validation.attributes.password_confirmation'), ['required', 'placeholder' => __('validation.attributes.password_confirmation')], 4) }}
 
                         <div class="form-group row">
                             <div class="col-md-8 ml-auto">
