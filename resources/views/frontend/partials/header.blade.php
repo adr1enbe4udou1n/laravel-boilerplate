@@ -17,7 +17,7 @@
                        href="{{ route('blog.index') }}">@lang('labels.frontend.titles.blog')</a>
                 @endif
                     <a class="nav-link {{ active_class(if_route('contact')) }}"
-                       href="{{ route('contact') }}">@lang('labels.frontend.titles.contact')</a>
+                       href="{{ route('contact') }}" data-turbolinks="false">@lang('labels.frontend.titles.contact')</a>
             </div>
 
             <div class="navbar-nav">
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                 @endif
-                @if (Auth::guest())
+                @guest
                     <a class="nav-link" href="{{ route('login') }}" data-turbolinks="false">@lang('labels.user.login')</a>
                     @if (config('account.can_register'))
                         <a class="nav-link" href="{{ route('register') }}" data-turbolinks="false">@lang('labels.user.register')</a>
