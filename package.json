@@ -55,7 +55,7 @@
     "uglifyjs-webpack-plugin": "^1.1.6",
     "vue": "^2.5.13",
     "vue-chartjs": "^3.0.2",
-    "vue-i18n": "^7.3.4",
+    "vue-i18n": "^7.4.0",
     "vue-loader": "^13.7.0",
     "vue-router": "^3.0.1",
     "vue-select": "^2.4.0",

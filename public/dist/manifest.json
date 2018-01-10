@@ -1,8 +1,8 @@
 {
   "backend.css": "/dist/css/backend.876a3ca7dff78d70de373b326b9b48ea.css",
   "backend.css.map": "/dist/css/backend.876a3ca7dff78d70de373b326b9b48ea.css.map",
-  "backend.js": "/dist/js/backend.ded1b577bd9275c9e91d.js",
-  "backend.js.map": "/dist/js/backend.ded1b577bd9275c9e91d.js.map",
+  "backend.js": "/dist/js/backend.5c11d4aa672116c2fbff.js",
+  "backend.js.map": "/dist/js/backend.5c11d4aa672116c2fbff.js.map",
   "fonts\\vendor\\Simple-Line-Icons.eot?v=2.4.0": "/dist/fonts/vendor/Simple-Line-Icons.eot?f33df365d6d0255b586f2920355e94d7",
   "fonts\\vendor\\Simple-Line-Icons.svg?v=2.4.0": "/dist/fonts/vendor/Simple-Line-Icons.svg?2fe2efe63441d830b1acd106c1fe8734",
   "fonts\\vendor\\Simple-Line-Icons.ttf?v=2.4.0": "/dist/fonts/vendor/Simple-Line-Icons.ttf?d2285965fe34b05465047401b8595dd0",
@@ -28,10 +28,10 @@
   "images\\vendor\\slick-carousel\\slick\\ajax-loader.gif": "/dist/images/vendor/slick-carousel/slick/ajax-loader.gif?68b0c4fcb84d239f261c1a5e65818142",
   "locales.js": "/dist/js/locales.957442580e6109a3b9bb.js",
   "locales.js.map": "/dist/js/locales.957442580e6109a3b9bb.js.map",
-  "manifest.js": "/dist/js/manifest.ef819436d57031bef6ca.js",
-  "manifest.js.map": "/dist/js/manifest.ef819436d57031bef6ca.js.map",
-  "vendor_backend.js": "/dist/js/vendor_backend.a68f012c4384136f9701.js",
-  "vendor_backend.js.map": "/dist/js/vendor_backend.a68f012c4384136f9701.js.map",
-  "vendor_frontend.js": "/dist/js/vendor_frontend.d1c1e8e575a08199c2fd.js",
-  "vendor_frontend.js.map": "/dist/js/vendor_frontend.d1c1e8e575a08199c2fd.js.map"
+  "manifest.js": "/dist/js/manifest.954b04e0d1e1141679c1.js",
+  "manifest.js.map": "/dist/js/manifest.954b04e0d1e1141679c1.js.map",
+  "vendor_backend.js": "/dist/js/vendor_backend.2e6ba44f051e39c8e32a.js",
+  "vendor_backend.js.map": "/dist/js/vendor_backend.2e6ba44f051e39c8e32a.js.map",
+  "vendor_frontend.js": "/dist/js/vendor_frontend.0c609876f2bfea6dcf3b.js",
+  "vendor_frontend.js.map": "/dist/js/vendor_frontend.0c609876f2bfea6dcf3b.js.map"
 }

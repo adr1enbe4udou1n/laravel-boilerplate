@@ -14,7 +14,9 @@
                         <form action="{{ route('login') }}" method="post">
                             {{ csrf_field() }}
 
-                            {{ Form::bsText('email', null, null, ['required', 'placeholder' => __('validation.attributes.email')]) }}
+                            <div class="form-group">
+                                {{ Form::bsEmail('email', null, ['required', 'placeholder' => __('validation.attributes.email')]) }}
+                            </div>
 
                             <div class="form-group">
                                 <button class="btn btn-primary btn-block btn-flat">@lang('labels.user.send_password_link')</button>

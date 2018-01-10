@@ -15,27 +15,45 @@
             <form action="{{ route('contact') }}" method="POST">
                 {{ csrf_field() }}
 
-                {{ Form::bsText('name', __('validation.attributes.name'), null, ['required', 'placeholder' => __('validation.attributes.name')]) }}
+                <div class="form-group">
+                    <label for="name">@lang('validation.attributes.name')</label>
+                    {{ Form::bsText('name', null, ['required', 'placeholder' => __('validation.attributes.name')]) }}
+                </div>
 
                 <div class="row">
                     <div class="col-sm-6">
-                        {{ Form::bsText('postal_code', __('validation.attributes.postal_code'), null, ['placeholder' => __('validation.attributes.postal_code')]) }}
+                        <div class="form-group">
+                            <label for="postal_code">@lang('validation.attributes.postal_code')</label>
+                            {{ Form::bsText('postal_code', null, ['placeholder' => __('validation.attributes.postal_code')]) }}
+                        </div>
                     </div>
                     <div class="col-sm-6">
-                        {{ Form::bsText('city', __('validation.attributes.city'), null, ['placeholder' => __('validation.attributes.city')]) }}
+                        <div class="form-group">
+                            <label for="city">@lang('validation.attributes.city')</label>
+                            {{ Form::bsText('city', null, ['placeholder' => __('validation.attributes.city')]) }}
+                        </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-sm-6">
-                        {{ Form::bsEmail('email', __('validation.attributes.email'), null, ['required', 'placeholder' => __('validation.attributes.email')]) }}
+                        <div class="form-group">
+                            <label for="email">@lang('validation.attributes.email')</label>
+                            {{ Form::bsEmail('email', null, ['required', 'placeholder' => __('validation.attributes.email')]) }}
+                        </div>
                     </div>
                     <div class="col-sm-6">
-                        {{ Form::bsTel('phone', __('validation.attributes.phone'), null, ['required', 'placeholder' => __('validation.attributes.phone')]) }}
+                        <div class="form-group">
+                            <label for="phone">@lang('validation.attributes.phone')</label>
+                            {{ Form::bsTel('phone', null, ['placeholder' => __('validation.attributes.phone')]) }}
+                        </div>
                     </div>
                 </div>
 
-                {{ Form::bsTextarea('message', __('validation.attributes.message'), null, ['required', 'placeholder' => __('validation.attributes.message'), 'rows' => 5]) }}
+                <div class="form-group">
+                    <label for="message">@lang('validation.attributes.message')</label>
+                    {{ Form::bsTextarea('message', null, ['required', 'placeholder' => __('validation.attributes.message'), 'rows' => 5]) }}
+                </div>
 
                 <div class="form-group">
                     {!! Captcha::display() !!}

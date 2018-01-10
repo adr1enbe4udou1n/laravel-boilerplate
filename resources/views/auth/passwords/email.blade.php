@@ -18,14 +18,14 @@
                     <form method="POST" action="{{ route('password.email') }}">
                         {{ csrf_field() }}
 
-                        {{ Form::bsText('email', __('validation.attributes.email'), null, ['required', 'placeholder' => __('validation.attributes.email')]) }}
+                        <div class="form-group">
+                            {{ Form::bsEmail('email', null, ['required', 'placeholder' => __('validation.attributes.email')]) }}
+                        </div>
 
-                        <div class="form-group row">
-                            <div class="col-md-6">
-                                <button  class="btn btn-primary">
-                                    @lang('labels.user.send_password_link')
-                                </button>
-                            </div>
+                        <div class="form-group">
+                            <button  class="btn btn-primary">
+                                @lang('labels.user.send_password_link')
+                            </button>
                         </div>
                     </form>
                 </div>

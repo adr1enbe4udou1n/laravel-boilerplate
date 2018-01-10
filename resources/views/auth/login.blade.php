@@ -11,8 +11,21 @@
                     <form method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
-                        {{ Form::bsText('email', __('validation.attributes.email'), null, ['required', 'placeholder' => __('validation.attributes.email')], 4) }}
-                        {{ Form::bsPassword('password', __('validation.attributes.password'), ['required', 'placeholder' => __('validation.attributes.password')], 4) }}
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label">@lang('validation.attributes.email')</label>
+
+                            <div class="col-md-8">
+                                {{ Form::bsEmail('email', null, ['required', 'placeholder' => __('validation.attributes.email')]) }}
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label">@lang('validation.attributes.password')</label>
+
+                            <div class="col-md-8">
+                                {{ Form::bsPassword('password', ['required', 'placeholder' => __('validation.attributes.password')]) }}
+                            </div>
+                        </div>
 
                         @if($isLocked)
                         <div class="form-group row">

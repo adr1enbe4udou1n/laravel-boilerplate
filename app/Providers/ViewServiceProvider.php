@@ -14,15 +14,15 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        FormFacade::component('bsText', 'components.form.input', ['name', 'title', 'value' => null, 'attributes' => [], 'label_cols' => null, 'description' => null, 'type' => 'text']);
-        FormFacade::component('bsEmail', 'components.form.input', ['name', 'title', 'value' => null, 'attributes' => [], 'label_cols' => null, 'description' => null, 'type' => 'email']);
-        FormFacade::component('bsTel', 'components.form.input', ['name', 'title', 'value' => null, 'attributes' => [], 'label_cols' => null, 'description' => null, 'type' => 'tel']);
-        FormFacade::component('bsNumber', 'components.form.input', ['name', 'title', 'value' => null, 'attributes' => [], 'label_cols' => null, 'description' => null, 'type' => 'number']);
-        FormFacade::component('bsDatetime', 'components.form.input', ['name', 'title', 'value' => null, 'attributes' => [], 'label_cols' => null, 'description' => null, 'type' => 'datetime']);
-        FormFacade::component('bsPassword', 'components.form.input', ['name', 'title', 'attributes' => [], 'label_cols' => null, 'description' => null, 'value' => '', 'type' => 'password']);
-        FormFacade::component('bsFile', 'components.form.input', ['name', 'title', 'attributes' => [], 'label_cols' => null, 'description' => null, 'value' => null, 'type' => 'file']);
-        FormFacade::component('bsTextarea', 'components.form.textarea', ['name', 'title', 'value' => null, 'attributes' => [], 'label_cols' => null, 'description' => null]);
-        FormFacade::component('bsSelect', 'components.form.select', ['name', 'title', 'list' => [], 'selected' => null, 'attributes' => [], 'label_cols' => null, 'description' => null]);
+        FormFacade::component('bsText', 'components.form.input', ['name', 'value' => null, 'attributes' => [], 'type' => 'text']);
+        FormFacade::component('bsEmail', 'components.form.input', ['name', 'value' => null, 'attributes' => [], 'type' => 'email']);
+        FormFacade::component('bsTel', 'components.form.input', ['name', 'value' => null, 'attributes' => [], 'type' => 'tel']);
+        FormFacade::component('bsNumber', 'components.form.input', ['name', 'value' => null, 'attributes' => [], 'type' => 'number']);
+        FormFacade::component('bsDatetime', 'components.form.input', ['name', 'value' => null, 'attributes' => [], 'type' => 'datetime']);
+        FormFacade::component('bsPassword', 'components.form.input', ['name', 'attributes' => [], 'value' => '', 'type' => 'password']);
+        FormFacade::component('bsFile', 'components.form.input', ['name', 'attributes' => [], 'value' => null, 'type' => 'file']);
+        FormFacade::component('bsTextarea', 'components.form.textarea', ['name', 'value' => null, 'attributes' => []]);
+        FormFacade::component('bsSelect', 'components.form.select', ['name', 'list' => [], 'selected' => null, 'attributes' => []]);
         FormFacade::component('bsCheckbox', 'components.form.custom-control', ['name', 'description', 'value' => null, 'type' => 'checkbox']);
 
         HtmlFacade::macro('asset', function ($path) {

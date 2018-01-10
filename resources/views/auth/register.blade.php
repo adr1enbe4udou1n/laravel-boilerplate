@@ -10,10 +10,37 @@
                         <form method="POST" action="{{ route('register') }}">
                             {{ csrf_field() }}
 
-                            {{ Form::bsText('name', __('validation.attributes.name'), null, ['required', 'placeholder' => __('validation.attributes.name')], 3) }}
-                            {{ Form::bsEmail('email', __('validation.attributes.email'), null, ['required', 'placeholder' => __('validation.attributes.email')], 3) }}
-                            {{ Form::bsPassword('password', __('validation.attributes.password'), ['required', 'placeholder' => __('validation.attributes.password'), 'data-toggle' => 'password-strength-meter'], 3) }}
-                            {{ Form::bsPassword('password_confirmation', __('validation.attributes.password_confirmation'), ['required', 'placeholder' => __('validation.attributes.password_confirmation')], 3) }}
+                            <div class="form-group row">
+                                <label for="name" class="col-md-3 col-form-label">@lang('validation.attributes.name')</label>
+
+                                <div class="col-md-9">
+                                    {{ Form::bsText('name', null, ['required', 'placeholder' => __('validation.attributes.name')]) }}
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="email" class="col-md-3 col-form-label">@lang('validation.attributes.email')</label>
+
+                                <div class="col-md-9">
+                                    {{ Form::bsEmail('email', null, ['required', 'placeholder' => __('validation.attributes.email')]) }}
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="password" class="col-md-3 col-form-label">@lang('validation.attributes.password')</label>
+
+                                <div class="col-md-9">
+                                    {{ Form::bsPassword('password', ['required', 'placeholder' => __('validation.attributes.password'), 'data-toggle' => 'password-strength-meter']) }}
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="password_confirmation" class="col-md-3 col-form-label">@lang('validation.attributes.password_confirmation')</label>
+
+                                <div class="col-md-9">
+                                    {{ Form::bsPassword('password_confirmation', ['required', 'placeholder' => __('validation.attributes.password_confirmation')]) }}
+                                </div>
+                            </div>
 
                             <div class="form-group row">
                                 <div class="col-md-9 ml-auto">

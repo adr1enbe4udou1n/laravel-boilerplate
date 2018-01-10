@@ -15,7 +15,6 @@
             >
               <b-form-input
                 id="name"
-
                 name="name"
                 required
                 :placeholder="$t('validation.attributes.name')"
