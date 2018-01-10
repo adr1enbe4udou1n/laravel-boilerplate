@@ -22,6 +22,7 @@
 * [Slick carousel](http://kenwheeler.github.io/slick/) and [Cookie Consent](https://cookieconsent.insites.com/) integrated,
 * Blog section, including navigation by tags & authors,
 * [Intervention image](https://github.com/Intervention/image) for dynamic optimized images with cache plugin,
+* [Turbolinks](https://github.com/turbolinks/turbolinks) included for fast navigation,
 * Login throttle by recaptcha & [password strength meter](https://github.com/ablanco/jquery.pwstrength.bootstrap),
 * Frontend user space and profile management. Email validation included. Registration can be disabled by environment parameter,
 * [Laravel Socialite](https://github.com/laravel/socialite) included with all supported socialite providers (facebook/twitter/linkedin/github/bitbucket).
