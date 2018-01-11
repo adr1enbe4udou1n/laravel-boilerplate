@@ -108,9 +108,9 @@ Both frontend and backend have dedicated login pages.
 ### Compiling assets with Webpack
 
 1. Install dependencies with `yarn`
-2. Launch `yarn dev` for compiling assets and start dev-server with HMR enabled
+2. Launch `yarn dev` for compiling assets and start dev-server with HMR enabled (preferred way for fast admin building)
 
-> N1 : Use `yarn watch` if you prefer old school auto-building without HMR  
+> N1 : Use `yarn watch` if you prefer old school watcher  
 > N2 : If assets modified, don't forget to launch `yarn prod` before deploy on each production environment.
 
 ### Permissions definitions
@@ -128,6 +128,15 @@ You will observe that this boilerplate does not use [Laravel Mix](https://github
 Laravel Mix still stay awesome for newcomers thanks to his laravel-like webpack fluent API, but, even if Laravel Mix can be easily overridden, for this project i preferred use my custom framework-free webpack setup in order to have total control of assets workflow.
 
 For instance, with this custom setup HMR work natively with configurable port (essential for easy vue admin developpement) and productions assets are bundled into specific "dist" directory.
+
+### Code styling
+
+PHP-CS-Fixer & ESLint are used for strong style guidelines for both server and client side code.
+
+PHP is pre-configured for official Laravel styling, just launch `./vendor/bin/php-cs-fixer fix` for global project auto-formatting.
+  
+JS use [JavaScript Standard Style](https://standardjs.com/) & eslint-loader is used within webpack for dynamic code styling recommendations.  
+Moreover, [Official ESLint plugin for Vue.js](https://github.com/vuejs/eslint-plugin-vue) is included for heavy consistent code through all components vue files.
 
 ## TODO
 
@@ -151,6 +160,7 @@ For instance, with this custom setup HMR work natively with configurable port (e
 - [x] <s>Migrate to Bootstrap-Vue</s>
 - [x] <s>Webpack bundle size optimizations</s>
 - [x] <s>Get rid of jquery datatables</s>
+- [x] <s>Consistent VueJS components code styling</s>
 - [ ] Inclusion of unit/featured/browser tests (stand by for now)
 
 ## License
