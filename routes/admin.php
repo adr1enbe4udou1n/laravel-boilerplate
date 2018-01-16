@@ -51,6 +51,8 @@ Route::group(
 
         Route::post('users/batch_action', 'UserController@batchAction')->name('users.batch_action');
         Route::post('users/{user}/active', 'UserController@activeToggle')->name('users.active');
+
+        Route::get('users/{user}/impersonate', 'UserController@impersonate')->name('users.impersonate');
     }
 );
 

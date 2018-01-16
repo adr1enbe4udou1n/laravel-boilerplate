@@ -42,18 +42,6 @@ interface AccountRepository extends BaseRepository
     public function hasPermission(Authenticatable $user, $name);
 
     /**
-     * @param User $user
-     *
-     * @return mixed
-     */
-    public function loginAs(User $user);
-
-    /**
-     * @return mixed
-     */
-    public function logoutAs();
-
-    /**
      * @param $input
      *
      * @return mixed

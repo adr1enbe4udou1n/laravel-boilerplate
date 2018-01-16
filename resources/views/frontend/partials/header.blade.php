@@ -47,9 +47,9 @@
                             <a class="dropdown-item" href="{{ route('user.home') }}">@lang('labels.user.space')</a>
                             <a class="dropdown-item" href="{{ route('user.account') }}">@lang('labels.user.account')</a>
                             @can('access backend')
-                                <a class="dropdown-item" href="{{ route('admin.home') }}">@lang('labels.user.administration')</a>
+                                <a class="dropdown-item" href="{{ route('admin.home') }}" data-turbolinks="false">@lang('labels.user.administration')</a>
                             @endcan
-                            <a class="dropdown-item" href="{{ route('logout') }}">@lang('labels.user.logout')</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}" data-turbolinks="false">@lang('labels.user.logout')</a>
                         </div>
                     </div>
                 @endif

@@ -4,21 +4,21 @@
     <div class="app-body">
       <Sidebar :nav-items="nav"></Sidebar>
       <main class="main">
-        <b-alert variant="warning" class="alert-top mb-0" :show="this.$app.isImpersonation">
-          <span v-html="$t('labels.alerts.login_as', {'name': this.$app.user.name, 'route': this.$app.route('logout-as'), 'admin': this.$app.usurperName})"></span>
+        <b-alert variant="warning" class="alert-top mb-0" :show="$app.isImpersonation">
+          <span v-html="$t('labels.alerts.login_as', {'name': $app.user.name, 'route': $app.route('admin.logout'), 'admin': $app.usurperName})"></span>
         </b-alert>
-        <b-alert variant="warning" class="alert-top mb-0" :show="!this.$app.user.confirmed">
-          <span v-html="$t('labels.alerts.not_confirmed', {'route': this.$app.route('user.confirmation.send') })"></span>
+        <b-alert variant="warning" class="alert-top mb-0" :show="!$app.user.confirmed">
+          <span v-html="$t('labels.alerts.not_confirmed', {'route': $app.route('user.confirmation.send') })"></span>
         </b-alert>
         <breadcrumb :list="list"></breadcrumb>
         <b-container fluid>
-          <router-view :key="this.$route.name"></router-view>
+          <router-view :key="$route.name"></router-view>
         </b-container>
       </main>
       <AppAside></AppAside>
     </div>
-    <AppFooter :name="this.$app.appName" :editor-name="this.$app.editorName"
-               :editor-site-url="this.$app.editorSiteUrl"></AppFooter>
+    <AppFooter :name="$app.appName" :editor-name="$app.editorName"
+               :editor-site-url="$app.editorSiteUrl"></AppFooter>
   </div>
 </template>
 

@@ -48,7 +48,7 @@
             <b-button v-if="row.item.can_edit" size="sm" variant="primary" :to="`/users/${row.item.id}/edit`" v-b-tooltip.hover :title="$t('buttons.edit')" class="mr-1">
               <i class="icon-pencil"></i>
             </b-button>
-            <b-button v-if="row.item.can_impersonate" size="sm" variant="warning" :href="`/users/${row.item.id}/login-as`" v-b-tooltip.hover :title="$t('buttons.login-as', { name: row.item.name })" class="mr-1">
+            <b-button v-if="row.item.can_impersonate" size="sm" variant="warning" :href="$app.route('admin.users.impersonate', { user: row.item.id })" v-b-tooltip.hover :title="$t('buttons.login-as', { name: row.item.name })" class="mr-1">
               <i class="icon-lock"></i>
             </b-button>
             <b-button v-if="row.item.can_delete" size="sm" variant="danger" v-b-tooltip.hover :title="$t('buttons.delete')" @click.stop="onDelete(row.item.id)">

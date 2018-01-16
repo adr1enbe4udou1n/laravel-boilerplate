@@ -147,62 +147,6 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
     }
 
     /**
-     * @param User $user
-     *
-     * @throws Exception
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function loginAs(User $user)
-    {
-        if ($user->is_super_admin) {
-            throw new GeneralException(__('exceptions.backend.users.first_user_cannot_be_impersonated'));
-        }
-
-        $authenticatedUser = auth()->user();
-
-        if ($authenticatedUser->id === $user->id
-            || session()->get('admin_user_id') === $user->id
-        ) {
-            return redirect()->route('admin.home');
-        }
-
-        if (! session()->get('admin_user_id')) {
-            session(['admin_user_id' => $authenticatedUser->id]);
-            session(['admin_user_name' => $authenticatedUser->name]);
-            session(['temp_user_id' => $user->id]);
-        }
-
-        //Login user
-        auth()->loginUsingId($user->id);
-
-        return redirect(home_route());
-    }
-
-    /**
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function logoutAs()
-    {
-        if ($admin_id = session()->get('admin_user_id')) {
-            $this->flushTempSession();
-            auth()->loginUsingId((int) $admin_id);
-        }
-
-        return redirect()->route('admin.home');
-    }
-
-    /**
-     * Remove old session variables from admin logging in as user.
-     */
-    private function flushTempSession()
-    {
-        session()->forget('admin_user_id');
-        session()->forget('admin_user_name');
-        session()->forget('temp_user_id');
-    }
-
-    /**
      * @param $input
      *
      * @throws \Illuminate\Database\Eloquent\MassAssignmentException

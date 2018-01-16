@@ -40,6 +40,13 @@ interface UserRepository extends BaseRepository
     public function destroy(User $user);
 
     /**
+     * @param User $user
+     *
+     * @return mixed
+     */
+    public function impersonate(User $user);
+
+    /**
      * @param array $ids
      *
      * @return mixed

@@ -133,6 +133,18 @@ class UserController extends BackendController
     }
 
     /**
+     * @param User $user
+     *
+     * @return mixed
+     */
+    public function impersonate(User $user)
+    {
+        $this->authorize('impersonate users');
+
+        return $this->users->impersonate($user);
+    }
+
+    /**
      * @param \Illuminate\Http\Request $request
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse

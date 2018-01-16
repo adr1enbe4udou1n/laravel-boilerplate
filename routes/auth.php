@@ -17,14 +17,6 @@ Route::group(
         Route::get('login/{provider}', 'LoginController@redirectToProvider')->name('social.login');
         Route::get('login/{provider}/callback', 'LoginController@handleProviderCallback')->name('social.callback');
 
-        Route::group(
-            ['middleware' => ['can:impersonate users']],
-            function () {
-                Route::get('user/{user}/login-as', 'LoginController@loginAs')->name('login-as');
-            }
-        );
-        Route::get('logout-as', 'LoginController@logoutAs')->name('logout-as');
-
         // Password Reset Routes...
         Route::get('password/reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.request');
         Route::post('password/email', 'ForgotPasswordController@sendResetLinkEmail')->name('password.email');

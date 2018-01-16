@@ -114,7 +114,7 @@ return [
     ],
 
     'alerts' => [
-        'login_as' => 'You are actually logged as <strong>:name</strong>, you can logout as <a href=":route">:admin</a>.',
+        'login_as' => 'You are actually logged as <strong>:name</strong>, you can logout as <a href=":route" data-turbolinks="false">:admin</a>.',
         'not_confirmed' => 'Your account will be in limited mode as long as your email remains not confirmed. <a href=":route">Click here</a> in order to resend mail confirmation.',
     ],
 

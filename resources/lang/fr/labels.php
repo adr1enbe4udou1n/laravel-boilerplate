@@ -113,7 +113,7 @@ return [
     ],
 
     'alerts' => [
-        'login_as' => 'Vous êtes actuellement connecté en tant que <strong>:name</strong>, vous pouvez à tout moment vous reconnecter en tant que <a href=":route">:admin</a>.',
+        'login_as' => 'Vous êtes actuellement connecté en tant que <strong>:name</strong>, vous pouvez à tout moment vous reconnecter en tant que <a href=":route" data-turbolinks="false">:admin</a>.',
         'not_confirmed' => 'Votre compte sera en mode limité tant que votre email ne sera pas confirmé. <a href=":route">Cliquez ici</a> pour relancer l\'envoie du mail de confirmation.',
     ],
 

@@ -44,7 +44,7 @@ class LoginController extends Controller
      */
     public function __construct(AccountRepository $account)
     {
-        $this->middleware('guest')->except('logout', 'adminLogout', 'loginAs', 'logoutAs');
+        $this->middleware('guest')->except('logout', 'adminLogout');
 
         $this->account = $account;
     }
@@ -150,13 +150,25 @@ class LoginController extends Controller
         }
     }
 
-    private function flushSession(Request $request)
+    private function flushSession(Request $request, $redirectTo = 'home')
     {
+        if ($admin_id = session()->get('admin_user_id')) {
+            // Impersonate mode, back to original User
+            session()->forget('admin_user_id');
+            session()->forget('admin_user_name');
+            session()->forget('temp_user_id');
+
+            auth()->loginUsingId((int) $admin_id);
+
+            return redirect()->route('admin.home');
+        }
+
+        // Normal logout
         $this->guard()->logout();
 
-        $request->session()->flush();
+        $request->session()->invalidate();
 
-        $request->session()->regenerate();
+        return redirect()->route($redirectTo);
     }
 
     /**
@@ -170,9 +182,7 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
-        $this->flushSession($request);
-
-        return redirect()->route('home');
+        return $this->flushSession($request);
     }
 
     /**
@@ -186,27 +196,7 @@ class LoginController extends Controller
      */
     public function adminLogout(Request $request)
     {
-        $this->flushSession($request);
-
-        return redirect()->route('admin.login');
-    }
-
-    /**
-     * @param User $user
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function loginAs(User $user)
-    {
-        return $this->account->loginAs($user);
-    }
-
-    /**
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function logoutAs()
-    {
-        return $this->account->logoutAs();
+        return $this->flushSession($request, 'admin.login');
     }
 
     protected function redirectTo()
