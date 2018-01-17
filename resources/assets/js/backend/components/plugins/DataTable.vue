@@ -128,7 +128,7 @@ export default {
         if (result.value) {
           axios.delete(this.$app.route(this.deleteRoute, params))
             .then((response) => {
-              this.refresh()
+              this.onContextChanged()
               this.$app.noty[response.data.status](response.data.message)
             })
             .catch((error) => {
@@ -151,7 +151,7 @@ export default {
             action: this.action,
             ids: this.selected
           }).then((response) => {
-            this.refresh()
+            this.onContextChanged()
             this.$emit('bulk-action-success')
             this.$app.noty[response.data.status](response.data.message)
           }).catch((error) => {

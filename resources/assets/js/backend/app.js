@@ -95,16 +95,23 @@ export function createApp () {
   }
 
   Vue.prototype.$app.error = (error) => {
-    // Not allowed error
-    if (error.response.status === 403) {
-      noty('error', i18n.t('exceptions.unauthorized'))
+    if (error instanceof String) {
+      noty('error', error)
       return
     }
 
-    // Domain error
-    if (error.response.data.error !== undefined) {
-      noty('error', error.response.data.message)
-      return
+    if (error.response) {
+      // Not allowed error
+      if (error.response.status === 403) {
+        noty('error', i18n.t('exceptions.unauthorized'))
+        return
+      }
+
+      // Domain error
+      if (error.response.data.error !== undefined) {
+        noty('error', error.response.data.message)
+        return
+      }
     }
 
     // Generic error

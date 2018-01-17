@@ -174,7 +174,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
      */
     public function destroy(User $user)
     {
-        if (! $this->canDelete($user)) {
+        if (! $user->can_delete) {
             throw new GeneralException(__('exceptions.backend.users.first_user_cannot_be_destroyed'));
         }
 
