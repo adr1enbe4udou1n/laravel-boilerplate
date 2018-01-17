@@ -66,9 +66,6 @@ export default {
         })
         this.editor = editor
       })
-      .catch((error) => {
-        console.error(error)
-      })
   },
   beforeDestroy () {
     this.editor.destroy()

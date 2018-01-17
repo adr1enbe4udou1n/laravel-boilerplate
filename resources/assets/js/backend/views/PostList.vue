@@ -53,7 +53,8 @@
             <c-switch v-if="row.item.can_edit" type="text" variant="primary" on="On" off="Off" :checked="row.value" @change="onPromoteToggle(row.item.id)"></c-switch>
           </template>
           <template slot="owner" slot-scope="row">
-            {{ row.item.owner.name }}
+            <span v-if="row.item.owner">{{ row.item.owner.name }}</span>
+            <span v-else>{{ $t('labels.anonymous') }}</span>
           </template>
           <template slot="actions" slot-scope="row">
             <b-button size="sm" variant="success" :href="$app.route('blog.show', { post: row.item.slug})" target="_blank" v-b-tooltip.hover :title="$t('buttons.preview')" class="mr-1">

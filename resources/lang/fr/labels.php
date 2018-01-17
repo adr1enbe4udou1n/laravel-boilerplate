@@ -23,6 +23,7 @@ return [
     'deleted_at' => 'Supprimé le',
     'no_value' => 'Aucune valeur',
     'upload_image' => 'Transférer une image',
+    'anonymous' => 'Anonyme',
     'all_rights_reserved' => 'Tous droits réservés.',
 
     'datatables' => [

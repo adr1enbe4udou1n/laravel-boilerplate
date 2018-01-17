@@ -185,6 +185,7 @@ export default {
             "deleted_at": "Deleted at",
             "no_value": "No value",
             "upload_image": "Upload image",
+            "anonymous": "Anonymous",
             "all_rights_reserved": "All rights reserved.",
             "datatables": {
                 "no_results": "No results available",
@@ -978,6 +979,7 @@ export default {
             "deleted_at": "Supprimé le",
             "no_value": "Aucune valeur",
             "upload_image": "Transférer une image",
+            "anonymous": "Anonyme",
             "all_rights_reserved": "Tous droits réservés.",
             "datatables": {
                 "no_results": "Aucun résultat trouvé",

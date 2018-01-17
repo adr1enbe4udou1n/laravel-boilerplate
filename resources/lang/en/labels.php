@@ -24,6 +24,7 @@ return [
     'deleted_at' => 'Deleted at',
     'no_value' => 'No value',
     'upload_image' => 'Upload image',
+    'anonymous' => 'Anonymous',
     'all_rights_reserved' => 'All rights reserved.',
 
     'datatables' => [

@@ -90,6 +90,7 @@ class Post extends Model
         'translations',
         'media',
         'owner',
+        'meta',
     ];
 
     public function getCanEditAttribute()

@@ -23,7 +23,7 @@ class CreatePostsTable extends Migration
             $table->dateTime('unpublished_at')->nullable();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
         });
     }
 

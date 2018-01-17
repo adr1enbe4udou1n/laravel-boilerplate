@@ -64,6 +64,40 @@ export function createApp () {
   }
 
   /**
+   * Object to FormData converter
+   */
+  let objectToFormData = (obj, form, namespace) => {
+    let fd = form || new FormData()
+    let formKey
+
+    for (let property in obj) {
+      if (obj.hasOwnProperty(property)) {
+        if (namespace) {
+          formKey = `${namespace}[${property}]`
+        } else {
+          formKey = property
+        }
+
+        if (typeof obj[property] === 'object' && !(obj[property] instanceof File)) {
+          objectToFormData(obj[property], fd, property)
+          continue
+        }
+
+        if (typeof obj[property] === 'boolean') {
+          fd.append(formKey, obj[property] ? '1' : '0')
+          continue
+        }
+
+        fd.append(formKey, obj[property])
+      }
+    }
+
+    return fd
+  }
+
+  Vue.prototype.$app.objectToFormData = objectToFormData
+
+  /**
    * Notifications
    */
   let noty = (type, text) => {

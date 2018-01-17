@@ -144,7 +144,8 @@
                     <div class="form-group row">
                       <label class="col-lg-3 col-form-label">{{ $t('labels.author') }}</label>
                       <b-col lg="9">
-                        <label class="col-form-label">{{ model.owner.name }}</label>
+                        <label class="col-form-label" v-if="model.owner">{{ model.owner.name }}</label>
+                        <label class="col-form-label" v-else>{{ $t('labels.anonymous') }}</label>
                       </b-col>
                     </div>
                   </template>
@@ -250,7 +251,7 @@
                       id="meta-title"
                       name="meta[title]"
                       :placeholder="$t('labels.backend.posts.placeholders.meta_title')"
-                      v-model="model.title"
+                      v-model="model.meta.title"
                     ></b-form-input>
                   </b-form-group>
 
@@ -266,7 +267,7 @@
                       name="meta[description]"
                       :rows="5"
                       :placeholder="$t('labels.backend.posts.placeholders.meta_description')"
-                      v-model="model.description"
+                      v-model="model.meta.description"
                     ></b-form-textarea>
                   </b-form-group>
                 </b-card-body>
@@ -311,8 +312,8 @@ export default {
         },
         published_at: null,
         unpublished_at: null,
-        pinned: null,
-        promoted: null,
+        pinned: false,
+        promoted: false,
         meta: {
           title: null,
           description: null

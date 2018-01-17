@@ -44,25 +44,7 @@ export default {
         `admin.${this.modelName}s.store`) : this.$app.route(
         `admin.${this.modelName}s.update`, {[this.modelName]: this.id})
 
-      let data = new FormData()
-      Object.keys(this.model).forEach((key) => {
-        if (this.model[key] === null) {
-          data.append(key, '')
-          return
-        }
-        if (typeof (this.model[key]) === 'boolean') {
-          data.append(key, this.model[key] ? 1 : 0)
-          return
-        }
-        if (Array.isArray(this.model[key])) {
-          this.model[key].forEach((val) => {
-            data.append(`${key}[]`, val)
-          })
-          return
-        }
-
-        data.append(key, this.model[key])
-      })
+      let data = this.$app.objectToFormData(this.model)
 
       if (!this.isNew) {
         data.append('_method', 'PATCH')
@@ -82,20 +64,7 @@ export default {
             return
           }
 
-          // Not allowed error
-          if (error.response.status === 403) {
-            this.$app.error(this.$t('exceptions.unauthorized'))
-            return
-          }
-
-          // Domain error
-          if (error.response.data.message !== undefined) {
-            this.$app.error(error.response.data.message)
-            return
-          }
-
-          // Generic error
-          this.$app.error(this.$t('exceptions.general'))
+          this.$app.error(error)
         })
         .then(() => {
           this.pending = false
