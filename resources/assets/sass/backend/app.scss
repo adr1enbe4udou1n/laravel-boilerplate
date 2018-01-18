@@ -69,18 +69,20 @@ body .v-select {
   white-space: nowrap;
 }
 
-.ck-editor__editable {
-  min-height: 200px;
-  max-height: 600px;
-  padding: 0 1rem;
-}
+.app {
+  .ck-editor__editable {
+    min-height: 200px;
+    max-height: 600px;
+    padding: 0 1rem;
+  }
 
-.ck-editor__editable p {
-  margin: 1rem 0;
-}
+  .ck-editor__editable p {
+    margin: 1rem 0;
+  }
 
-.ck-rounded-corners .ck-editor__top .ck-sticky-panel .ck-toolbar,
-.ck-button.ck-rounded-corners, .ck-rounded-corners .ck-button, .ck-rounded-corners a.ck-button, a.ck-button.ck-rounded-corners,
-.ck-editor__editable.ck-rounded-corners, .ck-rounded-corners .ck-editor__editable {
-  border-radius: 0;
+  .ck-rounded-corners .ck-editor__top .ck-sticky-panel .ck-toolbar,
+  .ck-button.ck-rounded-corners, .ck-rounded-corners .ck-button, .ck-rounded-corners a.ck-button, a.ck-button.ck-rounded-corners,
+  .ck-editor__editable.ck-rounded-corners, .ck-rounded-corners .ck-editor__editable {
+    border-radius: 0;
+  }
 }
