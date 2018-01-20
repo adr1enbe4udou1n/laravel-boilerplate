@@ -10,9 +10,9 @@ use App\Models\Traits\Metable;
 use App\Models\Traits\Taggable;
 use Illuminate\Support\Facades\Gate;
 use Dimsav\Translatable\Translatable;
+use Stevebauman\Purify\Facades\Purify;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
-use Stevebauman\Purify\Facades\Purify;
 
 /**
  * App\Models\Post.
