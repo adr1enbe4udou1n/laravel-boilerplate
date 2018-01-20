@@ -1,5 +1,4 @@
-<label class="custom-control custom-{{ $type }}">
-    <input type="{{ $type }}" name="{{ $name }}" value="{{ $value }}" class="custom-control-input">
-    <span class="custom-control-indicator"></span>
-    <span class="custom-control-description">{{ $description }}</span>
-</label>
+<div class="custom-control custom-{{ $type }}">
+    <input type="{{ $type }}" class="custom-control-input" id="{{ $name }}" name="{{ $name }}" value="{{ $value }}">
+    <label class="custom-control-label" for="{{ $name }}">{{ $description }}</label>
+</div>

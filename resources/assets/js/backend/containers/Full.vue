@@ -29,7 +29,7 @@ import AppAside from '../components/Aside'
 import Breadcrumb from '../components/Breadcrumb'
 import AppFooter from '../components/Footer'
 import AppHeader from '../components/Header'
-import Sidebar from '../components/Sidebar'
+import Sidebar from '../components/Sidebar/Sidebar'
 
 export default {
   name: 'Full',

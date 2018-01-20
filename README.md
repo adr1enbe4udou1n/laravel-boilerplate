@@ -18,7 +18,7 @@
 
 ### Frontend
 
-* Bootstrap 4 (beta) Frontend with basic home-about-contact and legal mentions pages,
+* Bootstrap 4 Frontend with basic home-about-contact and legal mentions pages,
 * [Slick carousel](http://kenwheeler.github.io/slick/) and [Cookie Consent](https://cookieconsent.insites.com/) integrated,
 * Blog section, including navigation by tags & authors,
 * [Intervention image](https://github.com/Intervention/image) for dynamic optimized images with cache plugin,
@@ -155,7 +155,7 @@ Moreover, [Official ESLint plugin for Vue.js](https://github.com/vuejs/eslint-pl
 - [x] <s>Facebook/Twitter/Google Sign in with socialite package</s>
 - [x] <s>Blog system (posts, publication date, multilangue, HTML wysiwyg, tags, featured image, medias, public user profile)</s>
 - [x] <s>Dashboard</s>
-- [x] <s>Switch to full Bootstrap 4 beta for both Frontend & CoreUI Backend</s>
+- [x] <s>Switch to full Bootstrap 4 for both Frontend & CoreUI Backend</s>
 - [x] <s>Migrate to 100% client-side Vue backend with vue-route</s>
 - [x] <s>Migrate to Bootstrap-Vue</s>
 - [x] <s>Webpack bundle size optimizations</s>

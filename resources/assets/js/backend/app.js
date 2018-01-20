@@ -11,9 +11,9 @@ import vSelect from 'vue-select'
 import Switch from './components/Switch'
 
 // Vendor plugins components
-import DataTable from './components/plugins/DataTable'
-import RichTextEditor from './components/plugins/RichTextEditor'
-import DateTimePicker from './components/plugins/DateTimePicker'
+import DataTable from './components/Plugins/DataTable'
+import RichTextEditor from './components/Plugins/RichTextEditor'
+import DateTimePicker from './components/Plugins/DateTimePicker'
 
 import { createRouter } from './router'
 import { createStore } from './store'

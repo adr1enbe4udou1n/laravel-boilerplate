@@ -6,8 +6,8 @@
           <b-card>
             <h4 slot="header">{{ isNew ? $t('labels.backend.form_settings.titles.create') : $t('labels.backend.form_settings.titles.edit') }}</h4>
             <b-form-group
-              name="name"
               :label="$t('validation.attributes.form_type')"
+              label-for="name"
               :horizontal="true"
               :label-cols="3"
             >
@@ -29,8 +29,8 @@
             </b-form-group>
 
             <b-form-group
-              name="recipients"
               :label="$t('validation.attributes.recipients')"
+              label-for="recipients"
               :description="$t('labels.backend.form_settings.descriptions.recipients')"
               :horizontal="true"
               :label-cols="3"
@@ -48,8 +48,8 @@
             </b-form-group>
 
             <b-form-group
-              name="message"
               :label="$t('validation.attributes.message')"
+              label-for="message"
               :description="$t('labels.backend.form_settings.descriptions.message')"
               :horizontal="true"
               :label-cols="3"

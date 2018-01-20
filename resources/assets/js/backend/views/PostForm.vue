@@ -6,8 +6,8 @@
           <b-card>
             <h4 slot="header">{{ isNew ? $t('labels.backend.posts.titles.create') : $t('labels.backend.posts.titles.edit') }}</h4>
             <b-form-group
-              name="title"
               :label="$t('validation.attributes.title')"
+              label-for="title"
               :horizontal="true"
               :label-cols="2"
               :feedback="feedback('title')"
@@ -23,8 +23,8 @@
             </b-form-group>
 
             <b-form-group
-              name="summary"
               :label="$t('validation.attributes.summary')"
+              label-for="summary"
               :horizontal="true"
               :label-cols="2"
               :feedback="feedback('summary')"
@@ -40,8 +40,8 @@
             </b-form-group>
 
             <b-form-group
-              name="body"
               :label="$t('validation.attributes.body')"
+              label-for="body"
               :horizontal="true"
               :label-cols="2"
             >
@@ -53,8 +53,8 @@
             </b-form-group>
 
             <b-form-group
-              name="tags"
               :label="$t('validation.attributes.tags')"
+              label-for="tags"
               :horizontal="true"
               :label-cols="2"
             >
@@ -73,8 +73,8 @@
             </b-form-group>
 
             <b-form-group
-              name="featured_image"
               :label="$t('validation.attributes.image')"
+              label-for="featured_image"
               :horizontal="true"
               :label-cols="2"
               :feedback="feedback('featured_image')"
@@ -92,6 +92,7 @@
                     :choose-label="$t('labels.choose_file')"
                     v-model="model.featured_image"
                     :state="state('featured_image')"
+                    :plain="true"
                   ></b-form-file>
                   <p class="form-text text-muted">
                     {{ $t('labels.descriptions.allowed_image_types') }}
@@ -152,53 +153,57 @@
 
                   <b-form-group
                     v-if="this.$app.user.can('publish posts')"
-                    name="published_at"
                     :label="$t('validation.attributes.published_at')"
+                    label-for="published_at"
                     :horizontal="true"
                     :label-cols="3"
                   >
-                    <div role="group" class="input-group">
+                    <b-input-group>
                       <p-datetimepicker
                         id="published_at"
                         name="published_at"
                         :config="config"
                         v-model="model.published_at"
                       ></p-datetimepicker>
-                      <div class="input-group-addon" data-toggle>
-                        <i class="icon-calendar"></i>
+                      <div class="input-group-append">
+                        <div class="input-group-text" data-toggle>
+                          <i class="icon-calendar"></i>
+                        </div>
+                        <div class="input-group-text" data-clear>
+                          <i class="icon-close"></i>
+                        </div>
                       </div>
-                      <div class="input-group-addon" data-clear>
-                        <i class="icon-close"></i>
-                      </div>
-                    </div>
+                    </b-input-group>
                   </b-form-group>
 
                   <b-form-group
                     v-if="this.$app.user.can('publish posts')"
-                    name="unpublished_at"
                     :label="$t('validation.attributes.unpublished_at')"
+                    label-for="unpublished_at"
                     :horizontal="true"
                     :label-cols="3"
                   >
-                    <div role="group" class="input-group">
+                    <b-input-group>
                       <p-datetimepicker
                         id="unpublished_at"
                         name="unpublished_at"
                         :config="config"
                         v-model="model.unpublished_at"
                       ></p-datetimepicker>
-                      <div class="input-group-addon" data-toggle>
-                        <i class="icon-calendar"></i>
+                      <div class="input-group-append">
+                        <div class="input-group-text" data-toggle>
+                          <i class="icon-calendar"></i>
+                        </div>
+                        <div class="input-group-text" data-clear>
+                          <i class="icon-close"></i>
+                        </div>
                       </div>
-                      <div class="input-group-addon" data-clear>
-                        <i class="icon-close"></i>
-                      </div>
-                    </div>
+                    </b-input-group>
                   </b-form-group>
 
                   <b-form-group
-                    name="pinned"
                     :label="$t('validation.attributes.pinned')"
+                    label-for="pinned"
                     :horizontal="true"
                     :label-cols="3"
                   >
@@ -213,8 +218,8 @@
                   </b-form-group>
 
                   <b-form-group
-                    name="promoted"
                     :label="$t('validation.attributes.promoted')"
+                    label-for="promoted"
                     :horizontal="true"
                     :label-cols="3"
                   >
@@ -241,14 +246,14 @@
               <b-collapse id="collapseTwo" accordion="post-accordion" role="tabpanel">
                 <b-card-body>
                   <b-form-group
-                    name="meta-title"
                     :label="$t('validation.attributes.title')"
+                    label-for="meta_title"
                     :description="$t('labels.backend.posts.descriptions.meta_title')"
                     :horizontal="true"
                     :label-cols="3"
                   >
                     <b-form-input
-                      id="meta-title"
+                      id="meta_title"
                       name="meta[title]"
                       :placeholder="$t('labels.backend.posts.placeholders.meta_title')"
                       v-model="model.meta.title"
@@ -256,14 +261,14 @@
                   </b-form-group>
 
                   <b-form-group
-                    name="meta-description"
                     :label="$t('validation.attributes.description')"
+                    label-for="meta_description"
                     :description="$t('labels.backend.posts.descriptions.meta_description')"
                     :horizontal="true"
                     :label-cols="3"
                   >
                     <b-form-textarea
-                      id="meta-description"
+                      id="meta_description"
                       name="meta[description]"
                       :rows="5"
                       :placeholder="$t('labels.backend.posts.placeholders.meta_description')"

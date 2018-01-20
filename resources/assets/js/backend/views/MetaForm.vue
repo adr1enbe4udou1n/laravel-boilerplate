@@ -16,8 +16,8 @@
             </template>
             <template v-else>
               <b-form-group
-                name="route"
                 :label="$t('validation.attributes.route')"
+                label-for="route"
                 :horizontal="true"
                 :label-cols="3"
                 :feedback="feedback('route')"
@@ -35,8 +35,8 @@
             </template>
 
             <b-form-group
-              name="title"
               :label="$t('validation.attributes.title')"
+              label-for="title"
               :horizontal="true"
               :label-cols="3"
               :feedback="feedback('title')"
@@ -51,8 +51,8 @@
             </b-form-group>
 
             <b-form-group
-              name="description"
               :label="$t('validation.attributes.description')"
+              label-for="description"
               :horizontal="true"
               :label-cols="3"
               :feedback="feedback('description')"

@@ -6,7 +6,7 @@
           <h4 slot="header">{{ $t('labels.backend.redirections.import.title') }}</h4>
           <form @submit.prevent="onFileImport">
             <b-form-file required :placeholder="$t('labels.no_file_chosen')" :choose-label="$t('labels.choose_file')"
-                         v-model="importFile"></b-form-file>
+                         v-model="importFile" :plain="true"></b-form-file>
             <b-button type="submit" variant="warning" class="mt-3">
               {{ $t('buttons.redirections.import') }}
             </b-button>
@@ -46,7 +46,10 @@
         >
           <template slot="HEAD_checkbox" slot-scope="data"></template>
           <template slot="checkbox" slot-scope="row">
-            <b-form-checkbox :value="row.item.id" v-model="selected"></b-form-checkbox>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" :id="`redirection${row.item.id}`" :value="row.item.id" v-model="selected">
+              <label class="custom-control-label" :for="`redirection${row.item.id}`"></label>
+            </div>
           </template>
           <template slot="active" slot-scope="row">
             <c-switch v-if="row.item.can_edit" type="text" variant="primary" on="On" off="Off" :checked="row.value" @change="onActiveToggle(row.item.id)"></c-switch>

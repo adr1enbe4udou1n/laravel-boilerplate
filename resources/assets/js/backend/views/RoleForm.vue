@@ -7,8 +7,8 @@
             <h4 slot="header">{{ isNew ? $t('labels.backend.roles.titles.create') : $t('labels.backend.roles.titles.edit') }}</h4>
 
             <b-form-group
-              name="name"
               :label="$t('validation.attributes.name')"
+              label-for="name"
               :horizontal="true"
               :label-cols="2"
               :feedback="feedback('name')"
@@ -28,8 +28,8 @@
             </b-form-group>
 
             <b-form-group
-              name="display_name"
               :label="$t('validation.attributes.display_name')"
+              label-for="display_name"
               :horizontal="true"
               :label-cols="2"
               :feedback="feedback('display_name')"
@@ -49,8 +49,8 @@
             </b-form-group>
 
             <b-form-group
-              name="description"
               :label="$t('validation.attributes.description')"
+              label-for="description"
               :horizontal="true"
               :label-cols="2"
               :feedback="feedback('description')"
@@ -65,8 +65,8 @@
             </b-form-group>
 
             <b-form-group
-              name="order"
               :label="$t('validation.attributes.order')"
+              label-for="order"
               :horizontal="true"
               :label-cols="2"
             >
@@ -90,10 +90,11 @@
                   <b-col md="6" xl="4" class="mb-3" v-for="category in permissions" :key="category.title">
                     <h4>{{ $t(category.title) }}</h4>
                     <b-form-checkbox-group stacked v-model="model.permissions" name="permissions[]">
-                      <b-form-checkbox v-for="permission in category.permissions" :key="permission.name"
-                                       v-b-tooltip.left :title="$t(permission.description)" :value="permission.name">
-                        {{ $t(permission.display_name) }}
-                      </b-form-checkbox>
+                      <div class="custom-control custom-checkbox" v-for="permission in category.permissions" :key="permission.name"
+                           v-b-tooltip.left :title="$t(permission.description)">
+                        <input type="checkbox" class="custom-control-input" name="permissions[]" :id="permission.name" :value="permission.name" v-model="model.permissions">
+                        <label class="custom-control-label" :for="permission.name">{{ $t(permission.display_name) }}</label>
+                      </div>
                     </b-form-checkbox-group>
                   </b-col>
                 </b-row>

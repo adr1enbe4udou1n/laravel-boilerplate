@@ -7,8 +7,8 @@
             <h4 slot="header">{{ isNew ? $t('labels.backend.users.titles.create') : $t('labels.backend.users.titles.edit') }}</h4>
 
             <b-form-group
-              name="name"
               :label="$t('validation.attributes.name')"
+              label-for="name"
               :horizontal="true"
               :label-cols="3"
               :feedback="feedback('name')"
@@ -24,8 +24,8 @@
             </b-form-group>
 
             <b-form-group
-              name="email"
               :label="$t('validation.attributes.email')"
+              label-for="email"
               :horizontal="true"
               :label-cols="3"
               :feedback="feedback('email')"
@@ -42,8 +42,8 @@
             </b-form-group>
 
             <b-form-group
-              name="active"
               :label="$t('validation.attributes.active')"
+              label-for="active"
               :horizontal="true"
               :label-cols="3"
             >
@@ -58,8 +58,8 @@
             </b-form-group>
 
             <b-form-group
-              name="password"
               :label="$t('validation.attributes.password')"
+              label-for="password"
               :horizontal="true"
               :label-cols="3"
               :feedback="feedback('password')"
@@ -75,8 +75,8 @@
             </b-form-group>
 
             <b-form-group
-              name="password_confirmation"
               :label="$t('validation.attributes.password_confirmation')"
+              label-for="password_confirmation"
               :horizontal="true"
               :label-cols="3"
               :feedback="feedback('password_confirmation')"
@@ -93,14 +93,16 @@
 
             <b-form-group
               :label="$t('validation.attributes.roles')"
+              label-for="roles"
               :horizontal="true"
               :label-cols="3"
             >
-              <b-form-checkbox-group stacked v-model="model.roles" name="roles[]">
-                <b-form-checkbox v-for="role in roles" :key="role.id"
-                                 v-b-tooltip.left :title="role.description" :value="role.id">
-                  {{ role.display_name }}
-                </b-form-checkbox>
+              <b-form-checkbox-group stacked id="roles">
+                <div class="custom-control custom-checkbox" v-for="role in roles" :key="role.id"
+                     v-b-tooltip.left :title="role.description">
+                  <input type="checkbox" class="custom-control-input" name="roles[]" :id="`role${role.id}`" :value="role.id" v-model="model.roles">
+                  <label class="custom-control-label" :for="`role${role.id}`">{{ role.display_name }}</label>
+                </div>
               </b-form-checkbox-group>
             </b-form-group>
 

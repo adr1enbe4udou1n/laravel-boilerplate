@@ -31,7 +31,10 @@
         >
           <template slot="HEAD_checkbox" slot-scope="data"></template>
           <template slot="checkbox" slot-scope="row">
-            <b-form-checkbox :value="row.item.id" v-model="selected"></b-form-checkbox>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" :id="`post${row.item.id}`" :value="row.item.id" v-model="selected">
+              <label class="custom-control-label" :for="`post${row.item.id}`"></label>
+            </div>
           </template>
           <template slot="image" slot-scope="row">
             <router-link v-if="row.item.can_edit" :to="`/posts/${row.item.id}/edit`">
