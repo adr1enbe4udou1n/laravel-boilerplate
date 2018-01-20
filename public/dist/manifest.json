@@ -1,6 +1,6 @@
 {
-  "backend.css": "/dist/css/backend.6330e015e5df31206e545b929a1db7d3.css",
-  "backend.css.map": "/dist/css/backend.6330e015e5df31206e545b929a1db7d3.css.map",
+  "backend.css": "/dist/css/backend.3530d2d019c6812eb31d35358e32848a.css",
+  "backend.css.map": "/dist/css/backend.3530d2d019c6812eb31d35358e32848a.css.map",
   "backend.js": "/dist/js/backend.f88029e47432ee6a554b.js",
   "backend.js.map": "/dist/js/backend.f88029e47432ee6a554b.js.map",
   "fonts\\vendor\\Simple-Line-Icons.eot?v=2.4.0": "/dist/fonts/vendor/Simple-Line-Icons.eot?f33df365d6d0255b586f2920355e94d7",
@@ -28,10 +28,10 @@
   "images\\vendor\\slick-carousel\\slick\\ajax-loader.gif": "/dist/images/vendor/slick-carousel/slick/ajax-loader.gif?68b0c4fcb84d239f261c1a5e65818142",
   "locales.js": "/dist/js/locales.29f5931a5acc71791035.js",
   "locales.js.map": "/dist/js/locales.29f5931a5acc71791035.js.map",
-  "manifest.js": "/dist/js/manifest.bf70cdad99ea8875d73c.js",
-  "manifest.js.map": "/dist/js/manifest.bf70cdad99ea8875d73c.js.map",
-  "vendor_backend.js": "/dist/js/vendor_backend.83b304146841cb366287.js",
-  "vendor_backend.js.map": "/dist/js/vendor_backend.83b304146841cb366287.js.map",
-  "vendor_frontend.js": "/dist/js/vendor_frontend.5eec75891c89069c9719.js",
-  "vendor_frontend.js.map": "/dist/js/vendor_frontend.5eec75891c89069c9719.js.map"
+  "manifest.js": "/dist/js/manifest.546684b235385274024e.js",
+  "manifest.js.map": "/dist/js/manifest.546684b235385274024e.js.map",
+  "vendor_backend.js": "/dist/js/vendor_backend.7d239d805152f455d429.js",
+  "vendor_backend.js.map": "/dist/js/vendor_backend.7d239d805152f455d429.js.map",
+  "vendor_frontend.js": "/dist/js/vendor_frontend.3d1540f153feedcda1dc.js",
+  "vendor_frontend.js.map": "/dist/js/vendor_frontend.3d1540f153feedcda1dc.js.map"
 }

@@ -1138,7 +1138,7 @@ bootstrap-vue@^1.4.1:
     popper.js "^1.12.9"
     vue-functional-data-merge "^2.0.3"
 
-bootstrap@4.0.0, bootstrap@>=2.0.0:
+bootstrap@>=2.0.0, bootstrap@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.0.0.tgz#ceb03842c145fcc1b9b4e15da2a05656ba68469a"
 
@@ -7448,9 +7448,9 @@ svgo@^0.7.0:
     sax "~1.2.1"
     whet.extend "~0.9.9"
 
-sweetalert2@^7.6.0:
-  version "7.6.0"
-  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-7.6.0.tgz#0ede9016949300346704fd2fbede77a6521801eb"
+sweetalert2@^7.6.2:
+  version "7.6.2"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-7.6.2.tgz#70ef64fbd384540b9ca246446286fa1308e2a658"
 
 table@^4.0.1:
   version "4.0.2"
