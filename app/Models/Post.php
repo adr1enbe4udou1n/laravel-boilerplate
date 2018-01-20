@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Gate;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Stevebauman\Purify\Facades\Purify;
 
 /**
  * App\Models\Post.
@@ -92,6 +93,11 @@ class Post extends Model
         'owner',
         'meta',
     ];
+
+    public function getBodyAttribute($body)
+    {
+        return Purify::clean($body);
+    }
 
     public function getCanEditAttribute()
     {

@@ -14,7 +14,7 @@
 
 @section('content')
     <div class="wysiwyg-content">
-        {!! strip_tags($post->body, config('app.allowable_tags')) !!}
+        {!! $post->body !!}
     </div>
 
     <nav class="nav">

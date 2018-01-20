@@ -143,8 +143,6 @@ return [
 
     'editor_alert_mail' => env('EDITOR_ALERT_MAIL'),
 
-    'allowable_tags' => '<div>,<b>,<strong>,<i>,<em>,<u>,<a>,<ul>,<ol>,<li>,<p>,<br>,<span>,<img>,<figure>,<figcaption>',
-
     /*
     |--------------------------------------------------------------------------
     | Application Site Google Tag Manager
@@ -216,6 +214,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\ViewServiceProvider::class,
+        App\Providers\PurifySetupProvider::class,
     ],
 
     /*

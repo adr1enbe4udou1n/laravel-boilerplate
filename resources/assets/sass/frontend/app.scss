@@ -86,22 +86,22 @@ iframe {
 }
 
 .wysiwyg-content .image {
-  .image-style-align-left {
+  &.image-style-align-left {
     float: left;
     margin-right: 2em;
   }
 
-  .image-style-align-right {
+  &.image-style-align-right {
     float: right;
     margin-left: 2em;
   }
 
-  .image-style-align-center {
+  &.image-style-align-center {
     margin-left: auto;
     margin-right: auto;
   }
 
-  .image-style-align-center, .image-style-align-left, .image-style-align-right {
+  &.image-style-align-center, .image-style-align-left, .image-style-align-right {
     max-width: 50%;
   }
 
@@ -109,5 +109,14 @@ iframe {
     display: block;
     margin: 0 auto;
     max-width: 100%;
+  }
+
+  > figcaption {
+    text-align: center;
+    color: #333;
+    background-color: #f7f7f7;
+    padding: .8em;
+    font-size: .75em;
+    outline-offset: -1px;
   }
 }
