@@ -4,7 +4,7 @@
     "clean": "rimraf public/build",
     "build": "npm run clean && webpack --progress --hide-modules",
     "watch": "npm run clean && webpack --watch --progress --hide-modules",
-    "dev": "npm run clean && webpack-dev-server --hot",
+    "dev": "npm run clean && webpack-dev-server --hot --progress",
     "prod": "rimraf public/dist && cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "devDependencies": {
@@ -65,7 +65,7 @@
     "webfontloader": "^1.6.28",
     "webpack": "^3.10.0",
     "webpack-bundle-analyzer": "^2.9.2",
-    "webpack-dev-server": "^2.11.0",
+    "webpack-dev-server": "^2.11.1",
     "webpack-manifest-plugin": "^1.3.2",
     "webpack-notifier": "^1.5.1"
   },
