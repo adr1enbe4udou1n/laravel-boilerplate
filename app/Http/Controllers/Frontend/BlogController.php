@@ -32,14 +32,14 @@ class BlogController extends FrontendController
     public function index()
     {
         return view('frontend.blog.index')->withPosts(
-            $this->posts->published()->paginate(10)
+            $this->posts->published()->paginate(9)
         );
     }
 
     public function tag(Tag $tag)
     {
         return view('frontend.blog.tag')->withTag($tag)->withPosts(
-            $this->posts->publishedByTag($tag)->paginate(10)
+            $this->posts->publishedByTag($tag)->paginate(9)
         );
     }
 
@@ -49,7 +49,7 @@ class BlogController extends FrontendController
 
         return view('frontend.blog.owner')
             ->withUser($user)
-            ->withPosts($this->posts->publishedByOwner($user)->paginate(10));
+            ->withPosts($this->posts->publishedByOwner($user)->paginate(9));
     }
 
     public function show(Post $post, Request $request)

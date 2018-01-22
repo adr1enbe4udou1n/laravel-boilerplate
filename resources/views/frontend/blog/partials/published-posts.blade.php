@@ -1,24 +1,24 @@
 @if(!empty($posts))
-    @foreach($posts->chunk(2) as $chunk)
+    @foreach($posts->chunk(3) as $chunk)
         <div class="row">
             @foreach($chunk as $post)
-                <div class="col-md-6">
-                    <div class="media">
-                        <a href="{{ route('blog.show', ['post' => $post->slug]) }}" class="mr-3">
-                            <img src="{{ image_template_url('small', $post->featured_image_path) }}" alt="{{ $post->title }}">
+                <div class="col-md-4 mb-4">
+                    <article class="article">
+                        <a href="{{ route('blog.show', ['post' => $post->slug]) }}" class="article__cover">
+                            <img src="{{ image_template_url('large', $post->featured_image_path) }}" alt="{{ $post->title }}">
                         </a>
-                        <div class="media-body">
-                            <h5 class="mt-0">
+                        <div class="article__infos">
+                            <h5 class="article__title">
                                 <a href="{{ route('blog.show', ['post' => $post->slug]) }}">{{ $post->title }}</a>
                             </h5>
-
-                            {{ $post->summary }}
-
-                            <small>
+                            <p class="article__published">
                                 @include('frontend.blog.partials.publication-infos')
-                            </small>
-                        </div><!--media-body-->
-                    </div><!--media-->
+                            </p>
+                            <p class="article__summary">
+                                {{ $post->summary }}
+                            </p>
+                        </div>
+                    </article>
                 </div>
             @endforeach
         </div>

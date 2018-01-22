@@ -8,7 +8,9 @@
     </div>
     <div class="post-title">
         <h1 class="pb-3 pt-2">{{ $post->title }}</h1>
-        @include('frontend.blog.partials.publication-infos')
+        <div class="publication-infos">
+            @include('frontend.blog.partials.publication-infos')
+        </div>
     </div>
 @endsection
 

@@ -11,6 +11,10 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        // Default password
+        $defaultPassword = app()->environment('production') ? str_random() : 'secret';
+        $this->command->getOutput()->writeln("<info>Default password:</info> $defaultPassword");
+
         // Create super admin user
         $user = new User();
         $role = new Role();
@@ -18,7 +22,7 @@ class UsersTableSeeder extends Seeder
         $user->create([
             'name' => 'Super admin',
             'email' => 'superadmin@example.com',
-            'password' => bcrypt('secret'),
+            'password' => bcrypt($defaultPassword),
             'active' => true,
             'confirmed' => true,
             'locale' => app()->getLocale(),
@@ -228,7 +232,7 @@ class UsersTableSeeder extends Seeder
         $administrator = $user->create([
             'name' => 'Administrator',
             'email' => 'admin@example.com',
-            'password' => bcrypt('secret'),
+            'password' => bcrypt($defaultPassword),
             'active' => true,
             'confirmed' => true,
             'locale' => app()->getLocale(),
@@ -242,7 +246,7 @@ class UsersTableSeeder extends Seeder
         $supervisor = $user->create([
             'name' => 'Supervisor',
             'email' => 'supervisor@example.com',
-            'password' => bcrypt('secret'),
+            'password' => bcrypt($defaultPassword),
             'active' => true,
             'confirmed' => true,
             'locale' => app()->getLocale(),
@@ -270,7 +274,7 @@ class UsersTableSeeder extends Seeder
         $seoConsultant = $user->create([
             'name' => 'Seo consultant',
             'email' => 'seo@example.com',
-            'password' => bcrypt('secret'),
+            'password' => bcrypt($defaultPassword),
             'active' => true,
             'confirmed' => true,
             'locale' => app()->getLocale(),
@@ -285,7 +289,7 @@ class UsersTableSeeder extends Seeder
         $editor = $user->create([
             'name' => 'Editor',
             'email' => 'editor@example.com',
-            'password' => bcrypt('secret'),
+            'password' => bcrypt($defaultPassword),
             'active' => true,
             'confirmed' => true,
             'locale' => app()->getLocale(),
@@ -300,7 +304,7 @@ class UsersTableSeeder extends Seeder
             $redactor = $user->create([
                 'name' => "Redactor $i",
                 'email' => "redactor-$i@example.com",
-                'password' => bcrypt('secret'),
+                'password' => bcrypt($defaultPassword),
                 'active' => true,
                 'confirmed' => true,
                 'locale' => app()->getLocale(),

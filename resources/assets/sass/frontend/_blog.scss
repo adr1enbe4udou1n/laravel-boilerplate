@@ -1,8 +1,42 @@
-
 .page-blog {
-  .content {
-    .media {
-      height: 10rem;
+  .article {
+    background-color: $gray-200;
+    height: 100%;
+
+    .article__cover {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      height: 250px;
+
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+
+      &:after {
+        content: '\A';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    .article__infos {
+      padding: 1rem;
+    }
+
+    .article__title, .article__published, .article__summary {
+      margin: 0;
+    }
+
+    .article__published {
+      margin: 1rem 0;
+      font-size: .75rem;
     }
   }
 }

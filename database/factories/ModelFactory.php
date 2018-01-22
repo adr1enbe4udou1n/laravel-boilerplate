@@ -59,12 +59,10 @@ $factory->define(App\Models\Post::class, function (Faker\Generator $faker) {
         'en' => [
             'title' => $faker->sentence,
             'summary' => $faker->sentences(3, true),
-            'body' => "<p>{$faker->paragraph(10)}</p><p>{$faker->paragraph(30)}</p><p>{$faker->paragraph(50)}</p>",
         ],
         'fr' => [
             'title' => $faker->sentence,
             'summary' => $faker->sentences(3, true),
-            'body' => "<p>{$faker->paragraph(10)}</p><p>{$faker->paragraph(30)}</p><p>{$faker->paragraph(50)}</p>",
         ],
         'status' => $faker->numberBetween(0, 2),
         'promoted' => $faker->boolean(10),

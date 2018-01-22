@@ -23,7 +23,17 @@ class PostsTableSeeder extends Seeder
         // Get User ids with roles (those can create posts)
         $userIds = $user->select('id')->has('roles')->get();
 
-        // 50 random posts
+        // Set default image figure for body
+        $bodyImage = Image::make(database_path().'/seeds/images/logo.png')->widen(600, function ($constraint) {
+            $constraint->upsize();
+        });
+
+        $imageName = Str::random(32);
+        $bodyImagePath = "editor/{$imageName}.png";
+
+        Storage::disk('public')->put($bodyImagePath, $bodyImage->stream());
+
+        // 200 random posts
         /** @var \Illuminate\Database\Eloquent\Collection $posts */
         $posts = factory(Post::class)->times(200)->create();
 
@@ -33,7 +43,12 @@ class PostsTableSeeder extends Seeder
         $publicDisk = Storage::disk('public');
         $publicDisk->delete($publicDisk->files('posts'));
 
-        $posts->each(function (Post $post) use ($faker, $userIds, $tags) {
+        $posts->each(function (Post $post) use ($faker, $bodyImagePath, $userIds, $tags) {
+            // Generate localized bodies
+            foreach (['en', 'fr'] as $locale) {
+                $post->translate($locale)->body = $this->generateBody($faker, $bodyImagePath);
+            }
+
             //Attach user
             $post->user_id = $userIds->random()->id;
 
@@ -55,5 +70,28 @@ class PostsTableSeeder extends Seeder
             // Set metas
             $post->meta()->save(factory(Meta::class)->make());
         });
+    }
+
+    private function generateBody(Faker\Generator $faker, $imagePath)
+    {
+        $align = $faker->randomElement(['left', 'center', 'right']);
+
+        $imageHtml = <<<EOT
+<figure class="image image-style-align-{$align}">
+    <img src="{$imagePath}" alt="">
+    <figcaption>{$faker->sentence}</figcaption>
+</figure>
+EOT;
+
+        $p1 = "<p>{$faker->paragraph($faker->numberBetween(30, 50))}</p>";
+        $p2 = "<p>{$faker->paragraph($faker->numberBetween(30, 50))}</p>";
+
+        $imagePosition = $faker->numberBetween(1, 2);
+
+        if (1 === $imagePosition) {
+            return $imageHtml.$p1.$p2;
+        }
+
+        return $p1.$imageHtml.$p2;
     }
 }
