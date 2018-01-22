@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\URL;
+use Laravel\Dusk\DuskServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\EloquentTagRepository;
@@ -52,6 +53,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        // Dusk, if env is appropriate
+        if ($this->app->environment('local', 'testing')) {
+            $this->app->register(DuskServiceProvider::class);
+        }
+
         $this->app->bind(
             UserRepository::class,
             EloquentUserRepository::class
