@@ -32,6 +32,7 @@ class PostsTableSeeder extends Seeder
         $bodyImagePath = "editor/{$imageName}.png";
 
         Storage::disk('public')->put($bodyImagePath, $bodyImage->stream());
+        $bodyImageUrl = "/storage/$bodyImagePath";
 
         // 200 random posts
         /** @var \Illuminate\Database\Eloquent\Collection $posts */
@@ -43,10 +44,10 @@ class PostsTableSeeder extends Seeder
         $publicDisk = Storage::disk('public');
         $publicDisk->delete($publicDisk->files('posts'));
 
-        $posts->each(function (Post $post) use ($faker, $bodyImagePath, $userIds, $tags) {
+        $posts->each(function (Post $post) use ($faker, $bodyImageUrl, $userIds, $tags) {
             // Generate localized bodies
             foreach (['en', 'fr'] as $locale) {
-                $post->translate($locale)->body = $this->generateBody($faker, $bodyImagePath);
+                $post->translate($locale)->body = $this->generateBody($faker, $bodyImageUrl);
             }
 
             //Attach user
@@ -72,13 +73,13 @@ class PostsTableSeeder extends Seeder
         });
     }
 
-    private function generateBody(Faker\Generator $faker, $imagePath)
+    private function generateBody(Faker\Generator $faker, $imageUrl)
     {
         $align = $faker->randomElement(['left', 'center', 'right']);
 
         $imageHtml = <<<EOT
 <figure class="image image-style-align-{$align}">
-    <img src="{$imagePath}" alt="">
+    <img src="{$imageUrl}" alt="">
     <figcaption>{$faker->sentence}</figcaption>
 </figure>
 EOT;
