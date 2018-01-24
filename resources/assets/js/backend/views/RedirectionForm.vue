@@ -62,11 +62,7 @@
               :horizontal="true"
               :label-cols="3"
             >
-              <b-form-radio-group stacked id="type">
-                <div class="custom-control custom-radio" v-for="(type, index) in redirectionTypes" :key="index">
-                  <input type="radio" :id="`type${index}`" name="customRadio" class="custom-control-input" :value="index" v-model="model.type">
-                  <label class="custom-control-label" :for="`type${index}`">{{ type }}</label>
-                </div>
+              <b-form-radio-group stacked v-model="model.type" :options="redirectionTypes" name="type" required>
               </b-form-radio-group>
             </b-form-group>
 

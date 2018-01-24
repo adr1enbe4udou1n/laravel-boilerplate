@@ -89,10 +89,8 @@
                     id="featured_image"
                     name="featured_image"
                     :placeholder="$t('labels.no_file_chosen')"
-                    :choose-label="$t('labels.choose_file')"
                     v-model="model.featured_image"
                     :state="state('featured_image')"
-                    :plain="true"
                   ></b-form-file>
                   <p class="form-text text-muted">
                     {{ $t('labels.descriptions.allowed_image_types') }}
@@ -165,14 +163,14 @@
                         :config="config"
                         v-model="model.published_at"
                       ></p-datetimepicker>
-                      <div class="input-group-append">
-                        <div class="input-group-text" data-toggle>
+                      <b-input-group-append>
+                        <b-input-group-text data-toggle>
                           <i class="icon-calendar"></i>
-                        </div>
-                        <div class="input-group-text" data-clear>
+                        </b-input-group-text>
+                        <b-input-group-text data-clear>
                           <i class="icon-close"></i>
-                        </div>
-                      </div>
+                        </b-input-group-text>
+                      </b-input-group-append>
                     </b-input-group>
                   </b-form-group>
 
@@ -190,14 +188,14 @@
                         :config="config"
                         v-model="model.unpublished_at"
                       ></p-datetimepicker>
-                      <div class="input-group-append">
-                        <div class="input-group-text" data-toggle>
+                      <b-input-group-append>
+                        <b-input-group-text data-toggle>
                           <i class="icon-calendar"></i>
-                        </div>
-                        <div class="input-group-text" data-clear>
+                        </b-input-group-text>
+                        <b-input-group-text data-clear>
                           <i class="icon-close"></i>
-                        </div>
-                      </div>
+                        </b-input-group-text>
+                      </b-input-group-append>
                     </b-input-group>
                   </b-form-group>
 

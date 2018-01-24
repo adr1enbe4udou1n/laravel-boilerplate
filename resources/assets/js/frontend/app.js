@@ -4,7 +4,8 @@ import loadClientScripts from './load-client-scripts'
 import Vue from 'vue'
 import { axios } from '../axios-config'
 
-import BootstrapVue from 'bootstrap-vue'
+import 'babel-polyfill'
+import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.esm'
 
 import { createLocales } from '../vue-i18n-config'
 

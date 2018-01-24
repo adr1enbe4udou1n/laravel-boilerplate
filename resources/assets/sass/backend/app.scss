@@ -6,11 +6,11 @@
 @import "~font-awesome/scss/font-awesome";
 @import "~simple-line-icons/scss/simple-line-icons";
 
-// Bootstrap vue specific CSS
-@import '~bootstrap-vue/dist/bootstrap-vue.css';
-
 // Init coreui admin
 @import "../../vendor/coreui/scss/style";
+
+// Bootstrap vue specific CSS
+@import '~bootstrap-vue/dist/bootstrap-vue.css';
 
 // Plugins
 @import "~noty/src/noty";

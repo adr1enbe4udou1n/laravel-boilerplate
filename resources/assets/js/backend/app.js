@@ -4,7 +4,8 @@ import './load-client-scripts'
 import Vue from 'vue'
 import '../axios-config'
 
-import BootstrapVue from 'bootstrap-vue'
+import 'babel-polyfill'
+import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.esm'
 import vSelect from 'vue-select'
 
 // CoreUI components

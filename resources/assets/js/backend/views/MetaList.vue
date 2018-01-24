@@ -31,10 +31,7 @@
         >
           <template slot="HEAD_checkbox" slot-scope="data"></template>
           <template slot="checkbox" slot-scope="row">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" :id="`meta${row.item.id}`" :value="row.item.id" v-model="selected">
-              <label class="custom-control-label" :for="`meta${row.item.id}`"></label>
-            </div>
+            <b-form-checkbox :value="row.item.id" v-model="selected"></b-form-checkbox>
           </template>
           <template slot="actions" slot-scope="row">
             <b-button v-if="row.item.can_edit" size="sm" variant="primary" :to="`/metas/${row.item.id}/edit`" v-b-tooltip.hover :title="$t('buttons.edit')" class="mr-1">

@@ -97,12 +97,11 @@
               :horizontal="true"
               :label-cols="3"
             >
-              <b-form-checkbox-group stacked id="roles">
-                <div class="custom-control custom-checkbox" v-for="role in roles" :key="role.id"
-                     v-b-tooltip.left :title="role.description">
-                  <input type="checkbox" class="custom-control-input" name="roles[]" :id="`role${role.id}`" :value="role.id" v-model="model.roles">
-                  <label class="custom-control-label" :for="`role${role.id}`">{{ role.display_name }}</label>
-                </div>
+              <b-form-checkbox-group stacked v-model="model.roles" name="roles[]">
+                <b-form-checkbox v-for="role in roles" :key="role.id"
+                                 v-b-tooltip.left :title="role.description" :value="role.id">
+                  {{ role.display_name }}
+                </b-form-checkbox>
               </b-form-checkbox-group>
             </b-form-group>
 

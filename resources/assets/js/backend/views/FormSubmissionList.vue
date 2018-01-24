@@ -24,10 +24,7 @@
         >
           <template slot="HEAD_checkbox" slot-scope="data"></template>
           <template slot="checkbox" slot-scope="row">
-            <div class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" :id="`form_submission${row.item.id}`" :value="row.item.id" v-model="selected">
-              <label class="custom-control-label" :for="`form_submission${row.item.id}`"></label>
-            </div>
+            <b-form-checkbox :value="row.item.id" v-model="selected"></b-form-checkbox>
           </template>
           <template slot="name" slot-scope="row">
             <router-link v-if="row.item.can_edit" :to="`/form-submissions/${row.item.id}/edit`" v-text="row.value"></router-link>

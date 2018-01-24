@@ -90,11 +90,10 @@
                   <b-col md="6" xl="4" class="mb-3" v-for="category in permissions" :key="category.title">
                     <h4>{{ $t(category.title) }}</h4>
                     <b-form-checkbox-group stacked v-model="model.permissions" name="permissions[]">
-                      <div class="custom-control custom-checkbox" v-for="permission in category.permissions" :key="permission.name"
-                           v-b-tooltip.left :title="$t(permission.description)">
-                        <input type="checkbox" class="custom-control-input" name="permissions[]" :id="permission.name" :value="permission.name" v-model="model.permissions">
-                        <label class="custom-control-label" :for="permission.name">{{ $t(permission.display_name) }}</label>
-                      </div>
+                      <b-form-checkbox v-for="permission in category.permissions" :key="permission.name"
+                                       v-b-tooltip.left :title="$t(permission.description)" :value="permission.name">
+                        {{ $t(permission.display_name) }}
+                      </b-form-checkbox>
                     </b-form-checkbox-group>
                   </b-col>
                 </b-row>
