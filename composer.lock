@@ -3249,16 +3249,16 @@
         },
         {
             "name": "stevebauman/purify",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stevebauman/purify.git",
-                "reference": "ec106f67402a5f93c39ab1709d8641927cadba7d"
+                "reference": "afa35ae387717520493dbd189f67b5267fffca85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stevebauman/purify/zipball/ec106f67402a5f93c39ab1709d8641927cadba7d",
-                "reference": "ec106f67402a5f93c39ab1709d8641927cadba7d",
+                "url": "https://api.github.com/repos/stevebauman/purify/zipball/afa35ae387717520493dbd189f67b5267fffca85",
+                "reference": "afa35ae387717520493dbd189f67b5267fffca85",
                 "shasum": ""
             },
             "require": {
@@ -3305,7 +3305,7 @@
                 "purification",
                 "purify"
             ],
-            "time": "2017-09-13T20:02:32+00:00"
+            "time": "2018-01-24T21:50:40+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5052,20 +5052,23 @@
         },
         {
             "name": "gecko-packages/gecko-php-unit",
-            "version": "v3.0",
+            "version": "v3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GeckoPackages/GeckoPHPUnit.git",
-                "reference": "6a866551dffc2154c1b091bae3a7877d39c25ca3"
+                "reference": "dbb18b292cfa14444d2e6d15202b9dcf5ab8365e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GeckoPackages/GeckoPHPUnit/zipball/6a866551dffc2154c1b091bae3a7877d39c25ca3",
-                "reference": "6a866551dffc2154c1b091bae3a7877d39c25ca3",
+                "url": "https://api.github.com/repos/GeckoPackages/GeckoPHPUnit/zipball/dbb18b292cfa14444d2e6d15202b9dcf5ab8365e",
+                "reference": "dbb18b292cfa14444d2e6d15202b9dcf5ab8365e",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.0"
+            },
+            "conflict": {
+                "phpunit/phpunit": "<6.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^6.0"
@@ -5073,7 +5076,7 @@
             "suggest": {
                 "ext-dom": "When testing with xml.",
                 "ext-libxml": "When testing with xml.",
-                "phpunit/phpunit": "This is an extension for it so make sure you have it some way."
+                "phpunit/phpunit": "This is an extension for PHPUnit so make sure you have that in some way."
             },
             "type": "library",
             "extra": {
@@ -5097,7 +5100,7 @@
                 "filesystem",
                 "phpunit"
             ],
-            "time": "2017-08-23T07:46:41+00:00"
+            "time": "2018-01-24T18:03:59+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
