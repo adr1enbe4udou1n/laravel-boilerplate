@@ -1079,9 +1079,9 @@ boom@5.x.x:
   dependencies:
     hoek "4.x.x"
 
-bootstrap-vue@^2.0.0-rc.0:
-  version "2.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/bootstrap-vue/-/bootstrap-vue-2.0.0-rc.0.tgz#e67d6137eef61b917f7c76f5614a01ceaac06747"
+bootstrap-vue@^2.0.0-rc.1:
+  version "2.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/bootstrap-vue/-/bootstrap-vue-2.0.0-rc.1.tgz#97b2dd59d3e6c9871b95ed2aa47df29d52407096"
   dependencies:
     bootstrap "^4.0.0"
     lodash.startcase "^4.4.0"
@@ -2137,8 +2137,8 @@ doctrine@^2.1.0:
     esutils "^2.0.2"
 
 domain-browser@^1.1.1:
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.1.7.tgz#867aa4b093faa05f1de08c06f4d7b21fdf8698bc"
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.2.0.tgz#3d31f50191a6749dd1375a7f522e823d42e54eda"
 
 dotenv@^4.0.0:
   version "4.0.0"
@@ -2881,9 +2881,9 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
-flatpickr@^4.2.3:
-  version "4.2.3"
-  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.2.3.tgz#084b95d353b3b64a164ebfe7151df75c8dae14b1"
+flatpickr@^4.2.4:
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.2.4.tgz#abd6dedd0fa41e2118acb96a22f49819ba2d0157"
 
 flatten@^1.0.2:
   version "1.0.2"
@@ -3164,8 +3164,8 @@ glob@^7.0.0, glob@^7.0.3, glob@^7.0.5, glob@^7.1.1, glob@^7.1.2, glob@~7.1.1:
     path-is-absolute "^1.0.0"
 
 globals@^11.0.1, globals@^11.1.0:
-  version "11.1.0"
-  resolved "https://registry.yarnpkg.com/globals/-/globals-11.1.0.tgz#632644457f5f0e3ae711807183700ebf2e4633e4"
+  version "11.2.0"
+  resolved "https://registry.yarnpkg.com/globals/-/globals-11.2.0.tgz#aa2ece052a787563ba70a3dcd9dc2eb8a9a0488c"
 
 globals@^9.18.0:
   version "9.18.0"
@@ -6237,7 +6237,7 @@ schema-utils@^0.3.0:
   dependencies:
     ajv "^5.0.0"
 
-schema-utils@^0.4.2:
+schema-utils@^0.4.2, schema-utils@^0.4.3:
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-0.4.3.tgz#e2a594d3395834d5e15da22b48be13517859458e"
   dependencies:
@@ -6790,12 +6790,12 @@ strip-outer@^1.0.0:
   dependencies:
     escape-string-regexp "^1.0.2"
 
-style-loader@^0.19.1:
-  version "0.19.1"
-  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.19.1.tgz#591ffc80bcefe268b77c5d9ebc0505d772619f85"
+style-loader@^0.20.0:
+  version "0.20.0"
+  resolved "https://registry.yarnpkg.com/style-loader/-/style-loader-0.20.0.tgz#394ecb2a8e1008b0dca5f55a44fabc195e7c11bb"
   dependencies:
-    loader-utils "^1.0.2"
-    schema-utils "^0.3.0"
+    loader-utils "^1.1.0"
+    schema-utils "^0.4.3"
 
 sum-up@^1.0.1:
   version "1.0.3"

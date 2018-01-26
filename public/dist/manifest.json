@@ -1,6 +1,6 @@
 {
-  "backend.css": "/dist/css/backend.46bfc7bd1a3c60dd432eefdf79b2e99d.css",
-  "backend.css.map": "/dist/css/backend.46bfc7bd1a3c60dd432eefdf79b2e99d.css.map",
+  "backend.css": "/dist/css/backend.be8fd3b71eba5a2dea81f0823a4098d6.css",
+  "backend.css.map": "/dist/css/backend.be8fd3b71eba5a2dea81f0823a4098d6.css.map",
   "backend.js": "/dist/js/backend.56ca976e65e14d004052.js",
   "backend.js.map": "/dist/js/backend.56ca976e65e14d004052.js.map",
   "fonts\\vendor\\Simple-Line-Icons.eot?v=2.4.0": "/dist/fonts/vendor/Simple-Line-Icons.eot?f33df365d6d0255b586f2920355e94d7",
@@ -17,8 +17,8 @@
   "fonts\\vendor\\slick.svg": "/dist/fonts/vendor/slick.svg?f97e3bbf73254b0112091d0192f17aec",
   "fonts\\vendor\\slick.ttf": "/dist/fonts/vendor/slick.ttf?d41f55a78e6f49a5512878df1737e58a",
   "fonts\\vendor\\slick.woff": "/dist/fonts/vendor/slick.woff?b7c9e1e479de3b53f1e4e30ebac2403a",
-  "frontend.css": "/dist/css/frontend.b911eeec605754e1d8b836ea77c7e7e3.css",
-  "frontend.css.map": "/dist/css/frontend.b911eeec605754e1d8b836ea77c7e7e3.css.map",
+  "frontend.css": "/dist/css/frontend.e0c7d5a2af73d9c6c828528e782c9b4a.css",
+  "frontend.css.map": "/dist/css/frontend.e0c7d5a2af73d9c6c828528e782c9b4a.css.map",
   "frontend.js": "/dist/js/frontend.9d6f6f98659b57a5a453.js",
   "frontend.js.map": "/dist/js/frontend.9d6f6f98659b57a5a453.js.map",
   "images\\logo-symbol.png": "/dist/images/logo-symbol.png?eaca174bbed1c4633466178546f52bce",
@@ -28,10 +28,10 @@
   "images\\vendor\\slick-carousel\\slick\\ajax-loader.gif": "/dist/images/vendor/slick-carousel/slick/ajax-loader.gif?68b0c4fcb84d239f261c1a5e65818142",
   "locales.js": "/dist/js/locales.a25457b8fbead8cc48fb.js",
   "locales.js.map": "/dist/js/locales.a25457b8fbead8cc48fb.js.map",
-  "manifest.js": "/dist/js/manifest.d304af4135f2135aa46d.js",
-  "manifest.js.map": "/dist/js/manifest.d304af4135f2135aa46d.js.map",
-  "vendor_backend.js": "/dist/js/vendor_backend.552ae12c2f5ee5424a94.js",
-  "vendor_backend.js.map": "/dist/js/vendor_backend.552ae12c2f5ee5424a94.js.map",
-  "vendor_frontend.js": "/dist/js/vendor_frontend.4b13b835eab3d8ce3c7e.js",
-  "vendor_frontend.js.map": "/dist/js/vendor_frontend.4b13b835eab3d8ce3c7e.js.map"
+  "manifest.js": "/dist/js/manifest.1d6b2f1a7e18d7621db4.js",
+  "manifest.js.map": "/dist/js/manifest.1d6b2f1a7e18d7621db4.js.map",
+  "vendor_backend.js": "/dist/js/vendor_backend.55d949b5427d4a23b6f3.js",
+  "vendor_backend.js.map": "/dist/js/vendor_backend.55d949b5427d4a23b6f3.js.map",
+  "vendor_frontend.js": "/dist/js/vendor_frontend.3252fa11ae54d467faf4.js",
+  "vendor_frontend.js.map": "/dist/js/vendor_frontend.3252fa11ae54d467faf4.js.map"
 }
