@@ -4,6 +4,7 @@ const webpack = require('webpack')
 
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
 const ManifestPlugin = require('webpack-manifest-plugin')
@@ -46,24 +47,22 @@ module.exports = {
             {
               loader: 'css-loader',
               options: {
-                sourceMap: true,
-                importLoaders: 1
+                sourceMap: true
               }
             }, {
               loader: 'postcss-loader',
               options: {
                 ident: 'postcss',
-                sourceMap: true,
-                plugins: [
-                  require('autoprefixer')
-                ]
+                sourceMap: true
               }
             }, {
-              loader: 'resolve-url-loader?sourceMap'
+              loader: 'resolve-url-loader',
+              options: {
+                sourceMap: true
+              }
             }, {
               loader: 'sass-loader',
               options: {
-                precision: 8,
                 outputStyle: 'expanded',
                 sourceMap: true
               }
@@ -194,7 +193,7 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: production ? 'source-map' : 'inline-source-map',
+  devtool: production ? 'source-map' : 'cheap-module-eval-source-map',
   devServer: {
     contentBase: path.resolve(__dirname, 'public'),
     headers: {
@@ -229,6 +228,14 @@ if (production) {
     new UglifyJsPlugin({
       parallel: true,
       sourceMap: true
+    }),
+    new OptimizeCSSPlugin({
+      cssProcessorOptions: {
+        safe: true,
+        map: {
+          inline: false
+        }
+      }
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new BundleAnalyzerPlugin()
