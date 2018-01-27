@@ -1,5 +1,6 @@
 {
   "backend.css": "/dist/css/backend.3650f11afbb7ac3caf7f8284750e990c.css",
+  "backend.css.map": "/dist/css/backend.3650f11afbb7ac3caf7f8284750e990c.css.map",
   "backend.js": "/dist/js/backend.dcbc00106d90595cf41c.js",
   "backend.js.map": "/dist/js/backend.dcbc00106d90595cf41c.js.map",
   "fonts\\vendor\\Simple-Line-Icons.eot?v=2.4.0": "/dist/fonts/vendor/Simple-Line-Icons.eot?f33df365d6d0255b586f2920355e94d7",
@@ -17,6 +18,7 @@
   "fonts\\vendor\\slick.ttf": "/dist/fonts/vendor/slick.ttf?d41f55a78e6f49a5512878df1737e58a",
   "fonts\\vendor\\slick.woff": "/dist/fonts/vendor/slick.woff?b7c9e1e479de3b53f1e4e30ebac2403a",
   "frontend.css": "/dist/css/frontend.d66c795f968f19c2670d95e37091badf.css",
+  "frontend.css.map": "/dist/css/frontend.d66c795f968f19c2670d95e37091badf.css.map",
   "frontend.js": "/dist/js/frontend.9595185ac77df205451a.js",
   "frontend.js.map": "/dist/js/frontend.9595185ac77df205451a.js.map",
   "images\\logo-symbol.png": "/dist/images/logo-symbol.png?eaca174bbed1c4633466178546f52bce",

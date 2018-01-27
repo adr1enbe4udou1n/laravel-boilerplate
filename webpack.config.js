@@ -4,7 +4,6 @@ const webpack = require('webpack')
 
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
 const ManifestPlugin = require('webpack-manifest-plugin')
@@ -56,10 +55,7 @@ module.exports = {
                 sourceMap: true
               }
             }, {
-              loader: 'resolve-url-loader',
-              options: {
-                sourceMap: true
-              }
+              loader: 'resolve-url-loader'
             }, {
               loader: 'sass-loader',
               options: {
@@ -228,14 +224,6 @@ if (production) {
     new UglifyJsPlugin({
       parallel: true,
       sourceMap: true
-    }),
-    new OptimizeCSSPlugin({
-      cssProcessorOptions: {
-        safe: true,
-        map: {
-          inline: false
-        }
-      }
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new BundleAnalyzerPlugin()
