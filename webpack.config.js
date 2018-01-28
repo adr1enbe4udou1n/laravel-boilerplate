@@ -225,6 +225,7 @@ if (production) {
       parallel: true,
       sourceMap: true
     }),
+    new webpack.HashedModuleIdsPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new BundleAnalyzerPlugin()
   ]
