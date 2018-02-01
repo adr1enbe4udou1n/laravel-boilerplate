@@ -1,8 +1,8 @@
 {
-  "backend.css": "/dist/css/backend.a1ead71ce187b0355add5d959c880116.css",
-  "backend.css.map": "/dist/css/backend.a1ead71ce187b0355add5d959c880116.css.map",
-  "backend.js": "/dist/js/backend.30054db177fde1ebf5fb.js",
-  "backend.js.map": "/dist/js/backend.30054db177fde1ebf5fb.js.map",
+  "backend.css": "/dist/css/backend.366d09306e11679d65e05b3d7650ef1c.css",
+  "backend.css.map": "/dist/css/backend.366d09306e11679d65e05b3d7650ef1c.css.map",
+  "backend.js": "/dist/js/backend.62bc6dff18e3a43f6f2a.js",
+  "backend.js.map": "/dist/js/backend.62bc6dff18e3a43f6f2a.js.map",
   "fonts\\vendor\\Simple-Line-Icons.eot": "/dist/fonts/vendor/Simple-Line-Icons.eot?f33df365d6d0255b586f2920355e94d7",
   "fonts\\vendor\\Simple-Line-Icons.svg": "/dist/fonts/vendor/Simple-Line-Icons.svg?2fe2efe63441d830b1acd106c1fe8734",
   "fonts\\vendor\\Simple-Line-Icons.ttf?v=2.4.0": "/dist/fonts/vendor/Simple-Line-Icons.ttf?d2285965fe34b05465047401b8595dd0",
@@ -28,10 +28,10 @@
   "images\\vendor\\slick-carousel\\slick\\ajax-loader.gif": "/dist/images/vendor/slick-carousel/slick/ajax-loader.gif?68b0c4fcb84d239f261c1a5e65818142",
   "locales.js": "/dist/js/locales.31d31aeb50146ede649f.js",
   "locales.js.map": "/dist/js/locales.31d31aeb50146ede649f.js.map",
-  "manifest.js": "/dist/js/manifest.199f7111ae7afbb2dc14.js",
-  "manifest.js.map": "/dist/js/manifest.199f7111ae7afbb2dc14.js.map",
-  "vendor_backend.js": "/dist/js/vendor_backend.5ac8de422b4c97739f89.js",
-  "vendor_backend.js.map": "/dist/js/vendor_backend.5ac8de422b4c97739f89.js.map",
-  "vendor_frontend.js": "/dist/js/vendor_frontend.3893a2c799a01492fcfa.js",
-  "vendor_frontend.js.map": "/dist/js/vendor_frontend.3893a2c799a01492fcfa.js.map"
+  "manifest.js": "/dist/js/manifest.65baf73f29fa96aa370e.js",
+  "manifest.js.map": "/dist/js/manifest.65baf73f29fa96aa370e.js.map",
+  "vendor_backend.js": "/dist/js/vendor_backend.bf96b69432a8e63f4370.js",
+  "vendor_backend.js.map": "/dist/js/vendor_backend.bf96b69432a8e63f4370.js.map",
+  "vendor_frontend.js": "/dist/js/vendor_frontend.e2a616bba4b3bea020c0.js",
+  "vendor_frontend.js.map": "/dist/js/vendor_frontend.e2a616bba4b3bea020c0.js.map"
 }
