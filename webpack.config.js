@@ -46,6 +46,7 @@ module.exports = {
             {
               loader: 'css-loader',
               options: {
+                minimize: production,
                 sourceMap: true
               }
             }, {
@@ -73,19 +74,12 @@ module.exports = {
       },
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-            js: 'babel-loader?cacheDirectory',
-            scss: 'vue-style-loader!css-loader!sass-loader',
-            sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
-          }
-        }
+        loader: 'vue-loader'
       },
       {
-        test: /\.jsx?$/,
+        test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader?cacheDirectory'
+        loader: 'babel-loader'
       },
       {
         test: /\.(png|jpe?g|gif)$/,
@@ -134,9 +128,6 @@ module.exports = {
   plugins: [
     new webpack.IgnorePlugin(/jsdom$/),
     new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /fr/),
-    new webpack.LoaderOptionsPlugin({
-      minimize: production
-    }),
     new FriendlyErrorsPlugin({
       clearConsole: false
     }),
