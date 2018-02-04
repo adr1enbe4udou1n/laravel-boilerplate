@@ -29,7 +29,7 @@
                  :busy.sync="isBusy"
         >
           <template slot="name" slot-scope="row">
-            <router-link v-if="row.item.can_edit" :to="`/form-submissions/${row.item.id}/edit`" v-text="row.value"></router-link>
+            <router-link v-if="row.item.can_edit" :to="`/form-settings/${row.item.id}/edit`" v-text="row.value"></router-link>
             <span v-else v-text="row.value"></span>
           </template>
           <template slot="actions" slot-scope="row">
