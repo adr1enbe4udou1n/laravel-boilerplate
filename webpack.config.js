@@ -97,8 +97,7 @@ module.exports = {
                   .replace(
                     /((.*(node_modules))|images|image|img|assets)\//g, ''
                   ) + '?[hash]'
-              },
-              publicPath
+              }
             }
           },
           {
@@ -119,8 +118,7 @@ module.exports = {
             }
 
             return 'fonts/vendor/[name].[ext]?[hash]'
-          },
-          publicPath
+          }
         }
       }
     ]

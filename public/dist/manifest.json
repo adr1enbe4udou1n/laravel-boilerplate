@@ -28,10 +28,10 @@
   "images\\vendor\\slick-carousel\\slick\\ajax-loader.gif": "/dist/images/vendor/slick-carousel/slick/ajax-loader.gif?68b0c4fcb84d239f261c1a5e65818142",
   "locales.js": "/dist/js/locales.31d31aeb50146ede649f.js",
   "locales.js.map": "/dist/js/locales.31d31aeb50146ede649f.js.map",
-  "manifest.js": "/dist/js/manifest.29cdf58c2de476b2492a.js",
-  "manifest.js.map": "/dist/js/manifest.29cdf58c2de476b2492a.js.map",
-  "vendor_backend.js": "/dist/js/vendor_backend.a3985eb9e8c76147bcd9.js",
-  "vendor_backend.js.map": "/dist/js/vendor_backend.a3985eb9e8c76147bcd9.js.map",
-  "vendor_frontend.js": "/dist/js/vendor_frontend.972cd882693f17979f96.js",
-  "vendor_frontend.js.map": "/dist/js/vendor_frontend.972cd882693f17979f96.js.map"
+  "manifest.js": "/dist/js/manifest.1824ce14e40e3493cd8f.js",
+  "manifest.js.map": "/dist/js/manifest.1824ce14e40e3493cd8f.js.map",
+  "vendor_backend.js": "/dist/js/vendor_backend.9198bcad25503e564723.js",
+  "vendor_backend.js.map": "/dist/js/vendor_backend.9198bcad25503e564723.js.map",
+  "vendor_frontend.js": "/dist/js/vendor_frontend.d01d1e0a6cc774b6767b.js",
+  "vendor_frontend.js.map": "/dist/js/vendor_frontend.d01d1e0a6cc774b6767b.js.map"
 }
