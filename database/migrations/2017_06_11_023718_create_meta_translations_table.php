@@ -20,7 +20,7 @@ class CreateMetaTranslationsTable extends Migration
 
             $table->unique(['meta_id', 'locale']);
             $table->foreign('meta_id')->references('id')
-                ->on('meta_translations')
+                ->on('metas')
                 ->onDelete('cascade');
         });
     }

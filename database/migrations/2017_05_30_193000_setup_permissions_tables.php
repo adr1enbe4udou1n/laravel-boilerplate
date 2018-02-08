@@ -32,7 +32,7 @@ class SetupPermissionsTables extends Migration
 
             $table->unique(['role_id', 'locale']);
             $table->foreign('role_id')->references('id')
-                ->on('role_translations')
+                ->on('roles')
                 ->onDelete('cascade');
         });
 
