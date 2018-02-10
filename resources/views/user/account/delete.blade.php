@@ -2,7 +2,7 @@
 
 <form action="{{ route('user.account.delete') }}" method="POST">
     @csrf
-    @method('delete')
+    @method('DELETE')
 
     <button class="btn btn-danger"
             data-toggle="confirm"
