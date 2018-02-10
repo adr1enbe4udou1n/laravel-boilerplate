@@ -11,7 +11,7 @@
                         <h1 class="mb-4">@lang('labels.user.login')</h1>
 
                         <form action="{{ route('login') }}" method="post">
-                            {{ csrf_field() }}
+                            @csrf
 
                             <div class="form-group">
                                 {{ Form::bsEmail('email', null, ['required', 'placeholder' => __('validation.attributes.email')]) }}

@@ -1,8 +1,8 @@
 @lang('labels.user.account_delete')
 
 <form action="{{ route('user.account.delete') }}" method="POST">
-    {{ csrf_field() }}
-    <input type="hidden" name="_method" value="DELETE">
+    @csrf
+    @method('delete')
 
     <button class="btn btn-danger"
             data-toggle="confirm"

@@ -16,7 +16,7 @@
                     @endif
 
                     <form method="POST" action="{{ route('password.email') }}">
-                        {{ csrf_field() }}
+                        @csrf
 
                         <div class="form-group">
                             {{ Form::bsEmail('email', null, ['required', 'placeholder' => __('validation.attributes.email')]) }}

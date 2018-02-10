@@ -13,7 +13,7 @@
         </div>
         <div class="col-md-6">
             <form action="{{ route('contact') }}" method="POST">
-                {{ csrf_field() }}
+                @csrf
 
                 <div class="form-group">
                     <label for="name">@lang('validation.attributes.name')</label>

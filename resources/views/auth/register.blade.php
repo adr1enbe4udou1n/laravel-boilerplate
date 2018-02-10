@@ -8,7 +8,7 @@
                     <div class="card-header">@lang('labels.user.register')</div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
-                            {{ csrf_field() }}
+                            @csrf
 
                             <div class="form-group row">
                                 <label for="name" class="col-md-3 col-form-label">@lang('validation.attributes.name')</label>
