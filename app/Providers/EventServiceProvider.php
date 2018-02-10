@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Events\SluggableSaving;
 use Illuminate\Auth\Events\Login;
 use App\Listeners\UserEventListener;
 use App\Listeners\LoginEventListener;
+use App\Listeners\SluggableEventListener;
 use App\Listeners\FormSubmissionEventListener;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
@@ -18,6 +20,9 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         Login::class => [
             LoginEventListener::class,
+        ],
+        SluggableSaving::class => [
+            SluggableEventListener::class,
         ],
     ];
 

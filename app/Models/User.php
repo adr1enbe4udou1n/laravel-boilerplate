@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
+use App\Events\SluggableSaving;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Builder;
-use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\ResetPassword as ResetPasswordNotification;
 
@@ -15,7 +15,15 @@ use App\Notifications\ResetPassword as ResetPasswordNotification;
 class User extends Authenticatable
 {
     use Notifiable;
-    use Sluggable;
+
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'saving' => SluggableSaving::class,
+    ];
 
     /**
      * The relationship that are eager loaded.
@@ -211,17 +219,8 @@ class User extends Authenticatable
     }
 
     /**
-     * @return array
+     * @return string
      */
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'name',
-            ],
-        ];
-    }
-
     public function __toString()
     {
         return $this->name;

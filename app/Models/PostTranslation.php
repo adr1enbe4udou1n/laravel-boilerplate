@@ -2,15 +2,22 @@
 
 namespace App\Models;
 
+use App\Events\SluggableSaving;
 use Illuminate\Database\Eloquent\Model;
-use Cviebrock\EloquentSluggable\Sluggable;
 
 /**
  * App\Models\ArticleTranslation.
  */
 class PostTranslation extends Model
 {
-    use Sluggable;
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'saving' => SluggableSaving::class,
+    ];
 
     public $timestamps = false;
 
@@ -27,15 +34,11 @@ class PostTranslation extends Model
     ];
 
     /**
-     * @return array
+     * @return string
      */
-    public function sluggable()
+    public function __toString()
     {
-        return [
-            'slug' => [
-                'source' => 'title',
-            ],
-        ];
+        return $this->title;
     }
 
     public function post()

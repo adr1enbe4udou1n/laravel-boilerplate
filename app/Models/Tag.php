@@ -2,15 +2,22 @@
 
 namespace App\Models;
 
+use App\Events\SluggableSaving;
 use Illuminate\Database\Eloquent\Model;
-use Cviebrock\EloquentSluggable\Sluggable;
 
 /**
  * App\Models\Tag.
  */
 class Tag extends Model
 {
-    use Sluggable;
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'saving' => SluggableSaving::class,
+    ];
 
     public $timestamps = false;
 
@@ -25,18 +32,6 @@ class Tag extends Model
     ];
 
     /**
-     * @return array
-     */
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'name',
-            ],
-        ];
-    }
-
-    /**
      * Get all of the posts that are assigned this tag.
      */
     public function posts()
@@ -44,6 +39,9 @@ class Tag extends Model
         return $this->morphedByMany(Post::class, 'taggable');
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return $this->name;
