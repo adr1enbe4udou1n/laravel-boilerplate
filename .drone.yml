@@ -1,6 +1,6 @@
 pipeline:
   build:
-    image: notnoopci/php:7.1-browsers
+    image: notnoopci/php:7.1-browserssdf
     volumes:
       - /tmp/composer-cache:/root/.composer/cache/
     commands:
