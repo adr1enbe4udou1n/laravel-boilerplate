@@ -8,7 +8,7 @@
     "prod": "rimraf public/dist && cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "devDependencies": {
-    "autoprefixer": "^7.2.6",
+    "autoprefixer": "^8.0.0",
     "axios": "^0.17.1",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
@@ -55,7 +55,7 @@
     "turbolinks": "^5.1.1",
     "uglifyjs-webpack-plugin": "^1.1.8",
     "vue": "^2.5.13",
-    "vue-chartjs": "^3.2.0",
+    "vue-chartjs": "^3.2.1",
     "vue-i18n": "^7.4.2",
     "vue-loader": "^14.1.1",
     "vue-router": "^3.0.1",

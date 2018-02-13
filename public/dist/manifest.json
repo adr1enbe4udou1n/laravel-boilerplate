@@ -1,6 +1,6 @@
 {
-  "backend.css": "/dist/css/backend.8234ca710c9b2ec954277b6de347373e.css",
-  "backend.css.map": "/dist/css/backend.8234ca710c9b2ec954277b6de347373e.css.map",
+  "backend.css": "/dist/css/backend.507b81f0bce3bf891dc338eab84693ff.css",
+  "backend.css.map": "/dist/css/backend.507b81f0bce3bf891dc338eab84693ff.css.map",
   "backend.js": "/dist/js/backend.fe9554f2f51fe7cedb14.js",
   "backend.js.map": "/dist/js/backend.fe9554f2f51fe7cedb14.js.map",
   "fonts\\vendor\\Simple-Line-Icons.eot": "/dist/fonts/vendor/Simple-Line-Icons.eot?f33df365d6d0255b586f2920355e94d7",
@@ -17,8 +17,8 @@
   "fonts\\vendor\\slick.svg": "/dist/fonts/vendor/slick.svg?f97e3bbf73254b0112091d0192f17aec",
   "fonts\\vendor\\slick.ttf": "/dist/fonts/vendor/slick.ttf?d41f55a78e6f49a5512878df1737e58a",
   "fonts\\vendor\\slick.woff": "/dist/fonts/vendor/slick.woff?b7c9e1e479de3b53f1e4e30ebac2403a",
-  "frontend.css": "/dist/css/frontend.0e54b8a81f22ab3cf939beda8dd65387.css",
-  "frontend.css.map": "/dist/css/frontend.0e54b8a81f22ab3cf939beda8dd65387.css.map",
+  "frontend.css": "/dist/css/frontend.a33697b80b050739e860330c4ed886a1.css",
+  "frontend.css.map": "/dist/css/frontend.a33697b80b050739e860330c4ed886a1.css.map",
   "frontend.js": "/dist/js/frontend.09579ae231f7053ef807.js",
   "frontend.js.map": "/dist/js/frontend.09579ae231f7053ef807.js.map",
   "images\\logo-symbol.png": "/dist/images/logo-symbol.png?eaca174bbed1c4633466178546f52bce",
@@ -30,8 +30,8 @@
   "locales.js.map": "/dist/js/locales.31d31aeb50146ede649f.js.map",
   "manifest.js": "/dist/js/manifest.bfc7bf31c75ce9f2f670.js",
   "manifest.js.map": "/dist/js/manifest.bfc7bf31c75ce9f2f670.js.map",
-  "vendor_backend.js": "/dist/js/vendor_backend.9863c1f446efb470ce77.js",
-  "vendor_backend.js.map": "/dist/js/vendor_backend.9863c1f446efb470ce77.js.map",
+  "vendor_backend.js": "/dist/js/vendor_backend.ccb77b622c8a2c5f19ae.js",
+  "vendor_backend.js.map": "/dist/js/vendor_backend.ccb77b622c8a2c5f19ae.js.map",
   "vendor_frontend.js": "/dist/js/vendor_frontend.c638c97557c565723f58.js",
   "vendor_frontend.js.map": "/dist/js/vendor_frontend.c638c97557c565723f58.js.map"
 }
