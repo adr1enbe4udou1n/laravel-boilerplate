@@ -44,7 +44,7 @@
 
                             <div class="form-group row">
                                 <div class="col-md-9 ml-auto">
-                                    {!! Captcha::display() !!}
+                                    {!! Form::captcha() !!}
                                 </div>
                             </div>
 

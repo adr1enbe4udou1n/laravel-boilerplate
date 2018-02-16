@@ -30,7 +30,7 @@
                         @if($isLocked)
                         <div class="form-group row">
                             <div class="col-md-8 ml-auto">
-                                {!! Captcha::display() !!}
+                                {!! Form::captcha() !!}
                             </div>
                         </div>
                         @endif

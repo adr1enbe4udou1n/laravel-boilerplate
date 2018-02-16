@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="form-group">
-                    {!! Captcha::display() !!}
+                    {!! Form::captcha() !!}
                 </div>
 
                 <div class="form-group">

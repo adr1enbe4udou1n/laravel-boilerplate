@@ -23,7 +23,7 @@
 
                             @if($isLocked)
                                 <div class="form-group">
-                                    {!! Captcha::display() !!}
+                                    {!! Form::captcha() !!}
                                 </div>
                             @endif
                             <div class="form-group">
