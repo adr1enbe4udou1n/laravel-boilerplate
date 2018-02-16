@@ -20,7 +20,11 @@ export default {
           .get(this.$app.route(`admin.${this.modelName}s.show`,
             {[this.modelName]: this.id}))
           .then((response) => {
-            this.model = response.data
+            Object.keys(response.data).forEach((key) => {
+              if (key in this.model) {
+                this.model[key] = response.data[key]
+              }
+            })
             this.onModelChanged()
           })
       }
