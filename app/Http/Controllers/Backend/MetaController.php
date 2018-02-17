@@ -37,18 +37,22 @@ class MetaController extends BackendController
     public function search(Request $request)
     {
         if ($request->isXmlHttpRequest()) {
-            return $this->searchQuery($request, $this->metas->query(), [
+            $query = $this->metas->query()
+                ->join('meta_translations as mt', 'mt.meta_id', '=', 'metas.id')
+                ->where('mt.locale', '=', app()->getLocale());
+
+            return $this->searchQuery($request, $query, [
                 'metas.id',
                 'route',
                 'metable_type',
                 'metable_id',
+                'mt.title',
+                'mt.description',
                 'created_at',
                 'updated_at',
             ], [
-                'translations' => [
-                    'title',
-                    'description',
-                ],
+                'mt.title',
+                'mt.description',
             ]);
         }
     }

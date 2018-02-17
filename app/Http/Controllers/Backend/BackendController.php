@@ -27,22 +27,11 @@ class BackendController extends Controller
         }
 
         if ($search = $request->get('search')) {
-            foreach ($searchables as $key => $searchableColumn) {
-                if (is_array($searchableColumn)) {
-                    $query->whereHas(
-                        $key, function (Builder $query) use ($searchableColumn, $search) {
-                            foreach ($searchableColumn as $index => $field) {
-                                if (0 === $index) {
-                                    $query->where($field, 'like', "%{$search}%");
-                                    continue;
-                                }
-                                $query->orWhere($field, 'like', "%{$search}%");
-                            }
-                        });
-                    continue;
+            $query->where(function (Builder $query) use ($searchables, $search) {
+                foreach ($searchables as $key => $searchableColumn) {
+                    $query->orWhere($searchableColumn, 'like', "%{$search}%");
                 }
-                $query->orWhere($searchableColumn, 'like', "%{$search}%");
-            }
+            });
         }
 
         return $query->paginate($request->get('perPage'), $columns);
@@ -52,8 +41,8 @@ class BackendController extends Controller
     {
         if ($request->wantsJson()) {
             return response()->json([
-              'status' => $type,
-              'message' => $message,
+                'status' => $type,
+                'message' => $message,
             ]);
         }
 

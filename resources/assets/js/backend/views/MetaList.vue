@@ -58,7 +58,7 @@ export default {
         { key: 'checkbox' },
         { key: 'route', label: this.$t('validation.attributes.route'), sortable: true },
         { key: 'metable_type', label: this.$t('validation.attributes.metable_type'), sortable: true },
-        { key: 'title', label: this.$t('validation.attributes.title') },
+        { key: 'title', label: this.$t('validation.attributes.title'), sortable: true },
         { key: 'description', label: this.$t('validation.attributes.description') },
         { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
         { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },

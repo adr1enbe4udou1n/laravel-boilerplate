@@ -86,21 +86,26 @@ class PostController extends BackendController
                 $query->whereUserId(auth()->id());
             }
 
+            $query
+                ->join('users', 'users.id', '=', 'user_id')
+                ->join('post_translations as pt', 'pt.post_id', '=', 'posts.id')
+                ->where('pt.locale', '=', app()->getLocale());
+
             return $this->searchQuery($request, $query, [
                 'posts.id',
                 'user_id',
+                'users.name as owner',
+                'pt.title',
+                'pt.slug',
                 'status',
                 'pinned',
                 'promoted',
-                'created_at',
-                'updated_at',
+                'posts.created_at',
+                'posts.updated_at',
             ], [
-                'translations' => [
-                    'title',
-                    'summary',
-                    'body',
-                    'slug',
-                ],
+                'pt.title',
+                'pt.summary',
+                'pt.body',
             ]);
         }
     }

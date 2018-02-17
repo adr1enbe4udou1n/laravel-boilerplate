@@ -84,12 +84,12 @@ export default {
       selected: [],
       fields: [
         { key: 'checkbox' },
-        { key: 'image', label: this.$t('validation.attributes.image'), sortable: true },
-        { key: 'title', label: this.$t('validation.attributes.title') },
+        { key: 'image', label: this.$t('validation.attributes.image') },
+        { key: 'title', label: this.$t('validation.attributes.title'), sortable: true },
         { key: 'status', label: this.$t('validation.attributes.status'), 'class': 'text-center' },
         { key: 'pinned', label: this.$t('validation.attributes.pinned'), 'class': 'text-center' },
         { key: 'promoted', label: this.$t('validation.attributes.promoted'), 'class': 'text-center' },
-        { key: 'owner', label: this.$t('labels.author') },
+        { key: 'owner', label: this.$t('labels.author'), sortable: true },
         { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
         { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
         { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
