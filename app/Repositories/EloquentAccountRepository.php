@@ -200,7 +200,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
         $user = $this->query()->find($user->id);
 
         if (empty($user->password) || Hash::check($oldPassword, $user->password)) {
-            $user->password = bcrypt($newPassword);
+            $user->password = Hash::make($newPassword);
 
             return $user->save();
         }

@@ -10,6 +10,7 @@ use App\Events\UserUpdated;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 use App\Exceptions\GeneralException;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Contracts\Config\Repository;
 use App\Repositories\Contracts\RoleRepository;
 use App\Repositories\Contracts\UserRepository;
@@ -79,7 +80,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
         $user = $this->make(Arr::only($input, ['name', 'email', 'active']));
 
         if (isset($input['password'])) {
-            $user->password = bcrypt($input['password']);
+            $user->password = Hash::make($input['password']);
         }
         $user->confirmed = $confirmed;
 
@@ -141,7 +142,7 @@ class EloquentUserRepository extends EloquentBaseRepository implements UserRepos
     private function save(User $user, array $input)
     {
         if (isset($input['password']) && ! empty($input['password'])) {
-            $user->password = bcrypt($input['password']);
+            $user->password = Hash::make($input['password']);
         }
 
         if (! $user->save()) {
