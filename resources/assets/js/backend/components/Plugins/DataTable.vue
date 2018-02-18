@@ -96,69 +96,69 @@ export default {
     onContextChanged () {
       this.$emit('context-changed')
     },
-    loadData (sortBy, sortDesc) {
-      return axios.get(this.$app.route(this.searchRoute), {
-        params: {
-          page: this.currentPage,
-          perPage: this.perPage,
-          column: sortBy,
-          direction: sortDesc ? 'desc' : 'asc',
-          search: this.searchQuery
-        }
-      })
-        .then((response) => {
-          this.totalRows = response.data.total
+    async loadData (sortBy, sortDesc) {
+      try {
+        let {data} = await axios.get(this.$app.route(this.searchRoute), {
+          params: {
+            page: this.currentPage,
+            perPage: this.perPage,
+            column: sortBy,
+            direction: sortDesc ? 'desc' : 'asc',
+            search: this.searchQuery
+          }
+        })
 
-          return response.data.data
-        })
-        .catch((error) => {
-          this.$app.error(error)
-          return []
-        })
+        this.totalRows = data.total
+        return data.data
+      } catch (e) {
+        this.$app.error(e)
+        return []
+      }
     },
-    deleteRow (params) {
-      window.swal({
+    async deleteRow (params) {
+      let result = await window.swal({
         title: this.$t('labels.are_you_sure'),
         type: 'warning',
         showCancelButton: true,
         cancelButtonText: this.$t('buttons.cancel'),
         confirmButtonColor: '#dd4b39',
         confirmButtonText: this.$t('buttons.delete')
-      }).then((result) => {
-        if (result.value) {
-          axios.delete(this.$app.route(this.deleteRoute, params))
-            .then((response) => {
-              this.onContextChanged()
-              this.$app.noty[response.data.status](response.data.message)
-            })
-            .catch((error) => {
-              this.$app.error(error)
-            })
-        }
       })
+
+      if (result.value) {
+        try {
+          let {data} = await axios.delete(this.$app.route(this.deleteRoute, params))
+          this.onContextChanged()
+          this.$app.noty[data.status](data.message)
+        } catch (e) {
+          this.$app.error(e)
+        }
+      }
     },
-    onBulkAction () {
-      window.swal({
+    async onBulkAction () {
+      let result = await window.swal({
         title: this.$t('labels.are_you_sure'),
         type: 'warning',
         showCancelButton: true,
         cancelButtonText: this.$t('buttons.cancel'),
         confirmButtonColor: '#dd4b39',
         confirmButtonText: this.$t('buttons.confirm')
-      }).then((result) => {
-        if (result.value) {
-          axios.post(this.$app.route(this.actionRoute), {
+      })
+
+      if (result.value) {
+        try {
+          let {data} = await axios.post(this.$app.route(this.actionRoute), {
             action: this.action,
             ids: this.selected
-          }).then((response) => {
-            this.onContextChanged()
-            this.$emit('bulk-action-success')
-            this.$app.noty[response.data.status](response.data.message)
-          }).catch((error) => {
-            this.$app.error(error)
           })
+
+          this.onContextChanged()
+          this.$emit('bulk-action-success')
+          this.$app.noty[data.status](data.message)
+        } catch (e) {
+          this.$app.error(e)
         }
-      })
+      }
     }
   }
 }

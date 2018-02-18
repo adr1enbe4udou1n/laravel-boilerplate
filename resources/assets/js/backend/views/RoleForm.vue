@@ -146,23 +146,21 @@ export default {
       }
     }
   },
-  created () {
-    axios
-      .get(this.$app.route(`admin.roles.get_permissions`))
-      .then((response) => {
-        let categories = _.groupBy(_.forEach(response.data, (value, key) => {
-          value['name'] = key
-        }), 'category')
-
-        this.permissions = Object.keys(categories).map((key) => {
-          return {
-            title: key,
-            permissions: categories[key]
-          }
-        })
-      })
-
+  async created () {
     this.fetchData()
+
+    let {data} = await axios.get(this.$app.route(`admin.roles.get_permissions`))
+
+    let categories = _.groupBy(_.forEach(data, (value, key) => {
+      value['name'] = key
+    }), 'category')
+
+    this.permissions = Object.keys(categories).map((key) => {
+      return {
+        title: key,
+        permissions: categories[key]
+      }
+    })
   },
   methods: {
     onModelChanged () {

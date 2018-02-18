@@ -99,13 +99,10 @@ export default {
       posts: []
     }
   },
-  created () {
+  async created () {
     if (this.$app.user.can('view own posts')) {
-      axios
-        .get(this.$app.route('admin.posts.latest'))
-        .then((response) => {
-          this.posts = response.data
-        })
+      let {data} = await axios.get(this.$app.route('admin.posts.latest'))
+      this.posts = data
     }
   }
 }

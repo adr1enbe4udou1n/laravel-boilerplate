@@ -116,19 +116,17 @@ export default {
           this.$app.error(error)
         })
     },
-    onFileImport () {
-      let data = new FormData()
-      data.append('import', this.importFile)
+    async onFileImport () {
+      let formData = new FormData()
+      formData.append('import', this.importFile)
 
-      axios
-        .post(this.$app.route('admin.redirections.import'), data)
-        .then((response) => {
-          this.$refs.datatable.refresh()
-          this.$app.noty[response.data.status](response.data.message)
-        })
-        .catch((error) => {
-          this.$app.error(error)
-        })
+      try {
+        let {data} = await axios.post(this.$app.route('admin.redirections.import'), formData)
+        this.$refs.datatable.refresh()
+        this.$app.noty[data.status](data.message)
+      } catch (e) {
+        this.$app.error(e)
+      }
     }
   }
 }

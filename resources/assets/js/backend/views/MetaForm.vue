@@ -110,16 +110,13 @@ export default {
     }
   },
   methods: {
-    getRoutes (search) {
-      axios
-        .get(this.$app.route('admin.routes.search'), {
-          params: {
-            q: search
-          }
-        })
-        .then((response) => {
-          this.routes = response.data.items
-        })
+    async getRoutes (search) {
+      let {data} = await axios.get(this.$app.route('admin.routes.search'), {
+        params: {
+          q: search
+        }
+      })
+      this.routes = data.items
     }
   }
 }

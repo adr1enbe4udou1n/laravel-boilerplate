@@ -332,16 +332,14 @@ export default {
         })
       }
     },
-    getTags (search) {
-      axios
-        .get(this.$app.route('admin.tags.search'), {
-          params: {
-            q: search
-          }
-        })
-        .then((response) => {
-          this.tagsOptions = response.data.items
-        })
+    async getTags (search) {
+      let {data} = await axios.get(this.$app.route('admin.tags.search'), {
+        params: {
+          q: search
+        }
+      })
+
+      this.tagsOptions = data.items
     }
   }
 }

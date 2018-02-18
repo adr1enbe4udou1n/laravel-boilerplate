@@ -36,8 +36,8 @@ export default {
       }
     }
   },
-  mounted () {
-    window.ClassicEditor
+  async mounted () {
+    let editor = await window.ClassicEditor
       .create(document.querySelector(`#${this.id}`), {
         toolbar: [ 'headings', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'undo', 'redo' ],
         heading: {
@@ -60,12 +60,11 @@ export default {
           uploadUrl: this.$app.route('admin.images.upload')
         }
       })
-      .then((editor) => {
-        editor.document.on('change', () => {
-          this.$emit('input', editor.getData())
-        })
-        this.editor = editor
-      })
+
+    editor.document.on('change', () => {
+      this.$emit('input', editor.getData())
+    })
+    this.editor = editor
   },
   beforeDestroy () {
     this.editor.destroy()

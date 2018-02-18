@@ -14,19 +14,18 @@ export default {
     }
   },
   methods: {
-    fetchData () {
+    async fetchData () {
       if (!this.isNew) {
-        axios
-          .get(this.$app.route(`admin.${this.modelName}s.show`,
-            {[this.modelName]: this.id}))
-          .then((response) => {
-            Object.keys(response.data).forEach((key) => {
-              if (key in this.model) {
-                this.model[key] = response.data[key]
-              }
-            })
-            this.onModelChanged()
-          })
+        let {data} = await axios.get(this.$app.route(`admin.${this.modelName}s.show`, {
+          [this.modelName]: this.id
+        }))
+
+        Object.keys(data).forEach((key) => {
+          if (key in this.model) {
+            this.model[key] = data[key]
+          }
+        })
+        this.onModelChanged()
       }
     },
     onModelChanged () {
@@ -41,38 +40,38 @@ export default {
         ? 'invalid'
         : null
     },
-    onSubmit () {
+    async onSubmit () {
       this.pending = true
       let router = this.$router
       let action = this.isNew ? this.$app.route(
         `admin.${this.modelName}s.store`) : this.$app.route(
         `admin.${this.modelName}s.update`, {[this.modelName]: this.id})
 
-      let data = this.$app.objectToFormData(this.model)
+      let formData = this.$app.objectToFormData(this.model)
 
       if (!this.isNew) {
-        data.append('_method', 'PATCH')
+        formData.append('_method', 'PATCH')
       }
 
-      axios.post(action, data)
-        .then((response) => {
-          this.$app.noty[response.data.status](response.data.message)
-          if (this.listPath) {
-            router.push(this.listPath)
-          }
-        })
-        .catch((error) => {
-          // Validation errors
-          if (error.response.status === 422) {
-            this.validation = error.response.data
-            return
-          }
+      try {
+        let {data} = await axios.post(action, formData)
+        this.pending = false
 
-          this.$app.error(error)
-        })
-        .then(() => {
-          this.pending = false
-        })
+        this.$app.noty[data.status](data.message)
+        if (this.listPath) {
+          router.push(this.listPath)
+        }
+      } catch (e) {
+        this.pending = false
+
+        // Validation errors
+        if (e.response.status === 422) {
+          this.validation = e.response.data
+          return
+        }
+
+        this.$app.error(e)
+      }
     }
   },
   created () {

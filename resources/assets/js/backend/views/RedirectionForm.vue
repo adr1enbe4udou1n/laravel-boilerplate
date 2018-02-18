@@ -107,14 +107,11 @@ export default {
       }
     }
   },
-  created () {
-    axios
-      .get(this.$app.route(`admin.redirections.get_redirection_types`))
-      .then((response) => {
-        this.redirectionTypes = response.data
-      })
-
+  async created () {
     this.fetchData()
+
+    let {data} = await axios.get(this.$app.route(`admin.redirections.get_redirection_types`))
+    this.redirectionTypes = data
   }
 }
 </script>

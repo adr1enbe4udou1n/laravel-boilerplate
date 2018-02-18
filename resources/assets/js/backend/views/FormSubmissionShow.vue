@@ -38,12 +38,9 @@ export default {
       submission: null
     }
   },
-  created () {
-    axios
-      .get(this.$app.route('admin.form_submissions.show', {form_submission: this.id}))
-      .then((response) => {
-        this.submission = response.data
-      })
+  async created () {
+    let {data} = await axios.get(this.$app.route('admin.form_submissions.show', {form_submission: this.id}))
+    this.submission = data
   }
 }
 </script>

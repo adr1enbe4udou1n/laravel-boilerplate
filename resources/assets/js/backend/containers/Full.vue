@@ -69,11 +69,9 @@ export default {
         this.$store.state.counters.pendingPostsCount
       )
     },
-    fetchData () {
-      this.$store.dispatch('LOAD_COUNTERS')
-        .then(() => {
-          this.initNav()
-        })
+    async fetchData () {
+      await this.$store.dispatch('LOAD_COUNTERS')
+      this.initNav()
     }
   }
 }

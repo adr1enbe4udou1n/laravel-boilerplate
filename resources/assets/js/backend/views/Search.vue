@@ -29,17 +29,14 @@ export default {
     this.fetchData()
   },
   methods: {
-    fetchData () {
+    async fetchData () {
       if (this.$route.query.q) {
-        axios
-          .get(this.$app.route('admin.search'), {
-            params: {
-              q: this.$route.query.q
-            }
-          })
-          .then((response) => {
-            this.result = response.data
-          })
+        let {data} = await axios.get(this.$app.route('admin.search'), {
+          params: {
+            q: this.$route.query.q
+          }
+        })
+        this.result = data
       }
     }
   }

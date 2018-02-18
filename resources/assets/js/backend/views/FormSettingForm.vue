@@ -111,19 +111,17 @@ export default {
       }
     }
   },
-  created () {
-    axios
-      .get(this.$app.route(`admin.${this.modelName}s.get_form_types`))
-      .then((response) => {
-        for (let propertyName in response.data) {
-          this.formTypes.push({
-            value: propertyName,
-            text: response.data[propertyName]
-          })
-        }
-      })
-
+  async created () {
     this.fetchData()
+
+    let {data} = await axios.get(this.$app.route(`admin.${this.modelName}s.get_form_types`))
+
+    for (let propertyName in data) {
+      this.formTypes.push({
+        value: propertyName,
+        text: data[propertyName]
+      })
+    }
   }
 }
 </script>

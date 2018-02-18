@@ -148,14 +148,10 @@ export default {
       }
     }
   },
-  created () {
-    axios
-      .get(this.$app.route(`admin.users.get_roles`))
-      .then((response) => {
-        this.roles = response.data
-      })
-
+  async created () {
     this.fetchData()
+    let {data} = await axios.get(this.$app.route(`admin.users.get_roles`))
+    this.roles = data
   },
   methods: {
     onModelChanged () {
