@@ -1708,16 +1708,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.6.3",
+            "version": "v5.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "db3e5422070d9b5166493313142b30419efab207"
+                "reference": "ca5ce9e559e1a8f6455f0fbc42638e6e066f73de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/db3e5422070d9b5166493313142b30419efab207",
-                "reference": "db3e5422070d9b5166493313142b30419efab207",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/ca5ce9e559e1a8f6455f0fbc42638e6e066f73de",
+                "reference": "ca5ce9e559e1a8f6455f0fbc42638e6e066f73de",
                 "shasum": ""
             },
             "require": {
@@ -1728,7 +1728,7 @@
                 "ext-openssl": "*",
                 "league/flysystem": "~1.0",
                 "monolog/monolog": "~1.12",
-                "nesbot/carbon": "~1.20",
+                "nesbot/carbon": "^1.22.1",
                 "php": "^7.1.3",
                 "psr/container": "~1.0",
                 "psr/simple-cache": "^1.0",
@@ -1774,7 +1774,7 @@
                 "illuminate/translation": "self.version",
                 "illuminate/validation": "self.version",
                 "illuminate/view": "self.version",
-                "tightenco/collect": "self.version"
+                "tightenco/collect": "<5.5.33"
             },
             "require-dev": {
                 "aws/aws-sdk-php": "~3.0",
@@ -1839,7 +1839,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2018-02-09T13:33:22+00:00"
+            "time": "2018-02-21T14:41:25+00:00"
         },
         {
             "name": "laravel/scout",
@@ -2379,20 +2379,20 @@
         },
         {
             "name": "mcamara/laravel-localization",
-            "version": "v1.3.4",
+            "version": "v1.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mcamara/laravel-localization.git",
-                "reference": "fc2188a82611507f85f2219664b0d789f3d38212"
+                "reference": "5fb98b9687613cfccc01469aee6f4a725be98ede"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mcamara/laravel-localization/zipball/fc2188a82611507f85f2219664b0d789f3d38212",
-                "reference": "fc2188a82611507f85f2219664b0d789f3d38212",
+                "url": "https://api.github.com/repos/mcamara/laravel-localization/zipball/5fb98b9687613cfccc01469aee6f4a725be98ede",
+                "reference": "5fb98b9687613cfccc01469aee6f4a725be98ede",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "~5.2||~5.3||~5.4||~5.5",
+                "laravel/framework": "~5.2||~5.3||~5.4||~5.5||~5.6",
                 "php": ">=7.0.0"
             },
             "require-dev": {
@@ -2437,7 +2437,7 @@
                 "localization",
                 "php"
             ],
-            "time": "2018-01-23T15:10:21+00:00"
+            "time": "2018-02-19T09:28:24+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2729,16 +2729,16 @@
         },
         {
             "name": "plank/laravel-mediable",
-            "version": "2.6.0",
+            "version": "2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/plank/laravel-mediable.git",
-                "reference": "646c4191f13d0e8182b1075a95f67933d7af105d"
+                "reference": "ef5751688b06b754d638f547195a3c5f7c46eb7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/plank/laravel-mediable/zipball/646c4191f13d0e8182b1075a95f67933d7af105d",
-                "reference": "646c4191f13d0e8182b1075a95f67933d7af105d",
+                "url": "https://api.github.com/repos/plank/laravel-mediable/zipball/ef5751688b06b754d638f547195a3c5f7c46eb7b",
+                "reference": "ef5751688b06b754d638f547195a3c5f7c46eb7b",
                 "shasum": ""
             },
             "require": {
@@ -2790,7 +2790,7 @@
                 "media",
                 "uploader"
             ],
-            "time": "2018-02-13T15:03:10+00:00"
+            "time": "2018-02-20T14:16:49+00:00"
         },
         {
             "name": "psr/container",
@@ -4852,16 +4852,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v2.10.2",
+            "version": "v2.10.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "74e4682a4073bc8bc2d4ff2b30a4873ac76cc1f1"
+                "reference": "1634a2c250bf4640f1c5c963f63b413c2d966c8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/74e4682a4073bc8bc2d4ff2b30a4873ac76cc1f1",
-                "reference": "74e4682a4073bc8bc2d4ff2b30a4873ac76cc1f1",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/1634a2c250bf4640f1c5c963f63b413c2d966c8a",
+                "reference": "1634a2c250bf4640f1c5c963f63b413c2d966c8a",
                 "shasum": ""
             },
             "require": {
@@ -4869,7 +4869,6 @@
                 "doctrine/annotations": "^1.2",
                 "ext-json": "*",
                 "ext-tokenizer": "*",
-                "gecko-packages/gecko-php-unit": "^2.0 || ^3.0",
                 "php": "^5.6 || >=7.0 <7.3",
                 "php-cs-fixer/diff": "^1.2",
                 "symfony/console": "^3.2 || ^4.0",
@@ -4913,6 +4912,7 @@
                     "tests/Test/AbstractIntegrationCaseFactory.php",
                     "tests/Test/AbstractIntegrationTestCase.php",
                     "tests/Test/Assert/AssertTokensTrait.php",
+                    "tests/Test/Constraint/SameStringsConstraint.php",
                     "tests/Test/IntegrationCase.php",
                     "tests/Test/IntegrationCaseFactory.php",
                     "tests/Test/IntegrationCaseFactoryInterface.php",
@@ -4935,7 +4935,7 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
-            "time": "2018-02-03T08:30:06+00:00"
+            "time": "2018-02-22T16:49:33+00:00"
         },
         {
             "name": "fzaninotto/faker",
@@ -4986,58 +4986,6 @@
                 "fixtures"
             ],
             "time": "2017-08-15T16:48:10+00:00"
-        },
-        {
-            "name": "gecko-packages/gecko-php-unit",
-            "version": "v3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/GeckoPackages/GeckoPHPUnit.git",
-                "reference": "dbb18b292cfa14444d2e6d15202b9dcf5ab8365e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/GeckoPackages/GeckoPHPUnit/zipball/dbb18b292cfa14444d2e6d15202b9dcf5ab8365e",
-                "reference": "dbb18b292cfa14444d2e6d15202b9dcf5ab8365e",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.0"
-            },
-            "conflict": {
-                "phpunit/phpunit": "<6.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^6.0"
-            },
-            "suggest": {
-                "ext-dom": "When testing with xml.",
-                "ext-libxml": "When testing with xml.",
-                "phpunit/phpunit": "This is an extension for PHPUnit so make sure you have that in some way."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GeckoPackages\\PHPUnit\\": "src/PHPUnit"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Additional PHPUnit asserts and constraints.",
-            "homepage": "https://github.com/GeckoPackages",
-            "keywords": [
-                "extension",
-                "filesystem",
-                "phpunit"
-            ],
-            "time": "2018-01-24T18:03:59+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
@@ -5627,16 +5575,16 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.7.4",
+            "version": "1.7.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "9f901e29c93dae4aa77c0bb161df4276f9c9a1be"
+                "reference": "dfd6be44111a7c41c2e884a336cc4f461b3b2401"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/9f901e29c93dae4aa77c0bb161df4276f9c9a1be",
-                "reference": "9f901e29c93dae4aa77c0bb161df4276f9c9a1be",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/dfd6be44111a7c41c2e884a336cc4f461b3b2401",
+                "reference": "dfd6be44111a7c41c2e884a336cc4f461b3b2401",
                 "shasum": ""
             },
             "require": {
@@ -5686,7 +5634,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2018-02-11T18:49:29+00:00"
+            "time": "2018-02-19T10:16:54+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
