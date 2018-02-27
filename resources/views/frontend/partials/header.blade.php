@@ -13,11 +13,11 @@
                 <a class="nav-link {{ active_class(if_route('about')) }}"
                    href="{{ route('about') }}">@lang('labels.frontend.titles.about')</a>
                 @if(config('blog.enabled'))
-                    <a class="nav-link {{ active_class(if_route('blog.*')) }}"
+                    <a class="nav-link {{ active_class(if_route_pattern('blog.*')) }}"
                        href="{{ route('blog.index') }}">@lang('labels.frontend.titles.blog')</a>
                 @endif
-                    <a class="nav-link {{ active_class(if_route('contact')) }}"
-                       href="{{ route('contact') }}" data-turbolinks="false">@lang('labels.frontend.titles.contact')</a>
+                <a class="nav-link {{ active_class(if_route('contact')) }}"
+                   href="{{ route('contact') }}" data-turbolinks="false">@lang('labels.frontend.titles.contact')</a>
             </div>
 
             <div class="navbar-nav">
