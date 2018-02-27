@@ -1,8 +1,8 @@
 {
-  "backend.css": "/dist/css/backend.6467d57a4f55b7f6e0ff798207c4c77b.css",
-  "backend.css.map": "/dist/css/backend.6467d57a4f55b7f6e0ff798207c4c77b.css.map",
-  "backend.js": "/dist/js/backend.35d08e244414757a0596.js",
-  "backend.js.map": "/dist/js/backend.35d08e244414757a0596.js.map",
+  "backend.css": "/dist/css/backend.68fe078e55a828fed68e974f887c0d55.css",
+  "backend.css.map": "/dist/css/backend.68fe078e55a828fed68e974f887c0d55.css.map",
+  "backend.js": "/dist/js/backend.0f989945c28e4ae89252.js",
+  "backend.js.map": "/dist/js/backend.0f989945c28e4ae89252.js.map",
   "fonts\\vendor\\Simple-Line-Icons.eot": "/dist/fonts/vendor/Simple-Line-Icons.eot?f33df365d6d0255b586f2920355e94d7",
   "fonts\\vendor\\Simple-Line-Icons.svg": "/dist/fonts/vendor/Simple-Line-Icons.svg?2fe2efe63441d830b1acd106c1fe8734",
   "fonts\\vendor\\Simple-Line-Icons.ttf?v=2.4.0": "/dist/fonts/vendor/Simple-Line-Icons.ttf?d2285965fe34b05465047401b8595dd0",
@@ -30,8 +30,8 @@
   "locales.js.map": "/dist/js/locales.31d31aeb50146ede649f.js.map",
   "manifest.js": "/dist/js/manifest.bfc7bf31c75ce9f2f670.js",
   "manifest.js.map": "/dist/js/manifest.bfc7bf31c75ce9f2f670.js.map",
-  "vendor_backend.js": "/dist/js/vendor_backend.8808f9c3fd56c3d2e6ac.js",
-  "vendor_backend.js.map": "/dist/js/vendor_backend.8808f9c3fd56c3d2e6ac.js.map",
-  "vendor_frontend.js": "/dist/js/vendor_frontend.14951111062290988b76.js",
-  "vendor_frontend.js.map": "/dist/js/vendor_frontend.14951111062290988b76.js.map"
+  "vendor_backend.js": "/dist/js/vendor_backend.a5e971793054ee18df92.js",
+  "vendor_backend.js.map": "/dist/js/vendor_backend.a5e971793054ee18df92.js.map",
+  "vendor_frontend.js": "/dist/js/vendor_frontend.318d06ae25ddc3ac6085.js",
+  "vendor_frontend.js.map": "/dist/js/vendor_frontend.318d06ae25ddc3ac6085.js.map"
 }

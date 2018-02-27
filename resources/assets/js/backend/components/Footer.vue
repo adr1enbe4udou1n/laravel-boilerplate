@@ -6,7 +6,7 @@
       <template v-if="editorName !== ''">
         <template v-if="editorSiteUrl !== ''">
           <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <a
-          :href="editorSiteUrl" target="_blank"><strong>{{ editorName }}</strong></a>
+            :href="editorSiteUrl" target="_blank"><strong>{{ editorName }}</strong></a>
         </template>
         <template v-else>
           <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <strong>{{ editorName }}</strong>

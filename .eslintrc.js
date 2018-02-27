@@ -20,6 +20,7 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'prefer-arrow-callback': 'error',
     'vue/max-attributes-per-line': 'off',
+    'vue/attributes-order': 'off',
     'vue/html-self-closing': ['error', {
       html: {
         void: 'never',
