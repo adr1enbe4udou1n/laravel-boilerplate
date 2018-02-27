@@ -4,11 +4,10 @@ pipeline:
     volumes:
       - /tmp/composer-cache:/root/.composer/cache/
     commands:
-      - sudo cp .env.dusk .env
-      - sudo composer install --ignore-platform-reqs
-      - sudo php artisan key:generate
-      - sudo touch database/database.sqlite
-      - sudo ./vendor/bin/phpunit
-      - sudo ./vendor/laravel/dusk/bin/chromedriver-linux &
-      - sudo php artisan serve &
-      - sudo php artisan dusk
+      - cp .env.dusk .env
+      - composer install --ignore-platform-reqs
+      - php artisan key:generate
+      - php artisan migrate
+      - ./vendor/bin/phpunit
+      - php artisan serve &
+      - php artisan dusk
