@@ -4,10 +4,10 @@ pipeline:
     volumes:
       - /tmp/composer-cache:/root/.composer/cache/
     commands:
-      - cp .env.dusk .env
-      - composer install --ignore-platform-reqs
-      - php artisan key:generate
-      - php artisan migrate
-      - ./vendor/bin/phpunit
-      - php artisan serve &
-      - php artisan dusk
+      - sudo cp .env.dusk .env
+      - sudo composer install --ignore-platform-reqs
+      - sudo php artisan key:generate
+      - sudo php artisan migrate
+      - sudo ./vendor/bin/phpunit
+      - sudo php artisan serve &
+      - sudo php artisan dusk
