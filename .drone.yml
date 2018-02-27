@@ -6,6 +6,7 @@ pipeline:
     commands:
       - sudo cp .env.dusk .env
       - sudo composer install --ignore-platform-reqs
+      - sudo php artisan key:generate
       - sudo touch database/database.sqlite
       - sudo ./vendor/bin/phpunit
       - sudo php artisan serve &
