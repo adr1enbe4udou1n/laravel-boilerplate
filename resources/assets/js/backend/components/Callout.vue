@@ -8,7 +8,8 @@
 export default {
   props: {
     variant: {
-      type: String
+      type: String,
+      default: ''
     }
   },
   computed: {
