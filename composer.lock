@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "arcanedev/no-captcha",
-            "version": "6.0.0",
+            "version": "6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ARCANEDEV/noCAPTCHA.git",
-                "reference": "4b28e5efeb887d302ec310c40d3b0145632f7756"
+                "reference": "535418964940bd7ecf2a32492794036daabf0147"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ARCANEDEV/noCAPTCHA/zipball/4b28e5efeb887d302ec310c40d3b0145632f7756",
-                "reference": "4b28e5efeb887d302ec310c40d3b0145632f7756",
+                "url": "https://api.github.com/repos/ARCANEDEV/noCAPTCHA/zipball/535418964940bd7ecf2a32492794036daabf0147",
+                "reference": "535418964940bd7ecf2a32492794036daabf0147",
                 "shasum": ""
             },
             "require": {
@@ -68,7 +68,7 @@
                 "no-captcha",
                 "recaptcha"
             ],
-            "time": "2018-02-12T06:23:44+00:00"
+            "time": "2018-03-09T19:00:49+00:00"
         },
         {
             "name": "arcanedev/support",
@@ -1709,16 +1709,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.6.11",
+            "version": "v5.6.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "195ba6a67bdad2a23105c7ab410cd43e0f20bb73"
+                "reference": "82d8165d1ea86bdd81ddfa1db9343fa19e7d1450"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/195ba6a67bdad2a23105c7ab410cd43e0f20bb73",
-                "reference": "195ba6a67bdad2a23105c7ab410cd43e0f20bb73",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/82d8165d1ea86bdd81ddfa1db9343fa19e7d1450",
+                "reference": "82d8165d1ea86bdd81ddfa1db9343fa19e7d1450",
                 "shasum": ""
             },
             "require": {
@@ -1727,7 +1727,7 @@
                 "erusev/parsedown": "~1.7",
                 "ext-mbstring": "*",
                 "ext-openssl": "*",
-                "league/flysystem": "~1.0",
+                "league/flysystem": "^1.0.8",
                 "monolog/monolog": "~1.12",
                 "nesbot/carbon": "^1.24.1",
                 "php": "^7.1.3",
@@ -1843,20 +1843,20 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2018-03-09T16:53:27+00:00"
+            "time": "2018-03-14T17:29:38+00:00"
         },
         {
             "name": "laravel/scout",
-            "version": "v4.0.1",
+            "version": "v4.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/scout.git",
-                "reference": "28a88fa764cd2bf0225e427b067a024f7cbb5d4f"
+                "reference": "297d9c5ef94c3f70e9c76b87a02d4b527698956e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/scout/zipball/28a88fa764cd2bf0225e427b067a024f7cbb5d4f",
-                "reference": "28a88fa764cd2bf0225e427b067a024f7cbb5d4f",
+                "url": "https://api.github.com/repos/laravel/scout/zipball/297d9c5ef94c3f70e9c76b87a02d4b527698956e",
+                "reference": "297d9c5ef94c3f70e9c76b87a02d4b527698956e",
                 "shasum": ""
             },
             "require": {
@@ -1908,7 +1908,7 @@
                 "laravel",
                 "search"
             ],
-            "time": "2018-02-12T14:35:52+00:00"
+            "time": "2018-03-16T18:00:44+00:00"
         },
         {
             "name": "laravel/socialite",
@@ -2383,16 +2383,16 @@
         },
         {
             "name": "mcamara/laravel-localization",
-            "version": "v1.3.5",
+            "version": "v1.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mcamara/laravel-localization.git",
-                "reference": "5fb98b9687613cfccc01469aee6f4a725be98ede"
+                "reference": "68a06bcb5406083f2dbe8ac6f2344aa85381b655"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mcamara/laravel-localization/zipball/5fb98b9687613cfccc01469aee6f4a725be98ede",
-                "reference": "5fb98b9687613cfccc01469aee6f4a725be98ede",
+                "url": "https://api.github.com/repos/mcamara/laravel-localization/zipball/68a06bcb5406083f2dbe8ac6f2344aa85381b655",
+                "reference": "68a06bcb5406083f2dbe8ac6f2344aa85381b655",
                 "shasum": ""
             },
             "require": {
@@ -2441,7 +2441,7 @@
                 "localization",
                 "php"
             ],
-            "time": "2018-02-19T09:28:24+00:00"
+            "time": "2018-03-15T17:23:53+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2523,16 +2523,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.24.1",
+            "version": "1.24.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "ef12cbd8ba5ce624f0a6a95e0850c4cc13e71e41"
+                "reference": "bba6c6e410c6b4317e37a9474aeaa753808c3875"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/ef12cbd8ba5ce624f0a6a95e0850c4cc13e71e41",
-                "reference": "ef12cbd8ba5ce624f0a6a95e0850c4cc13e71e41",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/bba6c6e410c6b4317e37a9474aeaa753808c3875",
+                "reference": "bba6c6e410c6b4317e37a9474aeaa753808c3875",
                 "shasum": ""
             },
             "require": {
@@ -2572,7 +2572,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-03-09T15:49:34+00:00"
+            "time": "2018-03-10T10:10:14+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -2733,16 +2733,16 @@
         },
         {
             "name": "plank/laravel-mediable",
-            "version": "2.6.1",
+            "version": "2.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/plank/laravel-mediable.git",
-                "reference": "ef5751688b06b754d638f547195a3c5f7c46eb7b"
+                "reference": "82693b231275ce713112ab69db1644adf23725b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/plank/laravel-mediable/zipball/ef5751688b06b754d638f547195a3c5f7c46eb7b",
-                "reference": "ef5751688b06b754d638f547195a3c5f7c46eb7b",
+                "url": "https://api.github.com/repos/plank/laravel-mediable/zipball/82693b231275ce713112ab69db1644adf23725b6",
+                "reference": "82693b231275ce713112ab69db1644adf23725b6",
                 "shasum": ""
             },
             "require": {
@@ -2794,7 +2794,7 @@
                 "media",
                 "uploader"
             ],
-            "time": "2018-02-20T14:16:49+00:00"
+            "time": "2018-03-11T14:28:37+00:00"
         },
         {
             "name": "psr/container",
