@@ -36,9 +36,8 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 
     <!-- Scripts -->
-    <script defer src="{{ Html::asset('manifest.js') }}"></script>
+    <script defer src="{{ Html::asset('vendor.js') }}"></script>
     <script defer src="{{ Html::asset('locales.js') }}"></script>
-    <script defer src="{{ Html::asset('vendor_frontend.js') }}"></script>
     <script defer src="{{ Html::asset('frontend.js') }}"></script>
 </head>
 <body class="@yield('body_class')">

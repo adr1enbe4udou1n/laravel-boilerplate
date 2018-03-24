@@ -27,7 +27,7 @@
         "martinlindhe/laravel-vue-i18n-generator": "^0.1.22",
         "mcamara/laravel-localization": "^1.3",
         "plank/laravel-mediable": "^2.5",
-        "rap2hpoutre/laravel-log-viewer": "^0.13.0",
+        "rap2hpoutre/laravel-log-viewer": "^0.14.3",
         "roumen/sitemap": "^2.8",
         "stevebauman/purify": "^2.0",
         "teamtnt/laravel-scout-tntsearch-driver": "^3.0",

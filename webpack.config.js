@@ -2,7 +2,6 @@ require('dotenv').config()
 const path = require('path')
 const webpack = require('webpack')
 
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
@@ -26,9 +25,6 @@ module.exports = {
     backend: [
       './resources/assets/js/backend/app.js',
       './resources/assets/sass/backend/app.scss'
-    ],
-    locales: [
-      './resources/assets/js/vue-i18n-locales.generated.js'
     ]
   },
   output: {
@@ -83,7 +79,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif)$/,
-        loaders: [
+        use: [
           {
             loader: 'file-loader',
             options: {
@@ -123,6 +119,22 @@ module.exports = {
       }
     ]
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /node_modules/,
+          name: 'vendor',
+          chunks: 'initial'
+        },
+        locales: {
+          test: /vue-i18n-locales/,
+          name: 'locales',
+          chunks: 'initial'
+        }
+      }
+    }
+  },
   plugins: [
     new webpack.IgnorePlugin(/jsdom$/),
     new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /fr/),
@@ -130,27 +142,6 @@ module.exports = {
       clearConsole: false
     }),
     new WebpackNotifierPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor_frontend',
-      chunks: ['frontend'],
-      minChunks: (module) => {
-        return module.context && module.context.includes('node_modules')
-      }
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor_backend',
-      chunks: ['backend'],
-      minChunks: (module) => {
-        return module.context && module.context.includes('node_modules')
-      }
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      names: [
-        'locales',
-        'manifest'
-      ],
-      minChunks: Infinity
-    }),
     new LodashModuleReplacementPlugin({
       collections: true,
       shorthands: true
@@ -175,9 +166,6 @@ module.exports = {
     jquery: 'jQuery',
     'popper.js': 'Popper'
   },
-  performance: {
-    hints: false
-  },
   devtool: production ? 'source-map' : 'cheap-module-eval-source-map',
   devServer: {
     contentBase: path.resolve(__dirname, 'public'),
@@ -188,34 +176,14 @@ module.exports = {
     compress: true,
     noInfo: true,
     quiet: true,
-    watchOptions: {
-      ignored: /node_modules/
-    },
     port: devServerPort
   }
 }
 
 let plugins = []
 
-if (hmr) {
-  plugins = [
-    new webpack.NamedModulesPlugin()
-  ]
-}
-
 if (production) {
   plugins = [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
-    }),
-    new UglifyJsPlugin({
-      parallel: true,
-      sourceMap: true
-    }),
-    new webpack.HashedModuleIdsPlugin(),
-    new webpack.optimize.ModuleConcatenationPlugin(),
     new BundleAnalyzerPlugin()
   ]
 }

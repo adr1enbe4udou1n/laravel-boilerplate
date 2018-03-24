@@ -42,9 +42,8 @@
     <script defer src="https://cdn.ckeditor.com/ckeditor5/1.0.0-alpha.2/classic/ckeditor.js"></script>
 
     <!-- Scripts -->
-    <script defer src="{{ Html::asset('manifest.js') }}"></script>
+    <script defer src="{{ Html::asset('vendor.js') }}"></script>
     <script defer src="{{ Html::asset('locales.js') }}"></script>
-    <script defer src="{{ Html::asset('vendor_backend.js') }}"></script>
     <script defer src="{{ Html::asset('backend.js') }}"></script>
 </head>
 <body class="app @yield('body_class')">
