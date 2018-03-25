@@ -17,7 +17,7 @@
     @endif
 
     <!-- Styles -->
-    @if ($stylePath = Html::asset('frontend.css'))
+    @if ($stylePath = Html::asset('frontend', 'frontend.css'))
     <link rel="stylesheet" href="{{ $stylePath }}">
     @endif
 
@@ -37,10 +37,8 @@
     <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <!-- Scripts -->
-    <script defer src="{{ Html::asset('vendor.js') }}"></script>
-    <script defer src="{{ Html::asset('vendor_backend.js') }}"></script>
-    <script defer src="{{ Html::asset('locales.js') }}"></script>
-    <script defer src="{{ Html::asset('frontend.js') }}"></script>
+    <script defer src="{{ Html::asset('frontend', 'vendor-frontend.js') }}"></script>
+    <script defer src="{{ Html::asset('frontend', 'frontend.js') }}"></script>
 </head>
 <body class="@yield('body_class')">
     @include('frontend.scripts.gtmiframe')

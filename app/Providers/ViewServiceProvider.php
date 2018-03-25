@@ -25,13 +25,13 @@ class ViewServiceProvider extends ServiceProvider
         FormFacade::component('bsSelect', 'components.form.select', ['name', 'list' => [], 'selected' => null, 'attributes' => []]);
         FormFacade::component('bsCheckbox', 'components.form.custom-control', ['name', 'description', 'value' => null, 'type' => 'checkbox']);
 
-        HtmlFacade::macro('asset', function ($path) {
+        HtmlFacade::macro('asset', function ($manifestName, $path) {
             static $manifest;
 
             $basePath = app()->environment('production') ? 'dist' : 'build';
 
             if (! $manifest
-                && file_exists($manifestPath = public_path("{$basePath}/manifest.json"))
+                && file_exists($manifestPath = public_path("{$basePath}/manifest-{$manifestName}.json"))
             ) {
                 $manifest = json_decode(file_get_contents($manifestPath), true);
             }

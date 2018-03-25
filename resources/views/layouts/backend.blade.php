@@ -11,7 +11,7 @@
     <title>Administration | {{ config('app.name') }}</title>
 
     <!-- Styles -->
-    @if ($stylePath = Html::asset('backend.css'))
+    @if ($stylePath = Html::asset('backend', 'backend.css'))
     <link rel="stylesheet" href="{{ $stylePath }}">
     @endif
 
@@ -42,10 +42,8 @@
     <script defer src="https://cdn.ckeditor.com/ckeditor5/1.0.0-alpha.2/classic/ckeditor.js"></script>
 
     <!-- Scripts -->
-    <script defer src="{{ Html::asset('vendor.js') }}"></script>
-    <script defer src="{{ Html::asset('vendor_backend.js') }}"></script>
-    <script defer src="{{ Html::asset('locales.js') }}"></script>
-    <script defer src="{{ Html::asset('backend.js') }}"></script>
+    <script defer src="{{ Html::asset('backend', 'vendor-backend.js') }}"></script>
+    <script defer src="{{ Html::asset('backend', 'backend.js') }}"></script>
 </head>
 <body class="app @yield('body_class')">
     @yield('body')

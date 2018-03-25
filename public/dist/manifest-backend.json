@@ -1,0 +1,20 @@
+{
+  "vendor-backend.js": "/dist/js/vendor-backend.d3fcd38c6afc9aa3f2a0.js",
+  "vendor-backend.js.map": "/dist/js/vendor-backend.d3fcd38c6afc9aa3f2a0.js.map",
+  "backend.js": "/dist/js/backend.78d76a2b970115d3c13a.js",
+  "backend.css": "/dist/css/backend.eac7f741f75ea0c3958c866ce882064b.css",
+  "backend.js.map": "/dist/js/backend.78d76a2b970115d3c13a.js.map",
+  "backend.css.map": "/dist/css/backend.eac7f741f75ea0c3958c866ce882064b.css.map",
+  "fonts/vendor-backend/fontawesome-webfont.woff?v=4.7.0": "/dist/fonts/vendor-backend/fontawesome-webfont.woff?fee66e712a8a08eef5805a46892932ad",
+  "fonts/vendor-backend/Simple-Line-Icons.eot?v=2.4.0": "/dist/fonts/vendor-backend/Simple-Line-Icons.eot?f33df365d6d0255b586f2920355e94d7",
+  "images/logo.png": "/dist/images/logo.png?01fb1da17b77e9ca7f9e946a4b0dd92c",
+  "fonts/vendor-backend/Simple-Line-Icons.svg?v=2.4.0": "/dist/fonts/vendor-backend/Simple-Line-Icons.svg?2fe2efe63441d830b1acd106c1fe8734",
+  "fonts/vendor-backend/Simple-Line-Icons.woff?v=2.4.0": "/dist/fonts/vendor-backend/Simple-Line-Icons.woff?78f07e2c2a535c26ef21d95e41bd7175",
+  "fonts/vendor-backend/Simple-Line-Icons.ttf?v=2.4.0": "/dist/fonts/vendor-backend/Simple-Line-Icons.ttf?d2285965fe34b05465047401b8595dd0",
+  "fonts/vendor-backend/Simple-Line-Icons.woff2?v=2.4.0": "/dist/fonts/vendor-backend/Simple-Line-Icons.woff2?0cb0b9c589c0624c9c78dd3d83e946f6",
+  "fonts/vendor-backend/fontawesome-webfont.svg?v=4.7.0": "/dist/fonts/vendor-backend/fontawesome-webfont.svg?912ec66d7572ff821749319396470bde",
+  "fonts/vendor-backend/fontawesome-webfont.ttf?v=4.7.0": "/dist/fonts/vendor-backend/fontawesome-webfont.ttf?b06871f281fee6b241d60582ae9369b9",
+  "images/logo-symbol.png": "/dist/images/logo-symbol.png?eaca174bbed1c4633466178546f52bce",
+  "fonts/vendor-backend/fontawesome-webfont.woff2?v=4.7.0": "/dist/fonts/vendor-backend/fontawesome-webfont.woff2?af7ae505a9eed503f8b8e6982036873e",
+  "fonts/vendor-backend/fontawesome-webfont.eot?v=4.7.0": "/dist/fonts/vendor-backend/fontawesome-webfont.eot?674f50d287a8c48dc19ba404d20fe713"
+}
