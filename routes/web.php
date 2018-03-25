@@ -13,7 +13,3 @@
 
 Route::get('robots.txt', 'SeoController@robots');
 Route::get('sitemap.xml', 'SeoController@sitemap');
-
-Route::group(['middleware' => ['auth', 'can:access backend']], function () {
-    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
-});
