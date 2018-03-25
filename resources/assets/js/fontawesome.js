@@ -1,4 +1,8 @@
-import { faHome } from '@fortawesome/fontawesome-free-solid'
+import {
+  faHome,
+  faCode,
+  faHeart
+} from '@fortawesome/fontawesome-free-solid'
 import {
   faFacebook,
   faTwitter,
@@ -10,6 +14,6 @@ import {
 } from '@fortawesome/fontawesome-free-brands'
 import fontawesome from '@fortawesome/fontawesome'
 
-fontawesome.library.add(faHome, faFacebook, faTwitter, faGoogle, faLinkedin, faGithub, faBitbucket, faPinterest)
+fontawesome.library.add(faHome, faCode, faHeart, faFacebook, faTwitter, faGoogle, faLinkedin, faGithub, faBitbucket, faPinterest)
 
 export { fontawesome }

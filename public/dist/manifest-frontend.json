@@ -1,9 +1,9 @@
 {
-  "vendor-frontend.js": "/dist/js/vendor-frontend.7a8bf2daa94980171254.js",
-  "vendor-frontend.js.map": "/dist/js/vendor-frontend.7a8bf2daa94980171254.js.map",
-  "frontend.js": "/dist/js/frontend.b4ec58d78ad3c07bb739.js",
+  "vendor-frontend.js": "/dist/js/vendor-frontend.338297ebba85aa266dae.js",
+  "vendor-frontend.js.map": "/dist/js/vendor-frontend.338297ebba85aa266dae.js.map",
+  "frontend.js": "/dist/js/frontend.ba20547e3e9d31cf0234.js",
   "frontend.css": "/dist/css/frontend.bc2f939ef51cdd36505842af44bb04bf.css",
-  "frontend.js.map": "/dist/js/frontend.b4ec58d78ad3c07bb739.js.map",
+  "frontend.js.map": "/dist/js/frontend.ba20547e3e9d31cf0234.js.map",
   "frontend.css.map": "/dist/css/frontend.bc2f939ef51cdd36505842af44bb04bf.css.map",
   "fonts/vendor-frontend/Simple-Line-Icons.woff": "/dist/fonts/vendor-frontend/Simple-Line-Icons.woff?78f07e2c2a535c26ef21d95e41bd7175",
   "fonts/vendor-frontend/slick.eot": "/dist/fonts/vendor-frontend/slick.eot?ced611daf7709cc778da928fec876475",
