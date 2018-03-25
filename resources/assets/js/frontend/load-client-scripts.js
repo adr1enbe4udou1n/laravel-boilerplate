@@ -1,3 +1,4 @@
+import { fontawesome } from '../fontawesome'
 import 'slick-carousel'
 import 'intl-tel-input'
 import 'pwstrength-bootstrap/dist/pwstrength-bootstrap'
@@ -59,6 +60,21 @@ export default (createApp) => {
     app.$mount('#app')
 
     /**
+     * Bind all bootstrap tooltips
+     */
+    $('[data-toggle="tooltip"]').tooltip()
+
+    /**
+     * Bind all bootstrap popovers
+     */
+    $('[data-toggle="popover"]').popover()
+
+    /**
+     * Fonts
+     */
+    fontawesome.dom.i2svg()
+
+    /**
      * Slick
      */
     $('[data-toggle="slider"]')
@@ -84,16 +100,6 @@ export default (createApp) => {
           }
         ]
       })
-
-    /**
-     * Bind all bootstrap tooltips
-     */
-    $('[data-toggle="tooltip"]').tooltip()
-
-    /**
-     * Bind all bootstrap popovers
-     */
-    $('[data-toggle="popover"]').popover()
 
     /**
      * Bind all swal confirm buttons

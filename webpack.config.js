@@ -164,7 +164,9 @@ function getEntryConfig (name, analyzerPort) {
     resolve: {
       extensions: ['.js', '.vue', '.json'],
       alias: {
-        'vue$': 'vue/dist/vue.esm.js'
+        'vue$': 'vue/dist/vue.esm.js',
+        '@fortawesome/fontawesome-free-solid$': '@fortawesome/fontawesome-free-solid/shakable.es.js',
+        '@fortawesome/fontawesome-free-brands$': '@fortawesome/fontawesome-free-brands/shakable.es.js'
       }
     },
     externals: {

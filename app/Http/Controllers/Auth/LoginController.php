@@ -103,7 +103,7 @@ class LoginController extends Controller
                 $route = route('social.login', $name);
                 $icon = ucfirst($name);
 
-                $socialiteLinks[] = "<a href=\"{$route}\" class=\"btn btn-default btn-{$name}\"><i class=\"fa fa-{$name} fa-lg\"></i> {$icon}</a>";
+                $socialiteLinks[] = "<a href=\"{$route}\" class=\"btn btn-default btn-{$name}\"><i class=\"fab fa-{$name} fa-lg\"></i> {$icon}</a>";
             }
         }
 

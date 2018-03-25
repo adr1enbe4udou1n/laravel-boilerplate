@@ -1,11 +1,11 @@
 {
-  "vendor-frontend.js": "/dist/js/vendor-frontend.367ed6f3c8526b79a1b4.js",
-  "vendor-frontend.js.map": "/dist/js/vendor-frontend.367ed6f3c8526b79a1b4.js.map",
-  "frontend.js": "/dist/js/frontend.43b5cf3fa673219c3cf1.js",
-  "frontend.css": "/dist/css/frontend.415972a7c6df665b224469a49b38b515.css",
-  "frontend.js.map": "/dist/js/frontend.43b5cf3fa673219c3cf1.js.map",
-  "frontend.css.map": "/dist/css/frontend.415972a7c6df665b224469a49b38b515.css.map",
-  "fonts/vendor-frontend/Simple-Line-Icons.woff2": "/dist/fonts/vendor-frontend/Simple-Line-Icons.woff2?0cb0b9c589c0624c9c78dd3d83e946f6",
+  "vendor-frontend.js": "/dist/js/vendor-frontend.7a8bf2daa94980171254.js",
+  "vendor-frontend.js.map": "/dist/js/vendor-frontend.7a8bf2daa94980171254.js.map",
+  "frontend.js": "/dist/js/frontend.b4ec58d78ad3c07bb739.js",
+  "frontend.css": "/dist/css/frontend.bc2f939ef51cdd36505842af44bb04bf.css",
+  "frontend.js.map": "/dist/js/frontend.b4ec58d78ad3c07bb739.js.map",
+  "frontend.css.map": "/dist/css/frontend.bc2f939ef51cdd36505842af44bb04bf.css.map",
+  "fonts/vendor-frontend/Simple-Line-Icons.woff": "/dist/fonts/vendor-frontend/Simple-Line-Icons.woff?78f07e2c2a535c26ef21d95e41bd7175",
   "fonts/vendor-frontend/slick.eot": "/dist/fonts/vendor-frontend/slick.eot?ced611daf7709cc778da928fec876475",
   "images/vendor-frontend/intl-tel-input/build/flags@2x.png": "/dist/images/vendor-frontend/intl-tel-input/build/flags@2x.png?f2c77a6b7e26ff160fdb4193b383b1ea",
   "images/vendor-frontend/intl-tel-input/build/flags.png": "/dist/images/vendor-frontend/intl-tel-input/build/flags.png?ae33acae404631e997ef8d91dae08ccd",
@@ -14,12 +14,7 @@
   "fonts/vendor-frontend/slick.woff": "/dist/fonts/vendor-frontend/slick.woff?b7c9e1e479de3b53f1e4e30ebac2403a",
   "images/vendor-frontend/slick-carousel/slick/ajax-loader.gif": "/dist/images/vendor-frontend/slick-carousel/slick/ajax-loader.gif?68b0c4fcb84d239f261c1a5e65818142",
   "fonts/vendor-frontend/Simple-Line-Icons.svg": "/dist/fonts/vendor-frontend/Simple-Line-Icons.svg?2fe2efe63441d830b1acd106c1fe8734",
-  "fonts/vendor-frontend/Simple-Line-Icons.woff": "/dist/fonts/vendor-frontend/Simple-Line-Icons.woff?78f07e2c2a535c26ef21d95e41bd7175",
-  "fonts/vendor-frontend/Simple-Line-Icons.ttf": "/dist/fonts/vendor-frontend/Simple-Line-Icons.ttf?d2285965fe34b05465047401b8595dd0",
   "fonts/vendor-frontend/Simple-Line-Icons.eot": "/dist/fonts/vendor-frontend/Simple-Line-Icons.eot?f33df365d6d0255b586f2920355e94d7",
-  "fonts/vendor-frontend/fontawesome-webfont.svg?v=4.7.0": "/dist/fonts/vendor-frontend/fontawesome-webfont.svg?912ec66d7572ff821749319396470bde",
-  "fonts/vendor-frontend/fontawesome-webfont.ttf?v=4.7.0": "/dist/fonts/vendor-frontend/fontawesome-webfont.ttf?b06871f281fee6b241d60582ae9369b9",
-  "fonts/vendor-frontend/fontawesome-webfont.woff?v=4.7.0": "/dist/fonts/vendor-frontend/fontawesome-webfont.woff?fee66e712a8a08eef5805a46892932ad",
-  "fonts/vendor-frontend/fontawesome-webfont.woff2?v=4.7.0": "/dist/fonts/vendor-frontend/fontawesome-webfont.woff2?af7ae505a9eed503f8b8e6982036873e",
-  "fonts/vendor-frontend/fontawesome-webfont.eot?v=4.7.0": "/dist/fonts/vendor-frontend/fontawesome-webfont.eot?674f50d287a8c48dc19ba404d20fe713"
+  "fonts/vendor-frontend/Simple-Line-Icons.ttf": "/dist/fonts/vendor-frontend/Simple-Line-Icons.ttf?d2285965fe34b05465047401b8595dd0",
+  "fonts/vendor-frontend/Simple-Line-Icons.woff2": "/dist/fonts/vendor-frontend/Simple-Line-Icons.woff2?0cb0b9c589c0624c9c78dd3d83e946f6"
 }

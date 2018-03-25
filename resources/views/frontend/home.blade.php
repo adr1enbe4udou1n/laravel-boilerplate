@@ -37,9 +37,9 @@
 
         <div class="card-body">
             <i class="fa fa-home"></i>
-            <i class="fa fa-facebook"></i>
-            <i class="fa fa-twitter"></i>
-            <i class="fa fa-pinterest"></i>
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-pinterest"></i>
         </div>
     </div>
 @endsection

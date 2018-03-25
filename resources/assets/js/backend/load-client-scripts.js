@@ -1,3 +1,4 @@
+import '../fontawesome'
 import swal from 'sweetalert2'
 import Flatpickr from 'flatpickr'
 import FlatpickrLocaleFr from 'flatpickr/dist/l10n/fr'
