@@ -43,6 +43,7 @@
 
     <!-- Scripts -->
     <script defer src="{{ Html::asset('vendor.js') }}"></script>
+    <script defer src="{{ Html::asset('vendor_backend.js') }}"></script>
     <script defer src="{{ Html::asset('locales.js') }}"></script>
     <script defer src="{{ Html::asset('backend.js') }}"></script>
 </head>

@@ -122,15 +122,37 @@ module.exports = {
   optimization: {
     splitChunks: {
       cacheGroups: {
-        commons: {
-          test: /node_modules/,
-          name: 'vendor',
-          chunks: 'initial'
-        },
         locales: {
           test: /vue-i18n-locales/,
           name: 'locales',
-          chunks: 'initial'
+          chunks: 'all',
+          priority: 2
+        },
+        vendor: {
+          test: (module, chunks) => {
+            if (!module.nameForCondition) {
+              return false
+            }
+            const name = module.nameForCondition()
+            return chunks.some((c) => c.name === 'frontend' && /node_modules/.test(name))
+          },
+          name: 'vendor',
+          priority: 1,
+          enforce: true,
+          chunks: 'all'
+        },
+        backend: {
+          test: (module, chunks) => {
+            if (!module.nameForCondition) {
+              return false
+            }
+            const name = module.nameForCondition()
+            return chunks.some((c) => c.name === 'backend' && /node_modules/.test(name))
+          },
+          name: 'vendor_backend',
+          priority: 0,
+          enforce: true,
+          chunks: 'all'
         }
       }
     }

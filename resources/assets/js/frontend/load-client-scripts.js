@@ -1,4 +1,3 @@
-import 'bootstrap'
 import 'slick-carousel'
 import 'intl-tel-input'
 import 'pwstrength-bootstrap/dist/pwstrength-bootstrap'

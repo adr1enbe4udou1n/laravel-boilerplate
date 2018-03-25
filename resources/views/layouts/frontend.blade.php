@@ -34,9 +34,11 @@
     <!-- CDN -->
     <script defer src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <!-- Scripts -->
     <script defer src="{{ Html::asset('vendor.js') }}"></script>
+    <script defer src="{{ Html::asset('vendor_backend.js') }}"></script>
     <script defer src="{{ Html::asset('locales.js') }}"></script>
     <script defer src="{{ Html::asset('frontend.js') }}"></script>
 </head>
