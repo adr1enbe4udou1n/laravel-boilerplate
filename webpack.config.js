@@ -2,7 +2,7 @@ require('dotenv').config()
 const path = require('path')
 const webpack = require('webpack')
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
 const ManifestPlugin = require('webpack-manifest-plugin')
@@ -30,10 +30,8 @@ function getEntryConfig (name, analyzerPort) {
       collections: true,
       shorthands: true
     }),
-    new ExtractTextPlugin({
-      filename: production ? 'css/[name].[chunkhash].css' : 'css/[name].css',
-      allChunks: false,
-      disable: hmr
+    new MiniCssExtractPlugin({
+      filename: production ? 'css/[name].[chunkhash].css' : 'css/[name].css'
     }),
     new ManifestPlugin({
       fileName: `manifest-${name}.json`,
@@ -66,32 +64,30 @@ function getEntryConfig (name, analyzerPort) {
       rules: [
         {
           test: /\.scss$/,
-          use: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: [
-              {
-                loader: 'css-loader',
-                options: {
-                  minimize: production,
-                  sourceMap: true
-                }
-              }, {
-                loader: 'postcss-loader',
-                options: {
-                  ident: 'postcss',
-                  sourceMap: true
-                }
-              }, {
-                loader: 'resolve-url-loader'
-              }, {
-                loader: 'sass-loader',
-                options: {
-                  outputStyle: 'expanded',
-                  sourceMap: true
-                }
+          use: [
+            hmr ? 'style-loader' : MiniCssExtractPlugin.loader,
+            {
+              loader: 'css-loader',
+              options: {
+                minimize: production,
+                sourceMap: true
               }
-            ]
-          })
+            }, {
+              loader: 'postcss-loader',
+              options: {
+                ident: 'postcss',
+                sourceMap: true
+              }
+            }, {
+              loader: 'resolve-url-loader'
+            }, {
+              loader: 'sass-loader',
+              options: {
+                outputStyle: 'expanded',
+                sourceMap: true
+              }
+            }
+          ]
         },
         {
           test: /\.(js|vue)$/,
