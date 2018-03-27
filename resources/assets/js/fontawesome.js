@@ -14,6 +14,17 @@ import {
 } from '@fortawesome/fontawesome-free-brands'
 import fontawesome from '@fortawesome/fontawesome'
 
-fontawesome.library.add(faHome, faCode, faHeart, faFacebook, faTwitter, faGoogle, faLinkedin, faGithub, faBitbucket, faPinterest)
+fontawesome.library.add(
+  faHome,
+  faCode,
+  faHeart,
+  faFacebook,
+  faTwitter,
+  faGoogle,
+  faLinkedin,
+  faGithub,
+  faBitbucket,
+  faPinterest
+)
 
 export { fontawesome }

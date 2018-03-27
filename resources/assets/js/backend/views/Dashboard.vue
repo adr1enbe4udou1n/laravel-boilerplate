@@ -67,7 +67,7 @@
               </b-badge>
             </template>
           </b-table>
-          <b-button to="/posts" variant="primary" class="pull-right">
+          <b-button to="/posts" variant="primary" class="float-right">
             {{ $t('labels.backend.dashboard.all_posts') }}
           </b-button>
         </b-card>

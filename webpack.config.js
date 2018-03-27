@@ -31,7 +31,7 @@ function getEntryConfig (name, analyzerPort) {
       shorthands: true
     }),
     new ExtractTextPlugin({
-      filename: production ? 'css/[name].[contenthash].css' : 'css/[name].css',
+      filename: production ? 'css/[name].[chunkhash].css' : 'css/[name].css',
       allChunks: false,
       disable: hmr
     }),

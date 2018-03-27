@@ -108,7 +108,7 @@
               <b-col md>
                 <input name="status" type="hidden" value="publish">
 
-                <b-dropdown right split :text="$t('buttons.posts.save_and_publish')" class="pull-right"
+                <b-dropdown right split :text="$t('buttons.posts.save_and_publish')" class="float-right"
                             variant="success" size="sm" @click="model.status = 'publish'; onSubmit()"
                             :disabled="pending"
                             v-if="isNew || this.$app.user.can('edit posts') || this.$app.user.can('edit own posts')">

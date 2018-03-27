@@ -2,7 +2,7 @@
   <div class="animated fadeIn">
     <b-card>
       <template slot="header">
-        <div class="pull-right mt-2" v-if="this.$app.user.can('create users')">
+        <div class="float-right mt-2" v-if="this.$app.user.can('create users')">
           <b-button to="/users/create" variant="success" size="sm">
             <i class="icon-plus"></i> {{ $t('buttons.users.create') }}
           </b-button>

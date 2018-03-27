@@ -17,7 +17,7 @@
 
     <b-card>
       <template slot="header">
-        <div class="pull-right mt-2" v-if="this.$app.user.can('create redirections')">
+        <div class="float-right mt-2" v-if="this.$app.user.can('create redirections')">
           <b-button to="/redirections/create" variant="success" size="sm">
             <i class="icon-plus"></i> {{ $t('buttons.redirections.create') }}
           </b-button>

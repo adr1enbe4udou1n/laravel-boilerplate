@@ -2,7 +2,7 @@
   <div class="animated fadeIn">
     <b-card>
       <template slot="header">
-        <div class="pull-right mt-2" v-if="this.$app.user.can('create metas')">
+        <div class="float-right mt-2" v-if="this.$app.user.can('create metas')">
           <b-button to="/metas/create" variant="success" size="sm">
             <i class="icon-plus"></i> {{ $t('buttons.metas.create') }}
           </b-button>

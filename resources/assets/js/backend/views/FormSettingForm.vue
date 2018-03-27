@@ -73,7 +73,7 @@
                 </b-button>
               </b-col>
               <b-col md>
-                <b-button type="submit" variant="success" size="sm" class="pull-right"
+                <b-button type="submit" variant="success" size="sm" class="float-right"
                           :disabled="pending"
                           v-if="isNew || this.$app.user.can('edit form_settings')">
                   {{ isNew ? $t('buttons.create') : $t('buttons.edit') }}

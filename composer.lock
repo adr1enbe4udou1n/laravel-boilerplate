@@ -1263,16 +1263,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "6.3.0",
+            "version": "6.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699"
+                "reference": "68d0ea14d5a3f42a20e87632a5f84931e2709c90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/f4db5a78a5ea468d4831de7f0bf9d9415e348699",
-                "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/68d0ea14d5a3f42a20e87632a5f84931e2709c90",
+                "reference": "68d0ea14d5a3f42a20e87632a5f84931e2709c90",
                 "shasum": ""
             },
             "require": {
@@ -1282,7 +1282,7 @@
             },
             "require-dev": {
                 "ext-curl": "*",
-                "phpunit/phpunit": "^4.0 || ^5.0",
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.4",
                 "psr/log": "^1.0"
             },
             "suggest": {
@@ -1291,7 +1291,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.2-dev"
+                    "dev-master": "6.3-dev"
                 }
             },
             "autoload": {
@@ -1324,7 +1324,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2017-06-22T18:50:49+00:00"
+            "time": "2018-03-26T16:33:04+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -1775,16 +1775,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.6.12",
+            "version": "v5.6.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "82d8165d1ea86bdd81ddfa1db9343fa19e7d1450"
+                "reference": "90ccb77a543ff063533083f427d5e655546afbad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/82d8165d1ea86bdd81ddfa1db9343fa19e7d1450",
-                "reference": "82d8165d1ea86bdd81ddfa1db9343fa19e7d1450",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/90ccb77a543ff063533083f427d5e655546afbad",
+                "reference": "90ccb77a543ff063533083f427d5e655546afbad",
                 "shasum": ""
             },
             "require": {
@@ -1909,7 +1909,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2018-03-14T17:29:38+00:00"
+            "time": "2018-03-26T13:45:20+00:00"
         },
         {
             "name": "laravel/scout",
@@ -5114,16 +5114,16 @@
         },
         {
             "name": "laravel/dusk",
-            "version": "v3.0.4",
+            "version": "v3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/dusk.git",
-                "reference": "df287183e521d761141352b59ec106a45a87f1b0"
+                "reference": "660e079526c0c0178ccb29c8e03a9674be9c0e98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/dusk/zipball/df287183e521d761141352b59ec106a45a87f1b0",
-                "reference": "df287183e521d761141352b59ec106a45a87f1b0",
+                "url": "https://api.github.com/repos/laravel/dusk/zipball/660e079526c0c0178ccb29c8e03a9674be9c0e98",
+                "reference": "660e079526c0c0178ccb29c8e03a9674be9c0e98",
                 "shasum": ""
             },
             "require": {
@@ -5171,7 +5171,7 @@
                 "testing",
                 "webdriver"
             ],
-            "time": "2018-03-07T16:24:19+00:00"
+            "time": "2018-03-25T16:22:21+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -5964,16 +5964,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.0.2",
+            "version": "7.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "e2f8aa21bc54b6ba218bdd4f9e0dac1e9bc3b4e9"
+                "reference": "536f4d853c12d8189963435088e8ff7c0daeab2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e2f8aa21bc54b6ba218bdd4f9e0dac1e9bc3b4e9",
-                "reference": "e2f8aa21bc54b6ba218bdd4f9e0dac1e9bc3b4e9",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/536f4d853c12d8189963435088e8ff7c0daeab2e",
+                "reference": "536f4d853c12d8189963435088e8ff7c0daeab2e",
                 "shasum": ""
             },
             "require": {
@@ -5987,7 +5987,7 @@
                 "phar-io/version": "^1.0",
                 "php": "^7.1",
                 "phpspec/prophecy": "^1.7",
-                "phpunit/php-code-coverage": "^6.0",
+                "phpunit/php-code-coverage": "^6.0.1",
                 "phpunit/php-file-iterator": "^1.4.3",
                 "phpunit/php-text-template": "^1.2.1",
                 "phpunit/php-timer": "^2.0",
@@ -6040,7 +6040,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-02-26T07:03:12+00:00"
+            "time": "2018-03-26T07:36:48+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
