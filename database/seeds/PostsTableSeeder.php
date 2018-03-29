@@ -36,10 +36,10 @@ class PostsTableSeeder extends Seeder
 
         // 200 random posts
         /** @var \Illuminate\Database\Eloquent\Collection $posts */
-        $posts = Post::all();//factory(Post::class)->times(200)->create();
+        $posts = Post::all()->factory(Post::class)->times(200)->create();
 
         /** @var \Illuminate\Database\Eloquent\Collection $tags */
-        $tags = Tag::all();//factory(Tag::class)->times(20)->create();
+        $tags = Tag::all()->factory(Tag::class)->times(20)->create();
 
         $publicDisk = Storage::disk('public');
         $publicDisk->delete($publicDisk->files('posts'));

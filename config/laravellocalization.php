@@ -34,7 +34,7 @@ return [
             'date_formats' => [
                 'default' => 'd/m/Y h:i:s',
             ],
-            'dir' => 'rtl'
+            'dir' => 'rtl',
         ],
     ],
 
