@@ -1,4 +1,799 @@
 export default {
+    "ar": {
+        "alerts": {
+            "backend": {
+                "users": {
+                    "created": "تم إنشاء المستخدم",
+                    "updated": "تم تعديل المستخدم",
+                    "deleted": "تم حذف المستخدم",
+                    "bulk_destroyed": "تم حذف المستخدمين المختارين",
+                    "bulk_enabled": "تم تفعيل المستخدمين المختارين",
+                    "bulk_disabled": "تم تعطيل المستخدمين المختارين"
+                },
+                "roles": {
+                    "created": "تم إنشاء الدور",
+                    "updated": "تم تعديل الدور",
+                    "deleted": "تم حذف الدور"
+                },
+                "metas": {
+                    "created": "تم إنشاء البيانات الوصفية",
+                    "updated": "تم تعديل البيانات الوصفية",
+                    "deleted": "تم حذف البيانات الوصفية",
+                    "bulk_destroyed": "تم حذف البيانات الوصفية المختارة"
+                },
+                "form_submissions": {
+                    "deleted": "تم حذف المرسَل",
+                    "bulk_destroyed": "تم حذف المرسَلات المختارة"
+                },
+                "form_settings": {
+                    "created": "تم إنشاء إعداد الإستمارة",
+                    "updated": "تم تعديل إعداد الإستمارة",
+                    "deleted": "تم حذف إعداد الإستمارة"
+                },
+                "redirections": {
+                    "created": "تم إنشاء قاعدة التوجيه",
+                    "updated": "تم تعديل قاعدة التوجيه",
+                    "deleted": "تم حذف قاعدة التوجيه",
+                    "bulk_destroyed": "تم حذف قواعد التوجيه المختارة",
+                    "bulk_enabled": "تم تفعيل قواعد التوجيه المختارة",
+                    "bulk_disabled": "تم تعطيل قواعد التوجيه المختارة",
+                    "file_imported": "تم إستيراد الملف بنجاح"
+                },
+                "posts": {
+                    "created": "تم إنشاء المقالة",
+                    "updated": "تم تعديل المقالة",
+                    "deleted": "تم حذف المقالة",
+                    "bulk_destroyed": "تم حذف المقالات المختارة",
+                    "bulk_published": "تم نشر المقالات المختارة",
+                    "bulk_pending": "المقالات المختارة قيد المراجعة",
+                    "bulk_pinned": "تم تثبيت المقالات المختارة",
+                    "bulk_promoted": "تم ترقية المقالات المختارة"
+                },
+                "actions": {
+                    "invalid": "إجراء غير صالح"
+                }
+            },
+            "frontend": []
+        },
+        "mails": {
+            "layout": {
+                "hello": "مرحباً !",
+                "regards": "تحيات",
+                "trouble": "إذا واجهت أي مشكلة بالضغط على الزر {action}، يرجى نسخ ولصق الرابط أدناه في المتصفح الخاص بك :",
+                "all_rights_reserved": "جميع الحقوق محفوظة."
+            },
+            "password_reset": {
+                "subject": "إعادة تعيين كلمة المرور",
+                "intro": "تم إرسال هذا البريد الإلكتروني لأننا تلقينا طلب إعادة تعيين كلمة المرور للحساب الخاص بك",
+                "action": "إعادة تعيين كلمة المرور",
+                "outro": "إذا لم تطلب إعادة تعيين كلمة المرور، فلا داعي لاتخاذ أي إجراء"
+            },
+            "email_confirmation": {
+                "subject": "تأكيد عنوان البريد الإلكتروني",
+                "intro": "تأكيد عنوان البريد الإلكتروني ضروري كي تقوم بتفعيل الحساب الخاص بك.",
+                "action": "تأكيد عنوان البريد الخاص بي",
+                "outro": "إن الحساب الخاص بك سيبقى محدوداً لطالما لم يتم تأكيد عنوان البريد الإلكتروني الخاص بك"
+            },
+            "contact": {
+                "subject": "رسالة إتصال جديدة",
+                "new_contact": "لقد تلقيت رسالة إتصال جديدة. معلومات الإرسال :"
+            },
+            "alert": {
+                "subject": "خطأ في [{app_name}]",
+                "message": "لقد واجهت خطأ غير متوقع من طرف الخادم بالرسالة التالية : {message}.",
+                "trace": "تفاصيل التقفي :"
+            }
+        },
+        "logs": {
+            "backend": {
+                "users": {
+                    "created": "تم إنشاء المستخدم {user}",
+                    "updated": "تم تعديل المستخدم {user}",
+                    "deleted": "تم حذف المستخدم {user}"
+                },
+                "form_submissions": {
+                    "created": "تم إنشاء المرسَل {form_submission}"
+                }
+            },
+            "frontend": []
+        },
+        "permissions": {
+            "categories": {
+                "blog": "المدونة",
+                "form": "الاستمارات",
+                "access": "الوصول",
+                "seo": "تحسين أداء محركات البحث"
+            },
+            "access": {
+                "backend": {
+                    "display_name": "الوصول إلى لوحة الإدارة",
+                    "description": "قادر على الوصول إلى صفحات الإدارة."
+                },
+                "all": {
+                    "backend": {
+                        "display_name": "وصول كامل للوحة الإدارة",
+                        "description": "فتح صلاحية كاملة على لوحة الإدارة. تبقى الصلاحيات من طرف المخدم على حالها. مفيد لحسابات العرض أو اختبار الصلاحيات من طرف المخدم."
+                    }
+                }
+            },
+            "view": {
+                "form_settings": {
+                    "display_name": "مشاهدة إعدادات الاستمارات",
+                    "description": "قادر على استعرض إعدادات الاستمارات."
+                },
+                "form_submissions": {
+                    "display_name": "مشاهدة مرسَلات الاستمارات",
+                    "description": "قادر على استعرض مرسَلات الاستمارات."
+                },
+                "users": {
+                    "display_name": "مشاهدة المستخدمين",
+                    "description": "قادر على استعرض المستخدمين."
+                },
+                "roles": {
+                    "display_name": "مشاهدة الأدوار",
+                    "description": "قادر على استعرض أدوار المستخدمين."
+                },
+                "metas": {
+                    "display_name": "مشاهدة المعلومات الوصفية",
+                    "description": "قادر على استعرض المعلومات الوصفية."
+                },
+                "redirections": {
+                    "display_name": "مشاهدة قواعد إعادة التوجيه",
+                    "description": "قادر على استعرض قواعد إعادة التوجيه."
+                },
+                "posts": {
+                    "display_name": "مشاهدة جميع المقالات",
+                    "description": "قادر على استعرض جميع المقالات."
+                },
+                "own": {
+                    "posts": {
+                        "display_name": "مشاهدة المقالات الخاصة بالمستخدم",
+                        "description": "قادر على مشاهدة المقالات الخاصة به."
+                    }
+                }
+            },
+            "create": {
+                "form_settings": {
+                    "display_name": "إنشاء إعدادات الاستمارات",
+                    "description": "قادر على إنشاء إعدادات الاستمارات."
+                },
+                "users": {
+                    "display_name": "إنشاء مستخدمين",
+                    "description": "قادر على إنشاء مستخدمين."
+                },
+                "roles": {
+                    "display_name": "إضافة أدوار",
+                    "description": "قادر على إضافة أدوار."
+                },
+                "metas": {
+                    "display_name": "إضافة معلومات وصفية",
+                    "description": "قادر على إضافة معلومات وصفية."
+                },
+                "redirections": {
+                    "display_name": "إضافة قواعد توجيه",
+                    "description": "قادر على إضافة قواعد توجيه."
+                },
+                "posts": {
+                    "display_name": "إضافة مقالات",
+                    "description": "قادر على إضافة مقالات."
+                }
+            },
+            "edit": {
+                "form_settings": {
+                    "display_name": "تعديل إعدادات الاستمارات",
+                    "description": "قادر على تعديل إعدادات الاستمارات."
+                },
+                "users": {
+                    "display_name": "تعديل المستخدمين",
+                    "description": "قادر على تعديل المستخدمين."
+                },
+                "roles": {
+                    "display_name": "تعديل الأدوار",
+                    "description": "قادر على تعديل المستخدمين."
+                },
+                "metas": {
+                    "display_name": "تعديل المعلومات الوصفية",
+                    "description": "قادر على تعديل المعلومات الوصفية."
+                },
+                "redirections": {
+                    "display_name": "تعديل قواعد التوجيه",
+                    "description": "قادر على تعديل قواعد التوجيه."
+                },
+                "posts": {
+                    "display_name": "تعديل جميع المقالات",
+                    "description": "قادر على تعديل جميع المقالات."
+                },
+                "own": {
+                    "posts": {
+                        "display_name": "تعديل مقالات المستخدم",
+                        "description": "قادر على تعديل المقالات الخاصة به."
+                    }
+                }
+            },
+            "delete": {
+                "form_settings": {
+                    "display_name": "حذف إعدادات الاستمارات",
+                    "description": "قادر على حذف إعدادات الاستمارات."
+                },
+                "form_submissions": {
+                    "display_name": "حذف مرسلات الاستمارات",
+                    "description": "قادر على حذف مرسلات الاستمارات."
+                },
+                "users": {
+                    "display_name": "حذف المستخدمين",
+                    "description": "قادر على حذف المستخدمين."
+                },
+                "roles": {
+                    "display_name": "حذف الأدوار",
+                    "description": "قادر على حذف الأدوار."
+                },
+                "metas": {
+                    "display_name": "حذف المعلومات الوصفية",
+                    "description": "قادر على حذف المعلومات الوصفية."
+                },
+                "redirections": {
+                    "display_name": "حذف قواعد التوجيه",
+                    "description": "قادر على حذف قواعد التوجيه."
+                },
+                "posts": {
+                    "display_name": "حذف جميع المقالات",
+                    "description": "قادر على حذف جميع المقالات."
+                },
+                "own": {
+                    "posts": {
+                        "display_name": "حذف مقالات المستخدم",
+                        "description": "قادر على حذف المقالات الخاصة به."
+                    }
+                }
+            },
+            "publish": {
+                "posts": {
+                    "display_name": "نشر المقالات",
+                    "description": "قادر على إدارة عملية نشر المقالات."
+                }
+            },
+            "impersonate": {
+                "display_name": "إنتحال شخصية مستخدم",
+                "description": "قادر على أخذ صلاحيات مستخدم أخر، خاص بحالات التجريب."
+            }
+        },
+        "routes": {
+            "home": "الرئيسية",
+            "about": "حول",
+            "contact": "اتصل-بنا",
+            "contact-sent": "تم-الإرسال",
+            "legal-mentions": "إشارات-قانونية",
+            "redactors": "blog\/redactors\/{user}"
+        },
+        "exceptions": {
+            "general": "خطأ في الخادم",
+            "unauthorized": "إجراء غير مسموح",
+            "backend": {
+                "users": {
+                    "create": "خطأ في إنشاء المستخدم",
+                    "update": "خطأ في تعديل المستخدم",
+                    "delete": "خطأ في حذف المستخدم",
+                    "first_user_cannot_be_edited": "لا يمكن تعديل معلومات المستخدم كامل الصلاحيات",
+                    "first_user_cannot_be_disabled": "لا يمكن تعطيل حساب المستخدم كامل الصلاحيات",
+                    "first_user_cannot_be_destroyed": "لا يمكن حذف حساب المستخدم كامل الصلاحيات",
+                    "first_user_cannot_be_impersonated": "لا يمكن إنتحال شخصية المستخدم كامل الصلاحيات",
+                    "cannot_set_superior_roles": "لا يمكنك الحصول على أدوار تفوق الدور الخاص بك"
+                },
+                "roles": {
+                    "create": "خطأ في إنشاء الدور",
+                    "update": "خطأ في تعديل الدور",
+                    "delete": "خطأ في حذف الدور"
+                },
+                "metas": {
+                    "create": "خطأ في إنشاء المعلومة الوصفية",
+                    "update": "خطأ في تعديل المعلومة الوصفية",
+                    "delete": "خطأ في حذف المعلومة الوصفية",
+                    "already_exist": " يوجد معلومات وصفية لهذا الرابط منشأ مسبقاً"
+                },
+                "form_submissions": {
+                    "create": "خطأ في إنشاء المرسَل",
+                    "delete": "خطأ في حذف المرسَل"
+                },
+                "form_settings": {
+                    "create": "خطا في إنشاء إعداد الإستمارة",
+                    "update": "خطا في تعديل إعداد الإستمارة",
+                    "delete": "خطا في حذف إعداد الإستمارة",
+                    "already_exist": "يوجد إعداد مرتبط بهذه الإستمارة منشأ مسبقاً"
+                },
+                "redirections": {
+                    "create": "خطأ في إنشاء قاعدة التوجيه",
+                    "update": "خطأ في تعديل قاعدة التوجيه",
+                    "delete": "خطأ في حذف قاعدة التوجيه",
+                    "already_exist": " يوجد قاعدة توجيه لهذا المسار منشأة مسبقاً"
+                },
+                "posts": {
+                    "create": "خطأ في إنشاء المقالة",
+                    "update": "خطأ في تعديل المقالة",
+                    "save": "خطأ في حفظ المقالة",
+                    "delete": "خطأ في حذف المقالة"
+                }
+            },
+            "frontend": {
+                "user": {
+                    "email_taken": "عنوان البريد المدخل موجود مسبقاً.",
+                    "password_mismatch": "لا يوجد تطابق مع كلمة المرور القديمة.",
+                    "delete_account": "خطأ في حذف الحساب.",
+                    "updating_disabled": "تعديل معلومات الحساب غير مفعل."
+                },
+                "auth": {
+                    "registration_disabled": "عملية التسجيل غير مفعلة."
+                }
+            }
+        },
+        "labels": {
+            "language": "اللغة",
+            "actions": "الإجراءات",
+            "general": "عام",
+            "no_results": "لا يوجد نتائج",
+            "search": "بحث",
+            "validate": "تحقق",
+            "choose_file": "أختر ملف",
+            "no_file_chosen": "لم يتم إختيار ملف",
+            "are_you_sure": "هل أنت متأكد ؟",
+            "yes": "نعم",
+            "no": "لا",
+            "add_new": "إضافة",
+            "export": "تصدير",
+            "more_info": "المزيد من المعلومات",
+            "author": "الكاتب",
+            "last_access_at": "أخر وصول في",
+            "published_at": "تم النشر بتاريخ",
+            "created_at": "تم الإنشاء بتاريخ",
+            "updated_at": "تم التعديل بتاريخ",
+            "deleted_at": "تم الحذف بتاريخ",
+            "no_value": "لا يوجد قيمة",
+            "upload_image": "رفع صورة",
+            "anonymous": "مجهول",
+            "all_rights_reserved": "جميع الحقوق محفوظة.",
+            "datatables": {
+                "no_results": "لا يوجد نتائج",
+                "no_matched_results": "لا يوجد نتائج مطابقة",
+                "show_per_page": "إظهار",
+                "entries_per_page": "عنصر بالصفحة",
+                "search": "بحث",
+                "infos": "إظهار {offset_start} حتى {offset_end} من أصل {total} عنصر"
+            },
+            "morphs": {
+                "post": "مقالة، المعرف {id}",
+                "user": "مستخدم، المعرف {id}"
+            },
+            "auth": {
+                "disabled": "تم إلغاء تفعيل الحساب الخاص بك."
+            },
+            "http": {
+                "403": {
+                    "title": "وصول مرفوض",
+                    "description": "عذراً، ليس لديك صلاحية الوصول لهذه الصفحة."
+                },
+                "404": {
+                    "title": "الصفحة غير موجودة",
+                    "description": "عذراً، إن الصفحة التي تحاول الوصول لها غير موجودة."
+                },
+                "500": {
+                    "title": "خطأ في المخدّم",
+                    "description": "عذراً، حدث خطأ غير متوقع في المخدم. سيتم معالجة المشكلة بالسرعة الممكنة."
+                }
+            },
+            "localization": {
+                "en": "إنكليزي",
+                "fr": "فرنسي",
+                "ar": "عربي"
+            },
+            "placeholders": {
+                "route": "يرجى إختيار مسار داخلي صحيح",
+                "tags": "إختر أو أنشئ وسماً"
+            },
+            "cookieconsent": {
+                "message": "يستخدم موقع الويب هذا ملفات تعريف الارتباط لضمان حصولك على أفضل تجربة على موقعنا.",
+                "dismiss": "تم !"
+            },
+            "descriptions": {
+                "allowed_image_types": "أنواع الصور المسموحة: png gif jpg jpeg."
+            },
+            "user": {
+                "dashboard": "لوحة التحكم",
+                "remember": "تذكرني",
+                "login": "تسجيل الدخول",
+                "logout": "تسجيل الخروج",
+                "password_forgot": "نسيت كلمة المرور ؟",
+                "send_password_link": "إرسال رابط إعادة تعيين كلمة المرور",
+                "password_reset": "إعادة تعيين كلمة المرور",
+                "register": "تسجيل",
+                "space": "مساحتي",
+                "settings": "إعدادات",
+                "account": "حسابي",
+                "profile": "ملفي",
+                "avatar": "الصورة الرمزية",
+                "online": "أون لاين",
+                "edit_profile": "تعديل ملفي",
+                "change_password": "تغير كلمة مروري",
+                "delete": "حذف حسابي",
+                "administration": "إدارة",
+                "member_since": "عضو منذ {date}",
+                "profile_updated": "تم تعديل معومات الملف بنجاح.",
+                "password_updated": "تم تعديل كلمة المرور بنجاح",
+                "email_confirmation_sended": "تم إرسال رسالة التحقق من البريد الإلكتروني.",
+                "email_confirmed": "تم التحقق من عنوان البريد الإلكتروني بنجاح.",
+                "super_admin": "مدير بصلاحيات كاملة",
+                "account_delete": "<p>إن القيام بهذا الإجراء سيؤدي لحذف حسابك بشكل كامل من الموقع مع جميع المعلومات ذات الصلة.<\/p>",
+                "account_deleted": "تم حذف الحساب بنجاح",
+                "titles": {
+                    "space": "مساحتي",
+                    "account": "حسابي"
+                }
+            },
+            "alerts": {
+                "login_as": "يتم تسجيل دخولك فعليًا باسم <strong>{name} <\/strong> ، ويمكنك الخروج كـ <a href=\"{route}\" data-turbolinks=\"false\">{admin} <\/a>.",
+                "not_confirmed": "سيكون حسابك في وضع محدود طالما لم يتم تأكيد بريدك الإلكتروني. <a href=\"{route}\"> انقر هنا <\/a> لإعادة إرسال تأكيد عنوان البريد."
+            },
+            "backend": {
+                "dashboard": {
+                    "new_posts": "مقالات جديدة",
+                    "pending_posts": "مقالات معلّقة",
+                    "published_posts": "مقالات منشورة",
+                    "active_users": "مستخدمين فعّالين",
+                    "form_submissions": "مرسَلات",
+                    "last_posts": "أحدث المقالات",
+                    "last_published_posts": "أحدث المنشورات",
+                    "last_pending_posts": "أحدث المقالات المعلّقة",
+                    "last_new_posts": "أحدث المقالات الجديدة",
+                    "all_posts": "جميع المقالات"
+                },
+                "new_menu": {
+                    "post": "مقالة جديدة",
+                    "form_setting": "إعداد إستمارة جديد",
+                    "user": "مستخدم جديد",
+                    "role": "دور جديد",
+                    "meta": "معلومة وصفية جديدة",
+                    "redirection": "قاعدة توجيه جديدة"
+                },
+                "sidebar": {
+                    "content": "إدارة المحتوى",
+                    "forms": "إدارة الإستمارات",
+                    "access": "إدارة الوصول",
+                    "seo": "إعدادات تحسين محركات البحث"
+                },
+                "titles": {
+                    "dashboard": "لوحة التحكم"
+                },
+                "users": {
+                    "titles": {
+                        "main": "إدارة المستخدمين",
+                        "index": "عرض المستخدمين",
+                        "create": "إنشاء مستخدم",
+                        "edit": "تعديل مستخدم"
+                    },
+                    "actions": {
+                        "destroy": "حذف المستخدمين المختارين",
+                        "enable": "تفعيل المستخدمين المختارين",
+                        "disable": "إلغاء تفعيل المستخدمين المختارين"
+                    }
+                },
+                "roles": {
+                    "titles": {
+                        "main": "إدارة الأدوار",
+                        "index": "عرض الأدوار",
+                        "create": "إنشاء دور",
+                        "edit": "تعديل دور"
+                    }
+                },
+                "metas": {
+                    "titles": {
+                        "main": "إدارة المعلومات الوصفية",
+                        "index": "عرض المعلومات الوصفية",
+                        "create": "إنشاء معلومة وصفية",
+                        "edit": "تعديل معلومة وصفية"
+                    },
+                    "actions": {
+                        "destroy": "حذف المعلومات الوصفية المختارة"
+                    }
+                },
+                "form_submissions": {
+                    "titles": {
+                        "main": "إدارة المرسَلات",
+                        "index": "عرض المرسَلات",
+                        "show": "تفاصل المُرسَل"
+                    },
+                    "actions": {
+                        "destroy": "حذف المرسَلات المختارة"
+                    }
+                },
+                "form_settings": {
+                    "titles": {
+                        "main": "إعدادات الإستمارة",
+                        "index": "عرض إعدادات الإستمارة",
+                        "create": "إنشاء إعداد إستمارة",
+                        "edit": "تعديل إعداد إستمارة"
+                    },
+                    "descriptions": {
+                        "recipients": "مثل: 'webmaster@example.com' أو 'sales@example.com,support@example.com' . لتحديد أكثر من مستقبل، يرجى فصلهم بفاصلة.",
+                        "message": "الرسالة المراد عرضها للمستخدم بعد عملية إرسال معلومات الإستمارة. اتركها فارغة إذا لم ترد عرض أي رسالة"
+                    }
+                },
+                "redirections": {
+                    "titles": {
+                        "main": "إدارة قواعد التوجيه",
+                        "index": "عرض قواعد التوجيه",
+                        "create": "إنشاء قاعدة توجيه",
+                        "edit": "تعديل قاعدة توجيه"
+                    },
+                    "actions": {
+                        "destroy": "حذف قواعد التوجيه المختارة",
+                        "enable": "تفعيل قواعد التوجيه المختارة",
+                        "disable": "إلغاء تفعيل قواعد التوجيه المختارة"
+                    },
+                    "types": {
+                        "permanent": "إعادة توجيه دائم (301)",
+                        "temporary": "إعادة توجيه مؤقت (302)"
+                    },
+                    "import": {
+                        "title": "إستيراد ملف CSV\/Excel",
+                        "label": "إختر ملف CSV\/Excel ليتم إستيراده",
+                        "description": "الملف يجب أن يحوي عمودين بالترويسة \"source\" و \"target\" علماً أن إعادة التوجيه ستكون من النوع الدائم بشكل إفتراضي"
+                    }
+                },
+                "posts": {
+                    "statuses": {
+                        "draft": "مسودة",
+                        "pending": "معلّقة",
+                        "published": "منشورة"
+                    },
+                    "titles": {
+                        "main": "إدارة المقالات",
+                        "index": "عرض المقالات",
+                        "create": "إنشاء مقالة",
+                        "edit": "تعديل مقالة",
+                        "publication": "خيارات النشر"
+                    },
+                    "descriptions": {
+                        "meta_title": "في حال كانت فارغة، فإن العنوان سيكون مطابق لعنوان المقالة بشكل إفتراضي",
+                        "meta_description": "في حال كانت فارغة، فإن الوصف سيكون مطابق لملخص المقالة بشكل إفتراضي"
+                    },
+                    "placeholders": {
+                        "body": "أكتب المحتوى...",
+                        "meta_title": "عنوان المقالة.",
+                        "meta_description": "ملخص المقالة."
+                    },
+                    "actions": {
+                        "destroy": "حذف المقالات المختارة",
+                        "publish": "نشر المقالات المختارة",
+                        "pin": "تثبيت المقالات المختارة",
+                        "promote": "ترقية المقالات المختارة"
+                    }
+                }
+            },
+            "frontend": {
+                "titles": {
+                    "home": "الرئيسية",
+                    "about": "حول",
+                    "contact": "إتصل بنا",
+                    "blog": "المدونة",
+                    "message_sent": "تم إرسال الرسالة",
+                    "legal_mentions": "إشارات قانونية",
+                    "administration": "إدارة"
+                },
+                "submissions": {
+                    "message_sent": "<p>تم إرسال رسالتك بنجاح<\/p>"
+                },
+                "placeholders": {
+                    "locale": "يرجى إختيار اللغة الخاصة بك",
+                    "timezone": "يرجى إختيار النطاق الزمني الخاص بك"
+                },
+                "blog": {
+                    "published_at": "نشرت بتاريخ {date}",
+                    "published_at_with_owner_linkable": "نشرت بتاريخ {date} من قبل <a href=\"{link}\">{name}<\/a>",
+                    "tags": "وسوم"
+                }
+            }
+        },
+        "passwords": {
+            "password": "كلمة المرور يجب أن تحتوي على 6 أحرف على الأقل ومطابقة لتأكيدها.",
+            "reset": "لقد تم إعادة تعيين كلمة مرورك!",
+            "sent": "قمنا بإرسال رابط إعادة تعيين كلمة مرورك إلى بريدك الإلكتروني!",
+            "token": "رمز إعادة تعيين كلمة المرور هذا غير صالح.",
+            "user": "لم نستطع إيجاد مستخدم ينتمي إليه هذا البريد الإلكتروني."
+        },
+        "forms": {
+            "contact": {
+                "display_name": "إستمارة الإتصال"
+            }
+        },
+        "validation": {
+            "accepted": "يجب قبول الحقل {attribute}.",
+            "active_url": "الحقل {attribute} لا يُمثّل رابطًا صحيحًا.",
+            "after": "يجب على الحقل {attribute} أن يكون تاريخًا لاحقًا للتاريخ {date}.",
+            "after_or_equal": "يجب على الحقل {attribute} أن يكون تاريخًا مساوٍ أو لاحقًا للتاريخ {date}.",
+            "alpha": "يجب أن لا يحتوي الحقل {attribute} سوى على حروف.",
+            "alpha_dash": "يجب أن لا يحتوي الحقل {attribute} على حروف، أرقام ومطّات.",
+            "alpha_num": "يجب أن يحتوي {attribute} على حروف وأرقام فقط.",
+            "array": "يجب أن يكون الحقل {attribute} ًمصفوفة.",
+            "before": "يجب على الحقل {attribute} أن يكون تاريخًا سابقًا للتاريخ {date}.",
+            "before_or_equal": "يجب على الحقل {attribute} أن يكون تاريخًا سابقًا أو مساوٍ للتاريخ {date}.",
+            "between": {
+                "numeric": "يجب أن تكون قيمة {attribute} محصورة ما بين {min} و {max}.",
+                "file": "يجب أن يكون حجم الملف {attribute} محصورًا ما بين {min} و {max} كيلوبايت.",
+                "string": "يجب أن يكون عدد حروف النّص {attribute} محصورًا ما بين {min} و {max}.",
+                "array": "يجب أن يحتوي {attribute} على عدد من العناصر محصورًا ما بين {min} و {max}."
+            },
+            "boolean": "يجب أن تكون قيمة الحقل {attribute} إما true أو false.",
+            "confirmed": "حقل التأكيد غير مُطابق للحقل {attribute}.",
+            "date": "الحقل {attribute} ليس تاريخًا صحيحاً.",
+            "date_format": "لا يتوافق الحقل {attribute} مع الشكل {format}.",
+            "different": "يجب أن يكون الحقلان {attribute} و {other} مُختلفان.",
+            "digits": "يجب أن يحتوي الحقل {attribute} على {digits} رقمًا\/أرقام.",
+            "digits_between": "يجب أن يحتوي الحقل {attribute} ما بين {min} و {max} رقمًا\/أرقام.",
+            "dimensions": " أبعاد الصورة {attribute} غير صالحة.",
+            "distinct": "للحقل {attribute} قيمة مُكرّرة.",
+            "email": "يجب أن يكون {attribute} عنوان بريد إلكتروني صحيح البُنية.",
+            "exists": "الحقل {attribute} لاغٍ.",
+            "file": "الحقل {attribute} يجب أن يكون ملف.",
+            "filled": "الحقل {attribute} إجباري.",
+            "image": "يجب أن يكون الحقل {attribute} صورة.",
+            "in": "الحقل {attribute} لاغٍ.",
+            "in_array": "الحقل {attribute} غير موجود في {other}.",
+            "integer": "يجب أن يكون الحقل {attribute} عدد صحيح.",
+            "ip": "يجب أن يكون الحقل {attribute} عنوان IP ذي بُنية صحيحة.",
+            "ipv4": "يجب أن يكون الحقل {attribute} عنوان IPv4 ذي بُنية صحيحة.",
+            "ipv6": "يجب أن يكون الحقل {attribute} عنوان IPv6 ذي بُنية صحيحة.",
+            "json": "يجب أن يكون الحقل {attribute} نصآ من نوع JSON.",
+            "max": {
+                "numeric": "يجب أن تكون قيمة الحقل {attribute} أصغر من {max}.",
+                "file": "يجب أن يكون حجم الملف {attribute} أصغر من {max} كيلوبايت.",
+                "string": "يجب أن لا يتجاوز طول النّص {attribute} {max} حروفٍ\/حرفًا.",
+                "array": "يجب أن لا يحتوي الحقل {attribute} على أكثر من {max} عناصر\/عنصر."
+            },
+            "mimes": "يجب أن يكون الحقل ملفًا من نوع : {values}.",
+            "mimetypes": "يجب أن يكون الحقل ملفًا من نوع : {values}.",
+            "min": {
+                "numeric": "يجب أن تكون قيمة الحقل {attribute} أكبر من {min}.",
+                "file": "يجب أن يكون حجم الملف {attribute} أكبر من {min} كيلوبايت.",
+                "string": "يجب أن يكون طول النص {attribute} أكبر من {min} حروفٍ\/حرفًا.",
+                "array": "يجب أن يحتوي الحقل {attribute} على الأقل على {min} عُنصرًا\/عناصر."
+            },
+            "not_in": "الحقل {attribute} لاغٍ.",
+            "numeric": "يجب على الحقل {attribute} أن يكون رقماً.",
+            "present": "الحقل {attribute} يجب أن يكون موجوداً.",
+            "regex": "صيغة الحقل {attribute} غير صحيحة.",
+            "required": "الحقل {attribute} مطلوب.",
+            "required_if": "الحقل {attribute} مطلوب في حال ما إذا كان {other} يساوي {value}.",
+            "required_unless": "الحقل {attribute} مطلوب في حال ما لم يكن {other} يساوي {values}.",
+            "required_with": "الحقل {attribute} مطلوب إذا توفّر {values}.",
+            "required_with_all": "الحقل {attribute} مطلوب إذا توفّر {values}.",
+            "required_without": "الحقل {attribute} مطلوب إذا لم يتوفّر {values}.",
+            "required_without_all": "الحقل {attribute} مطلوب إذا لم يتوفّر {values}.",
+            "same": "يجب أن يتطابق الحقل {attribute} مع {other}",
+            "size": {
+                "numeric": "يجب أن تكون قيمة {attribute} أكبر من {size}.",
+                "file": "يجب أن يكون حجم الملف {attribute} أكبر من {size} كيلو بايت.",
+                "string": "يجب أن يحتوي النص {attribute} عن ما لا يقل عن  {size} حرفٍ\/أحرف.",
+                "array": "يجب أن يحتوي الحقل {attribute} عن ما لا يقل عن{min} عنصرٍ\/عناصر."
+            },
+            "string": "يجب أن يكون الحقل {attribute} نصآ.",
+            "timezone": "يجب أن يكون {attribute} نطاقًا زمنيًا صحيحًا",
+            "unique": "قيمة الحقل {attribute} مُستخدمة من قبل.",
+            "uploaded": "فشل في تحميل {attribute}.",
+            "url": "صيغة الرابط {attribute} غير صحيحة.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            },
+            "attributes": {
+                "name": "الاسم",
+                "display_name": "اسم العرض",
+                "username": "اسم المستخدم",
+                "email": "عنوان البريد الإلكتروني",
+                "first_name": "الاسم الأول",
+                "last_name": "الاسم الأخير",
+                "password": "كلمة المرور",
+                "password_confirmation": "تأكيد كلمة المرور",
+                "old_password": "كلمة المرور القديمة",
+                "new_password": "كلمة المرور الجديدة",
+                "new_password_confirmation": "تأكيد كلمة المرور الجديدة",
+                "postal_code": "الرمز البريدي",
+                "city": "المدينة",
+                "country": "الدولة",
+                "address": "العنوان",
+                "phone": "الهاتف",
+                "mobile": "المحمول",
+                "age": "العمر",
+                "sex": "الجنس",
+                "gender": "الجنس",
+                "day": "اليوم",
+                "month": "الشهر",
+                "year": "السنة",
+                "hour": "الساعة",
+                "minute": "الدقيقة",
+                "second": "الثانية",
+                "title": "العنوان",
+                "content": "المحتوى",
+                "description": "الوصف",
+                "summary": "الملخص",
+                "excerpt": "مقتطفات",
+                "date": "التاريخ",
+                "time": "الوقت",
+                "available": "متوفر",
+                "size": "الحجم",
+                "roles": "الأدوار",
+                "permissions": "الصلاحيات",
+                "active": "فعال",
+                "confirmed": "مؤكد",
+                "message": "رسالة",
+                "g-recaptcha-response": "رمز حماية Captcha",
+                "locale": "تعريب",
+                "route": "توجيه",
+                "url": "اسم الرابط المستعار",
+                "form_type": "نوع الإستمارة",
+                "form_data": "معلومات الإستمارة",
+                "recipients": "المستلمين",
+                "source_path": "المسار الأصلي",
+                "target_path": "المسار الهدف",
+                "redirect_type": "نوع التوجيه",
+                "timezone": "نطاق زمني",
+                "order": "ترتيب العرض",
+                "image": "صورة",
+                "status": "حالة",
+                "pinned": "مثبت",
+                "promoted": "مُرقّى",
+                "body": "جسم",
+                "tags": "وسوم",
+                "published_at": "منشور في",
+                "unpublished_at": "إيقاف النشر في",
+                "metable_type": "كيان"
+            }
+        },
+        "buttons": {
+            "cancel": "إلغاء",
+            "save": "حفظ",
+            "close": "إغلاق",
+            "create": "إنشاء",
+            "delete": "حذف",
+            "confirm": "تأكيد",
+            "show": "عرض",
+            "edit": "تعديل",
+            "update": "تحديث",
+            "view": "مشاهدة",
+            "preview": "معاينة",
+            "back": "تراجع",
+            "send": "إرسال",
+            "login-as": "تسجيل الدخول كـ {name}",
+            "apply": "تطبيق",
+            "users": {
+                "create": "إنشاء مستخدم"
+            },
+            "roles": {
+                "create": "إنشاء دور"
+            },
+            "metas": {
+                "create": "إنشاء معلومة وصفية"
+            },
+            "form_settings": {
+                "create": "إنشاء إعداد"
+            },
+            "redirections": {
+                "create": "إنشاء قاعدة توجيه",
+                "import": "إستيراد CSV\/Excel"
+            },
+            "posts": {
+                "create": "إنشاء مقالة",
+                "save_and_publish": "حفظ ونشر",
+                "save_as_draft": "حفظ كمسودة"
+            }
+        },
+        "pagination": {
+            "previous": "&laquo; السابق",
+            "next": "التالي &raquo;"
+        },
+        "auth": {
+            "failed": "البيانات المدخلة لا تتطابق مع قاعدة بياناتنا.",
+            "throttle": "تم تجريب عدد كبير من محاولات الدخول. يرجى المحاولة مجدداً بعد {seconds} ثانية."
+        }
+    },
     "en": {
         "alerts": {
             "backend": {
@@ -55,47 +850,215 @@ export default {
             },
             "frontend": []
         },
-        "auth": {
-            "failed": "These credentials do not match our records.",
-            "throttle": "Too many login attempts. Please try again in {seconds} seconds."
-        },
-        "buttons": {
-            "cancel": "Cancel",
-            "save": "Save",
-            "close": "Close",
-            "create": "Create",
-            "delete": "Delete",
-            "confirm": "Confirm",
-            "show": "Show",
-            "edit": "Edit",
-            "update": "Update",
-            "view": "View",
-            "preview": "Preview",
-            "back": "Back",
-            "send": "Send",
-            "login-as": "Login as {name}",
-            "apply": "Apply",
-            "users": {
-                "create": "Create user"
+        "mails": {
+            "layout": {
+                "hello": "Hello !",
+                "regards": "Regards",
+                "trouble": "If you’re having trouble clicking the {action} button, copy and paste the URL below into your web browser :",
+                "all_rights_reserved": "All rights reserved."
             },
-            "roles": {
-                "create": "Create role"
+            "password_reset": {
+                "subject": "Password reset",
+                "intro": "You are receiving this email because we received a password reset request for your account.",
+                "action": "Reset Password",
+                "outro": "If you did not request a password reset, no further action is required."
             },
-            "metas": {
-                "create": "Create meta"
+            "email_confirmation": {
+                "subject": "Email confirmation",
+                "intro": "Email confirmation is required in order to unleash your account.",
+                "action": "Confirm my email",
+                "outro": "Your account will be limited as long as your email remains not confirmed."
             },
-            "form_settings": {
-                "create": "Create setting"
+            "contact": {
+                "subject": "New contact message",
+                "new_contact": "You've got a new contact message. Submission detail :"
             },
-            "redirections": {
-                "create": "Create redirection",
-                "import": "Import CSV\/Excel"
-            },
-            "posts": {
-                "create": "Create post",
-                "save_and_publish": "Save and publish",
-                "save_as_draft": "Save as draft"
+            "alert": {
+                "subject": "[{app_name}] Exception error",
+                "message": "You've got unexpected server exception error which message is : {message}.",
+                "trace": "All trace detail :"
             }
+        },
+        "logs": {
+            "backend": {
+                "users": {
+                    "created": "User ID {user} created",
+                    "updated": "User ID {user} updated",
+                    "deleted": "User ID {user} deleted"
+                },
+                "form_submissions": {
+                    "created": "Form submission ID {form_submission} created"
+                }
+            },
+            "frontend": []
+        },
+        "permissions": {
+            "categories": {
+                "blog": "Blog",
+                "form": "Forms",
+                "access": "Access",
+                "seo": "SEO"
+            },
+            "access": {
+                "backend": {
+                    "display_name": "Backoffice access",
+                    "description": "Can access to administration pages."
+                },
+                "all": {
+                    "backend": {
+                        "display_name": "Full Backoffice access",
+                        "description": "Fully unlock BO IHM access to all features. Server-side permissions stay unchanged. Usefull for Demo account or server-side permissions testing."
+                    }
+                }
+            },
+            "view": {
+                "form_settings": {
+                    "display_name": "View form settings",
+                    "description": "Can view form settings."
+                },
+                "form_submissions": {
+                    "display_name": "View form submissions",
+                    "description": "Can view form submissions."
+                },
+                "users": {
+                    "display_name": "View users",
+                    "description": "Can view users."
+                },
+                "roles": {
+                    "display_name": "View roles",
+                    "description": "Can view roles."
+                },
+                "metas": {
+                    "display_name": "View metas",
+                    "description": "Can view metas."
+                },
+                "redirections": {
+                    "display_name": "View redirections",
+                    "description": "Can view redirections."
+                },
+                "posts": {
+                    "display_name": "View all posts",
+                    "description": "Can view all posts."
+                },
+                "own": {
+                    "posts": {
+                        "display_name": "View own posts",
+                        "description": "Can view own posts."
+                    }
+                }
+            },
+            "create": {
+                "form_settings": {
+                    "display_name": "Create form settings",
+                    "description": "Can create form settings."
+                },
+                "users": {
+                    "display_name": "Create users",
+                    "description": "Can create users."
+                },
+                "roles": {
+                    "display_name": "Create roles",
+                    "description": "Can create roles."
+                },
+                "metas": {
+                    "display_name": "Create metas",
+                    "description": "Can create metas."
+                },
+                "redirections": {
+                    "display_name": "Create redirections",
+                    "description": "Can create redirections."
+                },
+                "posts": {
+                    "display_name": "Create posts",
+                    "description": "Can create all posts."
+                }
+            },
+            "edit": {
+                "form_settings": {
+                    "display_name": "Edit form settings",
+                    "description": "Can edit form settings."
+                },
+                "users": {
+                    "display_name": "Edit users",
+                    "description": "Can edit users."
+                },
+                "roles": {
+                    "display_name": "Edit roles",
+                    "description": "Can edit roles."
+                },
+                "metas": {
+                    "display_name": "Edit metas",
+                    "description": "Can edit metas."
+                },
+                "redirections": {
+                    "display_name": "Edit redirections",
+                    "description": "Can edit redirections."
+                },
+                "posts": {
+                    "display_name": "Edit all posts",
+                    "description": "Can edit all posts."
+                },
+                "own": {
+                    "posts": {
+                        "display_name": "Edit own posts",
+                        "description": "Can edit own posts."
+                    }
+                }
+            },
+            "delete": {
+                "form_settings": {
+                    "display_name": "Delete form settings",
+                    "description": "Can delete form settings."
+                },
+                "form_submissions": {
+                    "display_name": "Delete form submissions",
+                    "description": "Can delete form submissions."
+                },
+                "users": {
+                    "display_name": "Delete users",
+                    "description": "Can delete users."
+                },
+                "roles": {
+                    "display_name": "Delete roles",
+                    "description": "Can delete roles."
+                },
+                "metas": {
+                    "display_name": "Delete metas",
+                    "description": "Can delete metas."
+                },
+                "redirections": {
+                    "display_name": "Delete redirections",
+                    "description": "Can delete redirections."
+                },
+                "posts": {
+                    "display_name": "Delete all posts",
+                    "description": "Can delete all posts."
+                },
+                "own": {
+                    "posts": {
+                        "display_name": "Delete own posts",
+                        "description": "Can delete own posts."
+                    }
+                }
+            },
+            "publish": {
+                "posts": {
+                    "display_name": "Publish posts",
+                    "description": "Can manage posts publication."
+                }
+            },
+            "impersonate": {
+                "display_name": "Impersonate user",
+                "description": "Can take ownership of others user identities. Useful for tests."
+            }
+        },
+        "routes": {
+            "home": "home",
+            "about": "about",
+            "contact": "contact",
+            "contact-sent": "contact-sent",
+            "legal-mentions": "legal-mentions",
+            "redactors": "blog\/redactors\/{user}"
         },
         "exceptions": {
             "general": "Server exception",
@@ -155,11 +1118,6 @@ export default {
                 "auth": {
                     "registration_disabled": "Registration is disabled."
                 }
-            }
-        },
-        "forms": {
-            "contact": {
-                "display_name": "Contact form"
             }
         },
         "labels": {
@@ -427,52 +1385,6 @@ export default {
                 }
             }
         },
-        "logs": {
-            "backend": {
-                "users": {
-                    "created": "User ID {user} created",
-                    "updated": "User ID {user} updated",
-                    "deleted": "User ID {user} deleted"
-                },
-                "form_submissions": {
-                    "created": "Form submission ID {form_submission} created"
-                }
-            },
-            "frontend": []
-        },
-        "mails": {
-            "layout": {
-                "hello": "Hello !",
-                "regards": "Regards",
-                "trouble": "If you’re having trouble clicking the {action} button, copy and paste the URL below into your web browser :",
-                "all_rights_reserved": "All rights reserved."
-            },
-            "password_reset": {
-                "subject": "Password reset",
-                "intro": "You are receiving this email because we received a password reset request for your account.",
-                "action": "Reset Password",
-                "outro": "If you did not request a password reset, no further action is required."
-            },
-            "email_confirmation": {
-                "subject": "Email confirmation",
-                "intro": "Email confirmation is required in order to unleash your account.",
-                "action": "Confirm my email",
-                "outro": "Your account will be limited as long as your email remains not confirmed."
-            },
-            "contact": {
-                "subject": "New contact message",
-                "new_contact": "You've got a new contact message. Submission detail :"
-            },
-            "alert": {
-                "subject": "[{app_name}] Exception error",
-                "message": "You've got unexpected server exception error which message is : {message}.",
-                "trace": "All trace detail :"
-            }
-        },
-        "pagination": {
-            "previous": "&laquo; Previous",
-            "next": "Next &raquo;"
-        },
         "passwords": {
             "password": "Passwords must be at least six characters and match the confirmation.",
             "reset": "Your password has been reset!",
@@ -480,173 +1392,10 @@ export default {
             "token": "This password reset token is invalid.",
             "user": "We can't find a user with that e-mail address."
         },
-        "permissions": {
-            "categories": {
-                "blog": "Blog",
-                "form": "Forms",
-                "access": "Access",
-                "seo": "SEO"
-            },
-            "access": {
-                "backend": {
-                    "display_name": "Backoffice access",
-                    "description": "Can access to administration pages."
-                },
-                "all": {
-                    "backend": {
-                        "display_name": "Full Backoffice access",
-                        "description": "Fully unlock BO IHM access to all features. Server-side permissions stay unchanged. Usefull for Demo account or server-side permissions testing."
-                    }
-                }
-            },
-            "view": {
-                "form_settings": {
-                    "display_name": "View form settings",
-                    "description": "Can view form settings."
-                },
-                "form_submissions": {
-                    "display_name": "View form submissions",
-                    "description": "Can view form submissions."
-                },
-                "users": {
-                    "display_name": "View users",
-                    "description": "Can view users."
-                },
-                "roles": {
-                    "display_name": "View roles",
-                    "description": "Can view roles."
-                },
-                "metas": {
-                    "display_name": "View metas",
-                    "description": "Can view metas."
-                },
-                "redirections": {
-                    "display_name": "View redirections",
-                    "description": "Can view redirections."
-                },
-                "posts": {
-                    "display_name": "View all posts",
-                    "description": "Can view all posts."
-                },
-                "own": {
-                    "posts": {
-                        "display_name": "View own posts",
-                        "description": "Can view own posts."
-                    }
-                }
-            },
-            "create": {
-                "form_settings": {
-                    "display_name": "Create form settings",
-                    "description": "Can create form settings."
-                },
-                "users": {
-                    "display_name": "Create users",
-                    "description": "Can create users."
-                },
-                "roles": {
-                    "display_name": "Create roles",
-                    "description": "Can create roles."
-                },
-                "metas": {
-                    "display_name": "Create metas",
-                    "description": "Can create metas."
-                },
-                "redirections": {
-                    "display_name": "Create redirections",
-                    "description": "Can create redirections."
-                },
-                "posts": {
-                    "display_name": "Create posts",
-                    "description": "Can create all posts."
-                }
-            },
-            "edit": {
-                "form_settings": {
-                    "display_name": "Edit form settings",
-                    "description": "Can edit form settings."
-                },
-                "users": {
-                    "display_name": "Edit users",
-                    "description": "Can edit users."
-                },
-                "roles": {
-                    "display_name": "Edit roles",
-                    "description": "Can edit roles."
-                },
-                "metas": {
-                    "display_name": "Edit metas",
-                    "description": "Can edit metas."
-                },
-                "redirections": {
-                    "display_name": "Edit redirections",
-                    "description": "Can edit redirections."
-                },
-                "posts": {
-                    "display_name": "Edit all posts",
-                    "description": "Can edit all posts."
-                },
-                "own": {
-                    "posts": {
-                        "display_name": "Edit own posts",
-                        "description": "Can edit own posts."
-                    }
-                }
-            },
-            "delete": {
-                "form_settings": {
-                    "display_name": "Delete form settings",
-                    "description": "Can delete form settings."
-                },
-                "form_submissions": {
-                    "display_name": "Delete form submissions",
-                    "description": "Can delete form submissions."
-                },
-                "users": {
-                    "display_name": "Delete users",
-                    "description": "Can delete users."
-                },
-                "roles": {
-                    "display_name": "Delete roles",
-                    "description": "Can delete roles."
-                },
-                "metas": {
-                    "display_name": "Delete metas",
-                    "description": "Can delete metas."
-                },
-                "redirections": {
-                    "display_name": "Delete redirections",
-                    "description": "Can delete redirections."
-                },
-                "posts": {
-                    "display_name": "Delete all posts",
-                    "description": "Can delete all posts."
-                },
-                "own": {
-                    "posts": {
-                        "display_name": "Delete own posts",
-                        "description": "Can delete own posts."
-                    }
-                }
-            },
-            "publish": {
-                "posts": {
-                    "display_name": "Publish posts",
-                    "description": "Can manage posts publication."
-                }
-            },
-            "impersonate": {
-                "display_name": "Impersonate user",
-                "description": "Can take ownership of others user identities. Useful for tests."
+        "forms": {
+            "contact": {
+                "display_name": "Contact form"
             }
-        },
-        "routes": {
-            "home": "home",
-            "about": "about",
-            "contact": "contact",
-            "contact-sent": "contact-sent",
-            "legal-mentions": "legal-mentions",
-            "redactors": "blog\/redactors\/{user}"
         },
         "validation": {
             "accepted": "The {attribute} must be accepted.",
@@ -791,6 +1540,52 @@ export default {
                 "unpublished_at": "Unpublish at",
                 "metable_type": "Entity"
             }
+        },
+        "buttons": {
+            "cancel": "Cancel",
+            "save": "Save",
+            "close": "Close",
+            "create": "Create",
+            "delete": "Delete",
+            "confirm": "Confirm",
+            "show": "Show",
+            "edit": "Edit",
+            "update": "Update",
+            "view": "View",
+            "preview": "Preview",
+            "back": "Back",
+            "send": "Send",
+            "login-as": "Login as {name}",
+            "apply": "Apply",
+            "users": {
+                "create": "Create user"
+            },
+            "roles": {
+                "create": "Create role"
+            },
+            "metas": {
+                "create": "Create meta"
+            },
+            "form_settings": {
+                "create": "Create setting"
+            },
+            "redirections": {
+                "create": "Create redirection",
+                "import": "Import CSV\/Excel"
+            },
+            "posts": {
+                "create": "Create post",
+                "save_and_publish": "Save and publish",
+                "save_as_draft": "Save as draft"
+            }
+        },
+        "pagination": {
+            "previous": "&laquo; Previous",
+            "next": "Next &raquo;"
+        },
+        "auth": {
+            "failed": "These credentials do not match our records.",
+            "throttle": "Too many login attempts. Please try again in {seconds} seconds."
         }
     },
     "fr": {
@@ -849,47 +1644,215 @@ export default {
             },
             "frontend": []
         },
-        "auth": {
-            "failed": "Ces identifiants ne correspondent pas à nos enregistrements",
-            "throttle": "Trop de tentatives de connexion. Veuillez essayer de nouveau dans {seconds} secondes."
-        },
-        "buttons": {
-            "cancel": "Annuler",
-            "save": "Sauvegarder",
-            "close": "Fermer",
-            "create": "Créer",
-            "delete": "Supprimer",
-            "confirm": "Valider",
-            "show": "Voir",
-            "edit": "Editer",
-            "update": "Mettre à jour",
-            "view": "Voir",
-            "preview": "Prévisualiser",
-            "back": "Retour",
-            "send": "Envoyer",
-            "login-as": "Se loguer en tant que {name}",
-            "apply": "Appliquer",
-            "users": {
-                "create": "Créer un utilisateur"
+        "mails": {
+            "layout": {
+                "hello": "Bonjour !",
+                "regards": "Cordialement",
+                "trouble": "Si vous rencontrer un problème en cliquant sur le bouton {action}, copier et coller l'URL suivante dans votre navigateur :",
+                "all_rights_reserved": "Tous droits réservés."
             },
-            "roles": {
-                "create": "Créer un rôle"
+            "password_reset": {
+                "subject": "Réinitialisation de mon mot de passe",
+                "intro": "Vous recevez cet email car vous avez effectué une demande de réinitialisation de mot de passe.",
+                "action": "Réinitialiser le mot de passe",
+                "outro": "Si vous n'avez pas fait cette demande de réinitialisation, aucune action n'est requise."
             },
-            "metas": {
-                "create": "Créer une meta"
+            "email_confirmation": {
+                "subject": "Confirmation de mon email",
+                "intro": "La confirmation de votre email est requise pour débrider votre compte.",
+                "action": "Confirmer mon email",
+                "outro": "Votre compte sera limité tant que votre email ne sera pas confirmé."
             },
-            "form_settings": {
-                "create": "Créer un paramètre"
+            "contact": {
+                "subject": "Nouveau message de contact",
+                "new_contact": "Vous avez reçu un nouveau message de contact. Détail de la soumission :"
             },
-            "redirections": {
-                "create": "Créer une redirection",
-                "import": "Importer le CSV\/Excel"
-            },
-            "posts": {
-                "create": "Créer un article",
-                "save_and_publish": "Enregistrer et publier",
-                "save_as_draft": "Enregistrer en tant que brouillon"
+            "alert": {
+                "subject": "[{app_name}] Exception error",
+                "message": "Une exception serveur non prévue a été levée dont le message est : {message}.",
+                "trace": "Trace complète :"
             }
+        },
+        "logs": {
+            "backend": {
+                "users": {
+                    "created": "Utilisateur ID {user} créé",
+                    "updated": "Utilisateur ID {user} mis à jour",
+                    "deleted": "Utilisateur ID {user} supprimé"
+                },
+                "form_submissions": {
+                    "created": "Soumission de formulaire ID {form_submission} créée"
+                }
+            },
+            "frontend": []
+        },
+        "permissions": {
+            "categories": {
+                "blog": "Blog",
+                "form": "Formulaires",
+                "access": "Accès",
+                "seo": "SEO"
+            },
+            "access": {
+                "backend": {
+                    "display_name": "Accès au backoffice",
+                    "description": "Permet l'accès aux pages du backoffice."
+                },
+                "all": {
+                    "backend": {
+                        "display_name": "Accès complet à l'interface du backoffice",
+                        "description": "Déverrouille entièrement l'IHM du BO. Les permissions côté serveur resteront inchangées. Utile notamment pour les comptes de démo ou tests de permissions côté serveur."
+                    }
+                }
+            },
+            "view": {
+                "form_settings": {
+                    "display_name": "Voir les paramètres de formulaires",
+                    "description": "Peut voir des paramètres de formulaires."
+                },
+                "form_submissions": {
+                    "display_name": "Voir les soumissions de formulaire",
+                    "description": "Peut voir des soumissions de formulaire."
+                },
+                "users": {
+                    "display_name": "Voir les utilisateurs",
+                    "description": "Peut voir des utilisateurs."
+                },
+                "roles": {
+                    "display_name": "Voir les rôles",
+                    "description": "Peut voir des rôles."
+                },
+                "metas": {
+                    "display_name": "Voir les metas",
+                    "description": "Peut voir des metas."
+                },
+                "redirections": {
+                    "display_name": "Voir les redirections",
+                    "description": "Peut voir des redirections."
+                },
+                "posts": {
+                    "display_name": "Voir tous les articles",
+                    "description": "Peut voir l'ensemble des articles."
+                },
+                "own": {
+                    "posts": {
+                        "display_name": "Voir ses propres articles",
+                        "description": "Peut voir ses propres articles."
+                    }
+                }
+            },
+            "create": {
+                "form_settings": {
+                    "display_name": "Créer les paramètres de formulaires",
+                    "description": "Peut créer des paramètres de formulaires."
+                },
+                "users": {
+                    "display_name": "Créer les utilisateurs",
+                    "description": "Peut créer des utilisateurs."
+                },
+                "roles": {
+                    "display_name": "Créer les rôles",
+                    "description": "Peut créer des rôles."
+                },
+                "metas": {
+                    "display_name": "Créer les metas",
+                    "description": "Peut créer des metas."
+                },
+                "redirections": {
+                    "display_name": "Créer les redirections",
+                    "description": "Peut créer des redirections."
+                },
+                "posts": {
+                    "display_name": "Créer les articles",
+                    "description": "Peut créer des articles."
+                }
+            },
+            "edit": {
+                "form_settings": {
+                    "display_name": "Modifier les paramètres de formulaires",
+                    "description": "Peut modifier des paramètres de formulaires."
+                },
+                "users": {
+                    "display_name": "Modifier les utilisateurs",
+                    "description": "Peut modifier des utilisateurs."
+                },
+                "roles": {
+                    "display_name": "Modifier les rôles",
+                    "description": "Peut modifier des rôles."
+                },
+                "metas": {
+                    "display_name": "Modifier les metas",
+                    "description": "Peut modifier des metas."
+                },
+                "redirections": {
+                    "display_name": "Modifier les redirections",
+                    "description": "Peut modifier des redirections."
+                },
+                "posts": {
+                    "display_name": "Modifier tous les articles",
+                    "description": "Peut modifier l'ensemble des articles."
+                },
+                "own": {
+                    "posts": {
+                        "display_name": "Modifier ses propres articles",
+                        "description": "Peut modifier ses propres articles."
+                    }
+                }
+            },
+            "delete": {
+                "form_settings": {
+                    "display_name": "Supprimer les paramètres de formulaires",
+                    "description": "Peut supprimer des paramètres de formulaires."
+                },
+                "form_submissions": {
+                    "display_name": "Supprimer les soumissions de formulaire",
+                    "description": "Peut supprimer des soumissions de formulaire."
+                },
+                "users": {
+                    "display_name": "Supprimer les utilisateurs",
+                    "description": "Peut supprimer des utilisateurs."
+                },
+                "roles": {
+                    "display_name": "Supprimer les rôles",
+                    "description": "Peut supprimer des rôles."
+                },
+                "metas": {
+                    "display_name": "Supprimer les metas",
+                    "description": "Peut supprimer des metas."
+                },
+                "redirections": {
+                    "display_name": "Supprimer les redirections",
+                    "description": "Peut supprimer des redirections."
+                },
+                "posts": {
+                    "display_name": "Supprimer tous les articles",
+                    "description": "Peut supprimer l'ensemble des articles."
+                },
+                "own": {
+                    "posts": {
+                        "display_name": "Supprimer ses propres articles",
+                        "description": "Peut supprimer ses propres articles."
+                    }
+                }
+            },
+            "publish": {
+                "posts": {
+                    "display_name": "Publier les articles",
+                    "description": "Possibilité de gérer la publication des articles."
+                }
+            },
+            "impersonate": {
+                "display_name": "Usurpation d'utilisateur",
+                "description": "Permet de prendre l'identité d'un autre utilisateur. Utile pour les tests."
+            }
+        },
+        "routes": {
+            "home": "accueil",
+            "about": "qui-sommes-nous",
+            "contact": "demande-de-contact",
+            "contact-sent": "message-envoyee",
+            "legal-mentions": "mentions-legales",
+            "redactors": "blog\/redacteurs\/{user}"
         },
         "exceptions": {
             "general": "Erreur serveur",
@@ -949,11 +1912,6 @@ export default {
                 "auth": {
                     "registration_disabled": "L'enregistrement d'utilisateurs est désactivé."
                 }
-            }
-        },
-        "forms": {
-            "contact": {
-                "display_name": "Formulaire de contact"
             }
         },
         "labels": {
@@ -1221,52 +2179,6 @@ export default {
                 }
             }
         },
-        "logs": {
-            "backend": {
-                "users": {
-                    "created": "Utilisateur ID {user} créé",
-                    "updated": "Utilisateur ID {user} mis à jour",
-                    "deleted": "Utilisateur ID {user} supprimé"
-                },
-                "form_submissions": {
-                    "created": "Soumission de formulaire ID {form_submission} créée"
-                }
-            },
-            "frontend": []
-        },
-        "mails": {
-            "layout": {
-                "hello": "Bonjour !",
-                "regards": "Cordialement",
-                "trouble": "Si vous rencontrer un problème en cliquant sur le bouton {action}, copier et coller l'URL suivante dans votre navigateur :",
-                "all_rights_reserved": "Tous droits réservés."
-            },
-            "password_reset": {
-                "subject": "Réinitialisation de mon mot de passe",
-                "intro": "Vous recevez cet email car vous avez effectué une demande de réinitialisation de mot de passe.",
-                "action": "Réinitialiser le mot de passe",
-                "outro": "Si vous n'avez pas fait cette demande de réinitialisation, aucune action n'est requise."
-            },
-            "email_confirmation": {
-                "subject": "Confirmation de mon email",
-                "intro": "La confirmation de votre email est requise pour débrider votre compte.",
-                "action": "Confirmer mon email",
-                "outro": "Votre compte sera limité tant que votre email ne sera pas confirmé."
-            },
-            "contact": {
-                "subject": "Nouveau message de contact",
-                "new_contact": "Vous avez reçu un nouveau message de contact. Détail de la soumission :"
-            },
-            "alert": {
-                "subject": "[{app_name}] Exception error",
-                "message": "Une exception serveur non prévue a été levée dont le message est : {message}.",
-                "trace": "Trace complète :"
-            }
-        },
-        "pagination": {
-            "previous": "&laquo; Précédent",
-            "next": "Suivant &raquo;"
-        },
         "passwords": {
             "password": "Les mots de passe doivent contenir au moins six caractères et doivent être identiques.",
             "reset": "Votre mot de passe a été réinitialisé !",
@@ -1274,173 +2186,10 @@ export default {
             "token": "Ce jeton de réinitialisation du mot de passe n'est pas valide.",
             "user": "Aucun utilisateur n'a été trouvé avec cette adresse e-mail."
         },
-        "permissions": {
-            "categories": {
-                "blog": "Blog",
-                "form": "Formulaires",
-                "access": "Accès",
-                "seo": "SEO"
-            },
-            "access": {
-                "backend": {
-                    "display_name": "Accès au backoffice",
-                    "description": "Permet l'accès aux pages du backoffice."
-                },
-                "all": {
-                    "backend": {
-                        "display_name": "Accès complet à l'interface du backoffice",
-                        "description": "Déverrouille entièrement l'IHM du BO. Les permissions côté serveur resteront inchangées. Utile notamment pour les comptes de démo ou tests de permissions côté serveur."
-                    }
-                }
-            },
-            "view": {
-                "form_settings": {
-                    "display_name": "Voir les paramètres de formulaires",
-                    "description": "Peut voir des paramètres de formulaires."
-                },
-                "form_submissions": {
-                    "display_name": "Voir les soumissions de formulaire",
-                    "description": "Peut voir des soumissions de formulaire."
-                },
-                "users": {
-                    "display_name": "Voir les utilisateurs",
-                    "description": "Peut voir des utilisateurs."
-                },
-                "roles": {
-                    "display_name": "Voir les rôles",
-                    "description": "Peut voir des rôles."
-                },
-                "metas": {
-                    "display_name": "Voir les metas",
-                    "description": "Peut voir des metas."
-                },
-                "redirections": {
-                    "display_name": "Voir les redirections",
-                    "description": "Peut voir des redirections."
-                },
-                "posts": {
-                    "display_name": "Voir tous les articles",
-                    "description": "Peut voir l'ensemble des articles."
-                },
-                "own": {
-                    "posts": {
-                        "display_name": "Voir ses propres articles",
-                        "description": "Peut voir ses propres articles."
-                    }
-                }
-            },
-            "create": {
-                "form_settings": {
-                    "display_name": "Créer les paramètres de formulaires",
-                    "description": "Peut créer des paramètres de formulaires."
-                },
-                "users": {
-                    "display_name": "Créer les utilisateurs",
-                    "description": "Peut créer des utilisateurs."
-                },
-                "roles": {
-                    "display_name": "Créer les rôles",
-                    "description": "Peut créer des rôles."
-                },
-                "metas": {
-                    "display_name": "Créer les metas",
-                    "description": "Peut créer des metas."
-                },
-                "redirections": {
-                    "display_name": "Créer les redirections",
-                    "description": "Peut créer des redirections."
-                },
-                "posts": {
-                    "display_name": "Créer les articles",
-                    "description": "Peut créer des articles."
-                }
-            },
-            "edit": {
-                "form_settings": {
-                    "display_name": "Modifier les paramètres de formulaires",
-                    "description": "Peut modifier des paramètres de formulaires."
-                },
-                "users": {
-                    "display_name": "Modifier les utilisateurs",
-                    "description": "Peut modifier des utilisateurs."
-                },
-                "roles": {
-                    "display_name": "Modifier les rôles",
-                    "description": "Peut modifier des rôles."
-                },
-                "metas": {
-                    "display_name": "Modifier les metas",
-                    "description": "Peut modifier des metas."
-                },
-                "redirections": {
-                    "display_name": "Modifier les redirections",
-                    "description": "Peut modifier des redirections."
-                },
-                "posts": {
-                    "display_name": "Modifier tous les articles",
-                    "description": "Peut modifier l'ensemble des articles."
-                },
-                "own": {
-                    "posts": {
-                        "display_name": "Modifier ses propres articles",
-                        "description": "Peut modifier ses propres articles."
-                    }
-                }
-            },
-            "delete": {
-                "form_settings": {
-                    "display_name": "Supprimer les paramètres de formulaires",
-                    "description": "Peut supprimer des paramètres de formulaires."
-                },
-                "form_submissions": {
-                    "display_name": "Supprimer les soumissions de formulaire",
-                    "description": "Peut supprimer des soumissions de formulaire."
-                },
-                "users": {
-                    "display_name": "Supprimer les utilisateurs",
-                    "description": "Peut supprimer des utilisateurs."
-                },
-                "roles": {
-                    "display_name": "Supprimer les rôles",
-                    "description": "Peut supprimer des rôles."
-                },
-                "metas": {
-                    "display_name": "Supprimer les metas",
-                    "description": "Peut supprimer des metas."
-                },
-                "redirections": {
-                    "display_name": "Supprimer les redirections",
-                    "description": "Peut supprimer des redirections."
-                },
-                "posts": {
-                    "display_name": "Supprimer tous les articles",
-                    "description": "Peut supprimer l'ensemble des articles."
-                },
-                "own": {
-                    "posts": {
-                        "display_name": "Supprimer ses propres articles",
-                        "description": "Peut supprimer ses propres articles."
-                    }
-                }
-            },
-            "publish": {
-                "posts": {
-                    "display_name": "Publier les articles",
-                    "description": "Possibilité de gérer la publication des articles."
-                }
-            },
-            "impersonate": {
-                "display_name": "Usurpation d'utilisateur",
-                "description": "Permet de prendre l'identité d'un autre utilisateur. Utile pour les tests."
+        "forms": {
+            "contact": {
+                "display_name": "Formulaire de contact"
             }
-        },
-        "routes": {
-            "home": "accueil",
-            "about": "qui-sommes-nous",
-            "contact": "demande-de-contact",
-            "contact-sent": "message-envoyee",
-            "legal-mentions": "mentions-legales",
-            "redactors": "blog\/redacteurs\/{user}"
         },
         "validation": {
             "accepted": "Le champ {attribute} doit être accepté.",
@@ -1585,6 +2334,52 @@ export default {
                 "unpublished_at": "Dépublier le",
                 "metable_type": "Entité"
             }
+        },
+        "buttons": {
+            "cancel": "Annuler",
+            "save": "Sauvegarder",
+            "close": "Fermer",
+            "create": "Créer",
+            "delete": "Supprimer",
+            "confirm": "Valider",
+            "show": "Voir",
+            "edit": "Editer",
+            "update": "Mettre à jour",
+            "view": "Voir",
+            "preview": "Prévisualiser",
+            "back": "Retour",
+            "send": "Envoyer",
+            "login-as": "Se loguer en tant que {name}",
+            "apply": "Appliquer",
+            "users": {
+                "create": "Créer un utilisateur"
+            },
+            "roles": {
+                "create": "Créer un rôle"
+            },
+            "metas": {
+                "create": "Créer une meta"
+            },
+            "form_settings": {
+                "create": "Créer un paramètre"
+            },
+            "redirections": {
+                "create": "Créer une redirection",
+                "import": "Importer le CSV\/Excel"
+            },
+            "posts": {
+                "create": "Créer un article",
+                "save_and_publish": "Enregistrer et publier",
+                "save_as_draft": "Enregistrer en tant que brouillon"
+            }
+        },
+        "pagination": {
+            "previous": "&laquo; Précédent",
+            "next": "Suivant &raquo;"
+        },
+        "auth": {
+            "failed": "Ces identifiants ne correspondent pas à nos enregistrements",
+            "throttle": "Trop de tentatives de connexion. Veuillez essayer de nouveau dans {seconds} secondes."
         }
     }
 }

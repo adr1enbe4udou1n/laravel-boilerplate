@@ -25,6 +25,17 @@ return [
                 'default' => 'd/m/Y h:i:s',
             ],
         ],
+        'ar' => [
+            'name' => 'labels.localization.ar',
+            'script' => 'Arab',
+            'native' => 'عربي',
+            'regional' => 'ar_SY',
+            'locale_win' => 'Arabic_Syria.1256',
+            'date_formats' => [
+                'default' => 'd/m/Y h:i:s',
+            ],
+            'dir' => 'rtl'
+        ],
     ],
 
     // Negotiate for the user locale using the Accept-Language header if it's not defined in the URL?

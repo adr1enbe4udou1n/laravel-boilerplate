@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ app()->getLocale() }}" @if(LaravelLocalization::getCurrentLocaleDirection() == 'rtl') class="rtl" @endif>
 <head>
     @include('frontend.scripts.gtm')
 

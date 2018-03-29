@@ -69,5 +69,8 @@
     "webpack-manifest-plugin": "^2.0.0-rc.2",
     "webpack-notifier": "^1.6.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap-v4-rtl": "https://github.com/MahdiMajidzadeh/bootstrap-v4-rtl.git",
+    "npm": "^5.8.0"
+  }
 }
