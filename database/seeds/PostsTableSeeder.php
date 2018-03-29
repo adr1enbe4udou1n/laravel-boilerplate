@@ -17,7 +17,7 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker\Factory::create();
+        $faker = Faker\Factory::create('ar');
         $user = new User();
 
         // Get User ids with roles (those can create posts)
@@ -36,17 +36,17 @@ class PostsTableSeeder extends Seeder
 
         // 200 random posts
         /** @var \Illuminate\Database\Eloquent\Collection $posts */
-        $posts = factory(Post::class)->times(200)->create();
+        $posts = Post::all();//factory(Post::class)->times(200)->create();
 
         /** @var \Illuminate\Database\Eloquent\Collection $tags */
-        $tags = factory(Tag::class)->times(20)->create();
+        $tags = Tag::all();//factory(Tag::class)->times(20)->create();
 
         $publicDisk = Storage::disk('public');
         $publicDisk->delete($publicDisk->files('posts'));
 
         $posts->each(function (Post $post) use ($faker, $bodyImageUrl, $userIds, $tags) {
             // Generate localized bodies
-            foreach (['en', 'fr'] as $locale) {
+            foreach (['en', 'fr', 'ar'] as $locale) {
                 $post->translate($locale)->body = $this->generateBody($faker, $bodyImageUrl);
             }
 

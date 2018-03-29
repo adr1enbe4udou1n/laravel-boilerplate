@@ -44,6 +44,10 @@ class UsersTableSeeder extends Seeder
                 'display_name' => 'Administrateur',
                 'description' => 'Accès à la plupart des fonctionnalités du site',
             ],
+            'ar' => [
+                'display_name' => 'مدير',
+                'description' => 'قادر على الوصول إلى أغلب ميزات الموقع',
+            ],
             'order' => 0,
         ]);
 
@@ -93,6 +97,10 @@ class UsersTableSeeder extends Seeder
                 'display_name' => 'Superviseur',
                 'description' => 'Accès à l\'ensemble des fonctionnalités non critiques du site (exclusion de la gestion des accès et seo)',
             ],
+            'ar' => [
+                'display_name' => 'مشرف',
+                'description' => 'وصول إلى ميزات الموقع غير الحساسة (يستثنى منه الوصول وإدارة إعدادات تحسين محركات البحث)',
+            ],
             'order' => 1,
         ]);
 
@@ -129,6 +137,10 @@ class UsersTableSeeder extends Seeder
                 'display_name' => 'Consultant SEO',
                 'description' => 'Accès à la gestion des metatags et redirections.',
             ],
+            'ar' => [
+                'display_name' => 'مستشار تحسين أداء محركات البحث',
+                'description' => 'وصول وإدارة المعلومات الوصفية وقواعد التوجيه',
+            ],
             'order' => 2,
         ]);
 
@@ -158,6 +170,10 @@ class UsersTableSeeder extends Seeder
                 'display_name' => 'Editeur',
                 'description' => 'Accès à l\'ensemble des fonctions de rédaction du site',
             ],
+            'ar' => [
+                'display_name' => 'منقّح',
+                'description' => 'وصول إلى جميع ميزات كتابة المقالات',
+            ],
             'order' => 3,
         ]);
 
@@ -184,6 +200,10 @@ class UsersTableSeeder extends Seeder
                 'display_name' => 'Rédacteur',
                 'description' => 'Accès aux fonctions de rédaction du site, avec possibilité d\'éditer uniquement ses propres articles',
             ],
+            'ar' => [
+                'display_name' => 'محرر',
+                'description' => 'وصول إلى ميزات كتابة المقالات فيما يخص المقالات الخاصة به فقط',
+            ],
             'order' => 4,
         ]);
 
@@ -208,6 +228,10 @@ class UsersTableSeeder extends Seeder
             'fr' => [
                 'display_name' => 'Démo',
                 'description' => 'Accès à l\'ensemble des fonctionnalités du BO en lecture seule',
+            ],
+            'ar' => [
+                'display_name' => 'مستخدم للعرض',
+                'description' => 'وصول إلى كل ميزات المدونة للقراءة فقط',
             ],
             'order' => 5,
         ]);
