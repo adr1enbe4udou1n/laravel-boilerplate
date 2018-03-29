@@ -25,7 +25,7 @@
 </div>
 
 <div class="form-group row">
-    <label for="timezone" class="col-md-4 col-form-label">@lang('validation.attributes.email')</label>
+    <label for="timezone" class="col-md-4 col-form-label">@lang('validation.attributes.timezone')</label>
 
     <div class="col-md-8">
         {{ Form::bsSelect('timezone', array_combine(array_values($timezones), $timezones), null, ['required', 'placeholder' => __('validation.attributes.timezone')]) }}
