@@ -1775,16 +1775,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.6.13",
+            "version": "v5.6.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "90ccb77a543ff063533083f427d5e655546afbad"
+                "reference": "baa42cf6bdd942523fafece21ec16a1843c6db0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/90ccb77a543ff063533083f427d5e655546afbad",
-                "reference": "90ccb77a543ff063533083f427d5e655546afbad",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/baa42cf6bdd942523fafece21ec16a1843c6db0f",
+                "reference": "baa42cf6bdd942523fafece21ec16a1843c6db0f",
                 "shasum": ""
             },
             "require": {
@@ -1909,7 +1909,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2018-03-26T13:45:20+00:00"
+            "time": "2018-03-30T13:29:58+00:00"
         },
         {
             "name": "laravel/scout",
@@ -4418,24 +4418,24 @@
         },
         {
             "name": "tightenco/ziggy",
-            "version": "v0.6.2",
+            "version": "0.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tightenco/ziggy.git",
-                "reference": "cb7a08c8ef5492711ddbff4003d1e53a9fb3431f"
+                "reference": "24192a275e458e49395e08e7eebd92ea33a7b48c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tightenco/ziggy/zipball/cb7a08c8ef5492711ddbff4003d1e53a9fb3431f",
-                "reference": "cb7a08c8ef5492711ddbff4003d1e53a9fb3431f",
+                "url": "https://api.github.com/repos/tightenco/ziggy/zipball/24192a275e458e49395e08e7eebd92ea33a7b48c",
+                "reference": "24192a275e458e49395e08e7eebd92ea33a7b48c",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "^5.4.29"
+                "laravel/framework": "~5.6.7"
             },
             "require-dev": {
                 "mikey179/vfsstream": "^1.6",
-                "orchestra/testbench": "~3.4"
+                "orchestra/testbench": "~3.6"
             },
             "type": "library",
             "extra": {
@@ -4465,7 +4465,7 @@
                 }
             ],
             "description": "Generates a Blade directive exporting all of your named Laravel routes. Also provides a nice route() helper function in JavaScript.",
-            "time": "2018-02-17T05:58:12+00:00"
+            "time": "2018-03-27T19:18:27+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",

@@ -40,7 +40,7 @@
     "img-loader": "^2.0.1",
     "intl-tel-input": "^12.1.12",
     "lodash": "^4.17.5",
-    "mini-css-extract-plugin": "^0.2.0",
+    "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.8.3",
     "noty": "^3.2.0-beta",
     "postcss-loader": "^2.1.3",
