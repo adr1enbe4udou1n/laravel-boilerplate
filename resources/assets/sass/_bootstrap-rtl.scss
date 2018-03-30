@@ -2,6 +2,10 @@
   direction: rtl;
   text-align: right;
 
+  body {
+    text-align: right;
+  }
+
   .nav {
     padding-right: 0;
   }
@@ -220,8 +224,8 @@
     float: right !important;
   }
 
-  .dropdown-menu {
-    left: unset !important;
-    right: 0 !important;
+  .navbar-brand {
+    margin-right: inherit !important;
+    margin-left: 1rem !important;
   }
 }
