@@ -24,6 +24,9 @@
 // Pages
 @import "blog";
 
+// RTL
+@import "../bootstrap-rtl";
+
 body {
   padding-top: 3.5rem;
 }
@@ -34,6 +37,7 @@ body {
 
 .jumbotron {
   margin-bottom: 0;
+  direction: ltr !important;
 
   @include media-breakpoint-up(sm) {
     padding: $jumbotron-padding $jumbotron-padding / 2;

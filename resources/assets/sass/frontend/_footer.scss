@@ -9,27 +9,22 @@
   padding-bottom: 50px;
   margin-top: 100px;
   color: white;
-  text-align: center;
 }
 .footer a {
   color: white;
 }
 .footer-links {
-  padding-left: 0;
-  margin-bottom: 20px;
+  padding: 0;
+  margin-bottom: 2rem;
 }
 .footer-links li {
   display: inline-block;
-}
-.footer-links li + li {
-  margin-left: 15px;
+  margin-right: .5rem;
 }
 
-@media (min-width: 768px) {
-  .footer {
-    text-align: left;
-  }
-  .footer p {
-    margin-bottom: 0;
+*[dir="rtl"] {
+  .footer-links li {
+    margin-right: inherit;
+    margin-left: .5rem;
   }
 }

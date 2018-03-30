@@ -46,7 +46,7 @@ class PostsTableSeeder extends Seeder
 
         $posts->each(function (Post $post) use ($faker, $bodyImageUrl, $userIds, $tags) {
             // Generate localized bodies
-            foreach (['en', 'fr'] as $locale) {
+            foreach (['en', 'fr', 'ar'] as $locale) {
                 $post->translate($locale)->body = $this->generateBody($faker, $bodyImageUrl);
             }
 

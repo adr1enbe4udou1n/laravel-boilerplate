@@ -34,11 +34,15 @@ $factory->define(App\Models\Meta::class, function (Faker\Generator $faker) {
             'title' => $faker->sentence,
             'description' => $faker->sentences(3, true),
         ],
+        'ar' => [
+            'title' => $faker->sentence,
+            'description' => $faker->sentences(3, true),
+        ],
     ];
 });
 
 $factory->define(App\Models\Tag::class, function (Faker\Generator $faker) {
-    $locales = ['en', 'fr'];
+    $locales = ['en', 'fr', 'ar'];
 
     return [
         'locale' => $locales[array_rand($locales)],
@@ -61,6 +65,10 @@ $factory->define(App\Models\Post::class, function (Faker\Generator $faker) {
             'summary' => $faker->sentences(3, true),
         ],
         'fr' => [
+            'title' => $faker->sentence,
+            'summary' => $faker->sentences(3, true),
+        ],
+        'ar' => [
             'title' => $faker->sentence,
             'summary' => $faker->sentences(3, true),
         ],
