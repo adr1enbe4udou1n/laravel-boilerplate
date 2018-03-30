@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ app()->getLocale() }}" dir="{{ LaravelLocalization::getCurrentLocaleDirection() }}">
 <head>
     @include('frontend.scripts.gtm')
 
@@ -40,7 +40,7 @@
     <script defer src="{{ Html::asset('frontend', 'vendor-frontend.js') }}"></script>
     <script defer src="{{ Html::asset('frontend', 'frontend.js') }}"></script>
 </head>
-<body class="@yield('body_class') {{ LaravelLocalization::getCurrentLocaleDirection() }}">
+<body class="@yield('body_class')">
     @include('frontend.scripts.gtmiframe')
 
     <div id="app">

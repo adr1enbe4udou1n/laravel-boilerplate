@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ app()->getLocale() }}" dir="{{ LaravelLocalization::getCurrentLocaleDirection() }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,7 +45,7 @@
     <script defer src="{{ Html::asset('backend', 'vendor-backend.js') }}"></script>
     <script defer src="{{ Html::asset('backend', 'backend.js') }}"></script>
 </head>
-<body class="app @yield('body_class') {{ LaravelLocalization::getCurrentLocaleDirection() }}">
+<body class="app @yield('body_class')">
     @yield('body')
 
     @stack('scripts')

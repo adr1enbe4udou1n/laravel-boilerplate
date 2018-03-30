@@ -21,7 +21,6 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-3": "^6.24.1",
-    "bootstrap-v4-rtl": "^4.0.0-0",
     "bootstrap-vue": "^2.0.0-rc.2",
     "chart.js": "^2.7.1",
     "cookieconsent": "^3.0.6",

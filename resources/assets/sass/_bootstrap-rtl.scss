@@ -1,0 +1,272 @@
+*[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+
+  .nav {
+    padding-right: 0;
+  }
+
+  .navbar-nav .nav-item {
+    float: right;
+  }
+
+  .navbar-nav .nav-item + .nav-item {
+    margin-right: 1rem;
+    margin-left: inherit;
+  }
+
+  th {
+    text-align: right;
+  }
+
+  .alert-dismissible {
+    padding-right: 1.25rem;
+    padding-left: 4rem;
+  }
+
+  .dropdown-menu {
+    text-align: right;
+  }
+
+  .checkbox label {
+    padding-right: 1.25rem;
+    padding-left: inherit;
+  }
+
+  .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+    border-radius: 0 .2rem .2rem 0;
+  }
+
+  .btn-group > .btn:last-child:not(:first-child),
+  .btn-group > .dropdown-toggle:not(:first-child) {
+    border-radius: .2rem 0 0 .2rem;
+  }
+
+  .btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child {
+    border-radius: .2rem 0 0 .2rem;
+  }
+
+  .custom-control-label::after,
+  .custom-control-label::before {
+    right: 0;
+    left: inherit;
+  }
+
+  .custom-select {
+    padding: $custom-select-padding-y $custom-select-padding-x $custom-select-padding-y ($custom-select-padding-x + $custom-select-indicator-padding);
+    background: $custom-select-bg $custom-select-indicator no-repeat left $custom-select-padding-x center;
+    background-size: $custom-select-bg-size;
+  }
+
+  .input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle),
+  .input-group > .input-group-append:last-child > .input-group-text:not(:last-child),
+  .input-group > .input-group-append:not(:last-child) > .btn,
+  .input-group > .input-group-append:not(:last-child) > .input-group-text,
+  .input-group > .input-group-prepend > .btn,
+  .input-group > .input-group-prepend > .input-group-text {
+    border-radius: 0 .2rem .2rem 0;
+  }
+
+  .input-group > .input-group-append > .btn,
+  .input-group > .input-group-append > .input-group-text,
+  .input-group > .input-group-prepend:first-child > .btn:not(:first-child),
+  .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child),
+  .input-group > .input-group-prepend:not(:first-child) > .btn,
+  .input-group > .input-group-prepend:not(:first-child) > .input-group-text {
+    border-radius: .2rem 0 0 .2rem;
+  }
+
+  .custom-control {
+    padding-right: 1.5rem;
+    padding-left: inherit;
+    margin-right: inherit;
+    margin-left: 1rem;
+  }
+  .custom-control-indicator {
+    right: 0;
+    left: inherit;
+  }
+
+  .custom-file-label::after {
+    right: initial;
+    left: -1px;
+    border-radius: .25rem 0 0 .25rem;
+  }
+
+  .radio input,
+  .radio-inline,
+  .checkbox input,
+  .checkbox-inline input {
+    margin-right: -1.25rem;
+    margin-left: inherit;
+  }
+
+  .list-group {
+    padding-right: 0;
+    padding-left: 40px;
+  }
+
+  .close {
+    float: left;
+  }
+
+  .modal-header .close {
+    margin: -15px auto -15px -15px;
+  }
+
+  .modal-footer > :not(:first-child) {
+    margin-right: .25rem;
+  }
+
+  .alert-dismissible .close {
+    right: inherit;
+    left: 0;
+  }
+
+  .dropdown-toggle::after {
+    margin-right: .255em;
+    margin-left: 0;
+  }
+
+  .form-check-input {
+    margin-right: -1.25rem;
+    margin-left: inherit;
+  }
+
+  .form-check-label {
+    padding-right: 1.25rem;
+    padding-left: inherit;
+  }
+
+  .col-xs-1,
+  .col-xs-10,
+  .col-xs-11,
+  .col-xs-12,
+  .col-xs-2,
+  .col-xs-3,
+  .col-xs-4,
+  .col-xs-5,
+  .col-xs-6,
+  .col-xs-7,
+  .col-xs-8,
+  .col-xs-9 {
+    float: right;
+  }
+
+  @for $i from 1 through 12 {
+    .push-xs-#{$i} {
+      right: ($i / 12) * 100 + 0%;
+    }
+  }
+
+  @for $i from 0 through 12 {
+    .offset-xs-#{$i} {
+      margin-right: ($i / 12) * 100 + 0%;
+    }
+  }
+
+  @media (min-width: 544px) {
+    .col-sm-1,
+    .col-sm-2,
+    .col-sm-3,
+    .col-sm-4,
+    .col-sm-5,
+    .col-sm-6,
+    .col-sm-7,
+    .col-sm-8,
+    .col-sm-9,
+    .col-sm-10,
+    .col-sm-11,
+    .col-sm-12 {
+      float: right;
+    }
+
+    @for $i from 0 through 12 {
+      .offset-sm-#{$i} {
+        margin-right: ($i / 12) * 100 + 0%;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .col-md-1,
+    .col-md-10,
+    .col-md-11,
+    .col-md-12,
+    .col-md-2,
+    .col-md-3,
+    .col-md-4,
+    .col-md-5,
+    .col-md-6,
+    .col-md-7,
+    .col-md-8,
+    .col-md-9 {
+      float: right;
+    }
+
+    @for $i from 0 through 12 {
+      .offset-md-#{$i} {
+        margin-right: ($i / 12) * 100 + 0%;
+      }
+    }
+  }
+
+  @media (min-width: 992px) {
+    .col-lg-1,
+    .col-lg-2,
+    .col-lg-3,
+    .col-lg-4,
+    .col-lg-5,
+    .col-lg-6,
+    .col-lg-7,
+    .col-lg-8,
+    .col-lg-9,
+    .col-lg-10,
+    .col-lg-11,
+    .col-lg-12 {
+      float: right;
+    }
+
+    @for $i from 0 through 12 {
+      .offset-lg-#{$i} {
+        margin-right: ($i / 12) * 100 + 0%;
+      }
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .col-xl-1,
+    .col-xl-2,
+    .col-xl-3,
+    .col-xl-4,
+    .col-xl-5,
+    .col-xl-6,
+    .col-xl-7,
+    .col-xl-8,
+    .col-xl-9,
+    .col-xl-10,
+    .col-xl-11,
+    .col-xl-12 {
+      float: right;
+    }
+
+    @for $i from 0 through 12 {
+      .offset-xl-#{$i} {
+        margin-right: ($i / 12) * 100 + 0%;
+      }
+    }
+  }
+
+  .float-right {
+    float: left !important;
+  }
+
+  .float-left {
+    float: right !important;
+  }
+
+  .dropdown-menu {
+    left: unset !important;
+    right: 0 !important;
+  }
+}

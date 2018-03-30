@@ -1314,10 +1314,6 @@ boom@5.x.x:
   dependencies:
     hoek "4.x.x"
 
-bootstrap-v4-rtl@^4.0.0-0:
-  version "4.0.0-0"
-  resolved "https://registry.yarnpkg.com/bootstrap-v4-rtl/-/bootstrap-v4-rtl-4.0.0-0.tgz#a4aff5499234b2bc6e9351f4ac54e851bd1aa1f0"
-
 bootstrap-vue@^2.0.0-rc.2:
   version "2.0.0-rc.2"
   resolved "https://registry.yarnpkg.com/bootstrap-vue/-/bootstrap-vue-2.0.0-rc.2.tgz#c835ceab583584ecfbd410b46d307ef7c317693d"
