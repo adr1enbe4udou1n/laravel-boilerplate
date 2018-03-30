@@ -24,6 +24,9 @@
 // Pages
 @import "blog";
 
+// RTL
+@import "rtl";
+
 body {
   padding-top: 3.5rem;
 }
@@ -120,5 +123,3 @@ iframe {
     outline-offset: -1px;
   }
 }
-
-@import "rtl";

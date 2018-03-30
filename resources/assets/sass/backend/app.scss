@@ -20,6 +20,9 @@
 // Components
 @import "../buttons";
 
+// RTL
+@import "rtl";
+
 [v-cloak] {
   display: none;
 }
@@ -85,5 +88,3 @@ body .v-select {
     border-radius: 0;
   }
 }
-
-@import "rtl";
