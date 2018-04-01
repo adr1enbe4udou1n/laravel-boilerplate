@@ -236,8 +236,8 @@ return [
             ],
 
             'import' => [
-                'title' => 'CSV/Excel file import',
-                'label' => 'Select CSV/Excel file to import',
+                'title' => 'CSV file import',
+                'label' => 'Select CSV file to import',
                 'description' => 'File must have 2 columns with "source" and "target" as heading, redirection will be permanent by default',
             ],
         ],

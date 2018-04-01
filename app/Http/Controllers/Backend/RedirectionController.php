@@ -4,10 +4,11 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Redirection;
 use Illuminate\Http\Request;
-use App\Imports\RedirectionListImport;
 use App\Http\Requests\StoreRedirectionRequest;
 use App\Http\Requests\UpdateRedirectionRequest;
 use App\Repositories\Contracts\RedirectionRepository;
+use League\Csv\Reader;
+use Symfony\Component\HttpFoundation\Response;
 
 class RedirectionController extends BackendController
 {
@@ -162,16 +163,33 @@ class RedirectionController extends BackendController
     }
 
     /**
-     * @param \Illuminate\Http\Request           $request
-     * @param \App\Imports\RedirectionListImport $import
+     * @param \Illuminate\Http\Request $request
      *
      * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Auth\Access\AuthorizationException
+     * @throws \League\Csv\Exception
      */
-    public function import(Request $request, RedirectionListImport $import)
+    public function import(Request $request)
     {
         $this->authorize('create redirections');
 
-        $import->handleImport();
+        $this->validate($request, [
+            'import' => 'required',
+        ]);
+
+        $csv = Reader::createFromFileObject($request->file('import')->openFile())
+            ->setHeaderOffset(0)
+            ->setDelimiter(';');
+
+        foreach ($csv as $row) {
+            if (isset($row['source'], $row['target'])) {
+                $this->redirections->store([
+                    'source' => $row['source'],
+                    'target' => $row['target'],
+                    'type' => Response::HTTP_MOVED_PERMANENTLY,
+                ]);
+            }
+        }
 
         return $this->redirectResponse($request, __('alerts.backend.redirections.file_imported'));
     }

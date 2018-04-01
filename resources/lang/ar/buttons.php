@@ -35,7 +35,7 @@ return [
 
     'redirections' => [
         'create' => 'إنشاء قاعدة توجيه',
-        'import' => 'إستيراد CSV/Excel',
+        'import' => 'إستيراد CSV',
     ],
 
     'posts' => [

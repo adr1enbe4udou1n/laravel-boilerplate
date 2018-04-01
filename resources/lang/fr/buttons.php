@@ -35,7 +35,7 @@ return [
 
     'redirections' => [
         'create' => 'Créer une redirection',
-        'import' => 'Importer le CSV/Excel',
+        'import' => 'Importer le CSV',
     ],
 
     'posts' => [
