@@ -1,7 +1,7 @@
 # Laravel BS4 Vue CoreUI Boilerplate
 > This is a Bootstrap 4 starter kit site with lite blogging feature, user account registration/management and full Vue CoreUI Backend based on Laravel 5.6, inspired by the popular [Laravel 5 Boilerplate](https://github.com/rappasoft/laravel-5-boilerplate). Unit & feature tests are not integrated yet, therefore this project isn't rock-solid for now. 
 
-[![Build Status](https://drone.pc-world.fr/api/badges/adr1enbe4udou1n/laravel-boilerplate/status.svg)](https://drone.pc-world.fr/adr1enbe4udou1n/laravel-boilerplate)
+[![Build Status](https://drone.okami101.io/api/badges/adr1enbe4udou1n/laravel-boilerplate/status.svg)](https://drone.okami101.io/adr1enbe4udou1n/laravel-boilerplate)
 [![StyleCI](https://styleci.io/repos/75558440/shield?style=flat&branch=master)](https://styleci.io/repos/75558440)
 [![License](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/license?format=flat)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 
@@ -11,8 +11,8 @@
 <img src="https://user-images.githubusercontent.com/3679080/31575365-959dcec4-b0e5-11e7-9ddb-6902cf25b87a.gif">
 </p>
 
-* Frontend demo : [https://laravel-boilerplate.pc-world.fr](https://laravel-boilerplate.pc-world.fr)
-* Backend demo : [https://laravel-boilerplate.pc-world.fr/admincp](https://laravel-boilerplate.pc-world.fr/admincp) (demo@example.com/demo, read-only)
+* Frontend demo : [https://laravel-boilerplate.okami101.io](https://laravel-boilerplate.okami101.io)
+* Backend demo : [https://laravel-boilerplate.okami101.io/admincp](https://laravel-boilerplate.okami101.io/admincp) (demo@example.com/demo, read-only)
 
 ## Features
 
@@ -50,7 +50,8 @@
 
 ### Localization & SEO
 
-* Multilingual ready thanks to [Laravel Localization](https://github.com/mcamara/laravel-localization) package. Each routes are prefixed by locale in URL for best SEO support. For this boilerplate, EN & FR locales are 100% supported, including translated routes,
+* Multilingual ready thanks to [Laravel Localization](https://github.com/mcamara/laravel-localization) package. Each routes are prefixed by locale in URL for best SEO support. For this boilerplate, EN, FR locales are 100% supported, including translated routes,
+* Arabic language with RTL support added thanks to [AhmadOf](https://github.com/AhmadOf)
 * Model Field Translatable support with [Laravel Translatable](https://github.com/dimsav/laravel-translatable), used for contact form confirmed message, metatags and posts,
 * Robots and Sitemap integrated, including multilingual alternates,
 * Full Metatags manager interface with translatable title & description. Meta entity can be either linked to route or specific entity like post,
