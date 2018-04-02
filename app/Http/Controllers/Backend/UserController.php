@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Utils\RequestSearchQuery;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Repositories\Contracts\RoleRepository;
@@ -45,13 +46,17 @@ class UserController extends BackendController
      *
      * @throws \Exception
      *
-     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Http\JsonResponse
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Symfony\Component\HttpFoundation\BinaryFileResponse
      */
     public function search(Request $request)
     {
-        if ($request->isXmlHttpRequest()) {
-            return $this->searchQuery($request, $this->users->query(), [
-                'id',
+        $requestSearchQuery = new RequestSearchQuery($request, $this->users->query(), [
+            'name',
+            'email',
+        ]);
+
+        if ($request->get('exportData')) {
+            return $requestSearchQuery->export([
                 'name',
                 'email',
                 'active',
@@ -59,11 +64,29 @@ class UserController extends BackendController
                 'last_access_at',
                 'created_at',
                 'updated_at',
-            ], [
-                'name',
-                'email',
-            ]);
+            ],
+                [
+                    __('validation.attributes.name'),
+                    __('validation.attributes.email'),
+                    __('validation.attributes.active'),
+                    __('validation.attributes.confirmed'),
+                    __('labels.last_access_at'),
+                    __('labels.created_at'),
+                    __('labels.updated_at'),
+                ],
+                'users');
         }
+
+        return $requestSearchQuery->result([
+            'id',
+            'name',
+            'email',
+            'active',
+            'confirmed',
+            'last_access_at',
+            'created_at',
+            'updated_at',
+        ]);
     }
 
     /**

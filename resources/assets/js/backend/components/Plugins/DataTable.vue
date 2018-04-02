@@ -34,12 +34,18 @@
         <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" v-if="paging && totalRows > perPage"
                       class="justify-content-center" @input="onContextChanged"></b-pagination>
       </b-col>
+      <b-col md="4">
+        <div v-if="exportData" class="d-flex justify-content-end">
+          <b-button @click.prevent="onExportData"><i class="icon icon-arrow-down-circle"></i> Export</b-button>
+        </div>
+      </b-col>
     </b-row>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
+import qs from 'qs'
 
 export default {
   props: {
@@ -56,6 +62,10 @@ export default {
       default: true
     },
     search: {
+      type: Boolean,
+      default: true
+    },
+    exportData: {
       type: Boolean,
       default: true
     },
@@ -114,6 +124,12 @@ export default {
         this.$app.error(e)
         return []
       }
+    },
+    onExportData () {
+      window.location = `${this.$app.route(this.searchRoute)}?${qs.stringify({
+        search: this.searchQuery,
+        exportData: true
+      })}`
     },
     async deleteRow (params) {
       let result = await window.swal({

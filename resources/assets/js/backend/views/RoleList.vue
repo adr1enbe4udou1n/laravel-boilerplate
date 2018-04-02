@@ -55,8 +55,8 @@ export default {
       fields: [
         { key: 'name', label: this.$t('validation.attributes.name'), sortable: true },
         { key: 'order', label: this.$t('validation.attributes.order'), 'class': 'text-right', sortable: true },
-        { key: 'display_name', label: this.$t('validation.attributes.display_name') },
-        { key: 'description', label: this.$t('validation.attributes.description') },
+        { key: 'display_name', label: this.$t('validation.attributes.display_name'), sortable: true },
+        { key: 'description', label: this.$t('validation.attributes.description'), sortable: true },
         { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
         { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
         { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }

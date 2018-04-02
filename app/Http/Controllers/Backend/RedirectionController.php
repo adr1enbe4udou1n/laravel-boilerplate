@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Backend;
 
+use League\Csv\Reader;
 use App\Models\Redirection;
 use Illuminate\Http\Request;
+use App\Utils\RequestSearchQuery;
 use App\Http\Requests\StoreRedirectionRequest;
+use Symfony\Component\HttpFoundation\Response;
 use App\Http\Requests\UpdateRedirectionRequest;
 use App\Repositories\Contracts\RedirectionRepository;
-use League\Csv\Reader;
-use Symfony\Component\HttpFoundation\Response;
 
 class RedirectionController extends BackendController
 {
@@ -34,24 +35,44 @@ class RedirectionController extends BackendController
      *
      * @throws \Exception
      *
-     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Http\JsonResponse
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\BinaryFileResponse
      */
     public function search(Request $request)
     {
-        if ($request->isXmlHttpRequest()) {
-            return $this->searchQuery($request, $this->redirections->query(), [
-                'id',
+        $requestSearchQuery = new RequestSearchQuery($request, $this->redirections->query(), [
+            'source',
+            'target',
+        ]);
+
+        if ($request->get('exportData')) {
+            return $requestSearchQuery->export([
                 'source',
                 'active',
                 'target',
                 'type',
                 'created_at',
                 'updated_at',
-            ], [
-                'source',
-                'target',
-            ]);
+            ],
+                [
+                    __('validation.attributes.source_path'),
+                    __('validation.attributes.active'),
+                    __('validation.attributes.target_path'),
+                    __('validation.attributes.redirect_type'),
+                    __('labels.created_at'),
+                    __('labels.updated_at'),
+                ],
+                'redirections');
         }
+
+        return $requestSearchQuery->result([
+            'id',
+            'source',
+            'active',
+            'target',
+            'type',
+            'created_at',
+            'updated_at',
+        ]);
     }
 
     /**
@@ -165,9 +186,10 @@ class RedirectionController extends BackendController
     /**
      * @param \Illuminate\Http\Request $request
      *
-     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      * @throws \Illuminate\Auth\Access\AuthorizationException
      * @throws \League\Csv\Exception
+     *
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
     public function import(Request $request)
     {

@@ -17,6 +17,7 @@ return [
     'more_info' => 'Plus d\'info',
     'last_access_at' => 'Dernier accès le',
     'author' => 'Auteur',
+    'author_id' => 'ID Auteur',
     'published_at' => 'Publié le',
     'created_at' => 'Créé le',
     'updated_at' => 'Modifié le',

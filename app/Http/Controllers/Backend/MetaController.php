@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Meta;
 use Illuminate\Http\Request;
+use App\Utils\RequestSearchQuery;
 use App\Http\Requests\StoreMetaRequest;
 use App\Http\Requests\UpdateMetaRequest;
 use App\Repositories\Contracts\MetaRepository;
@@ -32,29 +33,49 @@ class MetaController extends BackendController
      *
      * @throws \Exception
      *
-     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Http\JsonResponse
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\BinaryFileResponse
      */
     public function search(Request $request)
     {
-        if ($request->isXmlHttpRequest()) {
-            $query = $this->metas->query()
-                ->join('meta_translations as mt', 'mt.meta_id', '=', 'metas.id')
-                ->where('mt.locale', '=', app()->getLocale());
+        $query = $this->metas->query()
+            ->join('meta_translations as mt', 'mt.meta_id', '=', 'metas.id')
+            ->where('mt.locale', '=', app()->getLocale());
 
-            return $this->searchQuery($request, $query, [
-                'metas.id',
+        $requestSearchQuery = new RequestSearchQuery($request, $query, [
+            'mt.title',
+            'mt.description',
+        ]);
+
+        if ($request->get('exportData')) {
+            return $requestSearchQuery->export([
                 'route',
                 'metable_type',
-                'metable_id',
                 'mt.title',
                 'mt.description',
                 'created_at',
                 'updated_at',
-            ], [
-                'mt.title',
-                'mt.description',
-            ]);
+            ],
+                [
+                    __('validation.attributes.route'),
+                    __('validation.attributes.metable_type'),
+                    __('validation.attributes.title'),
+                    __('validation.attributes.description'),
+                    __('labels.created_at'),
+                    __('labels.updated_at'),
+                ],
+                'metas');
         }
+
+        return $requestSearchQuery->result([
+            'metas.id',
+            'route',
+            'metable_type',
+            'metable_id',
+            'mt.title',
+            'mt.description',
+            'created_at',
+            'updated_at',
+        ]);
     }
 
     /**

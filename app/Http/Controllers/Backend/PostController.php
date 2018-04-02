@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Utils\RequestSearchQuery;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
@@ -73,41 +74,61 @@ class PostController extends BackendController
      *
      * @throws \Exception
      *
-     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Http\JsonResponse
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\BinaryFileResponse
      */
     public function search(Request $request)
     {
-        if ($request->isXmlHttpRequest()) {
-            /** @var Builder $query */
-            $query = $this->posts->query();
+        /** @var Builder $query */
+        $query = $this->posts->query();
 
-            if (! Gate::check('view posts')) {
-                // Filter to only current user's posts
-                $query->whereUserId(auth()->id());
-            }
+        if (! Gate::check('view posts')) {
+            // Filter to only current user's posts
+            $query->whereUserId(auth()->id());
+        }
 
-            $query
-                ->join('users', 'users.id', '=', 'user_id')
-                ->join('post_translations as pt', 'pt.post_id', '=', 'posts.id')
-                ->where('pt.locale', '=', app()->getLocale());
+        $query
+            ->join('users', 'users.id', '=', 'user_id')
+            ->join('post_translations as pt', 'pt.post_id', '=', 'posts.id')
+            ->where('pt.locale', '=', app()->getLocale());
 
-            return $this->searchQuery($request, $query, [
-                'posts.id',
-                'user_id',
-                'users.name as owner',
+        $requestSearchQuery = new RequestSearchQuery($request, $query, [
+            'pt.title',
+            'pt.summary',
+            'pt.body',
+        ]);
+
+        if ($request->get('exportData')) {
+            return $requestSearchQuery->export([
                 'pt.title',
-                'pt.slug',
                 'status',
                 'pinned',
                 'promoted',
                 'posts.created_at',
                 'posts.updated_at',
-            ], [
-                'pt.title',
-                'pt.summary',
-                'pt.body',
-            ]);
+            ],
+                [
+                    __('validation.attributes.title'),
+                    __('validation.attributes.status'),
+                    __('validation.attributes.pinned'),
+                    __('validation.attributes.promoted'),
+                    __('labels.created_at'),
+                    __('labels.updated_at'),
+                ],
+                'posts');
         }
+
+        return $requestSearchQuery->result([
+            'posts.id',
+            'user_id',
+            'users.name as owner',
+            'pt.title',
+            'pt.slug',
+            'status',
+            'pinned',
+            'promoted',
+            'posts.created_at',
+            'posts.updated_at',
+        ]);
     }
 
     /**

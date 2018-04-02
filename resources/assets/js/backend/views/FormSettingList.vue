@@ -13,7 +13,7 @@
                    @context-changed="onContextChanged"
                    search-route="admin.form_settings.search"
                    delete-route="admin.form_settings.destroy"
-                   :length-change="false" :paging="false" :infos="false" :search="false">
+                   :length-change="false" :paging="false" :infos="false" :search="false" :export-data="false">
         <b-table ref="datatable"
                  striped
                  bordered

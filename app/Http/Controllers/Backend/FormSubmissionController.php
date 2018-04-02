@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use App\Models\FormSubmission;
+use App\Utils\RequestSearchQuery;
 use App\Repositories\Contracts\FormSubmissionRepository;
 
 class FormSubmissionController extends BackendController
@@ -35,21 +36,37 @@ class FormSubmissionController extends BackendController
      *
      * @throws \Exception
      *
-     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Http\JsonResponse
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\BinaryFileResponse
      */
     public function search(Request $request)
     {
-        if ($request->isXmlHttpRequest()) {
-            return $this->searchQuery($request, $this->formSubmissions->query(), [
-                'id',
+        $requestSearchQuery = new RequestSearchQuery($request, $this->formSubmissions->query(), [
+            'data',
+        ]);
+
+        if ($request->get('exportData')) {
+            return $requestSearchQuery->export([
                 'type',
                 'data',
                 'created_at',
                 'updated_at',
-            ], [
-                'data',
-            ]);
+            ],
+                [
+                    __('validation.attributes.form_type'),
+                    __('validation.attributes.form_data'),
+                    __('labels.created_at'),
+                    __('labels.updated_at'),
+                ],
+                'submissions');
         }
+
+        return $requestSearchQuery->result([
+            'id',
+            'type',
+            'data',
+            'created_at',
+            'updated_at',
+        ]);
     }
 
     /**

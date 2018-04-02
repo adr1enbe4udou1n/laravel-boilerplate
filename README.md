@@ -37,7 +37,7 @@
 * Native Vue Datatable, with everywhere search input and batch actions features,
 * All main CRUD actions are ajaxified,
 * Native [vue-select](https://github.com/sagalbot/vue-select) component for powerful select system (autocomplete, tags, etc.),
-* Batch actions integrated within DataTables,
+* Excel Export (thanks to [Maatwebsite](https://github.com/Maatwebsite/Laravel-Excel)) & Batch actions integrated within DataTables,
 * Instant search engine (for posts) thanks to [Laravel Scout](https://github.com/laravel/scout) & [TNTSearch](https://github.com/teamtnt/tntsearch).
 
 #### Features included
