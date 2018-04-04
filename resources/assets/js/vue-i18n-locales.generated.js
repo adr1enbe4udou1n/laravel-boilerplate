@@ -1497,6 +1497,7 @@ export default {
                 "array": "The {attribute} must have at least {min} items."
             },
             "not_in": "The selected {attribute} is invalid.",
+            "not_regex": "The {attribute} format is invalid.",
             "numeric": "The {attribute} must be a number.",
             "present": "The {attribute} field must be present.",
             "regex": "The {attribute} format is invalid.",
@@ -2292,6 +2293,7 @@ export default {
                 "array": "Le tableau {attribute} doit contenir au moins {min} éléments."
             },
             "not_in": "Le champ {attribute} sélectionné n'est pas valide.",
+            "not_regex": "Le format du champ {attribute} n'est pas valide.",
             "numeric": "Le champ {attribute} doit contenir un nombre.",
             "present": "Le champ {attribute} doit être présent.",
             "regex": "Le format du champ {attribute} est invalide.",
