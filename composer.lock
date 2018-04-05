@@ -2387,16 +2387,16 @@
         },
         {
             "name": "maatwebsite/excel",
-            "version": "3.0.2",
+            "version": "3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-                "reference": "e24f46b027c256183cc592833aad22a70f210ebd"
+                "reference": "4784f6551e62d9ebefcce6aae51f6ad854826d2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/e24f46b027c256183cc592833aad22a70f210ebd",
-                "reference": "e24f46b027c256183cc592833aad22a70f210ebd",
+                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/4784f6551e62d9ebefcce6aae51f6ad854826d2e",
+                "reference": "4784f6551e62d9ebefcce6aae51f6ad854826d2e",
                 "shasum": ""
             },
             "require": {
@@ -2446,7 +2446,7 @@
                 "php",
                 "phpspreadsheet"
             ],
-            "time": "2018-04-03T06:19:49+00:00"
+            "time": "2018-04-05T06:21:50+00:00"
         },
         {
             "name": "martinlindhe/laravel-vue-i18n-generator",

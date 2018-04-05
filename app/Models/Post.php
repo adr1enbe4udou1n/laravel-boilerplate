@@ -194,7 +194,7 @@ class Post extends Model
         }
     }
 
-    public function setUnPublishedAtAttribute($value)
+    public function setUnpublishedAtAttribute($value)
     {
         if (is_string($value)) {
             $this->attributes['unpublished_at'] = Carbon::createFromFormat('Y-m-d H:i', $value);
