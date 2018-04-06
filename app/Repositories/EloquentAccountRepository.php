@@ -68,7 +68,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
      */
     public function login(Authenticatable $user)
     {
-        /** @var User $user */
+        /* @var User $user */
         $user->last_access_at = Carbon::now();
 
         if (! $user->save()) {
