@@ -3,6 +3,7 @@ const path = require('path')
 const webpack = require('webpack')
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
@@ -18,9 +19,8 @@ function getEntryConfig (name, analyzerPort) {
   let plugins = [
     new webpack.IgnorePlugin(/jsdom$/),
     new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /fr/),
-    new WebpackNotifierPlugin({
-      alwaysNotify: true
-    }),
+    new FriendlyErrorsWebpackPlugin(),
+    new WebpackNotifierPlugin(),
     new MiniCssExtractPlugin({
       filename: production ? 'css/[name].[chunkhash].css' : 'css/[name].css'
     }),
