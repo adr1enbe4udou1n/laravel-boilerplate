@@ -1,4 +1,5 @@
 # Laravel BS4 Vue CoreUI Boilerplate
+
 > This is a Bootstrap 4 starter kit site with lite blogging feature, user account registration/management and full Vue CoreUI Backend based on Laravel 5.6, inspired by the popular [Laravel 5 Boilerplate](https://github.com/rappasoft/laravel-5-boilerplate). Unit & feature tests are not integrated yet, therefore this project isn't rock-solid for now. 
 
 [![Build Status](https://drone.okami101.io/api/badges/adr1enbe4udou1n/laravel-boilerplate/status.svg)](https://drone.okami101.io/adr1enbe4udou1n/laravel-boilerplate)
@@ -73,7 +74,16 @@
 3. Set Web write permission if needed to `bootstrap/cache` and `storage` folders.
 4. Launch follow commands :
 
-### For Production :
+### For Local/Development
+
+```shell
+composer install
+php artisan key:generate
+php artisan storage:link
+php artisan migrate [--seed]
+```
+
+### For Production
 
 ```shell
 # Running this on development environment will throw error so run below command only on production
@@ -81,15 +91,6 @@ composer install --no-dev --optimize-autoloader
 php artisan key:generate
 php artisan storage:link
 php artisan migrate --force
-```
-
-### For Local/Development :
-
-```shell
-composer install
-php artisan key:generate
-php artisan storage:link
-php artisan migrate [--seed]
 ```
 
 ### Initialize search index for posts
@@ -136,34 +137,34 @@ For instance, with this custom setup HMR work natively with configurable port (e
 PHP-CS-Fixer & ESLint are used for strong style guidelines for both server and client side code.
 
 PHP is pre-configured for official Laravel styling, just launch `./vendor/bin/php-cs-fixer fix` for global project auto-formatting.
-  
+
 JS use [JavaScript Standard Style](https://standardjs.com/) & eslint-loader is used within webpack for dynamic code styling recommendations.  
 Moreover, [Official ESLint plugin for Vue.js](https://github.com/vuejs/eslint-plugin-vue) is included for heavy consistent code through all components vue files.
 
 ## TODO
 
-- [x] <s>Data seeds</s>
-- [x] <s>Batch actions</s>
-- [x] <s>Form & menu access helpers</s>
-- [x] <s>Metas management</s>
-- [x] <s>Permissions management</s>
-- [x] <s>Form submissions management</s>
-- [x] <s>Client validation with vee-validate</s>
-- [x] <s>301 redirection management with CSV/XLS import</s>
-- [x] <s>Own account deletion</s>
-- [x] <s>Account language & timezone selection</s>
-- [x] <s>Account mail confirmation</s>
-- [x] <s>Account avatar</s>
-- [x] <s>Facebook/Twitter/Google Sign in with socialite package</s>
-- [x] <s>Blog system (posts, publication date, multilangue, HTML wysiwyg, tags, featured image, medias, public user profile)</s>
-- [x] <s>Dashboard</s>
-- [x] <s>Switch to full Bootstrap 4 for both Frontend & CoreUI Backend</s>
-- [x] <s>Migrate to 100% client-side Vue backend with vue-route</s>
-- [x] <s>Migrate to Bootstrap-Vue</s>
-- [x] <s>Webpack bundle size optimizations</s>
-- [x] <s>Get rid of jquery datatables</s>
-- [x] <s>Consistent VueJS components code styling</s>
-- [ ] Inclusion of unit/featured/browser tests (stand by for now)
+* [x] <s>Data seeds</s>
+* [x] <s>Batch actions</s>
+* [x] <s>Form & menu access helpers</s>
+* [x] <s>Metas management</s>
+* [x] <s>Permissions management</s>
+* [x] <s>Form submissions management</s>
+* [x] <s>Client validation with vee-validate</s>
+* [x] <s>301 redirection management with CSV/XLS import</s>
+* [x] <s>Own account deletion</s>
+* [x] <s>Account language & timezone selection</s>
+* [x] <s>Account mail confirmation</s>
+* [x] <s>Account avatar</s>
+* [x] <s>Facebook/Twitter/Google Sign in with socialite package</s>
+* [x] <s>Blog system (posts, publication date, multilangue, HTML wysiwyg, tags, featured image, medias, public user profile)</s>
+* [x] <s>Dashboard</s>
+* [x] <s>Switch to full Bootstrap 4 for both Frontend & CoreUI Backend</s>
+* [x] <s>Migrate to 100% client-side Vue backend with vue-route</s>
+* [x] <s>Migrate to Bootstrap-Vue</s>
+* [x] <s>Webpack bundle size optimizations</s>
+* [x] <s>Get rid of jquery datatables</s>
+* [x] <s>Consistent VueJS components code styling</s>
+* [ ] Inclusion of unit/featured/browser tests (stand by for now)
 
 ## License
 
