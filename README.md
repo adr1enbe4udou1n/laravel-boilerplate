@@ -76,6 +76,7 @@
 ### For Production :
 
 ```shell
+# Running this on development environment will throw error so run below command only on production
 composer install --no-dev --optimize-autoloader
 php artisan key:generate
 php artisan storage:link
