@@ -15,7 +15,7 @@ const devServerPort = parseInt(process.env.DEV_SERVER_PORT || '8080', 10)
 const publicPathFolder = production ? '/dist/' : '/build/'
 const publicPath = hmr ? `http://localhost:${devServerPort}${publicPathFolder}` : publicPathFolder
 
-function getEntryConfig (name, analyzerPort) {
+function getEntryConfig (name, analyzerPort, alias = {}) {
   let plugins = [
     new webpack.IgnorePlugin(/jsdom$/),
     new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /fr/),
@@ -150,11 +150,10 @@ function getEntryConfig (name, analyzerPort) {
     plugins,
     resolve: {
       extensions: ['.js', '.vue', '.json'],
-      alias: {
-        'vue$': 'vue/dist/vue.esm.js',
+      alias: Object.assign({
         '@fortawesome/fontawesome-free-solid$': '@fortawesome/fontawesome-free-solid/shakable.es.js',
         '@fortawesome/fontawesome-free-brands$': '@fortawesome/fontawesome-free-brands/shakable.es.js'
-      }
+      }, alias)
     },
     externals: {
       jquery: 'jQuery',
@@ -176,6 +175,8 @@ function getEntryConfig (name, analyzerPort) {
 }
 
 module.exports = [
-  getEntryConfig('frontend', 8888),
+  getEntryConfig('frontend', 8888, {
+  	'vue$': 'vue/dist/vue.esm.js',
+  }),
   getEntryConfig('backend', 8889)
 ]
