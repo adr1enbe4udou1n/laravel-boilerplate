@@ -46,7 +46,6 @@
               :label-cols="2"
             >
               <p-richtexteditor
-                id="body"
                 name="body"
                 v-model="model.body"
               ></p-richtexteditor>
