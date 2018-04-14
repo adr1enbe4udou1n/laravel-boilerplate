@@ -9,7 +9,7 @@
 ## Demo
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/3679080/38768348-9ca6a2f8-3ff2-11e8-8f34-a85ae56328df.gif">
+<img src="https://user-images.githubusercontent.com/3679080/38768514-73a75d04-3ff5-11e8-8281-e366f58c0165.gif">
 </p>
 
 * Frontend demo : [https://laravel-boilerplate.okami101.io](https://laravel-boilerplate.okami101.io)
