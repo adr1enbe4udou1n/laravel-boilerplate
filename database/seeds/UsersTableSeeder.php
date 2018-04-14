@@ -323,7 +323,7 @@ class UsersTableSeeder extends Seeder
         $editor->roles()->save($editorRole);
 
         // 5 redactors
-        for ($i = 1; $i <= 5; $i++) {
+        for ($i = 1; $i <= 5; ++$i) {
             /** @var User $redactor */
             $redactor = $user->create([
                 'name' => "Redactor $i",

@@ -1,13 +1,12 @@
 <?php
 
 $finder = PhpCsFixer\Finder::create()
-    ->in('app')
-    ->in('config')
-    ->in('database')
-    ->in('public')
-    ->in('resources/lang')
-    ->in('routes')
-    ->in('tests')
+    ->exclude('bootstrap/cache')
+    ->exclude('node_modules')
+    ->exclude('storage')
+    ->in(__DIR__)
+    ->notName('*.blade.php')
+    ->notName('_ide_*.php')
 ;
 
 return PhpCsFixer\Config::create()
@@ -16,7 +15,6 @@ return PhpCsFixer\Config::create()
         '@Symfony' => true,
         '@Symfony:risky' => true,
         'array_syntax' => ['syntax' => 'short'],
-        'increment_style' => ['style' => 'post'],
         'linebreak_after_opening_tag' => true,
         'mb_str_functions' => true,
         'no_php4_constructor' => true,
