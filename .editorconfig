@@ -14,11 +14,3 @@ trim_trailing_whitespace = false
 [{package.json,.babelrc,*.{js,scss,vue,yml}}]
 indent_style = space
 indent_size = 2
-
-[*.{js,scss,vue,yml}]
-indent_style = space
-indent_size = 2
-
-[{package.json,.babelrc}]
-indent_style = space
-indent_size = 2
