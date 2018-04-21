@@ -9,7 +9,7 @@
         "ext-gd": "*",
         "arcanedev/log-viewer": "^4.5",
         "arcanedev/no-captcha": "^6.0",
-        "artesaos/seotools": "^0.11.1",
+        "artesaos/seotools": "^0.12.0",
         "cviebrock/eloquent-sluggable": "^4.5",
         "davejamesmiller/laravel-breadcrumbs": "^5.0",
         "dimsav/laravel-translatable": "^9.0",
