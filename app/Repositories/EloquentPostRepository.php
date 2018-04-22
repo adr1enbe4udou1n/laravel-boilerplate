@@ -170,6 +170,8 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
                 } else {
                     $post->meta->update($input['meta']);
                 }
+            } else {
+                $post->meta()->create();
             }
 
             // Tags
