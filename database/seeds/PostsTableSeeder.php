@@ -17,6 +17,12 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
+        // Cleanup
+        $publicDisk = Storage::disk('public');
+        foreach ($publicDisk->directories() as $directory) {
+            $publicDisk->deleteDirectory($directory);
+        }
+
         $faker = Faker\Factory::create();
         $user = new User();
 
@@ -40,9 +46,6 @@ class PostsTableSeeder extends Seeder
 
         /** @var \Illuminate\Database\Eloquent\Collection $tags */
         $tags = factory(Tag::class)->times(20)->create();
-
-        $publicDisk = Storage::disk('public');
-        $publicDisk->delete($publicDisk->files('posts'));
 
         $posts->each(function (Post $post) use ($faker, $bodyImageUrl, $userIds, $tags) {
             // Generate localized bodies
