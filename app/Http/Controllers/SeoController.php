@@ -25,7 +25,7 @@ class SeoController extends Controller
     protected $posts;
 
     /**
-     * @var \App\Repositories\Contracts\TagRepository
+     * @var TagRepository
      */
     protected $tags;
 
@@ -38,16 +38,16 @@ class SeoController extends Controller
      * SeoController constructor.
      *
      * @param LaravelLocalization                        $localization
+     * @param TagRepository                              $tags
      * @param \App\Repositories\Contracts\UserRepository $users
      * @param \App\Repositories\Contracts\PostRepository $posts
-     * @param \App\Repositories\Contracts\TagRepository  $tags
      */
-    public function __construct(LaravelLocalization $localization, UserRepository $users, PostRepository $posts, TagRepository $tags)
+    public function __construct(LaravelLocalization $localization, TagRepository $tags, UserRepository $users, PostRepository $posts)
     {
         $this->localization = $localization;
+        $this->tags = $tags;
         $this->users = $users;
         $this->posts = $posts;
-        $this->tags = $tags;
     }
 
     public function robots()
@@ -118,7 +118,7 @@ class SeoController extends Controller
             foreach ($this->getLocalesWithoutDefault() as $localeCode => $properties) {
                 $item['translations'][] = [
                     'language' => $localeCode,
-                    'url' => url("$localeCode/".route('blog.show', $post->translate($localeCode)->slug)),
+                    'url' => url("$localeCode/".route('blog.show', $post->translate('slug', $localeCode))),
                 ];
             }
 
@@ -128,13 +128,22 @@ class SeoController extends Controller
         $tags = $this->tags->query()->get();
 
         $tags->each(function (Tag $tag) use ($sitemap) {
-            $sitemap->addItem([
+            $item = [
                 'loc' => route('blog.tag', $tag->slug),
                 'lastmod' => Carbon::now(),
                 'priority' => '1.0',
                 'freq' => 'daily',
                 'language' => $tag->locale,
-            ]);
+            ];
+
+            foreach ($this->getLocalesWithoutDefault() as $localeCode => $properties) {
+                $item['translations'][] = [
+                    'language' => $localeCode,
+                    'url' => url("$localeCode/".route('blog.tag', $tag->translate('slug', $localeCode))),
+                ];
+            }
+
+            $sitemap->addItem($item);
         });
 
         $users = $this->users->query()->get();

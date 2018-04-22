@@ -36,17 +36,15 @@ class UsersTableSeeder extends Seeder
         /** @var Role $administratorRole */
         $administratorRole = $role->create([
             'name' => 'administrator',
-            'en' => [
-                'display_name' => 'Administrator',
-                'description' => 'Access to mostly web features',
+            'display_name' => [
+                'en' => 'Administrator',
+                'fr' => 'Administrateur',
+                'ar' => 'مدير',
             ],
-            'fr' => [
-                'display_name' => 'Administrateur',
-                'description' => 'Accès à la plupart des fonctionnalités du site',
-            ],
-            'ar' => [
-                'display_name' => 'مدير',
-                'description' => 'قادر على الوصول إلى أغلب ميزات الموقع',
+            'description' => [
+                'en' => 'Access to mostly web features',
+                'fr' => 'Accès à la plupart des fonctionnalités du site',
+                'ar' => 'قادر على الوصول إلى أغلب ميزات الموقع',
             ],
             'order' => 0,
         ]);
@@ -89,17 +87,15 @@ class UsersTableSeeder extends Seeder
         /** @var Role $supervisorRole */
         $supervisorRole = $role->create([
             'name' => 'supervisor',
-            'en' => [
-                'display_name' => 'Supervisor',
-                'description' => 'Access to non critical web features (access and seo management excluded)',
+            'display_name' => [
+                'en' => 'Supervisor',
+                'fr' => 'Superviseur',
+                'ar' => 'مشرف',
             ],
-            'fr' => [
-                'display_name' => 'Superviseur',
-                'description' => 'Accès à l\'ensemble des fonctionnalités non critiques du site (exclusion de la gestion des accès et seo)',
-            ],
-            'ar' => [
-                'display_name' => 'مشرف',
-                'description' => 'وصول إلى ميزات الموقع غير الحساسة (يستثنى منه الوصول وإدارة إعدادات تحسين محركات البحث)',
+            'description' => [
+                'en' => 'Access to non critical web features (access and seo management excluded)',
+                'fr' => 'Accès à l\'ensemble des fonctionnalités non critiques du site (exclusion de la gestion des accès et seo)',
+                'ar' => 'وصول إلى ميزات الموقع غير الحساسة (يستثنى منه الوصول وإدارة إعدادات تحسين محركات البحث)',
             ],
             'order' => 1,
         ]);
@@ -129,17 +125,15 @@ class UsersTableSeeder extends Seeder
         /** @var Role $seoConsultantRole */
         $seoConsultantRole = $role->create([
             'name' => 'seo consultant',
-            'en' => [
-                'display_name' => 'SEO consultant',
-                'description' => 'Access to manage metatags and redirections',
+            'display_name' => [
+                'en' => 'SEO consultant',
+                'fr' => 'Consultant SEO',
+                'ar' => 'مستشار تحسين أداء محركات البحث',
             ],
-            'fr' => [
-                'display_name' => 'Consultant SEO',
-                'description' => 'Accès à la gestion des metatags et redirections.',
-            ],
-            'ar' => [
-                'display_name' => 'مستشار تحسين أداء محركات البحث',
-                'description' => 'وصول وإدارة المعلومات الوصفية وقواعد التوجيه',
+            'description' => [
+                'en' => 'Access to manage metatags and redirections',
+                'fr' => 'Accès à la gestion des metatags et redirections',
+                'ar' => 'وصول وإدارة المعلومات الوصفية وقواعد التوجيه',
             ],
             'order' => 2,
         ]);
@@ -162,17 +156,15 @@ class UsersTableSeeder extends Seeder
         /** @var Role $editorRole */
         $editorRole = $role->create([
             'name' => 'editor',
-            'en' => [
-                'display_name' => 'Editor',
-                'description' => 'Access to all posts writing features',
+            'display_name' => [
+                'en' => 'Editor',
+                'fr' => 'Editeur',
+                'ar' => 'منقّح',
             ],
-            'fr' => [
-                'display_name' => 'Editeur',
-                'description' => 'Accès à l\'ensemble des fonctions de rédaction du site',
-            ],
-            'ar' => [
-                'display_name' => 'منقّح',
-                'description' => 'وصول إلى جميع ميزات كتابة المقالات',
+            'description' => [
+                'en' => 'Access to all posts writing features',
+                'fr' => 'Accès à l\'ensemble des fonctions de rédaction du site',
+                'ar' => 'وصول إلى جميع ميزات كتابة المقالات',
             ],
             'order' => 3,
         ]);
@@ -192,17 +184,15 @@ class UsersTableSeeder extends Seeder
         /** @var Role $redactorRole */
         $redactorRole = $role->create([
             'name' => 'redactor',
-            'en' => [
-                'display_name' => 'Redactor',
-                'description' => 'Access to posts writing features, but restricted to his own posts',
+            'display_name' => [
+                'en' => 'Redactor',
+                'fr' => 'Rédacteur',
+                'ar' => 'محرر',
             ],
-            'fr' => [
-                'display_name' => 'Rédacteur',
-                'description' => 'Accès aux fonctions de rédaction du site, avec possibilité d\'éditer uniquement ses propres articles',
-            ],
-            'ar' => [
-                'display_name' => 'محرر',
-                'description' => 'وصول إلى ميزات كتابة المقالات فيما يخص المقالات الخاصة به فقط',
+            'description' => [
+                'en' => 'Access to posts writing features, but restricted to his own posts',
+                'fr' => 'Accès aux fonctions de rédaction du site, avec possibilité d\'éditer uniquement ses propres articles',
+                'ar' => 'وصول إلى ميزات كتابة المقالات فيما يخص المقالات الخاصة به فقط',
             ],
             'order' => 4,
         ]);
@@ -221,17 +211,15 @@ class UsersTableSeeder extends Seeder
         /** @var Role $demoRole */
         $demoRole = $role->create([
             'name' => 'demo',
-            'en' => [
-                'display_name' => 'Demo',
-                'description' => 'Access to all read only BO functionalities',
+            'display_name' => [
+                'en' => 'Demo',
+                'fr' => 'Démo',
+                'ar' => 'مستخدم للعرض',
             ],
-            'fr' => [
-                'display_name' => 'Démo',
-                'description' => 'Accès à l\'ensemble des fonctionnalités du BO en lecture seule',
-            ],
-            'ar' => [
-                'display_name' => 'مستخدم للعرض',
-                'description' => 'وصول إلى كل ميزات المدونة للقراءة فقط',
+            'description' => [
+                'en' => 'Access to all read only BO functionalities',
+                'fr' => 'Accès à l\'ensemble des fonctionnalités du BO en lecture seule',
+                'ar' => 'وصول إلى كل ميزات المدونة للقراءة فقط',
             ],
             'order' => 5,
         ]);

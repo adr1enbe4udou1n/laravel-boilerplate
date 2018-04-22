@@ -5,16 +5,11 @@ namespace App\Repositories;
 use App\Models\Tag;
 use App\Models\Post;
 use App\Models\User;
-use Illuminate\Support\Str;
-use App\Models\PostTranslation;
 use Illuminate\Http\UploadedFile;
-use Plank\Mediable\MediaUploader;
 use Illuminate\Support\Facades\DB;
 use App\Exceptions\GeneralException;
 use Illuminate\Support\Facades\Gate;
-use App\Repositories\Contracts\TagRepository;
 use App\Repositories\Contracts\PostRepository;
-use Mcamara\LaravelLocalization\LaravelLocalization;
 
 /**
  * Class EloquentPostRepository.
@@ -22,38 +17,14 @@ use Mcamara\LaravelLocalization\LaravelLocalization;
 class EloquentPostRepository extends EloquentBaseRepository implements PostRepository
 {
     /**
-     * @var \Mcamara\LaravelLocalization\LaravelLocalization
-     */
-    protected $localization;
-
-    /**
-     * @var \App\Repositories\Contracts\TagRepository
-     */
-    protected $tags;
-
-    /**
-     * @var \Plank\Mediable\MediaUploader
-     */
-    protected $mediaUploader;
-
-    /**
      * EloquentUserRepository constructor.
      *
-     * @param Post                                             $post
-     * @param \Mcamara\LaravelLocalization\LaravelLocalization $localization
-     * @param TagRepository                                    $tags
-     * @param \Plank\Mediable\MediaUploader                    $mediaUploader
+     * @param Post $post
      */
     public function __construct(
-        Post $post,
-        LaravelLocalization $localization,
-        TagRepository $tags,
-        MediaUploader $mediaUploader
+        Post $post
     ) {
         parent::__construct($post);
-        $this->localization = $localization;
-        $this->tags = $tags;
-        $this->mediaUploader = $mediaUploader;
     }
 
     /**
@@ -75,7 +46,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      */
     public function publishedByTag(Tag $tag)
     {
-        return $this->published()->withTag($tag);
+        return $this->published()->withAnyTags($tag->name);
     }
 
     /**
@@ -95,11 +66,10 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      */
     public function findBySlug($slug)
     {
-        /** @var PostTranslation $postTranslation */
-        $postTranslation = PostTranslation::whereSlug($slug)->first();
+        $locale = app()->getLocale();
 
-        if ($postTranslation) {
-            return $postTranslation->post;
+        if ($post = $this->query()->where("slug->{$locale}", $slug)->first()) {
+            return $post;
         }
     }
 
@@ -176,26 +146,14 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
 
             // Tags
             if (isset($input['tags'])) {
-                // No sync because no where support (localized tags)
-                $ids = $post->tags->pluck('id')->toArray();
-                $post->tags()->detach($ids);
-
-                foreach ($input['tags'] as $tag) {
-                    if ($tag = $this->tags->findOrCreate($tag)) {
-                        $post->tags()->attach($tag->id);
-                    }
-                }
+                $post->syncTags($input['tags']);
             }
 
             // Featured image
             if ($image) {
-                $media = $this->mediaUploader->fromSource($image)
-                    ->toDestination('public', 'posts')
-                    ->useFilename(Str::random(32))
-                    ->upload();
-
-                $post->handleMediableDeletion();
-                $post->attachMedia($media, 'featured image');
+                $post->deleteMedia($post->getMedia('featured image')->first());
+                $post->addMedia($image)
+                    ->toMediaCollection('featured image');
             }
 
             return true;

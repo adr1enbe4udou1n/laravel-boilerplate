@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Tag;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Route;
@@ -24,7 +25,7 @@ class FrontendController extends Controller
         });
 
         Route::bind('tag', function ($value) {
-            /** @var PostRepository $posts */
+            /** @var TagRepository $tags */
             $tags = app(TagRepository::class);
 
             return $tags->findBySlug($value);

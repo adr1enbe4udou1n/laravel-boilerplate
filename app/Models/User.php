@@ -2,20 +2,64 @@
 
 namespace App\Models;
 
+use App\Models\Traits\HasSlug;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Builder;
-use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\ResetPassword as ResetPasswordNotification;
 
 /**
  * App\Models\User.
+ *
+ * @property int                                                                                                       $id
+ * @property string                                                                                                    $name
+ * @property string                                                                                                    $email
+ * @property string|null                                                                                               $password
+ * @property bool                                                                                                      $active
+ * @property string|null                                                                                               $confirmation_token
+ * @property int                                                                                                       $confirmed
+ * @property string|null                                                                                               $remember_token
+ * @property string                                                                                                    $locale
+ * @property string                                                                                                    $timezone
+ * @property string                                                                                                    $slug
+ * @property \Carbon\Carbon|null                                                                                       $last_access_at
+ * @property \Carbon\Carbon|null                                                                                       $created_at
+ * @property \Carbon\Carbon|null                                                                                       $updated_at
+ * @property mixed                                                                                                     $avatar
+ * @property mixed                                                                                                     $can_delete
+ * @property mixed                                                                                                     $can_edit
+ * @property mixed                                                                                                     $can_impersonate
+ * @property mixed                                                                                                     $formatted_roles
+ * @property mixed                                                                                                     $is_super_admin
+ * @property \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Models\SocialLogin[]                                        $providers
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Role[]                                               $roles
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User actives()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User findSimilarSlugs($attribute, $config, $slug)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereConfirmationToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereConfirmed($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereLastAccessAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereLocale($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereTimezone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class User extends Authenticatable
 {
     use Notifiable;
-    use Sluggable;
+    use HasSlug;
+
+    public $sluggable = 'name';
 
     /**
      * The relationship that are eager loaded.
@@ -208,20 +252,6 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany(Post::class);
-    }
-
-    /**
-     * Return the sluggable configuration array for this model.
-     *
-     * @return array
-     */
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'name',
-            ],
-        ];
     }
 
     /**

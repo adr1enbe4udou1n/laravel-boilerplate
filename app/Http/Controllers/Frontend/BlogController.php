@@ -38,6 +38,8 @@ class BlogController extends FrontendController
 
     public function tag(Tag $tag)
     {
+        $this->setTranslatable($tag);
+
         return view('frontend.blog.tag')->withTag($tag)->withPosts(
             $this->posts->publishedByTag($tag)->paginate(9)
         );

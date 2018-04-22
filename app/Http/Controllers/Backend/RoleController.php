@@ -37,9 +37,7 @@ class RoleController extends BackendController
      */
     public function search(Request $request)
     {
-        $query = $this->roles->query()
-            ->join('role_translations as rt', 'rt.role_id', '=', 'roles.id')
-            ->where('rt.locale', '=', app()->getLocale());
+        $query = $this->roles->query();
 
         $requestSearchQuery = new RequestSearchQuery($request, $query);
 
@@ -47,8 +45,8 @@ class RoleController extends BackendController
             return $requestSearchQuery->export([
                 'name',
                 'order',
-                'rt.display_name',
-                'rt.description',
+                'display_name',
+                'description',
                 'created_at',
                 'updated_at',
             ],
@@ -67,8 +65,8 @@ class RoleController extends BackendController
             'roles.id',
             'name',
             'order',
-            'rt.display_name',
-            'rt.description',
+            'display_name',
+            'description',
             'created_at',
             'updated_at',
         ]);
