@@ -69,6 +69,7 @@ class Post extends Model
      * @var array
      */
     protected $casts = [
+        'status' => 'integer',
         'pinned' => 'boolean',
         'promoted' => 'boolean',
     ];
