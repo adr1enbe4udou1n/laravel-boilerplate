@@ -127,6 +127,7 @@ class Post extends Model implements HasMedia
      * @var array
      */
     protected $casts = [
+        'status' => 'integer',
         'pinned' => 'boolean',
         'promoted' => 'boolean',
     ];
