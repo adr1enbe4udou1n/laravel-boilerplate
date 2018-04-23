@@ -5,6 +5,7 @@ namespace App\Utils;
 use Illuminate\Http\Request;
 use App\Exports\DataTableExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 
 class RequestSearchQuery
@@ -27,19 +28,36 @@ class RequestSearchQuery
         $this->initializeQuery($searchables);
     }
 
+    private function getLocalizedColumn(Model $model, $column)
+    {
+        if (property_exists($model, 'translatable') && in_array($column, $model->translatable, true)) {
+            $locale = app()->getLocale();
+
+            return "$column->$locale";
+        }
+
+        return $column;
+    }
+
     /**
      * @param array $searchables
      */
     public function initializeQuery($searchables = [])
     {
+        $model = $this->query->getModel();
         if ($column = $this->request->get('column')) {
-            $this->query->orderBy($column, $this->request->get('direction') ?? 'asc');
+            $this->query->orderBy(
+                $this->getLocalizedColumn($model, $column),
+                $this->request->get('direction') ?? 'asc'
+            );
         }
 
         if ($search = $this->request->get('search')) {
-            $this->query->where(function (Builder $query) use ($searchables, $search) {
+            $this->query->where(function (Builder $query) use ($model, $searchables, $search) {
                 foreach ($searchables as $key => $searchableColumn) {
-                    $query->orWhere($searchableColumn, 'like', "%{$search}%");
+                    $query->orWhere(
+                        $this->getLocalizedColumn($model, $searchableColumn), 'like', "%{$search}%"
+                    );
                 }
             });
         }

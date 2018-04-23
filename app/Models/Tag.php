@@ -2,55 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Cviebrock\EloquentSluggable\Sluggable;
+use App\Models\Traits\TranslatableJson;
 
-/**
- * App\Models\Tag.
- */
-class Tag extends Model
+class Tag extends \Spatie\Tags\Tag
 {
-    use Sluggable;
-
-    public $timestamps = false;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'locale',
-        'name',
-    ];
-
-    /**
-     * Get all of the posts that are assigned this tag.
-     */
-    public function posts()
-    {
-        return $this->morphedByMany(Post::class, 'taggable');
-    }
-
-    /**
-     * Return the sluggable configuration array for this model.
-     *
-     * @return array
-     */
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'name',
-            ],
-        ];
-    }
-
-    /**
-     * @return string
-     */
-    public function __toString()
-    {
-        return $this->name;
-    }
+    use TranslatableJson;
 }

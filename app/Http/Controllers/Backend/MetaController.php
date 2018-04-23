@@ -37,21 +37,19 @@ class MetaController extends BackendController
      */
     public function search(Request $request)
     {
-        $query = $this->metas->query()
-            ->join('meta_translations as mt', 'mt.meta_id', '=', 'metas.id')
-            ->where('mt.locale', '=', app()->getLocale());
+        $query = $this->metas->query();
 
         $requestSearchQuery = new RequestSearchQuery($request, $query, [
-            'mt.title',
-            'mt.description',
+            'title',
+            'description',
         ]);
 
         if ($request->get('exportData')) {
             return $requestSearchQuery->export([
                 'route',
                 'metable_type',
-                'mt.title',
-                'mt.description',
+                'title',
+                'description',
                 'created_at',
                 'updated_at',
             ],
@@ -71,8 +69,8 @@ class MetaController extends BackendController
             'route',
             'metable_type',
             'metable_id',
-            'mt.title',
-            'mt.description',
+            'title',
+            'description',
             'created_at',
             'updated_at',
         ]);

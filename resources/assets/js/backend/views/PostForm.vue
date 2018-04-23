@@ -324,13 +324,6 @@ export default {
     }
   },
   methods: {
-    onModelChanged () {
-      if (this.model.tags) {
-        this.model.tags = this.model.tags.map((item) => {
-          return item.name
-        })
-      }
-    },
     async getTags (search) {
       let {data} = await axios.get(this.$app.route('admin.tags.search'), {
         params: {

@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use Illuminate\Database\Eloquent\Builder;
-use App\Repositories\Contracts\TagRepository;
 use App\Repositories\Contracts\PostRepository;
 
 class PostController extends BackendController
@@ -20,21 +19,14 @@ class PostController extends BackendController
     protected $posts;
 
     /**
-     * @var TagRepository
-     */
-    protected $tags;
-
-    /**
      * Create a new controller instance.
      *
      *
      * @param \App\Repositories\Contracts\PostRepository $posts
-     * @param \App\Repositories\Contracts\TagRepository  $tags
      */
-    public function __construct(PostRepository $posts, TagRepository $tags)
+    public function __construct(PostRepository $posts)
     {
         $this->posts = $posts;
-        $this->tags = $tags;
     }
 
     public function getDraftPostCounter()
@@ -87,19 +79,17 @@ class PostController extends BackendController
         }
 
         $query
-            ->join('users', 'users.id', '=', 'user_id')
-            ->join('post_translations as pt', 'pt.post_id', '=', 'posts.id')
-            ->where('pt.locale', '=', app()->getLocale());
+            ->join('users', 'users.id', '=', 'user_id');
 
         $requestSearchQuery = new RequestSearchQuery($request, $query, [
-            'pt.title',
-            'pt.summary',
-            'pt.body',
+            'title',
+            'summary',
+            'body',
         ]);
 
         if ($request->get('exportData')) {
             return $requestSearchQuery->export([
-                'pt.title',
+                'title',
                 'status',
                 'pinned',
                 'promoted',
@@ -121,8 +111,8 @@ class PostController extends BackendController
             'posts.id',
             'user_id',
             'users.name as owner',
-            'pt.title',
-            'pt.slug',
+            'title',
+            'posts.slug',
             'status',
             'pinned',
             'promoted',

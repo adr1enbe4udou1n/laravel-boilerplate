@@ -1,10 +1,9 @@
 <?php
 
-use App\Models\Tag;
 use App\Models\Meta;
 use App\Models\Post;
 use App\Models\User;
-use Illuminate\Support\Str;
+use Spatie\Tags\Tag;
 use Illuminate\Database\Seeder;
 
 class PostsTableSeeder extends Seeder
@@ -29,17 +28,6 @@ class PostsTableSeeder extends Seeder
         // Get User ids with roles (those can create posts)
         $userIds = $user->select('id')->has('roles')->get();
 
-        // Set default image figure for body
-        $bodyImage = Image::make(database_path().'/seeds/images/logo.png')->widen(600, function ($constraint) {
-            $constraint->upsize();
-        });
-
-        $imageName = Str::random(32);
-        $bodyImagePath = "editor/{$imageName}.png";
-
-        Storage::disk('public')->put($bodyImagePath, $bodyImage->stream());
-        $bodyImageUrl = "/storage/$bodyImagePath";
-
         // 200 random posts
         /** @var \Illuminate\Database\Eloquent\Collection $posts */
         $posts = factory(Post::class)->times(200)->create();
@@ -47,25 +35,23 @@ class PostsTableSeeder extends Seeder
         /** @var \Illuminate\Database\Eloquent\Collection $tags */
         $tags = factory(Tag::class)->times(20)->create();
 
-        $posts->each(function (Post $post) use ($faker, $bodyImageUrl, $userIds, $tags) {
-            // Generate localized bodies
-            foreach (['en', 'fr', 'ar'] as $locale) {
-                $post->translate($locale)->body = $this->generateBody($faker, $bodyImageUrl);
-            }
-
+        $posts->each(function (Post $post) use ($faker, $userIds, $tags) {
             //Attach user
             $post->user_id = $userIds->random()->id;
 
             // Attach media
             $i = mt_rand(1, 10);
-            $imageData = database_path()."/seeds/images/abstract-$i.jpg";
+            $imagePath = database_path()."/seeds/images/abstract-$i.jpg";
 
-            $media = MediaUploader::fromSource(fopen($imageData, 'rb'))
-                ->toDestination('public', 'posts')
-                ->useFilename(Str::random(32))
-                ->upload();
+            $post->addMedia($imagePath)
+                ->preservingOriginal()
+                ->toMediaCollection('featured image');
 
-            $post->attachMedia($media, 'featured image');
+            // Generate localized bodies
+            foreach (['en', 'fr', 'ar'] as $locale) {
+                $post->setTranslation('body', $locale, $this->generateBody($faker));
+            }
+
             $post->save();
 
             // Set tags
@@ -76,8 +62,19 @@ class PostsTableSeeder extends Seeder
         });
     }
 
-    private function generateBody(Faker\Generator $faker, $imageUrl)
+    private function generateBody(Faker\Generator $faker)
     {
+        // Generate body image
+        $bodyImage = Image::make(database_path().'/seeds/images/logo.png')->widen(600, function ($constraint) {
+            $constraint->upsize();
+        });
+
+        $bodyImagePath = '/tmp/logo.png';
+
+        Storage::disk('public')->put($bodyImagePath, $bodyImage->stream());
+        $imageUrl = "/storage{$bodyImagePath}";
+
+        // Generate body
         $align = $faker->randomElement(['left', 'center', 'right']);
 
         $imageHtml = <<<EOT
