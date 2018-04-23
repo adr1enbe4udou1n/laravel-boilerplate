@@ -42,6 +42,7 @@ if (! function_exists('image_template_url')) {
     function image_template_url($template, $imagePath)
     {
         $imagePath = str_replace('/storage', '', $imagePath);
+
         return url(config('imagecache.route')."/{$template}{$imagePath}");
     }
 }
