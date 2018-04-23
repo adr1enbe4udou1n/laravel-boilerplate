@@ -35,13 +35,14 @@ if (! function_exists('is_admin_route')) {
 if (! function_exists('image_template_url')) {
     /**
      * @param $template
-     * @param $image_path
+     * @param $imagePath
      *
      * @return string
      */
-    function image_template_url($template, $image_path)
+    function image_template_url($template, $imagePath)
     {
-        return url(config('imagecache.route')."/$template/$image_path");
+        $imagePath = str_replace('/storage', '', $imagePath);
+        return url(config('imagecache.route')."/{$template}{$imagePath}");
     }
 }
 

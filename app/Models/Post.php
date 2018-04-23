@@ -221,7 +221,7 @@ class Post extends Model implements HasMedia
     {
         /** @var Media $media */
         if ($media = $this->getMedia('featured image')->first()) {
-            return str_replace(config('filesystems.disks.public.url'), '', $media->getUrl());
+            return str_replace(config('app.url'), '', $media->getUrl());
         }
 
         return 'placeholder.png';
