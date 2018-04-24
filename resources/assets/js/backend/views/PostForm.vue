@@ -79,8 +79,8 @@
               :feedback="feedback('featured_image')"
             >
               <div class="media">
-                <img v-if="model.featured_image_path !== null" class="mr-2"
-                     :src="`/imagecache/small/${model.featured_image_path}`" alt="">
+                <img v-if="model.thumbnail_image_path" class="mr-2"
+                     :src="model.thumbnail_image_path" alt="">
 
                 <div class="media-body">
                   <h6>{{ $t('labels.upload_image') }}</h6>
@@ -305,7 +305,7 @@ export default {
         body: null,
         tags: [],
         featured_image: null,
-        featured_image_path: null,
+        thumbnail_image_path: null,
         status: null,
         state: null,
         status_label: null,
