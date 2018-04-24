@@ -19,25 +19,42 @@ trait HasEditor
         });
     }
 
+    protected function parseTextForImages(string $text)
+    {
+        $updated = false;
+        preg_match_all('@src="([^"]+)"@', $text, $match);
+        $src = collect(array_pop($match))->unique();
+
+        foreach ($src as $path) {
+            $startPath = '/storage/tmp/';
+            if (starts_with($path, $startPath)) {
+                $file = Storage::disk('public')->path(str_replace('/storage', '', $path));
+                $media = $this->addMedia($file)
+                    ->toMediaCollection('editor images');
+
+                $imagePath = str_replace(config('app.url'), '', $media->getUrl());
+                $text = str_replace($path, $imagePath, $text);
+                $updated = true;
+            }
+        }
+
+        return $updated ? $text : false;
+    }
+
     protected function saveImagesToMediaCollection(string $field)
     {
-        preg_match_all('@src="([^"]+)"@', $this->$field, $match);
-        $src = array_pop($match);
-
-        if (count($src)) {
-            foreach ($src as $path) {
-                $startPath = '/storage/tmp/';
-                if (starts_with($path, $startPath)) {
-                    $file = Storage::disk('public')->path(str_replace('/storage', '', $path));
-                    $media = $this->addMedia($file)
-                        ->toMediaCollection('editor images');
-
-                    $imagePath = str_replace(config('app.url'), '', $media->getUrl());
-                    $this->update([
-                        $field => str_replace($path, $imagePath, $this->$field),
-                    ]);
+        $updated = false;
+        if (property_exists($this, 'translatable') && in_array($field, $this->translatable, true)) {
+            foreach ($this->getTranslations($field) as $locale => $text) {
+                if ($text = $this->parseTextForImages($text)) {
+                    $this->setTranslation($field, $locale, $text);
+                    $updated = true;
                 }
             }
+        }
+
+        if ($updated) {
+            $this->save();
         }
     }
 }

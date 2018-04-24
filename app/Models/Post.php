@@ -156,11 +156,6 @@ class Post extends Model implements HasMedia
         'meta',
     ];
 
-    public function getBodyAttribute($body)
-    {
-        return Purify::clean($body);
-    }
-
     public function getCanEditAttribute()
     {
         return true;
@@ -308,6 +303,8 @@ class Post extends Model implements HasMedia
         $attributes = parent::toArray();
 
         TranslatableJson::getLocalizedTranslatableAttributes($this, $attributes);
+
+        $attributes['body'] = Purify::clean($attributes['body']);
         $attributes['tags'] = $this->tags->pluck('name');
 
         return $attributes;

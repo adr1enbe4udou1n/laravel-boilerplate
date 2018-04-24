@@ -49,7 +49,7 @@ class PostsTableSeeder extends Seeder
 
             // Generate localized bodies
             foreach (['en', 'fr', 'ar'] as $locale) {
-                $post->setTranslation('body', $locale, $this->generateBody($faker));
+                $post->setTranslation('body', $locale, $this->generateBody($faker, $locale));
             }
 
             $post->save();
@@ -62,14 +62,14 @@ class PostsTableSeeder extends Seeder
         });
     }
 
-    private function generateBody(Faker\Generator $faker)
+    private function generateBody(Faker\Generator $faker, $locale)
     {
         // Generate body image
         $bodyImage = Image::make(database_path().'/seeds/images/logo.png')->widen(600, function ($constraint) {
             $constraint->upsize();
         });
 
-        $bodyImagePath = '/tmp/logo.png';
+        $bodyImagePath = "/tmp/logo-{$locale}.png";
 
         Storage::disk('public')->put($bodyImagePath, $bodyImage->stream());
         $imageUrl = "/storage{$bodyImagePath}";

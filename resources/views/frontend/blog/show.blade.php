@@ -16,7 +16,7 @@
 
 @section('content')
     <div class="wysiwyg-content">
-        {!! $post->body !!}
+        {!! Purify::clean($post->body) !!}
     </div>
 
     <nav class="nav">
