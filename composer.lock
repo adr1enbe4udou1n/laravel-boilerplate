@@ -3366,16 +3366,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "7.1.6",
+            "version": "7.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "3683133d8c6a585225e7473d2a37c843de181e35"
+                "reference": "9030a3b6e962e0a4609ff389b773dbf959497cef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/3683133d8c6a585225e7473d2a37c843de181e35",
-                "reference": "3683133d8c6a585225e7473d2a37c843de181e35",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/9030a3b6e962e0a4609ff389b773dbf959497cef",
+                "reference": "9030a3b6e962e0a4609ff389b773dbf959497cef",
                 "shasum": ""
             },
             "require": {
@@ -3444,7 +3444,7 @@
                 "media",
                 "spatie"
             ],
-            "time": "2018-04-16T07:03:01+00:00"
+            "time": "2018-04-24T13:15:49+00:00"
         },
         {
             "name": "spatie/laravel-tags",

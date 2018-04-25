@@ -2,6 +2,7 @@ require('dotenv').config()
 const path = require('path')
 const webpack = require('webpack')
 
+const { VueLoaderPlugin } = require('vue-loader')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
@@ -17,6 +18,7 @@ const publicPath = hmr ? `http://localhost:${devServerPort}${publicPathFolder}` 
 
 function getEntryConfig (name, analyzerPort, alias = {}) {
   let plugins = [
+    new VueLoaderPlugin(),
     new webpack.IgnorePlugin(/jsdom$/),
     new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /fr/),
     new FriendlyErrorsWebpackPlugin(),
@@ -176,7 +178,7 @@ function getEntryConfig (name, analyzerPort, alias = {}) {
 
 module.exports = [
   getEntryConfig('frontend', 8888, {
-  	'vue$': 'vue/dist/vue.esm.js',
+    'vue$': 'vue/dist/vue.esm.js'
   }),
   getEntryConfig('backend', 8889)
 ]
