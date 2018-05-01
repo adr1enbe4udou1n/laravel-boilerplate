@@ -12,7 +12,7 @@
         </b-alert>
         <breadcrumb :list="list"></breadcrumb>
         <b-container fluid>
-          <router-view :key="$route.name"></router-view>
+          <router-view :key="name"></router-view>
         </b-container>
       </main>
       <AppAside></AppAside>
