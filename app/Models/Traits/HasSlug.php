@@ -9,7 +9,8 @@ trait HasSlug
     public static function bootHasSlug()
     {
         static::saving(function (Model $model) {
-            if (! $model->isSlugTranslatable()) {
+            if (! method_exists($model, 'isTranslatableAttribute') ||
+                ! $model->isTranslatableAttribute($model->sluggable)) {
                 $property = $model->sluggable;
                 $model->slug = str_slug($model->$property);
 
@@ -23,10 +24,5 @@ trait HasSlug
                     );
                 });
         });
-    }
-
-    protected function isSlugTranslatable()
-    {
-        return property_exists($this, 'translatable') && in_array($this->sluggable, $this->translatable, true);
     }
 }

@@ -30,7 +30,7 @@ trait HasEditor
             if (starts_with($path, $startPath)) {
                 $file = Storage::disk('public')->path(str_replace('/storage', '', $path));
                 $media = $this->addMedia($file)
-                    ->toMediaCollection('editor images');
+                    ->toMediaCollection($this->editorCollectionName);
 
                 $imagePath = str_replace(config('app.url'), '', $media->getUrl());
                 $text = str_replace($path, $imagePath, $text);
@@ -44,7 +44,8 @@ trait HasEditor
     protected function saveImagesToMediaCollection(string $field)
     {
         $updated = false;
-        if (property_exists($this, 'translatable') && in_array($field, $this->translatable, true)) {
+        if (method_exists($this, 'isTranslatableAttribute') &&
+            $this->isTranslatableAttribute($field)) {
             foreach ($this->getTranslations($field) as $locale => $text) {
                 if ($text = $this->parseTextForImages($text)) {
                     $this->setTranslation($field, $locale, $text);

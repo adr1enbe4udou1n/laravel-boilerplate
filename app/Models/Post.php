@@ -79,9 +79,12 @@ class Post extends Model implements HasMedia
     use HasEditor;
 
     public $sluggable = 'title';
+
     public $editorFields = [
         'body',
     ];
+
+    public $editorCollectionName = 'editor images';
 
     public $asYouType = true;
 
