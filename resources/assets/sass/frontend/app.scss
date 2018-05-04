@@ -7,13 +7,13 @@
 
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
-@import "~bootstrap-vue/dist/bootstrap-vue";
+@import "~bootstrap-vue/dist/bootstrap-vue.css";
 
 // Plugins
 @import "~slick-carousel/slick/slick";
 @import "~slick-carousel/slick/slick-theme";
-@import "~cookieconsent/build/cookieconsent.min";
 @import "~intl-tel-input/src/css/intlTelInput";
+@import "~cookieconsent/build/cookieconsent.min.css";
 
 // Components
 @import "../buttons";
