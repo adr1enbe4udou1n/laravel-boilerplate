@@ -165,11 +165,6 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
         $user->fill(Arr::only($input, ['name', 'email', 'locale', 'timezone']));
 
         if ($user->isDirty('email')) {
-            // Emails have to be unique
-            if ($this->query()->whereEmail($user->email)->exists()) {
-                throw new GeneralException(__('exceptions.frontend.user.email_taken'));
-            }
-
             $user->confirmed = false;
             $this->sendConfirmationToUser($user);
         }
