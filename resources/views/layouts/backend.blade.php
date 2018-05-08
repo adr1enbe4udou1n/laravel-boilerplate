@@ -11,9 +11,18 @@
     <title>Administration | {{ config('app.name') }}</title>
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     @if ($stylePath = Html::asset('backend', 'backend.css'))
     <link rel="stylesheet" href="{{ $stylePath }}">
     @endif
+
+    <!-- CDN -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script defer src="https://cdn.ckeditor.com/ckeditor5/1.0.0-beta.2/classic/ckeditor.js"></script>
+
+    <!-- Scripts -->
+    <script defer src="{{ Html::asset('backend', 'vendor-backend.js') }}"></script>
+    <script defer src="{{ Html::asset('backend', 'backend.js') }}"></script>
 
     <!-- JS settings -->
     <script type="application/json" data-settings-selector="settings-json">
@@ -36,14 +45,6 @@
 
     <!-- Named routes -->
     @routes()
-
-    <!-- CDN -->
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script defer src="https://cdn.ckeditor.com/ckeditor5/1.0.0-beta.2/classic/ckeditor.js"></script>
-
-    <!-- Scripts -->
-    <script defer src="{{ Html::asset('backend', 'vendor-backend.js') }}"></script>
-    <script defer src="{{ Html::asset('backend', 'backend.js') }}"></script>
 </head>
 <body class="app @yield('body_class')">
     @yield('body')
