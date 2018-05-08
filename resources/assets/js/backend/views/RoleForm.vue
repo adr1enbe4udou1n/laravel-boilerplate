@@ -136,6 +136,7 @@ export default {
     return {
       permissions: [],
       modelName: 'role',
+      resourceRoute: 'roles',
       listPath: '/roles',
       model: {
         name: null,

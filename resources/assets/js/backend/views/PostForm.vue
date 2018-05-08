@@ -297,6 +297,7 @@ export default {
         enableTime: true
       },
       modelName: 'post',
+      resourceRoute: 'posts',
       listPath: '/posts',
       tagsOptions: [],
       model: {

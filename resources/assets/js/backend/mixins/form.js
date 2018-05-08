@@ -16,7 +16,7 @@ export default {
   methods: {
     async fetchData () {
       if (!this.isNew) {
-        let {data} = await axios.get(this.$app.route(`admin.${this.modelName}s.show`, {
+        let {data} = await axios.get(this.$app.route(`admin.${this.resourceRoute}.show`, {
           [this.modelName]: this.id
         }))
 
@@ -44,8 +44,8 @@ export default {
       this.pending = true
       let router = this.$router
       let action = this.isNew ? this.$app.route(
-        `admin.${this.modelName}s.store`) : this.$app.route(
-        `admin.${this.modelName}s.update`, {[this.modelName]: this.id})
+        `admin.${this.resourceRoute}.store`) : this.$app.route(
+        `admin.${this.resourceRoute}.update`, {[this.modelName]: this.id})
 
       let formData = this.$app.objectToFormData(this.model)
 

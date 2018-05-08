@@ -99,6 +99,7 @@ export default {
     return {
       routes: [],
       modelName: 'meta',
+      resourceRoute: 'metas',
       listPath: '/metas',
       model: {
         metable_type: null,

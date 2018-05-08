@@ -103,6 +103,7 @@ export default {
         }
       ],
       modelName: 'form_setting',
+      resourceRoute: 'form_settings',
       listPath: '/form-settings',
       model: {
         name: null,
