@@ -26,27 +26,26 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Models\Meta::class, function (Faker\Generator $faker) {
     return [
-        'en' => [
-            'title' => $faker->sentence,
-            'description' => $faker->sentences(3, true),
+        'title' => [
+            'en' => $faker->sentence,
+            'fr' => $faker->sentence,
+            'ar' => $faker->sentence,
         ],
-        'fr' => [
-            'title' => $faker->sentence,
-            'description' => $faker->sentences(3, true),
-        ],
-        'ar' => [
-            'title' => $faker->sentence,
-            'description' => $faker->sentences(3, true),
+        'description' => [
+            'en' => $faker->sentences(3, true),
+            'fr' => $faker->sentences(3, true),
+            'ar' => $faker->sentences(3, true),
         ],
     ];
 });
 
-$factory->define(App\Models\Tag::class, function (Faker\Generator $faker) {
-    $locales = ['en', 'fr', 'ar'];
-
+$factory->define(Spatie\Tags\Tag::class, function (Faker\Generator $faker) {
     return [
-        'locale' => $locales[array_rand($locales)],
-        'name' => $faker->unique()->word,
+        'name' => [
+            'en' => $faker->unique()->word,
+            'fr' => $faker->unique()->word,
+            'ar' => $faker->unique()->word,
+        ],
     ];
 });
 
@@ -60,17 +59,15 @@ $factory->define(App\Models\Post::class, function (Faker\Generator $faker) {
     }
 
     return [
-        'en' => [
-            'title' => $faker->sentence,
-            'summary' => $faker->sentences(3, true),
+        'title' => [
+            'en' => $faker->sentence,
+            'fr' => $faker->sentence,
+            'ar' => $faker->sentence,
         ],
-        'fr' => [
-            'title' => $faker->sentence,
-            'summary' => $faker->sentences(3, true),
-        ],
-        'ar' => [
-            'title' => $faker->sentence,
-            'summary' => $faker->sentences(3, true),
+        'summary' => [
+            'en' => $faker->sentences(3, true),
+            'fr' => $faker->sentences(3, true),
+            'ar' => $faker->sentences(3, true),
         ],
         'status' => $faker->numberBetween(0, 2),
         'promoted' => $faker->boolean(10),

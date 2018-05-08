@@ -15,6 +15,8 @@ class CreateMetasTable extends Migration
             $table->increments('id');
             $table->string('route')->nullable();
             $table->nullableMorphs('metable');
+            $table->json('title')->nullable();
+            $table->json('description')->nullable();
             $table->timestamps();
         });
     }

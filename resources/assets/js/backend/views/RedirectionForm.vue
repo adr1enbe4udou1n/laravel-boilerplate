@@ -98,6 +98,7 @@ export default {
     return {
       redirectionTypes: {},
       modelName: 'redirection',
+      resourceRoute: 'redirections',
       listPath: '/redirections',
       model: {
         source: null,

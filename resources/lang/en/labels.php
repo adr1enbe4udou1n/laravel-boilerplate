@@ -9,7 +9,6 @@ return [
     'validate' => 'Validate',
     'choose_file' => 'Choose File',
     'no_file_chosen' => 'No file chosen',
-    'no_results' => 'No results available',
     'are_you_sure' => 'Are you sure ?',
     'yes' => 'Yes',
     'no' => 'No',
@@ -17,6 +16,7 @@ return [
     'export' => 'Export',
     'more_info' => 'More info',
     'author' => 'Author',
+    'author_id' => 'Author ID',
     'last_access_at' => 'Last access at',
     'published_at' => 'Published at',
     'created_at' => 'Created at',
@@ -236,8 +236,8 @@ return [
             ],
 
             'import' => [
-                'title' => 'CSV/Excel file import',
-                'label' => 'Select CSV/Excel file to import',
+                'title' => 'CSV file import',
+                'label' => 'Select CSV file to import',
                 'description' => 'File must have 2 columns with "source" and "target" as heading, redirection will be permanent by default',
             ],
         ],

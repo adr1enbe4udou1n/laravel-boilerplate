@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}" @if(LaravelLocalization::getCurrentLocaleDirection() == 'rtl') class="rtl" @endif>
+<html lang="{{ app()->getLocale() }}" dir="{{ LaravelLocalization::getCurrentLocaleDirection() }}">
 <head>
     @include('frontend.scripts.gtm')
 
@@ -17,9 +17,20 @@
     @endif
 
     <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.6/cookieconsent.min.css" />
     @if ($stylePath = Html::asset('frontend', 'frontend.css'))
     <link rel="stylesheet" href="{{ $stylePath }}">
     @endif
+
+    <!-- CDN -->
+    <script defer src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script defer src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.6/cookieconsent.min.js"></script>
+
+    <!-- Scripts -->
+    <script defer src="{{ Html::asset('frontend', 'vendor-frontend.js') }}"></script>
+    <script defer src="{{ Html::asset('frontend', 'frontend.js') }}"></script>
 
     <!-- JS settings -->
     <script type="application/json" data-settings-selector="settings-json">
@@ -30,15 +41,6 @@
             ],
         ]) !!}
     </script>
-
-    <!-- CDN -->
-    <script defer src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-    <!-- Scripts -->
-    <script defer src="{{ Html::asset('frontend', 'vendor-frontend.js') }}"></script>
-    <script defer src="{{ Html::asset('frontend', 'frontend.js') }}"></script>
 </head>
 <body class="@yield('body_class')">
     @include('frontend.scripts.gtmiframe')

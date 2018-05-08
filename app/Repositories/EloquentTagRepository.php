@@ -35,31 +35,8 @@ class EloquentTagRepository extends EloquentBaseRepository implements TagReposit
      */
     public function findBySlug($slug)
     {
-        return $this->query()->whereSlug($slug)->first();
-    }
+        $locale = app()->getLocale();
 
-    /**
-     * @param string $name
-     *
-     * @return mixed
-     */
-    public function findOrCreate($name)
-    {
-        return $this->query()->whereName($name)->firstOrCreate([
-            'locale' => $this->localization->getCurrentLocale(),
-            'name' => $name,
-        ]);
-    }
-
-    /**
-     * @param string $name
-     *
-     * @throws \Exception
-     *
-     * @return bool
-     */
-    public function delete($name)
-    {
-        return $this->query()->whereName($name)->delete();
+        return $this->query()->where("slug->{$locale}", $slug)->first();
     }
 }

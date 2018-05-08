@@ -68,9 +68,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
      */
     public function login(Authenticatable $user)
     {
-        /** @var User $user */
-        $user = $this->query()->find($user->id);
-
+        /* @var User $user */
         $user->last_access_at = Carbon::now();
 
         if (! $user->save()) {
@@ -131,6 +129,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
      */
     public function hasPermission(Authenticatable $user, $name)
     {
+        /** @var User $user */
         // First user is always super admin and cannot be deleted
         if ($user->is_super_admin) {
             return true;
@@ -160,19 +159,12 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
             throw new GeneralException(__('exceptions.frontend.user.updating_disabled'));
         }
 
-        $user = auth()->user();
-
         /** @var User $user */
-        $user = $this->query()->find($user->id);
+        $user = auth()->user();
 
         $user->fill(Arr::only($input, ['name', 'email', 'locale', 'timezone']));
 
         if ($user->isDirty('email')) {
-            // Emails have to be unique
-            if ($this->query()->whereEmail($user->email)->exists()) {
-                throw new GeneralException(__('exceptions.frontend.user.email_taken'));
-            }
-
             $user->confirmed = false;
             $this->sendConfirmationToUser($user);
         }
@@ -194,10 +186,8 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
             throw new GeneralException(__('exceptions.frontend.user.updating_disabled'));
         }
 
-        $user = auth()->user();
-
         /** @var User $user */
-        $user = $this->query()->find($user->id);
+        $user = auth()->user();
 
         if (empty($user->password) || Hash::check($oldPassword, $user->password)) {
             $user->password = Hash::make($newPassword);
@@ -213,10 +203,8 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
      */
     public function sendConfirmation()
     {
-        $user = auth()->user();
-
         /** @var User $user */
-        $user = $this->query()->find($user->id);
+        $user = auth()->user();
 
         $this->sendConfirmationToUser($user);
     }
@@ -241,10 +229,8 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
      */
     public function confirmEmail($token)
     {
-        $user = auth()->user();
-
         /** @var User $user */
-        $user = $this->query()->find($user->id);
+        $user = auth()->user();
 
         if ($user->confirmation_token === $token) {
             $user->confirmed = true;
@@ -259,10 +245,8 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
      */
     public function delete()
     {
-        $user = auth()->user();
-
         /** @var User $user */
-        $user = $this->query()->find($user->id);
+        $user = auth()->user();
 
         if ($user->is_super_admin) {
             throw new GeneralException(__('exceptions.backend.users.first_user_cannot_be_destroyed'));

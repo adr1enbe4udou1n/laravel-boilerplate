@@ -17,6 +17,7 @@ return [
     'more_info' => 'Plus d\'info',
     'last_access_at' => 'Dernier accès le',
     'author' => 'Auteur',
+    'author_id' => 'ID Auteur',
     'published_at' => 'Publié le',
     'created_at' => 'Créé le',
     'updated_at' => 'Modifié le',
@@ -235,8 +236,8 @@ return [
             ],
 
             'import' => [
-                'title' => 'Import de fichier CSV/Excel',
-                'label' => 'Sélectionner un fichier CSV/Excel à importer',
+                'title' => 'Import de fichier CSV',
+                'label' => 'Sélectionner un fichier CSV à importer',
                 'description' => 'Le fichier doit avoir 2 colonnes avec en-têtes de colonne "source" et "target", la redirection sera du type permanent par défaut',
             ],
         ],

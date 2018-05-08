@@ -3,22 +3,43 @@
 namespace App\Models;
 
 use Illuminate\Support\Facades\Gate;
-use Dimsav\Translatable\Translatable;
+use App\Models\Traits\TranslatableJson;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 /**
  * App\Models\FormSetting.
+ *
+ * @property int                 $id
+ * @property string              $name
+ * @property array               $message
+ * @property string|null         $recipients
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property mixed               $array_recipients
+ * @property mixed               $can_delete
+ * @property mixed               $can_edit
+ * @property mixed               $html_message
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\FormSetting whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\FormSetting whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\FormSetting whereMessage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\FormSetting whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\FormSetting whereRecipients($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\FormSetting whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class FormSetting extends Model
 {
-    use Translatable;
+    use HasTranslations;
+    use TranslatableJson;
 
     /**
      * The attributes that are translatable.
      *
      * @var array
      */
-    public $translatedAttributes = [
+    public $translatable = [
         'message',
     ];
 
@@ -30,15 +51,7 @@ class FormSetting extends Model
     protected $fillable = [
         'name',
         'recipients',
-    ];
-
-    /**
-     * The relationship that are eager loaded.
-     *
-     * @var array
-     */
-    protected $with = [
-        'translations',
+        'message',
     ];
 
     protected $appends = ['can_edit', 'can_delete'];

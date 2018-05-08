@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\FormSetting;
 use Illuminate\Http\Request;
+use App\Utils\RequestSearchQuery;
 use App\Http\Requests\StoreFormSettingRequest;
 use App\Http\Requests\UpdateFormSettingRequest;
 use App\Repositories\Contracts\FormSettingRepository;
@@ -36,15 +37,15 @@ class FormSettingController extends BackendController
      */
     public function search(Request $request)
     {
-        if ($request->isXmlHttpRequest()) {
-            return $this->searchQuery($request, $this->formSettings->query(), [
-                'id',
-                'name',
-                'recipients',
-                'created_at',
-                'updated_at',
-            ]);
-        }
+        $requestSearchQuery = new RequestSearchQuery($request, $this->formSettings->query());
+
+        return $requestSearchQuery->result([
+            'id',
+            'name',
+            'recipients',
+            'created_at',
+            'updated_at',
+        ]);
     }
 
     /**

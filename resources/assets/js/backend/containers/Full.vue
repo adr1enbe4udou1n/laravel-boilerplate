@@ -10,7 +10,7 @@
         <b-alert variant="warning" class="alert-top mb-0" :show="!$app.user.confirmed">
           <span v-html="$t('labels.alerts.not_confirmed', {'route': $app.route('user.confirmation.send') })"></span>
         </b-alert>
-        <breadcrumb :list="list"></breadcrumb>
+        <breadcrumb :list="$route.matched"></breadcrumb>
         <b-container fluid>
           <router-view :key="$route.name"></router-view>
         </b-container>
@@ -43,14 +43,6 @@ export default {
   data () {
     return {
       nav: []
-    }
-  },
-  computed: {
-    name () {
-      return this.$route.name
-    },
-    list () {
-      return this.$route.matched
     }
   },
   watch: {

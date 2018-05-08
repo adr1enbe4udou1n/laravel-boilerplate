@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
@@ -18,22 +20,10 @@ class SetupPermissionsTables extends Migration
         Schema::create('roles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
+            $table->json('display_name')->nullable();
+            $table->json('description')->nullable();
             $table->integer('order')->default(0);
             $table->timestamps();
-        });
-
-        Schema::create('role_translations', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('role_id')->unsigned();
-            $table->string('locale')->index();
-
-            $table->string('display_name')->nullable();
-            $table->string('description')->nullable();
-
-            $table->unique(['role_id', 'locale']);
-            $table->foreign('role_id')->references('id')
-                ->on('roles')
-                ->onDelete('cascade');
         });
 
         // Create table for associating roles to users (Many-to-Many)
@@ -71,6 +61,5 @@ class SetupPermissionsTables extends Migration
         Schema::drop('permissions');
         Schema::drop('role_user');
         Schema::drop('roles');
-        Schema::drop('role_translations');
     }
 }

@@ -1,24 +1,12 @@
 <template>
 
-  <textarea :id="id" :name="name" :value="value"></textarea>
+  <div ref="editorEl" v-html="value"></div>
 
 </template>
 
 <script>
 export default {
   props: {
-    id: {
-      type: String,
-      default: null
-    },
-    name: {
-      type: String,
-      default: null
-    },
-    placeholder: {
-      type: String,
-      default: null
-    },
     value: {
       type: String,
       default: null
@@ -31,43 +19,62 @@ export default {
   },
   watch: {
     value (newValue) {
-      if (newValue !== this.editor.getData()) {
+      if (this.editor && newValue !== this.editor.getData()) {
         this.editor.setData(newValue)
       }
     }
   },
-  async mounted () {
-    let editor = await window.ClassicEditor
-      .create(document.querySelector(`#${this.id}`), {
-        toolbar: [ 'headings', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'undo', 'redo' ],
-        heading: {
-          options: [
-            { modelElement: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-            { modelElement: 'heading2', viewElement: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
-            { modelElement: 'heading3', viewElement: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' }
-          ]
-        },
-        image: {
-          toolbar: [ 'imageStyleFull', 'imageStyleAlignLeft', 'imageStyleAlignCenter', 'imageStyleAlignRight', '|', 'imageTextAlternative' ],
-          styles: [
-            'imageStyleFull',
-            'imageStyleAlignLeft',
-            'imageStyleAlignCenter',
-            'imageStyleAlignRight'
-          ]
-        },
-        ckfinder: {
-          uploadUrl: this.$app.route('admin.images.upload')
-        }
-      })
-
-    editor.document.on('change', () => {
-      this.$emit('input', editor.getData())
-    })
-    this.editor = editor
+  mounted () {
+    this.createInstance()
   },
   beforeDestroy () {
-    this.editor.destroy()
+    if (this.editor) {
+      this.editor.destroy()
+    }
+  },
+  methods: {
+    async createInstance () {
+      if (!this.editor) {
+        try {
+          this.editor = await window.ClassicEditor.create(this.$refs.editorEl, {
+            toolbar: [
+              'heading',
+              'bold',
+              'italic',
+              'link',
+              'bulletedList',
+              'numberedList',
+              'imageUpload',
+              'blockQuote',
+              'undo',
+              'redo'],
+            image: {
+              toolbar: [
+                'imageTextAlternative',
+                '|',
+                'imageStyle:alignLeft',
+                'imageStyle:full',
+                'imageStyle:alignRight'],
+              styles: [
+                'full',
+                'alignLeft',
+                'alignRight'
+              ]
+            },
+            ckfinder: {
+              uploadUrl: this.$app.route('admin.images.upload')
+            }
+          })
+        } catch (e) {
+        }
+
+        if (this.editor) {
+          this.editor.model.document.on('change', () => {
+            this.$emit('input', this.editor.getData())
+          })
+        }
+      }
+    }
   }
 }
 </script>

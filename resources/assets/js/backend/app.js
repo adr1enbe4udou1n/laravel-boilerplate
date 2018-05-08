@@ -162,8 +162,7 @@ export function createApp () {
     router,
     store,
     i18n,
-    components: {App},
-    template: '<App/>'
+    render: (h) => h(App)
   })
 
   return {app, router, store}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\Role;
 use Illuminate\Http\Request;
+use App\Utils\RequestSearchQuery;
 use App\Http\Requests\StoreRoleRequest;
 use App\Http\Requests\UpdateRoleRequest;
 use App\Repositories\Contracts\RoleRepository;
@@ -32,19 +33,43 @@ class RoleController extends BackendController
      *
      * @throws \Exception
      *
-     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Http\JsonResponse
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Symfony\Component\HttpFoundation\BinaryFileResponse
      */
     public function search(Request $request)
     {
-        if ($request->isXmlHttpRequest()) {
-            return $this->searchQuery($request, $this->roles->query(), [
-                'id',
+        $query = $this->roles->query();
+
+        $requestSearchQuery = new RequestSearchQuery($request, $query);
+
+        if ($request->get('exportData')) {
+            return $requestSearchQuery->export([
                 'name',
                 'order',
+                'display_name',
+                'description',
                 'created_at',
                 'updated_at',
-            ]);
+            ],
+                [
+                    __('validation.attributes.name'),
+                    __('validation.attributes.order'),
+                    __('validation.attributes.display_name'),
+                    __('validation.attributes.description'),
+                    __('labels.created_at'),
+                    __('labels.updated_at'),
+                ],
+                'roles');
         }
+
+        return $requestSearchQuery->result([
+            'roles.id',
+            'name',
+            'order',
+            'display_name',
+            'description',
+            'created_at',
+            'updated_at',
+        ]);
     }
 
     /**

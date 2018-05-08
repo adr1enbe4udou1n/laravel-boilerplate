@@ -48,13 +48,13 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-4">
-                    <img src="{{ image_template_url('large', 'wallpapers-uhd/03908_halfdomejoy_3840x2160.jpg') }}" alt="halfdomejoy" width="480" height="360" class="img-fluid">
+                    <img src="{{ image_template_url('large', '/wallpapers-uhd/03908_halfdomejoy_3840x2160.jpg') }}" alt="halfdomejoy" width="480" height="360" class="img-fluid">
                 </div>
                 <div class="col-md-4">
-                    <img src="{{ image_template_url('large', 'wallpapers-uhd/03909_insidebrycecanyon_3840x2160.jpg') }}" alt="insidebrycecanyon" width="480" height="360" class="img-fluid">
+                    <img src="{{ image_template_url('large', '/wallpapers-uhd/03909_insidebrycecanyon_3840x2160.jpg') }}" alt="insidebrycecanyon" width="480" height="360" class="img-fluid">
                 </div>
                 <div class="col-md-4">
-                    <img src="{{ image_template_url('large', 'wallpapers-uhd/03987_forestsofendor_3840x2160.jpg') }}" alt="forestsofendor" width="480" height="360" class="img-fluid">
+                    <img src="{{ image_template_url('large', '/wallpapers-uhd/03987_forestsofendor_3840x2160.jpg') }}" alt="forestsofendor" width="480" height="360" class="img-fluid">
                 </div>
             </div>
         </div>

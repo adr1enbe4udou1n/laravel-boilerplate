@@ -92,9 +92,3 @@ export default {
   }
 }
 </script>
-
-<style lang="css">
-.nav-link {
-  cursor: pointer;
-}
-</style>

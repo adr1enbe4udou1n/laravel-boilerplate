@@ -7,12 +7,11 @@
 
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
-@import "~bootstrap-vue/dist/bootstrap-vue";
+@import "~bootstrap-vue/dist/bootstrap-vue.css";
 
 // Plugins
 @import "~slick-carousel/slick/slick";
 @import "~slick-carousel/slick/slick-theme";
-@import "~cookieconsent/build/cookieconsent.min";
 @import "~intl-tel-input/src/css/intlTelInput";
 
 // Components
@@ -24,6 +23,9 @@
 // Pages
 @import "blog";
 
+// RTL
+@import "../bootstrap-rtl";
+
 body {
   padding-top: 3.5rem;
 }
@@ -34,6 +36,7 @@ body {
 
 .jumbotron {
   margin-bottom: 0;
+  direction: ltr !important;
 
   @include media-breakpoint-up(sm) {
     padding: $jumbotron-padding $jumbotron-padding / 2;
@@ -120,5 +123,3 @@ iframe {
     outline-offset: -1px;
   }
 }
-
-@import "rtl";

@@ -46,7 +46,6 @@
               :label-cols="2"
             >
               <p-richtexteditor
-                id="body"
                 name="body"
                 v-model="model.body"
               ></p-richtexteditor>
@@ -80,8 +79,8 @@
               :feedback="feedback('featured_image')"
             >
               <div class="media">
-                <img v-if="model.featured_image_path !== null" class="mr-2"
-                     :src="`/imagecache/small/${model.featured_image_path}`" alt="">
+                <img v-if="model.thumbnail_image_path" class="mr-2"
+                     :src="model.thumbnail_image_path" alt="">
 
                 <div class="media-body">
                   <h6>{{ $t('labels.upload_image') }}</h6>
@@ -298,6 +297,7 @@ export default {
         enableTime: true
       },
       modelName: 'post',
+      resourceRoute: 'posts',
       listPath: '/posts',
       tagsOptions: [],
       model: {
@@ -306,7 +306,7 @@ export default {
         body: null,
         tags: [],
         featured_image: null,
-        featured_image_path: null,
+        thumbnail_image_path: null,
         status: null,
         state: null,
         status_label: null,
@@ -325,13 +325,6 @@ export default {
     }
   },
   methods: {
-    onModelChanged () {
-      if (this.model.tags) {
-        this.model.tags = this.model.tags.map((item) => {
-          return item.name
-        })
-      }
-    },
     async getTags (search) {
       let {data} = await axios.get(this.$app.route('admin.tags.search'), {
         params: {

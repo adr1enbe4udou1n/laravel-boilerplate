@@ -17,21 +17,18 @@ class FrontendController extends Controller
     public function __construct()
     {
         Route::bind('post', function ($value) {
-            /** @var PostRepository $posts */
             $posts = app(PostRepository::class);
 
             return $posts->findBySlug($value);
         });
 
         Route::bind('tag', function ($value) {
-            /** @var PostRepository $posts */
             $tags = app(TagRepository::class);
 
             return $tags->findBySlug($value);
         });
 
         Route::bind('user', function ($value) {
-            /** @var UserRepository $posts */
             $users = app(UserRepository::class);
 
             return $users->findBySlug($value);

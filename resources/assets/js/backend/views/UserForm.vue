@@ -137,6 +137,7 @@ export default {
     return {
       roles: [],
       modelName: 'user',
+      resourceRoute: 'users',
       listPath: '/users',
       model: {
         name: null,

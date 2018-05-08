@@ -2,8 +2,6 @@
 
 namespace App\Repositories\Contracts;
 
-use App\Models\Tag;
-
 /**
  * Interface TagRepository.
  */
@@ -15,18 +13,4 @@ interface TagRepository extends BaseRepository
      * @return mixed
      */
     public function findBySlug($slug);
-
-    /**
-     * @param string $name
-     *
-     * @return Tag
-     */
-    public function findOrCreate($name);
-
-    /**
-     * @param string $name
-     *
-     * @return mixed
-     */
-    public function delete($name);
 }

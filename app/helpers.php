@@ -1,6 +1,5 @@
 <?php
 
-use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
 if (! function_exists('home_route')) {
@@ -36,13 +35,15 @@ if (! function_exists('is_admin_route')) {
 if (! function_exists('image_template_url')) {
     /**
      * @param $template
-     * @param $image_path
+     * @param $imagePath
      *
      * @return string
      */
-    function image_template_url($template, $image_path)
+    function image_template_url($template, $imagePath)
     {
-        return url(config('imagecache.route')."/$template/$image_path");
+        $imagePath = str_replace('/storage', '', $imagePath);
+
+        return url(config('imagecache.route')."/{$template}{$imagePath}");
     }
 }
 
@@ -51,11 +52,9 @@ if (! function_exists('localize_url')) {
     {
         $url = null;
 
-        if ($translatable && method_exists($translatable, 'translate')) {
-            /** @var Translatable $translatable */
-            if ($translation = $translatable->translate($locale)) {
-                $slug = $translation->slug;
-
+        if ($translatable && method_exists($translatable, 'getTranslation')) {
+            /** @var \Spatie\Translatable\HasTranslations $translatable */
+            if ($slug = $translatable->getTranslation('slug', $locale)) {
                 $url = route(Route::current()->getName(), ['post' => $slug]);
             } else {
                 $url = route('home');

@@ -1,18 +1,19 @@
 # Laravel BS4 Vue CoreUI Boilerplate
+
 > This is a Bootstrap 4 starter kit site with lite blogging feature, user account registration/management and full Vue CoreUI Backend based on Laravel 5.6, inspired by the popular [Laravel 5 Boilerplate](https://github.com/rappasoft/laravel-5-boilerplate). Unit & feature tests are not integrated yet, therefore this project isn't rock-solid for now. 
 
-[![Build Status](https://drone.pc-world.fr/api/badges/adr1enbe4udou1n/laravel-boilerplate/status.svg)](https://drone.pc-world.fr/adr1enbe4udou1n/laravel-boilerplate)
+[![Build Status](https://drone.okami101.io/api/badges/adr1enbe4udou1n/laravel-boilerplate/status.svg)](https://drone.okami101.io/adr1enbe4udou1n/laravel-boilerplate)
 [![StyleCI](https://styleci.io/repos/75558440/shield?style=flat&branch=master)](https://styleci.io/repos/75558440)
 [![License](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/license?format=flat)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
 
 ## Demo
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/3679080/31575365-959dcec4-b0e5-11e7-9ddb-6902cf25b87a.gif">
+<img src="https://user-images.githubusercontent.com/3679080/38768514-73a75d04-3ff5-11e8-8281-e366f58c0165.gif">
 </p>
 
-* Frontend demo : [https://laravel-boilerplate.pc-world.fr](https://laravel-boilerplate.pc-world.fr)
-* Backend demo : [https://laravel-boilerplate.pc-world.fr/admincp](https://laravel-boilerplate.pc-world.fr/admincp) (demo@example.com/demo, read-only)
+* Frontend demo : [https://laravel-boilerplate.okami101.io](https://laravel-boilerplate.okami101.io)
+* Backend demo : [https://laravel-boilerplate.okami101.io/admincp](https://laravel-boilerplate.okami101.io/admincp) (demo@example.com/demo, read-only)
 
 ## Features
 
@@ -37,7 +38,7 @@
 * Native Vue Datatable, with everywhere search input and batch actions features,
 * All main CRUD actions are ajaxified,
 * Native [vue-select](https://github.com/sagalbot/vue-select) component for powerful select system (autocomplete, tags, etc.),
-* Batch actions integrated within DataTables,
+* Excel Export (thanks to [Maatwebsite](https://github.com/Maatwebsite/Laravel-Excel)) & Batch actions integrated within DataTables,
 * Instant search engine (for posts) thanks to [Laravel Scout](https://github.com/laravel/scout) & [TNTSearch](https://github.com/teamtnt/tntsearch).
 
 #### Features included
@@ -50,7 +51,8 @@
 
 ### Localization & SEO
 
-* Multilingual ready thanks to [Laravel Localization](https://github.com/mcamara/laravel-localization) package. Each routes are prefixed by locale in URL for best SEO support. For this boilerplate, EN & FR locales are 100% supported, including translated routes,
+* Multilingual ready thanks to [Laravel Localization](https://github.com/mcamara/laravel-localization) package. Each routes are prefixed by locale in URL for best SEO support. For this boilerplate, EN, FR locales are 100% supported, including translated routes,
+* Arabic language with RTL support added thanks to [AhmadOf](https://github.com/AhmadOf)
 * Model Field Translatable support with [Laravel Translatable](https://github.com/dimsav/laravel-translatable), used for contact form confirmed message, metatags and posts,
 * Robots and Sitemap integrated, including multilingual alternates,
 * Full Metatags manager interface with translatable title & description. Meta entity can be either linked to route or specific entity like post,
@@ -72,22 +74,23 @@
 3. Set Web write permission if needed to `bootstrap/cache` and `storage` folders.
 4. Launch follow commands :
 
-### For Production :
-
-```shell
-composer install --no-dev --optimize-autoloader
-php artisan key:generate
-php artisan storage:link
-php artisan migrate --force
-```
-
-### For Local/Development :
+### For Local/Development
 
 ```shell
 composer install
 php artisan key:generate
 php artisan storage:link
 php artisan migrate [--seed]
+```
+
+### For Production
+
+```shell
+# Running this on development environment will throw error so run below command only on production
+composer install --no-dev --optimize-autoloader
+php artisan key:generate
+php artisan storage:link
+php artisan migrate --force
 ```
 
 ### Initialize search index for posts
@@ -134,34 +137,34 @@ For instance, with this custom setup HMR work natively with configurable port (e
 PHP-CS-Fixer & ESLint are used for strong style guidelines for both server and client side code.
 
 PHP is pre-configured for official Laravel styling, just launch `./vendor/bin/php-cs-fixer fix` for global project auto-formatting.
-  
+
 JS use [JavaScript Standard Style](https://standardjs.com/) & eslint-loader is used within webpack for dynamic code styling recommendations.  
 Moreover, [Official ESLint plugin for Vue.js](https://github.com/vuejs/eslint-plugin-vue) is included for heavy consistent code through all components vue files.
 
 ## TODO
 
-- [x] <s>Data seeds</s>
-- [x] <s>Batch actions</s>
-- [x] <s>Form & menu access helpers</s>
-- [x] <s>Metas management</s>
-- [x] <s>Permissions management</s>
-- [x] <s>Form submissions management</s>
-- [x] <s>Client validation with vee-validate</s>
-- [x] <s>301 redirection management with CSV/XLS import</s>
-- [x] <s>Own account deletion</s>
-- [x] <s>Account language & timezone selection</s>
-- [x] <s>Account mail confirmation</s>
-- [x] <s>Account avatar</s>
-- [x] <s>Facebook/Twitter/Google Sign in with socialite package</s>
-- [x] <s>Blog system (posts, publication date, multilangue, HTML wysiwyg, tags, featured image, medias, public user profile)</s>
-- [x] <s>Dashboard</s>
-- [x] <s>Switch to full Bootstrap 4 for both Frontend & CoreUI Backend</s>
-- [x] <s>Migrate to 100% client-side Vue backend with vue-route</s>
-- [x] <s>Migrate to Bootstrap-Vue</s>
-- [x] <s>Webpack bundle size optimizations</s>
-- [x] <s>Get rid of jquery datatables</s>
-- [x] <s>Consistent VueJS components code styling</s>
-- [ ] Inclusion of unit/featured/browser tests (stand by for now)
+* [x] <s>Data seeds</s>
+* [x] <s>Batch actions</s>
+* [x] <s>Form & menu access helpers</s>
+* [x] <s>Metas management</s>
+* [x] <s>Permissions management</s>
+* [x] <s>Form submissions management</s>
+* [x] <s>Client validation with vee-validate</s>
+* [x] <s>301 redirection management with CSV/XLS import</s>
+* [x] <s>Own account deletion</s>
+* [x] <s>Account language & timezone selection</s>
+* [x] <s>Account mail confirmation</s>
+* [x] <s>Account avatar</s>
+* [x] <s>Facebook/Twitter/Google Sign in with socialite package</s>
+* [x] <s>Blog system (posts, publication date, multilangue, HTML wysiwyg, tags, featured image, medias, public user profile)</s>
+* [x] <s>Dashboard</s>
+* [x] <s>Switch to full Bootstrap 4 for both Frontend & CoreUI Backend</s>
+* [x] <s>Migrate to 100% client-side Vue backend with vue-route</s>
+* [x] <s>Migrate to Bootstrap-Vue</s>
+* [x] <s>Webpack bundle size optimizations</s>
+* [x] <s>Get rid of jquery datatables</s>
+* [x] <s>Consistent VueJS components code styling</s>
+* [ ] Inclusion of unit/featured/browser tests (stand by for now)
 
 ## License
 

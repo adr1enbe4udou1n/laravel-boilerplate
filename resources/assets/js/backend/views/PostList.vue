@@ -25,7 +25,7 @@
                  :empty-filtered-text="$t('labels.datatables.no_matched_results')"
                  :fields="fields"
                  :items="dataLoadProvider"
-                 sort-by="created_at"
+                 sort-by="posts.created_at"
                  :sort-desc="true"
                  :busy.sync="isBusy"
         >
@@ -55,6 +55,12 @@
           <template slot="owner" slot-scope="row">
             <span v-if="row.item.owner">{{ row.item.owner.name }}</span>
             <span v-else>{{ $t('labels.anonymous') }}</span>
+          </template>
+          <template slot="posts.created_at" slot-scope="row">
+            {{ row.item.created_at }}
+          </template>
+          <template slot="posts.updated_at" slot-scope="row">
+            {{ row.item.updated_at }}
           </template>
           <template slot="actions" slot-scope="row">
             <b-button size="sm" variant="success" :href="$app.route('blog.show', { post: row.item.slug})" target="_blank" v-b-tooltip.hover :title="$t('buttons.preview')" class="mr-1">
@@ -90,8 +96,8 @@ export default {
         { key: 'pinned', label: this.$t('validation.attributes.pinned'), 'class': 'text-center' },
         { key: 'promoted', label: this.$t('validation.attributes.promoted'), 'class': 'text-center' },
         { key: 'owner', label: this.$t('labels.author'), sortable: true },
-        { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
-        { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
+        { key: 'posts.created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
+        { key: 'posts.updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
         { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
       ],
       actions: {
