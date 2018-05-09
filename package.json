@@ -39,7 +39,7 @@
     "flatpickr": "^4.4.6",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "img-loader": "^3.0.0",
-    "intl-tel-input": "^12.1.13",
+    "intl-tel-input": "^12.1.15",
     "lodash": "^4.17.10",
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.9.0",
