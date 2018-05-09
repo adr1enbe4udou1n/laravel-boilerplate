@@ -53,19 +53,24 @@
 
 * Multilingual ready thanks to [Laravel Localization](https://github.com/mcamara/laravel-localization) package. Each routes are prefixed by locale in URL for best SEO support. For this boilerplate, EN, FR locales are 100% supported, including translated routes,
 * Arabic language with RTL support added thanks to [AhmadOf](https://github.com/AhmadOf)
-* Model Field Translatable support with [Laravel Translatable](https://github.com/dimsav/laravel-translatable), used for contact form confirmed message, metatags and posts,
+* Model Translatable Fields support (JSON format) with [Spatie Laravel Translatable](https://github.com/spatie/laravel-translatable), used for metatags and posts,
 * Robots and Sitemap integrated, including multilingual alternates,
 * Full Metatags manager interface with translatable title & description. Meta entity can be either linked to route or specific entity like post,
-* 301/302 redirections manager interface, with CSV/XLSX import feature.
+* 301/302 redirections manager interface, with CSV import feature.
 
 ### Developer Specific
 
-* Usage of [Laravel-Mediable](https://github.com/plank/laravel-mediable) package for orderable media model management, used for featured image on posts,
+* Usage of [Spatie Laravel Medialibrary](https://github.com/spatie/laravel-medialibrary) package for orderable media model management, used for featured image on posts,
 * Permissions configuration based on config file rather than database,
 * Form types defined on config file for settings & submission support. This boilerplate include just one "contact form" type,
 * Custom webpack integration rather than laravel mix, for better flexibility (cf bellow),
 
 ## Install
+
+### Requirements
+
+* PHP 7.1
+* MySQL 5.7 with JSON support
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
