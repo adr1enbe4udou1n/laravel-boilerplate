@@ -17,15 +17,15 @@
     @endif
 
     <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.6/cookieconsent.min.css" />
     @if ($stylePath = Html::asset('frontend', 'frontend.css'))
     <link rel="stylesheet" href="{{ $stylePath }}">
     @endif
 
     <!-- CDN -->
-    <script defer src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.6/cookieconsent.min.css">
+    <script defer src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script defer src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script defer src="//stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script defer src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.6/cookieconsent.min.js"></script>
 
     <!-- Scripts -->

@@ -11,14 +11,15 @@
     <title>Administration | {{ config('app.name') }}</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     @if ($stylePath = Html::asset('backend', 'backend.css'))
     <link rel="stylesheet" href="{{ $stylePath }}">
     @endif
 
     <!-- CDN -->
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script defer src="https://cdn.ckeditor.com/ckeditor5/1.0.0-beta.2/classic/ckeditor.js"></script>
+    <link rel="stylesheet" href="//unpkg.com/bootstrap-vue@2.0.0-rc.9/dist/bootstrap-vue.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/flatpickr@4.4.6/dist/flatpickr.min.css">
+    <script defer src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script defer src="//cdn.ckeditor.com/ckeditor5/10.0.0/classic/ckeditor.js"></script>
 
     <!-- Scripts -->
     <script defer src="{{ Html::asset('backend', 'vendor-backend.js') }}"></script>

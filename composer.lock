@@ -1798,16 +1798,16 @@
         },
         {
             "name": "laravel/socialite",
-            "version": "v3.0.9",
+            "version": "v3.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/socialite.git",
-                "reference": "fc1c8d415699e502f3e61cbc61e3250d5bd942eb"
+                "reference": "647ee1b1b7520e16c661b4df5cdff1d7f6902eee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/socialite/zipball/fc1c8d415699e502f3e61cbc61e3250d5bd942eb",
-                "reference": "fc1c8d415699e502f3e61cbc61e3250d5bd942eb",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/647ee1b1b7520e16c661b4df5cdff1d7f6902eee",
+                "reference": "647ee1b1b7520e16c661b4df5cdff1d7f6902eee",
                 "shasum": ""
             },
             "require": {
@@ -1856,7 +1856,7 @@
                 "laravel",
                 "oauth"
             ],
-            "time": "2017-11-06T16:02:48+00:00"
+            "time": "2017-12-05T13:46:36+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -3366,16 +3366,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "7.3.4",
+            "version": "7.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "003a3dd2d0c061d68886a80b81ba8645d4575684"
+                "reference": "c85726e022316ecd20e63d045a4fabe3e8a7fb2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/003a3dd2d0c061d68886a80b81ba8645d4575684",
-                "reference": "003a3dd2d0c061d68886a80b81ba8645d4575684",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/c85726e022316ecd20e63d045a4fabe3e8a7fb2f",
+                "reference": "c85726e022316ecd20e63d045a4fabe3e8a7fb2f",
                 "shasum": ""
             },
             "require": {
@@ -3445,7 +3445,7 @@
                 "media",
                 "spatie"
             ],
-            "time": "2018-05-07T09:28:23+00:00"
+            "time": "2018-05-09T16:59:46+00:00"
         },
         {
             "name": "spatie/laravel-tags",
