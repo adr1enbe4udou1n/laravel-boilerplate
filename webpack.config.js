@@ -41,6 +41,23 @@ function getEntryConfig (name, analyzerPort, alias = {}) {
     ])
   }
 
+  let cssLoaders = [
+    hmr ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
+    {
+      loader: 'css-loader',
+      options: {
+        minimize: production,
+        sourceMap: true
+      }
+    }, {
+      loader: 'postcss-loader',
+      options: {
+        ident: 'postcss',
+        sourceMap: true
+      }
+    }
+  ]
+
   return {
     entry: {
       [name]: [
@@ -56,22 +73,13 @@ function getEntryConfig (name, analyzerPort, alias = {}) {
     module: {
       rules: [
         {
+          test: /\.css$/,
+          use: cssLoaders
+        },
+        {
           test: /\.scss$/,
-          use: [
-            hmr ? 'style-loader' : MiniCssExtractPlugin.loader,
+          use: cssLoaders.concat([
             {
-              loader: 'css-loader',
-              options: {
-                minimize: production,
-                sourceMap: true
-              }
-            }, {
-              loader: 'postcss-loader',
-              options: {
-                ident: 'postcss',
-                sourceMap: true
-              }
-            }, {
               loader: 'resolve-url-loader'
             }, {
               loader: 'sass-loader',
@@ -80,7 +88,7 @@ function getEntryConfig (name, analyzerPort, alias = {}) {
                 sourceMap: true
               }
             }
-          ]
+          ])
         },
         {
           test: /\.(js|vue)$/,
