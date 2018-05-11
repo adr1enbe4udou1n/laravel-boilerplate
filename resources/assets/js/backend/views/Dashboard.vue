@@ -1,7 +1,7 @@
 <template>
   <div class="animated fadeIn">
     <b-row>
-      <b-col xl>
+      <b-col xl="6">
         <b-row v-if="this.$app.user.can('view own posts')">
           <b-col sm>
             <b-card bg-variant="danger" text-variant="white">
@@ -49,7 +49,7 @@
         </b-card>
       </b-col>
 
-      <b-col xl v-if="this.$app.user.can('view own posts')">
+      <b-col xl="6" v-if="this.$app.user.can('view own posts')">
         <b-card>
           <h4 slot="header">{{ $t('labels.backend.dashboard.last_posts') }}</h4>
           <b-table striped bordered hover show-empty :fields="post_fields" :items="posts"

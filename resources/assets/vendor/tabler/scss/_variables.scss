@@ -77,48 +77,48 @@ $light: $gray-100;
 $dark: $gray-800;
 
 $colors: (
-	"blue": $blue,
-	"azure": $azure,
-	"indigo": $indigo,
-	"purple": $purple,
-	"pink": $pink,
-	"red": $red,
-	"orange": $orange,
-	"yellow": $yellow,
-	"lime": $lime,
-	"green": $green,
-	"teal": $teal,
-	"cyan": $cyan,
-	"white": $white,
-	"gray": $gray-600,
-	"gray-dark": $gray-800
+  "blue": $blue,
+  "azure": $azure,
+  "indigo": $indigo,
+  "purple": $purple,
+  "pink": $pink,
+  "red": $red,
+  "orange": $orange,
+  "yellow": $yellow,
+  "lime": $lime,
+  "green": $green,
+  "teal": $teal,
+  "cyan": $cyan,
+  "white": $white,
+  "gray": $gray-600,
+  "gray-dark": $gray-800
 );
 
 $theme-colors: (
-	"primary": $primary,
-	"secondary": $secondary,
-	"success": $success,
-	"info": $info,
-	"warning": $warning,
-	"danger": $danger,
-	"light": $light,
-	"dark": $dark
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark
 );
 
 $social-colors: (
-	"facebook": #3b5998,
-	"twitter": #1da1f2,
-	"google": #dc4e41,
-	"youtube": #f00,
-	"vimeo": #1ab7ea,
-	"dribbble": #ea4c89,
-	"github": #181717,
-	"instagram": #e4405f,
-	"pinterest": #bd081c,
-	"vk": #6383a8,
-	"rss": #ffa500,
-	"flickr": #0063dc,
-	"bitbucket": #0052cc,
+  "facebook": #3b5998,
+  "twitter": #1da1f2,
+  "google": #dc4e41,
+  "youtube": #f00,
+  "vimeo": #1ab7ea,
+  "dribbble": #ea4c89,
+  "github": #181717,
+  "instagram": #e4405f,
+  "pinterest": #bd081c,
+  "vk": #6383a8,
+  "rss": #ffa500,
+  "flickr": #0063dc,
+  "bitbucket": #0052cc,
 );
 
 $body-bg: #f5f7fb;
@@ -180,18 +180,18 @@ $grid-columns: 12;
 $grid-gutter-width: 1.5rem;
 
 $grid-breakpoints: (
-	xs: 0,
-	sm: 576px,
-	md: 768px,
-	lg: 992px,
-	xl: 1280px
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1280px
 );
 
 $container-max-widths: (
-	sm: 540px,
-	md: 720px,
-	lg: 960px,
-	xl: 1200px
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1200px
 );
 
 // Header
@@ -210,34 +210,34 @@ $alert-link-font-weight: 600;
 // Spacing
 $spacer: 1rem;
 $spacers: (
-	0: 0,
-	1: $spacer * .25,
-	2: $spacer * .5,
-	3: $spacer * .75,
-	4: $spacer * 1,
-	5: $spacer * 1.5,
-	6: $spacer * 2,
-	7: $spacer * 3,
-	8: $spacer * 4,
-	9: $spacer * 6
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer * .75,
+  4: $spacer * 1,
+  5: $spacer * 1.5,
+  6: $spacer * 2,
+  7: $spacer * 3,
+  8: $spacer * 4,
+  9: $spacer * 6
 );
 
 $sizes: (
-	0: 0,
-	1: $spacer * .25,
-	2: $spacer * .5,
-	3: $spacer * .75,
-	4: $spacer * 1,
-	5: $spacer * 1.5,
-	6: $spacer * 2,
-	7: $spacer * 3,
-	8: $spacer * 4,
-	9: $spacer * 6,
-	25: 25%,
-	50: 50%,
-	75: 75%,
-	100: 100%,
-	auto: auto
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer * .75,
+  4: $spacer * 1,
+  5: $spacer * 1.5,
+  6: $spacer * 2,
+  7: $spacer * 3,
+  8: $spacer * 4,
+  9: $spacer * 6,
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%,
+  auto: auto
 );
 
 // Footer

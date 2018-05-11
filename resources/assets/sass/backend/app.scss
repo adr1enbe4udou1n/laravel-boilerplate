@@ -2,8 +2,11 @@
 // Variables
 @import "variables";
 
-// Init coreui admin
+// Tabler Theme
 @import "../../vendor/tabler/scss/bundle";
+
+// Admin Panel Layout
+@import "base/main";
 
 // Plugins
 @import "~noty/src/noty";

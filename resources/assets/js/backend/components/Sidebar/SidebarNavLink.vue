@@ -1,16 +1,12 @@
 <template>
-  <div v-if="isExternalLink">
-    <a :href="url" :class="classList">
-      <i :class="icon"></i> {{ name }}
-      <b-badge v-for="(badge, index) in badges" :key="index" :variant="badge.variant" :title="badge.name">{{ badge.text }}</b-badge>
-    </a>
-  </div>
-  <div v-else>
-    <router-link :to="url" :class="classList">
-      <i :class="icon"></i> {{ name }}
-      <b-badge v-for="(badge, index) in badges" :key="index" :variant="badge.variant" :title="badge.name">{{ badge.text }}</b-badge>
-    </router-link>
-  </div>
+  <a :href="url" :class="classList" v-if="isExternalLink">
+    <i :class="icon"></i> {{ name }}
+    <b-badge v-for="(badge, index) in badges" :key="index" :variant="badge.variant" :title="badge.name">{{ badge.text }}</b-badge>
+  </a>
+  <router-link :to="url" :class="classList" v-else>
+    <i :class="icon"></i> {{ name }}
+    <b-badge v-for="(badge, index) in badges" :key="index" :variant="badge.variant" :title="badge.name">{{ badge.text }}</b-badge>
+  </router-link>
 </template>
 
 <script>

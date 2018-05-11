@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar-header">
-    <i class="icon-user"></i>&nbsp;&nbsp;{{ this.$app.user.name }}
+    <i class="fe fe-user"></i>&nbsp;&nbsp;{{ this.$app.user.name }}
   </div>
 </template>
 

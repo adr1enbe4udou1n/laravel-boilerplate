@@ -3,7 +3,7 @@ export default (app, i18n, newPostsCount, pendingPostsCount) => {
     {
       name: i18n.t('labels.backend.titles.dashboard'),
       url: '/dashboard',
-      icon: 'icon-speedometer',
+      icon: 'fe fe-trending-up',
       access: true
     },
     {
@@ -18,7 +18,7 @@ export default (app, i18n, newPostsCount, pendingPostsCount) => {
     {
       name: i18n.t('labels.backend.posts.titles.main'),
       url: '/posts',
-      icon: 'icon-notebook',
+      icon: 'fe fe-book',
       access: app.blogEnabled && app.user.can('view own posts'),
       badges: [
         {
@@ -45,13 +45,13 @@ export default (app, i18n, newPostsCount, pendingPostsCount) => {
     {
       name: i18n.t('labels.backend.form_submissions.titles.main'),
       url: '/form-submissions',
-      icon: 'icon-list',
+      icon: 'fe fe-list',
       access: app.user.can('view form_submissions')
     },
     {
       name: i18n.t('labels.backend.form_settings.titles.main'),
       url: '/form-settings',
-      icon: 'icon-equalizer',
+      icon: 'fe fe-sliders',
       access: app.user.can('view form_settings')
     },
     {
@@ -66,13 +66,13 @@ export default (app, i18n, newPostsCount, pendingPostsCount) => {
     {
       name: i18n.t('labels.backend.users.titles.main'),
       url: '/users',
-      icon: 'icon-people',
+      icon: 'fe fe-users',
       access: app.user.can('view users')
     },
     {
       name: i18n.t('labels.backend.roles.titles.main'),
       url: '/roles',
-      icon: 'icon-shield',
+      icon: 'fe fe-shield',
       access: app.user.can('view roles')
     },
     {
@@ -87,13 +87,13 @@ export default (app, i18n, newPostsCount, pendingPostsCount) => {
     {
       name: i18n.t('labels.backend.metas.titles.main'),
       url: '/metas',
-      icon: 'icon-tag',
+      icon: 'fe fe-tag',
       access: app.user.can('view metas')
     },
     {
       name: i18n.t('labels.backend.redirections.titles.main'),
       url: '/redirections',
-      icon: 'icon-control-forward',
+      icon: 'fe fe-fast-forward',
       access: app.user.can('view redirections')
     }
   ]
