@@ -2,11 +2,8 @@
 // Variables
 @import "variables";
 
-// Fonts
-@import "~simple-line-icons/scss/simple-line-icons";
-
 // Init coreui admin
-@import "../../vendor/coreui/scss/style";
+@import "../../vendor/tabler/scss/bundle";
 
 // Plugins
 @import "~noty/src/noty";
