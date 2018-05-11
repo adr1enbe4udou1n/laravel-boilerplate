@@ -116,7 +116,7 @@
   }
 
   .nav-link {
-    display: flex;
+    display: block;
     padding: $sidebar-nav-link-padding-y $sidebar-nav-link-padding-x;
     color: $sidebar-nav-link-color;
     text-decoration: none;
