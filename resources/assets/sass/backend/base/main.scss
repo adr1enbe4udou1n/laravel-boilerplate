@@ -5,13 +5,11 @@
 
 // Layout components
 @import "aside";
-@import "avatars";
-@import "breadcrumb";
 @import "footer";
 @import "navbar";
 @import "sidebar";
 @import "layout";
 
 // Fixes & Right-to-left
-@import "temp";
+@import "misc";
 @import "rtl";

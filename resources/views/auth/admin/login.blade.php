@@ -36,7 +36,7 @@
                                 </div>
 
                                 <div class="form-footer">
-                                    <button type="submit" class="btn btn-primary btn-block">@lang('labels.user.login')</button>
+                                    <button type="submit" class="btn btn-primary btn-block"><i class="fe fe-log-in"></i>&nbsp;@lang('labels.user.login')</button>
                                 </div>
                             </div>
                         </form>

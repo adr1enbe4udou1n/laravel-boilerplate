@@ -47,7 +47,7 @@
     <!-- Named routes -->
     @routes()
 </head>
-<body class="app @yield('body_class')">
+<body class="@yield('body_class')">
     @yield('body')
 
     @stack('scripts')

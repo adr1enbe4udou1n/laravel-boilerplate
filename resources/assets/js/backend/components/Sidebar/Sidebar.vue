@@ -46,7 +46,7 @@
         </template>
       </ul>
     </nav>
-    <button class="sidebar-minimizer" type="button" @click="sidebarMinimize();brandMinimize()"></button>
+    <SidebarMinimizer></SidebarMinimizer>
   </div>
 </template>
 <script>
@@ -82,12 +82,6 @@ export default {
     handleClick (e) {
       e.preventDefault()
       e.target.parentElement.classList.toggle('open')
-    },
-    sidebarMinimize () {
-      document.body.classList.toggle('sidebar-minimized')
-    },
-    brandMinimize () {
-      document.body.classList.toggle('brand-minimized')
     }
   }
 }

@@ -1,0 +1,19 @@
+//
+// Navbar
+//
+.navbar .dropdown-toggle {
+  @extend .nav-link;
+
+  .img-avatar {
+    height: $navbar-height - 20px;
+    margin: 0 10px;
+    border-radius: 50em;
+  }
+}
+
+//
+// Breadcrumb
+//
+.breadcrumb {
+  @include borders($breadcrumb-borders);
+}

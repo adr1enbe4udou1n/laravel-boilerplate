@@ -1,4 +1,3 @@
-// scss-lint:disable NestingDepth, SelectorDepth
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -24,9 +23,6 @@
       opacity: 1;
     }
   }
-
-  // Will be added soon
-  // .sidebar-brand { }
 
   .sidebar-header {
     flex: 0 0 $sidebar-header-height;
@@ -180,7 +176,6 @@
     }
   }
 
-  //  ex. <a class="nav-link nav-dropdown-toggle" href="#">Components</a>
   .nav-dropdown-toggle {
     position: relative;
 
@@ -201,7 +196,6 @@
     }
   }
 
-  // ex.  <li class="nav-item nav-dropdown">
   .nav-dropdown.open {
     background: $sidebar-nav-dropdown-bg;
     @include borders($sidebar-nav-dropdown-borders);
@@ -252,13 +246,6 @@
     }
   }
 
-  .sidebar-footer {
-    flex: 0 0 $sidebar-footer-height;
-    padding: $sidebar-footer-padding-y $sidebar-footer-padding-x;
-    background: $sidebar-footer-bg;
-    @include borders($sidebar-footer-borders);
-  }
-
   .sidebar-minimizer {
     position: relative;
     flex: 0 0 $sidebar-minimizer-height;
@@ -295,52 +282,6 @@
 }
 
 @include media-breakpoint-up(lg) {
-  .sidebar-compact {
-    .sidebar {
-      .sidebar-nav {
-        @include sidebar-width($sidebar-borders, $sidebar-compact-width);
-      }
-
-      .nav {
-        @include sidebar-width($sidebar-borders, $sidebar-compact-width);
-
-        .nav-title {
-          text-align: center;
-        }
-
-        .nav-item {
-          width: $sidebar-compact-width;
-          border-left: 0 !important;
-
-          .nav-link {
-            text-align: center;
-
-            i {
-              display: block;
-              width: 100%;
-              margin: $spacer / 4 0;
-              font-size: 24px;
-            }
-
-            .badge {
-              position: absolute;
-              top: 18px;
-              right: 10px;
-            }
-
-            &.nav-dropdown-toggle {
-
-              &::before {
-                top: 30px;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  // Minimized Sidebar
   .sidebar-minimized {
     .hidden-cn {
       display: none;
@@ -359,7 +300,6 @@
 
       .nav-divider, .divider,
       .nav-title,
-      .sidebar-footer,
       .sidebar-form,
       .sidebar-header {
         display: none;
@@ -400,8 +340,6 @@
           display: block;
           float: left;
           width: $sidebar-minimized-height;
-          // padding: 0;
-          // margin: 0 !important;
           font-size: 18px;
         }
 
