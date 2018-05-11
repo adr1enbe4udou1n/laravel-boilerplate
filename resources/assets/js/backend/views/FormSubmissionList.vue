@@ -1,7 +1,7 @@
 <template>
   <div class="animated fadeIn">
     <b-card>
-      <h4 slot="header">{{ $t('labels.backend.form_submissions.titles.index') }}</h4>
+      <h3 class="card-title" slot="header">{{ $t('labels.backend.form_submissions.titles.index') }}</h3>
       <b-datatable ref="datasource"
                    @context-changed="onContextChanged"
                    search-route="admin.form_submissions.search"

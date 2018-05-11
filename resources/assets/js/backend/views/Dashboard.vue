@@ -51,7 +51,7 @@
 
       <b-col xl="6" v-if="this.$app.user.can('view own posts')">
         <b-card>
-          <h4 slot="header">{{ $t('labels.backend.dashboard.last_posts') }}</h4>
+          <h3 class="card-title" slot="header">{{ $t('labels.backend.dashboard.last_posts') }}</h3>
           <b-table striped bordered hover show-empty :fields="post_fields" :items="posts"
                    :empty-text="$t('labels.no_results')">
             <template slot="title" slot-scope="row">

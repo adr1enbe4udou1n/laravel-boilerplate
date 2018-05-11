@@ -2,12 +2,12 @@
   <div class="animated fadeIn">
     <b-card>
       <template slot="header">
-        <div class="float-right mt-2" v-if="this.$app.user.can('create form_settings')">
+        <h3 class="card-title">{{ $t('labels.backend.form_settings.titles.index') }}</h3>
+        <div class="card-options" v-if="this.$app.user.can('create form_settings')">
           <b-button to="/form-settings/create" variant="success" size="sm">
-            <i class="icon-plus"></i> {{ $t('buttons.form_settings.create') }}
+            <i class="fe fe-plus-circle"></i> {{ $t('buttons.form_settings.create') }}
           </b-button>
         </div>
-        <h4 class="mt-1">{{ $t('labels.backend.form_settings.titles.index') }}</h4>
       </template>
       <b-datatable ref="datasource"
                    @context-changed="onContextChanged"
