@@ -344,18 +344,12 @@
         }
 
         .badge {
-          position: absolute;
-          right: 15px;
           display: none;
         }
 
         &:hover {
           width: $sidebar-width + $sidebar-minimized-width;
           background: $sidebar-nav-link-hover-bg;
-
-          .badge {
-            display: inline;
-          }
         }
 
         &.nav-dropdown-toggle::before {
