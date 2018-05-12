@@ -17,7 +17,7 @@
 
     <!-- CDN -->
     <link rel="stylesheet" href="//unpkg.com/bootstrap-vue@2.0.0-rc.9/dist/bootstrap-vue.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/flatpickr@4.4.6/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/flatpickr@4.4.5/dist/flatpickr.min.css">
     <script defer src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script defer src="//cdn.ckeditor.com/ckeditor5/10.0.0/classic/ckeditor.js"></script>
 
