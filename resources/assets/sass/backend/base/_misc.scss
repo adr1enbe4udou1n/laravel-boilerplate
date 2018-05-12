@@ -17,3 +17,21 @@
 .breadcrumb {
   @include borders($breadcrumb-borders);
 }
+
+//
+// Datatable
+//
+.app {
+  table.b-table > thead > tr > th.sorting, table.b-table > tfoot > tr > th.sorting {
+    &::before {
+      font-family: "feather";
+      content: "\e913";
+      right: 1em;
+    }
+
+    &::after {
+      font-family: "feather";
+      content: "\e90b";
+    }
+  }
+}
