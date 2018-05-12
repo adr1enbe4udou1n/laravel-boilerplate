@@ -83,21 +83,23 @@
               </b-row>
             </b-form-group>
 
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label">{{ $t('validation.attributes.permissions') }}</label>
-              <b-col sm="10">
-                <b-row>
-                  <b-col md="6" xl="4" class="mb-3" v-for="category in permissions" :key="category.title">
-                    <h4>{{ $t(category.title) }}</h4>
-                    <b-form-checkbox-group stacked v-model="model.permissions" name="permissions[]">
-                      <b-form-checkbox v-for="permission in category.permissions" :key="permission.name"
-                                       v-b-tooltip.left :title="$t(permission.description)" :value="permission.name">
-                        {{ $t(permission.display_name) }}
-                      </b-form-checkbox>
-                    </b-form-checkbox-group>
-                  </b-col>
-                </b-row>
-              </b-col>
+            <div class="form-group">
+              <b-row>
+                <label class="col-sm-2 col-form-label">{{ $t('validation.attributes.permissions') }}</label>
+                <b-col sm="10">
+                  <b-row>
+                    <b-col md="6" xl="4" class="mb-3" v-for="category in permissions" :key="category.title">
+                      <h4>{{ $t(category.title) }}</h4>
+                      <b-form-checkbox-group stacked v-model="model.permissions" name="permissions[]">
+                        <b-form-checkbox v-for="permission in category.permissions" :key="permission.name"
+                                         v-b-tooltip.left :title="$t(permission.description)" :value="permission.name">
+                          {{ $t(permission.display_name) }}
+                        </b-form-checkbox>
+                      </b-form-checkbox-group>
+                    </b-col>
+                  </b-row>
+                </b-col>
+              </b-row>
             </div>
 
             <b-row slot="footer">
