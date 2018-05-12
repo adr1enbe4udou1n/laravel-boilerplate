@@ -10,25 +10,25 @@
     <ul class="nav navbar-nav ml-auto">
       <b-dropdown class="px-2" variant="link">
         <template slot="text">
-          <i class="fe fe-plus-circle"></i>&nbsp;{{ $t('labels.add_new') }}
+          <i class="fe fe-plus-circle"></i>&nbsp;&nbsp;{{ $t('labels.add_new') }}
         </template>
         <b-dropdown-item to="/posts/create" v-if="this.$app.user.can('create posts')">
-          <i class="fe fe-book"></i>&nbsp;{{ $t('labels.backend.new_menu.post') }}
+          <i class="fe fe-book"></i>&nbsp;&nbsp;{{ $t('labels.backend.new_menu.post') }}
         </b-dropdown-item>
         <b-dropdown-item to="/form-settings/create" v-if="this.$app.user.can('create form_settings')">
-          <i class="fe fe-sliders"></i>&nbsp;{{ $t('labels.backend.new_menu.form_setting') }}
+          <i class="fe fe-sliders"></i>&nbsp;&nbsp;{{ $t('labels.backend.new_menu.form_setting') }}
         </b-dropdown-item>
         <b-dropdown-item to="/users/create" v-if="this.$app.user.can('create users')">
-          <i class="fe fe-users"></i>&nbsp;{{ $t('labels.backend.new_menu.user') }}
+          <i class="fe fe-users"></i>&nbsp;&nbsp;{{ $t('labels.backend.new_menu.user') }}
         </b-dropdown-item>
         <b-dropdown-item to="/roles/create" v-if="this.$app.user.can('create roles')">
-          <i class="fe fe-shield"></i>&nbsp;{{ $t('labels.backend.new_menu.role') }}
+          <i class="fe fe-shield"></i>&nbsp;&nbsp;{{ $t('labels.backend.new_menu.role') }}
         </b-dropdown-item>
         <b-dropdown-item to="/metas/create" v-if="this.$app.user.can('create metas')">
-          <i class="fe fe-tag"></i>&nbsp;{{ $t('labels.backend.new_menu.meta') }}
+          <i class="fe fe-tag"></i>&nbsp;&nbsp;{{ $t('labels.backend.new_menu.meta') }}
         </b-dropdown-item>
         <b-dropdown-item to="/redirections/create" v-if="this.$app.user.can('create redirections')">
-          <i class="fe fe-fast-forward"></i>&nbsp;{{ $t('labels.backend.new_menu.redirection') }}
+          <i class="fe fe-fast-forward"></i>&nbsp;&nbsp;{{ $t('labels.backend.new_menu.redirection') }}
         </b-dropdown-item>
       </b-dropdown>
       <b-dropdown class="px-2" variant="link">
@@ -47,10 +47,10 @@
           <span class="d-md-down-none">{{ this.$app.user.name }}</span>
         </template>
         <b-dropdown-item :href="$app.route('user.account')">
-          <i class="fe fe-user"></i>&nbsp;{{ $t('labels.user.profile') }}
+          <i class="fe fe-user"></i>&nbsp;&nbsp;{{ $t('labels.user.profile') }}
         </b-dropdown-item>
         <b-dropdown-item :href="$app.route('admin.logout')">
-          <i class="fe fe-log-out"></i>&nbsp;{{ $t('labels.user.logout') }}
+          <i class="fe fe-log-out"></i>&nbsp;&nbsp;{{ $t('labels.user.logout') }}
         </b-dropdown-item>
       </b-dropdown>
     </ul>

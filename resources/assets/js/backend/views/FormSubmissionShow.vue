@@ -1,5 +1,5 @@
 <template>
-  <div class="animated fadeIn">
+  <div>
     <b-row class="justify-content-center">
       <b-col xl="6">
         <b-card>

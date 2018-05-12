@@ -1,5 +1,5 @@
 <template>
-  <div class="animated fadeIn">
+  <div>
     <b-card>
       <template slot="header">
         <h3 class="card-title">{{ $t('labels.backend.users.titles.index') }}</h3>

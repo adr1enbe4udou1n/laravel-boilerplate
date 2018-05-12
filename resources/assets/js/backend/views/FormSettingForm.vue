@@ -1,5 +1,5 @@
 <template>
-  <div class="animated fadeIn">
+  <div>
     <form @submit.prevent="onSubmit">
       <b-row class="justify-content-center">
         <b-col xl="6">
@@ -8,7 +8,7 @@
             <b-form-group
               :label="$t('validation.attributes.form_type')"
               label-for="name"
-              :horizontal="true"
+              horizontal
               :label-cols="3"
             >
               <select
@@ -32,7 +32,7 @@
               :label="$t('validation.attributes.recipients')"
               label-for="recipients"
               :description="$t('labels.backend.form_settings.descriptions.recipients')"
-              :horizontal="true"
+              horizontal
               :label-cols="3"
               :feedback="feedback('recipients')"
             >
@@ -51,7 +51,7 @@
               :label="$t('validation.attributes.message')"
               label-for="message"
               :description="$t('labels.backend.form_settings.descriptions.message')"
-              :horizontal="true"
+              horizontal
               :label-cols="3"
               :feedback="feedback('message')"
             >

@@ -1,5 +1,5 @@
 <template>
-  <div class="animated fadeIn">
+  <div>
     <form @submit.prevent="onSubmit">
       <b-row class="justify-content-center">
         <b-col xl="6">
@@ -9,7 +9,7 @@
             <b-form-group
               :label="$t('validation.attributes.source_path')"
               label-for="source"
-              :horizontal="true"
+              horizontal
               :label-cols="3"
               :feedback="feedback('source')"
             >
@@ -26,7 +26,7 @@
             <b-form-group
               :label="$t('validation.attributes.active')"
               label-for="active"
-              :horizontal="true"
+              horizontal
               :label-cols="3"
             >
               <c-switch
@@ -38,7 +38,7 @@
             <b-form-group
               :label="$t('validation.attributes.target_path')"
               label-for="target"
-              :horizontal="true"
+              horizontal
               :label-cols="3"
               :feedback="feedback('target')"
             >
@@ -55,7 +55,7 @@
             <b-form-group
               :label="$t('validation.attributes.redirect_type')"
               label-for="type"
-              :horizontal="true"
+              horizontal
               :label-cols="3"
             >
               <b-form-radio-group stacked v-model="model.type" :options="redirectionTypes" name="type" required>

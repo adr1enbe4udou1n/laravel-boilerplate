@@ -20,7 +20,6 @@ function getEntryConfig (name, analyzerPort, alias = {}) {
   let plugins = [
     new VueLoaderPlugin(),
     new webpack.IgnorePlugin(/jsdom$/),
-    new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /fr/),
     new FriendlyErrorsWebpackPlugin(),
     new WebpackNotifierPlugin(),
     new MiniCssExtractPlugin({

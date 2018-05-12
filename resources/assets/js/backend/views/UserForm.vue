@@ -1,5 +1,5 @@
 <template>
-  <div class="animated fadeIn">
+  <div>
     <form @submit.prevent="onSubmit">
       <b-row class="justify-content-center">
         <b-col xl="6">
@@ -9,7 +9,7 @@
             <b-form-group
               :label="$t('validation.attributes.name')"
               label-for="name"
-              :horizontal="true"
+              horizontal
               :label-cols="3"
               :feedback="feedback('name')"
             >
@@ -26,7 +26,7 @@
             <b-form-group
               :label="$t('validation.attributes.email')"
               label-for="email"
-              :horizontal="true"
+              horizontal
               :label-cols="3"
               :feedback="feedback('email')"
             >
@@ -44,7 +44,7 @@
             <b-form-group
               :label="$t('validation.attributes.active')"
               label-for="active"
-              :horizontal="true"
+              horizontal
               :label-cols="3"
             >
               <c-switch
@@ -56,7 +56,7 @@
             <b-form-group
               :label="$t('validation.attributes.password')"
               label-for="password"
-              :horizontal="true"
+              horizontal
               :label-cols="3"
               :feedback="feedback('password')"
             >
@@ -73,7 +73,7 @@
             <b-form-group
               :label="$t('validation.attributes.password_confirmation')"
               label-for="password_confirmation"
-              :horizontal="true"
+              horizontal
               :label-cols="3"
               :feedback="feedback('password_confirmation')"
             >
@@ -90,7 +90,7 @@
             <b-form-group
               :label="$t('validation.attributes.roles')"
               label-for="roles"
-              :horizontal="true"
+              horizontal
               :label-cols="3"
             >
               <b-form-checkbox-group stacked v-model="model.roles" name="roles[]">

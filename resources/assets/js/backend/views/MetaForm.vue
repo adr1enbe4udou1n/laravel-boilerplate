@@ -1,5 +1,5 @@
 <template>
-  <div class="animated fadeIn">
+  <div>
     <form @submit.prevent="onSubmit">
       <b-row class="justify-content-center">
         <b-col xl="6">
@@ -18,7 +18,7 @@
               <b-form-group
                 :label="$t('validation.attributes.route')"
                 label-for="route"
-                :horizontal="true"
+                horizontal
                 :label-cols="3"
                 :feedback="feedback('route')"
                 :state="state('route')"
@@ -37,7 +37,7 @@
             <b-form-group
               :label="$t('validation.attributes.title')"
               label-for="title"
-              :horizontal="true"
+              horizontal
               :label-cols="3"
               :feedback="feedback('title')"
             >
@@ -53,7 +53,7 @@
             <b-form-group
               :label="$t('validation.attributes.description')"
               label-for="description"
-              :horizontal="true"
+              horizontal
               :label-cols="3"
               :feedback="feedback('description')"
             >

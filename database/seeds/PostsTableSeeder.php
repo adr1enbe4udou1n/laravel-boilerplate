@@ -65,11 +65,12 @@ class PostsTableSeeder extends Seeder
     private function generateBody(Faker\Generator $faker, $locale)
     {
         // Generate body image
-        $bodyImage = Image::make(database_path().'/seeds/images/logo.png')->widen(600, function ($constraint) {
+        $i = $faker->numberBetween(1, 10);
+        $bodyImage = Image::make(database_path()."/seeds/images/abstract-{$i}.jpg")->widen(600, function ($constraint) {
             $constraint->upsize();
         });
 
-        $bodyImagePath = "/tmp/logo-{$locale}.png";
+        $bodyImagePath = "/tmp/image-{$locale}.png";
 
         Storage::disk('public')->put($bodyImagePath, $bodyImage->stream());
         $imageUrl = "/storage{$bodyImagePath}";

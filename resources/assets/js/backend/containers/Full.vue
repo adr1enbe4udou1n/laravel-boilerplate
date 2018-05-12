@@ -12,7 +12,9 @@
         </b-alert>
         <breadcrumb :list="$route.matched"></breadcrumb>
         <b-container fluid>
-          <router-view :key="$route.name"></router-view>
+          <transition name="fade">
+            <router-view :key="$route.name"></router-view>
+          </transition>
         </b-container>
       </main>
       <AppAside></AppAside>

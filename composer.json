@@ -1,7 +1,7 @@
 {
     "name": "adr1enbe4udou1n/laravel-boilerplate",
-    "description": "Laravel 5.6 Boilerplate based on Bootstrap 4 and Vue CoreUI for Backend.",
-    "keywords": ["framework", "laravel", "boilerplate", "bootstrap 4 beta", "vue", "coreui"],
+    "description": "Laravel 5.6 Boilerplate based on Bootstrap 4 and Tabler for Backend.",
+    "keywords": ["framework", "laravel", "boilerplate", "bootstrap 4 beta", "vue", "tabler"],
     "license": "MIT",
     "type": "project",
     "require": {

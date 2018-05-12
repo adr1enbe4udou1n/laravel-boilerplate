@@ -1,5 +1,5 @@
 <template>
-  <div class="animated fadeIn">
+  <div>
     <b-card>
       <h3 class="card-title" slot="header">{{ $t('labels.backend.form_submissions.titles.index') }}</h3>
       <b-datatable ref="datasource"

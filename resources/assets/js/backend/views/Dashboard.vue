@@ -1,5 +1,5 @@
 <template>
-  <div class="animated fadeIn">
+  <div>
     <b-row>
       <b-col xl="6">
         <b-row v-if="this.$app.user.can('view own posts')">

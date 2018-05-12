@@ -1,5 +1,5 @@
 <template>
-  <div class="animated fadeIn">
+  <div>
     <form @submit.prevent="onSubmit">
       <b-row>
         <b-col xl="8">
@@ -8,7 +8,7 @@
             <b-form-group
               :label="$t('validation.attributes.title')"
               label-for="title"
-              :horizontal="true"
+              horizontal
               :label-cols="2"
               :feedback="feedback('title')"
             >
@@ -25,7 +25,7 @@
             <b-form-group
               :label="$t('validation.attributes.summary')"
               label-for="summary"
-              :horizontal="true"
+              horizontal
               :label-cols="2"
               :feedback="feedback('summary')"
             >
@@ -42,7 +42,7 @@
             <b-form-group
               :label="$t('validation.attributes.body')"
               label-for="body"
-              :horizontal="true"
+              horizontal
               :label-cols="2"
             >
               <p-richtexteditor
@@ -54,7 +54,7 @@
             <b-form-group
               :label="$t('validation.attributes.tags')"
               label-for="tags"
-              :horizontal="true"
+              horizontal
               :label-cols="2"
             >
               <v-select
@@ -74,7 +74,7 @@
             <b-form-group
               :label="$t('validation.attributes.image')"
               label-for="featured_image"
-              :horizontal="true"
+              horizontal
               :label-cols="2"
               :feedback="feedback('featured_image')"
             >
@@ -156,7 +156,7 @@
                     v-if="this.$app.user.can('publish posts')"
                     :label="$t('validation.attributes.published_at')"
                     label-for="published_at"
-                    :horizontal="true"
+                    horizontal
                     :label-cols="3"
                   >
                     <b-input-group>
@@ -181,7 +181,7 @@
                     v-if="this.$app.user.can('publish posts')"
                     :label="$t('validation.attributes.unpublished_at')"
                     label-for="unpublished_at"
-                    :horizontal="true"
+                    horizontal
                     :label-cols="3"
                   >
                     <b-input-group>
@@ -242,7 +242,7 @@
                     :label="$t('validation.attributes.title')"
                     label-for="meta_title"
                     :description="$t('labels.backend.posts.descriptions.meta_title')"
-                    :horizontal="true"
+                    horizontal
                     :label-cols="3"
                   >
                     <b-form-input
@@ -257,7 +257,7 @@
                     :label="$t('validation.attributes.description')"
                     label-for="meta_description"
                     :description="$t('labels.backend.posts.descriptions.meta_description')"
-                    :horizontal="true"
+                    horizontal
                     :label-cols="3"
                   >
                     <b-form-textarea

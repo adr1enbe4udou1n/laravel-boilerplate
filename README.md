@@ -1,6 +1,6 @@
-# Laravel BS4 Vue CoreUI Boilerplate
+# Laravel Vue Tabler Boilerplate
 
-> This is a Bootstrap 4 starter kit site with lite blogging feature, user account registration/management and full Vue CoreUI Backend based on Laravel 5.6, inspired by the popular [Laravel 5 Boilerplate](https://github.com/rappasoft/laravel-5-boilerplate). Unit & feature tests are not integrated yet, therefore this project isn't rock-solid for now. 
+> This is a Bootstrap 4 starter kit site with lite blogging feature, user account registration/management and full Vue Tabler Backend based on Laravel 5.6. 
 
 [![Build Status](https://drone.okami101.io/api/badges/adr1enbe4udou1n/laravel-boilerplate/status.svg)](https://drone.okami101.io/adr1enbe4udou1n/laravel-boilerplate)
 [![StyleCI](https://styleci.io/repos/75558440/shield?style=flat&branch=master)](https://styleci.io/repos/75558440)
@@ -32,7 +32,7 @@
 
 #### Underlying layer
 
-* Based on Bootstrap 4 [CoreUI](https://github.com/mrholek/CoreUI-Free-Bootstrap-Admin-Template) theme with many useful plugins ([SweetAlert2](https://limonte.github.io/sweetalert2/), [Flatpickr](https://chmln.github.io/flatpickr/), [CKEditor 5](https://ckeditor.com/), etc.),
+* Based on Bootstrap 4 [Tabler](https://tabler.github.io/tabler/) theme with many useful plugins ([SweetAlert2](https://limonte.github.io/sweetalert2/), [Flatpickr](https://chmln.github.io/flatpickr/), [CKEditor 5](https://ckeditor.com/), etc.),
 * Entirely written with Vue components thanks to [Bootstrap-Vue](https://bootstrap-vue.js.org/), absolutely no jQuery dependency,
 * Vue-route for instant client-side navigation,
 * Native Vue Datatable, with everywhere search input and batch actions features,
@@ -169,6 +169,7 @@ Moreover, [Official ESLint plugin for Vue.js](https://github.com/vuejs/eslint-pl
 * [x] <s>Webpack bundle size optimizations</s>
 * [x] <s>Get rid of jquery datatables</s>
 * [x] <s>Consistent VueJS components code styling</s>
+* [x] <s>Switch to Tabler</s>
 * [ ] Inclusion of unit/featured/browser tests (stand by for now)
 
 ## License
