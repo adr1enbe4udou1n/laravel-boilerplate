@@ -199,24 +199,24 @@
                   </b-form-group>
 
                   <div class="form-group">
-                    <b-row class="align-items-center">
-                      <label class="col-lg-3 col-form-label">{{ $t('validation.attributes.pinned') }}</label>
-                      <b-col lg="9">
+                    <b-row>
+                      <b-col lg="9" offset-lg="3">
                         <c-switch
                           name="pinned"
                           v-model="model.pinned"
+                          :description="$t('validation.attributes.pinned')"
                         ></c-switch>
                       </b-col>
                     </b-row>
                   </div>
 
                   <div class="form-group">
-                    <b-row class="align-items-center">
-                      <label class="col-lg-3 col-form-label">{{ $t('validation.attributes.promoted') }}</label>
-                      <b-col lg="9">
+                    <b-row>
+                      <b-col lg="9" offset-lg="3">
                         <c-switch
                           name="promoted"
                           v-model="model.promoted"
+                          :description="$t('validation.attributes.promoted')"
                         ></c-switch>
                       </b-col>
                     </b-row>

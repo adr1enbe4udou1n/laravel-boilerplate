@@ -23,17 +23,17 @@
               ></b-form-input>
             </b-form-group>
 
-            <b-form-group
-              :label="$t('validation.attributes.active')"
-              label-for="active"
-              horizontal
-              :label-cols="3"
-            >
-              <c-switch
-                name="active"
-                v-model="model.active"
-              ></c-switch>
-            </b-form-group>
+            <div class="form-group">
+              <b-row>
+                <b-col lg="9" offset-lg="3">
+                  <c-switch
+                    name="active"
+                    v-model="model.active"
+                    :description="$t('validation.attributes.active')"
+                  ></c-switch>
+                </b-col>
+              </b-row>
+            </div>
 
             <b-form-group
               :label="$t('validation.attributes.target_path')"

@@ -1,7 +1,7 @@
 <template>
   <label class="custom-switch">
     <input type="checkbox"
-           name="custom-switch-checkbox"
+           :name="name"
            class="custom-switch-input"
            :value="value"
            :checked="isChecked"
@@ -29,6 +29,10 @@ export default {
     checked: {
       type: Boolean,
       default: false
+    },
+    name: {
+      type: String,
+      default: null
     },
     description: {
       type: String,
