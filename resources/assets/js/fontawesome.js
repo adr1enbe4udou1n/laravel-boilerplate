@@ -1,7 +1,5 @@
 import {
-  faHome,
-  faCode,
-  faHeart
+  faHome
 } from '@fortawesome/fontawesome-free-solid'
 import {
   faFacebook,
@@ -16,8 +14,6 @@ import fontawesome from '@fortawesome/fontawesome'
 
 fontawesome.library.add(
   faHome,
-  faCode,
-  faHeart,
   faFacebook,
   faTwitter,
   faGoogle,
