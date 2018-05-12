@@ -39,20 +39,20 @@
             <b-badge :variant="row.value ? 'success' : 'danger'">{{ row.value ? $t('labels.yes') : $t('labels.no') }}</b-badge>
           </template>
           <template slot="active" slot-scope="row">
-            <c-switch v-if="row.item.can_edit" type="text" variant="primary" on="On" off="Off" :checked="row.value" @change="onActiveToggle(row.item.id)"></c-switch>
+            <c-switch v-if="row.item.can_edit" :checked="row.value" @change="onActiveToggle(row.item.id)"></c-switch>
           </template>
           <template slot="roles" slot-scope="row">
             {{ formatRoles(row.value) }}
           </template>
           <template slot="actions" slot-scope="row">
             <b-button v-if="row.item.can_edit" size="sm" variant="primary" :to="`/users/${row.item.id}/edit`" v-b-tooltip.hover :title="$t('buttons.edit')" class="mr-1">
-              <i class="icon-pencil"></i>
+              <i class="fe fe-edit"></i>
             </b-button>
             <b-button v-if="row.item.can_impersonate" size="sm" variant="warning" :href="$app.route('admin.users.impersonate', { user: row.item.id })" v-b-tooltip.hover :title="$t('buttons.login-as', { name: row.item.name })" class="mr-1">
-              <i class="icon-lock"></i>
+              <i class="fe fe-lock"></i>
             </b-button>
             <b-button v-if="row.item.can_delete" size="sm" variant="danger" v-b-tooltip.hover :title="$t('buttons.delete')" @click.stop="onDelete(row.item.id)">
-              <i class="icon-trash"></i>
+              <i class="fe fe-trash"></i>
             </b-button>
           </template>
         </b-table>

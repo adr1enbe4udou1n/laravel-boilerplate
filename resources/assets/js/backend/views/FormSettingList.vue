@@ -34,10 +34,10 @@
           </template>
           <template slot="actions" slot-scope="row">
             <b-button v-if="row.item.can_edit" size="sm" variant="primary" :to="`/form-settings/${row.item.id}/edit`" v-b-tooltip.hover :title="$t('buttons.edit')" class="mr-1">
-              <i class="icon-pencil"></i>
+              <i class="fe fe-edit"></i>
             </b-button>
             <b-button v-if="row.item.can_delete" size="sm" variant="danger" v-b-tooltip.hover :title="$t('buttons.delete')" @click.stop="onDelete(row.item.id)">
-              <i class="icon-trash"></i>
+              <i class="fe fe-trash"></i>
             </b-button>
           </template>
         </b-table>

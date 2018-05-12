@@ -4,7 +4,7 @@
       <b-row class="justify-content-center">
         <b-col xl="6">
           <b-card>
-            <h4 slot="header">{{ isNew ? $t('labels.backend.redirections.titles.create') : $t('labels.backend.redirections.titles.edit') }}</h4>
+            <h3 class="card-title" slot="header">{{ isNew ? $t('labels.backend.redirections.titles.create') : $t('labels.backend.redirections.titles.edit') }}</h3>
 
             <b-form-group
               :label="$t('validation.attributes.source_path')"
@@ -31,10 +31,6 @@
             >
               <c-switch
                 name="active"
-                type="text"
-                variant="primary"
-                on="On"
-                off="Off"
                 v-model="model.active"
               ></c-switch>
             </b-form-group>
@@ -68,7 +64,7 @@
 
             <b-row slot="footer">
               <b-col md>
-                <b-button to="/redirections" variant="danger" size="sm">
+                <b-button to="/redirections" exact variant="danger" size="sm">
                   {{ $t('buttons.back') }}
                 </b-button>
               </b-col>

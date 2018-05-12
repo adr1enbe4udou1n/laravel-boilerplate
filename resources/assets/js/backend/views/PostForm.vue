@@ -4,7 +4,7 @@
       <b-row>
         <b-col xl="8">
           <b-card>
-            <h4 slot="header">{{ isNew ? $t('labels.backend.posts.titles.create') : $t('labels.backend.posts.titles.edit') }}</h4>
+            <h3 class="card-title" slot="header">{{ isNew ? $t('labels.backend.posts.titles.create') : $t('labels.backend.posts.titles.edit') }}</h3>
             <b-form-group
               :label="$t('validation.attributes.title')"
               label-for="title"
@@ -100,7 +100,7 @@
 
             <b-row slot="footer">
               <b-col md>
-                <b-button to="/posts" variant="danger" size="sm">
+                <b-button to="/posts" exact variant="danger" size="sm">
                   {{ $t('buttons.back') }}
                 </b-button>
               </b-col>
@@ -122,7 +122,7 @@
           <div role="tablist">
             <b-card no-body class="mb-0">
               <b-card-header header-tag="header" role="tab">
-                <h5>
+                <h5 class="card-title">
                   <a href="#" v-b-toggle.collapseOne>
                     {{ $t('labels.backend.posts.titles.publication') }}
                   </a>
@@ -131,20 +131,24 @@
               <b-collapse id="collapseOne" visible accordion="post-accordion" role="tabpanel">
                 <b-card-body>
                   <template v-if="!isNew">
-                    <div class="form-group row">
-                      <label class="col-lg-3 col-form-label">{{ $t('validation.attributes.status') }}</label>
-                      <b-col lg="9">
-                        <label class="col-form-label">
-                          <b-badge :variant="model.state">{{ $t(model.status_label) }}</b-badge>
-                        </label>
-                      </b-col>
+                    <div class="form-group">
+                      <b-row>
+                        <label class="col-lg-3 col-form-label">{{ $t('validation.attributes.status') }}</label>
+                        <b-col lg="9">
+                          <label class="col-form-label">
+                            <b-badge :variant="model.state">{{ $t(model.status_label) }}</b-badge>
+                          </label>
+                        </b-col>
+                      </b-row>
                     </div>
-                    <div class="form-group row">
-                      <label class="col-lg-3 col-form-label">{{ $t('labels.author') }}</label>
-                      <b-col lg="9">
-                        <label class="col-form-label" v-if="model.owner">{{ model.owner.name }}</label>
-                        <label class="col-form-label" v-else>{{ $t('labels.anonymous') }}</label>
-                      </b-col>
+                    <div class="form-group">
+                      <b-row>
+                        <label class="col-lg-3 col-form-label">{{ $t('labels.author') }}</label>
+                        <b-col lg="9">
+                          <label class="col-form-label" v-if="model.owner">{{ model.owner.name }}</label>
+                          <label class="col-form-label" v-else>{{ $t('labels.anonymous') }}</label>
+                        </b-col>
+                      </b-row>
                     </div>
                   </template>
 
@@ -164,10 +168,10 @@
                       ></p-datetimepicker>
                       <b-input-group-append>
                         <b-input-group-text data-toggle>
-                          <i class="icon-calendar"></i>
+                          <i class="fe fe-calendar"></i>
                         </b-input-group-text>
                         <b-input-group-text data-clear>
-                          <i class="icon-close"></i>
+                          <i class="fe fe-x-circle"></i>
                         </b-input-group-text>
                       </b-input-group-append>
                     </b-input-group>
@@ -189,52 +193,44 @@
                       ></p-datetimepicker>
                       <b-input-group-append>
                         <b-input-group-text data-toggle>
-                          <i class="icon-calendar"></i>
+                          <i class="fe fe-calendar"></i>
                         </b-input-group-text>
                         <b-input-group-text data-clear>
-                          <i class="icon-close"></i>
+                          <i class="fe fe-x-circle"></i>
                         </b-input-group-text>
                       </b-input-group-append>
                     </b-input-group>
                   </b-form-group>
 
-                  <b-form-group
-                    :label="$t('validation.attributes.pinned')"
-                    label-for="pinned"
-                    :horizontal="true"
-                    :label-cols="3"
-                  >
-                    <c-switch
-                      name="pinned"
-                      type="text"
-                      variant="primary"
-                      on="On"
-                      off="Off"
-                      v-model="model.pinned"
-                    ></c-switch>
-                  </b-form-group>
+                  <div class="form-group">
+                    <b-row class="align-items-center">
+                      <label class="col-lg-3 col-form-label">{{ $t('validation.attributes.pinned') }}</label>
+                      <b-col lg="9">
+                        <c-switch
+                          name="pinned"
+                          v-model="model.pinned"
+                        ></c-switch>
+                      </b-col>
+                    </b-row>
+                  </div>
 
-                  <b-form-group
-                    :label="$t('validation.attributes.promoted')"
-                    label-for="promoted"
-                    :horizontal="true"
-                    :label-cols="3"
-                  >
-                    <c-switch
-                      name="promoted"
-                      type="text"
-                      variant="primary"
-                      on="On"
-                      off="Off"
-                      v-model="model.promoted"
-                    ></c-switch>
-                  </b-form-group>
+                  <div class="form-group">
+                    <b-row class="align-items-center">
+                      <label class="col-lg-3 col-form-label">{{ $t('validation.attributes.promoted') }}</label>
+                      <b-col lg="9">
+                        <c-switch
+                          name="promoted"
+                          v-model="model.promoted"
+                        ></c-switch>
+                      </b-col>
+                    </b-row>
+                  </div>
                 </b-card-body>
               </b-collapse>
             </b-card>
             <b-card no-body>
               <b-card-header header-tag="header" role="tab">
-                <h5>
+                <h5 class="card-title">
                   <a href="#" v-b-toggle.collapseTwo>
                     {{ $t('labels.backend.metas.titles.main') }}
                   </a>

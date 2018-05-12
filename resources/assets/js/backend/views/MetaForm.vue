@@ -4,7 +4,7 @@
       <b-row class="justify-content-center">
         <b-col xl="6">
           <b-card>
-            <h4 slot="header">{{ isNew ? $t('labels.backend.metas.titles.create') : $t('labels.backend.metas.titles.edit') }}</h4>
+            <h3 class="card-title" slot="header">{{ isNew ? $t('labels.backend.metas.titles.create') : $t('labels.backend.metas.titles.edit') }}</h3>
 
             <template v-if="model.metable_type !== null">
               <div class="form-group row">
@@ -69,7 +69,7 @@
 
             <b-row slot="footer">
               <b-col md>
-                <b-button to="/metas" variant="danger" size="sm">
+                <b-button to="/metas" exact variant="danger" size="sm">
                   {{ $t('buttons.back') }}
                 </b-button>
               </b-col>

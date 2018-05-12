@@ -36,7 +36,7 @@
       </b-col>
       <b-col md="4">
         <div v-if="exportData" class="d-flex justify-content-end">
-          <b-button @click.prevent="onExportData"><i class="icon icon-arrow-down-circle"></i> Export</b-button>
+          <b-button @click.prevent="onExportData"><i class="fe fe-download"></i> Export</b-button>
         </div>
       </b-col>
     </b-row>

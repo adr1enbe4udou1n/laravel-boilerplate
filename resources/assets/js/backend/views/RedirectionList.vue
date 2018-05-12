@@ -3,7 +3,7 @@
     <b-row>
       <b-col xl="6">
         <b-card>
-          <h4 slot="header">{{ $t('labels.backend.redirections.import.title') }}</h4>
+          <h3 class="card-title" slot="header">{{ $t('labels.backend.redirections.import.title') }}</h3>
           <form @submit.prevent="onFileImport">
             <b-form-file required :placeholder="$t('labels.no_file_chosen')"
                          v-model="importFile"></b-form-file>
@@ -49,14 +49,14 @@
             <b-form-checkbox :value="row.item.id" v-model="selected"></b-form-checkbox>
           </template>
           <template slot="active" slot-scope="row">
-            <c-switch v-if="row.item.can_edit" type="text" variant="primary" on="On" off="Off" :checked="row.value" @change="onActiveToggle(row.item.id)"></c-switch>
+            <c-switch v-if="row.item.can_edit" :checked="row.value" @change="onActiveToggle(row.item.id)"></c-switch>
           </template>
           <template slot="actions" slot-scope="row">
             <b-button v-if="row.item.can_edit" size="sm" variant="primary" :to="`/redirections/${row.item.id}/edit`" v-b-tooltip.hover :title="$t('buttons.edit')" class="mr-1">
-              <i class="icon-pencil"></i>
+              <i class="fe fe-edit"></i>
             </b-button>
             <b-button v-if="row.item.can_delete" size="sm" variant="danger" v-b-tooltip.hover :title="$t('buttons.delete')" @click.stop="onDelete(row.item.id)">
-              <i class="icon-trash"></i>
+              <i class="fe fe-trash"></i>
             </b-button>
           </template>
         </b-table>

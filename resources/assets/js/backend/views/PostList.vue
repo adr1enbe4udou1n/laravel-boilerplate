@@ -47,10 +47,10 @@
             <b-badge :variant="row.item.state">{{ $t(row.item.status_label) }}</b-badge>
           </template>
           <template slot="pinned" slot-scope="row">
-            <c-switch v-if="row.item.can_edit" type="text" variant="primary" on="On" off="Off" :checked="row.value" @change="onPinToggle(row.item.id)"></c-switch>
+            <c-switch v-if="row.item.can_edit" :checked="row.value" @change="onPinToggle(row.item.id)"></c-switch>
           </template>
           <template slot="promoted" slot-scope="row">
-            <c-switch v-if="row.item.can_edit" type="text" variant="primary" on="On" off="Off" :checked="row.value" @change="onPromoteToggle(row.item.id)"></c-switch>
+            <c-switch v-if="row.item.can_edit" :checked="row.value" @change="onPromoteToggle(row.item.id)"></c-switch>
           </template>
           <template slot="owner" slot-scope="row">
             <span v-if="row.item.owner">{{ row.item.owner.name }}</span>
@@ -64,13 +64,13 @@
           </template>
           <template slot="actions" slot-scope="row">
             <b-button size="sm" variant="success" :href="$app.route('blog.show', { post: row.item.slug})" target="_blank" v-b-tooltip.hover :title="$t('buttons.preview')" class="mr-1">
-              <i class="icon-eye"></i>
+              <i class="fe fe-eye"></i>
             </b-button>
             <b-button v-if="row.item.can_edit" size="sm" variant="primary" :to="`/posts/${row.item.id}/edit`" v-b-tooltip.hover :title="$t('buttons.edit')" class="mr-1">
-              <i class="icon-pencil"></i>
+              <i class="fe fe-edit"></i>
             </b-button>
             <b-button v-if="row.item.can_delete" size="sm" variant="danger" v-b-tooltip.hover :title="$t('buttons.delete')" @click.stop="onDelete(row.item.id)">
-              <i class="icon-trash"></i>
+              <i class="fe fe-trash"></i>
             </b-button>
           </template>
         </b-table>

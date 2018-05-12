@@ -17,3 +17,14 @@
 .breadcrumb {
   @include borders($breadcrumb-borders);
 }
+
+//
+// Vue Select
+//
+.v-select.dropdown {
+  display: block;
+
+  .close:before {
+    content: '';
+  }
+}

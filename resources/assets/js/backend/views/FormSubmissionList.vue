@@ -32,10 +32,10 @@
           </template>
           <template slot="actions" slot-scope="row">
             <b-button size="sm" variant="success" :to="`/form-submissions/${row.item.id}/show`" v-b-tooltip.hover :title="$t('buttons.show')" class="mr-1">
-              <i class="icon-eye"></i>
+              <i class="fe fe-eye"></i>
             </b-button>
             <b-button v-if="row.item.can_delete" size="sm" variant="danger" v-b-tooltip.hover :title="$t('buttons.delete')" @click.stop="onDelete(row.item.id)">
-              <i class="icon-trash"></i>
+              <i class="fe fe-trash"></i>
             </b-button>
           </template>
         </b-table>

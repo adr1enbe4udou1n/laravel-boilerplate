@@ -1,17 +1,13 @@
 <template>
-  <label :class="classList">
+  <label class="custom-switch">
     <input type="checkbox"
-           class="switch-input"
+           name="custom-switch-checkbox"
+           class="custom-switch-input"
            :value="value"
            :checked="isChecked"
            @change="handleChange">
-    <template v-if="isOn">
-      <span class="switch-label" :data-on="on" :data-off="off"></span>
-    </template>
-    <template v-else>
-      <span class="switch-label"></span>
-    </template>
-    <span class="switch-handle"></span>
+    <span class="custom-switch-indicator"></span>
+    <span class="custom-switch-description" v-if="description">{{ description }}</span>
   </label>
 </template>
 
@@ -34,58 +30,14 @@ export default {
       type: Boolean,
       default: false
     },
-    type: {
-      type: String,
-      default: 'default'
-    },
-    variant: {
-      type: String,
-      default: ''
-    },
-    pill: {
-      type: Boolean,
-      default: false
-    },
-    on: {
-      type: String,
-      default: null
-    },
-    off: {
-      type: String,
-      default: null
-    },
-    size: {
+    description: {
       type: String,
       default: null
     }
   },
   computed: {
-    classList () {
-      return [
-        'switch',
-        this.switchType,
-        this.switchVariant,
-        this.switchPill,
-        this.switchSize
-      ]
-    },
-    switchType () {
-      return this.type ? `switch-${this.type}` : `switch-default`
-    },
-    switchVariant () {
-      return this.variant ? `switch-${this.variant}` : `switch-secondary`
-    },
-    switchPill () {
-      return !this.pill ? null : `switch-pill`
-    },
-    switchSize () {
-      return this.size ? `switch-${this.size}` : ''
-    },
     isChecked () {
       return this.checked === this.value
-    },
-    isOn () {
-      return !this.on ? null : true
     }
   },
   methods: {

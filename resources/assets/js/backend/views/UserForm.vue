@@ -4,7 +4,7 @@
       <b-row class="justify-content-center">
         <b-col xl="6">
           <b-card>
-            <h4 slot="header">{{ isNew ? $t('labels.backend.users.titles.create') : $t('labels.backend.users.titles.edit') }}</h4>
+            <h3 class="card-title" slot="header">{{ isNew ? $t('labels.backend.users.titles.create') : $t('labels.backend.users.titles.edit') }}</h3>
 
             <b-form-group
               :label="$t('validation.attributes.name')"
@@ -49,10 +49,6 @@
             >
               <c-switch
                 name="active"
-                type="text"
-                variant="primary"
-                on="On"
-                off="Off"
                 v-model="model.active"
               ></c-switch>
             </b-form-group>
@@ -107,7 +103,7 @@
 
             <b-row slot="footer">
               <b-col>
-                <b-button to="/users" variant="danger" size="sm">
+                <b-button to="/users" exact variant="danger" size="sm">
                   {{ $t('buttons.back') }}
                 </b-button>
               </b-col>

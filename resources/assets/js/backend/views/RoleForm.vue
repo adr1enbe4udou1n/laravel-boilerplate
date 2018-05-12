@@ -4,7 +4,7 @@
       <b-row class="justify-content-center">
         <b-col xl="8">
           <b-card>
-            <h4 slot="header">{{ isNew ? $t('labels.backend.roles.titles.create') : $t('labels.backend.roles.titles.edit') }}</h4>
+            <h3 class="card-title" slot="header">{{ isNew ? $t('labels.backend.roles.titles.create') : $t('labels.backend.roles.titles.edit') }}</h3>
 
             <b-form-group
               :label="$t('validation.attributes.name')"
@@ -102,7 +102,7 @@
 
             <b-row slot="footer">
               <b-col md>
-                <b-button to="/roles" variant="danger" size="sm">
+                <b-button to="/roles" exact variant="danger" size="sm">
                   {{ $t('buttons.back') }}
                 </b-button>
               </b-col>
