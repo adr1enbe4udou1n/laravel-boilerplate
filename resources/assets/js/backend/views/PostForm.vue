@@ -60,14 +60,10 @@
               <v-select
                 id="tags"
                 name="tags"
-                multiple
                 v-model="model.tags"
                 :on-search="getTags"
-                :options="tagsOptions"
                 :placeholder="$t('labels.placeholders.tags')"
-                :taggable="true"
               >
-                <span slot="no-options">{{ $t('labels.no_results') }}</span>
               </v-select>
             </b-form-group>
 
@@ -295,7 +291,6 @@ export default {
       modelName: 'post',
       resourceRoute: 'posts',
       listPath: '/posts',
-      tagsOptions: [],
       model: {
         title: null,
         summary: null,
@@ -328,7 +323,7 @@ export default {
         }
       })
 
-      this.tagsOptions = data.items
+      return data.items
     }
   }
 }

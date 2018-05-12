@@ -6,15 +6,13 @@ import '../axios-config'
 
 import 'babel-polyfill'
 import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.esm'
-import vSelect from 'vue-select'
-
-// CoreUI components
-import Switch from './components/Switch'
 
 // Vendor plugins components
 import DataTable from './components/Plugins/DataTable'
 import RichTextEditor from './components/Plugins/RichTextEditor'
 import DateTimePicker from './components/Plugins/DateTimePicker'
+import Switch from './components/Plugins/Switch'
+import vSelect from './components/Plugins/Select'
 
 import { createRouter } from './router'
 import { createStore } from './store'
