@@ -36,9 +36,11 @@
         </div>
     </div>
 
-    <b-card header="Vue Panel Component" class="mb-3" v-cloak>
-        <p>Hey ! I'm a Vue Panel component !</p>
-    </b-card>
+    <div id="app">
+        <b-card header="Vue Panel Component" class="mb-3" v-cloak>
+            <p>Hey ! I'm a Vue Panel component !</p>
+        </b-card>
+    </div>
 
     <div class="card mb-3">
         <div class="card-header">

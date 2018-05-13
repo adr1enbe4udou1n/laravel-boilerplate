@@ -55,8 +55,10 @@ export default (createApp) => {
     /**
      * Vue Mounting
      */
-    const { app } = createApp()
-    app.$mount('#app')
+    if (document.getElementById('app') !== null) {
+      const {app} = createApp()
+      app.$mount('#app')
+    }
 
     /**
      * Bind all bootstrap tooltips
