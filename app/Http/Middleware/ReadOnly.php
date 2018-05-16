@@ -55,12 +55,13 @@ class ReadOnly
 
     /**
      * @param \Illuminate\Http\Request $request
+     *
      * @return bool
      */
     protected function inExceptArray($request)
     {
         foreach ($this->except as $except) {
-            if ($except !== '/') {
+            if ('/' !== $except) {
                 $except = trim($except, '/');
             }
 
