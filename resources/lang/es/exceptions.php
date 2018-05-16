@@ -1,71 +1,71 @@
 <?php
 
 return [
-    'general' => 'Excepción del servidor',
-    'unauthorized' => 'Acción no permitida',
+    'general' => 'ExcepciÃ³n del servidor',
+    'unauthorized' => 'AcciÃ³n no permitida',
 
     'backend' => [
         'users' => [
-            'create' => 'Error en la creación del usuario',
-            'update' => 'Error en la actualización del usuario',
-            'delete' => 'Error en la eliminación del usuario',
-            'first_user_cannot_be_edited' => 'No puedes editar el usuario súper administrador',
-            'first_user_cannot_be_disabled' => 'El usuario súper administrador no puede ser deshabilitado',
-            'first_user_cannot_be_destroyed' => 'El usuario súper administrador no puede ser eliminado',
+            'create' => 'Error en la creaciÃ³n del usuario',
+            'update' => 'Error en la actualizaciÃ³n del usuario',
+            'delete' => 'Error en la eliminaciÃ³n del usuario',
+            'first_user_cannot_be_edited' => 'No puedes editar el usuario sÃºper administrador',
+            'first_user_cannot_be_disabled' => 'El usuario sÃºper administrador no puede ser deshabilitado',
+            'first_user_cannot_be_destroyed' => 'El usuario sÃºper administrador no puede ser eliminado',
             'first_user_cannot_be_impersonated' => 'El usuario Super administrador no puede ser suplantado',
             'cannot_set_superior_roles' => 'No puedes atribuir roles superiores a los tuyos',
         ],
 
         'roles' => [
-            'create' => 'Error en la creación de roles',
-            'update' => 'Error en la actualización de roles',
-            'delete' => 'Error en la eliminación de roles',
+            'create' => 'Error en la creaciÃ³n de roles',
+            'update' => 'Error en la actualizaciÃ³n de roles',
+            'delete' => 'Error en la eliminaciÃ³n de roles',
         ],
 
         'metas' => [
-            'create' => 'Error en la creación de la meta',
-            'update' => 'Error en la actualización de la meta',
-            'delete' => 'Error en la eliminación de la meta',
-            'already_exist' => 'Ya hay una meta para esta ruta de configuración regional',
+            'create' => 'Error en la creaciÃ³n de la meta',
+            'update' => 'Error en la actualizaciÃ³n de la meta',
+            'delete' => 'Error en la eliminaciÃ³n de la meta',
+            'already_exist' => 'Ya hay una meta para esta ruta de configuraciÃ³n regional',
         ],
 
         'form_submissions' => [
-            'create' => 'Error en la creación de la solicitud',
-            'delete' => 'Error en la eliminación de la solicitud',
+            'create' => 'Error en la creaciÃ³n de la solicitud',
+            'delete' => 'Error en la eliminaciÃ³n de la solicitud',
         ],
 
         'form_settings' => [
-            'create' => 'Error en la creación de configuración de formulario',
-            'update' => 'Error en la actualización de configuración del formulario',
-            'delete' => 'Error en la eliminación de configuración del formulario',
-            'already_exist' => 'Ya hay una configuración vinculada a este formulario',
+            'create' => 'Error en la creaciÃ³n de configuraciÃ³n de formulario',
+            'update' => 'Error en la actualizaciÃ³n de configuraciÃ³n del formulario',
+            'delete' => 'Error en la eliminaciÃ³n de configuraciÃ³n del formulario',
+            'already_exist' => 'Ya hay una configuraciÃ³n vinculada a este formulario',
         ],
 
         'redirections' => [
-            'create' => 'Error en la creación de la redirección',
-            'update' => 'Error en la actualización de la redirección',
-            'delete' => 'Error en la eliminación de la redirección',
-            'already_exist' => 'Ya hay una redirección para este camino',
+            'create' => 'Error en la creaciÃ³n de la redirecciÃ³n',
+            'update' => 'Error en la actualizaciÃ³n de la redirecciÃ³n',
+            'delete' => 'Error en la eliminaciÃ³n de la redirecciÃ³n',
+            'already_exist' => 'Ya hay una redirecciÃ³n para este camino',
         ],
 
         'posts' => [
-            'create' => 'Error en la creación del articulo',
-            'update' => 'Error en la actualización del articulo',
+            'create' => 'Error en la creaciÃ³n del articulo',
+            'update' => 'Error en la actualizaciÃ³n del articulo',
             'save' => 'Error en la salvado del articulo',
-            'delete' => 'Error en la eliminación del articulo',
+            'delete' => 'Error en la eliminaciÃ³n del articulo',
         ],
     ],
 
     'frontend' => [
         'user' => [
-            'email_taken' => 'Esa dirección de correo electrónico ya está es uso.',
-            'password_mismatch' => 'Esa no es tu contraseña anterior.',
+            'email_taken' => 'Esa direcciÃ³n de correo electrÃ³nico ya estÃ¡ es uso.',
+            'password_mismatch' => 'Esa no es tu contraseÃ±a anterior.',
             'delete_account' => 'Error al eliminar la cuenta.',
-            'updating_disabled' => 'La edición de cuenta está deshabilitada.',
+            'updating_disabled' => 'La ediciÃ³n de cuenta estÃ¡ deshabilitada.',
         ],
 
         'auth' => [
-            'registration_disabled' => 'El registro está desactivado.',
+            'registration_disabled' => 'El registro estÃ¡ desactivado.',
         ],
     ],
 ];

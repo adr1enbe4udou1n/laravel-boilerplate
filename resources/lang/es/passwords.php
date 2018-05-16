@@ -12,9 +12,9 @@ return [
     |
     */
 
-    'password' => 'Las contraseÒas deben coincidir y contener al menos 6 caracteres',
-    'reset' => '°Tu contraseÒa ha sido restablecida!',
-    'sent' => '°Te hemos enviado por correo el enlace para restablecer tu contraseÒa!',
-    'token' => 'El token de recuperaciÛn de contraseÒa es inv·lido.',
-    'user' => 'No podemos encontrar ning˙n usuario con ese correo electrÛnico.',
+    'password' => 'Las contrase√±as deben coincidir y contener al menos 6 caracteres',
+    'reset' => '¬°Tu contrase√±a ha sido restablecida!',
+    'sent' => '¬°Te hemos enviado por correo el enlace para restablecer tu contrase√±a!',
+    'token' => 'El token de recuperaci√≥n de contrase√±a es inv√°lido.',
+    'user' => 'No podemos encontrar ning√∫n usuario con ese correo electr√≥nico.',
 ];

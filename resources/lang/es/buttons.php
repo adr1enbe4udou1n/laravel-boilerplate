@@ -30,16 +30,16 @@ return [
     ],
 
     'form_settings' => [
-        'create' => 'Crear configuración',
+        'create' => 'Crear configuraciÃ³n',
     ],
 
     'redirections' => [
-        'create' => 'Crear redirección',
+        'create' => 'Crear redirecciÃ³n',
         'import' => 'Importar CSV',
     ],
 
     'posts' => [
-        'create' => 'Crear publicación',
+        'create' => 'Crear publicaciÃ³n',
         'save_and_publish' => 'Guardar y publicar',
         'save_as_draft' => 'Guardar como borrador',
     ],

@@ -11,14 +11,14 @@ return [
     'access' => [
         'backend' => [
             'display_name' => 'Acceso Backoffice',
-            'description' => 'Puede acceder a las páginas de administración.',
+            'description' => 'Puede acceder a las pÃ¡ginas de administraciÃ³n.',
         ],
     ],
 
     'view' => [
         'form_settings' => [
-            'display_name' => 'Ver configuración de formulario',
-            'description' => 'Puede ver la configuración del formulario.',
+            'display_name' => 'Ver configuraciÃ³n de formulario',
+            'description' => 'Puede ver la configuraciÃ³n del formulario.',
         ],
 
         'form_submissions' => [
@@ -47,14 +47,14 @@ return [
         ],
 
         'posts' => [
-            'display_name' => 'Ver todos los artículos',
-            'description' => 'Puede ver todos los artículos.',
+            'display_name' => 'Ver todos los artÃ­culos',
+            'description' => 'Puede ver todos los artÃ­culos.',
         ],
 
         'own' => [
             'posts' => [
-                'display_name' => 'Ver artículos propios',
-                'description' => 'Puede ver artículos propios',
+                'display_name' => 'Ver artÃ­culos propios',
+                'description' => 'Puede ver artÃ­culos propios',
             ],
         ],
     ],
@@ -93,8 +93,8 @@ return [
 
     'edit' => [
         'form_settings' => [
-            'display_name' => 'Editar configuración de formulario',
-            'description' => 'Puede editar la configuración del formulario.',
+            'display_name' => 'Editar configuraciÃ³n de formulario',
+            'description' => 'Puede editar la configuraciÃ³n del formulario.',
         ],
 
         'users' => [
@@ -118,22 +118,22 @@ return [
         ],
 
         'posts' => [
-            'display_name' => 'Editar todos los artículos',
-            'description' => 'Puede editar todos los artículos.',
+            'display_name' => 'Editar todos los artÃ­culos',
+            'description' => 'Puede editar todos los artÃ­culos.',
         ],
 
         'own' => [
             'posts' => [
-                'display_name' => 'Editar artículos propias',
-                'description' => 'Puede editar artículos propios.',
+                'display_name' => 'Editar artÃ­culos propias',
+                'description' => 'Puede editar artÃ­culos propios.',
             ],
         ],
     ],
 
     'delete' => [
         'form_settings' => [
-            'display_name' => 'Eliminar configuración de formulario',
-            'description' => 'Puede eliminar la configuración del formulario.',
+            'display_name' => 'Eliminar configuraciÃ³n de formulario',
+            'description' => 'Puede eliminar la configuraciÃ³n del formulario.',
         ],
 
         'form_submissions' => [
@@ -162,27 +162,27 @@ return [
         ],
 
         'posts' => [
-            'display_name' => 'Eliminar todos los artículos',
-            'description' => 'Puede eliminar todos los artículos.',
+            'display_name' => 'Eliminar todos los artÃ­culos',
+            'description' => 'Puede eliminar todos los artÃ­culos.',
         ],
 
         'own' => [
             'posts' => [
-                'display_name' => 'Eliminar artículos propios',
-                'description' => 'Puede eliminar artículos propios',
+                'display_name' => 'Eliminar artÃ­culos propios',
+                'description' => 'Puede eliminar artÃ­culos propios',
             ],
         ],
     ],
 
     'publish' => [
         'posts' => [
-            'display_name' => 'Publicar artículos',
-            'description' => 'Puede gestionar la publicación de artículos.',
+            'display_name' => 'Publicar artÃ­culos',
+            'description' => 'Puede gestionar la publicaciÃ³n de artÃ­culos.',
         ],
     ],
 
     'impersonate' => [
         'display_name' => 'Suplantar usuario',
-        'description' => 'Puede tomar posesión de otras identidades de usuario. Útil para las pruebas.',
+        'description' => 'Puede tomar posesiÃ³n de otras identidades de usuario. Ãštil para las pruebas.',
     ],
 ];

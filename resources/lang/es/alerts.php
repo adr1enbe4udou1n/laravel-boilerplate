@@ -30,34 +30,34 @@ return [
         ],
 
         'form_settings' => [
-            'created' => 'Configuraci髇 de formulario creada',
-            'updated' => 'Configuraci髇 de formulario actualizada',
-            'deleted' => 'Configuraci髇 de formulario eliminada',
+            'created' => 'Configuraci贸n de formulario creada',
+            'updated' => 'Configuraci贸n de formulario actualizada',
+            'deleted' => 'Configuraci贸n de formulario eliminada',
         ],
 
         'redirections' => [
-            'created' => 'Redirecci髇 creada',
-            'updated' => 'Redirecci髇 actualizada',
-            'deleted' => 'Redirecci髇 eliminada',
+            'created' => 'Redirecci贸n creada',
+            'updated' => 'Redirecci贸n actualizada',
+            'deleted' => 'Redirecci贸n eliminada',
             'bulk_destroyed' => 'Redirecciones seleccionadas eliminadas',
             'bulk_enabled' => 'Redirecciones seleccionadas habilitadas',
             'bulk_disabled' => 'Redirecciones seleccionadas deshabilitadas',
-            'file_imported' => 'Archivo importado con 閤ito',
+            'file_imported' => 'Archivo importado con 茅xito',
         ],
 
         'posts' => [
             'created' => 'Articulo creado',
             'updated' => 'Articulo actualizado',
             'deleted' => 'Articulo eliminado',
-            'bulk_destroyed' => 'Art韈ulos seleccionados eliminados',
-            'bulk_published' => 'Art韈ulos seleccionados publicados',
-            'bulk_pending' => 'Los art韈ulos seleccionados esperan moderaci髇',
-            'bulk_pinned' => 'Los art韈ulos seleccionados fijadas',
-            'bulk_promoted' => 'Los art韈ulos seleccionados promocionados',
+            'bulk_destroyed' => 'Art铆culos seleccionados eliminados',
+            'bulk_published' => 'Art铆culos seleccionados publicados',
+            'bulk_pending' => 'Los art铆culos seleccionados esperan moderaci贸n',
+            'bulk_pinned' => 'Los art铆culos seleccionados fijadas',
+            'bulk_promoted' => 'Los art铆culos seleccionados promocionados',
         ],
 
         'actions' => [
-            'invalid' => 'Acci髇 no v醠ida',
+            'invalid' => 'Acci贸n no v谩lida',
         ],
     ],
 
