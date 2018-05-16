@@ -7,7 +7,7 @@ use Closure;
 class ReadOnly
 {
     private $except = [
-        'login',
+        '*/login',
     ];
 
     /**
@@ -50,6 +50,25 @@ class ReadOnly
             return false;
         }
 
-        return ! in_array($request->route()->uri(), $this->except, true);
+        return ! $this->inExceptArray($request);
+    }
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @return bool
+     */
+    protected function inExceptArray($request)
+    {
+        foreach ($this->except as $except) {
+            if ($except !== '/') {
+                $except = trim($except, '/');
+            }
+
+            if ($request->fullUrlIs($except) || $request->is($except)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
