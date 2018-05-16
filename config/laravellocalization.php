@@ -36,6 +36,16 @@ return [
             ],
             'dir' => 'rtl',
         ],
+        'es' => [
+            'name' => 'labels.localization.es',
+            'script' => 'Latn',
+            'native' => 'Español',
+            'regional' => 'es_ES',
+            'locale_win' => 'Spanish_Spain.1252',
+            'date_formats' => [
+                'default' => 'd/m/Y h:i:s',
+            ],
+        ],        
     ],
 
     // Negotiate for the user locale using the Accept-Language header if it's not defined in the URL?
