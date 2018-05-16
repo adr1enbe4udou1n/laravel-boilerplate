@@ -6,6 +6,10 @@
   direction: rtl;
   unicode-bidi: embed;
 
+  body {
+    direction: rtl;
+  }
+
   ul {
     -webkit-padding-start: 0;
   }
