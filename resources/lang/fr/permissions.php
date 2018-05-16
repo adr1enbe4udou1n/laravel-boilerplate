@@ -13,13 +13,6 @@ return [
             'display_name' => 'Accès au backoffice',
             'description' => 'Permet l\'accès aux pages du backoffice.',
         ],
-
-        'all' => [
-            'backend' => [
-                'display_name' => 'Accès complet à l\'interface du backoffice',
-                'description' => 'Déverrouille entièrement l\'IHM du BO. Les permissions côté serveur resteront inchangées. Utile notamment pour les comptes de démo ou tests de permissions côté serveur.',
-            ],
-        ],
     ],
 
     'view' => [

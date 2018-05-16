@@ -69,7 +69,7 @@ class Meta extends Model
 
     public function getCanDeleteAttribute()
     {
-        return Gate::check('access all backend') || Gate::check('delete metas');
+        return Gate::check('delete metas');
     }
 
     public function metable()

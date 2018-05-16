@@ -61,7 +61,7 @@ class Redirection extends Model
 
     public function getCanDeleteAttribute()
     {
-        return Gate::check('access all backend') || Gate::check('delete redirections');
+        return Gate::check('delete redirections');
     }
 
     public function scopeActives(Builder $query)

@@ -35,7 +35,7 @@ class FormSubmission extends Model
 
     public function getCanDeleteAttribute()
     {
-        return Gate::check('access all backend') || Gate::check('delete form_submissions');
+        return Gate::check('delete form_submissions');
     }
 
     /**

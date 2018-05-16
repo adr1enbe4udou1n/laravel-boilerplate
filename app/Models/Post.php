@@ -166,7 +166,7 @@ class Post extends Model implements HasMedia
 
     public function getCanDeleteAttribute()
     {
-        return Gate::check('access all backend') || Gate::check('delete', $this);
+        return Gate::check('delete', $this);
     }
 
     protected static function boot()

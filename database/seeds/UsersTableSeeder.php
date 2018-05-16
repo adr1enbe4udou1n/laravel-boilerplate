@@ -208,37 +208,6 @@ class UsersTableSeeder extends Seeder
             $redactorRole->permissions()->create(['name' => $name]);
         }
 
-        /** @var Role $demoRole */
-        $demoRole = $role->create([
-            'name' => 'demo',
-            'display_name' => [
-                'en' => 'Demo',
-                'fr' => 'Démo',
-                'ar' => 'مستخدم للعرض',
-            ],
-            'description' => [
-                'en' => 'Access to all read only BO functionalities',
-                'fr' => 'Accès à l\'ensemble des fonctionnalités du BO en lecture seule',
-                'ar' => 'وصول إلى كل ميزات المدونة للقراءة فقط',
-            ],
-            'order' => 5,
-        ]);
-
-        foreach (
-            [
-                'access backend',
-                'access all backend',
-                'view posts',
-                'view form_settings',
-                'view form_submissions',
-                'view users',
-                'view roles',
-                'view metas',
-                'view redirections',
-            ] as $name) {
-            $demoRole->permissions()->create(['name' => $name]);
-        }
-
         // 1 administrator
         /** @var User $administrator */
         $administrator = $user->create([
@@ -279,7 +248,7 @@ class UsersTableSeeder extends Seeder
             'timezone' => config('app.timezone'),
         ]);
 
-        $demo->roles()->save($demoRole);
+        $demo->roles()->save($administratorRole);
 
         // 1 seo consultant
         /** @var User $seoConsultant */

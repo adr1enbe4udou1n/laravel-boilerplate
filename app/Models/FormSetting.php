@@ -63,7 +63,7 @@ class FormSetting extends Model
 
     public function getCanDeleteAttribute()
     {
-        return Gate::check('access all backend') || Gate::check('delete form_settings');
+        return Gate::check('delete form_settings');
     }
 
     public function getArrayRecipientsAttribute()

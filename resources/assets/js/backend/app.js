@@ -54,8 +54,7 @@ export function createApp () {
    */
   if (Vue.prototype.$app.user) {
     Vue.prototype.$app.user.can = (permission) => {
-      if (Vue.prototype.$app.user.id === 1 ||
-        Vue.prototype.$app.permissions.includes('access all backend')) {
+      if (Vue.prototype.$app.user.id === 1) {
         return true
       }
       return Vue.prototype.$app.permissions.includes(permission)

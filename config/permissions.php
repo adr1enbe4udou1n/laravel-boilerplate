@@ -13,12 +13,6 @@ return [
         'category' => 'permissions.categories.access',
     ],
 
-    'access all backend' => [
-        'display_name' => 'permissions.access.all.backend.display_name',
-        'description' => 'permissions.access.all.backend.description',
-        'category' => 'permissions.categories.access',
-    ],
-
     'view posts' => [
         'display_name' => 'permissions.view.posts.display_name',
         'description' => 'permissions.view.posts.description',

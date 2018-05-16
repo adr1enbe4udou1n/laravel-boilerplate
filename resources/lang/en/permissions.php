@@ -13,13 +13,6 @@ return [
             'display_name' => 'Backoffice access',
             'description' => 'Can access to administration pages.',
         ],
-
-        'all' => [
-            'backend' => [
-                'display_name' => 'Full Backoffice access',
-                'description' => 'Fully unlock BO IHM access to all features. Server-side permissions stay unchanged. Usefull for Demo account or server-side permissions testing.',
-            ],
-        ],
     ],
 
     'view' => [

@@ -132,7 +132,7 @@ class User extends Authenticatable
     public function getCanDeleteAttribute()
     {
         return ! $this->is_super_admin && $this->id !== auth()->id() && (
-            Gate::check('access all backend') || Gate::check('delete users')
+            Gate::check('delete users')
         );
     }
 

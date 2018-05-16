@@ -75,7 +75,7 @@ class Role extends Model
 
     public function getCanDeleteAttribute()
     {
-        return Gate::check('access all backend') || Gate::check('delete roles');
+        return Gate::check('delete roles');
     }
 
     /**
