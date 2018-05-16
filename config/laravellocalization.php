@@ -45,7 +45,7 @@ return [
             'date_formats' => [
                 'default' => 'd/m/Y h:i:s',
             ],
-        ],        
+        ],
     ],
 
     // Negotiate for the user locale using the Accept-Language header if it's not defined in the URL?

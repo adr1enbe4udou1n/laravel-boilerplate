@@ -63,7 +63,7 @@ return [
     'localization' => [
         'en' => 'English',
         'fr' => 'French',
-        'es' => 'Spanish'	
+        'es' => 'Spanish',
     ],
 
     'placeholders' => [

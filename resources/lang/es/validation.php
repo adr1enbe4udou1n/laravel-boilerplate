@@ -88,7 +88,6 @@ return [
     'uploaded' => 'Subir :attribute ha fallado.',
     'url' => 'El formato :attribute es inválido.',
 
-
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines

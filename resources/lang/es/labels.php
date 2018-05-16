@@ -63,7 +63,7 @@ return [
     'localization' => [
         'en' => 'Inglés',
         'fr' => 'Francés',
-        'es' => 'Español'
+        'es' => 'Español',
     ],
 
     'placeholders' => [
@@ -294,7 +294,7 @@ return [
         ],
 
         'placeholders' => [
-            'locale' => 'Selecciona tu idioma', 
+            'locale' => 'Selecciona tu idioma',
             'timezone' => 'Selecciona tu zona horaria',
         ],
 
