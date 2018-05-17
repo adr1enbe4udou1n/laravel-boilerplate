@@ -26,6 +26,8 @@ return [
     'upload_image' => 'Upload image',
     'anonymous' => 'Anonymous',
     'all_rights_reserved' => 'All rights reserved.',
+    'with' => 'with',
+    'by' => 'by',    
 
     'datatables' => [
         'no_results' => 'No results available',
