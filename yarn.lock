@@ -1351,18 +1351,18 @@ boom@5.x.x:
   dependencies:
     hoek "4.x.x"
 
-bootstrap-vue@^2.0.0-rc.9:
-  version "2.0.0-rc.9"
-  resolved "https://registry.yarnpkg.com/bootstrap-vue/-/bootstrap-vue-2.0.0-rc.9.tgz#763a96a2707fdd9731d137572d03151db124573d"
+bootstrap-vue@^2.0.0-rc.10:
+  version "2.0.0-rc.10"
+  resolved "https://registry.yarnpkg.com/bootstrap-vue/-/bootstrap-vue-2.0.0-rc.10.tgz#7a622b963a8ef2fbdb858dd174f38dce82e51e24"
   dependencies:
-    bootstrap "^4.0.0"
+    bootstrap "^4.1.1"
     lodash.get "^4.4.2"
     lodash.startcase "^4.4.0"
     opencollective "^1.0.3"
     popper.js "^1.12.9"
     vue-functional-data-merge "^2.0.5"
 
-bootstrap@>=2.0.0, bootstrap@^4.0.0, bootstrap@^4.1.1:
+bootstrap@>=2.0.0, bootstrap@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.1.1.tgz#3aec85000fa619085da8d2e4983dfd67cf2114cb"
 
@@ -2593,9 +2593,9 @@ eslint-module-utils@^2.2.0:
     debug "^2.6.8"
     pkg-dir "^1.0.0"
 
-eslint-plugin-import@^2.11.0:
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.11.0.tgz#15aeea37a67499d848e8e981806d4627b5503816"
+eslint-plugin-import@^2.12.0:
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.12.0.tgz#dad31781292d6664b25317fd049d2e2b2f02205d"
   dependencies:
     contains-path "^0.1.0"
     debug "^2.6.8"
@@ -3030,9 +3030,9 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
-flatpickr@^4.4.7:
-  version "4.4.7"
-  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.4.7.tgz#c5b6d499869bad7eb73d0f31cd3380eb7e9cfe3c"
+flatpickr@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.5.0.tgz#f72c7164a1c24e3ad419e3b2209d1a2d3604724a"
 
 flatten@^1.0.2:
   version "1.0.2"
@@ -7096,9 +7096,9 @@ svgo@^0.7.0:
     sax "~1.2.1"
     whet.extend "~0.9.9"
 
-sweetalert2@^7.20.4:
-  version "7.20.4"
-  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-7.20.4.tgz#f1e33d8b69290de85fe36975d9ee6f621ec223cc"
+sweetalert2@^7.20.5:
+  version "7.20.5"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-7.20.5.tgz#007d963e5b43492dfd4a0be0312bbcd019f59769"
 
 symbol-observable@1.0.1:
   version "1.0.1"
