@@ -188,6 +188,8 @@ export default {
             "upload_image": "رفع صورة",
             "anonymous": "مجهول",
             "all_rights_reserved": "جميع الحقوق محفوظة.",
+            "with": "مع",
+            "by": "بواسطة",
             "datatables": {
                 "no_results": "لا يوجد نتائج",
                 "no_matched_results": "لا يوجد نتائج مطابقة",
@@ -979,6 +981,8 @@ export default {
             "upload_image": "Upload image",
             "anonymous": "Anonymous",
             "all_rights_reserved": "All rights reserved.",
+            "with": "with",
+            "by": "by",
             "datatables": {
                 "no_results": "No results available",
                 "no_matched_results": "No matched results available",
@@ -1771,6 +1775,8 @@ export default {
             "upload_image": "Cargar imagen",
             "anonymous": "Anónimo",
             "all_rights_reserved": "Todos los derechos reservados.",
+            "with": "con",
+            "by": "por",
             "datatables": {
                 "no_results": "No hay resultados disponibles",
                 "no_matched_results": "No hay resultados coincidentes disponibles",
@@ -2563,6 +2569,8 @@ export default {
             "upload_image": "Transférer une image",
             "anonymous": "Anonyme",
             "all_rights_reserved": "Tous droits réservés.",
+            "with": "avec",
+            "by": "par",
             "datatables": {
                 "no_results": "Aucun résultat trouvé",
                 "no_matched_results": "Aucun résultat correspondant à votre recherche",

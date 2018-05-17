@@ -26,6 +26,8 @@ return [
     'upload_image' => 'رفع صورة',
     'anonymous' => 'مجهول',
     'all_rights_reserved' => 'جميع الحقوق محفوظة.',
+    'with' => 'مع',
+    'by' => 'بواسطة',
 
     'datatables' => [
         'no_results' => 'لا يوجد نتائج',

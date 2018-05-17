@@ -51,7 +51,7 @@
     "sass-loader": "^7.0.1",
     "slick-carousel": "^1.8.1",
     "style-loader": "^0.21.0",
-    "sweetalert2": "^7.20.5",
+    "sweetalert2": "^7.20.6",
     "turbolinks": "^5.1.1",
     "vue": "^2.5.16",
     "vue-i18n": "^7.6.0",
