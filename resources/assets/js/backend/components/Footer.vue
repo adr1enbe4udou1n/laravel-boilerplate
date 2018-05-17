@@ -9,7 +9,7 @@
             :href="editorSiteUrl" target="_blank"><strong>{{ editorName }}</strong></a>
         </template>
         <template v-else>
-          <i class="fe fe-code"></i> with <i class="fe fe-heart"></i> by <strong>{{ editorName }}</strong>
+          <i class="fe fe-code"></i> {{ $t("labels.with") }} <i class="fe fe-heart"></i> {{ $t("labels.by") }} <strong>{{ editorName }}</strong>
         </template>
       </template>
     </span>

@@ -27,6 +27,8 @@ return [
     'upload_image' => 'Cargar imagen',
     'anonymous' => 'Anónimo',
     'all_rights_reserved' => 'Todos los derechos reservados.',
+    'with' => 'con',
+    'by' => 'por',
 
     'datatables' => [
         'no_results' => 'No hay resultados disponibles',
