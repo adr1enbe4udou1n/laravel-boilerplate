@@ -9,8 +9,8 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
 use App\Exceptions\GeneralException;
 use Illuminate\Support\Facades\Gate;
-use App\Repositories\Contracts\PostRepository;
 use Spatie\MediaLibrary\Models\Media;
+use App\Repositories\Contracts\PostRepository;
 
 /**
  * Class EloquentPostRepository.
@@ -155,7 +155,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
             $currentFeaturedImage = $post->getMedia('featured image')->first();
 
             // Delete current image if replaced or delete asking
-            if ($currentFeaturedImage && ($image || !$input['has_featured_image'])) {
+            if ($currentFeaturedImage && ($image || ! $input['has_featured_image'])) {
                 // Delete current image
                 $currentFeaturedImage->delete();
             }

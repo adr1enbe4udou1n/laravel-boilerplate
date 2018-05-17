@@ -220,8 +220,8 @@ class Post extends Model implements HasMedia
 
     public function getHasFeaturedImageAttribute()
     {
-        /** @var Media $media */
-        return !! $this->getMedia('featured image')->first();
+        /* @var Media $media */
+        return (bool) $this->getMedia('featured image')->first();
     }
 
     public function getFeaturedImagePathAttribute()
