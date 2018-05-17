@@ -27,7 +27,7 @@ return [
     'anonymous' => 'Anonymous',
     'all_rights_reserved' => 'All rights reserved.',
     'with' => 'with',
-    'by' => 'by',    
+    'by' => 'by',
 
     'datatables' => [
         'no_results' => 'No results available',
