@@ -156,7 +156,6 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
 
             // Delete current image if replaced or delete asking
             if ($currentFeaturedImage && ($image || ! $input['has_featured_image'])) {
-                // Delete current image
                 $currentFeaturedImage->delete();
             }
 
