@@ -10,6 +10,7 @@ return [
     'choose_file' => 'Seleccione el archivo',
     'no_file_chosen' => 'Ningún archivo seleccionado',
     'are_you_sure' => 'Estás seguro ?',
+    'delete_image' => 'Eliminar imagen',
     'yes' => 'Sí',
     'no' => 'No',
     'add_new' => 'Añadir',

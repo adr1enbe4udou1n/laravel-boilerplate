@@ -36,13 +36,14 @@ use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
  * @property \Carbon\Carbon|null                                        $updated_at
  * @property mixed                                                      $can_delete
  * @property mixed                                                      $can_edit
+ * @property mixed                                                      $has_featured_image
  * @property mixed                                                      $featured_image_path
+ * @property mixed                                                      $thumbnail_image_path
  * @property mixed                                                      $meta_description
  * @property mixed                                                      $meta_title
  * @property mixed                                                      $published
  * @property mixed                                                      $state
  * @property mixed                                                      $status_label
- * @property mixed                                                      $thumbnail_image_path
  * @property \App\Models\Meta                                           $meta
  * @property \App\Models\User|null                                      $owner
  * @property \Illuminate\Database\Eloquent\Collection|\App\Models\Tag[] $tags
@@ -118,6 +119,7 @@ class Post extends Model implements HasMedia
     protected $appends = [
         'state',
         'status_label',
+        'has_featured_image',
         'featured_image_path',
         'thumbnail_image_path',
         'can_edit',
@@ -133,6 +135,7 @@ class Post extends Model implements HasMedia
         'status' => 'integer',
         'pinned' => 'boolean',
         'promoted' => 'boolean',
+        'has_featured_image' => 'boolean',
     ];
 
     /**
@@ -215,6 +218,12 @@ class Post extends Model implements HasMedia
         return self::PUBLISHED === $this->status;
     }
 
+    public function getHasFeaturedImageAttribute()
+    {
+        /** @var Media $media */
+        return !! $this->getMedia('featured image')->first();
+    }
+
     public function getFeaturedImagePathAttribute()
     {
         /** @var Media $media */
@@ -222,7 +231,7 @@ class Post extends Model implements HasMedia
             return str_replace(config('app.url'), '', $media->getUrl());
         }
 
-        return 'placeholder.png';
+        return '/images/placeholder.png';
     }
 
     public function getThumbnailImagePathAttribute()

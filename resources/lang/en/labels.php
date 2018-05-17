@@ -10,6 +10,7 @@ return [
     'choose_file' => 'Choose File',
     'no_file_chosen' => 'No file chosen',
     'are_you_sure' => 'Are you sure ?',
+    'delete_image' => 'Delete image',
     'yes' => 'Yes',
     'no' => 'No',
     'add_new' => 'Add',

@@ -10,6 +10,7 @@ return [
     'choose_file' => 'أختر ملف',
     'no_file_chosen' => 'لم يتم إختيار ملف',
     'are_you_sure' => 'هل أنت متأكد ؟',
+    'delete_image' => 'حذف الصورة',
     'yes' => 'نعم',
     'no' => 'لا',
     'add_new' => 'إضافة',

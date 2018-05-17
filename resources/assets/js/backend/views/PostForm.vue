@@ -75,21 +75,21 @@
               :feedback="feedback('featured_image')"
             >
               <div class="media">
-                <img v-if="model.thumbnail_image_path" class="mr-2"
-                     :src="model.thumbnail_image_path" alt="">
+                <img class="mr-2" v-if="model.thumbnail_image_path" :src="model.thumbnail_image_path" alt="">
 
                 <div class="media-body">
                   <h6>{{ $t('labels.upload_image') }}</h6>
                   <b-form-file
                     id="featured_image"
                     name="featured_image"
+                    ref="featuredImageInput"
                     :placeholder="$t('labels.no_file_chosen')"
                     v-model="model.featured_image"
                     :state="state('featured_image')"
+                    v-b-tooltip.hover
+                    :title="$t('labels.descriptions.allowed_image_types')"
                   ></b-form-file>
-                  <p class="form-text text-muted">
-                    {{ $t('labels.descriptions.allowed_image_types') }}
-                  </p>
+                  <a href="#" class="d-block mt-1" v-if="model.has_featured_image || model.featured_image" @click.prevent="deleteFeaturedImage">{{ $t('labels.delete_image') }}</a>
                 </div>
               </div>
             </b-form-group>
@@ -311,7 +311,8 @@ export default {
         meta: {
           title: null,
           description: null
-        }
+        },
+        has_featured_image: false
       }
     }
   },
@@ -324,6 +325,11 @@ export default {
       })
 
       return data.items
+    },
+    deleteFeaturedImage () {
+      this.$refs.featuredImageInput.reset()
+      this.model.thumbnail_image_path = null
+      this.model.has_featured_image = false
     }
   }
 }
