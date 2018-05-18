@@ -50,7 +50,7 @@ class PostsTableSeeder extends Seeder
             }
 
             // Generate localized bodies
-            foreach (['en', 'fr', 'ar'] as $locale) {
+            foreach (['en', 'fr', 'es', 'ar'] as $locale) {
                 $post->setTranslation('body', $locale, $this->generateBody($faker, $locale));
             }
 
