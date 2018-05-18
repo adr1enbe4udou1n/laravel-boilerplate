@@ -42,7 +42,7 @@ class PostsTableSeeder extends Seeder
             // Attach media
             if ($faker->boolean(80)) {
                 $i = mt_rand(1, 10);
-                $imagePath = database_path() . "/seeds/images/abstract-$i.jpg";
+                $imagePath = database_path()."/seeds/images/abstract-$i.jpg";
 
                 $post->addMedia($imagePath)
                     ->preservingOriginal()
