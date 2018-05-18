@@ -40,12 +40,14 @@ class PostsTableSeeder extends Seeder
             $post->user_id = $userIds->random()->id;
 
             // Attach media
-            $i = mt_rand(1, 10);
-            $imagePath = database_path()."/seeds/images/abstract-$i.jpg";
+            if ($faker->boolean(80)) {
+                $i = mt_rand(1, 10);
+                $imagePath = database_path() . "/seeds/images/abstract-$i.jpg";
 
-            $post->addMedia($imagePath)
-                ->preservingOriginal()
-                ->toMediaCollection('featured image');
+                $post->addMedia($imagePath)
+                    ->preservingOriginal()
+                    ->toMediaCollection('featured image');
+            }
 
             // Generate localized bodies
             foreach (['en', 'fr', 'ar'] as $locale) {
