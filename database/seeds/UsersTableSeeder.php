@@ -39,11 +39,13 @@ class UsersTableSeeder extends Seeder
             'display_name' => [
                 'en' => 'Administrator',
                 'fr' => 'Administrateur',
+                'es' => 'Administrador',
                 'ar' => 'مدير',
             ],
             'description' => [
                 'en' => 'Access to mostly web features',
                 'fr' => 'Accès à la plupart des fonctionnalités du site',
+                'es' => 'Acceso a la mayoría de las características web',
                 'ar' => 'قادر على الوصول إلى أغلب ميزات الموقع',
             ],
             'order' => 0,
@@ -90,11 +92,13 @@ class UsersTableSeeder extends Seeder
             'display_name' => [
                 'en' => 'Supervisor',
                 'fr' => 'Superviseur',
+                'es' => 'Supervisor',
                 'ar' => 'مشرف',
             ],
             'description' => [
                 'en' => 'Access to non critical web features (access and seo management excluded)',
                 'fr' => 'Accès à l\'ensemble des fonctionnalités non critiques du site (exclusion de la gestion des accès et seo)',
+                'es' => 'Acceso a características web no críticas (acceso y administración de SEO excluidos)',
                 'ar' => 'وصول إلى ميزات الموقع غير الحساسة (يستثنى منه الوصول وإدارة إعدادات تحسين محركات البحث)',
             ],
             'order' => 1,
@@ -128,11 +132,13 @@ class UsersTableSeeder extends Seeder
             'display_name' => [
                 'en' => 'SEO consultant',
                 'fr' => 'Consultant SEO',
+                'es' => 'SEO consultant',
                 'ar' => 'مستشار تحسين أداء محركات البحث',
             ],
             'description' => [
                 'en' => 'Access to manage metatags and redirections',
                 'fr' => 'Accès à la gestion des metatags et redirections',
+                'es' => 'Acceso para administrar metatags y redirecciones',
                 'ar' => 'وصول وإدارة المعلومات الوصفية وقواعد التوجيه',
             ],
             'order' => 2,
@@ -159,11 +165,13 @@ class UsersTableSeeder extends Seeder
             'display_name' => [
                 'en' => 'Editor',
                 'fr' => 'Editeur',
+                'es' => 'Editor',
                 'ar' => 'منقّح',
             ],
             'description' => [
                 'en' => 'Access to all posts writing features',
                 'fr' => 'Accès à l\'ensemble des fonctions de rédaction du site',
+                'es' => 'Acceso a todas las publicaciones de escritura',
                 'ar' => 'وصول إلى جميع ميزات كتابة المقالات',
             ],
             'order' => 3,
@@ -187,11 +195,13 @@ class UsersTableSeeder extends Seeder
             'display_name' => [
                 'en' => 'Redactor',
                 'fr' => 'Rédacteur',
+                'es' => 'Redactor',
                 'ar' => 'محرر',
             ],
             'description' => [
                 'en' => 'Access to posts writing features, but restricted to his own posts',
                 'fr' => 'Accès aux fonctions de rédaction du site, avec possibilité d\'éditer uniquement ses propres articles',
+                'es' => 'Acceso a las funciones de escritura de publicaciones, pero restringido a sus propias publicaciones',
                 'ar' => 'وصول إلى ميزات كتابة المقالات فيما يخص المقالات الخاصة به فقط',
             ],
             'order' => 4,
