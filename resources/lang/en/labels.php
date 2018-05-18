@@ -10,6 +10,7 @@ return [
     'choose_file' => 'Choose File',
     'no_file_chosen' => 'No file chosen',
     'are_you_sure' => 'Are you sure ?',
+    'delete_image' => 'Delete image',
     'yes' => 'Yes',
     'no' => 'No',
     'add_new' => 'Add',
@@ -26,6 +27,8 @@ return [
     'upload_image' => 'Upload image',
     'anonymous' => 'Anonymous',
     'all_rights_reserved' => 'All rights reserved.',
+    'with' => 'with',
+    'by' => 'by',
 
     'datatables' => [
         'no_results' => 'No results available',

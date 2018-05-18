@@ -33,6 +33,7 @@ return [
         public_path('upload'),
         public_path('images'),
         public_path('storage'),
+        public_path(),
     ],
 
     /*

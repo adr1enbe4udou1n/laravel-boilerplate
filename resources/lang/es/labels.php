@@ -10,6 +10,7 @@ return [
     'choose_file' => 'Seleccione el archivo',
     'no_file_chosen' => 'Ningún archivo seleccionado',
     'are_you_sure' => 'Estás seguro ?',
+    'delete_image' => 'Eliminar imagen',
     'yes' => 'Sí',
     'no' => 'No',
     'add_new' => 'Añadir',
@@ -26,6 +27,8 @@ return [
     'upload_image' => 'Cargar imagen',
     'anonymous' => 'Anónimo',
     'all_rights_reserved' => 'Todos los derechos reservados.',
+    'with' => 'con',
+    'by' => 'por',
 
     'datatables' => [
         'no_results' => 'No hay resultados disponibles',
