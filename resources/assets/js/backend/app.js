@@ -66,28 +66,28 @@ export function createApp () {
    */
   let objectToFormData = (obj, form, namespace) => {
     let fd = form || new FormData()
-    let formKey
 
     for (let property in obj) {
-      if (obj.hasOwnProperty(property)) {
-        if (namespace) {
-          formKey = `${namespace}[${property}]`
-        } else {
-          formKey = property
-        }
+      if (!obj.hasOwnProperty(property) || !obj[property]) continue
 
-        if (typeof obj[property] === 'object' && !(obj[property] instanceof File)) {
-          objectToFormData(obj[property], fd, property)
-          continue
-        }
+      let formKey = namespace ? `${namespace}[${property}]` : property
 
-        if (typeof obj[property] === 'boolean') {
-          fd.append(formKey, obj[property] ? '1' : '0')
-          continue
-        }
-
-        fd.append(formKey, obj[property])
+      if (obj[property] instanceof Date) {
+        fd.append(formKey, obj[property].toISOString())
+        continue
       }
+      if (obj[property] instanceof Array) {
+        obj[property].forEach((element, index) => {
+          const tempFormKey = `${formKey}[${index}]`
+          objectToFormData(element, fd, tempFormKey)
+        })
+        continue
+      }
+      if (typeof obj[property] === 'object' && !(obj[property] instanceof File)) {
+        objectToFormData(obj[property], fd, formKey)
+        continue
+      }
+      fd.append(formKey, obj[property].toString())
     }
 
     return fd
