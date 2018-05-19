@@ -55,7 +55,7 @@
     "turbolinks": "^5.1.1",
     "vue": "^2.5.16",
     "vue-i18n": "^7.6.0",
-    "vue-loader": "^15.0.11",
+    "vue-loader": "^15.1.0",
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.16",
     "vuex": "^3.0.1",

@@ -4,6 +4,7 @@
 
 // Tabler Theme
 @import "../../vendor/tabler/scss/bundle";
+@import "~bootstrap-vue/dist/bootstrap-vue.css";
 
 // Admin Panel Layout
 @import "base/main";
@@ -12,6 +13,7 @@
 @import "~noty/src/noty";
 @import "~noty/src/themes/bootstrap-v4";
 @import "~sweetalert2/src/sweetalert2";
+@import "~flatpickr/dist/flatpickr.css";
 
 // Components
 @import "../buttons";

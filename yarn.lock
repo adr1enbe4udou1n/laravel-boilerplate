@@ -7096,9 +7096,9 @@ svgo@^0.7.0:
     sax "~1.2.1"
     whet.extend "~0.9.9"
 
-sweetalert2@^7.20.5:
-  version "7.20.5"
-  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-7.20.5.tgz#007d963e5b43492dfd4a0be0312bbcd019f59769"
+sweetalert2@^7.20.6:
+  version "7.20.6"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-7.20.6.tgz#b8d8707356b20b8e9b8cea3fe823ffbac22d7423"
 
 symbol-observable@1.0.1:
   version "1.0.1"
@@ -7525,9 +7525,9 @@ vue-i18n@^7.6.0:
   version "7.6.0"
   resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-7.6.0.tgz#8745807756f6ca5090fd85629e9cab99b1c6e442"
 
-vue-loader@^15.0.11:
-  version "15.0.11"
-  resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-15.0.11.tgz#b41dee864cdeb0012c8a2c02a66b13459e45e16e"
+vue-loader@^15.1.0:
+  version "15.1.0"
+  resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-15.1.0.tgz#82a2a5c310951aba17ad5d8680fe016c77d37e80"
   dependencies:
     "@vue/component-compiler-utils" "^1.2.1"
     hash-sum "^1.0.2"

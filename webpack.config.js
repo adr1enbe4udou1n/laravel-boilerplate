@@ -149,7 +149,7 @@ function getEntryConfig (name, analyzerPort, alias = {}) {
       splitChunks: {
         cacheGroups: {
           vendor: {
-            test: /node_modules/,
+            test: /node_modules.*\.js$/,
             name: `vendor-${name}`,
             chunks: 'all'
           }
