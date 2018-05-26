@@ -5,7 +5,6 @@ namespace App\Models;
 use Carbon\Carbon;
 use Spatie\Tags\HasTags;
 use Laravel\Scout\Searchable;
-use App\Models\Traits\HasSlug;
 use App\Models\Traits\Metable;
 use App\Models\Traits\HasEditor;
 use Illuminate\Support\Facades\Gate;
@@ -15,6 +14,7 @@ use App\Models\Traits\TranslatableJson;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 use Illuminate\Database\Eloquent\Builder;
+use App\Models\Traits\HasTranslatableSlug;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 
@@ -75,7 +75,7 @@ class Post extends Model implements HasMedia
     use Metable;
     use HasTags;
     use HasTranslations;
-    use HasSlug;
+    use HasTranslatableSlug;
     use HasMediaTrait;
     use HasEditor;
 

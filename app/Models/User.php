@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Traits\HasSlug;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Builder;
@@ -57,9 +56,6 @@ use App\Notifications\ResetPassword as ResetPasswordNotification;
 class User extends Authenticatable
 {
     use Notifiable;
-    use HasSlug;
-
-    public $sluggable = 'name';
 
     /**
      * The relationship that are eager loaded.
@@ -123,6 +119,13 @@ class User extends Authenticatable
         'can_delete',
         'can_impersonate',
     ];
+
+    public static function boot()
+    {
+        static::saving(function (User $model) {
+            $model->slug = str_slug($model->name);
+        });
+    }
 
     public function getCanEditAttribute()
     {
