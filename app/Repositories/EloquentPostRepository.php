@@ -67,11 +67,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      */
     public function findBySlug($slug)
     {
-        $locale = app()->getLocale();
-
-        if ($post = $this->query()->where("slug->{$locale}", $slug)->first()) {
-            return $post;
-        }
+        return $this->query()->whereSlug($slug)->first();
     }
 
     /**
