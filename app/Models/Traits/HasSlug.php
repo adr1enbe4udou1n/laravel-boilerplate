@@ -3,14 +3,26 @@
 namespace App\Models\Traits;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 trait HasSlug
 {
+    private function isSlugTranslatable()
+    {
+        return
+            method_exists($this, 'isTranslatableAttribute') &&
+            $this->isTranslatableAttribute($this->sluggable);
+    }
+
+    public function scopeWhereSlug(Builder $scope, string $slug)
+    {
+        return $scope->where($this->isSlugTranslatable() ? "slug->{$this->getLocale()}" : 'slug', $slug);
+    }
+
     public static function bootHasSlug()
     {
         static::saving(function (Model $model) {
-            if (! method_exists($model, 'isTranslatableAttribute') ||
-                ! $model->isTranslatableAttribute($model->sluggable)) {
+            if (! $model->isSlugTranslatable()) {
                 $property = $model->sluggable;
                 $model->slug = str_slug($model->$property.'-'.$model->getKey());
 
