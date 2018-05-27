@@ -6,22 +6,22 @@ return [
          * The default configurations to be used by the meta generator.
          */
         'defaults' => [
-            'title' => config('app.name'),
+            'title'       => config('app.name'),
             'description' => false,
-            'separator' => ' - ',
-            'keywords' => [],
-            'canonical' => false,
+            'separator'   => ' - ',
+            'keywords'    => [],
+            'canonical'   => false,
         ],
 
         /*
          * Webmaster tags are always added.
          */
         'webmaster_tags' => [
-            'google' => null,
-            'bing' => null,
-            'alexa' => null,
+            'google'    => null,
+            'bing'      => null,
+            'alexa'     => null,
             'pinterest' => null,
-            'yandex' => null,
+            'yandex'    => null,
         ],
     ],
     'opengraph' => [
@@ -29,12 +29,12 @@ return [
          * The default configurations to be used by the opengraph generator.
          */
         'defaults' => [
-            'title' => false,
+            'title'       => false,
             'description' => false,
-            'url' => false,
-            'type' => false,
-            'site_name' => false,
-            'images' => [],
+            'url'         => false,
+            'type'        => false,
+            'site_name'   => false,
+            'images'      => [],
         ],
     ],
     'twitter' => [

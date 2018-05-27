@@ -26,7 +26,7 @@ class StoreRedirectionRequest extends FormRequest
         return [
             'source' => 'required|unique:redirections',
             'target' => 'required',
-            'type' => 'required',
+            'type'   => 'required',
             'active' => 'boolean',
         ];
     }

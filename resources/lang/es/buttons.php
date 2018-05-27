@@ -1,21 +1,21 @@
 <?php
 
 return [
-    'cancel' => 'Cancelar',
-    'save' => 'Salvar',
-    'close' => 'Cerrar',
-    'create' => 'Crear',
-    'delete' => 'Borrar',
-    'confirm' => 'Confirmar',
-    'show' => 'Mostrar',
-    'edit' => 'Editar',
-    'update' => 'Actualizar',
-    'view' => 'Ver',
-    'preview' => 'Previsualizar',
-    'back' => 'Atras',
-    'send' => 'Enviar',
+    'cancel'   => 'Cancelar',
+    'save'     => 'Salvar',
+    'close'    => 'Cerrar',
+    'create'   => 'Crear',
+    'delete'   => 'Borrar',
+    'confirm'  => 'Confirmar',
+    'show'     => 'Mostrar',
+    'edit'     => 'Editar',
+    'update'   => 'Actualizar',
+    'view'     => 'Ver',
+    'preview'  => 'Previsualizar',
+    'back'     => 'Atras',
+    'send'     => 'Enviar',
     'login-as' => 'Iniciar como :name',
-    'apply' => 'Aplicar',
+    'apply'    => 'Aplicar',
 
     'users' => [
         'create' => 'Crear usuario',
@@ -39,8 +39,8 @@ return [
     ],
 
     'posts' => [
-        'create' => 'Crear publicación',
+        'create'           => 'Crear publicación',
         'save_and_publish' => 'Guardar y publicar',
-        'save_as_draft' => 'Guardar como borrador',
+        'save_as_draft'    => 'Guardar como borrador',
     ],
 ];

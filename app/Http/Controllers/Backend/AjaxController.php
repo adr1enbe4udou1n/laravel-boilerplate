@@ -131,9 +131,9 @@ class AjaxController extends Controller
 
         return [
             'uploaded' => true,
-            'url' => "/storage{$imagePath}",
-            'width' => $image->width(),
-            'height' => $image->height(),
+            'url'      => "/storage{$imagePath}",
+            'width'    => $image->width(),
+            'height'   => $image->height(),
         ];
     }
 }

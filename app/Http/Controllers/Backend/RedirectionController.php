@@ -208,7 +208,7 @@ class RedirectionController extends BackendController
                 $this->redirections->store([
                     'source' => $row['source'],
                     'target' => $row['target'],
-                    'type' => Response::HTTP_MOVED_PERMANENTLY,
+                    'type'   => Response::HTTP_MOVED_PERMANENTLY,
                 ]);
             }
         }

@@ -24,13 +24,13 @@ class UpdatePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
+            'title'          => 'required',
             'featured_image' => 'nullable|mimes:jpeg,jpg,png,gif',
-            'status' => 'in:publish,draft',
-            'published_at' => 'nullable|date',
+            'status'         => 'in:publish,draft',
+            'published_at'   => 'nullable|date',
             'unpublished_at' => 'nullable|date',
-            'pinned' => 'boolean',
-            'promoted' => 'boolean',
+            'pinned'         => 'boolean',
+            'promoted'       => 'boolean',
         ];
     }
 }

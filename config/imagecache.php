@@ -53,9 +53,9 @@ return [
     */
 
     'templates' => [
-        'small' => App\Image\Templates\Small::class,
+        'small'  => App\Image\Templates\Small::class,
         'medium' => App\Image\Templates\Medium::class,
-        'large' => App\Image\Templates\Large::class,
+        'large'  => App\Image\Templates\Large::class,
     ],
 
     /*

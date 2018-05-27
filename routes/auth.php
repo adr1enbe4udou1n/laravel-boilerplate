@@ -32,9 +32,9 @@ Route::group(
 
 Route::group(
     [
-        'namespace' => 'User',
-        'prefix' => 'user',
-        'as' => 'user.',
+        'namespace'  => 'User',
+        'prefix'     => 'user',
+        'as'         => 'user.',
         'middleware' => ['auth'],
     ],
     function () {

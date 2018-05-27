@@ -14,13 +14,13 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => bcrypt('secret'),
-        'active' => true,
+        'name'      => $faker->name,
+        'email'     => $faker->unique()->safeEmail,
+        'password'  => bcrypt('secret'),
+        'active'    => true,
         'confirmed' => true,
-        'locale' => app()->getLocale(),
-        'timezone' => config('app.timezone'),
+        'locale'    => app()->getLocale(),
+        'timezone'  => config('app.timezone'),
     ];
 });
 
@@ -74,10 +74,10 @@ $factory->define(App\Models\Post::class, function (Faker\Generator $faker) {
             'es' => $faker->sentences(3, true),
             'ar' => $faker->sentences(3, true),
         ],
-        'status' => $faker->numberBetween(0, 2),
-        'promoted' => $faker->boolean(10),
-        'pinned' => $faker->boolean(5),
-        'published_at' => $publishedDate,
+        'status'         => $faker->numberBetween(0, 2),
+        'promoted'       => $faker->boolean(10),
+        'pinned'         => $faker->boolean(5),
+        'published_at'   => $publishedDate,
         'unpublished_at' => $unPublishedDate,
     ];
 });

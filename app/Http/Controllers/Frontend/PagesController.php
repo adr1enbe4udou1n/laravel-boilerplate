@@ -42,9 +42,9 @@ class PagesController extends FrontendController
     {
         if ($request->isMethod('POST')) {
             $this->validate($request, [
-                'name' => 'required',
-                'email' => 'required|email',
-                'message' => 'required',
+                'name'                 => 'required',
+                'email'                => 'required|email',
+                'message'              => 'required',
                 'g-recaptcha-response' => ['required', new CaptchaRule()],
             ]);
 

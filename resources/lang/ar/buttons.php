@@ -1,21 +1,21 @@
 <?php
 
 return [
-    'cancel' => 'إلغاء',
-    'save' => 'حفظ',
-    'close' => 'إغلاق',
-    'create' => 'إنشاء',
-    'delete' => 'حذف',
-    'confirm' => 'تأكيد',
-    'show' => 'عرض',
-    'edit' => 'تعديل',
-    'update' => 'تحديث',
-    'view' => 'مشاهدة',
-    'preview' => 'معاينة',
-    'back' => 'تراجع',
-    'send' => 'إرسال',
+    'cancel'   => 'إلغاء',
+    'save'     => 'حفظ',
+    'close'    => 'إغلاق',
+    'create'   => 'إنشاء',
+    'delete'   => 'حذف',
+    'confirm'  => 'تأكيد',
+    'show'     => 'عرض',
+    'edit'     => 'تعديل',
+    'update'   => 'تحديث',
+    'view'     => 'مشاهدة',
+    'preview'  => 'معاينة',
+    'back'     => 'تراجع',
+    'send'     => 'إرسال',
     'login-as' => 'تسجيل الدخول كـ :name',
-    'apply' => 'تطبيق',
+    'apply'    => 'تطبيق',
 
     'users' => [
         'create' => 'إنشاء مستخدم',
@@ -39,8 +39,8 @@ return [
     ],
 
     'posts' => [
-        'create' => 'إنشاء مقالة',
+        'create'           => 'إنشاء مقالة',
         'save_and_publish' => 'حفظ ونشر',
-        'save_as_draft' => 'حفظ كمسودة',
+        'save_as_draft'    => 'حفظ كمسودة',
     ],
 ];

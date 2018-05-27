@@ -132,9 +132,9 @@ class Post extends Model implements HasMedia
      * @var array
      */
     protected $casts = [
-        'status' => 'integer',
-        'pinned' => 'boolean',
-        'promoted' => 'boolean',
+        'status'             => 'integer',
+        'pinned'             => 'boolean',
+        'promoted'           => 'boolean',
         'has_featured_image' => 'boolean',
     ];
 
@@ -188,8 +188,8 @@ class Post extends Model implements HasMedia
     public static function getStatuses()
     {
         return [
-            self::DRAFT => 'labels.backend.posts.statuses.draft',
-            self::PENDING => 'labels.backend.posts.statuses.pending',
+            self::DRAFT     => 'labels.backend.posts.statuses.draft',
+            self::PENDING   => 'labels.backend.posts.statuses.pending',
             self::PUBLISHED => 'labels.backend.posts.statuses.published',
         ];
     }
@@ -197,8 +197,8 @@ class Post extends Model implements HasMedia
     public static function getStates()
     {
         return [
-            self::DRAFT => 'danger',
-            self::PENDING => 'warning',
+            self::DRAFT     => 'danger',
+            self::PENDING   => 'warning',
             self::PUBLISHED => 'success',
         ];
     }
@@ -303,10 +303,10 @@ class Post extends Model implements HasMedia
     public function toSearchableArray()
     {
         return [
-            'id' => $this->id,
-            'title' => $this->title,
+            'id'      => $this->id,
+            'title'   => $this->title,
             'summary' => $this->summary,
-            'body' => $this->body,
+            'body'    => $this->body,
         ];
     }
 

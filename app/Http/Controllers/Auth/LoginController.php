@@ -136,7 +136,7 @@ class LoginController extends Controller
     {
         $rules = [
             $this->username() => 'required|string',
-            'password' => 'required|string',
+            'password'        => 'required|string',
         ];
 
         if ($this->hasTooManyLoginAttempts($request)) {

@@ -2,30 +2,30 @@
 
 return [
     'layout' => [
-        'hello' => 'Hola !',
-        'regards' => 'Saludos',
-        'trouble' => 'Si tiene problemas para hacer clic en botón :action, copie y pegue la siguiente URL en su navegador web :',
+        'hello'               => 'Hola !',
+        'regards'             => 'Saludos',
+        'trouble'             => 'Si tiene problemas para hacer clic en botón :action, copie y pegue la siguiente URL en su navegador web :',
         'all_rights_reserved' => 'Todos los derechos reservados.',
     ],
     'password_reset' => [
         'subject' => 'Restablecimiento de contraseña',
-        'intro' => 'Recibió este correo electrónico porque recibimos una solicitud de restablecimiento de contraseña para su cuenta.',
-        'action' => 'Restablecer la contraseña',
-        'outro' => 'Si no solicitó un restablecimiento de contraseña, no se requiere ninguna acción adicional.',
+        'intro'   => 'Recibió este correo electrónico porque recibimos una solicitud de restablecimiento de contraseña para su cuenta.',
+        'action'  => 'Restablecer la contraseña',
+        'outro'   => 'Si no solicitó un restablecimiento de contraseña, no se requiere ninguna acción adicional.',
     ],
     'email_confirmation' => [
         'subject' => 'Confirmación de correo electrónico',
-        'intro' => 'Se requiere confirmación por correo electrónico para activar su cuenta.',
-        'action' => 'Confirma mi correo',
-        'outro' => 'Su cuenta estará limitada hasta que su correo electrónico de confirmación no se confirme.',
+        'intro'   => 'Se requiere confirmación por correo electrónico para activar su cuenta.',
+        'action'  => 'Confirma mi correo',
+        'outro'   => 'Su cuenta estará limitada hasta que su correo electrónico de confirmación no se confirme.',
     ],
     'contact' => [
-        'subject' => 'Nuevo mensaje de contacto',
+        'subject'     => 'Nuevo mensaje de contacto',
         'new_contact' => 'Tienes un nuevo mensaje de contacto. Detalle de presentación :',
     ],
     'alert' => [
         'subject' => '[:app_name] Error de excepción',
         'message' => 'Tienes un error de excepción del servidor inesperado, que es el mensaje : :message.',
-        'trace' => 'Todos los detalles de rastreo :',
+        'trace'   => 'Todos los detalles de rastreo :',
     ],
 ];

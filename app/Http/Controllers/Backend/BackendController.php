@@ -23,7 +23,7 @@ class BackendController extends Controller
     {
         if ($request->wantsJson()) {
             return response()->json([
-                'status' => $type,
+                'status'  => $type,
                 'message' => $message,
             ]);
         }

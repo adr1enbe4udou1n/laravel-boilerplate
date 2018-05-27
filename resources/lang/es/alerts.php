@@ -3,12 +3,12 @@
 return [
     'backend' => [
         'users' => [
-            'created' => 'Usuario creado',
-            'updated' => 'Usuario actualizado',
-            'deleted' => 'Usuario eliminado',
+            'created'        => 'Usuario creado',
+            'updated'        => 'Usuario actualizado',
+            'deleted'        => 'Usuario eliminado',
             'bulk_destroyed' => 'Usuarios seleccionados eliminados',
-            'bulk_enabled' => 'Usuarios seleccionados habilitados',
-            'bulk_disabled' => 'Usuarios seleccionados deshabilitados',
+            'bulk_enabled'   => 'Usuarios seleccionados habilitados',
+            'bulk_disabled'  => 'Usuarios seleccionados deshabilitados',
         ],
 
         'roles' => [
@@ -18,14 +18,14 @@ return [
         ],
 
         'metas' => [
-            'created' => 'Meta creado',
-            'updated' => 'Meta actualizado',
-            'deleted' => 'Meta eliminado',
+            'created'        => 'Meta creado',
+            'updated'        => 'Meta actualizado',
+            'deleted'        => 'Meta eliminado',
             'bulk_destroyed' => 'Metas seleccionadas eliminadas',
         ],
 
         'form_submissions' => [
-            'deleted' => 'Solicitud eliminada',
+            'deleted'        => 'Solicitud eliminada',
             'bulk_destroyed' => 'Solicitudes seleccionadas eliminadas',
         ],
 
@@ -36,24 +36,24 @@ return [
         ],
 
         'redirections' => [
-            'created' => 'Redirección creada',
-            'updated' => 'Redirección actualizada',
-            'deleted' => 'Redirección eliminada',
+            'created'        => 'Redirección creada',
+            'updated'        => 'Redirección actualizada',
+            'deleted'        => 'Redirección eliminada',
             'bulk_destroyed' => 'Redirecciones seleccionadas eliminadas',
-            'bulk_enabled' => 'Redirecciones seleccionadas habilitadas',
-            'bulk_disabled' => 'Redirecciones seleccionadas deshabilitadas',
-            'file_imported' => 'Archivo importado con éxito',
+            'bulk_enabled'   => 'Redirecciones seleccionadas habilitadas',
+            'bulk_disabled'  => 'Redirecciones seleccionadas deshabilitadas',
+            'file_imported'  => 'Archivo importado con éxito',
         ],
 
         'posts' => [
-            'created' => 'Articulo creado',
-            'updated' => 'Articulo actualizado',
-            'deleted' => 'Articulo eliminado',
+            'created'        => 'Articulo creado',
+            'updated'        => 'Articulo actualizado',
+            'deleted'        => 'Articulo eliminado',
             'bulk_destroyed' => 'Artículos seleccionados eliminados',
             'bulk_published' => 'Artículos seleccionados publicados',
-            'bulk_pending' => 'Los artículos seleccionados esperan moderación',
-            'bulk_pinned' => 'Los artículos seleccionados fijadas',
-            'bulk_promoted' => 'Los artículos seleccionados promocionados',
+            'bulk_pending'   => 'Los artículos seleccionados esperan moderación',
+            'bulk_pinned'    => 'Los artículos seleccionados fijadas',
+            'bulk_promoted'  => 'Los artículos seleccionados promocionados',
         ],
 
         'actions' => [

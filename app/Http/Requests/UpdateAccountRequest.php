@@ -29,9 +29,9 @@ class UpdateAccountRequest extends FormRequest
         $request->headers->set('referer', route('user.account').'#edit');
 
         return [
-            'name' => 'required|max:191',
-            'email' => 'required|email|unique:users,email,'.auth()->id(),
-            'locale' => 'required',
+            'name'     => 'required|max:191',
+            'email'    => 'required|email|unique:users,email,'.auth()->id(),
+            'locale'   => 'required',
             'timezone' => 'required',
         ];
     }

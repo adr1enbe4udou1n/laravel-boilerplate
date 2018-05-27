@@ -104,8 +104,8 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
             }
 
             $user = $this->users->store([
-                'name' => $data->getName(),
-                'email' => $user_email,
+                'name'   => $data->getName(),
+                'email'  => $user_email,
                 'active' => true,
             ], true);
         }
@@ -113,7 +113,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
         // Save new provider if needed
         if (! $user->getProvider($provider)) {
             $user->providers()->save(new SocialLogin([
-                'provider' => $provider,
+                'provider'    => $provider,
                 'provider_id' => $data->getId(),
             ]));
         }
