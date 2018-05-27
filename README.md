@@ -119,8 +119,10 @@ Both frontend and backend have dedicated login pages.
 1. Install dependencies with `yarn`
 2. Launch `yarn dev` for compiling assets and start dev-server with HMR enabled (preferred way for fast admin building)
 
-> N1 : Use `yarn watch` if you prefer old school watcher  
-> N2 : If assets modified, don't forget to launch `yarn prod` before deploy on each production environment.
+> N1 : Use DEV_SERVER_PORT variable to configure local port of Webpack Dev Server,  
+> N2 : Use DEV_SERVER_URL to configure HTTP access to Webpack Dev Server from your host, especially useful if you work on homestead/docker),  
+> N3 : Use `yarn watch` if you prefer old school watcher,  
+> N4 : If assets modified, don't forget to launch `yarn prod` before deploy on production environment.
 
 ### Permissions definitions
 
