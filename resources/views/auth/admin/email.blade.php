@@ -2,25 +2,23 @@
 
 <!-- Main Content -->
 @section('body')
-    <div class="page">
-        <div class="page-single">
-            <div class="container">
-                <div class="row">
-                    <div class="col col-login mx-auto">
-                        <form class="card" action="{{ route('login') }}" method="post">
-                            @csrf
+    <div class="app flex-row align-items-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-4">
+                    <div class="card p-4">
+                        <div class="card-body">
+                            <form action="{{ route('login') }}" method="post">
+                                @csrf
 
-                            <div class="card-body p-6">
-                                <div class="card-title">@lang('labels.user.login')</div>
+                                <h1>@lang('labels.user.login')</h1>
                                 <div class="form-group">
-                                    <label class="form-label" for="email">@lang('validation.attributes.email')</label>
+                                    <label for="email">@lang('validation.attributes.email')</label>
                                     {{ Form::bsEmail('email', null, ['required', 'placeholder' => __('validation.attributes.email')]) }}
                                 </div>
-                                <div class="form-footer">
-                                    <button type="submit" class="btn btn-primary btn-block">@lang('labels.user.send_password_link')</button>
-                                </div>
-                            </div>
-                        </form>
+                                <button type="submit" class="btn btn-primary">@lang('labels.user.send_password_link')</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
