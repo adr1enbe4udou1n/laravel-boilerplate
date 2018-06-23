@@ -19,19 +19,7 @@ export default (app, i18n, newPostsCount, pendingPostsCount) => {
       name: i18n.t('labels.backend.posts.titles.main'),
       url: '/posts',
       icon: 'fe fe-book',
-      access: app.blogEnabled && app.user.can('view own posts'),
-      badges: [
-        {
-          name: i18n.t('labels.backend.dashboard.new_posts'),
-          variant: 'danger',
-          text: newPostsCount
-        },
-        {
-          name: i18n.t('labels.backend.dashboard.pending_posts'),
-          variant: 'warning',
-          text: pendingPostsCount
-        }
-      ]
+      access: app.blogEnabled && app.user.can('view own posts')
     },
     {
       divider: true,

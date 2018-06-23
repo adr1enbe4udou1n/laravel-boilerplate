@@ -37,7 +37,7 @@ export function createRouter (base, i18n) {
         name: 'home',
         component: Full,
         meta: {
-          title: i18n.t('labels.frontend.titles.administration')
+          label: i18n.t('labels.frontend.titles.administration')
         },
         children: [
           {
@@ -45,7 +45,7 @@ export function createRouter (base, i18n) {
             name: 'search',
             component: Search,
             meta: {
-              title: i18n.t('labels.search')
+              label: i18n.t('labels.search')
             }
           },
           {
@@ -53,7 +53,7 @@ export function createRouter (base, i18n) {
             name: 'dashboard',
             component: Dashboard,
             meta: {
-              title: i18n.t('labels.backend.titles.dashboard')
+              label: i18n.t('labels.backend.titles.dashboard')
             }
           },
           {
@@ -64,7 +64,7 @@ export function createRouter (base, i18n) {
               }
             },
             meta: {
-              title: i18n.t('labels.backend.posts.titles.main')
+              label: i18n.t('labels.backend.posts.titles.main')
             },
             children: [
               {
@@ -72,7 +72,7 @@ export function createRouter (base, i18n) {
                 name: 'posts',
                 component: PostList,
                 meta: {
-                  title: i18n.t('labels.backend.posts.titles.index')
+                  label: i18n.t('labels.backend.posts.titles.index')
                 }
               },
               {
@@ -80,7 +80,7 @@ export function createRouter (base, i18n) {
                 name: 'posts_create',
                 component: PostForm,
                 meta: {
-                  title: i18n.t('labels.backend.posts.titles.create')
+                  label: i18n.t('labels.backend.posts.titles.create')
                 }
               },
               {
@@ -89,7 +89,7 @@ export function createRouter (base, i18n) {
                 component: PostForm,
                 props: true,
                 meta: {
-                  title: i18n.t('labels.backend.posts.titles.edit')
+                  label: i18n.t('labels.backend.posts.titles.edit')
                 }
               }
             ]
@@ -102,7 +102,7 @@ export function createRouter (base, i18n) {
               }
             },
             meta: {
-              title: i18n.t('labels.backend.form_submissions.titles.main')
+              label: i18n.t('labels.backend.form_submissions.titles.main')
             },
             children: [
               {
@@ -110,7 +110,7 @@ export function createRouter (base, i18n) {
                 name: 'form_submissions',
                 component: FormSubmissionList,
                 meta: {
-                  title: i18n.t('labels.backend.form_submissions.titles.index')
+                  label: i18n.t('labels.backend.form_submissions.titles.index')
                 }
               },
               {
@@ -119,7 +119,7 @@ export function createRouter (base, i18n) {
                 component: FormSubmissionShow,
                 props: true,
                 meta: {
-                  title: i18n.t('labels.backend.form_submissions.titles.show')
+                  label: i18n.t('labels.backend.form_submissions.titles.show')
                 }
               }
             ]
@@ -132,7 +132,7 @@ export function createRouter (base, i18n) {
               }
             },
             meta: {
-              title: i18n.t('labels.backend.form_settings.titles.main')
+              label: i18n.t('labels.backend.form_settings.titles.main')
             },
             children: [
               {
@@ -140,7 +140,7 @@ export function createRouter (base, i18n) {
                 name: 'form_settings',
                 component: FormSettingList,
                 meta: {
-                  title: i18n.t('labels.backend.form_settings.titles.index')
+                  label: i18n.t('labels.backend.form_settings.titles.index')
                 }
               },
               {
@@ -148,7 +148,7 @@ export function createRouter (base, i18n) {
                 name: 'form_settings_create',
                 component: FormSettingForm,
                 meta: {
-                  title: i18n.t('labels.backend.form_settings.titles.create')
+                  label: i18n.t('labels.backend.form_settings.titles.create')
                 }
               },
               {
@@ -157,7 +157,7 @@ export function createRouter (base, i18n) {
                 component: FormSettingForm,
                 props: true,
                 meta: {
-                  title: i18n.t('labels.backend.form_settings.titles.edit')
+                  label: i18n.t('labels.backend.form_settings.titles.edit')
                 }
               }
             ]
@@ -170,7 +170,7 @@ export function createRouter (base, i18n) {
               }
             },
             meta: {
-              title: i18n.t('labels.backend.users.titles.main')
+              label: i18n.t('labels.backend.users.titles.main')
             },
             children: [
               {
@@ -178,7 +178,7 @@ export function createRouter (base, i18n) {
                 name: 'users',
                 component: UserList,
                 meta: {
-                  title: i18n.t('labels.backend.users.titles.index')
+                  label: i18n.t('labels.backend.users.titles.index')
                 }
               },
               {
@@ -186,7 +186,7 @@ export function createRouter (base, i18n) {
                 name: 'users_create',
                 component: UserForm,
                 meta: {
-                  title: i18n.t('labels.backend.users.titles.create')
+                  label: i18n.t('labels.backend.users.titles.create')
                 }
               },
               {
@@ -195,7 +195,7 @@ export function createRouter (base, i18n) {
                 component: UserForm,
                 props: true,
                 meta: {
-                  title: i18n.t('labels.backend.users.titles.edit')
+                  label: i18n.t('labels.backend.users.titles.edit')
                 }
               }
             ]
@@ -208,7 +208,7 @@ export function createRouter (base, i18n) {
               }
             },
             meta: {
-              title: i18n.t('labels.backend.roles.titles.main')
+              label: i18n.t('labels.backend.roles.titles.main')
             },
             children: [
               {
@@ -216,7 +216,7 @@ export function createRouter (base, i18n) {
                 name: 'roles',
                 component: RoleList,
                 meta: {
-                  title: i18n.t('labels.backend.roles.titles.index')
+                  label: i18n.t('labels.backend.roles.titles.index')
                 }
               },
               {
@@ -224,7 +224,7 @@ export function createRouter (base, i18n) {
                 name: 'roles_create',
                 component: RoleForm,
                 meta: {
-                  title: i18n.t('labels.backend.roles.titles.create')
+                  label: i18n.t('labels.backend.roles.titles.create')
                 }
               },
               {
@@ -233,7 +233,7 @@ export function createRouter (base, i18n) {
                 component: RoleForm,
                 props: true,
                 meta: {
-                  title: i18n.t('labels.backend.roles.titles.edit')
+                  label: i18n.t('labels.backend.roles.titles.edit')
                 }
               }
             ]
@@ -246,7 +246,7 @@ export function createRouter (base, i18n) {
               }
             },
             meta: {
-              title: i18n.t('labels.backend.metas.titles.main')
+              label: i18n.t('labels.backend.metas.titles.main')
             },
             children: [
               {
@@ -254,7 +254,7 @@ export function createRouter (base, i18n) {
                 name: 'metas',
                 component: MetaList,
                 meta: {
-                  title: i18n.t('labels.backend.metas.titles.index')
+                  label: i18n.t('labels.backend.metas.titles.index')
                 }
               },
               {
@@ -262,7 +262,7 @@ export function createRouter (base, i18n) {
                 name: 'metas_create',
                 component: MetaForm,
                 meta: {
-                  title: i18n.t('labels.backend.metas.titles.create')
+                  label: i18n.t('labels.backend.metas.titles.create')
                 }
               },
               {
@@ -271,7 +271,7 @@ export function createRouter (base, i18n) {
                 component: MetaForm,
                 props: true,
                 meta: {
-                  title: i18n.t('labels.backend.metas.titles.edit')
+                  label: i18n.t('labels.backend.metas.titles.edit')
                 }
               }
             ]
@@ -284,7 +284,7 @@ export function createRouter (base, i18n) {
               }
             },
             meta: {
-              title: i18n.t('labels.backend.redirections.titles.main')
+              label: i18n.t('labels.backend.redirections.titles.main')
             },
             children: [
               {
@@ -292,7 +292,7 @@ export function createRouter (base, i18n) {
                 name: 'redirections',
                 component: RedirectionList,
                 meta: {
-                  title: i18n.t('labels.backend.redirections.titles.index')
+                  label: i18n.t('labels.backend.redirections.titles.index')
                 }
               },
               {
@@ -300,7 +300,7 @@ export function createRouter (base, i18n) {
                 name: 'redirections_create',
                 component: RedirectionForm,
                 meta: {
-                  title: i18n.t('labels.backend.redirections.titles.create')
+                  label: i18n.t('labels.backend.redirections.titles.create')
                 }
               },
               {
@@ -309,7 +309,7 @@ export function createRouter (base, i18n) {
                 component: RedirectionForm,
                 props: true,
                 meta: {
-                  title: i18n.t('labels.backend.redirections.titles.edit')
+                  label: i18n.t('labels.backend.redirections.titles.edit')
                 }
               }
             ]

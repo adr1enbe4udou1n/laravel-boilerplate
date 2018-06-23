@@ -23,9 +23,7 @@
       <b-col md="4">
         <form class="form-inline" @submit.prevent="onBulkAction" v-if="actions">
           <div class="form-group form-group-sm">
-            <select name="action" class="form-control mr-1" v-model="action">
-              <option v-for="(action, value) in actions" :key="value" :value="value">{{ action }}</option>
-            </select>
+            <b-form-select :options="actions" v-model="action" class="mr-1"></b-form-select>
             <b-button type="submit" variant="danger">{{ $t('labels.validate') }}</b-button>
           </div>
         </form>

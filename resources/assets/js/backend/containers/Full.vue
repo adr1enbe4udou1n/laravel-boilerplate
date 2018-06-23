@@ -2,7 +2,14 @@
   <div class="app">
     <AppHeader></AppHeader>
     <div class="app-body">
-      <Sidebar :nav-items="nav"></Sidebar>
+      <Sidebar fixed>
+        <div class="sidebar-header">
+          <i class="fe fe-user"></i>&nbsp;&nbsp;{{ $app.user.name }}
+        </div>
+        <SidebarNav :nav-items="nav"></SidebarNav>
+        <SidebarFooter></SidebarFooter>
+        <SidebarMinimizer></SidebarMinimizer>
+      </Sidebar>
       <main class="main">
         <b-alert variant="warning" class="alert-top mb-0" :show="$app.isImpersonation">
           <span v-html="$t('labels.alerts.login_as', {'name': $app.user.name, 'route': $app.route('admin.logout'), 'admin': $app.usurperName})"></span>
@@ -11,13 +18,11 @@
           <span v-html="$t('labels.alerts.not_confirmed', {'route': $app.route('user.confirmation.send') })"></span>
         </b-alert>
         <breadcrumb :list="$route.matched"></breadcrumb>
-        <b-container fluid>
-          <transition name="fade">
-            <router-view :key="$route.name"></router-view>
-          </transition>
-        </b-container>
+        <div class="container-fluid">
+          <router-view :key="$route.name"></router-view>
+        </div>
       </main>
-      <AppAside></AppAside>
+      <Aside fixed></Aside>
     </div>
     <AppFooter :name="$app.appName" :editor-name="$app.editorName"
                :editor-site-url="$app.editorSiteUrl"></AppFooter>
@@ -27,20 +32,14 @@
 <script>
 import nav from '../_nav'
 
-import AppAside from '../components/Aside'
-import Breadcrumb from '../components/Breadcrumb'
 import AppFooter from '../components/Footer'
 import AppHeader from '../components/Header'
-import Sidebar from '../components/Sidebar/Sidebar'
 
 export default {
   name: 'Full',
   components: {
     AppHeader,
-    Sidebar,
-    AppAside,
-    AppFooter,
-    Breadcrumb
+    AppFooter
   },
   data () {
     return {

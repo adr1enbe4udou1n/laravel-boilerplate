@@ -1,35 +1,45 @@
 <template>
-
-  <div>
-    <div class="tags mb-1" v-if="mutableValue.length">
-      <div class="tag" v-for="(item, index) in mutableValue" :key="index">
-        {{ item }} <a href="#" class="tag-addon" @click.prevent="onDelete(item)"><i class="fe fe-x"></i></a>
-      </div>
-    </div>
-    <div class="input-wrapper position-relative">
+  <div :class="['custom-multiselect', stateClass]">
+    <div class="input-wrapper position-relative"
+         :class="{ 'dropup': openDirection === 'up', 'dropright': openDirection === 'right', 'dropleft': openDirection === 'left' }">
       <input type="text"
-             class="form-control"
              :id="id"
              :name="name"
+             :class="['form-control', stateClass]"
              :placeholder="placeholder"
-             v-model="input"
-             @keyup.enter="onAdd(input)">
-      <div class="dropdown-menu d-block" v-if="results.length">
-        <a href="#" class="dropdown-item" v-for="(item, index) in results" :key="index" @click.prevent="onAdd(item)">{{ item }}</a>
+             v-model="search"
+             autocomplete="off"
+             @focus="showOptions = true"
+             @keydown.enter.prevent="onAddNew()">
+      <div class="dropdown-menu d-block" v-if="showOptions && options.length">
+        <a href="#" class="dropdown-item" v-for="(item, index) in options" :key="index" @click.prevent="onAdd(item)">
+          {{ label ? item[label] : item }}
+        </a>
+      </div>
+    </div>
+    <div class="tags mt-2" v-if="multiple && mutableValue.length">
+      <div class="tag" v-for="(item, index) in mutableValue" :key="index">
+        {{ label ? item[label] : item }} <a href="#" class="tag-addon" @click.prevent="onDelete(item)"><span aria-hidden="true">&times;</span></a>
       </div>
     </div>
   </div>
-
 </template>
 
 <script>
+import formStateMixin from 'bootstrap-vue/src/mixins/form-state'
+
 export default {
+  mixins: [formStateMixin],
   props: {
     value: {
-      type: Array,
+      type: null,
       default: () => []
     },
-    placeholder: {
+    options: {
+      type: Array,
+      required: true
+    },
+    id: {
       type: String,
       default: null
     },
@@ -37,58 +47,95 @@ export default {
       type: String,
       default: null
     },
-    id: {
+    placeholder: {
       type: String,
       default: null
     },
-    minSearchLength: {
-      type: Number,
-      default: 3
+    label: {
+      type: String,
+      default: null
     },
-    onSearch: {
-      type: Function,
-      default: () => []
+    trackBy: {
+      type: String,
+      default: null
+    },
+    multiple: {
+      type: Boolean,
+      default: false
+    },
+    tags: {
+      type: Boolean,
+      default: false
+    },
+    openDirection: {
+      type: String,
+      default: null
     }
   },
   data () {
     return {
       mutableValue: this.value,
-      results: [],
-      input: ''
+      showOptions: false,
+      search: this.getSearchValue(this.value)
     }
   },
   watch: {
     mutableValue (newValue) {
       this.$emit('input', newValue)
+
+      this.search = this.getSearchValue(newValue)
     },
     value (newValue) {
       this.mutableValue = newValue
     },
-    async input (newValue) {
-      this.results = []
-      if (newValue.length >= this.minSearchLength) {
-        this.results = await this.onSearch(newValue)
+    search () {
+      if (this.search === '' && !this.multiple) {
+        this.mutableValue = null
+      }
+
+      if (this.search !== '') {
+        this.$emit('search-change', this.search, this.id)
       }
     }
   },
+  mounted () {
+    document.addEventListener('click', (e) => {
+      if (this.$el.contains(e.target)) return
+
+      this.showOptions = false
+    })
+  },
   methods: {
+    getSearchValue (newValue) {
+      return this.multiple ? '' : this.label && newValue ? newValue[this.label] : newValue
+    },
     onDelete (item) {
       this.mutableValue = this.mutableValue.filter((i) => {
-        return i !== item
+        return this.trackBy ? i[this.trackBy] !== item[this.trackBy] : i !== item
       })
     },
+    onAddNew () {
+      if (this.tags) {
+        this.onAdd(this.search)
+      }
+    },
     onAdd (item) {
-      let existingItem = this.mutableValue.filter((i) => {
-        return i === item
-      })
-      if (!existingItem.length) {
-        this.mutableValue.push(item)
+      if (this.multiple) {
+        let existingItem = this.mutableValue.filter((i) => {
+          return this.trackBy ? i[this.trackBy] === item[this.trackBy] : i === item
+        })
+
+        if (!existingItem.length) {
+          this.mutableValue.push(item)
+        }
+      } else {
+        this.mutableValue = item
       }
       this.clearInput()
     },
     clearInput () {
-      this.input = ''
-      this.results = []
+      this.search = ''
+      this.showOptions = false
     }
   }
 }

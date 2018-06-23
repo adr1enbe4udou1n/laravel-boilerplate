@@ -1,13 +1,20 @@
 
-// Variables
+// Tabler bootstrap variables
+@import "../../vendor/tabler/scss/variables";
+
+// Custom Variables
 @import "variables";
 
-// Tabler Theme
-@import "../../vendor/tabler/scss/bundle";
+// Thème CoreUI
+@import "~@coreui/coreui/scss/coreui";
 @import "~bootstrap-vue/dist/bootstrap-vue.css";
 
-// Admin Panel Layout
-@import "base/main";
+// Tabler components
+@import "../../vendor/tabler/scss/dashboard/functions";
+@import "../../vendor/tabler/scss/dashboard/cards";
+@import "../../vendor/tabler/scss/dashboard/tag";
+@import "../../vendor/tabler/scss/dashboard/forms/custom-switch";
+@import "../../vendor/tabler/scss/dashboard/fonts/feather";
 
 // Plugins
 @import "~noty/src/noty";

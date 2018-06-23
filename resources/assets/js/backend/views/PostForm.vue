@@ -61,8 +61,11 @@
                 id="tags"
                 name="tags"
                 v-model="model.tags"
-                :on-search="getTags"
                 :placeholder="$t('labels.placeholders.tags')"
+                :options="tags"
+                :multiple="true"
+                :tags="true"
+                @search-change="getTags"
               >
               </v-select>
             </b-form-group>
@@ -291,6 +294,7 @@ export default {
       modelName: 'post',
       resourceRoute: 'posts',
       listPath: '/posts',
+      tags: [],
       model: {
         title: null,
         summary: null,
@@ -324,7 +328,7 @@ export default {
         }
       })
 
-      return data.items
+      this.tags = data.items
     },
     deleteFeaturedImage () {
       this.$refs.featuredImageInput.reset()

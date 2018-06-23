@@ -8,6 +8,7 @@ import 'babel-polyfill'
 import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.esm'
 
 // Vendor plugins components
+import '../../vendor/coreui/components'
 import DataTable from './components/Plugins/DataTable'
 import RichTextEditor from './components/Plugins/RichTextEditor'
 import DateTimePicker from './components/Plugins/DateTimePicker'
@@ -154,7 +155,7 @@ export function createApp () {
   }
 
   router.beforeEach((to, from, next) => {
-    document.title = `${to.meta.title} | ${window.settings.appName}`
+    document.title = `${to.meta.label} | ${window.settings.appName}`
     next()
   })
 
