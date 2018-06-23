@@ -6,6 +6,7 @@ use Exception;
 use App\Mail\ExceptionOccurred;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Auth\AuthenticationException;
+use Shirshak\Core\Exceptions\GeneralException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -16,6 +17,7 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
+        GeneralException::class,
     ];
 
     /**
