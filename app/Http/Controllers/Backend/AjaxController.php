@@ -67,22 +67,12 @@ class AjaxController extends Controller
      */
     public function routesSearch(Request $request)
     {
-        $query = $request->get('q');
-
         $items = [];
 
         $routes = __('routes');
 
         foreach ($routes as $name => $uri) {
-            /* @var Route $route */
-            if (str_contains($name, $query)
-                || str_contains($uri, $query)
-            ) {
-                $items[] = [
-                  'value' => $name,
-                  'label' => $uri,
-                ];
-            }
+            $items[$name] = $uri;
         }
 
         return [

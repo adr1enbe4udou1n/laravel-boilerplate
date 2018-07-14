@@ -23,14 +23,16 @@
                 :feedback="feedback('route')"
                 :state="state('route')"
               >
-                <v-select
+                <b-form-select
                   id="route"
                   name="route"
-                  :options="routes"
                   v-model="model.route"
-                  :placeholder="$t('labels.placeholders.route')"
-                  :on-search="getRoutes"
-                ></v-select>
+                  :options="routes"
+                >
+                  <template slot="first">
+                    <option :value="null">-- {{ $t('labels.placeholders.route') }} --</option>
+                  </template>
+                </b-form-select>
               </b-form-group>
             </template>
 
@@ -110,13 +112,12 @@ export default {
       }
     }
   },
+  created () {
+    this.fetchRoutes()
+  },
   methods: {
-    async getRoutes (search) {
-      let {data} = await axios.get(this.$app.route('admin.routes.search'), {
-        params: {
-          q: search
-        }
-      })
+    async fetchRoutes () {
+      let {data} = await axios.get(this.$app.route('admin.routes.search'))
       this.routes = data.items
     }
   }

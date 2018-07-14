@@ -10,7 +10,8 @@
              v-model="search"
              autocomplete="off"
              @focus="showOptions = true"
-             @keydown.enter.prevent="onAddNew()">
+             @keydown.enter.prevent="onAddNew()"
+             @input="onSearch">
       <div class="dropdown-menu d-block" v-if="showOptions && options.length">
         <a href="#" class="dropdown-item" v-for="(item, index) in options" :key="index" @click.prevent="onAdd(item)">
           {{ label ? item[label] : item }}
@@ -92,10 +93,6 @@ export default {
       if (this.search === '' && !this.multiple) {
         this.mutableValue = null
       }
-
-      if (this.search !== '') {
-        this.$emit('search-change', this.search, this.id)
-      }
     }
   },
   mounted () {
@@ -106,8 +103,13 @@ export default {
     })
   },
   methods: {
+    onSearch () {
+      if (this.search !== '') {
+        this.$emit('search-change', this.search, this.id)
+      }
+    },
     getSearchValue (newValue) {
-      return this.multiple ? '' : this.label && newValue ? newValue[this.label] : newValue
+      return this.multiple ? '' : (this.label && newValue ? newValue[this.label] : newValue) || ''
     },
     onDelete (item) {
       this.mutableValue = this.mutableValue.filter((i) => {
