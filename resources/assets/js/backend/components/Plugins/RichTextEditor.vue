@@ -66,6 +66,7 @@ export default {
             }
           })
         } catch (e) {
+          throw e
         }
 
         if (this.editor) {
