@@ -159,7 +159,7 @@ return [
 
         'users' => [
             'titles' => [
-                'main'   => 'User management',
+                'main'   => 'User',
                 'index'  => 'User list',
                 'create' => 'User creation',
                 'edit'   => 'User modification',
@@ -174,7 +174,7 @@ return [
 
         'roles' => [
             'titles' => [
-                'main'   => 'Role management',
+                'main'   => 'Role',
                 'index'  => 'Role list',
                 'create' => 'Role creation',
                 'edit'   => 'Role modification',
@@ -183,7 +183,7 @@ return [
 
         'metas' => [
             'titles' => [
-                'main'   => 'Meta management',
+                'main'   => 'Meta',
                 'index'  => 'Meta list',
                 'create' => 'Meta creation',
                 'edit'   => 'Meta modification',
@@ -196,7 +196,7 @@ return [
 
         'form_submissions' => [
             'titles' => [
-                'main'  => 'Submission management',
+                'main'  => 'Submission',
                 'index' => 'Submission list',
                 'show'  => 'Submission detail',
             ],
@@ -208,7 +208,7 @@ return [
 
         'form_settings' => [
             'titles' => [
-                'main'   => 'Form setting',
+                'main'   => 'Forms',
                 'index'  => 'Form setting list',
                 'create' => 'Form setting creation',
                 'edit'   => 'Form setting modification',
@@ -222,7 +222,7 @@ return [
 
         'redirections' => [
             'titles' => [
-                'main'   => 'Redirection management',
+                'main'   => 'Redirection',
                 'index'  => 'Redirection list',
                 'create' => 'Redirection creation',
                 'edit'   => 'Redirection modification',
@@ -254,7 +254,7 @@ return [
             ],
 
             'titles' => [
-                'main'        => 'Post management',
+                'main'        => 'Posts',
                 'index'       => 'Post list',
                 'create'      => 'Create post',
                 'edit'        => 'Edit post',

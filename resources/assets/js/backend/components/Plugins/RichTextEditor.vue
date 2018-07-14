@@ -35,39 +35,35 @@ export default {
   methods: {
     async createInstance () {
       if (!this.editor) {
-        try {
-          this.editor = await window.ClassicEditor.create(this.$refs.editorEl, {
+        this.editor = await window.ClassicEditor.create(this.$refs.editorEl, {
+          toolbar: [
+            'heading',
+            'bold',
+            'italic',
+            'link',
+            'bulletedList',
+            'numberedList',
+            'imageUpload',
+            'blockQuote',
+            'undo',
+            'redo'],
+          image: {
             toolbar: [
-              'heading',
-              'bold',
-              'italic',
-              'link',
-              'bulletedList',
-              'numberedList',
-              'imageUpload',
-              'blockQuote',
-              'undo',
-              'redo'],
-            image: {
-              toolbar: [
-                'imageTextAlternative',
-                '|',
-                'imageStyle:alignLeft',
-                'imageStyle:full',
-                'imageStyle:alignRight'],
-              styles: [
-                'full',
-                'alignLeft',
-                'alignRight'
-              ]
-            },
-            ckfinder: {
-              uploadUrl: this.$app.route('admin.images.upload')
-            }
-          })
-        } catch (e) {
-          throw e
-        }
+              'imageTextAlternative',
+              '|',
+              'imageStyle:alignLeft',
+              'imageStyle:full',
+              'imageStyle:alignRight'],
+            styles: [
+              'full',
+              'alignLeft',
+              'alignRight'
+            ]
+          },
+          ckfinder: {
+            uploadUrl: this.$app.route('admin.images.upload')
+          }
+        })
 
         if (this.editor) {
           this.editor.model.document.on('change', () => {

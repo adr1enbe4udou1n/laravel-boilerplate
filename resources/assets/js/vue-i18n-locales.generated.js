@@ -1096,7 +1096,7 @@ export default {
                 },
                 "users": {
                     "titles": {
-                        "main": "User management",
+                        "main": "User",
                         "index": "User list",
                         "create": "User creation",
                         "edit": "User modification"
@@ -1109,7 +1109,7 @@ export default {
                 },
                 "roles": {
                     "titles": {
-                        "main": "Role management",
+                        "main": "Role",
                         "index": "Role list",
                         "create": "Role creation",
                         "edit": "Role modification"
@@ -1117,7 +1117,7 @@ export default {
                 },
                 "metas": {
                     "titles": {
-                        "main": "Meta management",
+                        "main": "Meta",
                         "index": "Meta list",
                         "create": "Meta creation",
                         "edit": "Meta modification"
@@ -1128,7 +1128,7 @@ export default {
                 },
                 "form_submissions": {
                     "titles": {
-                        "main": "Submission management",
+                        "main": "Submission",
                         "index": "Submission list",
                         "show": "Submission detail"
                     },
@@ -1138,7 +1138,7 @@ export default {
                 },
                 "form_settings": {
                     "titles": {
-                        "main": "Form setting",
+                        "main": "Forms",
                         "index": "Form setting list",
                         "create": "Form setting creation",
                         "edit": "Form setting modification"
@@ -1150,7 +1150,7 @@ export default {
                 },
                 "redirections": {
                     "titles": {
-                        "main": "Redirection management",
+                        "main": "Redirection",
                         "index": "Redirection list",
                         "create": "Redirection creation",
                         "edit": "Redirection modification"
@@ -1177,7 +1177,7 @@ export default {
                         "published": "Published"
                     },
                     "titles": {
-                        "main": "Post management",
+                        "main": "Posts",
                         "index": "Post list",
                         "create": "Create post",
                         "edit": "Edit post",
@@ -2683,7 +2683,7 @@ export default {
                 },
                 "users": {
                     "titles": {
-                        "main": "Gestion des utilisateurs",
+                        "main": "Utilisateurs",
                         "index": "Liste des utilisateurs",
                         "create": "Créer un utilisateur",
                         "edit": "Editer un utilisateur"
@@ -2696,7 +2696,7 @@ export default {
                 },
                 "roles": {
                     "titles": {
-                        "main": "Gestion des rôles",
+                        "main": "Rôles",
                         "index": "Liste des rôles",
                         "create": "Créer un rôle",
                         "edit": "Editer un rôle"
@@ -2704,7 +2704,7 @@ export default {
                 },
                 "metas": {
                     "titles": {
-                        "main": "Gestion des metas",
+                        "main": "Metas",
                         "index": "Liste des metas",
                         "create": "Créer une meta",
                         "edit": "Editer une meta"
@@ -2715,7 +2715,7 @@ export default {
                 },
                 "form_submissions": {
                     "titles": {
-                        "main": "Gestion des soumissions",
+                        "main": "Soumissions",
                         "index": "Liste des soumissions",
                         "show": "Détail de la soumission"
                     },
@@ -2725,7 +2725,7 @@ export default {
                 },
                 "form_settings": {
                     "titles": {
-                        "main": "Paramètres de formulaire",
+                        "main": "Formulaires",
                         "index": "Liste des paramètres de formulaire",
                         "create": "Création d'un paramètre de formulaire",
                         "edit": "Edition d'un paramètre de formulaire"
@@ -2737,7 +2737,7 @@ export default {
                 },
                 "redirections": {
                     "titles": {
-                        "main": "Gestion des redirections",
+                        "main": "Redirections",
                         "index": "Liste des redirections",
                         "create": "Création d'une redirection",
                         "edit": "Modification d'une redirection"
@@ -2764,7 +2764,7 @@ export default {
                         "published": "Publié"
                     },
                     "titles": {
-                        "main": "Gestion des articles",
+                        "main": "Articles",
                         "index": "Liste des articles",
                         "create": "Créer un article",
                         "edit": "Editer un article",

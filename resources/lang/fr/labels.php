@@ -158,7 +158,7 @@ return [
 
         'users' => [
             'titles' => [
-                'main'   => 'Gestion des utilisateurs',
+                'main'   => 'Utilisateurs',
                 'index'  => 'Liste des utilisateurs',
                 'create' => 'Créer un utilisateur',
                 'edit'   => 'Editer un utilisateur',
@@ -173,7 +173,7 @@ return [
 
         'roles' => [
             'titles' => [
-                'main'   => 'Gestion des rôles',
+                'main'   => 'Rôles',
                 'index'  => 'Liste des rôles',
                 'create' => 'Créer un rôle',
                 'edit'   => 'Editer un rôle',
@@ -182,7 +182,7 @@ return [
 
         'metas' => [
             'titles' => [
-                'main'   => 'Gestion des metas',
+                'main'   => 'Metas',
                 'index'  => 'Liste des metas',
                 'create' => 'Créer une meta',
                 'edit'   => 'Editer une meta',
@@ -195,7 +195,7 @@ return [
 
         'form_submissions' => [
             'titles' => [
-                'main'  => 'Gestion des soumissions',
+                'main'  => 'Soumissions',
                 'index' => 'Liste des soumissions',
                 'show'  => 'Détail de la soumission',
             ],
@@ -207,7 +207,7 @@ return [
 
         'form_settings' => [
             'titles' => [
-                'main'   => 'Paramètres de formulaire',
+                'main'   => 'Formulaires',
                 'index'  => 'Liste des paramètres de formulaire',
                 'create' => 'Création d\'un paramètre de formulaire',
                 'edit'   => 'Edition d\'un paramètre de formulaire',
@@ -221,7 +221,7 @@ return [
 
         'redirections' => [
             'titles' => [
-                'main'   => 'Gestion des redirections',
+                'main'   => 'Redirections',
                 'index'  => 'Liste des redirections',
                 'create' => 'Création d\'une redirection',
                 'edit'   => 'Modification d\'une redirection',
@@ -253,7 +253,7 @@ return [
             ],
 
             'titles' => [
-                'main'        => 'Gestion des articles',
+                'main'        => 'Articles',
                 'index'       => 'Liste des articles',
                 'create'      => 'Créer un article',
                 'edit'        => 'Editer un article',
