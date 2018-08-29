@@ -6,6 +6,7 @@
         <div class="sidebar-header">
           <i class="fe fe-user"></i>&nbsp;&nbsp;{{ $app.user.name }}
         </div>
+        <AppSearch></AppSearch>
         <SidebarNav :nav-items="nav"></SidebarNav>
         <SidebarFooter></SidebarFooter>
         <SidebarMinimizer></SidebarMinimizer>
@@ -35,12 +36,14 @@ import nav from '../_nav'
 
 import AppFooter from '../components/Footer'
 import AppHeader from '../components/Header'
+import AppSearch from '../components/Search'
 
 export default {
   name: 'Full',
   components: {
     AppHeader,
-    AppFooter
+    AppFooter,
+    AppSearch
   },
   data () {
     return {

@@ -16,6 +16,6 @@ return [
     'throttle' => 'Trop de tentatives de connexion. Veuillez essayer de nouveau dans :seconds secondes.',
 
     'socialite'     => [
-        'unacceptable' => 'Le login :provider est de type incorrect.',
+        'unacceptable' => ':provider n\'est pas accepté.',
     ],
 ];
