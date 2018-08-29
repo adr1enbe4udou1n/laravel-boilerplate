@@ -7,7 +7,8 @@
                    search-route="admin.form_submissions.search"
                    delete-route="admin.form_submissions.destroy"
                    action-route="admin.form_submissions.batch_action" :actions="actions"
-                   @bulk-action-success="onBulkActionSuccess">
+                   @bulk-action-success="onBulkActionSuccess"
+      >
         <b-table ref="datatable"
                  striped
                  bordered

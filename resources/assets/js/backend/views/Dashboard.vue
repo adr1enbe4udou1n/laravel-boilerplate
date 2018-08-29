@@ -42,7 +42,8 @@
         <b-card>
           <h3 class="card-title" slot="header">{{ $t('labels.backend.dashboard.last_posts') }}</h3>
           <b-table striped bordered hover show-empty :fields="post_fields" :items="posts"
-                   :empty-text="$t('labels.no_results')">
+                   :empty-text="$t('labels.no_results')"
+          >
             <template slot="title" slot-scope="row">
               <router-link :to="`/posts/${row.item.id}/edit`">
                 {{ row.value }}
@@ -73,18 +74,18 @@ export default {
   data () {
     return {
       post_fields: {
-        title: {label: this.$t('validation.attributes.title')},
-        status: {label: this.$t('validation.attributes.status')},
-        pinned: {label: this.$t('validation.attributes.pinned')},
-        summary: {label: this.$t('validation.attributes.summary')},
-        published_at: {label: this.$t('validation.attributes.published_at'), 'class': 'text-center'}
+        title: { label: this.$t('validation.attributes.title') },
+        status: { label: this.$t('validation.attributes.status') },
+        pinned: { label: this.$t('validation.attributes.pinned') },
+        summary: { label: this.$t('validation.attributes.summary') },
+        published_at: { label: this.$t('validation.attributes.published_at'), 'class': 'text-center' }
       },
       posts: []
     }
   },
   async created () {
     if (this.$app.user.can('view own posts')) {
-      let {data} = await axios.get(this.$app.route('admin.posts.latest'))
+      let { data } = await axios.get(this.$app.route('admin.posts.latest'))
       this.posts = data
     }
   }

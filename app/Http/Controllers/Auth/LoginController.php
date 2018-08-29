@@ -32,6 +32,15 @@ class LoginController extends Controller
 
     protected $decayMinutes = 10;
 
+    protected $supportedProviders = [
+        'bitbucket',
+        'facebook',
+        'google',
+        'github',
+        'linkedin',
+        'twitter',
+    ];
+
     /**
      * @var \App\Repositories\Contracts\AccountRepository
      */
@@ -103,7 +112,7 @@ class LoginController extends Controller
                 $route = route('social.login', $name);
                 $icon = ucfirst($name);
 
-                $socialiteLinks[] = "<a href=\"{$route}\" class=\"btn btn-default btn-{$name}\"><i class=\"fab fa-{$name} fa-lg\"></i> {$icon}</a>";
+                $socialiteLinks[] = "<a href=\"{$route}\" class=\"btn btn-default btn-{$name}\"><font-awesome-icon :icon=\"['fab', '{$name}']\" size=\"2x\"></font-awesome-icon> {$icon}</a>";
             }
         }
 
@@ -207,9 +216,15 @@ class LoginController extends Controller
     /**
      * @param                          $provider
      * @param \Illuminate\Http\Request $request
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function redirectToProvider($provider, Request $request)
     {
+        if (! \in_array($provider, $this->supportedProviders, true)) {
+            return redirect()->route(home_route())->withFlashError(__('auth.socialite.unacceptable', ['provider' => $provider]));
+        }
+
         return Socialite::driver($provider)->redirect();
     }
 

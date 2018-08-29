@@ -95,7 +95,8 @@
             >
               <b-form-checkbox-group stacked v-model="model.roles" name="roles[]">
                 <b-form-checkbox v-for="role in roles" :key="role.id"
-                                 v-b-tooltip.left :title="role.description" :value="role.id">
+                                 v-b-tooltip.left :title="role.description" :value="role.id"
+                >
                   {{ role.display_name }}
                 </b-form-checkbox>
               </b-form-checkbox-group>
@@ -110,7 +111,8 @@
               <b-col>
                 <b-button type="submit" variant="success" size="sm" class="float-right"
                           :disabled="pending"
-                          v-if="isNew || this.$app.user.can('edit users')">
+                          v-if="isNew || this.$app.user.can('edit users')"
+                >
                   {{ isNew ? $t('buttons.create') : $t('buttons.edit') }}
                 </b-button>
               </b-col>
@@ -147,7 +149,7 @@ export default {
   },
   async created () {
     this.fetchData()
-    let {data} = await axios.get(this.$app.route(`admin.users.get_roles`))
+    let { data } = await axios.get(this.$app.route(`admin.users.get_roles`))
     this.roles = data
   },
   methods: {

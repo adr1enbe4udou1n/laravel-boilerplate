@@ -92,7 +92,8 @@
                       <h4>{{ $t(category.title) }}</h4>
                       <b-form-checkbox-group stacked v-model="model.permissions" name="permissions[]">
                         <b-form-checkbox v-for="permission in category.permissions" :key="permission.name"
-                                         v-b-tooltip.left :title="$t(permission.description)" :value="permission.name">
+                                         v-b-tooltip.left :title="$t(permission.description)" :value="permission.name"
+                        >
                           {{ $t(permission.display_name) }}
                         </b-form-checkbox>
                       </b-form-checkbox-group>
@@ -111,7 +112,8 @@
               <b-col md>
                 <b-button type="submit" variant="success" size="sm" class="float-right"
                           :disabled="pending"
-                          v-if="isNew || this.$app.user.can('edit roles')">
+                          v-if="isNew || this.$app.user.can('edit roles')"
+                >
                   {{ isNew ? $t('buttons.create') : $t('buttons.edit') }}
                 </b-button>
               </b-col>
@@ -152,7 +154,7 @@ export default {
   async created () {
     this.fetchData()
 
-    let {data} = await axios.get(this.$app.route(`admin.roles.get_permissions`))
+    let { data } = await axios.get(this.$app.route(`admin.roles.get_permissions`))
 
     let categories = _.groupBy(_.forEach(data, (value, key) => {
       value['name'] = key

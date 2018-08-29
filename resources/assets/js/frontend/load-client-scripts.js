@@ -1,4 +1,4 @@
-import { fontawesome } from '../fontawesome'
+import '../fontawesome'
 import 'slick-carousel'
 import 'intl-tel-input'
 import 'pwstrength-bootstrap/dist/pwstrength-bootstrap'
@@ -56,7 +56,7 @@ export default (createApp) => {
      * Vue Mounting
      */
     if (document.getElementById('app') !== null) {
-      const {app} = createApp()
+      const { app } = createApp()
       app.$mount('#app')
     }
 
@@ -69,11 +69,6 @@ export default (createApp) => {
      * Bind all bootstrap popovers
      */
     $('[data-toggle="popover"]').popover()
-
-    /**
-     * Fonts
-     */
-    fontawesome.dom.i2svg()
 
     /**
      * Slick

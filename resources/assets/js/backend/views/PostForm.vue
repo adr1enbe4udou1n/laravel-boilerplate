@@ -109,7 +109,8 @@
                 <b-dropdown right split :text="$t('buttons.posts.save_and_publish')" class="float-right"
                             variant="success" size="sm" @click="model.status = 'publish'; onSubmit()"
                             :disabled="pending"
-                            v-if="isNew || this.$app.user.can('edit posts') || this.$app.user.can('edit own posts')">
+                            v-if="isNew || this.$app.user.can('edit posts') || this.$app.user.can('edit own posts')"
+                >
                   <b-dropdown-item @click="model.status = 'draft'; onSubmit()">{{ $t('buttons.posts.save_as_draft') }}
                   </b-dropdown-item>
                 </b-dropdown>
@@ -322,7 +323,7 @@ export default {
   },
   methods: {
     async getTags (search) {
-      let {data} = await axios.get(this.$app.route('admin.tags.search'), {
+      let { data } = await axios.get(this.$app.route('admin.tags.search'), {
         params: {
           q: search
         }

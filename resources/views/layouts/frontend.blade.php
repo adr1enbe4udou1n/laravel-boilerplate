@@ -46,35 +46,37 @@
 <body class="@yield('body_class')">
     @include('frontend.scripts.gtmiframe')
 
-    @include('partials.logged-as')
-    @include('partials.not-confirmed')
-    @include('frontend.partials.header')
-    @hasSection('highlight')
-        <section class="highlight">
-            @yield('highlight')
-        </section>
-    @endif
-
-    @if(Breadcrumbs::exists() && !request()->routeIs('home'))
-        <section class="nav-breadcrumb bg-dark">
-            <div class="container">
-                {!! Breadcrumbs::render() !!}
-            </div>
-        </section>
-    @endif
-
-    <div class="main-container container py-4">
-        @hasSection('title')
-            <h1 class="mb-4">@yield('title')</h1>
+    <div id="app">
+        @include('partials.logged-as')
+        @include('partials.not-confirmed')
+        @include('frontend.partials.header')
+        @hasSection('highlight')
+            <section class="highlight">
+                @yield('highlight')
+            </section>
         @endif
-        @include('partials.messages')
 
-        <div class="content">
-            @yield('content')
+        @if(Breadcrumbs::exists() && !request()->routeIs('home'))
+            <section class="nav-breadcrumb bg-dark">
+                <div class="container">
+                    {!! Breadcrumbs::render() !!}
+                </div>
+            </section>
+        @endif
+
+        <div class="main-container container py-4">
+            @hasSection('title')
+                <h1 class="mb-4">@yield('title')</h1>
+            @endif
+            @include('partials.messages')
+
+            <div class="content">
+                @yield('content')
+            </div>
         </div>
-    </div>
 
-    @include('frontend.partials.footer')
+        @include('frontend.partials.footer')
+    </div>
 
     @stack('scripts')
 </body>

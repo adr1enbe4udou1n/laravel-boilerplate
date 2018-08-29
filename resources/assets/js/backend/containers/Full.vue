@@ -25,7 +25,8 @@
       <Aside fixed></Aside>
     </div>
     <AppFooter :name="$app.appName" :editor-name="$app.editorName"
-               :editor-site-url="$app.editorSiteUrl"></AppFooter>
+               :editor-site-url="$app.editorSiteUrl"
+    ></AppFooter>
   </div>
 </template>
 

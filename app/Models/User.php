@@ -122,7 +122,7 @@ class User extends Authenticatable
 
     public static function boot()
     {
-        static::saving(function (User $model) {
+        static::saving(function (self $model) {
             $model->slug = str_slug($model->name);
         });
     }
@@ -196,7 +196,7 @@ class User extends Authenticatable
 
         foreach ($this->roles as $role) {
             foreach ($role->permissions as $permission) {
-                if (! in_array($permission, $permissions, true)) {
+                if (! \in_array($permission, $permissions, true)) {
                     $permissions[] = $permission;
                 }
             }
@@ -204,7 +204,7 @@ class User extends Authenticatable
 
         // Add children permissions
         foreach (config('permissions') as $name => $permission) {
-            if (isset($permission['children']) && in_array($name, $permissions, true)) {
+            if (isset($permission['children']) && \in_array($name, $permissions, true)) {
                 $permissions = array_merge($permissions, $permission['children']);
             }
         }

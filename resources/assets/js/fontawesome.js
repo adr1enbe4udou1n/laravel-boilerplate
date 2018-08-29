@@ -1,6 +1,13 @@
+import Vue from 'vue'
+import { library } from '@fortawesome/fontawesome-svg-core'
+
 import {
   faHome
-} from '@fortawesome/fontawesome-free-solid'
+} from '@fortawesome/free-solid-svg-icons'
+
+import {
+} from '@fortawesome/free-regular-svg-icons'
+
 import {
   faFacebook,
   faTwitter,
@@ -9,10 +16,11 @@ import {
   faGithub,
   faBitbucket,
   faPinterest
-} from '@fortawesome/fontawesome-free-brands'
-import fontawesome from '@fortawesome/fontawesome'
+} from '@fortawesome/free-brands-svg-icons'
 
-fontawesome.library.add(
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+library.add(
   faHome,
   faFacebook,
   faTwitter,
@@ -23,4 +31,4 @@ fontawesome.library.add(
   faPinterest
 )
 
-export { fontawesome }
+Vue.component('font-awesome-icon', FontAwesomeIcon)

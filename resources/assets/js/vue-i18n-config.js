@@ -7,7 +7,7 @@ import Vue from 'vue'
  * Locales
  */
 import VueI18n from 'vue-i18n'
-import Locales from './vue-i18n-locales.generated.js'
+import Locales from '../vendor/vue-i18n-locales.generated.js'
 
 Vue.use(VueI18n)
 

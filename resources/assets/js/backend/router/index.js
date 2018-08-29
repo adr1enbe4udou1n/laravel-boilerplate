@@ -29,7 +29,7 @@ export function createRouter (base, i18n) {
     mode: 'history',
     base: base,
     linkActiveClass: 'open active',
-    scrollBehavior: () => ({y: 0}),
+    scrollBehavior: () => ({ y: 0 }),
     routes: [
       {
         path: '/',

@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export function createActions (route) {
   return {
-    LOAD_COUNTERS: ({commit}) => {
+    LOAD_COUNTERS: ({ commit }) => {
       return new Promise((resolve) => {
         axios.all([
           axios.get(route('admin.posts.draft.counter')),
@@ -19,11 +19,11 @@ export function createActions (route) {
               activeUsersCount,
               formSubmissionsCount
             ) => {
-              commit('SET_COUNTER', {type: 'newPostsCount', counter: newPostsCount.data})
-              commit('SET_COUNTER', {type: 'pendingPostsCount', counter: pendingPostsCount.data})
-              commit('SET_COUNTER', {type: 'publishedPostsCount', counter: publishedPostsCount.data})
-              commit('SET_COUNTER', {type: 'activeUsersCount', counter: activeUsersCount.data})
-              commit('SET_COUNTER', {type: 'formSubmissionsCount', counter: formSubmissionsCount.data})
+              commit('SET_COUNTER', { type: 'newPostsCount', counter: newPostsCount.data })
+              commit('SET_COUNTER', { type: 'pendingPostsCount', counter: pendingPostsCount.data })
+              commit('SET_COUNTER', { type: 'publishedPostsCount', counter: publishedPostsCount.data })
+              commit('SET_COUNTER', { type: 'activeUsersCount', counter: activeUsersCount.data })
+              commit('SET_COUNTER', { type: 'formSubmissionsCount', counter: formSubmissionsCount.data })
 
               resolve()
             }))

@@ -31,7 +31,7 @@ export default {
   methods: {
     async fetchData () {
       if (this.$route.query.q) {
-        let {data} = await axios.get(this.$app.route('admin.search'), {
+        let { data } = await axios.get(this.$app.route('admin.search'), {
           params: {
             q: this.$route.query.q
           }

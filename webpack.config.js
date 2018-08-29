@@ -53,7 +53,10 @@ function getEntryConfig (name, analyzerPort, alias = {}) {
       loader: 'postcss-loader',
       options: {
         ident: 'postcss',
-        sourceMap: true
+        sourceMap: true,
+        plugins: [
+          require('autoprefixer')()
+        ]
       }
     }
   ]
@@ -102,13 +105,16 @@ function getEntryConfig (name, analyzerPort, alias = {}) {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          loader: 'babel-loader'
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
         },
         {
           test: /\.(png|jpe?g|gif)$/,
           use: [
             {
-              loader: 'file-loader',
+              loader: 'url-loader',
               options: {
                 name: (path) => {
                   if (!/node_modules/.test(path)) {
@@ -120,20 +126,15 @@ function getEntryConfig (name, analyzerPort, alias = {}) {
                     .replace(
                       /((.*(node_modules))|images|image|img|assets)\//g, ''
                     ) + '?[hash]'
-                }
-              }
-            },
-            {
-              loader: 'img-loader',
-              options: {
-                enabled: production
+                },
+                limit: 4096
               }
             }
           ]
         },
         {
           test: /\.(woff2?|ttf|eot|svg|otf)$/,
-          loader: 'file-loader',
+          loader: 'url-loader',
           options: {
             name: (path) => {
               if (!/node_modules/.test(path)) {
@@ -141,7 +142,8 @@ function getEntryConfig (name, analyzerPort, alias = {}) {
               }
 
               return `fonts/vendor-${name}/[name].[ext]?[hash]`
-            }
+            },
+            limit: 4096
           }
         }
       ]
@@ -161,8 +163,7 @@ function getEntryConfig (name, analyzerPort, alias = {}) {
     resolve: {
       extensions: ['.js', '.vue', '.json'],
       alias: Object.assign({
-        '@fortawesome/fontawesome-free-solid$': '@fortawesome/fontawesome-free-solid/shakable.es.js',
-        '@fortawesome/fontawesome-free-brands$': '@fortawesome/fontawesome-free-brands/shakable.es.js'
+        'sweetalert2$': 'sweetalert2/dist/sweetalert2.js'
       }, alias)
     },
     externals: {

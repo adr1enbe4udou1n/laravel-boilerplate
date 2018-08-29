@@ -17,7 +17,7 @@
 @section('content')
     <div class="card mb-3">
         <div class="card-header">
-            <i class="fa fa-home"></i> @lang('labels.frontend.titles.about')
+            <font-awesome-icon icon="home"></font-awesome-icon> @lang('labels.frontend.titles.about')
         </div>
 
         <div class="card-body">
@@ -36,11 +36,9 @@
         </div>
     </div>
 
-    <div id="app">
-        <b-card header="Vue Panel Component" class="mb-3" v-cloak>
-            <p>Hey ! I'm a Vue Panel component !</p>
-        </b-card>
-    </div>
+    <b-card header="Vue Panel Component" class="mb-3" v-cloak>
+        <p>Hey ! I'm a Vue Panel component !</p>
+    </b-card>
 
     <div class="card mb-3">
         <div class="card-header">

@@ -14,7 +14,8 @@
                    search-route="admin.posts.search"
                    delete-route="admin.posts.destroy"
                    action-route="admin.posts.batch_action" :actions="actions"
-                   @bulk-action-success="onBulkActionSuccess">
+                   @bulk-action-success="onBulkActionSuccess"
+      >
         <b-table ref="datatable"
                  striped
                  bordered
@@ -127,13 +128,13 @@ export default {
       this.selected = []
     },
     onPinToggle (id) {
-      axios.post(this.$app.route('admin.posts.pinned', {post: id}))
+      axios.post(this.$app.route('admin.posts.pinned', { post: id }))
         .catch((error) => {
           this.$app.error(error)
         })
     },
     onPromoteToggle (id) {
-      axios.post(this.$app.route('admin.posts.promoted', {post: id}))
+      axios.post(this.$app.route('admin.posts.promoted', { post: id }))
         .catch((error) => {
           this.$app.error(error)
         })

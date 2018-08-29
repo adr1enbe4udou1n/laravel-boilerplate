@@ -5,7 +5,8 @@
            class="custom-switch-input"
            :value="value"
            :checked="isChecked"
-           @change="handleChange">
+           @change="handleChange"
+    >
     <span class="custom-switch-indicator"></span>
     <span class="custom-switch-description" v-if="description">{{ description }}</span>
   </label>
@@ -45,7 +46,7 @@ export default {
     }
   },
   methods: {
-    handleChange ({target: {checked}}) {
+    handleChange ({ target: { checked } }) {
       this.$emit('change', checked ? this.value : this.uncheckedValue)
     }
   }

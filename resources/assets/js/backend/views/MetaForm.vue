@@ -78,7 +78,8 @@
               <b-col md>
                 <b-button type="submit" variant="success" size="sm" class="float-right"
                           :disabled="pending"
-                          v-if="isNew || $app.user.can('edit metas')">
+                          v-if="isNew || $app.user.can('edit metas')"
+                >
                   {{ isNew ? $t('buttons.create') : $t('buttons.edit') }}
                 </b-button>
               </b-col>
@@ -117,7 +118,7 @@ export default {
   },
   methods: {
     async fetchRoutes () {
-      let {data} = await axios.get(this.$app.route('admin.routes.search'))
+      let { data } = await axios.get(this.$app.route('admin.routes.search'))
       this.routes = data.items
     }
   }

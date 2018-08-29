@@ -176,7 +176,7 @@ class Post extends Model implements HasMedia
     {
         parent::boot();
 
-        static::deleted(function (Post $post) {
+        static::deleted(function (self $post) {
             $post->meta->delete();
         });
     }
@@ -256,7 +256,7 @@ class Post extends Model implements HasMedia
 
     public function setPublishedAtAttribute($value)
     {
-        if (is_string($value)) {
+        if (\is_string($value)) {
             $this->attributes['published_at'] = Carbon::createFromFormat('Y-m-d H:i', $value);
         } else {
             $this->attributes['published_at'] = $value;
@@ -265,7 +265,7 @@ class Post extends Model implements HasMedia
 
     public function setUnpublishedAtAttribute($value)
     {
-        if (is_string($value)) {
+        if (\is_string($value)) {
             $this->attributes['unpublished_at'] = Carbon::createFromFormat('Y-m-d H:i', $value);
         } else {
             $this->attributes['unpublished_at'] = $value;

@@ -71,7 +71,8 @@
               <b-col md>
                 <b-button type="submit" variant="success" size="sm" class="float-right"
                           :disabled="pending"
-                          v-if="isNew || this.$app.user.can('edit redirections')">
+                          v-if="isNew || this.$app.user.can('edit redirections')"
+                >
                   {{ isNew ? $t('buttons.create') : $t('buttons.edit') }}
                 </b-button>
               </b-col>
@@ -107,7 +108,7 @@ export default {
   async created () {
     this.fetchData()
 
-    let {data} = await axios.get(this.$app.route(`admin.redirections.get_redirection_types`))
+    let { data } = await axios.get(this.$app.route(`admin.redirections.get_redirection_types`))
     this.redirectionTypes = data
   }
 }

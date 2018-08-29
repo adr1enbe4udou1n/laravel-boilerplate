@@ -6,7 +6,8 @@
           <h3 class="card-title" slot="header">{{ $t('labels.backend.redirections.import.title') }}</h3>
           <form @submit.prevent="onFileImport">
             <b-form-file required :placeholder="$t('labels.no_file_chosen')"
-                         v-model="importFile"></b-form-file>
+                         v-model="importFile"
+            ></b-form-file>
             <b-button type="submit" variant="warning" class="mt-3">
               {{ $t('buttons.redirections.import') }}
             </b-button>
@@ -29,7 +30,8 @@
                    search-route="admin.redirections.search"
                    delete-route="admin.redirections.destroy"
                    action-route="admin.redirections.batch_action" :actions="actions"
-                   @bulk-action-success="onBulkActionSuccess">
+                   @bulk-action-success="onBulkActionSuccess"
+      >
         <b-table ref="datatable"
                  striped
                  bordered
@@ -111,7 +113,7 @@ export default {
       this.selected = []
     },
     onActiveToggle (id) {
-      axios.post(this.$app.route('admin.redirections.active', {redirection: id}))
+      axios.post(this.$app.route('admin.redirections.active', { redirection: id }))
         .catch((error) => {
           this.$app.error(error)
         })
@@ -121,7 +123,7 @@ export default {
       formData.append('import', this.importFile)
 
       try {
-        let {data} = await axios.post(this.$app.route('admin.redirections.import'), formData)
+        let { data } = await axios.post(this.$app.route('admin.redirections.import'), formData)
         this.$refs.datatable.refresh()
         this.$app.noty[data.status](data.message)
       } catch (e) {

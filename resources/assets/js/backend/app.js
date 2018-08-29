@@ -166,11 +166,11 @@ export function createApp () {
     render: (h) => h(App)
   })
 
-  return {app, router, store}
+  return { app, router, store }
 }
 
 // Init App
 if (document.getElementById('app') !== null) {
-  const {app} = createApp()
+  const { app } = createApp()
   app.$mount('#app')
 }

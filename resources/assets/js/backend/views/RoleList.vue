@@ -13,7 +13,8 @@
                    @context-changed="onContextChanged"
                    search-route="admin.roles.search"
                    delete-route="admin.roles.destroy"
-                   :length-change="false" :paging="false" :infos="false" :search="false">
+                   :length-change="false" :paging="false" :infos="false" :search="false"
+      >
         <b-table ref="datatable"
                  striped
                  bordered

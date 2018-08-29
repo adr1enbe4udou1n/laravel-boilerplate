@@ -849,7 +849,10 @@ export default {
         },
         "auth": {
             "failed": "These credentials do not match our records.",
-            "throttle": "Too many login attempts. Please try again in {seconds} seconds."
+            "throttle": "Too many login attempts. Please try again in {seconds} seconds.",
+            "socialite": {
+                "unacceptable": "{provider} is not an acceptable login type."
+            }
         },
         "buttons": {
             "cancel": "Cancel",
@@ -2437,7 +2440,10 @@ export default {
         },
         "auth": {
             "failed": "Ces identifiants ne correspondent pas à nos enregistrements",
-            "throttle": "Trop de tentatives de connexion. Veuillez essayer de nouveau dans {seconds} secondes."
+            "throttle": "Trop de tentatives de connexion. Veuillez essayer de nouveau dans {seconds} secondes.",
+            "socialite": {
+                "unacceptable": "Le login {provider} est de type incorrect."
+            }
         },
         "buttons": {
             "cancel": "Annuler",

@@ -33,13 +33,13 @@
     </div>
 
     <div class="card mb-3">
-        <div class="card-header"></i> Font Awesome</div>
+        <div class="card-header">Font Awesome</div>
 
         <div class="card-body">
-            <i class="fa fa-home"></i>
-            <i class="fab fa-facebook"></i>
-            <i class="fab fa-twitter"></i>
-            <i class="fab fa-pinterest"></i>
+            <font-awesome-icon icon="home"></font-awesome-icon>
+            <font-awesome-icon :icon="['fab', 'facebook']"></font-awesome-icon>
+            <font-awesome-icon :icon="['fab', 'twitter']"></font-awesome-icon>
+            <font-awesome-icon :icon="['fab', 'pinterest']"></font-awesome-icon>
         </div>
     </div>
 @endsection

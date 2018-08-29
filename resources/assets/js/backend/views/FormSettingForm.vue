@@ -75,7 +75,8 @@
               <b-col md>
                 <b-button type="submit" variant="success" size="sm" class="float-right"
                           :disabled="pending"
-                          v-if="isNew || this.$app.user.can('edit form_settings')">
+                          v-if="isNew || this.$app.user.can('edit form_settings')"
+                >
                   {{ isNew ? $t('buttons.create') : $t('buttons.edit') }}
                 </b-button>
               </b-col>
@@ -115,7 +116,7 @@ export default {
   async created () {
     this.fetchData()
 
-    let {data} = await axios.get(this.$app.route(`admin.${this.modelName}s.get_form_types`))
+    let { data } = await axios.get(this.$app.route(`admin.${this.modelName}s.get_form_types`))
 
     for (let propertyName in data) {
       this.formTypes.push({

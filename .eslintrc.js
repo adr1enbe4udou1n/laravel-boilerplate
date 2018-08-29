@@ -21,6 +21,8 @@ module.exports = {
     'prefer-arrow-callback': 'error',
     'vue/max-attributes-per-line': 'off',
     'vue/attributes-order': 'off',
+    'vue/no-v-html': 'off',
+    'vue/no-unused-vars': 'off',
     'vue/html-self-closing': ['error', {
       html: {
         void: 'never',

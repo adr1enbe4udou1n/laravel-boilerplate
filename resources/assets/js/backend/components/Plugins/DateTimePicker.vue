@@ -8,7 +8,8 @@
          :placeholder="placeholder"
          :required="required"
          v-model="mutableValue"
-         data-input>
+         data-input
+  >
 
 </template>
 

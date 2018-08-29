@@ -1,7 +1,8 @@
 <template>
   <div :class="['custom-multiselect', stateClass]">
     <div class="input-wrapper position-relative"
-         :class="{ 'dropup': openDirection === 'up', 'dropright': openDirection === 'right', 'dropleft': openDirection === 'left' }">
+         :class="{ 'dropup': openDirection === 'up', 'dropright': openDirection === 'right', 'dropleft': openDirection === 'left' }"
+    >
       <input type="text"
              :id="id"
              :name="name"
@@ -11,7 +12,8 @@
              autocomplete="off"
              @focus="showOptions = true"
              @keydown.enter.prevent="onAddNew()"
-             @input="onSearch">
+             @input="onSearch"
+      >
       <div class="dropdown-menu d-block" v-if="showOptions && options.length">
         <a href="#" class="dropdown-item" v-for="(item, index) in options" :key="index" @click.prevent="onAdd(item)">
           {{ label ? item[label] : item }}
@@ -33,7 +35,7 @@ export default {
   mixins: [formStateMixin],
   props: {
     value: {
-      type: null,
+      type: Object,
       default: () => []
     },
     options: {

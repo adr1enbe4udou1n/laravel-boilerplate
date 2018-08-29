@@ -18,7 +18,7 @@
         "intervention/image": "^2.4",
         "intervention/imagecache": "^2.3",
         "laravel/framework": "5.6.*",
-        "laravel/scout": "^4.0",
+        "laravel/scout": "^5.0",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.6",
@@ -39,7 +39,7 @@
         "filp/whoops": "^2.0",
         "friendsofphp/php-cs-fixer": "^2.10",
         "fzaninotto/faker": "^1.4",
-        "laravel/dusk": "^3.0",
+        "laravel/dusk": "^4.0",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^2.0",
         "phpunit/phpunit": "^7.0"

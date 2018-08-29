@@ -30,7 +30,8 @@
       </b-col>
       <b-col md="4">
         <b-pagination :total-rows="totalRows" :per-page="perPage" v-model="currentPage" v-if="paging && totalRows > perPage"
-                      class="justify-content-center" @input="onContextChanged"></b-pagination>
+                      class="justify-content-center" @input="onContextChanged"
+        ></b-pagination>
       </b-col>
       <b-col md="4">
         <div v-if="exportData" class="d-flex justify-content-end">
@@ -106,7 +107,7 @@ export default {
     },
     async loadData (sortBy, sortDesc) {
       try {
-        let {data} = await axios.get(this.$app.route(this.searchRoute), {
+        let { data } = await axios.get(this.$app.route(this.searchRoute), {
           params: {
             page: this.currentPage,
             perPage: this.perPage,
@@ -141,7 +142,7 @@ export default {
 
       if (result.value) {
         try {
-          let {data} = await axios.delete(this.$app.route(this.deleteRoute, params))
+          let { data } = await axios.delete(this.$app.route(this.deleteRoute, params))
           this.onContextChanged()
           this.$app.noty[data.status](data.message)
         } catch (e) {
@@ -161,7 +162,7 @@ export default {
 
       if (result.value) {
         try {
-          let {data} = await axios.post(this.$app.route(this.actionRoute), {
+          let { data } = await axios.post(this.$app.route(this.actionRoute), {
             action: this.action,
             ids: this.selected
           })

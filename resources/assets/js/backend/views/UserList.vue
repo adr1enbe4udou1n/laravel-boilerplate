@@ -14,7 +14,8 @@
                    search-route="admin.users.search"
                    delete-route="admin.users.destroy"
                    action-route="admin.users.batch_action" :actions="actions"
-                   @bulk-action-success="onBulkActionSuccess">
+                   @bulk-action-success="onBulkActionSuccess"
+      >
         <b-table ref="datatable"
                  striped
                  bordered
@@ -105,7 +106,7 @@ export default {
       this.$refs.datasource.deleteRow({ user: id })
     },
     onActiveToggle (id) {
-      axios.post(this.$app.route('admin.users.active', {user: id}))
+      axios.post(this.$app.route('admin.users.active', { user: id }))
         .catch((error) => {
           this.$app.error(error)
         })

@@ -14,7 +14,8 @@
                    search-route="admin.metas.search"
                    delete-route="admin.metas.destroy"
                    action-route="admin.metas.batch_action" :actions="actions"
-                   @bulk-action-success="onBulkActionSuccess">
+                   @bulk-action-success="onBulkActionSuccess"
+      >
         <b-table ref="datatable"
                  striped
                  bordered

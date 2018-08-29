@@ -30,7 +30,7 @@ class RequestSearchQuery
 
     private function getLocalizedColumn(Model $model, $column)
     {
-        if (property_exists($model, 'translatable') && in_array($column, $model->translatable, true)) {
+        if (property_exists($model, 'translatable') && \in_array($column, $model->translatable, true)) {
             $locale = app()->getLocale();
 
             return "$column->$locale";

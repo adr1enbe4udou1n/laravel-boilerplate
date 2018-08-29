@@ -8,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarsMain">
             <div class="navbar-nav mr-auto">
                 <a class="nav-link {{ active_class(if_route('home')) }}" href="{{ route('home') }}">
-                    <i class="fa fa-home"></i>
+                    <font-awesome-icon icon="home"></font-awesome-icon>
                 </a>
                 <a class="nav-link {{ active_class(if_route('about')) }}"
                    href="{{ route('about') }}">@lang('labels.frontend.titles.about')</a>
