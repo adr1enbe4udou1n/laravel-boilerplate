@@ -234,9 +234,10 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
 
         if ($user->confirmation_token === $token) {
             $user->confirmed = true;
+
             return $user->save();
         }
-        
+
         return false;
     }
 
