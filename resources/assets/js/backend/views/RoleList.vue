@@ -14,6 +14,7 @@
                    search-route="admin.roles.search"
                    delete-route="admin.roles.destroy"
                    :length-change="false" :paging="false" :infos="false" :search="false"
+                   :selected.sync="selected"
       >
         <b-table ref="datatable"
                  striped
@@ -27,7 +28,6 @@
                  :items="dataLoadProvider"
                  sort-by="order"
                  :sort-desc="false"
-                 :busy.sync="isBusy"
         >
           <template slot="name" slot-scope="row">
             <router-link v-if="row.item.can_edit" :to="`/roles/${row.item.id}/edit`" v-text="row.value"></router-link>

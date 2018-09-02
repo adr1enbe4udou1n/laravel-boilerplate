@@ -27,7 +27,6 @@
                  :items="dataLoadProvider"
                  sort-by="name"
                  :sort-desc="false"
-                 :busy.sync="isBusy"
         >
           <template slot="name" slot-scope="row">
             <router-link v-if="row.item.can_edit" :to="`/form-settings/${row.item.id}/edit`" v-text="row.value"></router-link>
@@ -52,7 +51,6 @@ export default {
   name: 'FormSettingList',
   data () {
     return {
-      isBusy: false,
       fields: [
         { key: 'name', label: this.$t('validation.attributes.form_type'), sortable: true },
         { key: 'recipients', label: this.$t('validation.attributes.recipients') },

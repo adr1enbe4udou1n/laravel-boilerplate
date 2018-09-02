@@ -14,7 +14,7 @@
                    search-route="admin.metas.search"
                    delete-route="admin.metas.destroy"
                    action-route="admin.metas.batch_action" :actions="actions"
-                   @bulk-action-success="onBulkActionSuccess"
+                   :selected.sync="selected"
       >
         <b-table ref="datatable"
                  striped
@@ -28,7 +28,6 @@
                  :items="dataLoadProvider"
                  sort-by="created_at"
                  :sort-desc="true"
-                 :busy.sync="isBusy"
         >
           <template slot="HEAD_checkbox" slot-scope="data"></template>
           <template slot="checkbox" slot-scope="row">
@@ -53,7 +52,6 @@ export default {
   name: 'MetaList',
   data () {
     return {
-      isBusy: false,
       selected: [],
       fields: [
         { key: 'checkbox' },
@@ -70,11 +68,6 @@ export default {
       }
     }
   },
-  watch: {
-    selected (value) {
-      this.$refs.datasource.selected = value
-    }
-  },
   methods: {
     dataLoadProvider (ctx) {
       return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
@@ -84,9 +77,6 @@ export default {
     },
     onDelete (id) {
       this.$refs.datasource.deleteRow({ meta: id })
-    },
-    onBulkActionSuccess () {
-      this.selected = []
     }
   }
 }

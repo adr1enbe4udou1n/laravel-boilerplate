@@ -47,7 +47,6 @@
     "popper.js": "^1.14.4",
     "postcss-loader": "^3.0.0",
     "pwstrength-bootstrap": "^3.0.1",
-    "qs": "^6.5.2",
     "resolve-url-loader": "^2.3.0",
     "rimraf": "^2.6.2",
     "sass-loader": "^7.1.0",

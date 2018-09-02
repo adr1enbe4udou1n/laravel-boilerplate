@@ -30,7 +30,7 @@
                    search-route="admin.redirections.search"
                    delete-route="admin.redirections.destroy"
                    action-route="admin.redirections.batch_action" :actions="actions"
-                   @bulk-action-success="onBulkActionSuccess"
+                   :selected.sync="selected"
       >
         <b-table ref="datatable"
                  striped
@@ -44,7 +44,6 @@
                  :items="dataLoadProvider"
                  sort-by="created_at"
                  :sort-desc="true"
-                 :busy.sync="isBusy"
         >
           <template slot="HEAD_checkbox" slot-scope="data"></template>
           <template slot="checkbox" slot-scope="row">
@@ -74,7 +73,6 @@ export default {
   name: 'RedirectionList',
   data () {
     return {
-      isBusy: false,
       selected: [],
       fields: [
         { key: 'checkbox' },
@@ -94,11 +92,6 @@ export default {
       importFile: null
     }
   },
-  watch: {
-    selected (value) {
-      this.$refs.datasource.selected = value
-    }
-  },
   methods: {
     dataLoadProvider (ctx) {
       return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
@@ -108,9 +101,6 @@ export default {
     },
     onDelete (id) {
       this.$refs.datasource.deleteRow({ redirection: id })
-    },
-    onBulkActionSuccess () {
-      this.selected = []
     },
     onActiveToggle (id) {
       axios.post(this.$app.route('admin.redirections.active', { redirection: id }))

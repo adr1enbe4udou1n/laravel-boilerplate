@@ -1,5 +1,5 @@
 <template>
-  <div class="table-container">
+  <div>
     <b-row>
       <b-col md="4" class="mb-3">
         <b-form inline v-if="lengthChange">
@@ -12,9 +12,9 @@
         <label class="mt-2" v-if="infos">{{ $t('labels.datatables.infos', { offset_start: perPage * (currentPage - 1) + 1, offset_end: perPage * currentPage, total: totalRows }) }}</label>
       </b-col>
       <b-col md="4" class="mb-3">
-        <b-form inline v-if="search" class="d-flex justify-content-end">
+        <b-form inline v-if="search" class="d-flex justify-content-end" @submit.prevent>
           <label class="mr-2">{{ $t('labels.datatables.search') }}</label>
-          <b-form-input v-model="searchQuery" @input="onContextChanged"></b-form-input>
+          <b-form-input v-model="searchQuery" @input="debounceInput"></b-form-input>
         </b-form>
       </b-col>
     </b-row>
@@ -22,7 +22,7 @@
     <b-row>
       <b-col md="4">
         <form class="form-inline" @submit.prevent="onBulkAction" v-if="actions">
-          <div class="form-group form-group-sm">
+          <div class="form-group">
             <b-form-select :options="actions" v-model="action" class="mr-1"></b-form-select>
             <b-button type="submit" variant="danger">{{ $t('labels.validate') }}</b-button>
           </div>
@@ -44,7 +44,7 @@
 
 <script>
 import axios from 'axios'
-import qs from 'qs'
+import _ from 'lodash'
 
 export default {
   props: {
@@ -83,6 +83,10 @@ export default {
     actions: {
       type: Object,
       default: () => {}
+    },
+    selected: {
+      type: Array,
+      default: () => []
     }
   },
   data () {
@@ -92,16 +96,21 @@ export default {
       totalRows: 0,
       pageOptions: [ 5, 10, 15, 25, 50 ],
       searchQuery: null,
-      selected: [],
       action: null
     }
   },
-  mounted () {
-    if (this.actions) {
-      this.action = Object.keys(this.actions)[0]
+  watch: {
+    actions: {
+      handler () {
+        this.action = Object.keys(this.actions)[0]
+      },
+      immediate: true
     }
   },
   methods: {
+    debounceInput: _.debounce(function () {
+      this.onContextChanged()
+    }, 200),
     onContextChanged () {
       this.$emit('context-changed')
     },
@@ -125,10 +134,10 @@ export default {
       }
     },
     onExportData () {
-      window.location = `${this.$app.route(this.searchRoute)}?${qs.stringify({
+      window.location = this.$app.route(this.searchRoute, {
         search: this.searchQuery,
         exportData: true
-      })}`
+      })
     },
     async deleteRow (params) {
       let result = await window.swal({
@@ -168,7 +177,7 @@ export default {
           })
 
           this.onContextChanged()
-          this.$emit('bulk-action-success')
+          this.$emit('update:selected', [])
           this.$app.noty[data.status](data.message)
         } catch (e) {
           this.$app.error(e)

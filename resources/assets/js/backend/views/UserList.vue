@@ -14,7 +14,7 @@
                    search-route="admin.users.search"
                    delete-route="admin.users.destroy"
                    action-route="admin.users.batch_action" :actions="actions"
-                   @bulk-action-success="onBulkActionSuccess"
+                   :selected.sync="selected"
       >
         <b-table ref="datatable"
                  striped
@@ -26,7 +26,6 @@
                  :empty-filtered-text="$t('labels.datatables.no_matched_results')"
                  :fields="fields"
                  :items="dataLoadProvider"
-                 :busy.sync="isBusy"
         >
           <template slot="HEAD_checkbox" slot-scope="data"></template>
           <template slot="checkbox" slot-scope="row">
@@ -70,7 +69,6 @@ export default {
   data () {
     return {
       selected: [],
-      isBusy: false,
       fields: [
         { key: 'checkbox' },
         { key: 'name', label: this.$t('validation.attributes.name'), sortable: true },
@@ -90,11 +88,6 @@ export default {
       }
     }
   },
-  watch: {
-    selected (value) {
-      this.$refs.datasource.selected = value
-    }
-  },
   methods: {
     dataLoadProvider (ctx) {
       return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
@@ -110,9 +103,6 @@ export default {
         .catch((error) => {
           this.$app.error(error)
         })
-    },
-    onBulkActionSuccess () {
-      this.selected = []
     },
     formatRoles (roles) {
       return roles.map((key) => {

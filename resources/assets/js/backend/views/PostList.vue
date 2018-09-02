@@ -14,7 +14,7 @@
                    search-route="admin.posts.search"
                    delete-route="admin.posts.destroy"
                    action-route="admin.posts.batch_action" :actions="actions"
-                   @bulk-action-success="onBulkActionSuccess"
+                   :selected.sync="selected"
       >
         <b-table ref="datatable"
                  striped
@@ -28,7 +28,6 @@
                  :items="dataLoadProvider"
                  sort-by="posts.created_at"
                  :sort-desc="true"
-                 :busy.sync="isBusy"
         >
           <template slot="HEAD_checkbox" slot-scope="data"></template>
           <template slot="checkbox" slot-scope="row">
@@ -87,7 +86,6 @@ export default {
   name: 'PostList',
   data () {
     return {
-      isBusy: false,
       selected: [],
       fields: [
         { key: 'checkbox' },
@@ -109,11 +107,6 @@ export default {
       }
     }
   },
-  watch: {
-    selected (value) {
-      this.$refs.datasource.selected = value
-    }
-  },
   methods: {
     dataLoadProvider (ctx) {
       return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
@@ -123,9 +116,6 @@ export default {
     },
     onDelete (id) {
       this.$refs.datasource.deleteRow({ post: id })
-    },
-    onBulkActionSuccess () {
-      this.selected = []
     },
     onPinToggle (id) {
       axios.post(this.$app.route('admin.posts.pinned', { post: id }))
