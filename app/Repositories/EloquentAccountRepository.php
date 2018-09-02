@@ -225,7 +225,7 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
      *
      * @param $token
      *
-     * @return string|void
+     * @return bool
      */
     public function confirmEmail($token)
     {
@@ -234,8 +234,10 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
 
         if ($user->confirmation_token === $token) {
             $user->confirmed = true;
-            $user->save();
+            return $user->save();
         }
+        
+        return false;
     }
 
     /**

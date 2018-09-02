@@ -31,6 +31,12 @@
             <router-link v-if="row.item.can_edit" :to="`/form-submissions/${row.item.id}/edit`" v-text="row.value"></router-link>
             <span v-else v-text="row.value"></span>
           </template>
+          <template slot="data" slot-scope="row">
+            <div v-for="(value, name) in JSON.parse(row.value)" :key="name">
+              <strong>{{ $t(`validation.attributes.${name}`) }}&nbsp;:</strong>
+              <span>{{ value }}</span>
+            </div>
+          </template>
           <template slot="actions" slot-scope="row">
             <b-button size="sm" variant="success" :to="`/form-submissions/${row.item.id}/show`" v-b-tooltip.hover :title="$t('buttons.show')" class="mr-1">
               <i class="fe fe-eye"></i>

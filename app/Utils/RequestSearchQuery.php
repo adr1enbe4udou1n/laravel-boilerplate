@@ -79,6 +79,8 @@ class RequestSearchQuery
      * @param       $fileName
      *
      * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
+     * @throws \PhpOffice\PhpSpreadsheet\Exception
+     * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
      */
     public function export($columns, $headings, $fileName)
     {
