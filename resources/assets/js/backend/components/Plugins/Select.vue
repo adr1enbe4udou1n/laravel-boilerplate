@@ -35,7 +35,7 @@ export default {
   mixins: [formStateMixin],
   props: {
     value: {
-      type: Array,
+      type: [Array, Object],
       default: () => []
     },
     options: {

@@ -35,7 +35,7 @@
         "tightenco/ziggy": "^0.6.0"
     },
     "require-dev": {
-        "barryvdh/laravel-ide-helper": "^2.4",
+        "barryvdh/laravel-ide-helper": "<2.5",
         "filp/whoops": "^2.0",
         "friendsofphp/php-cs-fixer": "^2.10",
         "fzaninotto/faker": "^1.4",

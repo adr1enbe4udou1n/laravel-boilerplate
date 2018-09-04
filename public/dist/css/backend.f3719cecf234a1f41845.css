@@ -1068,7 +1068,7 @@ span.flatpickr-weekday {
 
 /*!
  * CoreUI - Open Source Dashboard UI Kit
- * @version v2.0.4
+ * @version v2.0.6
  * @link https://coreui.io
  * Copyright (c) 2018 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://coreui.io/license)
@@ -21446,7 +21446,7 @@ body.swal2-no-backdrop .swal2-shown.swal2-bottom-right {
 
 .swal2-popup .swal2-input {
   height: 2.625em;
-  padding: 0.75em;
+  padding: 0 0.75em;
 }
 
 .swal2-popup .swal2-input[type='number'] {
@@ -23342,7 +23342,7 @@ body.swal2-no-backdrop .swal2-shown.swal2-bottom-right {
 
 .swal2-popup .swal2-input {
   height: 2.625em;
-  padding: 0.75em;
+  padding: 0 0.75em;
 }
 
 .swal2-popup .swal2-input[type='number'] {
@@ -25758,4 +25758,4 @@ body .v-select .selected-tag {
 
 
 
-/*# sourceMappingURL=backend.5874a4367ebb2350a376.css.map*/
+/*# sourceMappingURL=backend.f3719cecf234a1f41845.css.map*/

@@ -12215,7 +12215,7 @@ body.swal2-no-backdrop .swal2-shown.swal2-bottom-right {
 
 .swal2-popup .swal2-input {
   height: 2.625em;
-  padding: 0.75em;
+  padding: 0 0.75em;
 }
 
 .swal2-popup .swal2-input[type='number'] {
@@ -16243,4 +16243,4 @@ iframe {
 
 
 
-/*# sourceMappingURL=frontend.3f36b18e8ef28048ff11.css.map*/
+/*# sourceMappingURL=frontend.75d37a9e39118bb04447.css.map*/

@@ -14,7 +14,6 @@
                    search-route="admin.roles.search"
                    delete-route="admin.roles.destroy"
                    :length-change="false" :paging="false" :infos="false" :search="false"
-                   :selected.sync="selected"
       >
         <b-table ref="datatable"
                  striped
@@ -52,7 +51,6 @@ export default {
   name: 'RoleList',
   data () {
     return {
-      isBusy: false,
       fields: [
         { key: 'name', label: this.$t('validation.attributes.name'), sortable: true },
         { key: 'order', label: this.$t('validation.attributes.order'), 'class': 'text-right', sortable: true },

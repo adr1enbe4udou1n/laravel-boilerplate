@@ -102,7 +102,9 @@ export default {
   watch: {
     actions: {
       handler () {
-        this.action = Object.keys(this.actions)[0]
+        if (this.actions) {
+          this.action = Object.keys(this.actions)[0]
+        }
       },
       immediate: true
     }
