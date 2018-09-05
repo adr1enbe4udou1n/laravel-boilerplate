@@ -1,8 +1,8 @@
 {
-  "frontend.css": "/dist/css/frontend.75d37a9e39118bb04447.css",
-  "frontend.js": "/dist/js/frontend.75d37a9e39118bb04447.js",
-  "frontend.css.map": "/dist/css/frontend.75d37a9e39118bb04447.css.map",
-  "frontend.js.map": "/dist/js/frontend.75d37a9e39118bb04447.js.map",
+  "frontend.css": "/dist/css/frontend.3b5b97971e35bf889dd0.css",
+  "frontend.js": "/dist/js/frontend.3b5b97971e35bf889dd0.js",
+  "frontend.css.map": "/dist/css/frontend.3b5b97971e35bf889dd0.css.map",
+  "frontend.js.map": "/dist/js/frontend.3b5b97971e35bf889dd0.js.map",
   "vendor-frontend.js": "/dist/js/vendor-frontend.34ec290a0e036a1f63fe.js",
   "vendor-frontend.js.map": "/dist/js/vendor-frontend.34ec290a0e036a1f63fe.js.map",
   "images/vendor-frontend/slick-carousel/slick/ajax-loader.gif": "/dist/images/vendor-frontend/slick-carousel/slick/ajax-loader.gif?c5cd7f5300576ab4c88202b42f6ded62",

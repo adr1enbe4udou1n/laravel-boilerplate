@@ -41,12 +41,19 @@ function getEntryConfig (name, analyzerPort, alias = {}) {
     ])
   }
 
+  let postcssPlugins = [
+    require('autoprefixer')()
+  ]
+
+  if (production) {
+    postcssPlugins.push(require('cssnano')())
+  }
+
   let cssLoaders = [
     hmr ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
     {
       loader: 'css-loader',
       options: {
-        minimize: production,
         sourceMap: true
       }
     }, {
@@ -54,9 +61,7 @@ function getEntryConfig (name, analyzerPort, alias = {}) {
       options: {
         ident: 'postcss',
         sourceMap: true,
-        plugins: [
-          require('autoprefixer')()
-        ]
+        plugins: postcssPlugins
       }
     }
   ]

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7860631ea1dbdbc1edfbfc04eb38761f",
+    "content-hash": "0eeaaf0fe49bbba206a3a7627e84dbf6",
     "packages": [
         {
             "name": "arcanedev/log-viewer",
@@ -259,26 +259,26 @@
         },
         {
             "name": "davejamesmiller/laravel-breadcrumbs",
-            "version": "5.1.0",
+            "version": "5.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davejamesmiller/laravel-breadcrumbs.git",
-                "reference": "2a02abfeca13acba6d528f4fcd385570452308f7"
+                "reference": "1013335a528d4ec07c9a294f9f0b794b9440d4e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davejamesmiller/laravel-breadcrumbs/zipball/2a02abfeca13acba6d528f4fcd385570452308f7",
-                "reference": "2a02abfeca13acba6d528f4fcd385570452308f7",
+                "url": "https://api.github.com/repos/davejamesmiller/laravel-breadcrumbs/zipball/1013335a528d4ec07c9a294f9f0b794b9440d4e2",
+                "reference": "1013335a528d4ec07c9a294f9f0b794b9440d4e2",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "5.6.*",
-                "illuminate/view": "5.6.*",
+                "illuminate/support": "5.6.*|5.7.*",
+                "illuminate/view": "5.6.*|5.7.*",
                 "php": ">=7.1.3"
             },
             "require-dev": {
-                "laravel/framework": "5.6.*",
-                "orchestra/testbench": "3.6.*",
+                "laravel/framework": "5.6.*|5.7.*",
+                "orchestra/testbench": "3.6.*|3.7.*",
                 "php-coveralls/php-coveralls": "^1.0",
                 "phpunit/phpunit": "7.*"
             },
@@ -314,7 +314,7 @@
             "keywords": [
                 "laravel"
             ],
-            "time": "2018-05-05T19:30:03+00:00"
+            "time": "2018-09-05T08:10:29+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1862,6 +1862,67 @@
             "time": "2018-06-18T15:04:16+00:00"
         },
         {
+            "name": "laravelium/sitemap",
+            "version": "v2.8.3",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.com/Laravelium/Sitemap.git",
+                "reference": "91a26679cc8d6ce59474d678bd23bee4d8471e0e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/Laravelium%2FSitemap/repository/archive.zip?sha=91a26679cc8d6ce59474d678bd23bee4d8471e0e",
+                "reference": "91a26679cc8d6ce59474d678bd23bee4d8471e0e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.6.*",
+                "php": ">=7.1.3"
+            },
+            "require-dev": {
+                "orchestra/testbench": "3.6.x-dev",
+                "phpunit/phpunit": "~7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laravelium\\Sitemap\\SitemapServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Laravelium\\Sitemap": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roumen Damianoff",
+                    "email": "roumen@damianoff.com",
+                    "homepage": "https://damianoff.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravelium Sitemap package for Laravel.",
+            "homepage": "https://laravelium.com",
+            "keywords": [
+                "Sitemap",
+                "generator",
+                "google-news",
+                "html",
+                "laravel",
+                "laravelium",
+                "php",
+                "xml"
+            ],
+            "time": "2018-09-04T11:13:22+00:00"
+        },
+        {
             "name": "league/csv",
             "version": "9.1.4",
             "source": {
@@ -2972,16 +3033,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.9.7",
+            "version": "v0.9.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "4f5b6c090948773a8bfeea6a0f07ab7d0b24e932"
+                "reference": "ed3c32c4304e1a678a6e0f9dc11dd2d927d89555"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/4f5b6c090948773a8bfeea6a0f07ab7d0b24e932",
-                "reference": "4f5b6c090948773a8bfeea6a0f07ab7d0b24e932",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/ed3c32c4304e1a678a6e0f9dc11dd2d927d89555",
+                "reference": "ed3c32c4304e1a678a6e0f9dc11dd2d927d89555",
                 "shasum": ""
             },
             "require": {
@@ -3042,7 +3103,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2018-08-11T15:54:43+00:00"
+            "time": "2018-09-05T11:40:09+00:00"
         },
         {
             "name": "ramsey/uuid",
@@ -3125,62 +3186,6 @@
                 "uuid"
             ],
             "time": "2018-07-19T23:38:55+00:00"
-        },
-        {
-            "name": "roumen/sitemap",
-            "version": "v2.8.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Laravelium/laravel-sitemap.git",
-                "reference": "c3448eaeb17b8656d160a03882fdb7ef6796cdd9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Laravelium/laravel-sitemap/zipball/c3448eaeb17b8656d160a03882fdb7ef6796cdd9",
-                "reference": "c3448eaeb17b8656d160a03882fdb7ef6796cdd9",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "5.6.*",
-                "php": ">=7.1.3"
-            },
-            "require-dev": {
-                "orchestra/testbench": "3.6.x-dev",
-                "phpunit/phpunit": "~7.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Roumen\\Sitemap\\SitemapServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Roumen\\Sitemap": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Roumen Damianoff",
-                    "email": "roumen@damianoff.com",
-                    "homepage": "https://damianoff.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A not so simple sitemap generator for Laravel.",
-            "homepage": "https://laravelium.com",
-            "keywords": [
-                "Sitemap",
-                "generator",
-                "laravel"
-            ],
-            "time": "2018-02-07T20:36:32+00:00"
         },
         {
             "name": "spatie/eloquent-sortable",
@@ -3335,16 +3340,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "7.4.1",
+            "version": "7.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "146355b4c9473bacef56fd8520d73e0cc406ffec"
+                "reference": "3babc8069e37df1a5a94bc2d096ef8f9da7deb49"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/146355b4c9473bacef56fd8520d73e0cc406ffec",
-                "reference": "146355b4c9473bacef56fd8520d73e0cc406ffec",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/3babc8069e37df1a5a94bc2d096ef8f9da7deb49",
+                "reference": "3babc8069e37df1a5a94bc2d096ef8f9da7deb49",
                 "shasum": ""
             },
             "require": {
@@ -3410,7 +3415,7 @@
                 "media",
                 "spatie"
             ],
-            "time": "2018-08-24T09:18:57+00:00"
+            "time": "2018-09-05T09:31:23+00:00"
         },
         {
             "name": "spatie/laravel-tags",
@@ -6531,16 +6536,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.3.3",
+            "version": "7.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "1bd5629cccfb2c0a9ef5474b4ff772349e1ec898"
+                "reference": "0356331bf62896dc56e3a15030b23b73f38b2935"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/1bd5629cccfb2c0a9ef5474b4ff772349e1ec898",
-                "reference": "1bd5629cccfb2c0a9ef5474b4ff772349e1ec898",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/0356331bf62896dc56e3a15030b23b73f38b2935",
+                "reference": "0356331bf62896dc56e3a15030b23b73f38b2935",
                 "shasum": ""
             },
             "require": {
@@ -6611,7 +6616,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-09-01T15:49:55+00:00"
+            "time": "2018-09-05T09:58:53+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
