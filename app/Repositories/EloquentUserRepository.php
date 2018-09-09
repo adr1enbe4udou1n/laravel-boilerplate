@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use Carbon\Carbon;
 use Exception;
+use Carbon\Carbon;
 use App\Models\User;
 use App\Events\UserCreated;
 use App\Events\UserDeleted;

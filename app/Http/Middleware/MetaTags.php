@@ -2,8 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use App\Facades\SEOMeta;
 use Closure;
+use App\Facades\SEOMeta;
 use App\Repositories\Contracts\MetaRepository;
 
 class MetaTags
