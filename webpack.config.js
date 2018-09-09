@@ -69,8 +69,8 @@ function getEntryConfig (name, analyzerPort, alias = {}) {
   return {
     entry: {
       [name]: [
-        `./resources/assets/js/${name}/app.js`,
-        `./resources/assets/sass/${name}/app.scss`
+        `./resources/js/${name}/app.js`,
+        `./resources/sass/${name}/app.scss`
       ]
     },
     output: {

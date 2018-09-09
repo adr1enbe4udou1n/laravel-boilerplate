@@ -155,7 +155,6 @@ return [
         'roles'                     => 'Rôles',
         'permissions'               => 'Permissions',
         'active'                    => 'Actif',
-        'confirmed'                 => 'Confirmé',
         'message'                   => 'Message',
         'g-recaptcha-response'      => 'Captcha',
         'locale'                    => 'Localisation',

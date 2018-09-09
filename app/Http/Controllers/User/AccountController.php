@@ -64,34 +64,6 @@ class AccountController extends Controller
     }
 
     /**
-     *  Send mail confirmation.
-     */
-    public function sendConfirmation()
-    {
-        $this->account->sendConfirmation();
-
-        return redirect()->back()
-            ->withFlashSuccess(__('labels.user.email_confirmation_sended'));
-    }
-
-    /**
-     *  Confirm email.
-     *
-     * @param $token
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function confirmEmail($token)
-    {
-        if ($this->account->confirmEmail($token)) {
-            return redirect()->route('user.account')
-                ->withFlashSuccess(__('labels.user.email_confirmed'));
-        }
-
-        return redirect('/');
-    }
-
-    /**
      * @param \Illuminate\Http\Request $request
      *
      * @return \Illuminate\Http\RedirectResponse

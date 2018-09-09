@@ -13,12 +13,6 @@ return [
         'action'  => 'Réinitialiser le mot de passe',
         'outro'   => 'Si vous n\'avez pas fait cette demande de réinitialisation, aucune action n\'est requise.',
     ],
-    'email_confirmation' => [
-        'subject' => 'Confirmation de mon email',
-        'intro'   => 'La confirmation de votre email est requise pour débrider votre compte.',
-        'action'  => 'Confirmer mon email',
-        'outro'   => 'Votre compte sera limité tant que votre email ne sera pas confirmé.',
-    ],
     'contact' => [
         'subject'     => 'Nouveau message de contact',
         'new_contact' => 'Vous avez reçu un nouveau message de contact. Détail de la soumission :',

@@ -154,7 +154,6 @@ return [
         'roles'                     => 'الأدوار',
         'permissions'               => 'الصلاحيات',
         'active'                    => 'فعال',
-        'confirmed'                 => 'مؤكد',
         'message'                   => 'رسالة',
         'g-recaptcha-response'      => 'رمز حماية Captcha',
         'locale'                    => 'تعريب',

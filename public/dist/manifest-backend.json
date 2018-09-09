@@ -1,13 +1,13 @@
 {
-  "backend.css": "/dist/css/backend.a33a2f55f194d7b8f47e.css",
-  "backend.js": "/dist/js/backend.a33a2f55f194d7b8f47e.js",
-  "backend.css.map": "/dist/css/backend.a33a2f55f194d7b8f47e.css.map",
-  "backend.js.map": "/dist/js/backend.a33a2f55f194d7b8f47e.js.map",
-  "vendor-backend.js": "/dist/js/vendor-backend.ff902af49ebd07b039c6.js",
-  "vendor-backend.js.map": "/dist/js/vendor-backend.ff902af49ebd07b039c6.js.map",
+  "backend.css": "/dist/css/backend.f3b6fbf32b27c97bcd23.css",
+  "backend.js": "/dist/js/backend.f3b6fbf32b27c97bcd23.js",
+  "backend.css.map": "/dist/css/backend.f3b6fbf32b27c97bcd23.css.map",
+  "backend.js.map": "/dist/js/backend.f3b6fbf32b27c97bcd23.js.map",
+  "vendor-backend.js": "/dist/js/vendor-backend.a3c1453e28bdda4ed524.js",
+  "vendor-backend.js.map": "/dist/js/vendor-backend.a3c1453e28bdda4ed524.js.map",
   "fonts/feather-webfont.eot": "/dist/fonts/feather-webfont.eot?cc5143b2b877ad1f2a9d7ddde2e55dee",
   "fonts/feather-webfont.ttf": "/dist/fonts/feather-webfont.ttf?b8e9cbc7ac23b572497cd2115bcf71c6",
-  "fonts/feather-webfont.svg": "/dist/fonts/feather-webfont.svg?68bee8ffe37eb3cbfc76f1d1a17b0d49",
+  "fonts/feather-webfont.svg": "/dist/fonts/feather-webfont.svg?4a878d5b85f694202ec0ccd16510be9c",
   "images/logo.png": "/dist/images/logo.png?dac075a09aa1174c83763064939c77c8",
   "fonts/feather-webfont.woff": "/dist/fonts/feather-webfont.woff?2cf523cd335b115a5678b068b56c3011"
 }

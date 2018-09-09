@@ -1,0 +1,78 @@
+
+// Tabler bootstrap variables
+@import "../vendor/tabler/scss/variables";
+
+// Custom Variables
+@import "variables";
+
+// Thème CoreUI
+@import "~@coreui/coreui/scss/coreui";
+@import "~bootstrap-vue/dist/bootstrap-vue.css";
+
+// Tabler components
+@import "../vendor/tabler/scss/dashboard/functions";
+@import "../vendor/tabler/scss/dashboard/cards";
+@import "../vendor/tabler/scss/dashboard/tag";
+@import "../vendor/tabler/scss/dashboard/forms/custom-switch";
+@import "../vendor/tabler/scss/dashboard/fonts/feather";
+
+// Plugins
+@import "~sweetalert2/src/sweetalert2";
+@import "~noty/src/noty";
+@import "~noty/src/themes/bootstrap-v4";
+@import "~sweetalert2/src/sweetalert2";
+@import "~flatpickr/dist/flatpickr.css";
+
+// Components
+@import "../buttons";
+
+// RTL
+@import "../bootstrap-rtl";
+
+[v-cloak] {
+  display: none;
+}
+
+.intl-tel-input {
+  width: 100%;
+}
+
+.alert.alert-top {
+  border: none;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+
+.custom-control-indicator, .custom-control-description, .switch-label, .switch-handle {
+  margin-top: .25rem;
+}
+
+.flatpickr-calendar {
+  border-radius: 0;
+}
+
+body .v-select {
+  .selected-tag {
+    background-color: #20a8d8;
+    border-color: #20a8d8;
+    color: #fff;
+
+    .close {
+      color: #fff;
+      text-shadow: none;
+      opacity: 1;
+    }
+  }
+
+  .dropdown-toggle, .selected-tag {
+    border-radius: 0;
+  }
+}
+
+.table th {
+  white-space: nowrap;
+}
+
+.nowrap {
+  white-space: nowrap;
+}

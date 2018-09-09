@@ -7,11 +7,9 @@ use Carbon\Carbon;
 use App\Models\User;
 use App\Models\SocialLogin;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 use Laravel\Socialite\AbstractUser;
 use App\Exceptions\GeneralException;
 use Illuminate\Support\Facades\Hash;
-use App\Notifications\SendConfirmation;
 use App\Repositories\Contracts\UserRepository;
 use Illuminate\Contracts\Auth\Authenticatable;
 use App\Repositories\Contracts\AccountRepository;
@@ -53,8 +51,6 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
     public function register(array $input)
     {
         $user = $this->users->store(Arr::only($input, ['name', 'email', 'password']));
-
-        $this->sendConfirmationToUser($user);
 
         return $user;
     }
@@ -164,11 +160,6 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
 
         $user->fill(Arr::only($input, ['name', 'email', 'locale', 'timezone']));
 
-        if ($user->isDirty('email')) {
-            $user->confirmed = false;
-            $this->sendConfirmationToUser($user);
-        }
-
         return $user->save();
     }
 
@@ -196,49 +187,6 @@ class EloquentAccountRepository extends EloquentBaseRepository implements Accoun
         }
 
         throw new GeneralException(__('exceptions.frontend.user.password_mismatch'));
-    }
-
-    /**
-     * Send mail confirmation.
-     */
-    public function sendConfirmation()
-    {
-        /** @var User $user */
-        $user = auth()->user();
-
-        $this->sendConfirmationToUser($user);
-    }
-
-    /**
-     * @param \App\Models\User $user
-     */
-    private function sendConfirmationToUser(User $user)
-    {
-        $user->confirmation_token = Str::random(60);
-        $user->save();
-
-        $user->notify(new SendConfirmation($user->confirmation_token));
-    }
-
-    /**
-     * Send mail confirmation.
-     *
-     * @param $token
-     *
-     * @return bool
-     */
-    public function confirmEmail($token)
-    {
-        /** @var User $user */
-        $user = auth()->user();
-
-        if ($user->confirmation_token === $token) {
-            $user->confirmed = true;
-
-            return $user->save();
-        }
-
-        return false;
     }
 
     /**

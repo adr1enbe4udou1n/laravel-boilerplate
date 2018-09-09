@@ -13,12 +13,6 @@ return [
         'action'  => 'Restablecer la contraseña',
         'outro'   => 'Si no solicitó un restablecimiento de contraseña, no se requiere ninguna acción adicional.',
     ],
-    'email_confirmation' => [
-        'subject' => 'Confirmación de correo electrónico',
-        'intro'   => 'Se requiere confirmación por correo electrónico para activar su cuenta.',
-        'action'  => 'Confirma mi correo',
-        'outro'   => 'Su cuenta estará limitada hasta que su correo electrónico de confirmación no se confirme.',
-    ],
     'contact' => [
         'subject'     => 'Nuevo mensaje de contacto',
         'new_contact' => 'Tienes un nuevo mensaje de contacto. Detalle de presentación :',

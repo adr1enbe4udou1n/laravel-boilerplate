@@ -22,6 +22,6 @@ return [
     | Note: the path will be prepended to point to the App directory.
     |
     */
-    'jsPath' => '/resources/assets/js/langs/',
-    'jsFile' => '/resources/assets/vendor/vue-i18n-locales.generated.js',
+    'jsPath' => '/resources/js/langs/',
+    'jsFile' => '/resources/js/vendor/vue-i18n-locales.generated.js',
 ];

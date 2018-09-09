@@ -24,7 +24,6 @@ class UsersTableSeeder extends Seeder
             'email'     => 'superadmin@example.com',
             'password'  => bcrypt($defaultPassword),
             'active'    => true,
-            'confirmed' => true,
             'locale'    => app()->getLocale(),
             'timezone'  => config('app.timezone'),
         ]);
@@ -225,7 +224,6 @@ class UsersTableSeeder extends Seeder
             'email'     => 'admin@example.com',
             'password'  => bcrypt($defaultPassword),
             'active'    => true,
-            'confirmed' => true,
             'locale'    => app()->getLocale(),
             'timezone'  => config('app.timezone'),
         ]);
@@ -239,7 +237,6 @@ class UsersTableSeeder extends Seeder
             'email'     => 'supervisor@example.com',
             'password'  => bcrypt($defaultPassword),
             'active'    => true,
-            'confirmed' => true,
             'locale'    => app()->getLocale(),
             'timezone'  => config('app.timezone'),
         ]);
@@ -253,7 +250,6 @@ class UsersTableSeeder extends Seeder
             'email'     => 'demo@example.com',
             'password'  => bcrypt('demo'),
             'active'    => true,
-            'confirmed' => true,
             'locale'    => app()->getLocale(),
             'timezone'  => config('app.timezone'),
         ]);
@@ -267,7 +263,6 @@ class UsersTableSeeder extends Seeder
             'email'     => 'seo@example.com',
             'password'  => bcrypt($defaultPassword),
             'active'    => true,
-            'confirmed' => true,
             'locale'    => app()->getLocale(),
             'timezone'  => config('app.timezone'),
         ]);
@@ -282,7 +277,6 @@ class UsersTableSeeder extends Seeder
             'email'     => 'editor@example.com',
             'password'  => bcrypt($defaultPassword),
             'active'    => true,
-            'confirmed' => true,
             'locale'    => app()->getLocale(),
             'timezone'  => config('app.timezone'),
         ]);
@@ -297,7 +291,6 @@ class UsersTableSeeder extends Seeder
                 'email'     => "redactor-$i@example.com",
                 'password'  => bcrypt($defaultPassword),
                 'active'    => true,
-                'confirmed' => true,
                 'locale'    => app()->getLocale(),
                 'timezone'  => config('app.timezone'),
             ]);

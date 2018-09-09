@@ -14,10 +14,9 @@ use App\Notifications\ResetPassword as ResetPasswordNotification;
  * @property int                                                                                                       $id
  * @property string                                                                                                    $name
  * @property string                                                                                                    $email
+ * @property \Carbon\Carbon|null                                                                                       $email_verified_at
  * @property string|null                                                                                               $password
  * @property bool                                                                                                      $active
- * @property string|null                                                                                               $confirmation_token
- * @property int                                                                                                       $confirmed
  * @property string|null                                                                                               $remember_token
  * @property string                                                                                                    $locale
  * @property string                                                                                                    $timezone
@@ -38,10 +37,9 @@ use App\Notifications\ResetPassword as ResetPasswordNotification;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User actives()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User findSimilarSlugs($attribute, $config, $slug)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereActive($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereConfirmationToken($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereConfirmed($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereEmailVerifiedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereLastAccessAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\User whereLocale($value)
@@ -95,7 +93,6 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'confirmation_token',
         'remember_token',
     ];
 
@@ -122,6 +119,8 @@ class User extends Authenticatable
 
     public static function boot()
     {
+        parent::boot();
+
         static::saving(function (self $model) {
             $model->slug = str_slug($model->name);
         });

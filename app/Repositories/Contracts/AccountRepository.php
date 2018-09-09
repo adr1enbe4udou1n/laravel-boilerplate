@@ -57,18 +57,6 @@ interface AccountRepository extends BaseRepository
     public function changePassword($oldPassword, $newPassword);
 
     /**
-     * @return string
-     */
-    public function sendConfirmation();
-
-    /**
-     * @param $token
-     *
-     * @return string
-     */
-    public function confirmEmail($token);
-
-    /**
      * @return mixed
      */
     public function delete();

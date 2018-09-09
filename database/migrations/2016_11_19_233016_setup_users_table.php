@@ -14,11 +14,6 @@ class SetupUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->boolean('active')->after('password')->default(true);
 
-            $table->string('confirmation_token', 100)->after('active')
-                ->nullable();
-            $table->boolean('confirmed')->after('confirmation_token')
-                ->default(false);
-
             $table->string('locale')->after('remember_token')->default('');
             $table->string('timezone')->after('locale')->default('');
 
@@ -42,8 +37,6 @@ class SetupUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn([
                 'active',
-                'confirmed',
-                'confirmation_token',
                 'locale',
                 'timezone',
                 'slug',

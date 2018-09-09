@@ -105,8 +105,6 @@ return [
         'member_since'              => 'Miembro desde :date',
         'profile_updated'           => 'Perfil actualizado con éxito.',
         'password_updated'          => 'Contraseña actualizada con éxito.',
-        'email_confirmation_sended' => 'Correo de confirmación enviado.',
-        'email_confirmed'           => 'Correo electrónico confirmado con éxito.',
         'super_admin'               => 'Súper administrador',
 
         'account_delete'  => '<p>Esta acción eliminará por completo su cuenta de este sitio, así como todos los datos asociados.</p>',
@@ -120,7 +118,6 @@ return [
 
     'alerts' => [
         'login_as'      => 'Actualmente as iniciado session como <strong>:name</strong>, puedes cerrar sesión como <a href=":route" data-turbolinks="false">:admin</a>.',
-        'not_confirmed' => 'Su cuenta estará en modo limitado mientras su correo electrónico no esté confirmado. <a href=":route">Haga clic aquí</a> para volver a enviar la confirmación del correo.',
     ],
 
     'backend' => [

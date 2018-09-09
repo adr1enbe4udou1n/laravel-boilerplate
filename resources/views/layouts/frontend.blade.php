@@ -48,7 +48,6 @@
 
     <div id="app">
         @include('partials.logged-as')
-        @include('partials.not-confirmed')
         @include('frontend.partials.header')
         @hasSection('highlight')
             <section class="highlight">

@@ -1,6 +1,6 @@
 # Laravel Vue Tabler Boilerplate
 
-> This is a Bootstrap 4 starter kit site with lite blogging feature, user account registration/management and full Vue Tabler Backend based on Laravel 5.6. 
+> This is a Bootstrap 4 starter kit site with lite blogging feature, user account registration/management and full Vue Tabler Backend based on Laravel 5.7. 
 
 [![Build Status](https://drone.okami101.io/api/badges/adr1enbe4udou1n/laravel-boilerplate/status.svg)](https://drone.okami101.io/adr1enbe4udou1n/laravel-boilerplate)
 [![StyleCI](https://styleci.io/repos/75558440/shield?style=flat&branch=master)](https://styleci.io/repos/75558440)
@@ -161,7 +161,6 @@ Moreover, [Official ESLint plugin for Vue.js](https://github.com/vuejs/eslint-pl
 * [x] <s>301 redirection management with CSV/XLS import</s>
 * [x] <s>Own account deletion</s>
 * [x] <s>Account language & timezone selection</s>
-* [x] <s>Account mail confirmation</s>
 * [x] <s>Account avatar</s>
 * [x] <s>Facebook/Twitter/Google Sign in with socialite package</s>
 * [x] <s>Blog system (posts, publication date, multilangue, HTML wysiwyg, tags, featured image, medias, public user profile)</s>

@@ -20,7 +20,7 @@ return [
     |
     | This value determines the "environment" your application is currently
     | running in. This may determine how you prefer to configure various
-    | services your application utilizes. Set this in your ".env" file.
+    | services the application utilizes. Set this in your ".env" file.
     |
     */
 
@@ -254,5 +254,6 @@ return [
         'Validator'    => Illuminate\Support\Facades\Validator::class,
         'View'         => Illuminate\Support\Facades\View::class,
         'Captcha'      => Arcanedev\NoCaptcha\Facades\NoCaptcha::class,
+        'SEOMeta'      => App\Facades\SEOMeta::class,
     ],
 ];
