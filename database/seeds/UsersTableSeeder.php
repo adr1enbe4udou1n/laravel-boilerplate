@@ -20,12 +20,13 @@ class UsersTableSeeder extends Seeder
         $role = new Role();
 
         $user->create([
-            'name'      => 'Super admin',
-            'email'     => 'superadmin@example.com',
-            'password'  => bcrypt($defaultPassword),
-            'active'    => true,
-            'locale'    => app()->getLocale(),
-            'timezone'  => config('app.timezone'),
+            'name'              => 'Super admin',
+            'email'             => 'superadmin@example.com',
+            'email_verified_at' => now(),
+            'password'          => bcrypt($defaultPassword),
+            'active'            => true,
+            'locale'            => app()->getLocale(),
+            'timezone'          => config('app.timezone'),
         ]);
 
         /*
@@ -220,12 +221,13 @@ class UsersTableSeeder extends Seeder
         // 1 administrator
         /** @var User $administrator */
         $administrator = $user->create([
-            'name'      => 'Administrator',
-            'email'     => 'admin@example.com',
-            'password'  => bcrypt($defaultPassword),
-            'active'    => true,
-            'locale'    => app()->getLocale(),
-            'timezone'  => config('app.timezone'),
+            'name'              => 'Administrator',
+            'email'             => 'admin@example.com',
+            'email_verified_at' => now(),
+            'password'          => bcrypt($defaultPassword),
+            'active'            => true,
+            'locale'            => app()->getLocale(),
+            'timezone'          => config('app.timezone'),
         ]);
 
         $administrator->roles()->save($administratorRole);
@@ -233,12 +235,13 @@ class UsersTableSeeder extends Seeder
         // 1 supervisor
         /** @var User $supervisor */
         $supervisor = $user->create([
-            'name'      => 'Supervisor',
-            'email'     => 'supervisor@example.com',
-            'password'  => bcrypt($defaultPassword),
-            'active'    => true,
-            'locale'    => app()->getLocale(),
-            'timezone'  => config('app.timezone'),
+            'name'              => 'Supervisor',
+            'email'             => 'supervisor@example.com',
+            'email_verified_at' => now(),
+            'password'          => bcrypt($defaultPassword),
+            'active'            => true,
+            'locale'            => app()->getLocale(),
+            'timezone'          => config('app.timezone'),
         ]);
 
         $supervisor->roles()->save($supervisorRole);
@@ -246,12 +249,13 @@ class UsersTableSeeder extends Seeder
         // 1 demo
         /** @var User $demo */
         $demo = $user->create([
-            'name'      => 'Demo',
-            'email'     => 'demo@example.com',
-            'password'  => bcrypt('demo'),
-            'active'    => true,
-            'locale'    => app()->getLocale(),
-            'timezone'  => config('app.timezone'),
+            'name'              => 'Demo',
+            'email'             => 'demo@example.com',
+            'email_verified_at' => now(),
+            'password'          => bcrypt('demo'),
+            'active'            => true,
+            'locale'            => app()->getLocale(),
+            'timezone'          => config('app.timezone'),
         ]);
 
         $demo->roles()->save($administratorRole);
@@ -259,12 +263,13 @@ class UsersTableSeeder extends Seeder
         // 1 seo consultant
         /** @var User $seoConsultant */
         $seoConsultant = $user->create([
-            'name'      => 'Seo consultant',
-            'email'     => 'seo@example.com',
-            'password'  => bcrypt($defaultPassword),
-            'active'    => true,
-            'locale'    => app()->getLocale(),
-            'timezone'  => config('app.timezone'),
+            'name'              => 'Seo consultant',
+            'email'             => 'seo@example.com',
+            'email_verified_at' => now(),
+            'password'          => bcrypt($defaultPassword),
+            'active'            => true,
+            'locale'            => app()->getLocale(),
+            'timezone'          => config('app.timezone'),
         ]);
 
         $seoConsultant->roles()->save($seoConsultantRole);
@@ -273,12 +278,13 @@ class UsersTableSeeder extends Seeder
         // 1 editor
         /** @var User $editor */
         $editor = $user->create([
-            'name'      => 'Editor',
-            'email'     => 'editor@example.com',
-            'password'  => bcrypt($defaultPassword),
-            'active'    => true,
-            'locale'    => app()->getLocale(),
-            'timezone'  => config('app.timezone'),
+            'name'              => 'Editor',
+            'email'             => 'editor@example.com',
+            'email_verified_at' => now(),
+            'password'          => bcrypt($defaultPassword),
+            'active'            => true,
+            'locale'            => app()->getLocale(),
+            'timezone'          => config('app.timezone'),
         ]);
 
         $editor->roles()->save($editorRole);
@@ -287,12 +293,13 @@ class UsersTableSeeder extends Seeder
         for ($i = 1; $i <= 5; $i++) {
             /** @var User $redactor */
             $redactor = $user->create([
-                'name'      => "Redactor $i",
-                'email'     => "redactor-$i@example.com",
-                'password'  => bcrypt($defaultPassword),
-                'active'    => true,
-                'locale'    => app()->getLocale(),
-                'timezone'  => config('app.timezone'),
+                'name'              => "Redactor $i",
+                'email'             => "redactor-$i@example.com",
+                'email_verified_at' => now(),
+                'password'          => bcrypt($defaultPassword),
+                'active'            => true,
+                'locale'            => app()->getLocale(),
+                'timezone'          => config('app.timezone'),
             ]);
 
             $redactor->roles()->save($redactorRole);
