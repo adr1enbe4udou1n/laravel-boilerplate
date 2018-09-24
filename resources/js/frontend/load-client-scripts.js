@@ -1,6 +1,6 @@
 import '../fontawesome'
 import 'slick-carousel'
-import 'intl-tel-input'
+import intlTelInput from 'intl-tel-input'
 import 'pwstrength-bootstrap/dist/pwstrength-bootstrap'
 import swal from 'sweetalert2'
 import WebFont from 'webfontloader'
@@ -59,6 +59,13 @@ export default (createApp) => {
       const { app } = createApp()
       app.$mount('#app')
     }
+
+    /**
+     * Tel Input
+     */
+    document.querySelectorAll('input[type="tel"]').forEach((input) => {
+      intlTelInput(input)
+    })
 
     /**
      * Bind all bootstrap tooltips
@@ -121,13 +128,6 @@ export default (createApp) => {
       ui: {
         bootstrap4: true
       }
-    })
-
-    $('[type="tel"]').intlTelInput({
-      autoPlaceholder: 'aggressive',
-      utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.14/js/utils.js',
-      initialCountry: window.locale === 'en' ? 'us' : window.locale,
-      preferredCountries: ['us', 'gb', 'fr']
     })
 
     /**
