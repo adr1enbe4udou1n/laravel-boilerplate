@@ -136,7 +136,7 @@ import { groupBy, forEach } from 'lodash/collection'
 export default {
   name: 'RoleForm',
   mixins: [form],
-  data () {
+  data() {
     return {
       permissions: [],
       modelName: 'role',
@@ -151,16 +151,21 @@ export default {
       }
     }
   },
-  async created () {
+  async created() {
     this.fetchData()
 
-    let { data } = await axios.get(this.$app.route(`admin.roles.get_permissions`))
+    let { data } = await axios.get(
+      this.$app.route(`admin.roles.get_permissions`)
+    )
 
-    let categories = _.groupBy(_.forEach(data, (value, key) => {
-      value['name'] = key
-    }), 'category')
+    let categories = _.groupBy(
+      _.forEach(data, (value, key) => {
+        value['name'] = key
+      }),
+      'category'
+    )
 
-    this.permissions = Object.keys(categories).map((key) => {
+    this.permissions = Object.keys(categories).map(key => {
       return {
         title: key,
         permissions: categories[key]
@@ -168,9 +173,9 @@ export default {
     })
   },
   methods: {
-    onModelChanged () {
+    onModelChanged() {
       if (this.model.permissions) {
-        this.model.permissions = this.model.permissions.map((item) => {
+        this.model.permissions = this.model.permissions.map(item => {
           return item.name
         })
       }

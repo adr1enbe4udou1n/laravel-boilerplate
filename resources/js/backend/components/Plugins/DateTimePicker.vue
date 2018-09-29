@@ -47,26 +47,26 @@ export default {
       default: null
     }
   },
-  data () {
+  data() {
     return {
       mutableValue: this.value,
       fp: null
     }
   },
   watch: {
-    config (newConfig) {
+    config(newConfig) {
       this.fp.config = Object.assign(this.fp.config, newConfig)
       this.fp.redraw()
       this.fp.setDate(this.value, true)
     },
-    mutableValue (newValue) {
+    mutableValue(newValue) {
       this.$emit('input', newValue)
     },
-    value (newValue) {
+    value(newValue) {
       this.fp && this.fp.setDate(newValue, true)
     }
   },
-  mounted () {
+  mounted() {
     if (this.$app.locale === 'fr') {
       window.Flatpickr.localize(window.FlatpickrLocaleFr['fr'])
     }
@@ -75,7 +75,7 @@ export default {
       this.fp = new window.Flatpickr(elem, this.config)
     }
   },
-  beforeDestroy () {
+  beforeDestroy() {
     if (this.fp) {
       this.fp.destroy()
       this.fp = null

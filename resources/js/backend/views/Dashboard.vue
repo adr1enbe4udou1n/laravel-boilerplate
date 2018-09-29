@@ -71,19 +71,22 @@ import axios from 'axios'
 
 export default {
   name: 'Dashboard',
-  data () {
+  data() {
     return {
       post_fields: {
         title: { label: this.$t('validation.attributes.title') },
         status: { label: this.$t('validation.attributes.status') },
         pinned: { label: this.$t('validation.attributes.pinned') },
         summary: { label: this.$t('validation.attributes.summary') },
-        published_at: { label: this.$t('validation.attributes.published_at'), 'class': 'text-center' }
+        published_at: {
+          label: this.$t('validation.attributes.published_at'),
+          class: 'text-center'
+        }
       },
       posts: []
     }
   },
-  async created () {
+  async created() {
     if (this.$app.user.can('view own posts')) {
       let { data } = await axios.get(this.$app.route('admin.posts.latest'))
       this.posts = data

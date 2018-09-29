@@ -11,7 +11,7 @@ import Locales from './vendor/vue-i18n-locales.generated.js'
 
 Vue.use(VueI18n)
 
-export function createLocales (locale) {
+export function createLocales(locale) {
   return new VueI18n({
     locale: locale,
     messages: Locales

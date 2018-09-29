@@ -1,12 +1,9 @@
 import Vue from 'vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
-import {
-  faHome
-} from '@fortawesome/free-solid-svg-icons'
+import { faHome } from '@fortawesome/free-solid-svg-icons'
 
-import {
-} from '@fortawesome/free-regular-svg-icons'
+import {} from '@fortawesome/free-regular-svg-icons'
 
 import {
   faFacebook,

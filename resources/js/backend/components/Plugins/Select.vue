@@ -75,7 +75,7 @@ export default {
       default: null
     }
   },
-  data () {
+  data() {
     return {
       mutableValue: this.value,
       showOptions: false,
@@ -83,50 +83,56 @@ export default {
     }
   },
   watch: {
-    mutableValue (newValue) {
+    mutableValue(newValue) {
       this.$emit('input', newValue)
 
       this.search = this.getSearchValue(newValue)
     },
-    value (newValue) {
+    value(newValue) {
       this.mutableValue = newValue
     },
-    search () {
+    search() {
       if (this.search === '' && !this.multiple) {
         this.mutableValue = null
       }
     }
   },
-  mounted () {
-    document.addEventListener('click', (e) => {
+  mounted() {
+    document.addEventListener('click', e => {
       if (this.$el.contains(e.target)) return
 
       this.showOptions = false
     })
   },
   methods: {
-    onSearch () {
+    onSearch() {
       if (this.search !== '') {
         this.$emit('search-change', this.search, this.id)
       }
     },
-    getSearchValue (newValue) {
-      return this.multiple ? '' : (this.label && newValue ? newValue[this.label] : newValue) || ''
+    getSearchValue(newValue) {
+      return this.multiple
+        ? ''
+        : (this.label && newValue ? newValue[this.label] : newValue) || ''
     },
-    onDelete (item) {
-      this.mutableValue = this.mutableValue.filter((i) => {
-        return this.trackBy ? i[this.trackBy] !== item[this.trackBy] : i !== item
+    onDelete(item) {
+      this.mutableValue = this.mutableValue.filter(i => {
+        return this.trackBy
+          ? i[this.trackBy] !== item[this.trackBy]
+          : i !== item
       })
     },
-    onAddNew () {
+    onAddNew() {
       if (this.tags) {
         this.onAdd(this.search)
       }
     },
-    onAdd (item) {
+    onAdd(item) {
       if (this.multiple) {
-        let existingItem = this.mutableValue.filter((i) => {
-          return this.trackBy ? i[this.trackBy] === item[this.trackBy] : i === item
+        let existingItem = this.mutableValue.filter(i => {
+          return this.trackBy
+            ? i[this.trackBy] === item[this.trackBy]
+            : i === item
         })
 
         if (!existingItem.length) {
@@ -137,7 +143,7 @@ export default {
       }
       this.clearInput()
     },
-    clearInput () {
+    clearInput() {
       this.search = ''
       this.showOptions = false
     }

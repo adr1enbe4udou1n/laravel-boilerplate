@@ -8,7 +8,7 @@
 export default {
   name: 'SidebarForm',
   methods: {
-    onSearch (value) {
+    onSearch(value) {
       this.$router.push({ path: '/search', query: { q: value } })
     }
   }

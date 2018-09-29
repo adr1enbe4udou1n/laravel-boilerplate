@@ -131,7 +131,7 @@ import form from '../mixins/form'
 export default {
   name: 'UserForm',
   mixins: [form],
-  data () {
+  data() {
     return {
       roles: [],
       modelName: 'user',
@@ -147,15 +147,15 @@ export default {
       }
     }
   },
-  async created () {
+  async created() {
     this.fetchData()
     let { data } = await axios.get(this.$app.route(`admin.users.get_roles`))
     this.roles = data
   },
   methods: {
-    onModelChanged () {
+    onModelChanged() {
       if (this.model.roles) {
-        this.model.roles = this.model.roles.map((item) => {
+        this.model.roles = this.model.roles.map(item => {
           return item.id
         })
       }

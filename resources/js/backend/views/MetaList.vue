@@ -50,18 +50,43 @@
 <script>
 export default {
   name: 'MetaList',
-  data () {
+  data() {
     return {
       selected: [],
       fields: [
         { key: 'checkbox' },
-        { key: 'route', label: this.$t('validation.attributes.route'), sortable: true },
-        { key: 'metable_type', label: this.$t('validation.attributes.metable_type'), sortable: true },
-        { key: 'title', label: this.$t('validation.attributes.title'), sortable: true },
-        { key: 'description', label: this.$t('validation.attributes.description') },
-        { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
-        { key: 'updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
-        { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
+        {
+          key: 'route',
+          label: this.$t('validation.attributes.route'),
+          sortable: true
+        },
+        {
+          key: 'metable_type',
+          label: this.$t('validation.attributes.metable_type'),
+          sortable: true
+        },
+        {
+          key: 'title',
+          label: this.$t('validation.attributes.title'),
+          sortable: true
+        },
+        {
+          key: 'description',
+          label: this.$t('validation.attributes.description')
+        },
+        {
+          key: 'created_at',
+          label: this.$t('labels.created_at'),
+          class: 'text-center',
+          sortable: true
+        },
+        {
+          key: 'updated_at',
+          label: this.$t('labels.updated_at'),
+          class: 'text-center',
+          sortable: true
+        },
+        { key: 'actions', label: this.$t('labels.actions'), class: 'nowrap' }
       ],
       actions: {
         destroy: this.$t('labels.backend.metas.actions.destroy')
@@ -69,13 +94,13 @@ export default {
     }
   },
   methods: {
-    dataLoadProvider (ctx) {
+    dataLoadProvider(ctx) {
       return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
     },
-    onContextChanged () {
+    onContextChanged() {
       return this.$refs.datatable.refresh()
     },
-    onDelete (id) {
+    onDelete(id) {
       this.$refs.datasource.deleteRow({ meta: id })
     }
   }

@@ -285,7 +285,7 @@ import form from '../mixins/form'
 export default {
   name: 'PostForm',
   mixins: [form],
-  data () {
+  data() {
     return {
       config: {
         wrap: true,
@@ -322,7 +322,7 @@ export default {
     }
   },
   methods: {
-    async getTags (search) {
+    async getTags(search) {
       let { data } = await axios.get(this.$app.route('admin.tags.search'), {
         params: {
           q: search
@@ -331,7 +331,7 @@ export default {
 
       this.tags = data.items
     },
-    deleteFeaturedImage () {
+    deleteFeaturedImage() {
       this.$refs.featuredImageInput.reset()
       this.model.thumbnail_image_path = null
       this.model.has_featured_image = false

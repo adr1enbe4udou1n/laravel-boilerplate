@@ -42,20 +42,20 @@ export default {
     AppFooter,
     AppSearch
   },
-  data () {
+  data() {
     return {
       nav: []
     }
   },
   watch: {
-    '$route': 'fetchData'
+    $route: 'fetchData'
   },
-  created () {
+  created() {
     this.initNav()
     this.fetchData()
   },
   methods: {
-    initNav () {
+    initNav() {
       this.nav = nav(
         this.$app,
         this.$i18n,
@@ -63,7 +63,7 @@ export default {
         this.$store.state.counters.pendingPostsCount
       )
     },
-    async fetchData () {
+    async fetchData() {
       await this.$store.dispatch('LOAD_COUNTERS')
       this.initNav()
     }

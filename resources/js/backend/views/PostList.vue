@@ -84,20 +84,46 @@ import axios from 'axios'
 
 export default {
   name: 'PostList',
-  data () {
+  data() {
     return {
       selected: [],
       fields: [
         { key: 'checkbox' },
         { key: 'image', label: this.$t('validation.attributes.image') },
-        { key: 'title', label: this.$t('validation.attributes.title'), sortable: true },
-        { key: 'status', label: this.$t('validation.attributes.status'), 'class': 'text-center' },
-        { key: 'pinned', label: this.$t('validation.attributes.pinned'), 'class': 'text-center' },
-        { key: 'promoted', label: this.$t('validation.attributes.promoted'), 'class': 'text-center' },
+        {
+          key: 'title',
+          label: this.$t('validation.attributes.title'),
+          sortable: true
+        },
+        {
+          key: 'status',
+          label: this.$t('validation.attributes.status'),
+          class: 'text-center'
+        },
+        {
+          key: 'pinned',
+          label: this.$t('validation.attributes.pinned'),
+          class: 'text-center'
+        },
+        {
+          key: 'promoted',
+          label: this.$t('validation.attributes.promoted'),
+          class: 'text-center'
+        },
         { key: 'owner', label: this.$t('labels.author'), sortable: true },
-        { key: 'posts.created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
-        { key: 'posts.updated_at', label: this.$t('labels.updated_at'), 'class': 'text-center', sortable: true },
-        { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
+        {
+          key: 'posts.created_at',
+          label: this.$t('labels.created_at'),
+          class: 'text-center',
+          sortable: true
+        },
+        {
+          key: 'posts.updated_at',
+          label: this.$t('labels.updated_at'),
+          class: 'text-center',
+          sortable: true
+        },
+        { key: 'actions', label: this.$t('labels.actions'), class: 'nowrap' }
       ],
       actions: {
         destroy: this.$t('labels.backend.posts.actions.destroy'),
@@ -108,24 +134,26 @@ export default {
     }
   },
   methods: {
-    dataLoadProvider (ctx) {
+    dataLoadProvider(ctx) {
       return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
     },
-    onContextChanged () {
+    onContextChanged() {
       return this.$refs.datatable.refresh()
     },
-    onDelete (id) {
+    onDelete(id) {
       this.$refs.datasource.deleteRow({ post: id })
     },
-    onPinToggle (id) {
-      axios.post(this.$app.route('admin.posts.pinned', { post: id }))
-        .catch((error) => {
+    onPinToggle(id) {
+      axios
+        .post(this.$app.route('admin.posts.pinned', { post: id }))
+        .catch(error => {
           this.$app.error(error)
         })
     },
-    onPromoteToggle (id) {
-      axios.post(this.$app.route('admin.posts.promoted', { post: id }))
-        .catch((error) => {
+    onPromoteToggle(id) {
+      axios
+        .post(this.$app.route('admin.posts.promoted', { post: id }))
+        .catch(error => {
           this.$app.error(error)
         })
     }

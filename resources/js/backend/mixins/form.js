@@ -2,25 +2,27 @@ import axios from 'axios'
 
 export default {
   props: ['id'],
-  data () {
+  data() {
     return {
       validation: {},
       pending: false
     }
   },
   computed: {
-    isNew () {
+    isNew() {
       return this.id === undefined
     }
   },
   methods: {
-    async fetchData () {
+    async fetchData() {
       if (!this.isNew) {
-        let { data } = await axios.get(this.$app.route(`admin.${this.resourceRoute}.show`, {
-          [this.modelName]: this.id
-        }))
+        let { data } = await axios.get(
+          this.$app.route(`admin.${this.resourceRoute}.show`, {
+            [this.modelName]: this.id
+          })
+        )
 
-        Object.keys(data).forEach((key) => {
+        Object.keys(data).forEach(key => {
           if (key in this.model) {
             this.model[key] = data[key]
           }
@@ -28,24 +30,26 @@ export default {
         this.onModelChanged()
       }
     },
-    onModelChanged () {
-    },
-    feedback (name) {
+    onModelChanged() {},
+    feedback(name) {
       if (this.state(name)) {
         return this.validation.errors[name][0]
       }
     },
-    state (name) {
-      return this.validation.errors !== undefined && this.validation.errors.hasOwnProperty(name)
+    state(name) {
+      return this.validation.errors !== undefined &&
+        this.validation.errors.hasOwnProperty(name)
         ? 'invalid'
         : null
     },
-    async onSubmit () {
+    async onSubmit() {
       this.pending = true
       let router = this.$router
-      let action = this.isNew ? this.$app.route(
-        `admin.${this.resourceRoute}.store`) : this.$app.route(
-        `admin.${this.resourceRoute}.update`, { [this.modelName]: this.id })
+      let action = this.isNew
+        ? this.$app.route(`admin.${this.resourceRoute}.store`)
+        : this.$app.route(`admin.${this.resourceRoute}.update`, {
+            [this.modelName]: this.id
+          })
 
       let formData = this.$app.objectToFormData(this.model)
 
@@ -74,7 +78,7 @@ export default {
       }
     }
   },
-  created () {
+  created() {
     this.fetchData()
   }
 }

@@ -89,19 +89,19 @@ export default {
       default: () => []
     }
   },
-  data () {
+  data() {
     return {
       currentPage: 1,
       perPage: 15,
       totalRows: 0,
-      pageOptions: [ 5, 10, 15, 25, 50 ],
+      pageOptions: [5, 10, 15, 25, 50],
       searchQuery: null,
       action: null
     }
   },
   watch: {
     actions: {
-      handler () {
+      handler() {
         if (this.actions) {
           this.action = Object.keys(this.actions)[0]
         }
@@ -110,13 +110,13 @@ export default {
     }
   },
   methods: {
-    debounceInput: _.debounce(function () {
+    debounceInput: _.debounce(function() {
       this.onContextChanged()
     }, 200),
-    onContextChanged () {
+    onContextChanged() {
       this.$emit('context-changed')
     },
-    async loadData (sortBy, sortDesc) {
+    async loadData(sortBy, sortDesc) {
       try {
         let { data } = await axios.get(this.$app.route(this.searchRoute), {
           params: {
@@ -135,13 +135,13 @@ export default {
         return []
       }
     },
-    onExportData () {
+    onExportData() {
       window.location = this.$app.route(this.searchRoute, {
         search: this.searchQuery,
         exportData: true
       })
     },
-    async deleteRow (params) {
+    async deleteRow(params) {
       let result = await window.swal({
         title: this.$t('labels.are_you_sure'),
         type: 'warning',
@@ -153,7 +153,9 @@ export default {
 
       if (result.value) {
         try {
-          let { data } = await axios.delete(this.$app.route(this.deleteRoute, params))
+          let { data } = await axios.delete(
+            this.$app.route(this.deleteRoute, params)
+          )
           this.onContextChanged()
           this.$app.noty[data.status](data.message)
         } catch (e) {
@@ -161,7 +163,7 @@ export default {
         }
       }
     },
-    async onBulkAction () {
+    async onBulkAction() {
       let result = await window.swal({
         title: this.$t('labels.are_you_sure'),
         type: 'warning',

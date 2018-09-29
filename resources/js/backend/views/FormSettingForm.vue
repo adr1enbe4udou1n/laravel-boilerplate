@@ -95,7 +95,7 @@ import form from '../mixins/form'
 export default {
   name: 'FormSettingForm',
   mixins: [form],
-  data () {
+  data() {
     return {
       formTypes: [
         {
@@ -113,10 +113,12 @@ export default {
       }
     }
   },
-  async created () {
+  async created() {
     this.fetchData()
 
-    let { data } = await axios.get(this.$app.route(`admin.${this.modelName}s.get_form_types`))
+    let { data } = await axios.get(
+      this.$app.route(`admin.${this.modelName}s.get_form_types`)
+    )
 
     for (let propertyName in data) {
       this.formTypes.push({

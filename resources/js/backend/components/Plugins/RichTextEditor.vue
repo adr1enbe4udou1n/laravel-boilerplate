@@ -12,28 +12,28 @@ export default {
       default: null
     }
   },
-  data () {
+  data() {
     return {
       editor: null
     }
   },
   watch: {
-    value (newValue) {
+    value(newValue) {
       if (this.editor && newValue !== this.editor.getData()) {
         this.editor.setData(newValue)
       }
     }
   },
-  mounted () {
+  mounted() {
     this.createInstance()
   },
-  beforeDestroy () {
+  beforeDestroy() {
     if (this.editor) {
       this.editor.destroy()
     }
   },
   methods: {
-    async createInstance () {
+    async createInstance() {
       if (!this.editor) {
         try {
           this.editor = await window.ClassicEditor.create(this.$refs.editorEl, {
@@ -47,19 +47,17 @@ export default {
               'imageUpload',
               'blockQuote',
               'undo',
-              'redo'],
+              'redo'
+            ],
             image: {
               toolbar: [
                 'imageTextAlternative',
                 '|',
                 'imageStyle:alignLeft',
                 'imageStyle:full',
-                'imageStyle:alignRight'],
-              styles: [
-                'full',
-                'alignLeft',
-                'alignRight'
-              ]
+                'imageStyle:alignRight'
+              ],
+              styles: ['full', 'alignLeft', 'alignRight']
             },
             ckfinder: {
               uploadUrl: this.$app.route('admin.images.upload')

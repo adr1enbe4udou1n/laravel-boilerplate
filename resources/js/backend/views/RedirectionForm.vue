@@ -91,7 +91,7 @@ import form from '../mixins/form'
 export default {
   name: 'RedirectionForm',
   mixins: [form],
-  data () {
+  data() {
     return {
       redirectionTypes: {},
       modelName: 'redirection',
@@ -105,10 +105,12 @@ export default {
       }
     }
   },
-  async created () {
+  async created() {
     this.fetchData()
 
-    let { data } = await axios.get(this.$app.route(`admin.redirections.get_redirection_types`))
+    let { data } = await axios.get(
+      this.$app.route(`admin.redirections.get_redirection_types`)
+    )
     this.redirectionTypes = data
   }
 }
