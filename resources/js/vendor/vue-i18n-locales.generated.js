@@ -257,8 +257,6 @@ export default {
                 "member_since": "عضو منذ {date}",
                 "profile_updated": "تم تعديل معومات الملف بنجاح.",
                 "password_updated": "تم تعديل كلمة المرور بنجاح",
-                "email_confirmation_sended": "تم إرسال رسالة التحقق من البريد الإلكتروني.",
-                "email_confirmed": "تم التحقق من عنوان البريد الإلكتروني بنجاح.",
                 "super_admin": "مدير بصلاحيات كاملة",
                 "account_delete": "<p>إن القيام بهذا الإجراء سيؤدي لحذف حسابك بشكل كامل من الموقع مع جميع المعلومات ذات الصلة.<\/p>",
                 "account_deleted": "تم حذف الحساب بنجاح",
@@ -268,8 +266,7 @@ export default {
                 }
             },
             "alerts": {
-                "login_as": "يتم تسجيل دخولك فعليًا باسم <strong>{name} <\/strong> ، ويمكنك الخروج كـ <a href=\"{route}\" data-turbolinks=\"false\">{admin} <\/a>.",
-                "not_confirmed": "سيكون حسابك في وضع محدود طالما لم يتم تأكيد بريدك الإلكتروني. <a href=\"{route}\"> انقر هنا <\/a> لإعادة إرسال تأكيد عنوان البريد."
+                "login_as": "يتم تسجيل دخولك فعليًا باسم <strong>{name} <\/strong> ، ويمكنك الخروج كـ <a href=\"{route}\" data-turbolinks=\"false\">{admin} <\/a>."
             },
             "backend": {
                 "dashboard": {
@@ -456,12 +453,6 @@ export default {
                 "intro": "تم إرسال هذا البريد الإلكتروني لأننا تلقينا طلب إعادة تعيين كلمة المرور للحساب الخاص بك",
                 "action": "إعادة تعيين كلمة المرور",
                 "outro": "إذا لم تطلب إعادة تعيين كلمة المرور، فلا داعي لاتخاذ أي إجراء"
-            },
-            "email_confirmation": {
-                "subject": "تأكيد عنوان البريد الإلكتروني",
-                "intro": "تأكيد عنوان البريد الإلكتروني ضروري كي تقوم بتفعيل الحساب الخاص بك.",
-                "action": "تأكيد عنوان البريد الخاص بي",
-                "outro": "إن الحساب الخاص بك سيبقى محدوداً لطالما لم يتم تأكيد عنوان البريد الإلكتروني الخاص بك"
             },
             "contact": {
                 "subject": "رسالة إتصال جديدة",
@@ -765,7 +756,6 @@ export default {
                 "roles": "الأدوار",
                 "permissions": "الصلاحيات",
                 "active": "فعال",
-                "confirmed": "مؤكد",
                 "message": "رسالة",
                 "g-recaptcha-response": "رمز حماية Captcha",
                 "locale": "تعريب",
@@ -1017,8 +1007,13 @@ export default {
             },
             "localization": {
                 "en": "English",
+                "ru": "Russian",
                 "fr": "French",
-                "es": "Spanish"
+                "es": "Spanish",
+                "de": "German",
+                "zh": "Chinese",
+                "ar": "Arab",
+                "pt": "Portuguese"
             },
             "placeholders": {
                 "route": "Select a valid internal route",
@@ -1053,9 +1048,7 @@ export default {
                 "member_since": "Member since {date}",
                 "profile_updated": "Profile successfully updated.",
                 "password_updated": "Password successfully updated.",
-                "email_confirmation_sended": "Mail confirmation sended.",
-                "email_confirmed": "Email successfully confirmed.",
-                "super_admin": "Super administrateur",
+                "super_admin": "Super administrator",
                 "account_delete": "<p>This action will delete entirely your account from this site as well as all associated data.<\/p>",
                 "account_deleted": "Account successfully deleted",
                 "titles": {
@@ -1064,8 +1057,7 @@ export default {
                 }
             },
             "alerts": {
-                "login_as": "You are actually logged as <strong>{name}<\/strong>, you can logout as <a href=\"{route}\" data-turbolinks=\"false\">{admin}<\/a>.",
-                "not_confirmed": "Your account will be in limited mode as long as your email remains not confirmed. <a href=\"{route}\">Click here<\/a> in order to resend mail confirmation."
+                "login_as": "You are actually logged as <strong>{name}<\/strong>, you can logout as <a href=\"{route}\" data-turbolinks=\"false\">{admin}<\/a>."
             },
             "backend": {
                 "dashboard": {
@@ -1252,12 +1244,6 @@ export default {
                 "intro": "You are receiving this email because we received a password reset request for your account.",
                 "action": "Reset Password",
                 "outro": "If you did not request a password reset, no further action is required."
-            },
-            "email_confirmation": {
-                "subject": "Email confirmation",
-                "intro": "Email confirmation is required in order to unleash your account.",
-                "action": "Confirm my email",
-                "outro": "Your account will be limited as long as your email remains not confirmed."
             },
             "contact": {
                 "subject": "New contact message",
@@ -1562,7 +1548,6 @@ export default {
                 "roles": "Roles",
                 "permissions": "Permissions",
                 "active": "Active",
-                "confirmed": "Confirmed",
                 "message": "Message",
                 "g-recaptcha-response": "Captcha",
                 "locale": "Localization",
@@ -1847,8 +1832,6 @@ export default {
                 "member_since": "Miembro desde {date}",
                 "profile_updated": "Perfil actualizado con éxito.",
                 "password_updated": "Contraseña actualizada con éxito.",
-                "email_confirmation_sended": "Correo de confirmación enviado.",
-                "email_confirmed": "Correo electrónico confirmado con éxito.",
                 "super_admin": "Súper administrador",
                 "account_delete": "<p>Esta acción eliminará por completo su cuenta de este sitio, así como todos los datos asociados.<\/p>",
                 "account_deleted": "Cuenta eliminada con éxito",
@@ -1858,8 +1841,7 @@ export default {
                 }
             },
             "alerts": {
-                "login_as": "Actualmente as iniciado session como <strong>{name}<\/strong>, puedes cerrar sesión como <a href=\"{route}\" data-turbolinks=\"false\">{admin}<\/a>.",
-                "not_confirmed": "Su cuenta estará en modo limitado mientras su correo electrónico no esté confirmado. <a href=\"{route}\">Haga clic aquí<\/a> para volver a enviar la confirmación del correo."
+                "login_as": "Actualmente as iniciado session como <strong>{name}<\/strong>, puedes cerrar sesión como <a href=\"{route}\" data-turbolinks=\"false\">{admin}<\/a>."
             },
             "backend": {
                 "dashboard": {
@@ -2046,12 +2028,6 @@ export default {
                 "intro": "Recibió este correo electrónico porque recibimos una solicitud de restablecimiento de contraseña para su cuenta.",
                 "action": "Restablecer la contraseña",
                 "outro": "Si no solicitó un restablecimiento de contraseña, no se requiere ninguna acción adicional."
-            },
-            "email_confirmation": {
-                "subject": "Confirmación de correo electrónico",
-                "intro": "Se requiere confirmación por correo electrónico para activar su cuenta.",
-                "action": "Confirma mi correo",
-                "outro": "Su cuenta estará limitada hasta que su correo electrónico de confirmación no se confirme."
             },
             "contact": {
                 "subject": "Nuevo mensaje de contacto",
@@ -2356,7 +2332,6 @@ export default {
                 "roles": "Roles",
                 "permissions": "Permisos",
                 "active": "Activo",
-                "confirmed": "Confirmado",
                 "message": "Mensaje",
                 "g-recaptcha-response": "Captcha",
                 "locale": "Localización",
@@ -2442,7 +2417,7 @@ export default {
             "failed": "Ces identifiants ne correspondent pas à nos enregistrements",
             "throttle": "Trop de tentatives de connexion. Veuillez essayer de nouveau dans {seconds} secondes.",
             "socialite": {
-                "unacceptable": "Le login {provider} est de type incorrect."
+                "unacceptable": "{provider} n'est pas accepté."
             }
         },
         "buttons": {
@@ -2643,8 +2618,6 @@ export default {
                 "member_since": "Membre depuis le {date}",
                 "profile_updated": "Profil modifié avec succès.",
                 "password_updated": "Mot de passe modifié avec succès.",
-                "email_confirmation_sended": "Mail de confirmation envoyé.",
-                "email_confirmed": "Email confirmé avec succès.",
                 "super_admin": "Super admin",
                 "account_delete": "<p>Cette action supprimera définitivement votre compte de ce site ainsi que toutes vos données associées.<\/p>",
                 "account_deleted": "Compte supprimé avec succès",
@@ -2654,8 +2627,7 @@ export default {
                 }
             },
             "alerts": {
-                "login_as": "Vous êtes actuellement connecté en tant que <strong>{name}<\/strong>, vous pouvez à tout moment vous reconnecter en tant que <a href=\"{route}\" data-turbolinks=\"false\">{admin}<\/a>.",
-                "not_confirmed": "Votre compte sera en mode limité tant que votre email ne sera pas confirmé. <a href=\"{route}\">Cliquez ici<\/a> pour relancer l'envoie du mail de confirmation."
+                "login_as": "Vous êtes actuellement connecté en tant que <strong>{name}<\/strong>, vous pouvez à tout moment vous reconnecter en tant que <a href=\"{route}\" data-turbolinks=\"false\">{admin}<\/a>."
             },
             "backend": {
                 "dashboard": {
@@ -2842,12 +2814,6 @@ export default {
                 "intro": "Vous recevez cet email car vous avez effectué une demande de réinitialisation de mot de passe.",
                 "action": "Réinitialiser le mot de passe",
                 "outro": "Si vous n'avez pas fait cette demande de réinitialisation, aucune action n'est requise."
-            },
-            "email_confirmation": {
-                "subject": "Confirmation de mon email",
-                "intro": "La confirmation de votre email est requise pour débrider votre compte.",
-                "action": "Confirmer mon email",
-                "outro": "Votre compte sera limité tant que votre email ne sera pas confirmé."
             },
             "contact": {
                 "subject": "Nouveau message de contact",
@@ -3152,7 +3118,6 @@ export default {
                 "roles": "Rôles",
                 "permissions": "Permissions",
                 "active": "Actif",
-                "confirmed": "Confirmé",
                 "message": "Message",
                 "g-recaptcha-response": "Captcha",
                 "locale": "Localisation",
@@ -3175,6 +3140,798 @@ export default {
                 "published_at": "Publier le",
                 "unpublished_at": "Dépublier le",
                 "metable_type": "Entité"
+            }
+        }
+    },
+    "ru": {
+        "alerts": {
+            "backend": {
+                "users": {
+                    "created": "Пользователь создан",
+                    "updated": "Пользователь обновлён",
+                    "deleted": "Пользователь удалён",
+                    "bulk_destroyed": "Выбранные пользователи удалены",
+                    "bulk_enabled": "Выбранные пользователи активированы",
+                    "bulk_disabled": "Выбранные пользователи заблокированы"
+                },
+                "roles": {
+                    "created": "Роль создана",
+                    "updated": "Роль обновлена",
+                    "deleted": "Роль удалена"
+                },
+                "metas": {
+                    "created": "Метаданные созданы",
+                    "updated": "Метаданные обновлены",
+                    "deleted": "Метаданные удалены",
+                    "bulk_destroyed": "Выбранные метаданные удалены"
+                },
+                "form_submissions": {
+                    "deleted": "Представление удалёно",
+                    "bulk_destroyed": "Выбранные представления удалены"
+                },
+                "form_settings": {
+                    "created": "Настройка формы создана",
+                    "updated": "Настройка формы обновлена",
+                    "deleted": "Настройка формы удалена"
+                },
+                "redirections": {
+                    "created": "Перенаправление создано",
+                    "updated": "Перенаправление обновлено",
+                    "deleted": "Перенаправление удалено",
+                    "bulk_destroyed": "Выделенные перенаправления удалены",
+                    "bulk_enabled": "Выделенные перенаправления включены",
+                    "bulk_disabled": "Выделенные перенаправления отключены",
+                    "file_imported": "Файл успешно импортирован"
+                },
+                "posts": {
+                    "created": "Статья создана",
+                    "updated": "Статья обновлена",
+                    "deleted": "Статья удалена",
+                    "bulk_destroyed": "Выбранные статьи удалены",
+                    "bulk_published": "Выбранные статьи опубликованы",
+                    "bulk_pending": "Выбранные статьи ожидают проверки",
+                    "bulk_pinned": "Выбранные статьи закреплены",
+                    "bulk_promoted": "Выбранные статьи выделены"
+                },
+                "actions": {
+                    "invalid": "Неверное действие"
+                }
+            },
+            "frontend": []
+        },
+        "auth": {
+            "failed": "Эти учетные данные не соответствуют нашим записям.",
+            "throttle": "Слишком много попыток входа. Пожалуйста, попробуйте снова через {seconds} секунд.",
+            "socialite": {
+                "unacceptable": "{provider} не является допустимым типом входа."
+            }
+        },
+        "buttons": {
+            "cancel": "Отмена",
+            "save": "Сохранить",
+            "close": "Закрыть",
+            "create": "Создать",
+            "delete": "Удалить",
+            "confirm": "Подтвердить",
+            "show": "Показать",
+            "edit": "Изменить",
+            "update": "Обновить",
+            "view": "Смотреть",
+            "preview": "Предпросмотр",
+            "back": "Назад",
+            "send": "Отправить",
+            "login-as": "Войти как {name}",
+            "apply": "Применить",
+            "users": {
+                "create": "Создать пользователя"
+            },
+            "roles": {
+                "create": "Создать роль"
+            },
+            "metas": {
+                "create": "Создать метаданные"
+            },
+            "form_settings": {
+                "create": "Создать форму"
+            },
+            "redirections": {
+                "create": "Создать перенаправление",
+                "import": "Загрузить CSV"
+            },
+            "posts": {
+                "create": "Создать статью",
+                "save_and_publish": "Сохранить и опубликовать",
+                "save_as_draft": "Сохранить как черновик"
+            }
+        },
+        "exceptions": {
+            "general": "Серверная ошибка",
+            "unauthorized": "Недопустимое действие",
+            "backend": {
+                "users": {
+                    "create": "Ошибка создания пользователя",
+                    "update": "Ошибка обновления пользователя",
+                    "delete": "Ошибка удаления пользователя",
+                    "first_user_cannot_be_edited": "Вы не можете редактировать супер-администратора",
+                    "first_user_cannot_be_disabled": "Супер-администратор не может быть отключён",
+                    "first_user_cannot_be_destroyed": "Супер-администратор не может быть удалён",
+                    "first_user_cannot_be_impersonated": "Нельзя войти под видом супер-администратора",
+                    "cannot_set_superior_roles": "Вы не можете назначать роли, превосходящие ваши"
+                },
+                "roles": {
+                    "create": "Ошибка создания роли",
+                    "update": "Ошибка обновления роли",
+                    "delete": "Ошибка удаления роли"
+                },
+                "metas": {
+                    "create": "Ошибка создания метаданных",
+                    "update": "Ошибка обновления метаданных",
+                    "delete": "Ошибка удаления метаданных",
+                    "already_exist": "Для этих языковых настроек уже есть метаданные"
+                },
+                "form_submissions": {
+                    "create": "Ошибка создания представления",
+                    "delete": "Ошибка удаления представления"
+                },
+                "form_settings": {
+                    "create": "Ошибка создания настройки формы",
+                    "update": "Ошибка обновления настройки формы",
+                    "delete": "Ошибка удаления настройки формы",
+                    "already_exist": "Уже существует настройка, связанная с этой формой"
+                },
+                "redirections": {
+                    "create": "Ошибка создания перенаправления",
+                    "update": "Ошибка обновления перенаправления",
+                    "delete": "Ошибка удаления перенаправления",
+                    "already_exist": "Для этого пути уже существует перенаправление"
+                },
+                "posts": {
+                    "create": "Ошибка создания статьи",
+                    "update": "Ошибка обновления статьи",
+                    "save": "Ошибка сохранения статьи",
+                    "delete": "Ошибка удаления статьи"
+                }
+            },
+            "frontend": {
+                "user": {
+                    "email_taken": "Этот адрес электронной почты уже используется.",
+                    "password_mismatch": "Это не ваш старый пароль.",
+                    "delete_account": "Ошибка удаления аккаунта.",
+                    "updating_disabled": "Редактирование аккаунта отключено."
+                },
+                "auth": {
+                    "registration_disabled": "Регистрация отключена."
+                }
+            }
+        },
+        "forms": {
+            "contact": {
+                "display_name": "Форма обратной связи"
+            }
+        },
+        "labels": {
+            "language": "Язык",
+            "actions": "Действия",
+            "general": "Основные",
+            "no_results": "Нет доступных результатов",
+            "search": "Искать",
+            "validate": "Применить",
+            "choose_file": "Выберите файл",
+            "no_file_chosen": "Файл не выбран",
+            "are_you_sure": "Вы уверены?",
+            "delete_image": "Удалить изображение",
+            "yes": "Да",
+            "no": "Нет",
+            "add_new": "Добавить",
+            "export": "Экспорт",
+            "more_info": "Больше информации",
+            "author": "Автор",
+            "author_id": "ID автора",
+            "last_access_at": "Последний доступ",
+            "published_at": "Опубликовано",
+            "created_at": "Создано",
+            "updated_at": "Обновлено",
+            "deleted_at": "Удалено",
+            "no_value": "Нет значения",
+            "upload_image": "Загрузить изображение",
+            "anonymous": "Аноним",
+            "all_rights_reserved": "Все права зарезервированы.",
+            "with": "с",
+            "by": "",
+            "datatables": {
+                "no_results": "Нет доступных результатов",
+                "no_matched_results": "Не найдено подходящих результатов",
+                "show_per_page": "Показать",
+                "entries_per_page": "записей на страницу",
+                "search": "Искать",
+                "infos": "Показаны записи с {offset_start} по {offset_end} из {total}"
+            },
+            "morphs": {
+                "post": "Статья, ID {id}",
+                "user": "Пользователь, ID {id}"
+            },
+            "auth": {
+                "disabled": "Ваш аккаунт заблокирован."
+            },
+            "http": {
+                "403": {
+                    "title": "Доступ запрещён",
+                    "description": "Извините, но у вас нет прав доступа к этой странице."
+                },
+                "404": {
+                    "title": "Ресурс не найден",
+                    "description": "Извините, но этого ресурса не существует."
+                },
+                "500": {
+                    "title": "Ошибка сервера",
+                    "description": "Извините, но сервер столкнулся с ситуацией, которую он не может обработать. Мы исправим это как можно скорее."
+                }
+            },
+            "localization": {
+                "en": "Английский",
+                "ru": "Русский",
+                "fr": "Французский",
+                "es": "Испанский",
+                "de": "Немецкий",
+                "zh": "Китайский",
+                "ar": "Арабский",
+                "pt": "Португальский"
+            },
+            "placeholders": {
+                "route": "Выберите правильный внутренний маршрут",
+                "tags": "Выберите или создайте метку"
+            },
+            "cookieconsent": {
+                "message": "На этом сайте используются файлы cookie, чтобы вам было комфортнее им пользоваться.",
+                "dismiss": "Понятно!"
+            },
+            "descriptions": {
+                "allowed_image_types": "Доступные типы: PNG GIF JPG JPEG."
+            },
+            "user": {
+                "dashboard": "Панель управления",
+                "remember": "Запомнить",
+                "login": "Вход",
+                "logout": "Выход",
+                "password_forgot": "Забыли пароль?",
+                "send_password_link": "Отправить ссылку сброса пароля",
+                "password_reset": "Сброс пароля",
+                "register": "Регистрация",
+                "space": "Моё пространство",
+                "settings": "Настройки",
+                "account": "Мой аккаунт",
+                "profile": "Мой профиль",
+                "avatar": "Аватар",
+                "online": "В&nbsp;сети",
+                "edit_profile": "Изменить мой профиль",
+                "change_password": "Изменить мой пароль",
+                "delete": "Удалить мой аккаунт",
+                "administration": "Администрирование",
+                "member_since": "Участник с {date}",
+                "profile_updated": "Профиль успешно изменён.",
+                "password_updated": "Пароль успешно изменён.",
+                "super_admin": "Супер-администратор",
+                "account_delete": "<p>Это действие полностью удалит вашу учетную запись с этого сайта, а также все связанные данные.<\/p>",
+                "account_deleted": "Аккаунт успешно удалён",
+                "titles": {
+                    "space": "Моё пространство",
+                    "account": "Мой аккаунт"
+                }
+            },
+            "alerts": {
+                "login_as": "Вы вошли как <strong>{name}<\/strong>, вы можете обратно войти как <a href=\"{route}\" data-turbolinks=\"false\">{admin}<\/a>."
+            },
+            "backend": {
+                "dashboard": {
+                    "new_posts": "Новые статьи",
+                    "pending_posts": "Ожидающие одобрения статьи",
+                    "published_posts": "Опубликованные статьи",
+                    "active_users": "Активные пользователи",
+                    "form_submissions": "Заполненные формы",
+                    "last_posts": "Последние статьи",
+                    "last_published_posts": "Последние публикации",
+                    "last_pending_posts": "Последние ожидающие статьи",
+                    "last_new_posts": "Последние новые статьи",
+                    "all_posts": "Все статьи"
+                },
+                "new_menu": {
+                    "post": "Новая статья",
+                    "form_setting": "Новая форма",
+                    "user": "Новый пользователь",
+                    "role": "Новая роль",
+                    "meta": "Новые метаданные",
+                    "redirection": "Новое перенаправление"
+                },
+                "sidebar": {
+                    "content": "Управление содержимым",
+                    "forms": "Управление формами",
+                    "access": "Управление доступом",
+                    "seo": "Настройки SEO"
+                },
+                "titles": {
+                    "dashboard": "Панель управления"
+                },
+                "users": {
+                    "titles": {
+                        "main": "Пользователи",
+                        "index": "Список пользователей",
+                        "create": "Создание пользователя",
+                        "edit": "Изменение пользователя"
+                    },
+                    "actions": {
+                        "destroy": "Удалить выбранных пользователей",
+                        "enable": "Активировать выбранных пользователей",
+                        "disable": "Отключить выбранных пользователей"
+                    }
+                },
+                "roles": {
+                    "titles": {
+                        "main": "Роли",
+                        "index": "Список ролей",
+                        "create": "Создание роли",
+                        "edit": "Изменение роли"
+                    }
+                },
+                "metas": {
+                    "titles": {
+                        "main": "Метаданные",
+                        "index": "Список метаданных",
+                        "create": "Создание метаданных",
+                        "edit": "Изменение метаданных"
+                    },
+                    "actions": {
+                        "destroy": "Удалить выбранные метаданные"
+                    }
+                },
+                "form_submissions": {
+                    "titles": {
+                        "main": "Заполнения",
+                        "index": "Список заполнений форм",
+                        "show": "Детали заполнения формы"
+                    },
+                    "actions": {
+                        "destroy": "Удалить выбранные заполнения"
+                    }
+                },
+                "form_settings": {
+                    "titles": {
+                        "main": "Формы",
+                        "index": "Список форм",
+                        "create": "Создание формы",
+                        "edit": "Изменение формы"
+                    },
+                    "descriptions": {
+                        "recipients": "Пример: 'webmaster@example.com' или 'sales@example.com,support@example.com'. Для указания нескольких получателей перечислите адреса через запятую.",
+                        "message": "Сообщение для показа пользователю после отправки формы. Оставьте пустым, если ничего не надо показывать."
+                    }
+                },
+                "redirections": {
+                    "titles": {
+                        "main": "Перенаправления",
+                        "index": "Список перенаправлений",
+                        "create": "Создание перенаправления",
+                        "edit": "Изменение перенаправления"
+                    },
+                    "actions": {
+                        "destroy": "Удалить выбранные перенаправления",
+                        "enable": "Активировать выбранные перенаправления",
+                        "disable": "Отключить выбранные перенаправления"
+                    },
+                    "types": {
+                        "permanent": "Постоянное перенаправление (301)",
+                        "temporary": "Временное перенаправление (302)"
+                    },
+                    "import": {
+                        "title": "Импорт CSV-файла",
+                        "label": "Выберите CSV-файл для импорта",
+                        "description": "Файл должен содержать две колонки с заголовками «source» (исходный) и «target» (целевой), перенаправления будут постоянные по-умолчанию."
+                    }
+                },
+                "posts": {
+                    "statuses": {
+                        "draft": "Черновик",
+                        "pending": "Ожидающее",
+                        "published": "Опубликованное"
+                    },
+                    "titles": {
+                        "main": "Статьи",
+                        "index": "Список статей",
+                        "create": "Создать статью",
+                        "edit": "Редактировать статью",
+                        "publication": "Параметры публикации"
+                    },
+                    "descriptions": {
+                        "meta_title": "Если оставить пустым, по-умолчанию будет заголовком статьи.",
+                        "meta_description": "Если оставить пустым, по умолчанию будет отображаться резюме статьи."
+                    },
+                    "placeholders": {
+                        "body": "Напишите своё содержимое...",
+                        "meta_title": "Заголовок статьи",
+                        "meta_description": "Резюме статьи"
+                    },
+                    "actions": {
+                        "destroy": "Удалить выбранные статьи",
+                        "publish": "Опубликовать выбранные статьи",
+                        "pin": "Закрепить выбранные статьи",
+                        "promote": "Выделить выбранные статьи"
+                    }
+                }
+            },
+            "frontend": {
+                "titles": {
+                    "home": "Начало",
+                    "about": "О нас",
+                    "contact": "Контакты",
+                    "blog": "Блог",
+                    "message_sent": "Сообщение отправлено",
+                    "legal_mentions": "Юридическая информация",
+                    "administration": "Администрирование"
+                },
+                "submissions": {
+                    "message_sent": "<p>Ваше сообщение успешно отправлено.<\/p>"
+                },
+                "placeholders": {
+                    "locale": "Выберите свой язык",
+                    "timezone": "Выберите свой часовой пояс"
+                },
+                "blog": {
+                    "published_at": "Опубликовано {date}",
+                    "published_at_with_owner_linkable": "Опубликовано <a href=\"{link}\">{name}<\/a>, {date}",
+                    "tags": "Метки"
+                }
+            }
+        },
+        "logs": {
+            "backend": {
+                "users": {
+                    "created": "Пользователь ID {user} создан",
+                    "updated": "Пользователь ID {user} обновлён",
+                    "deleted": "Пользователь ID {user} удалён"
+                },
+                "form_submissions": {
+                    "created": "Заполнение формы ID {form_submission} создано"
+                }
+            },
+            "frontend": []
+        },
+        "mails": {
+            "layout": {
+                "hello": "Здравствуйте!",
+                "regards": "С уважением",
+                "trouble": "Если у вас не получается воспользоваться кнопкой {action}, скопируйте URL ниже и откройте его в удобном вам браузере:",
+                "all_rights_reserved": "Все права зарезервированы."
+            },
+            "password_reset": {
+                "subject": "Сброс пароля",
+                "intro": "Вам отправлено это письмо, потому что мы получили запрос на сброс пароля для вашей учетной записи.",
+                "action": "Сбросить пароль",
+                "outro": "Если вы не запрашивали сброс пароля, просто проигнорируйте это письмо."
+            },
+            "contact": {
+                "subject": "Новое сообщение с сайта",
+                "new_contact": "Получено новое сообщение с сайта:"
+            },
+            "alert": {
+                "subject": "[{app_name}] Ошибка приложения",
+                "message": "На сервере произошёл сбой со следующим сообщением об ошибке: {message}",
+                "trace": "Детали трассировки:"
+            }
+        },
+        "pagination": {
+            "previous": "&laquo;&nbsp;Назад",
+            "next": "Вперёд&nbsp;&raquo;"
+        },
+        "passwords": {
+            "password": "Пароль должен быть как минимум 6 символов длиной и совпадать с подтверждением.",
+            "reset": "Ваш пароль изменён!",
+            "sent": "Мы отправили вам на почту ссылку для сброса пароля!",
+            "token": "Неверный токен сброса пароля.",
+            "user": "У нас нет пользователя с этим почтовым адресом."
+        },
+        "permissions": {
+            "categories": {
+                "blog": "Блог",
+                "form": "Формы",
+                "access": "Доступ",
+                "seo": "SEO"
+            },
+            "access": {
+                "backend": {
+                    "display_name": "Доступ к бэк-офису",
+                    "description": "Доступ к страницам администрирования."
+                }
+            },
+            "view": {
+                "form_settings": {
+                    "display_name": "Просмотр настроек формы",
+                    "description": "Можно просматривать настройки формы."
+                },
+                "form_submissions": {
+                    "display_name": "Просмотр заполнений форм",
+                    "description": "Пожно просматривать данные заполнения форм."
+                },
+                "users": {
+                    "display_name": "Просмотр пользователей",
+                    "description": "Можно видеть список пользователей."
+                },
+                "roles": {
+                    "display_name": "Просмотр ролей",
+                    "description": "Можно видеть список ролей."
+                },
+                "metas": {
+                    "display_name": "Просмотр метаданных",
+                    "description": "Можно видеть метаданные."
+                },
+                "redirections": {
+                    "display_name": "Просмотр перенаправлений",
+                    "description": "Можно видеть список перенаправлений."
+                },
+                "posts": {
+                    "display_name": "Просмотр всех статей",
+                    "description": "Можно видеть все статьи."
+                },
+                "own": {
+                    "posts": {
+                        "display_name": "Просмотр своих статей",
+                        "description": "Можно видеть свои статьи."
+                    }
+                }
+            },
+            "create": {
+                "form_settings": {
+                    "display_name": "Создание форм",
+                    "description": "Можно создавать новые формы."
+                },
+                "users": {
+                    "display_name": "Создание пользователей",
+                    "description": "Можно создавать новых пользователей."
+                },
+                "roles": {
+                    "display_name": "Создание ролей",
+                    "description": "Можно создавать новые роли."
+                },
+                "metas": {
+                    "display_name": "Создание метаданных",
+                    "description": "Можно создавать новые метаданные."
+                },
+                "redirections": {
+                    "display_name": "Создание перенеправлений",
+                    "description": "Можно создавать новые перенаправления."
+                },
+                "posts": {
+                    "display_name": "Создание статей",
+                    "description": "Можно создавать новые статьи."
+                }
+            },
+            "edit": {
+                "form_settings": {
+                    "display_name": "Правка форм",
+                    "description": "Можно изменять данные форм."
+                },
+                "users": {
+                    "display_name": "Правка пользователей",
+                    "description": "Можно изменять данные пользователей."
+                },
+                "roles": {
+                    "display_name": "Правка ролей",
+                    "description": "Можно изменять данные ролей."
+                },
+                "metas": {
+                    "display_name": "Правка метаданных",
+                    "description": "Можно изменять данные метаданных."
+                },
+                "redirections": {
+                    "display_name": "Правка перенаправлений",
+                    "description": "Можно изменять данные перенаправлений."
+                },
+                "posts": {
+                    "display_name": "Правка всех статей",
+                    "description": "Можно изменять данные всех статей."
+                },
+                "own": {
+                    "posts": {
+                        "display_name": "Правка своих статей",
+                        "description": "Можно изменять данные своих статей."
+                    }
+                }
+            },
+            "delete": {
+                "form_settings": {
+                    "display_name": "Удаление форм",
+                    "description": "Можно удалять формы."
+                },
+                "form_submissions": {
+                    "display_name": "Удаление заполнений форм",
+                    "description": "Можно удалять данные заполнения форм."
+                },
+                "users": {
+                    "display_name": "Удаление пользователей",
+                    "description": "Можно удалять пользователей."
+                },
+                "roles": {
+                    "display_name": "Удаление ролей",
+                    "description": "Можно удалять роли."
+                },
+                "metas": {
+                    "display_name": "Удаление метаданных",
+                    "description": "Можно удалять метаданные."
+                },
+                "redirections": {
+                    "display_name": "Удаление перенаправлений",
+                    "description": "Можно удалять перенаправления."
+                },
+                "posts": {
+                    "display_name": "Удаление всех статьи",
+                    "description": "Можно удалять все статьи."
+                },
+                "own": {
+                    "posts": {
+                        "display_name": "Удаление своих статей",
+                        "description": "Можно удалять свои статьи."
+                    }
+                }
+            },
+            "publish": {
+                "posts": {
+                    "display_name": "Публикация статей",
+                    "description": "Можно управлять публикацией статей."
+                }
+            },
+            "impersonate": {
+                "display_name": "Войти под видом пользователя",
+                "description": "Можно войти под видом другого пользователя. Полезно для тестирования."
+            }
+        },
+        "routes": {
+            "home": "home",
+            "about": "about",
+            "contact": "contact",
+            "contact-sent": "contact-sent",
+            "legal-mentions": "legal-mentions",
+            "redactors": "blog\/redactors\/{user}"
+        },
+        "validation": {
+            "accepted": "{attribute} должен быть принят.",
+            "active_url": "{attribute} является некорректным URL.",
+            "after": "{attribute} должен быть датой после {date}.",
+            "after_or_equal": "{attribute} должен быть датой после или равной {date}.",
+            "alpha": "{attribute} может содержать только буквы.",
+            "alpha_dash": "{attribute} может содержать только буквы, цифры и дефисы.",
+            "alpha_num": "{attribute} может содержать только буквы и цифры.",
+            "array": "{attribute} должен быть списком.",
+            "before": "{attribute} должен быть датой до {date}.",
+            "before_or_equal": "{attribute} должен быть датой до или равной {date}.",
+            "between": {
+                "numeric": "{attribute} должен быть между {min} и {max}.",
+                "file": "{attribute} должен быть между {min} и {max} kilobytes.",
+                "string": "{attribute} должен быть между {min} и {max} characters.",
+                "array": "{attribute} должен содержать от {min} до {max} элементов."
+            },
+            "boolean": "{attribute} должен быть «истина» или «ложь».",
+            "confirmed": "{attribute} подтверждение не совпадает.",
+            "date": "{attribute} не является корректной датой.",
+            "date_format": "{attribute} не совпадает с форматом {format}.",
+            "different": "{attribute} и {other} должны различаться.",
+            "digits": "{attribute} должен содержать {digits} цифр.",
+            "digits_between": "{attribute} должен быть от {min} до {max} цифр.",
+            "dimensions": "{attribute} содержит неверные размеры изображения.",
+            "distinct": "{attribute} содержит дублирующее значение.",
+            "email": "{attribute} должен быть корректным почтовым адресом.",
+            "exists": "выбранный {attribute} неверен.",
+            "file": "{attribute} должен быть файлом.",
+            "filled": "{attribute} должен быть заполнен.",
+            "image": "{attribute} должен быть изображением.",
+            "in": "выбранный {attribute} неверен.",
+            "in_array": "{attribute} отсутствует в {other}.",
+            "integer": "{attribute} должен быть целым.",
+            "ip": "{attribute} должен быть корректным IP-адресом.",
+            "ipv4": "{attribute} должен быть корректным IPv4-адресом.",
+            "ipv6": "{attribute} должен быть корректным IPv6-адресом.",
+            "json": "{attribute} должен быть корректной JSON-строкой.",
+            "max": {
+                "numeric": "{attribute} не может быть более чем {max}.",
+                "file": "{attribute} не может быть более чем {max} Кб.",
+                "string": "{attribute} не может быть более чем {max} символов.",
+                "array": "{attribute} не может содержать более чем {max} значений."
+            },
+            "mimes": "{attribute} должен быть файлом типа {values}.",
+            "mimetypes": "{attribute} должен быть файлом типа {values}.",
+            "min": {
+                "numeric": "{attribute} должен быть не менее чем {min}.",
+                "file": "{attribute} должен быть не менее чем {min} Кб.",
+                "string": "{attribute} должен содержать не менее чем {min} символов.",
+                "array": "{attribute} должен содержать не менее чем {min} значений."
+            },
+            "not_in": "выбранный {attribute} неверен.",
+            "not_regex": "формат {attribute} неверен.",
+            "numeric": "{attribute} должен быть числом.",
+            "present": "поле {attribute} должно присутствовать.",
+            "regex": "формат {attribute} неверен.",
+            "required": "поле {attribute} обязательно.",
+            "required_if": "поле {attribute} обязательно, когда {other} равно {value}.",
+            "required_unless": "поле {attribute} обязательно, если {other} в {values}.",
+            "required_with": "поле {attribute} обязательно, если присутствуют {values}.",
+            "required_with_all": "поле {attribute} обязательно, если присутствуют {values}.",
+            "required_without": "поле {attribute} обязательно, если отсутствуют {values}.",
+            "required_without_all": "поле {attribute} обязательно, если нет ничего из {values}.",
+            "same": "{attribute} и {other} должны совпадать.",
+            "size": {
+                "numeric": "{attribute} должно быть {size}.",
+                "file": "{attribute} должно быть {size} Кб.",
+                "string": "{attribute} должно быть {size} символов.",
+                "array": "{attribute} должно содержать {size} элементов."
+            },
+            "string": "{attribute} должно быть строкой.",
+            "timezone": "{attribute} должно быть корректным часовым поясом.",
+            "unique": "{attribute} уже есть в базе.",
+            "uploaded": "{attribute} не получилось загрузить.",
+            "url": "{attribute} имеет неверный формат.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            },
+            "attributes": {
+                "name": "Имя",
+                "display_name": "Отображаемое имя",
+                "username": "Псевдоним",
+                "email": "E-mail",
+                "first_name": "Имя",
+                "last_name": "Фамилия",
+                "password": "Пароль",
+                "password_confirmation": "Подтверждение пароля",
+                "old_password": "Старый пароль",
+                "new_password": "Новый пароль",
+                "new_password_confirmation": "Подтверждение нового пароля",
+                "postal_code": "Почтовы индекс",
+                "city": "Город",
+                "country": "Страна",
+                "address": "Адрес",
+                "phone": "Телефон",
+                "mobile": "Мобильный",
+                "age": "Возраст",
+                "sex": "Пол",
+                "gender": "Пол",
+                "day": "День",
+                "month": "Месяц",
+                "year": "Год",
+                "hour": "Час",
+                "minute": "Минута",
+                "second": "Секунда",
+                "title": "Заголовок",
+                "content": "Содержание",
+                "description": "Описание",
+                "summary": "Резюме",
+                "excerpt": "Отрывок",
+                "date": "Дата",
+                "time": "Время",
+                "available": "Доступный",
+                "size": "Размер",
+                "roles": "Роли",
+                "permissions": "Права",
+                "active": "Активный",
+                "message": "Сообщение",
+                "g-recaptcha-response": "Защитный код",
+                "locale": "Локализация",
+                "route": "Маршрут",
+                "url": "URL",
+                "form_type": "Тип формы",
+                "form_data": "Данные формы",
+                "recipients": "Получатели",
+                "source_path": "Исходный путь",
+                "target_path": "Целевой путь",
+                "redirect_type": "Тип переадресации",
+                "timezone": "Часовой пояс",
+                "order": "Порядок показа",
+                "image": "Изображение",
+                "status": "Статус",
+                "pinned": "Закреплено",
+                "promoted": "Выделено",
+                "body": "Основная часть",
+                "tags": "Метки",
+                "published_at": "Опубликовано",
+                "unpublished_at": "Снято с публикации",
+                "metable_type": "Сущность"
             }
         }
     }
