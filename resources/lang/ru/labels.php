@@ -9,7 +9,7 @@ return [
     'general'             => 'Основные',
     'no_results'          => 'Нет доступных результатов',
     'search'              => 'Искать',
-    'validate'            => 'Validate',
+    'validate'            => 'Применить',
     'choose_file'         => 'Выберите файл',
     'no_file_chosen'      => 'Файл не выбран',
     'are_you_sure'        => 'Вы уверены?',
@@ -34,17 +34,17 @@ return [
     'by'                  => '',
 
     'datatables' => [
-        'no_results'         => 'No results available',
-        'no_matched_results' => 'No matched results available',
+        'no_results'         => 'Нет доступных результатов',
+        'no_matched_results' => 'Не найдено подходящих результатов',
         'show_per_page'      => 'Показать',
         'entries_per_page'   => 'записей на страницу',
         'search'             => 'Искать',
-        'infos'              => 'Showing :offset_start to :offset_end of :total entries',
+        'infos'              => 'Показаны записи с :offset_start по :offset_end из :total',
     ],
 
     'morphs' => [
-        'post' => 'Post, identity :id',
-        'user' => 'User, identity :id',
+        'post' => 'Статья, ID :id',
+        'user' => 'Пользователь, ID :id',
     ],
 
     'auth' => [
@@ -88,7 +88,7 @@ return [
     ],
 
     'descriptions' => [
-        'allowed_image_types' => 'ДОступные типы: PNG GIF Jpg Jpeg.',
+        'allowed_image_types' => 'Доступные типы: PNG GIF JPG JPEG.',
     ],
 
     'user' => [
@@ -110,7 +110,7 @@ return [
         'change_password'           => 'Изменить мой пароль',
         'delete'                    => 'Удалить мой аккаунт',
         'administration'            => 'Администрирование',
-        'member_since'              => 'Member since :date',
+        'member_since'              => 'Участник с :date',
         'profile_updated'           => 'Профиль успешно изменён.',
         'password_updated'          => 'Пароль успешно изменён.',
         'super_admin'               => 'Супер-администратор',
@@ -131,185 +131,185 @@ return [
     'backend' => [
         'dashboard' => [
             'new_posts'            => 'Новые статьи',
-            'pending_posts'        => 'Ожидающие статьи',
+            'pending_posts'        => 'Ожидающие одобрения статьи',
             'published_posts'      => 'Опубликованные статьи',
             'active_users'         => 'Активные пользователи',
-            'form_submissions'     => 'Submissions',
-            'last_posts'           => 'Last posts',
-            'last_published_posts' => 'Last publications',
-            'last_pending_posts'   => 'Last pending posts',
-            'last_new_posts'       => 'Last new posts',
-            'all_posts'            => 'All posts',
+            'form_submissions'     => 'Заполненные формы',
+            'last_posts'           => 'Последние статьи',
+            'last_published_posts' => 'Последние публикации',
+            'last_pending_posts'   => 'Последние ожидающие статьи',
+            'last_new_posts'       => 'Последние новые статьи',
+            'all_posts'            => 'Все статьи',
         ],
 
         'new_menu' => [
-            'post'         => 'New post',
-            'form_setting' => 'New form setting',
-            'user'         => 'New user',
-            'role'         => 'New role',
-            'meta'         => 'New meta',
-            'redirection'  => 'New redirection',
+            'post'         => 'Новая статья',
+            'form_setting' => 'Новая форма',
+            'user'         => 'Новый пользователь',
+            'role'         => 'Новая роль',
+            'meta'         => 'Новые метаданные',
+            'redirection'  => 'Новое перенаправление',
         ],
 
         'sidebar' => [
-            'content' => 'Content management',
-            'forms'   => 'Form management',
-            'access'  => 'Access management',
-            'seo'     => 'SEO settings',
+            'content' => 'Управление содержимым',
+            'forms'   => 'Управление формами',
+            'access'  => 'Управление доступом',
+            'seo'     => 'Настройки SEO',
         ],
 
         'titles' => [
-            'dashboard' => 'Dashboard',
+            'dashboard' => 'Панель управления',
         ],
 
         'users' => [
             'titles' => [
-                'main'   => 'User',
-                'index'  => 'User list',
-                'create' => 'User creation',
-                'edit'   => 'User modification',
+                'main'   => 'Пользователи',
+                'index'  => 'Список пользователей',
+                'create' => 'Создание пользователя',
+                'edit'   => 'Изменение пользователя',
             ],
 
             'actions' => [
-                'destroy' => 'Delete selected users',
-                'enable'  => 'Enable selected users',
-                'disable' => 'Disable selected users',
+                'destroy' => 'Удалить выбранных пользователей',
+                'enable'  => 'Активировать выбранных пользователей',
+                'disable' => 'Отключить выбранных пользователей',
             ],
         ],
 
         'roles' => [
             'titles' => [
-                'main'   => 'Role',
-                'index'  => 'Role list',
-                'create' => 'Role creation',
-                'edit'   => 'Role modification',
+                'main'   => 'Роли',
+                'index'  => 'Список ролей',
+                'create' => 'Создание роли',
+                'edit'   => 'Изменение роли',
             ],
         ],
 
         'metas' => [
             'titles' => [
-                'main'   => 'Meta',
-                'index'  => 'Meta list',
-                'create' => 'Meta creation',
-                'edit'   => 'Meta modification',
+                'main'   => 'Метаданные',
+                'index'  => 'Список метаданных',
+                'create' => 'Создание метаданных',
+                'edit'   => 'Изменение метаданных',
             ],
 
             'actions' => [
-                'destroy' => 'Delete selected metas',
+                'destroy' => 'Удалить выбранные метаданные',
             ],
         ],
 
         'form_submissions' => [
             'titles' => [
-                'main'  => 'Submission',
-                'index' => 'Submission list',
-                'show'  => 'Submission detail',
+                'main'  => 'Заполнения',
+                'index' => 'Список заполнений форм',
+                'show'  => 'Детали заполнения формы',
             ],
 
             'actions' => [
-                'destroy' => 'Delete selected submissions',
+                'destroy' => 'Удалить выбранные заполнения',
             ],
         ],
 
         'form_settings' => [
             'titles' => [
-                'main'   => 'Forms',
-                'index'  => 'Form setting list',
-                'create' => 'Form setting creation',
-                'edit'   => 'Form setting modification',
+                'main'   => 'Формы',
+                'index'  => 'Список форм',
+                'create' => 'Создание формы',
+                'edit'   => 'Изменение формы',
             ],
 
             'descriptions' => [
-                'recipients' => 'Example: \'webmaster@example.com\' or \'sales@example.com,support@example.com\' . To specify multiple recipients, separate each email address with a comma.',
-                'message'    => 'The message to display to the user after submission of this form. Leave blank for no message.',
+                'recipients' => 'Пример: \'webmaster@example.com\' или \'sales@example.com,support@example.com\'. Для указания нескольких получателей перечислите адреса через запятую.',
+                'message'    => 'Сообщение для показа пользователю после отправки формы. Оставьте пустым, если ничего не надо показывать.',
             ],
         ],
 
         'redirections' => [
             'titles' => [
-                'main'   => 'Redirection',
-                'index'  => 'Redirection list',
-                'create' => 'Redirection creation',
-                'edit'   => 'Redirection modification',
+                'main'   => 'Перенаправления',
+                'index'  => 'Список перенаправлений',
+                'create' => 'Создание перенаправления',
+                'edit'   => 'Изменение перенаправления',
             ],
 
             'actions' => [
-                'destroy' => 'Delete selected redirections',
-                'enable'  => 'Enable selected redirections',
-                'disable' => 'Disable selected redirections',
+                'destroy' => 'Удалить выбранные перенаправления',
+                'enable'  => 'Активировать выбранные перенаправления',
+                'disable' => 'Отключить выбранные перенаправления',
             ],
 
             'types' => [
-                'permanent' => 'Permanent redirect (301)',
-                'temporary' => 'Temporary redirect (302)',
+                'permanent' => 'Постоянное перенаправление (301)',
+                'temporary' => 'Временное перенаправление (302)',
             ],
 
             'import' => [
-                'title'       => 'CSV file import',
-                'label'       => 'Select CSV file to import',
-                'description' => 'File must have 2 columns with "source" and "target" as heading, redirection will be permanent by default',
+                'title'       => 'Импорт CSV-файла',
+                'label'       => 'Выберите CSV-файл для импорта',
+                'description' => 'Файл должен содержать две колонки с заголовками «source» (исходный) и «target» (целевой), перенаправления будут постоянные по-умолчанию.',
             ],
         ],
 
         'posts' => [
             'statuses' => [
-                'draft'     => 'Draft',
-                'pending'   => 'Pending',
-                'published' => 'Published',
+                'draft'     => 'Черновик',
+                'pending'   => 'Ожидающее',
+                'published' => 'Опубликованное',
             ],
 
             'titles' => [
-                'main'        => 'Posts',
-                'index'       => 'Post list',
-                'create'      => 'Create post',
-                'edit'        => 'Edit post',
-                'publication' => 'Publication options',
+                'main'        => 'Статьи',
+                'index'       => 'Список статей',
+                'create'      => 'Создать статью',
+                'edit'        => 'Редактировать статью',
+                'publication' => 'Параметры публикации',
             ],
 
             'descriptions' => [
-                'meta_title'       => 'If leave empty, title will be that of article\' title by default.',
-                'meta_description' => 'If leave empty, description will be that of article\'s summary by default.',
+                'meta_title'       => 'Если оставить пустым, по-умолчанию будет заголовком статьи.',
+                'meta_description' => 'Если оставить пустым, по умолчанию будет отображаться резюме статьи.',
             ],
 
             'placeholders' => [
-                'body'             => 'Write your content...',
-                'meta_title'       => 'Article\'s title.',
-                'meta_description' => 'Article\'s summary.',
+                'body'             => 'Напишите своё содержимое...',
+                'meta_title'       => 'Заголовок статьи',
+                'meta_description' => 'Резюме статьи',
             ],
 
             'actions' => [
-                'destroy' => 'Delete selected posts',
-                'publish' => 'Publish selected posts',
-                'pin'     => 'Pin selected posts',
-                'promote' => 'Promote selected posts',
+                'destroy' => 'Удалить выбранные статьи',
+                'publish' => 'Опубликовать выбранные статьи',
+                'pin'     => 'Закрепить выбранные статьи',
+                'promote' => 'Выделить выбранные статьи',
             ],
         ],
     ],
 
     'frontend' => [
         'titles' => [
-            'home'           => 'Home',
-            'about'          => 'About',
-            'contact'        => 'Contact',
-            'blog'           => 'Blog',
-            'message_sent'   => 'Message sent',
-            'legal_mentions' => 'Legal mentions',
-            'administration' => 'Administration',
+            'home'           => 'Начало',
+            'about'          => 'О нас',
+            'contact'        => 'Контакты',
+            'blog'           => 'Блог',
+            'message_sent'   => 'Сообщение отправлено',
+            'legal_mentions' => 'Юридическая информация',
+            'administration' => 'Администрирование',
         ],
 
         'submissions' => [
-            'message_sent' => '<p>Your message has been successfully sent</p>',
+            'message_sent' => '<p>Ваше сообщение успешно отправлено.</p>',
         ],
 
         'placeholders' => [
-            'locale'   => 'Select your language',
-            'timezone' => 'Select your timezone',
+            'locale'   => 'Выберите свой язык',
+            'timezone' => 'Выберите свой часовой пояс',
         ],
 
         'blog' => [
-            'published_at'                     => 'Published at :date',
-            'published_at_with_owner_linkable' => 'Published at :date by <a href=":link">:name</a>',
-            'tags'                             => 'Tags',
+            'published_at'                     => 'Опубликовано :date',
+            'published_at_with_owner_linkable' => 'Опубликовано <a href=":link">:name</a>, :date',
+            'tags'                             => 'Метки',
         ],
     ],
 ];

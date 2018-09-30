@@ -6,12 +6,13 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Validation Language Lines
+    | Строки проверочных сообщений
     |--------------------------------------------------------------------------
     |
-    | The following language lines contain the default error messages used by
-    | the validator class. Some of these rules have multiple versions such
-    | as the size rules. Feel free to tweak each of these messages here.
+    | Следующие языковые строки содержат сообщения об ошибках по умолчанию,
+    | используемые классом валидатора. Некоторые из этих правил имеют несколько
+    | версий, таких как правила размера. Не стесняйтесь настраивать каждое
+    | из этих сообщений под себя.
     |
     */
 
@@ -74,31 +75,31 @@ return [
     'required'             => 'поле :attribute обязательно.',
     'required_if'          => 'поле :attribute обязательно, когда :other равно :value.',
     'required_unless'      => 'поле :attribute обязательно, если :other в :values.',
-    'required_with'        => ':attribute field is required when :values is present.',
-    'required_with_all'    => ':attribute field is required when :values is present.',
-    'required_without'     => ':attribute field is required when :values is not present.',
-    'required_without_all' => ':attribute field is required when none of :values are present.',
-    'same'                 => ':attribute и :other must match.',
+    'required_with'        => 'поле :attribute обязательно, если присутствуют :values.',
+    'required_with_all'    => 'поле :attribute обязательно, если присутствуют :values.',
+    'required_without'     => 'поле :attribute обязательно, если отсутствуют :values.',
+    'required_without_all' => 'поле :attribute обязательно, если нет ничего из :values.',
+    'same'                 => ':attribute и :other должны совпадать.',
     'size'                 => [
-        'numeric' => ':attribute must be :size.',
-        'file'    => ':attribute must be :size kilobytes.',
-        'string'  => ':attribute must be :size characters.',
-        'array'   => ':attribute must contain :size items.',
+        'numeric' => ':attribute должно быть :size.',
+        'file'    => ':attribute должно быть :size Кб.',
+        'string'  => ':attribute должно быть :size символов.',
+        'array'   => ':attribute должно содержать :size элементов.',
     ],
-    'string'   => ':attribute must be a string.',
-    'timezone' => ':attribute must be a valid zone.',
-    'unique'   => ':attribute has already been taken.',
-    'uploaded' => ':attribute failed to upload.',
-    'url'      => ':attribute format is invalid.',
+    'string'   => ':attribute должно быть строкой.',
+    'timezone' => ':attribute должно быть корректным часовым поясом.',
+    'unique'   => ':attribute уже есть в базе.',
+    'uploaded' => ':attribute не получилось загрузить.',
+    'url'      => ':attribute имеет неверный формат.',
 
     /*
     |--------------------------------------------------------------------------
-    | Custom Validation Language Lines
+    | Пользовательские строки
     |--------------------------------------------------------------------------
     |
-    | Here you may specify custom validation messages for attributes using the
-    | convention "attribute.rule" to name the lines. This makes it quick to
-    | specify a specific custom language line for a given attribute rule.
+    | Здесь вы можете указать специальные сообщения для атрибутов, используя
+    | соглашение «attribute.rule», чтобы назвать строки. Это позволяет быстро
+    | указать конкретную строку для данного правила атрибута.
     |
     */
 
@@ -110,75 +111,75 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Custom Validation Attributes
+    | Пользовательские атрибуты
     |--------------------------------------------------------------------------
     |
-    | The following language lines are used to swap attribute place-holders
-    | with something more reader friendly such as E-Mail Address instead
-    | of "email". This simply helps us make messages a little cleaner.
+    | Следующие строки используются для замены имён атрибутов на что-то более
+    | удобное для чтения человеком, таким как «адрес электронной почты» вместо
+    | «email». Это просто помогает нам сделать сообщения немного понятнее.
     |
     */
 
     'attributes' => [
-        'name'                      => 'Name',
-        'display_name'              => 'Display name',
-        'username'                  => 'Pseudo',
-        'email'                     => 'Email',
-        'first_name'                => 'Firstname',
-        'last_name'                 => 'Lastname',
-        'password'                  => 'Password',
-        'password_confirmation'     => 'Confirm password',
-        'old_password'              => 'Old password',
-        'new_password'              => 'New password',
-        'new_password_confirmation' => 'Confirm new password',
-        'postal_code'               => 'Postal code',
-        'city'                      => 'City',
-        'country'                   => 'Country',
-        'address'                   => 'Address',
-        'phone'                     => 'Phone',
-        'mobile'                    => 'Mobile',
-        'age'                       => 'Age',
-        'sex'                       => 'Sex',
-        'gender'                    => 'Gender',
-        'day'                       => 'Day',
-        'month'                     => 'Month',
-        'year'                      => 'Year',
-        'hour'                      => 'Hour',
-        'minute'                    => 'Minute',
-        'second'                    => 'Second',
-        'title'                     => 'Title',
-        'content'                   => 'Content',
-        'description'               => 'Description',
-        'summary'                   => 'Summary',
-        'excerpt'                   => 'Excerpt',
-        'date'                      => 'Date',
-        'time'                      => 'Time',
-        'available'                 => 'Available',
-        'size'                      => 'Size',
-        'roles'                     => 'Roles',
-        'permissions'               => 'Permissions',
-        'active'                    => 'Active',
-        'message'                   => 'Message',
-        'g-recaptcha-response'      => 'Captcha',
-        'locale'                    => 'Localization',
-        'route'                     => 'Route',
-        'url'                       => 'URL alias',
-        'form_type'                 => 'Form type',
-        'form_data'                 => 'Form data',
-        'recipients'                => 'Recipients',
-        'source_path'               => 'Original path',
-        'target_path'               => 'Target path',
-        'redirect_type'             => 'Redirect type',
-        'timezone'                  => 'Timezone',
-        'order'                     => 'Display order',
-        'image'                     => 'Image',
-        'status'                    => 'Status',
-        'pinned'                    => 'Pinned',
-        'promoted'                  => 'Promoted',
-        'body'                      => 'Body',
-        'tags'                      => 'Tags',
-        'published_at'              => 'Publish at',
-        'unpublished_at'            => 'Unpublish at',
-        'metable_type'              => 'Entity',
+        'name'                      => 'Имя',
+        'display_name'              => 'Отображаемое имя',
+        'username'                  => 'Псевдоним',
+        'email'                     => 'E-mail',
+        'first_name'                => 'Имя',
+        'last_name'                 => 'Фамилия',
+        'password'                  => 'Пароль',
+        'password_confirmation'     => 'Подтверждение пароля',
+        'old_password'              => 'Старый пароль',
+        'new_password'              => 'Новый пароль',
+        'new_password_confirmation' => 'Подтверждение нового пароля',
+        'postal_code'               => 'Почтовы индекс',
+        'city'                      => 'Город',
+        'country'                   => 'Страна',
+        'address'                   => 'Адрес',
+        'phone'                     => 'Телефон',
+        'mobile'                    => 'Мобильный',
+        'age'                       => 'Возраст',
+        'sex'                       => 'Пол',
+        'gender'                    => 'Пол',
+        'day'                       => 'День',
+        'month'                     => 'Месяц',
+        'year'                      => 'Год',
+        'hour'                      => 'Час',
+        'minute'                    => 'Минута',
+        'second'                    => 'Секунда',
+        'title'                     => 'Заголовок',
+        'content'                   => 'Содержание',
+        'description'               => 'Описание',
+        'summary'                   => 'Резюме',
+        'excerpt'                   => 'Отрывок',
+        'date'                      => 'Дата',
+        'time'                      => 'Время',
+        'available'                 => 'Доступный',
+        'size'                      => 'Размер',
+        'roles'                     => 'Роли',
+        'permissions'               => 'Права',
+        'active'                    => 'Активный',
+        'message'                   => 'Сообщение',
+        'g-recaptcha-response'      => 'Защитный код',
+        'locale'                    => 'Локализация',
+        'route'                     => 'Маршрут',
+        'url'                       => 'URL',
+        'form_type'                 => 'Тип формы',
+        'form_data'                 => 'Данные формы',
+        'recipients'                => 'Получатели',
+        'source_path'               => 'Исходный путь',
+        'target_path'               => 'Целевой путь',
+        'redirect_type'             => 'Тип переадресации',
+        'timezone'                  => 'Часовой пояс',
+        'order'                     => 'Порядок показа',
+        'image'                     => 'Изображение',
+        'status'                    => 'Статус',
+        'pinned'                    => 'Закреплено',
+        'promoted'                  => 'Выделено',
+        'body'                      => 'Основная часть',
+        'tags'                      => 'Метки',
+        'published_at'              => 'Опубликовано',
+        'unpublished_at'            => 'Снято с публикации',
+        'metable_type'              => 'Сущность',
     ],
 ];

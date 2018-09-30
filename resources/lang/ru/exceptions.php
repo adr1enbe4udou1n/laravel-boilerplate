@@ -15,7 +15,7 @@ return [
             'first_user_cannot_be_edited'       => 'Вы не можете редактировать супер-администратора',
             'first_user_cannot_be_disabled'     => 'Супер-администратор не может быть отключён',
             'first_user_cannot_be_destroyed'    => 'Супер-администратор не может быть удалён',
-            'first_user_cannot_be_impersonated' => 'Супер-администратор не может быть изменён',
+            'first_user_cannot_be_impersonated' => 'Нельзя войти под видом супер-администратора',
             'cannot_set_superior_roles'         => 'Вы не можете назначать роли, превосходящие ваши',
         ],
 

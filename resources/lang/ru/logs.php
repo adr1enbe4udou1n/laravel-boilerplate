@@ -12,7 +12,7 @@ return [
         ],
 
         'form_submissions' => [
-            'created' => 'Представление формы ID :form_submission создано',
+            'created' => 'Заполнение формы ID :form_submission создано',
         ],
     ],
 

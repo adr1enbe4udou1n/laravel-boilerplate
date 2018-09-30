@@ -5,187 +5,187 @@
 
 return [
     'categories' => [
-        'blog'   => 'Blog',
-        'form'   => 'Forms',
-        'access' => 'Access',
+        'blog'   => 'Блог',
+        'form'   => 'Формы',
+        'access' => 'Доступ',
         'seo'    => 'SEO',
     ],
 
     'access' => [
         'backend' => [
-            'display_name' => 'Backoffice access',
-            'description'  => 'Can access to administration pages.',
+            'display_name' => 'Доступ к бэк-офису',
+            'description'  => 'Доступ к страницам администрирования.',
         ],
     ],
 
     'view' => [
         'form_settings' => [
-            'display_name' => 'View form settings',
-            'description'  => 'Can view form settings.',
+            'display_name' => 'Просмотр настроек формы',
+            'description'  => 'Можно просматривать настройки формы.',
         ],
 
         'form_submissions' => [
-            'display_name' => 'View form submissions',
-            'description'  => 'Can view form submissions.',
+            'display_name' => 'Просмотр заполнений форм',
+            'description'  => 'Пожно просматривать данные заполнения форм.',
         ],
 
         'users' => [
-            'display_name' => 'View users',
-            'description'  => 'Can view users.',
+            'display_name' => 'Просмотр пользователей',
+            'description'  => 'Можно видеть список пользователей.',
         ],
 
         'roles' => [
-            'display_name' => 'View roles',
-            'description'  => 'Can view roles.',
+            'display_name' => 'Просмотр ролей',
+            'description'  => 'Можно видеть список ролей.',
         ],
 
         'metas' => [
-            'display_name' => 'View metas',
-            'description'  => 'Can view metas.',
+            'display_name' => 'Просмотр метаданных',
+            'description'  => 'Можно видеть метаданные.',
         ],
 
         'redirections' => [
-            'display_name' => 'View redirections',
-            'description'  => 'Can view redirections.',
+            'display_name' => 'Просмотр перенаправлений',
+            'description'  => 'Можно видеть список перенаправлений.',
         ],
 
         'posts' => [
-            'display_name' => 'View all posts',
-            'description'  => 'Can view all posts.',
+            'display_name' => 'Просмотр всех статей',
+            'description'  => 'Можно видеть все статьи.',
         ],
 
         'own' => [
             'posts' => [
-                'display_name' => 'View own posts',
-                'description'  => 'Can view own posts.',
+                'display_name' => 'Просмотр своих статей',
+                'description'  => 'Можно видеть свои статьи.',
             ],
         ],
     ],
 
     'create' => [
         'form_settings' => [
-            'display_name' => 'Create form settings',
-            'description'  => 'Can create form settings.',
+            'display_name' => 'Создание форм',
+            'description'  => 'Можно создавать новые формы.',
         ],
 
         'users' => [
-            'display_name' => 'Create users',
-            'description'  => 'Can create users.',
+            'display_name' => 'Создание пользователей',
+            'description'  => 'Можно создавать новых пользователей.',
         ],
 
         'roles' => [
-            'display_name' => 'Create roles',
-            'description'  => 'Can create roles.',
+            'display_name' => 'Создание ролей',
+            'description'  => 'Можно создавать новые роли.',
         ],
 
         'metas' => [
-            'display_name' => 'Create metas',
-            'description'  => 'Can create metas.',
+            'display_name' => 'Создание метаданных',
+            'description'  => 'Можно создавать новые метаданные.',
         ],
 
         'redirections' => [
-            'display_name' => 'Create redirections',
-            'description'  => 'Can create redirections.',
+            'display_name' => 'Создание перенеправлений',
+            'description'  => 'Можно создавать новые перенаправления.',
         ],
 
         'posts' => [
-            'display_name' => 'Create posts',
-            'description'  => 'Can create all posts.',
+            'display_name' => 'Создание статей',
+            'description'  => 'Можно создавать новые статьи.',
         ],
     ],
 
     'edit' => [
         'form_settings' => [
-            'display_name' => 'Edit form settings',
-            'description'  => 'Can edit form settings.',
+            'display_name' => 'Правка форм',
+            'description'  => 'Можно изменять данные форм.',
         ],
 
         'users' => [
-            'display_name' => 'Edit users',
-            'description'  => 'Can edit users.',
+            'display_name' => 'Правка пользователей',
+            'description'  => 'Можно изменять данные пользователей.',
         ],
 
         'roles' => [
-            'display_name' => 'Edit roles',
-            'description'  => 'Can edit roles.',
+            'display_name' => 'Правка ролей',
+            'description'  => 'Можно изменять данные ролей.',
         ],
 
         'metas' => [
-            'display_name' => 'Edit metas',
-            'description'  => 'Can edit metas.',
+            'display_name' => 'Правка метаданных',
+            'description'  => 'Можно изменять данные метаданных.',
         ],
 
         'redirections' => [
-            'display_name' => 'Edit redirections',
-            'description'  => 'Can edit redirections.',
+            'display_name' => 'Правка перенаправлений',
+            'description'  => 'Можно изменять данные перенаправлений.',
         ],
 
         'posts' => [
-            'display_name' => 'Edit all posts',
-            'description'  => 'Can edit all posts.',
+            'display_name' => 'Правка всех статей',
+            'description'  => 'Можно изменять данные всех статей.',
         ],
 
         'own' => [
             'posts' => [
-                'display_name' => 'Edit own posts',
-                'description'  => 'Can edit own posts.',
+                'display_name' => 'Правка своих статей',
+                'description'  => 'Можно изменять данные своих статей.',
             ],
         ],
     ],
 
     'delete' => [
         'form_settings' => [
-            'display_name' => 'Delete form settings',
-            'description'  => 'Can delete form settings.',
+            'display_name' => 'Удаление форм',
+            'description'  => 'Можно удалять формы.',
         ],
 
         'form_submissions' => [
-            'display_name' => 'Delete form submissions',
-            'description'  => 'Can delete form submissions.',
+            'display_name' => 'Удаление заполнений форм',
+            'description'  => 'Можно удалять данные заполнения форм.',
         ],
 
         'users' => [
-            'display_name' => 'Delete users',
-            'description'  => 'Can delete users.',
+            'display_name' => 'Удаление пользователей',
+            'description'  => 'Можно удалять пользователей.',
         ],
 
         'roles' => [
-            'display_name' => 'Delete roles',
-            'description'  => 'Can delete roles.',
+            'display_name' => 'Удаление ролей',
+            'description'  => 'Можно удалять роли.',
         ],
 
         'metas' => [
-            'display_name' => 'Delete metas',
-            'description'  => 'Can delete metas.',
+            'display_name' => 'Удаление метаданных',
+            'description'  => 'Можно удалять метаданные.',
         ],
 
         'redirections' => [
-            'display_name' => 'Delete redirections',
-            'description'  => 'Can delete redirections.',
+            'display_name' => 'Удаление перенаправлений',
+            'description'  => 'Можно удалять перенаправления.',
         ],
 
         'posts' => [
-            'display_name' => 'Delete all posts',
-            'description'  => 'Can delete all posts.',
+            'display_name' => 'Удаление всех статьи',
+            'description'  => 'Можно удалять все статьи.',
         ],
 
         'own' => [
             'posts' => [
-                'display_name' => 'Delete own posts',
-                'description'  => 'Can delete own posts.',
+                'display_name' => 'Удаление своих статей',
+                'description'  => 'Можно удалять свои статьи.',
             ],
         ],
     ],
 
     'publish' => [
         'posts' => [
-            'display_name' => 'Publish posts',
-            'description'  => 'Can manage posts publication.',
+            'display_name' => 'Публикация статей',
+            'description'  => 'Можно управлять публикацией статей.',
         ],
     ],
 
     'impersonate' => [
-        'display_name' => 'Impersonate user',
-        'description'  => 'Can take ownership of others user identities. Useful for tests.',
+        'display_name' => 'Войти под видом пользователя',
+        'description'  => 'Можно войти под видом другого пользователя. Полезно для тестирования.',
     ],
 ];

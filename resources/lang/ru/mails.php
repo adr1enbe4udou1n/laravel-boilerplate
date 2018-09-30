@@ -1,25 +1,28 @@
 <?php
+/**
+ * @author Andrey "Limych" Khrolenok <andrey@khrolenok.ru>
+ */
 
 return [
     'layout' => [
-        'hello'               => 'Hello !',
-        'regards'             => 'Regards',
-        'trouble'             => 'If you’re having trouble clicking the :action button, copy and paste the URL below into your web browser :',
-        'all_rights_reserved' => 'All rights reserved.',
+        'hello'               => 'Здравствуйте!',
+        'regards'             => 'С уважением',
+        'trouble'             => 'Если у вас не получается воспользоваться кнопкой :action, скопируйте URL ниже и откройте его в удобном вам браузере:',
+        'all_rights_reserved' => 'Все права зарезервированы.',
     ],
     'password_reset' => [
-        'subject' => 'Password reset',
-        'intro'   => 'You are receiving this email because we received a password reset request for your account.',
-        'action'  => 'Reset Password',
-        'outro'   => 'If you did not request a password reset, no further action is required.',
+        'subject' => 'Сброс пароля',
+        'intro'   => 'Вам отправлено это письмо, потому что мы получили запрос на сброс пароля для вашей учетной записи.',
+        'action'  => 'Сбросить пароль',
+        'outro'   => 'Если вы не запрашивали сброс пароля, просто проигнорируйте это письмо.',
     ],
     'contact' => [
-        'subject'     => 'New contact message',
-        'new_contact' => 'You\'ve got a new contact message. Submission detail :',
+        'subject'     => 'Новое сообщение с сайта',
+        'new_contact' => 'Получено новое сообщение с сайта:',
     ],
     'alert' => [
-        'subject' => '[:app_name] Exception error',
-        'message' => 'You\'ve got unexpected server exception error which message is : :message.',
-        'trace'   => 'All trace detail :',
+        'subject' => '[:app_name] Ошибка приложения',
+        'message' => 'На сервере произошёл сбой со следующим сообщением об ошибке: :message',
+        'trace'   => 'Детали трассировки:',
     ],
 ];

@@ -33,7 +33,7 @@ return [
     ],
 
     'form_settings' => [
-        'create' => 'Создать настройку',
+        'create' => 'Создать форму',
     ],
 
     'redirections' => [

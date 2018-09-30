@@ -1,17 +1,21 @@
 <?php
+/**
+ * @author Andrey "Limych" Khrolenok <andrey@khrolenok.ru>
+ */
 
 return [
     /*
     |--------------------------------------------------------------------------
-    | Pagination Language Lines
+    | Сообщения при постраничном выводе
     |--------------------------------------------------------------------------
     |
-    | The following language lines are used by the paginator library to build
-    | the simple pagination links. You are free to change them to anything
-    | you want to customize your views to better match your application.
+    | Следующие строки используются библиотекой постраничного выода данных
+    | для создания простых ссылок на страницы. Вы можете изменить их на всё,
+    | что хотите, чтобы настроить свои представления, чтобы они соответствовали
+    | вашему приложению.
     |
     */
 
-    'previous' => '&laquo; Previous',
-    'next'     => 'Next &raquo;',
+    'previous' => '&laquo;&nbsp;Назад',
+    'next'     => 'Вперёд&nbsp;&raquo;',
 ];
