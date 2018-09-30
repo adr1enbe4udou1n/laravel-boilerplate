@@ -86,6 +86,16 @@ return [
             ],
             'dir' => 'rtl',
         ],
+        'ru' => [
+            'name'         => 'labels.localization.ru',
+            'script'       => 'Cyr',
+            'native'       => 'Русский',
+            'regional'     => 'ru_RU',
+            'locale_win'   => 'Russian_Russia.1251',
+            'date_formats' => [
+                'default' => 'd/m/Y H:i:s',
+            ],
+        ],
     ],
 
     // Negotiate for the user locale using the Accept-Language header if it's not defined in the URL?

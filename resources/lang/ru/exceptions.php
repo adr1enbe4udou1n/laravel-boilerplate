@@ -61,7 +61,7 @@ return [
 
     'frontend' => [
         'user' => [
-            'email_taken'       => 'Этот адрес электронной почты уже используется.',
+            'email_taken'       => 'Этот email уже используется.',
             'password_mismatch' => 'Это не ваш старый пароль.',
             'delete_account'    => 'Ошибка удаления аккаунта.',
             'updating_disabled' => 'Редактирование аккаунта отключено.',
