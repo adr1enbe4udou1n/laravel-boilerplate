@@ -54,6 +54,7 @@
 * Multilingual ready thanks to [Laravel Localization](https://github.com/mcamara/laravel-localization) package. Each routes are prefixed by locale in URL for best SEO support. For this boilerplate, EN, FR locales are 100% supported, including translated routes,
 * Spanish language added thanks to [Codedeep](https://github.com/codedeep),
 * Arabic language with RTL support added thanks to [AhmadOf](https://github.com/AhmadOf),
+* Russian language added thanks to [Limych](https://github.com/Limych),
 * Model Translatable Fields support (JSON format) with [Spatie Laravel Translatable](https://github.com/spatie/laravel-translatable), used for metatags and posts,
 * Robots and Sitemap integrated, including multilingual alternates,
 * Full Metatags manager interface with translatable title & description. Meta entity can be either linked to route or specific entity like post,

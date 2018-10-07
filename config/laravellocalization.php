@@ -15,16 +15,6 @@ return [
                 'default' => 'm/d/Y h:i:s A',
             ],
         ],
-        'ru' => [
-            'name'         => 'labels.localization.ru',
-            'script'       => 'Cyrl',
-            'native'       => 'Русский',
-            'regional'     => 'ru_RU',
-            'locale_win'   => 'Russian_Russia.1251',
-            'date_formats' => [
-                'default' => 'd.m.Y H:i:s',
-            ],
-        ],
         'fr' => [
             'name'         => 'labels.localization.fr',
             'script'       => 'Latn',
@@ -33,16 +23,6 @@ return [
             'locale_win'   => 'French_France.1252',
             'date_formats' => [
                 'default' => 'd/m/Y H:i:s',
-            ],
-        ],
-        'es' => [
-            'name'         => 'labels.localization.es',
-            'script'       => 'Latn',
-            'native'       => 'Español',
-            'regional'     => 'es_ES',
-            'locale_win'   => 'Spanish_Spain.1252',
-            'date_formats' => [
-                'default' => 'j/m/Y H:i:s',
             ],
         ],
         'de' => [
@@ -55,6 +35,16 @@ return [
                 'default' => 'd.m.Y H:i:s',
             ],
         ],
+        'es' => [
+            'name'         => 'labels.localization.es',
+            'script'       => 'Latn',
+            'native'       => 'Español',
+            'regional'     => 'es_ES',
+            'locale_win'   => 'Spanish_Spain.1252',
+            'date_formats' => [
+                'default' => 'j/m/Y H:i:s',
+            ],
+        ],
         'pt' => [
             'name'         => 'labels.localization.pt',
             'script'       => 'Latn',
@@ -65,14 +55,14 @@ return [
                 'default' => 'Y/m/d H:i:s',
             ],
         ],
-        'zn' => [
-            'name'         => 'labels.localization.zn',
-            'script'       => 'Hans',
-            'native'       => '中文',
-            'regional'     => 'zh_TW',
-            'locale_win'   => 'Chinese_Taiwan.950',
+        'ru' => [
+            'name'         => 'labels.localization.ru',
+            'script'       => 'Cyrl',
+            'native'       => 'Русский',
+            'regional'     => 'ru_RU',
+            'locale_win'   => 'Russian_Russia.1251',
             'date_formats' => [
-                'default' => 'Y-m-d h:i:s A',
+                'default' => 'd.m.Y H:i:s',
             ],
         ],
         'ar' => [
@@ -85,6 +75,16 @@ return [
                 'default' => 'd/m/Y H:i:s',
             ],
             'dir' => 'rtl',
+        ],
+        'zn' => [
+            'name'         => 'labels.localization.zn',
+            'script'       => 'Hans',
+            'native'       => '中文',
+            'regional'     => 'zh_TW',
+            'locale_win'   => 'Chinese_Taiwan.950',
+            'date_formats' => [
+                'default' => 'Y-m-d h:i:s A',
+            ],
         ],
     ],
 
