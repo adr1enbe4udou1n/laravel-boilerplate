@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Models\Traits\HasTranslatableSlug;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use App\Models\Traits\Favouritable;
 
 /**
  * App\Models\Post.
@@ -78,6 +79,7 @@ class Post extends Model implements HasMedia
     use HasTranslatableSlug;
     use HasMediaTrait;
     use HasEditor;
+    use Favouritable;
 
     public $sluggable = 'title';
 

@@ -19,6 +19,24 @@
         {!! Purify::clean($post->body) !!}
     </div>
 
+    <div>
+        <b-button-toolbar>
+            <b-button-group class="mx-1">
+                <v-add-to-favourite
+                    :checked='{{ json_encode($post->isFavourite ? true : false) }}'
+                    :item-id='{{ $post->id }}'
+                    class="btn-inverse"
+                ></v-add-to-favourite>
+                <v-social-share
+                    url="{{ route('blog.show', ['post' => $post->slug]) }}"
+                    title="{{ $post->title }}"
+                    description="{{ $post->description }}"
+                    :tags="{{ json_encode(array_map(function ($tag) { return $tag['name']; }, $post->tags->toArray())) }}"
+                ></v-social-share>
+            </b-button-group>
+        </b-button-toolbar>
+    </div>
+
     <nav class="nav">
         <span class="navbar-brand">@lang('labels.frontend.blog.tags')</span>
 

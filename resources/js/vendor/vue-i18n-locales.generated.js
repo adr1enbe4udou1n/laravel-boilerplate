@@ -885,6 +885,7 @@ export default {
         "exceptions": {
             "general": "Server exception",
             "unauthorized": "Action not allowed",
+            "not_logged_in": "You have to login to proceed this action",
             "backend": {
                 "users": {
                     "create": "Error on user creation",
@@ -3200,7 +3201,7 @@ export default {
             "frontend": []
         },
         "auth": {
-            "failed": "Эти учетные данные не соответствуют нашим записям.",
+            "failed": "Имя пользователя или пароль указаны неверно.",
             "throttle": "Слишком много попыток входа. Пожалуйста, попробуйте снова через {seconds} секунд.",
             "socialite": {
                 "unacceptable": "{provider} не является допустимым типом входа."
@@ -3247,6 +3248,7 @@ export default {
         "exceptions": {
             "general": "Серверная ошибка",
             "unauthorized": "Недопустимое действие",
+            "not_logged_in": "Вы должны войти, чтобы выполнить это действие",
             "backend": {
                 "users": {
                     "create": "Ошибка создания пользователя",
@@ -3626,7 +3628,7 @@ export default {
             "reset": "Ваш пароль изменён!",
             "sent": "Мы отправили вам на почту ссылку для сброса пароля!",
             "token": "Неверный токен сброса пароля.",
-            "user": "У нас нет пользователя с этим почтовым адресом."
+            "user": "У нас нет пользователя с таким адресом электронной почты."
         },
         "permissions": {
             "categories": {

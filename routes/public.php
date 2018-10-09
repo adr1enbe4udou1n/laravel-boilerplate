@@ -32,3 +32,5 @@ if (config('blog.enabled')) {
         'BlogController@owner'
     )->name('blog.owner');
 }
+
+Route::post('favourite/post', 'FavouriteController@post')->name('favourite.add.post');

@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Models\Post;
 use App\Models\User;
+use App\Repositories\Contracts\FavouriteRepository;
+use App\Repositories\EloquentFavouriteRepository;
 use Illuminate\Support\Facades\URL;
 use Laravel\Dusk\DuskServiceProvider;
 use Illuminate\Support\Facades\Schema;
@@ -101,6 +103,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             TagRepository::class,
             EloquentTagRepository::class
+        );
+
+        $this->app->bind(
+            FavouriteRepository::class,
+            EloquentFavouriteRepository::class
         );
     }
 }

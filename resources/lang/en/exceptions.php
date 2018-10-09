@@ -3,6 +3,7 @@
 return [
     'general'      => 'Server exception',
     'unauthorized' => 'Action not allowed',
+    'not_logged_in' => 'You have to login to proceed this action',
 
     'backend' => [
         'users' => [

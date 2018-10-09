@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import '../fontawesome'
 import 'slick-carousel'
 import intlTelInput from 'intl-tel-input'
@@ -5,6 +6,15 @@ import 'pwstrength-bootstrap/dist/pwstrength-bootstrap'
 import swal from 'sweetalert2'
 import WebFont from 'webfontloader'
 import Turbolinks from 'turbolinks'
+
+import vAddToFavourite from './components/Favourite'
+import vSocialShare from './components/social-share/SocialShareIcon'
+
+/**
+ * Register components
+ */
+Vue.component('v-add-to-favourite', vAddToFavourite)
+Vue.component('v-social-share', vSocialShare)
 
 /**
  * JS Settings App
