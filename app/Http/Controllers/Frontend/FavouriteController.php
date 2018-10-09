@@ -1,10 +1,9 @@
 <?php
-declare(strict_types = 1);
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Requests\Favourite\ToggleRequest;
 use App\Models\Post;
+use App\Http\Requests\Favourite\ToggleRequest;
 use App\Repositories\EloquentFavouriteRepository;
 
 class FavouriteController extends FrontendController
@@ -23,6 +22,7 @@ class FavouriteController extends FrontendController
 
     /**
      * @param ToggleRequest $request
+     *
      * @return array
      */
     public function post(ToggleRequest $request)

@@ -1,12 +1,11 @@
 <?php
-declare(strict_types = 1);
 
 namespace App\Repositories\Contracts;
 
 use App\Models\Favourite;
 
 /**
- * Interface FavouriteRepository
+ * Interface FavouriteRepository.
  */
 interface FavouriteRepository extends BaseRepository
 {
@@ -22,6 +21,7 @@ interface FavouriteRepository extends BaseRepository
      * @param string $modelType
      * @param int $modelId
      * @param int $userId
+     *
      * @return Favourite
      */
     public function addToFavourite(string $modelType, int $modelId, int $userId);
@@ -30,6 +30,7 @@ interface FavouriteRepository extends BaseRepository
      * @param string $modelType
      * @param int $modelId
      * @param int $userId
+     *
      * @return bool|mixed|null
      */
     public function removeFromFavourite(string $modelType, int $modelId, int $userId);

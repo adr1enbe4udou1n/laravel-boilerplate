@@ -1,5 +1,4 @@
 <?php
-declare(strict_types = 1);
 
 namespace App\Http\Requests\Favourite;
 
@@ -7,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * @property-read int $id
- * @property-read boolean $checked
+ * @property-read bool $checked
  */
 class ToggleRequest extends FormRequest
 {
@@ -16,7 +15,7 @@ class ToggleRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return !auth()->guest();
+        return ! auth()->guest();
     }
 
     /**
@@ -25,8 +24,8 @@ class ToggleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id' => 'required|integer',
-            'checked' => 'required|boolean',
+            'id'        => 'required|integer',
+            'checked'   => 'required|boolean',
         ];
     }
 

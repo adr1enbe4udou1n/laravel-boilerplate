@@ -4,8 +4,6 @@ namespace App\Providers;
 
 use App\Models\Post;
 use App\Models\User;
-use App\Repositories\Contracts\FavouriteRepository;
-use App\Repositories\EloquentFavouriteRepository;
 use Illuminate\Support\Facades\URL;
 use Laravel\Dusk\DuskServiceProvider;
 use Illuminate\Support\Facades\Schema;
@@ -22,6 +20,8 @@ use App\Repositories\Contracts\RoleRepository;
 use App\Repositories\Contracts\UserRepository;
 use App\Repositories\EloquentAccountRepository;
 use App\Repositories\Contracts\AccountRepository;
+use App\Repositories\EloquentFavouriteRepository;
+use App\Repositories\Contracts\FavouriteRepository;
 use App\Repositories\EloquentFormSettingRepository;
 use App\Repositories\EloquentRedirectionRepository;
 use Illuminate\Database\Eloquent\Relations\Relation;

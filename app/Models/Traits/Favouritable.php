@@ -1,5 +1,4 @@
 <?php
-declare(strict_types = 1);
 
 namespace App\Models\Traits;
 
@@ -20,8 +19,8 @@ trait Favouritable
 
         return Favourite::query()->where([
             'model_type' => static::class,
-            'model_id' => $this->id,
-            'user_id' => auth()->id(),
+            'model_id'   => $this->id,
+            'user_id'    => auth()->id(),
         ])->exists();
     }
 }

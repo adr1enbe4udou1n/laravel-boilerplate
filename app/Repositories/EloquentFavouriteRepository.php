@@ -1,5 +1,4 @@
 <?php
-declare(strict_types=1);
 
 namespace App\Repositories;
 
@@ -34,6 +33,7 @@ class EloquentFavouriteRepository extends EloquentBaseRepository
      * @param string $modelType
      * @param int $modelId
      * @param int $userId
+     *
      * @return Favourite
      */
     public function addToFavourite(string $modelType, int $modelId, int $userId)
@@ -41,8 +41,8 @@ class EloquentFavouriteRepository extends EloquentBaseRepository
         /** @var Favourite $model */
         $model = $this->query()->firstOrCreate([
             'model_type' => $modelType,
-            'model_id' => $modelId,
-            'user_id' => $userId
+            'model_id'   => $modelId,
+            'user_id'    => $userId,
         ]);
 
         return $model;
@@ -52,14 +52,15 @@ class EloquentFavouriteRepository extends EloquentBaseRepository
      * @param string $modelType
      * @param int $modelId
      * @param int $userId
+     *
      * @return bool|mixed|null
      */
     public function removeFromFavourite(string $modelType, int $modelId, int $userId)
     {
         return $this->query()->firstOrNew([
             'model_type' => $modelType,
-            'model_id' => $modelId,
-            'user_id' => $userId,
+            'model_id'   => $modelId,
+            'user_id'    => $userId,
         ])->delete();
     }
 }

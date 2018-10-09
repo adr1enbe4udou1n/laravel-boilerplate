@@ -7,6 +7,7 @@ use Spatie\Tags\HasTags;
 use Laravel\Scout\Searchable;
 use App\Models\Traits\Metable;
 use App\Models\Traits\HasEditor;
+use App\Models\Traits\Favouritable;
 use Illuminate\Support\Facades\Gate;
 use Spatie\MediaLibrary\Models\Media;
 use Stevebauman\Purify\Facades\Purify;
@@ -17,7 +18,6 @@ use Illuminate\Database\Eloquent\Builder;
 use App\Models\Traits\HasTranslatableSlug;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use App\Models\Traits\Favouritable;
 
 /**
  * App\Models\Post.

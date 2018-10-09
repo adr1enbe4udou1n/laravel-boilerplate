@@ -1,11 +1,10 @@
 <?php
-declare(strict_types = 1);
 
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 /**
  * @property string $model_type
@@ -37,22 +36,24 @@ class Favourite extends Model
 
     /** @var array */
     protected $casts = [
-        'model_id' => 'integer',
+        'model_id'   => 'integer',
         'model_type' => 'string',
-        'user_id' => 'integer',
+        'user_id'    => 'integer',
     ];
 
     /**
      * @param Builder $query
+     *
      * @return Builder
      */
     public function setKeysForSaveQuery(Builder $query): Builder
     {
         $query->where([
-            'model_id' => $this->model_id,
+            'model_id'   => $this->model_id,
             'model_type' => $this->model_type,
-            'user_id' => $this->user_id,
+            'user_id'    => $this->user_id,
         ]);
+
         return $query;
     }
 
