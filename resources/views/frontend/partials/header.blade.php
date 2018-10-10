@@ -46,6 +46,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdown02">
                             <a class="dropdown-item" href="{{ route('user.home') }}">@lang('labels.user.space')</a>
                             <a class="dropdown-item" href="{{ route('user.account') }}">@lang('labels.user.account')</a>
+                            <a class="dropdown-item" href="{{ route('user.favourite', ['type' => 'posts']) }}">@lang('labels.favourite.posts')</a>
                             @can('access backend')
                                 <a class="dropdown-item" href="{{ route('admin.home') }}" data-turbolinks="false">@lang('labels.user.administration')</a>
                             @endcan

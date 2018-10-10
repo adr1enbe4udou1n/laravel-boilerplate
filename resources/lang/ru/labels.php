@@ -104,6 +104,7 @@ return [
         'settings'                  => 'Настройки',
         'account'                   => 'Мой аккаунт',
         'profile'                   => 'Мой профиль',
+        'profile'                   => 'Избранное',
         'avatar'                    => 'Аватар',
         'online'                    => 'В&nbsp;сети',
         'edit_profile'              => 'Изменить мой профиль',
@@ -295,6 +296,9 @@ return [
             'message_sent'   => 'Сообщение отправлено',
             'legal_mentions' => 'Юридическая информация',
             'administration' => 'Администрирование',
+            'favourite'      => [
+                'posts' => 'Избранные публикации',
+            ],
         ],
 
         'submissions' => [

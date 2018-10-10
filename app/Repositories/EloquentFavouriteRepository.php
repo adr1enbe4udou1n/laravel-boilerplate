@@ -3,6 +3,8 @@
 namespace App\Repositories;
 
 use App\Models\Favourite;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class EloquentFavouriteRepository extends EloquentBaseRepository
 {
@@ -62,5 +64,29 @@ class EloquentFavouriteRepository extends EloquentBaseRepository
             'model_id'   => $modelId,
             'user_id'    => $userId,
         ])->delete();
+    }
+
+    /**
+     * @param string $type
+     * @param int $userId
+     *
+     * @return Builder
+     */
+    public function getUserFavouritesByType(string $type, int $userId): Builder
+    {
+        if (! array_key_exists($type, Favourite::EXISTING_TYPES)) {
+            abort(404);
+        }
+
+        /** @var Model $model */
+        $model = Favourite::EXISTING_TYPES[$type];
+
+        return $model::with(['favourite'])
+            ->join('favourites', 'favourites.model_id', 'id', 'inner')
+            ->where([
+                'model_type'         => $model,
+                'favourites.user_id' => $userId,
+            ])
+            ->orderBy('favourites.created_at', 'desc');
     }
 }

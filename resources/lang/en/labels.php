@@ -101,6 +101,7 @@ return [
         'settings'                  => 'Settings',
         'account'                   => 'My account',
         'profile'                   => 'My profile',
+        'favourite'                 => 'My favourite',
         'avatar'                    => 'Avatar',
         'online'                    => 'Online',
         'edit_profile'              => 'Edit my profile',
@@ -292,6 +293,9 @@ return [
             'message_sent'   => 'Message sent',
             'legal_mentions' => 'Legal mentions',
             'administration' => 'Administration',
+            'favourite'      => [
+                'posts' => 'Your favourite posts',
+            ],
         ],
 
         'submissions' => [

@@ -14,8 +14,16 @@ use Illuminate\Database\Eloquent\Builder;
  */
 class Favourite extends Model
 {
+    /** @var string */
+    public const TYPE_POSTS = 'posts';
+
+    /** @var array */
+    public const EXISTING_TYPES = [
+        self::TYPE_POSTS => Post::class,
+    ];
+
     /** @var null */
-    const UPDATED_AT = null;
+    public const UPDATED_AT = null;
 
     /** @var bool */
     public $incrementing = false;
@@ -63,21 +71,5 @@ class Favourite extends Model
     public function owner()
     {
         return $this->belongsTo(User::class, 'user_id');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function parentModel()
-    {
-        return $this->belongsTo($this->model_type, $this->model_id, 'id');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
-     */
-    public function favouritable()
-    {
-        return $this->morphTo();
     }
 }
