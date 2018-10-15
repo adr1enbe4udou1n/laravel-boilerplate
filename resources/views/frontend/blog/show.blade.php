@@ -20,7 +20,7 @@
     </div>
 
     <div>
-        <b-button-toolbar>
+        <b-button-toolbar class="social-share-toolbar">
             <b-button-group class="mx-1">
                 <v-add-to-favourite
                     :checked='{{ json_encode($post->isFavourite ? true : false) }}'

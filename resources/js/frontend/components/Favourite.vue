@@ -1,5 +1,5 @@
 <template>
-  <b-btn @click="toggleFavourite" v-b-tooltip.hover :title="getTitle">
+  <b-btn @click="toggleFavourite" :title="getTitle">
     <font-awesome-icon
       :icon="icon"
       :color="getIconColor()"

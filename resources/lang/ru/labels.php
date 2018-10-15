@@ -104,7 +104,7 @@ return [
         'settings'                  => 'Настройки',
         'account'                   => 'Мой аккаунт',
         'profile'                   => 'Мой профиль',
-        'profile'                   => 'Избранное',
+        'favourite'                 => 'Избранное',
         'avatar'                    => 'Аватар',
         'online'                    => 'В&nbsp;сети',
         'edit_profile'              => 'Изменить мой профиль',
