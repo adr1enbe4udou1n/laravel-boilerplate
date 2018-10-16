@@ -8,7 +8,7 @@
     "prod": "rimraf public/dist && cross-env NODE_ENV=production webpack --mode production --progress",
     "lint": "eslint --ext .js,.vue resources/js"
   },
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "@coreui/coreui": "^2.0.14",
@@ -69,7 +69,7 @@
     "webpack-manifest-plugin": "^2.0.4",
     "webpack-notifier": "^1.6.0"
   },
-  "dependencies": {},
+  "devDependencies": {},
   "browserslist": [
     "> 1%",
     "last 2 versions"

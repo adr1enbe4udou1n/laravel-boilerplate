@@ -108,6 +108,102 @@ php artisan scout:import "App\Models\Post"
 
 Laravel Scout takes care of updating posts index on CUD operations.
 
+### Install with docker-compose
+After installation the site will be available on `127.0.0.1:8080`
+
+## Mac and Linux dev environment
+First of all you need to build the containers
+```bash
+docker-compose build
+```
+
+After that you have to start the containers
+```bash
+docker-compose up
+```
+
+Set up your application
+```bash
+docker exec -it boilerplate-php-fpm php /app/artisan key:generate \
+	&& docker exec -it boilerplate-php-fpm php /app/artisan storage:link
+```
+
+Rename `.env.docker` to `.env` and apply the migrations
+```bash
+docker exec -it boilerplate-php-fpm php /app/artisan migrate
+```
+
+Or apply the migrations with demo data
+```bash
+docker exec -it boilerplate-php-fpm php /app/artisan migrate --seed
+``` 
+
+## Mac and Linux production environment
+```bash
+docker-compose build
+```
+
+After that you have to start the containers
+```bash
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+```
+
+Set up your application
+```bash
+docker exec -it boilerplate-php-fpm php /app/artisan key:generate \
+	&& docker exec -it boilerplate-php-fpm php /app/artisan storage:link
+```
+
+Rename `.env.docker` to `.env` and apply the migrations
+```bash
+docker exec -it boilerplate-php-fpm php /app/artisan migrate
+```
+
+## Install with make file
+### Deploy dev
+
+Run
+```bash
+make build
+make start.dev
+```
+
+After first start rename `.env.docker` to `.env` and apply the migrations by the following command
+```bash
+make install.dev
+```
+
+### Deploy prod
+Run
+```bash
+make build
+make start.prod
+```
+
+After first start rename `.env.docker` to `.env` and apply the migrations by the following command
+```bash
+make install.prod
+```
+
+## Install on Windows
+First of all set up your docker environment
+- On Command Line: `set COMPOSE_CONVERT_WINDOWS_PATHS=1`;
+- Restart Docker for Windows;
+- Go to `Docker for Windows settings > Shared Drives > Reset credentials > select drive > Apply;`
+- Reopen Command Line
+- Kill the Containers (if you have started any)
+- Rerun the Containers (if you have run any)
+- Login the docker from cli, because docker login gui is separated from docker login cli.
+ Also note, that you do not have to use your email, you need to enter docker id
+
+```
+Note, if the prompt from the needed drive disapears after restarting the container
+You may have to reset your docker:
+Go to Docker for Windows settings > Reset > Reset to factory defaults...
+```
+
+Than you can proceed with `Mac and Linux` install instructions section
+
 ### Backend access
 
 The first user to register will be automatically super admin with no restriction and will cannot be deletable.

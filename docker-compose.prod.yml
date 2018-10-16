@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+  node:
+    environment:
+      - NODE_ENV=production
+      - DEV_SERVER_PORT=3001
+    volumes:
+      - ./:/app
+    ports:
+      - '3001:3001'
+      - '8888:8888'
+      - '8889:8889'
+    expose:
+      - '3001'
+      - '8888'
+      - '8889'
+    command: >
+      sh -c '
+        yarn
+        yarn prod
+      '
+    networks:
+      - overlay
+  composer:
+    command: 'install --ignore-platform-reqs --no-dev'
