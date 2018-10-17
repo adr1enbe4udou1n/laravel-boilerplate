@@ -43,6 +43,16 @@ services:
       - ./docker/nginx/nginx_app.conf:/etc/nginx/conf.d/app.conf
     networks:
       - overlay
+  redis:
+    container_name: 'boilerplate-redis'
+    image: redis:5.0-rc6
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - '6379:6379'
+    expose:
+      - '6379'
+    networks:
+      - overlay
   node:
     container_name: 'boilerplate-node'
     build:
