@@ -5,7 +5,11 @@
                 <div class="col-md-4 mb-4">
                     <article class="article">
                         <a href="{{ route('blog.show', ['post' => $post->slug]) }}" class="article__cover">
-                            <img src="{{ image_template_url('large', $post->featured_image_path) }}" alt="{{ $post->title }}">
+                            @if ($post->featured_image_url)
+                                <img src="{{ image_template_url($post->featured_image_url, ['w' => 480, 'h' => 360, 'fit' => 'crop']) }}" alt="{{ $post->title }}">
+                            @else
+                                <img src="{{ asset('/images/placeholder.png') }}" alt="{{ $post->title }}">
+                            @endif
                         </a>
                         <div class="article__infos">
                             <h5 class="article__title">

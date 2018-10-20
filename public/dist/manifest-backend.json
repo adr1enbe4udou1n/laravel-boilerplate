@@ -1,10 +1,10 @@
 {
-  "backend.css": "/dist/css/backend.e512402193832a71b0fa.css",
-  "backend.js": "/dist/js/backend.e512402193832a71b0fa.js",
-  "backend.css.map": "/dist/css/backend.e512402193832a71b0fa.css.map",
-  "backend.js.map": "/dist/js/backend.e512402193832a71b0fa.js.map",
-  "vendor-backend.js": "/dist/js/vendor-backend.2afa1092ce5a266bf362.js",
-  "vendor-backend.js.map": "/dist/js/vendor-backend.2afa1092ce5a266bf362.js.map",
+  "backend.css": "/dist/css/backend.de0a7eed3f161599ad6f.css",
+  "backend.js": "/dist/js/backend.de0a7eed3f161599ad6f.js",
+  "backend.css.map": "/dist/css/backend.de0a7eed3f161599ad6f.css.map",
+  "backend.js.map": "/dist/js/backend.de0a7eed3f161599ad6f.js.map",
+  "vendor-backend.js": "/dist/js/vendor-backend.a32e9c39b2f83b6a9f33.js",
+  "vendor-backend.js.map": "/dist/js/vendor-backend.a32e9c39b2f83b6a9f33.js.map",
   "images/logo.png": "/dist/images/logo.png?dac075a09aa1174c83763064939c77c8",
   "fonts/app.scss": "/dist/fonts/feather-webfont.eot?cc5143b2b877ad1f2a9d7ddde2e55dee"
 }

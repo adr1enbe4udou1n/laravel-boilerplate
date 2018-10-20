@@ -14,6 +14,7 @@ import RichTextEditor from './components/Plugins/RichTextEditor'
 import DateTimePicker from './components/Plugins/DateTimePicker'
 import Switch from './components/Plugins/Switch'
 import vSelect from './components/Plugins/Select'
+import ImageStyle from './components/Plugins/ImageStyle'
 
 import { createRouter } from './router'
 import { createStore } from './store'
@@ -33,6 +34,7 @@ Vue.component('c-switch', Switch)
 Vue.component('p-datetimepicker', DateTimePicker)
 Vue.component('p-richtexteditor', RichTextEditor)
 Vue.component('b-datatable', DataTable)
+Vue.component('b-img-style', ImageStyle)
 
 export function createApp() {
   // Init router and store

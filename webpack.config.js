@@ -201,7 +201,6 @@ function getEntryConfig(name, analyzerPort, alias = {}) {
       compress: true,
       noInfo: true,
       quiet: true,
-      host: '0.0.0.0',
       port: devServerPort
     }
   }

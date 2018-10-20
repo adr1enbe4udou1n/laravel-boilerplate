@@ -34,10 +34,12 @@
             <b-form-checkbox :value="row.item.id" v-model="selected"></b-form-checkbox>
           </template>
           <template slot="image" slot-scope="row">
-            <router-link v-if="row.item.can_edit" :to="`/posts/${row.item.id}/edit`">
-              <img :src="row.item.thumbnail_image_path" :alt="row.item.title">
-            </router-link>
-            <img v-else :src="row.item.thumbnail_image_path" :alt="row.item.title">
+            <template v-if="row.item.featured_image_url">
+              <router-link v-if="row.item.can_edit" :to="`/posts/${row.item.id}/edit`">
+                <b-img-style :src="row.item.featured_image_url" :width="120" :height="80" rounded></b-img-style>
+              </router-link>
+              <b-img-style v-else :src="row.item.featured_image_url" :width="120" :height="80" rounded></b-img-style>
+            </template>
           </template>
           <template slot="title" slot-scope="row">
             <router-link v-if="row.item.can_edit" :to="`/posts/${row.item.id}/edit`" v-text="row.value"></router-link>

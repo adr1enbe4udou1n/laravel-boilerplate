@@ -78,7 +78,7 @@
               :feedback="feedback('featured_image')"
             >
               <div class="media">
-                <img class="mr-2" v-if="model.thumbnail_image_path" :src="model.thumbnail_image_path" alt="">
+                <b-img-style v-if="model.featured_image_url" :src="model.featured_image_url" :width="120" :height="80" rounded fluid class="mr-2"></b-img-style>
 
                 <div class="media-body">
                   <h6>{{ $t('labels.upload_image') }}</h6>
@@ -302,7 +302,7 @@ export default {
         body: null,
         tags: [],
         featured_image: null,
-        thumbnail_image_path: null,
+        featured_image_url: null,
         status: null,
         state: null,
         status_label: null,
@@ -333,7 +333,7 @@ export default {
     },
     deleteFeaturedImage() {
       this.$refs.featuredImageInput.reset()
-      this.model.thumbnail_image_path = null
+      this.model.featured_image_url = null
       this.model.has_featured_image = false
     }
   }

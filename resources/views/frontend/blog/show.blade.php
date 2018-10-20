@@ -4,7 +4,9 @@
 
 @section('highlight')
     <div class="cover">
-        <img src="{{ $post->featured_image_path }}" alt="{{ $post->title }}" class="img-fluid">
+        @if ($post->featured_image_url)
+            <img src="{{ image_template_url($post->featured_image_url, ['w' => 1800, 'h' => 600, 'fit' => 'crop']) }}" alt="{{ $post->title }}" class="img-fluid">
+        @endif
     </div>
     <div class="post-title">
         <h1 class="pb-3 pt-2">{{ $post->title }}</h1>
