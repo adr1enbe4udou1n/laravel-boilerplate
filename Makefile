@@ -12,15 +12,15 @@ build:
 
 PHONY: install.prod
 install.prod:
-	docker exec -it boilerplate-php-fpm php /app/artisan key:generate \
-	&& docker exec -it boilerplate-php-fpm php /app/artisan storage:link \
-	&& docker exec -it boilerplate-php-fpm php /app/artisan migrate
+	docker exec -it boilerplate-php-fpm php /app/artisan key:generate
+	docker exec -it boilerplate-php-fpm php /app/artisan storage:link
+	docker exec -it boilerplate-php-fpm php /app/artisan migrate
 
 PHONY: install
 install:
-	docker exec -it boilerplate-php-fpm php /app/artisan key:generate \
-	&& docker exec -it boilerplate-php-fpm php /app/artisan storage:link \
-	&& docker exec -it boilerplate-php-fpm php /app/artisan migrate --seed
+	docker exec -it boilerplate-php-fpm php /app/artisan key:generate
+	docker exec -it boilerplate-php-fpm php /app/artisan storage:link
+	docker exec -it boilerplate-php-fpm php /app/artisan migrate --seed
 
 PHONY: delete
 delete:
