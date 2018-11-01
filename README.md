@@ -73,11 +73,9 @@
 ### Requirements
 
 * PHP 7.1
-* MySQL with JSON support or Postgres SQL with JSON support
+* MySQL 5.7 with JSON support or Postgres SQL
 
-> For Mariadb you can use a laravel-mariadb package. (https://packagist.org/packages/ybr-nx/laravel-mariadb)
-
-
+> For Mariadb you can use this [laravel-mariadb package](https://packagist.org/packages/ybr-nx/laravel-mariadb).
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
