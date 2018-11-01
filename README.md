@@ -73,7 +73,7 @@
 ### Requirements
 
 * PHP 7.1
-* MySQL 5.7 with JSON support or Postgres SQL
+* MySQL 5.7 with JSON support or PostgreSQL
 
 > For Mariadb you can use this [laravel-mariadb package](https://packagist.org/packages/ybr-nx/laravel-mariadb).
 
