@@ -5,7 +5,7 @@
 [![Build Status](https://drone.okami101.io/api/badges/adr1enbe4udou1n/laravel-boilerplate/status.svg)](https://drone.okami101.io/adr1enbe4udou1n/laravel-boilerplate)
 [![StyleCI](https://styleci.io/repos/75558440/shield?style=flat&branch=master)](https://styleci.io/repos/75558440)
 [![License](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/license?format=flat)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 ## Demo
 
