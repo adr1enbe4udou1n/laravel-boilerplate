@@ -6,7 +6,7 @@ import mutations from './mutations'
 
 Vue.use(Vuex)
 
-export function createStore (route) {
+export function createStore(route) {
   const actions = createActions(route)
 
   return new Vuex.Store({

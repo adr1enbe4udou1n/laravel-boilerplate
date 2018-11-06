@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Eloquent\Model;
+use League\Glide\Urls\UrlBuilderFactory;
 
 if (! function_exists('home_route')) {
     /**
@@ -33,17 +34,11 @@ if (! function_exists('is_admin_route')) {
 }
 
 if (! function_exists('image_template_url')) {
-    /**
-     * @param $template
-     * @param $imagePath
-     *
-     * @return string
-     */
-    function image_template_url($template, $imagePath)
+    function image_template_url($path, array $params)
     {
-        $imagePath = str_replace('/storage', '', $imagePath);
+        $urlBuilder = UrlBuilderFactory::create('/img/', config('glide.key'));
 
-        return url(config('imagecache.route')."/{$template}{$imagePath}");
+        return $urlBuilder->getUrl($path, $params);
     }
 }
 

@@ -24,7 +24,7 @@ import RedirectionList from '../views/RedirectionList'
 
 Vue.use(Router)
 
-export function createRouter (base, i18n) {
+export function createRouter(base, i18n) {
   return new Router({
     mode: 'history',
     base: base,
@@ -59,7 +59,7 @@ export function createRouter (base, i18n) {
           {
             path: 'posts',
             component: {
-              render (c) {
+              render(c) {
                 return c('router-view')
               }
             },
@@ -97,7 +97,7 @@ export function createRouter (base, i18n) {
           {
             path: 'form-submissions',
             component: {
-              render (c) {
+              render(c) {
                 return c('router-view')
               }
             },
@@ -127,7 +127,7 @@ export function createRouter (base, i18n) {
           {
             path: 'form-settings',
             component: {
-              render (c) {
+              render(c) {
                 return c('router-view')
               }
             },
@@ -165,7 +165,7 @@ export function createRouter (base, i18n) {
           {
             path: 'users',
             component: {
-              render (c) {
+              render(c) {
                 return c('router-view')
               }
             },
@@ -203,7 +203,7 @@ export function createRouter (base, i18n) {
           {
             path: 'roles',
             component: {
-              render (c) {
+              render(c) {
                 return c('router-view')
               }
             },
@@ -241,7 +241,7 @@ export function createRouter (base, i18n) {
           {
             path: 'metas',
             component: {
-              render (c) {
+              render(c) {
                 return c('router-view')
               }
             },
@@ -279,7 +279,7 @@ export function createRouter (base, i18n) {
           {
             path: 'redirections',
             component: {
-              render (c) {
+              render(c) {
                 return c('router-view')
               }
             },

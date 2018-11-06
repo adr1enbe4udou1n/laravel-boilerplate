@@ -13,3 +13,4 @@
 
 Route::get('robots.txt', 'SeoController@robots');
 Route::get('sitemap.xml', 'SeoController@sitemap');
+Route::get('/img/{path}', 'ImageController@show')->where('path', '.*');

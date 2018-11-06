@@ -7,7 +7,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
 const WebpackNotifierPlugin = require('webpack-notifier')
 const ManifestPlugin = require('webpack-manifest-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin
 
 const hmr = process.argv.includes('--hot')
 const production = process.env.NODE_ENV === 'production'
@@ -17,7 +18,7 @@ const devServerUrl = process.env.DEV_SERVER_URL || 'http://localhost:8080'
 const publicPathFolder = production ? '/dist/' : '/build/'
 const publicPath = hmr ? `${devServerUrl}${publicPathFolder}` : publicPathFolder
 
-function getEntryConfig (name, analyzerPort, alias = {}) {
+function getEntryConfig(name, analyzerPort, alias = {}) {
   let plugins = [
     new VueLoaderPlugin(),
     new webpack.IgnorePlugin(/jsdom$/),
@@ -34,16 +35,16 @@ function getEntryConfig (name, analyzerPort, alias = {}) {
   ]
 
   if (production) {
-    plugins.push(...[
-      new BundleAnalyzerPlugin({
-        analyzerPort
-      })
-    ])
+    plugins.push(
+      ...[
+        new BundleAnalyzerPlugin({
+          analyzerPort
+        })
+      ]
+    )
   }
 
-  let postcssPlugins = [
-    require('autoprefixer')()
-  ]
+  let postcssPlugins = [require('autoprefixer')()]
 
   if (production) {
     postcssPlugins.push(require('cssnano')())
@@ -56,7 +57,8 @@ function getEntryConfig (name, analyzerPort, alias = {}) {
       options: {
         sourceMap: true
       }
-    }, {
+    },
+    {
       loader: 'postcss-loader',
       options: {
         ident: 'postcss',
@@ -89,7 +91,8 @@ function getEntryConfig (name, analyzerPort, alias = {}) {
           use: cssLoaders.concat([
             {
               loader: 'resolve-url-loader'
-            }, {
+            },
+            {
               loader: 'sass-loader',
               options: {
                 outputStyle: 'expanded',
@@ -121,16 +124,21 @@ function getEntryConfig (name, analyzerPort, alias = {}) {
             {
               loader: 'url-loader',
               options: {
-                name: (path) => {
+                name: path => {
                   if (!/node_modules/.test(path)) {
                     return 'images/[name].[ext]?[hash]'
                   }
 
-                  return `images/vendor-${name}/` + path
-                    .replace(/\\/g, '/')
-                    .replace(
-                      /((.*(node_modules))|images|image|img|assets)\//g, ''
-                    ) + '?[hash]'
+                  return (
+                    `images/vendor-${name}/` +
+                    path
+                      .replace(/\\/g, '/')
+                      .replace(
+                        /((.*(node_modules))|images|image|img|assets)\//g,
+                        ''
+                      ) +
+                    '?[hash]'
+                  )
                 },
                 limit: 4096
               }
@@ -141,7 +149,7 @@ function getEntryConfig (name, analyzerPort, alias = {}) {
           test: /\.(woff2?|ttf|eot|svg|otf)$/,
           loader: 'url-loader',
           options: {
-            name: (path) => {
+            name: path => {
               if (!/node_modules/.test(path)) {
                 return 'fonts/[name].[ext]?[hash]'
               }
@@ -167,9 +175,12 @@ function getEntryConfig (name, analyzerPort, alias = {}) {
     plugins,
     resolve: {
       extensions: ['.js', '.vue', '.json'],
-      alias: Object.assign({
-        'sweetalert2$': 'sweetalert2/dist/sweetalert2.js'
-      }, alias)
+      alias: Object.assign(
+        {
+          sweetalert2$: 'sweetalert2/dist/sweetalert2.js'
+        },
+        alias
+      )
     },
     externals: {
       jquery: 'jQuery',
@@ -180,6 +191,11 @@ function getEntryConfig (name, analyzerPort, alias = {}) {
       contentBase: path.resolve(__dirname, 'public'),
       headers: {
         'Access-Control-Allow-Origin': '*'
+      },
+      watchOptions: {
+        aggregateTimeout: 300,
+        poll: 1000,
+        ignored: /node_modules/
       },
       historyApiFallback: true,
       compress: true,
@@ -192,7 +208,7 @@ function getEntryConfig (name, analyzerPort, alias = {}) {
 
 module.exports = [
   getEntryConfig('frontend', 8888, {
-    'vue$': 'vue/dist/vue.esm.js'
+    vue$: 'vue/dist/vue.esm.js'
   }),
   getEntryConfig('backend', 8889)
 ]

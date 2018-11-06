@@ -1,11 +1,10 @@
 {
-  "frontend.css": "/dist/css/frontend.4210735d24b301efb69b.css",
-  "frontend.js": "/dist/js/frontend.4210735d24b301efb69b.js",
-  "frontend.css.map": "/dist/css/frontend.4210735d24b301efb69b.css.map",
-  "frontend.js.map": "/dist/js/frontend.4210735d24b301efb69b.js.map",
-  "vendor-frontend.js": "/dist/js/vendor-frontend.fe2fafd12d923749ba3c.js",
-  "vendor-frontend.js.map": "/dist/js/vendor-frontend.fe2fafd12d923749ba3c.js.map",
-  "images/vendor-frontend/slick-carousel/slick/ajax-loader.gif": "/dist/images/vendor-frontend/slick-carousel/slick/ajax-loader.gif?c5cd7f5300576ab4c88202b42f6ded62",
-  "images/vendor-frontend/intl-tel-input/build/flags.png": "/dist/images/vendor-frontend/intl-tel-input/build/flags.png?ae33acae404631e997ef8d91dae08ccd",
-  "images/vendor-frontend/intl-tel-input/build/flags@2x.png": "/dist/images/vendor-frontend/intl-tel-input/build/flags@2x.png?f2c77a6b7e26ff160fdb4193b383b1ea"
+  "frontend.css": "/dist/css/frontend.ac8d67fd2e62afdacdc9.css",
+  "frontend.js": "/dist/js/frontend.ac8d67fd2e62afdacdc9.js",
+  "frontend.css.map": "/dist/css/frontend.ac8d67fd2e62afdacdc9.css.map",
+  "frontend.js.map": "/dist/js/frontend.ac8d67fd2e62afdacdc9.js.map",
+  "vendor-frontend.js": "/dist/js/vendor-frontend.7e1c596bc65378159b76.js",
+  "vendor-frontend.js.map": "/dist/js/vendor-frontend.7e1c596bc65378159b76.js.map",
+  "images/vendor-frontend/intl-tel-input/build/app.scss": "/dist/images/vendor-frontend/intl-tel-input/build/flags@2x.png?d429a5777afaf2fc349652e812e9bb11",
+  "images/vendor-frontend/slick-carousel/slick/app.scss": "/dist/images/vendor-frontend/slick-carousel/slick/ajax-loader.gif?c5cd7f5300576ab4c88202b42f6ded62"
 }

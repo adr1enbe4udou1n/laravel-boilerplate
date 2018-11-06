@@ -41,12 +41,12 @@ export default {
     }
   },
   computed: {
-    isChecked () {
+    isChecked() {
       return this.checked === this.value
     }
   },
   methods: {
-    handleChange ({ target: { checked } }) {
+    handleChange({ target: { checked } }) {
       this.$emit('change', checked ? this.value : this.uncheckedValue)
     }
   }

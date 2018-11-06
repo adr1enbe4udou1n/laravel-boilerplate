@@ -1,6 +1,6 @@
 import '../fontawesome'
 import 'slick-carousel'
-import 'intl-tel-input'
+import intlTelInput from 'intl-tel-input'
 import 'pwstrength-bootstrap/dist/pwstrength-bootstrap'
 import swal from 'sweetalert2'
 import WebFont from 'webfontloader'
@@ -9,13 +9,15 @@ import Turbolinks from 'turbolinks'
 /**
  * JS Settings App
  */
-let jsonSettings = document.querySelector('[data-settings-selector="settings-json"]')
+let jsonSettings = document.querySelector(
+  '[data-settings-selector="settings-json"]'
+)
 window.settings = jsonSettings ? JSON.parse(jsonSettings.textContent) : {}
 
 window.swal = swal
 window.locale = $('html').attr('lang')
 
-export default (createApp) => {
+export default createApp => {
   Turbolinks.start()
 
   /**
@@ -32,21 +34,21 @@ export default (createApp) => {
    */
   window.addEventListener('load', () => {
     window.cookieconsent.initialise({
-      'palette': {
-        'popup': {
-          'background': '#fff',
-          'text': '#777'
+      palette: {
+        popup: {
+          background: '#fff',
+          text: '#777'
         },
-        'button': {
-          'background': '#3097d1',
-          'text': '#ffffff'
+        button: {
+          background: '#3097d1',
+          text: '#ffffff'
         }
       },
-      'showLink': false,
-      'theme': 'edgeless',
-      'content': {
-        'message': window.settings.cookieconsent.message,
-        'dismiss': window.settings.cookieconsent.dismiss
+      showLink: false,
+      theme: 'edgeless',
+      content: {
+        message: window.settings.cookieconsent.message,
+        dismiss: window.settings.cookieconsent.dismiss
       }
     })
   })
@@ -59,6 +61,13 @@ export default (createApp) => {
       const { app } = createApp()
       app.$mount('#app')
     }
+
+    /**
+     * Tel Input
+     */
+    document.querySelectorAll('input[type="tel"]').forEach(input => {
+      intlTelInput(input)
+    })
 
     /**
      * Bind all bootstrap tooltips
@@ -100,34 +109,33 @@ export default (createApp) => {
     /**
      * Bind all swal confirm buttons
      */
-    $('[data-toggle="confirm"]').click((e) => {
+    $('[data-toggle="confirm"]').click(e => {
       e.preventDefault()
 
-      window.swal({
-        title: $(e.currentTarget).attr('data-trans-title'),
-        type: 'warning',
-        showCancelButton: true,
-        cancelButtonText: $(e.currentTarget).attr('data-trans-button-cancel'),
-        confirmButtonColor: '#dd4b39',
-        confirmButtonText: $(e.currentTarget).attr('data-trans-button-confirm')
-      }).then((result) => {
-        if (result.value) {
-          $(e.target).closest('form').submit()
-        }
-      })
+      window
+        .swal({
+          title: $(e.currentTarget).attr('data-trans-title'),
+          type: 'warning',
+          showCancelButton: true,
+          cancelButtonText: $(e.currentTarget).attr('data-trans-button-cancel'),
+          confirmButtonColor: '#dd4b39',
+          confirmButtonText: $(e.currentTarget).attr(
+            'data-trans-button-confirm'
+          )
+        })
+        .then(result => {
+          if (result.value) {
+            $(e.target)
+              .closest('form')
+              .submit()
+          }
+        })
     })
 
     $('[data-toggle="password-strength-meter"]').pwstrength({
       ui: {
         bootstrap4: true
       }
-    })
-
-    $('[type="tel"]').intlTelInput({
-      autoPlaceholder: 'aggressive',
-      utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.14/js/utils.js',
-      initialCountry: window.locale === 'en' ? 'us' : window.locale,
-      preferredCountries: ['us', 'gb', 'fr']
     })
 
     /**
@@ -142,7 +150,7 @@ export default (createApp) => {
 
     tabanchor.tab('show')
 
-    $('a[data-toggle="tab"]').on('show.bs.tab', (e) => {
+    $('a[data-toggle="tab"]').on('show.bs.tab', e => {
       window.location.hash = e.target.hash
     })
   })

@@ -1,0 +1,19 @@
+version: '3.3'
+services:
+  db:
+   container_name: 'boilerplate-db'
+   image: postgres:9.6.10
+   volumes:
+     - db-data:/var/lib/postgresql/data
+   restart: always
+   networks:
+     - overlay
+   ports:
+     - '5432:5432'
+   expose:
+     - '5432'
+   environment:
+       - POSTGRES_USER=dbuser
+       - POSTGRES_PASSWORD=pass
+       - POSTGRES_DB=boilerplate
+       - PGDATA=/var/lib/postgresql/db-data

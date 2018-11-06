@@ -14,7 +14,7 @@ window.axios = axios
 // Bootstrap Vue
 Vue.use(BootstrapVue)
 
-export function createApp () {
+export function createApp() {
   const i18n = createLocales(window.locale)
 
   const app = new Vue({

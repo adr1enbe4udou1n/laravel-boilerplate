@@ -5,6 +5,7 @@
 [![Build Status](https://drone.okami101.io/api/badges/adr1enbe4udou1n/laravel-boilerplate/status.svg)](https://drone.okami101.io/adr1enbe4udou1n/laravel-boilerplate)
 [![StyleCI](https://styleci.io/repos/75558440/shield?style=flat&branch=master)](https://styleci.io/repos/75558440)
 [![License](https://poser.pugx.org/adr1enbe4udou1n/laravel-boilerplate/license?format=flat)](https://packagist.org/packages/adr1enbe4udou1n/laravel-boilerplate)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 ## Demo
 
@@ -54,6 +55,7 @@
 * Multilingual ready thanks to [Laravel Localization](https://github.com/mcamara/laravel-localization) package. Each routes are prefixed by locale in URL for best SEO support. For this boilerplate, EN, FR locales are 100% supported, including translated routes,
 * Spanish language added thanks to [Codedeep](https://github.com/codedeep),
 * Arabic language with RTL support added thanks to [AhmadOf](https://github.com/AhmadOf),
+* Russian language added thanks to [Limych](https://github.com/Limych),
 * Model Translatable Fields support (JSON format) with [Spatie Laravel Translatable](https://github.com/spatie/laravel-translatable), used for metatags and posts,
 * Robots and Sitemap integrated, including multilingual alternates,
 * Full Metatags manager interface with translatable title & description. Meta entity can be either linked to route or specific entity like post,
@@ -71,7 +73,9 @@
 ### Requirements
 
 * PHP 7.1
-* MySQL 5.7 with JSON support
+* MySQL 5.7 with JSON support or PostgreSQL
+
+> For Mariadb you can use this [laravel-mariadb package](https://packagist.org/packages/ybr-nx/laravel-mariadb).
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
@@ -105,7 +109,103 @@ php artisan migrate --force
 php artisan scout:import "App\Models\Post"
 ```
 
-Laravel Scout takes care of updating posts index on CUD operations.
+Laravel Scout takes care of updating posts index on Create, Update and Delete (CUD) operations.
+
+### Install with docker-compose
+After installation the site will be available on `127.0.0.1:8080`
+
+## Mac and Linux dev environment
+First of all you need to build the containers
+```bash
+docker-compose build
+```
+
+After that you have to start the containers
+```bash
+docker-compose up
+```
+
+Set up your application
+```bash
+docker exec -it boilerplate-php-fpm php /app/artisan key:generate \
+	&& docker exec -it boilerplate-php-fpm php /app/artisan storage:link
+```
+
+Rename `.env.docker` to `.env` and apply the migrations
+```bash
+docker exec -it boilerplate-php-fpm php /app/artisan migrate
+```
+
+Or apply the migrations with demo data
+```bash
+docker exec -it boilerplate-php-fpm php /app/artisan migrate --seed
+``` 
+
+## Mac and Linux production environment
+```bash
+docker-compose build
+```
+
+After that you have to start the containers
+```bash
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+```
+
+Set up your application
+```bash
+docker exec -it boilerplate-php-fpm php /app/artisan key:generate \
+	&& docker exec -it boilerplate-php-fpm php /app/artisan storage:link
+```
+
+Rename `.env.docker` to `.env` and apply the migrations
+```bash
+docker exec -it boilerplate-php-fpm php /app/artisan migrate
+```
+
+## Install with make file
+### Deploy dev
+
+Run
+```bash
+make build
+make start.dev
+```
+
+After first start rename `.env.docker` to `.env` and apply the migrations by the following command
+```bash
+make install.dev
+```
+
+### Deploy prod
+Run
+```bash
+make build
+make start.prod
+```
+
+After first start rename `.env.docker` to `.env` and apply the migrations by the following command
+```bash
+make install.prod
+```
+
+## Install on Windows
+First of all set up your docker environment
+- On Command Line: `set COMPOSE_CONVERT_WINDOWS_PATHS=1`;
+- Restart Docker for Windows;
+- Go to `Docker for Windows settings > Shared Drives > Reset credentials > select drive > Apply;`
+- Reopen Command Line
+- Kill the Containers (if you have started any)
+- Rerun the Containers (if you have run any)
+- Login the docker from cli, because docker login gui is separated from docker login cli.
+ Also note, that you do not have to use your email, you need to enter docker id
+
+```
+Note, if the prompt from the needed drive disapears after restarting the container
+You may have to reset your docker:
+Go to Docker for Windows settings > Reset > Reset to factory defaults...
+```
+
+Than you can proceed with `Mac and Linux` install instructions section
 
 ### Backend access
 
@@ -136,9 +236,9 @@ Indeed i feel this approach better for maintainability simply because permission
 
 You will observe that this boilerplate does not use [Laravel Mix](https://github.com/JeffreyWay/laravel-mix) which is shipped in Laravel for all assets management.
 
-Laravel Mix still stay awesome for newcomers thanks to his laravel-like webpack fluent API, but, even if Laravel Mix can be easily overridden, for this project i preferred use my custom framework-free webpack setup in order to have total control of assets workflow.
+Laravel Mix still stay awesome for newcomers thanks to Jeffrey Way's laravel-like webpack fluent API, but, even if Laravel Mix can be easily overridden, for this project i preferred use my custom framework-free webpack setup in order to have total control of assets workflow.
 
-For instance, with this custom setup HMR work natively with configurable port (essential for easy vue admin developpement) and productions assets are bundled into specific "dist" directory.
+For instance, with this custom setup HMR work natively with configurable port (essential for easy vue admin development) and productions assets are bundled into specific "dist" directory.
 
 ### Code styling
 
@@ -146,32 +246,11 @@ PHP-CS-Fixer & ESLint are used for strong style guidelines for both server and c
 
 PHP is pre-configured for official Laravel styling, just launch `./vendor/bin/php-cs-fixer fix` for global project auto-formatting.
 
-JS use [JavaScript Standard Style](https://standardjs.com/) & eslint-loader is used within webpack for dynamic code styling recommendations.  
+JS use [Prettier Standard Style](https://github.com/prettier/prettier/) & eslint-loader is used within webpack for dynamic code styling recommendations.  
 Moreover, [Official ESLint plugin for Vue.js](https://github.com/vuejs/eslint-plugin-vue) is included for heavy consistent code through all components vue files.
 
 ## TODO
 
-* [x] <s>Data seeds</s>
-* [x] <s>Batch actions</s>
-* [x] <s>Form & menu access helpers</s>
-* [x] <s>Metas management</s>
-* [x] <s>Permissions management</s>
-* [x] <s>Form submissions management</s>
-* [x] <s>Client validation with vee-validate</s>
-* [x] <s>301 redirection management with CSV/XLS import</s>
-* [x] <s>Own account deletion</s>
-* [x] <s>Account language & timezone selection</s>
-* [x] <s>Account avatar</s>
-* [x] <s>Facebook/Twitter/Google Sign in with socialite package</s>
-* [x] <s>Blog system (posts, publication date, multilangue, HTML wysiwyg, tags, featured image, medias, public user profile)</s>
-* [x] <s>Dashboard</s>
-* [x] <s>Switch to full Bootstrap 4 for both Frontend & CoreUI Backend</s>
-* [x] <s>Migrate to 100% client-side Vue backend with vue-route</s>
-* [x] <s>Migrate to Bootstrap-Vue</s>
-* [x] <s>Webpack bundle size optimizations</s>
-* [x] <s>Get rid of jquery datatables</s>
-* [x] <s>Consistent VueJS components code styling</s>
-* [x] <s>Switch to Tabler</s>
 * [ ] Inclusion of unit/featured/browser tests (stand by for now)
 
 ## License

@@ -98,7 +98,7 @@ import form from '../mixins/form'
 export default {
   name: 'MetaForm',
   mixins: [form],
-  data () {
+  data() {
     return {
       routes: [],
       modelName: 'meta',
@@ -113,11 +113,11 @@ export default {
       }
     }
   },
-  created () {
+  created() {
     this.fetchRoutes()
   },
   methods: {
-    async fetchRoutes () {
+    async fetchRoutes() {
       let { data } = await axios.get(this.$app.route('admin.routes.search'))
       this.routes = data.items
     }

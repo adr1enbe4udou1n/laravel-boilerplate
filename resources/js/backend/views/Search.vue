@@ -17,19 +17,19 @@ import axios from 'axios'
 
 export default {
   name: 'AppSearch',
-  data () {
+  data() {
     return {
       result: []
     }
   },
   watch: {
-    '$route': 'fetchData'
+    $route: 'fetchData'
   },
-  created () {
+  created() {
     this.fetchData()
   },
   methods: {
-    async fetchData () {
+    async fetchData() {
       if (this.$route.query.q) {
         let { data } = await axios.get(this.$app.route('admin.search'), {
           params: {

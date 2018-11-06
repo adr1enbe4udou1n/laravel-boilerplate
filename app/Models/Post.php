@@ -37,8 +37,7 @@ use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
  * @property mixed                                                      $can_delete
  * @property mixed                                                      $can_edit
  * @property mixed                                                      $has_featured_image
- * @property mixed                                                      $featured_image_path
- * @property mixed                                                      $thumbnail_image_path
+ * @property mixed                                                      $featured_image_url
  * @property mixed                                                      $meta_description
  * @property mixed                                                      $meta_title
  * @property mixed                                                      $published
@@ -120,8 +119,7 @@ class Post extends Model implements HasMedia
         'state',
         'status_label',
         'has_featured_image',
-        'featured_image_path',
-        'thumbnail_image_path',
+        'featured_image_url',
         'can_edit',
         'can_delete',
     ];
@@ -221,22 +219,14 @@ class Post extends Model implements HasMedia
     public function getHasFeaturedImageAttribute()
     {
         /* @var Media $media */
-        return (bool) $this->getMedia('featured image')->first();
+        return (bool) $this->getFirstMedia('featured image');
     }
 
-    public function getFeaturedImagePathAttribute()
+    public function getFeaturedImageUrlAttribute()
     {
-        /** @var Media $media */
-        if ($media = $this->getMedia('featured image')->first()) {
-            return str_replace(config('app.url'), '', $media->getUrl());
+        if ($image = $this->getFirstMedia('featured image')) {
+            return $image->getUrl();
         }
-
-        return '/images/placeholder.png';
-    }
-
-    public function getThumbnailImagePathAttribute()
-    {
-        return image_template_url('small', $this->featured_image_path);
     }
 
     public function getMetaTitleAttribute()

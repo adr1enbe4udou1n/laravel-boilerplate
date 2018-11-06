@@ -14,6 +14,7 @@ import RichTextEditor from './components/Plugins/RichTextEditor'
 import DateTimePicker from './components/Plugins/DateTimePicker'
 import Switch from './components/Plugins/Switch'
 import vSelect from './components/Plugins/Select'
+import ImageStyle from './components/Plugins/ImageStyle'
 
 import { createRouter } from './router'
 import { createStore } from './store'
@@ -33,8 +34,9 @@ Vue.component('c-switch', Switch)
 Vue.component('p-datetimepicker', DateTimePicker)
 Vue.component('p-richtexteditor', RichTextEditor)
 Vue.component('b-datatable', DataTable)
+Vue.component('b-img-style', ImageStyle)
 
-export function createApp () {
+export function createApp() {
   // Init router and store
   const i18n = createLocales(window.settings.locale)
   const router = createRouter(window.settings.adminHomePath, i18n)
@@ -54,7 +56,7 @@ export function createApp () {
    * Client-side permissions
    */
   if (Vue.prototype.$app.user) {
-    Vue.prototype.$app.user.can = (permission) => {
+    Vue.prototype.$app.user.can = permission => {
       if (Vue.prototype.$app.user.id === 1) {
         return true
       }
@@ -87,7 +89,10 @@ export function createApp () {
         fd.append(formKey, obj[property].toISOString())
         continue
       }
-      if (typeof obj[property] === 'object' && !(obj[property] instanceof File)) {
+      if (
+        typeof obj[property] === 'object' &&
+        !(obj[property] instanceof File)
+      ) {
         objectToFormData(obj[property], fd, formKey)
         continue
       }
@@ -113,24 +118,24 @@ export function createApp () {
   }
 
   Vue.prototype.$app.noty = {
-    alert: (text) => {
+    alert: text => {
       noty('alert', text)
     },
-    success: (text) => {
+    success: text => {
       noty('success', text)
     },
-    error: (text) => {
+    error: text => {
       noty('error', text)
     },
-    warning: (text) => {
+    warning: text => {
       noty('warning', text)
     },
-    info: (text) => {
+    info: text => {
       noty('info', text)
     }
   }
 
-  Vue.prototype.$app.error = (error) => {
+  Vue.prototype.$app.error = error => {
     if (error instanceof String) {
       noty('error', error)
       return
@@ -163,7 +168,7 @@ export function createApp () {
     router,
     store,
     i18n,
-    render: (h) => h(App)
+    render: h => h(App)
   })
 
   return { app, router, store }

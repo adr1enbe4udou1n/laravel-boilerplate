@@ -53,15 +53,24 @@
 <script>
 export default {
   name: 'FormSubmissionList',
-  data () {
+  data() {
     return {
       selected: [],
       fields: [
         { key: 'checkbox' },
-        { key: 'type', label: this.$t('validation.attributes.form_type'), sortable: true },
+        {
+          key: 'type',
+          label: this.$t('validation.attributes.form_type'),
+          sortable: true
+        },
         { key: 'data', label: this.$t('validation.attributes.form_data') },
-        { key: 'created_at', label: this.$t('labels.created_at'), 'class': 'text-center', sortable: true },
-        { key: 'actions', label: this.$t('labels.actions'), 'class': 'nowrap' }
+        {
+          key: 'created_at',
+          label: this.$t('labels.created_at'),
+          class: 'text-center',
+          sortable: true
+        },
+        { key: 'actions', label: this.$t('labels.actions'), class: 'nowrap' }
       ],
       actions: {
         destroy: this.$t('labels.backend.form_submissions.actions.destroy')
@@ -69,13 +78,13 @@ export default {
     }
   },
   methods: {
-    dataLoadProvider (ctx) {
+    dataLoadProvider(ctx) {
       return this.$refs.datasource.loadData(ctx.sortBy, ctx.sortDesc)
     },
-    onContextChanged () {
+    onContextChanged() {
       return this.$refs.datatable.refresh()
     },
-    onDelete (id) {
+    onDelete(id) {
       this.$refs.datasource.deleteRow({ form_submission: id })
     }
   }
