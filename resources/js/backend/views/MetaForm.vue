@@ -4,13 +4,25 @@
       <b-row class="justify-content-center">
         <b-col xl="6">
           <b-card>
-            <h3 class="card-title" slot="header">{{ isNew ? $t('labels.backend.metas.titles.create') : $t('labels.backend.metas.titles.edit') }}</h3>
+            <h3 class="card-title" slot="header">
+              {{
+                isNew
+                  ? $t('labels.backend.metas.titles.create')
+                  : $t('labels.backend.metas.titles.edit')
+              }}
+            </h3>
 
             <template v-if="model.metable_type !== null">
               <div class="form-group row">
-                <label class="col-lg-3 col-form-label">{{ $t('validation.attributes.metable_type') }}</label>
+                <label class="col-lg-3 col-form-label">{{
+                  $t('validation.attributes.metable_type')
+                }}</label>
                 <b-col lg="9">
-                  <label class="col-form-label">{{ $t(`labels.morphs.${model.metable_type}`, {'id': model.metable_id}) }}</label>
+                  <label class="col-form-label">{{
+                    $t(`labels.morphs.${model.metable_type}`, {
+                      id: model.metable_id
+                    })
+                  }}</label>
                 </b-col>
               </div>
             </template>
@@ -30,7 +42,9 @@
                   :options="routes"
                 >
                   <template slot="first">
-                    <option :value="null">-- {{ $t('labels.placeholders.route') }} --</option>
+                    <option :value="null">
+                      -- {{ $t('labels.placeholders.route') }} --
+                    </option>
                   </template>
                 </b-form-select>
               </b-form-group>
@@ -76,9 +90,13 @@
                 </b-button>
               </b-col>
               <b-col md>
-                <b-button type="submit" variant="success" size="sm" class="float-right"
-                          :disabled="pending"
-                          v-if="isNew || $app.user.can('edit metas')"
+                <b-button
+                  type="submit"
+                  variant="success"
+                  size="sm"
+                  class="float-right"
+                  :disabled="pending"
+                  v-if="isNew || $app.user.can('edit metas')"
                 >
                   {{ isNew ? $t('buttons.create') : $t('buttons.edit') }}
                 </b-button>

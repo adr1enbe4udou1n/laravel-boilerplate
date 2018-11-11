@@ -2,53 +2,94 @@
   <div>
     <b-card>
       <template slot="header">
-        <h3 class="card-title">{{ $t('labels.backend.users.titles.index') }}</h3>
+        <h3 class="card-title">
+          {{ $t('labels.backend.users.titles.index') }}
+        </h3>
         <div class="card-options" v-if="this.$app.user.can('create users')">
           <b-button to="/users/create" variant="success" size="sm">
             <i class="fe fe-plus-circle"></i> {{ $t('buttons.users.create') }}
           </b-button>
         </div>
       </template>
-      <b-datatable ref="datasource"
-                   @context-changed="onContextChanged"
-                   search-route="admin.users.search"
-                   delete-route="admin.users.destroy"
-                   action-route="admin.users.batch_action" :actions="actions"
-                   :selected.sync="selected"
+      <b-datatable
+        ref="datasource"
+        @context-changed="onContextChanged"
+        search-route="admin.users.search"
+        delete-route="admin.users.destroy"
+        action-route="admin.users.batch_action"
+        :actions="actions"
+        :selected.sync="selected"
       >
-        <b-table ref="datatable"
-                 striped
-                 bordered
-                 show-empty
-                 stacked="md"
-                 no-local-sorting
-                 :empty-text="$t('labels.datatables.no_results')"
-                 :empty-filtered-text="$t('labels.datatables.no_matched_results')"
-                 :fields="fields"
-                 :items="dataLoadProvider"
+        <b-table
+          ref="datatable"
+          striped
+          bordered
+          show-empty
+          stacked="md"
+          no-local-sorting
+          :empty-text="$t('labels.datatables.no_results')"
+          :empty-filtered-text="$t('labels.datatables.no_matched_results')"
+          :fields="fields"
+          :items="dataLoadProvider"
         >
           <template slot="HEAD_checkbox" slot-scope="data"></template>
           <template slot="checkbox" slot-scope="row">
-            <b-form-checkbox :value="row.item.id" v-model="selected"></b-form-checkbox>
+            <b-form-checkbox
+              :value="row.item.id"
+              v-model="selected"
+            ></b-form-checkbox>
           </template>
           <template slot="name" slot-scope="row">
-            <router-link v-if="row.item.can_edit" :to="`/users/${row.item.id}/edit`" v-text="row.value"></router-link>
+            <router-link
+              v-if="row.item.can_edit"
+              :to="`/users/${row.item.id}/edit`"
+              v-text="row.value"
+            ></router-link>
             <span v-else v-text="row.value"></span>
           </template>
           <template slot="active" slot-scope="row">
-            <c-switch v-if="row.item.can_edit" :checked="row.value" @change="onActiveToggle(row.item.id)"></c-switch>
+            <c-switch
+              v-if="row.item.can_edit"
+              :checked="row.value"
+              @change="onActiveToggle(row.item.id)"
+            ></c-switch>
           </template>
           <template slot="roles" slot-scope="row">
             {{ formatRoles(row.value) }}
           </template>
           <template slot="actions" slot-scope="row">
-            <b-button v-if="row.item.can_edit" size="sm" variant="primary" :to="`/users/${row.item.id}/edit`" v-b-tooltip.hover :title="$t('buttons.edit')" class="mr-1">
+            <b-button
+              v-if="row.item.can_edit"
+              size="sm"
+              variant="primary"
+              :to="`/users/${row.item.id}/edit`"
+              v-b-tooltip.hover
+              :title="$t('buttons.edit')"
+              class="mr-1"
+            >
               <i class="fe fe-edit"></i>
             </b-button>
-            <b-button v-if="row.item.can_impersonate" size="sm" variant="warning" :href="$app.route('admin.users.impersonate', { user: row.item.id })" v-b-tooltip.hover :title="$t('buttons.login-as', { name: row.item.name })" class="mr-1">
+            <b-button
+              v-if="row.item.can_impersonate"
+              size="sm"
+              variant="warning"
+              :href="
+                $app.route('admin.users.impersonate', { user: row.item.id })
+              "
+              v-b-tooltip.hover
+              :title="$t('buttons.login-as', { name: row.item.name })"
+              class="mr-1"
+            >
               <i class="fe fe-lock"></i>
             </b-button>
-            <b-button v-if="row.item.can_delete" size="sm" variant="danger" v-b-tooltip.hover :title="$t('buttons.delete')" @click.stop="onDelete(row.item.id)">
+            <b-button
+              v-if="row.item.can_delete"
+              size="sm"
+              variant="danger"
+              v-b-tooltip.hover
+              :title="$t('buttons.delete')"
+              @click.stop="onDelete(row.item.id)"
+            >
               <i class="fe fe-trash"></i>
             </b-button>
           </template>

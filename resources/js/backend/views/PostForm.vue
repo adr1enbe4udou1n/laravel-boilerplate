@@ -4,7 +4,13 @@
       <b-row>
         <b-col xl="8">
           <b-card>
-            <h3 class="card-title" slot="header">{{ isNew ? $t('labels.backend.posts.titles.create') : $t('labels.backend.posts.titles.edit') }}</h3>
+            <h3 class="card-title" slot="header">
+              {{
+                isNew
+                  ? $t('labels.backend.posts.titles.create')
+                  : $t('labels.backend.posts.titles.edit')
+              }}
+            </h3>
             <b-form-group
               :label="$t('validation.attributes.title')"
               label-for="title"
@@ -78,7 +84,15 @@
               :feedback="feedback('featured_image')"
             >
               <div class="media">
-                <b-img-style v-if="model.featured_image_url" :src="model.featured_image_url" :width="120" :height="80" rounded fluid class="mr-2"></b-img-style>
+                <b-img-style
+                  v-if="model.featured_image_url"
+                  :src="model.featured_image_url"
+                  :width="120"
+                  :height="80"
+                  rounded
+                  fluid
+                  class="mr-2"
+                ></b-img-style>
 
                 <div class="media-body">
                   <h6>{{ $t('labels.upload_image') }}</h6>
@@ -92,7 +106,14 @@
                     v-b-tooltip.hover
                     :title="$t('labels.descriptions.allowed_image_types')"
                   ></b-form-file>
-                  <a href="#" class="d-block mt-1" v-if="model.has_featured_image || model.featured_image" @click.prevent="deleteFeaturedImage">{{ $t('labels.delete_image') }}</a>
+                  <a
+                    href="#"
+                    class="d-block mt-1"
+                    v-if="model.has_featured_image || model.featured_image"
+                    @click.prevent="deleteFeaturedImage"
+                  >
+                    {{ $t('labels.delete_image') }}
+                  </a>
                 </div>
               </div>
             </b-form-group>
@@ -104,14 +125,33 @@
                 </b-button>
               </b-col>
               <b-col md>
-                <input name="status" type="hidden" value="publish">
+                <input name="status" type="hidden" value="publish" />
 
-                <b-dropdown right split :text="$t('buttons.posts.save_and_publish')" class="float-right"
-                            variant="success" size="sm" @click="model.status = 'publish'; onSubmit()"
-                            :disabled="pending"
-                            v-if="isNew || this.$app.user.can('edit posts') || this.$app.user.can('edit own posts')"
+                <b-dropdown
+                  right
+                  split
+                  :text="$t('buttons.posts.save_and_publish')"
+                  class="float-right"
+                  variant="success"
+                  size="sm"
+                  @click="
+                    model.status = 'publish'
+                    onSubmit()
+                  "
+                  :disabled="pending"
+                  v-if="
+                    isNew ||
+                      this.$app.user.can('edit posts') ||
+                      this.$app.user.can('edit own posts')
+                  "
                 >
-                  <b-dropdown-item @click="model.status = 'draft'; onSubmit()">{{ $t('buttons.posts.save_as_draft') }}
+                  <b-dropdown-item
+                    @click="
+                      model.status = 'draft'
+                      onSubmit()
+                    "
+                  >
+                    {{ $t('buttons.posts.save_as_draft') }}
                   </b-dropdown-item>
                 </b-dropdown>
               </b-col>
@@ -128,25 +168,40 @@
                   </a>
                 </h5>
               </b-card-header>
-              <b-collapse id="collapseOne" visible accordion="post-accordion" role="tabpanel">
+              <b-collapse
+                id="collapseOne"
+                visible
+                accordion="post-accordion"
+                role="tabpanel"
+              >
                 <b-card-body>
                   <template v-if="!isNew">
                     <div class="form-group">
                       <b-row>
-                        <label class="col-lg-3 col-form-label">{{ $t('validation.attributes.status') }}</label>
+                        <label class="col-lg-3 col-form-label">{{
+                          $t('validation.attributes.status')
+                        }}</label>
                         <b-col lg="9">
                           <label class="col-form-label">
-                            <b-badge :variant="model.state">{{ $t(model.status_label) }}</b-badge>
+                            <b-badge :variant="model.state">{{
+                              $t(model.status_label)
+                            }}</b-badge>
                           </label>
                         </b-col>
                       </b-row>
                     </div>
                     <div class="form-group">
                       <b-row>
-                        <label class="col-lg-3 col-form-label">{{ $t('labels.author') }}</label>
+                        <label class="col-lg-3 col-form-label">{{
+                          $t('labels.author')
+                        }}</label>
                         <b-col lg="9">
-                          <label class="col-form-label" v-if="model.owner">{{ model.owner.name }}</label>
-                          <label class="col-form-label" v-else>{{ $t('labels.anonymous') }}</label>
+                          <label class="col-form-label" v-if="model.owner">{{
+                            model.owner.name
+                          }}</label>
+                          <label class="col-form-label" v-else>{{
+                            $t('labels.anonymous')
+                          }}</label>
                         </b-col>
                       </b-row>
                     </div>
@@ -236,19 +291,27 @@
                   </a>
                 </h5>
               </b-card-header>
-              <b-collapse id="collapseTwo" accordion="post-accordion" role="tabpanel">
+              <b-collapse
+                id="collapseTwo"
+                accordion="post-accordion"
+                role="tabpanel"
+              >
                 <b-card-body>
                   <b-form-group
                     :label="$t('validation.attributes.title')"
                     label-for="meta_title"
-                    :description="$t('labels.backend.posts.descriptions.meta_title')"
+                    :description="
+                      $t('labels.backend.posts.descriptions.meta_title')
+                    "
                     horizontal
                     :label-cols="3"
                   >
                     <b-form-input
                       id="meta_title"
                       name="meta[title]"
-                      :placeholder="$t('labels.backend.posts.placeholders.meta_title')"
+                      :placeholder="
+                        $t('labels.backend.posts.placeholders.meta_title')
+                      "
                       v-model="model.meta.title"
                     ></b-form-input>
                   </b-form-group>
@@ -256,7 +319,9 @@
                   <b-form-group
                     :label="$t('validation.attributes.description')"
                     label-for="meta_description"
-                    :description="$t('labels.backend.posts.descriptions.meta_description')"
+                    :description="
+                      $t('labels.backend.posts.descriptions.meta_description')
+                    "
                     horizontal
                     :label-cols="3"
                   >
@@ -264,7 +329,9 @@
                       id="meta_description"
                       name="meta[description]"
                       :rows="5"
-                      :placeholder="$t('labels.backend.posts.placeholders.meta_description')"
+                      :placeholder="
+                        $t('labels.backend.posts.placeholders.meta_description')
+                      "
                       v-model="model.meta.description"
                     ></b-form-textarea>
                   </b-form-group>

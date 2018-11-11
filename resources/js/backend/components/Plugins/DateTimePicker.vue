@@ -1,16 +1,15 @@
 <template>
-
-  <input type="text"
-         class="form-control input text-right"
-         :id="id"
-         :class="inputClass"
-         :name="name"
-         :placeholder="placeholder"
-         :required="required"
-         v-model="mutableValue"
-         data-input
-  >
-
+  <input
+    type="text"
+    class="form-control input text-right"
+    :id="id"
+    :class="inputClass"
+    :name="name"
+    :placeholder="placeholder"
+    :required="required"
+    v-model="mutableValue"
+    data-input
+  />
 </template>
 
 <script>

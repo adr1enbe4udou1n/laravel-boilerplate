@@ -596,7 +596,7 @@
   resolved "https://registry.yarnpkg.com/@coreui/coreui-plugin-npm-postinstall/-/coreui-plugin-npm-postinstall-1.0.2.tgz#6daeb2ec786580d9c0849b05bc3e8d0222d5c463"
   integrity sha512-yeeoWp+bNS84nP1977Y8UCiQ9pssO+f4QuVj3i0/gYZFjjvOgxx0dnyWhtowD5sLYnCRMPlPpqyjwXze3SlkYg==
 
-"@coreui/coreui@^2.0.14":
+"@coreui/coreui@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@coreui/coreui/-/coreui-2.1.0.tgz#b2e6744bc74ad1004bdf6a2e80eab3f23a11c54d"
   integrity sha512-Z0Ps7GB1c0AYrSOfaTntnta+Iu4jIbS3MfPcvy+FI5aQE2VxDHQMJzz0ZRTtBTViek58IEJJresbL01nM0uwaw==

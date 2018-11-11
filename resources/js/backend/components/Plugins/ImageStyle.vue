@@ -1,5 +1,13 @@
 <template>
-  <b-img :src="url" :alt="alt" :width="width" :height="height" :fluid="fluid" :thumbnail="thumbnail" :rounded="rounded"></b-img>
+  <b-img
+    :src="url"
+    :alt="alt"
+    :width="width"
+    :height="height"
+    :fluid="fluid"
+    :thumbnail="thumbnail"
+    :rounded="rounded"
+  ></b-img>
 </template>
 
 <script>

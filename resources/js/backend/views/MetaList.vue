@@ -2,42 +2,65 @@
   <div>
     <b-card>
       <template slot="header">
-        <h3 class="card-title">{{ $t('labels.backend.metas.titles.index') }}</h3>
+        <h3 class="card-title">
+          {{ $t('labels.backend.metas.titles.index') }}
+        </h3>
         <div class="card-options" v-if="this.$app.user.can('create metas')">
           <b-button to="/metas/create" variant="success" size="sm">
             <i class="fe fe-plus-circle"></i> {{ $t('buttons.metas.create') }}
           </b-button>
         </div>
       </template>
-      <b-datatable ref="datasource"
-                   @context-changed="onContextChanged"
-                   search-route="admin.metas.search"
-                   delete-route="admin.metas.destroy"
-                   action-route="admin.metas.batch_action" :actions="actions"
-                   :selected.sync="selected"
+      <b-datatable
+        ref="datasource"
+        @context-changed="onContextChanged"
+        search-route="admin.metas.search"
+        delete-route="admin.metas.destroy"
+        action-route="admin.metas.batch_action"
+        :actions="actions"
+        :selected.sync="selected"
       >
-        <b-table ref="datatable"
-                 striped
-                 bordered
-                 show-empty
-                 stacked="md"
-                 no-local-sorting
-                 :empty-text="$t('labels.datatables.no_results')"
-                 :empty-filtered-text="$t('labels.datatables.no_matched_results')"
-                 :fields="fields"
-                 :items="dataLoadProvider"
-                 sort-by="created_at"
-                 :sort-desc="true"
+        <b-table
+          ref="datatable"
+          striped
+          bordered
+          show-empty
+          stacked="md"
+          no-local-sorting
+          :empty-text="$t('labels.datatables.no_results')"
+          :empty-filtered-text="$t('labels.datatables.no_matched_results')"
+          :fields="fields"
+          :items="dataLoadProvider"
+          sort-by="created_at"
+          :sort-desc="true"
         >
           <template slot="HEAD_checkbox" slot-scope="data"></template>
           <template slot="checkbox" slot-scope="row">
-            <b-form-checkbox :value="row.item.id" v-model="selected"></b-form-checkbox>
+            <b-form-checkbox
+              :value="row.item.id"
+              v-model="selected"
+            ></b-form-checkbox>
           </template>
           <template slot="actions" slot-scope="row">
-            <b-button v-if="row.item.can_edit" size="sm" variant="primary" :to="`/metas/${row.item.id}/edit`" v-b-tooltip.hover :title="$t('buttons.edit')" class="mr-1">
+            <b-button
+              v-if="row.item.can_edit"
+              size="sm"
+              variant="primary"
+              :to="`/metas/${row.item.id}/edit`"
+              v-b-tooltip.hover
+              :title="$t('buttons.edit')"
+              class="mr-1"
+            >
               <i class="fe fe-edit"></i>
             </b-button>
-            <b-button v-if="row.item.can_delete" size="sm" variant="danger" v-b-tooltip.hover :title="$t('buttons.delete')" @click.stop="onDelete(row.item.id)">
+            <b-button
+              v-if="row.item.can_delete"
+              size="sm"
+              variant="danger"
+              v-b-tooltip.hover
+              :title="$t('buttons.delete')"
+              @click.stop="onDelete(row.item.id)"
+            >
               <i class="fe fe-trash"></i>
             </b-button>
           </template>

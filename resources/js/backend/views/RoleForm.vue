@@ -4,7 +4,13 @@
       <b-row class="justify-content-center">
         <b-col xl="8">
           <b-card>
-            <h3 class="card-title" slot="header">{{ isNew ? $t('labels.backend.roles.titles.create') : $t('labels.backend.roles.titles.edit') }}</h3>
+            <h3 class="card-title" slot="header">
+              {{
+                isNew
+                  ? $t('labels.backend.roles.titles.create')
+                  : $t('labels.backend.roles.titles.edit')
+              }}
+            </h3>
 
             <b-form-group
               :label="$t('validation.attributes.name')"
@@ -85,14 +91,30 @@
 
             <div class="form-group">
               <b-row>
-                <label class="col-sm-2 col-form-label">{{ $t('validation.attributes.permissions') }}</label>
+                <label class="col-sm-2 col-form-label">{{
+                  $t('validation.attributes.permissions')
+                }}</label>
                 <b-col sm="10">
                   <b-row>
-                    <b-col md="6" xl="4" class="mb-3" v-for="category in permissions" :key="category.title">
+                    <b-col
+                      md="6"
+                      xl="4"
+                      class="mb-3"
+                      v-for="category in permissions"
+                      :key="category.title"
+                    >
                       <h4>{{ $t(category.title) }}</h4>
-                      <b-form-checkbox-group stacked v-model="model.permissions" name="permissions[]">
-                        <b-form-checkbox v-for="permission in category.permissions" :key="permission.name"
-                                         v-b-tooltip.left :title="$t(permission.description)" :value="permission.name"
+                      <b-form-checkbox-group
+                        stacked
+                        v-model="model.permissions"
+                        name="permissions[]"
+                      >
+                        <b-form-checkbox
+                          v-for="permission in category.permissions"
+                          :key="permission.name"
+                          v-b-tooltip.left
+                          :title="$t(permission.description)"
+                          :value="permission.name"
                         >
                           {{ $t(permission.display_name) }}
                         </b-form-checkbox>
@@ -110,9 +132,13 @@
                 </b-button>
               </b-col>
               <b-col md>
-                <b-button type="submit" variant="success" size="sm" class="float-right"
-                          :disabled="pending"
-                          v-if="isNew || this.$app.user.can('edit roles')"
+                <b-button
+                  type="submit"
+                  variant="success"
+                  size="sm"
+                  class="float-right"
+                  :disabled="pending"
+                  v-if="isNew || this.$app.user.can('edit roles')"
                 >
                   {{ isNew ? $t('buttons.create') : $t('buttons.edit') }}
                 </b-button>

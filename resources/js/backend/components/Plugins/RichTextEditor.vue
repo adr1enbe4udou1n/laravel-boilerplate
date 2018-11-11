@@ -1,7 +1,5 @@
 <template>
-
   <div ref="editorEl" v-html="value"></div>
-
 </template>
 
 <script>

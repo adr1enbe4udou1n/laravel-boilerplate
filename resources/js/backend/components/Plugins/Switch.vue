@@ -1,14 +1,17 @@
 <template>
   <label class="custom-switch">
-    <input type="checkbox"
-           :name="name"
-           class="custom-switch-input"
-           :value="value"
-           :checked="isChecked"
-           @change="handleChange"
-    >
+    <input
+      type="checkbox"
+      :name="name"
+      class="custom-switch-input"
+      :value="value"
+      :checked="isChecked"
+      @change="handleChange"
+    />
     <span class="custom-switch-indicator"></span>
-    <span class="custom-switch-description" v-if="description">{{ description }}</span>
+    <span class="custom-switch-description" v-if="description">{{
+      description
+    }}</span>
   </label>
 </template>
 

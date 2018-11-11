@@ -4,7 +4,13 @@
       <b-row class="justify-content-center">
         <b-col xl="6">
           <b-card>
-            <h3 class="card-title" slot="header">{{ isNew ? $t('labels.backend.form_settings.titles.create') : $t('labels.backend.form_settings.titles.edit') }}</h3>
+            <h3 class="card-title" slot="header">
+              {{
+                isNew
+                  ? $t('labels.backend.form_settings.titles.create')
+                  : $t('labels.backend.form_settings.titles.edit')
+              }}
+            </h3>
             <b-form-group
               :label="$t('validation.attributes.form_type')"
               label-for="name"
@@ -31,7 +37,9 @@
             <b-form-group
               :label="$t('validation.attributes.recipients')"
               label-for="recipients"
-              :description="$t('labels.backend.form_settings.descriptions.recipients')"
+              :description="
+                $t('labels.backend.form_settings.descriptions.recipients')
+              "
               horizontal
               :label-cols="3"
               :feedback="feedback('recipients')"
@@ -50,7 +58,9 @@
             <b-form-group
               :label="$t('validation.attributes.message')"
               label-for="message"
-              :description="$t('labels.backend.form_settings.descriptions.message')"
+              :description="
+                $t('labels.backend.form_settings.descriptions.message')
+              "
               horizontal
               :label-cols="3"
               :feedback="feedback('message')"
@@ -73,9 +83,13 @@
                 </b-button>
               </b-col>
               <b-col md>
-                <b-button type="submit" variant="success" size="sm" class="float-right"
-                          :disabled="pending"
-                          v-if="isNew || this.$app.user.can('edit form_settings')"
+                <b-button
+                  type="submit"
+                  variant="success"
+                  size="sm"
+                  class="float-right"
+                  :disabled="pending"
+                  v-if="isNew || this.$app.user.can('edit form_settings')"
                 >
                   {{ isNew ? $t('buttons.create') : $t('buttons.edit') }}
                 </b-button>

@@ -4,7 +4,13 @@
       <b-row class="justify-content-center">
         <b-col xl="6">
           <b-card>
-            <h3 class="card-title" slot="header">{{ isNew ? $t('labels.backend.redirections.titles.create') : $t('labels.backend.redirections.titles.edit') }}</h3>
+            <h3 class="card-title" slot="header">
+              {{
+                isNew
+                  ? $t('labels.backend.redirections.titles.create')
+                  : $t('labels.backend.redirections.titles.edit')
+              }}
+            </h3>
 
             <b-form-group
               :label="$t('validation.attributes.source_path')"
@@ -58,7 +64,13 @@
               horizontal
               :label-cols="3"
             >
-              <b-form-radio-group stacked v-model="model.type" :options="redirectionTypes" name="type" required>
+              <b-form-radio-group
+                stacked
+                v-model="model.type"
+                :options="redirectionTypes"
+                name="type"
+                required
+              >
               </b-form-radio-group>
             </b-form-group>
 
@@ -69,9 +81,13 @@
                 </b-button>
               </b-col>
               <b-col md>
-                <b-button type="submit" variant="success" size="sm" class="float-right"
-                          :disabled="pending"
-                          v-if="isNew || this.$app.user.can('edit redirections')"
+                <b-button
+                  type="submit"
+                  variant="success"
+                  size="sm"
+                  class="float-right"
+                  :disabled="pending"
+                  v-if="isNew || this.$app.user.can('edit redirections')"
                 >
                   {{ isNew ? $t('buttons.create') : $t('buttons.edit') }}
                 </b-button>

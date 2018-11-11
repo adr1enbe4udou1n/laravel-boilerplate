@@ -4,7 +4,13 @@
       <b-row class="justify-content-center">
         <b-col xl="6">
           <b-card>
-            <h3 class="card-title" slot="header">{{ isNew ? $t('labels.backend.users.titles.create') : $t('labels.backend.users.titles.edit') }}</h3>
+            <h3 class="card-title" slot="header">
+              {{
+                isNew
+                  ? $t('labels.backend.users.titles.create')
+                  : $t('labels.backend.users.titles.edit')
+              }}
+            </h3>
 
             <b-form-group
               :label="$t('validation.attributes.name')"
@@ -93,9 +99,17 @@
               horizontal
               :label-cols="3"
             >
-              <b-form-checkbox-group stacked v-model="model.roles" name="roles[]">
-                <b-form-checkbox v-for="role in roles" :key="role.id"
-                                 v-b-tooltip.left :title="role.description" :value="role.id"
+              <b-form-checkbox-group
+                stacked
+                v-model="model.roles"
+                name="roles[]"
+              >
+                <b-form-checkbox
+                  v-for="role in roles"
+                  :key="role.id"
+                  v-b-tooltip.left
+                  :title="role.description"
+                  :value="role.id"
                 >
                   {{ role.display_name }}
                 </b-form-checkbox>
@@ -109,9 +123,13 @@
                 </b-button>
               </b-col>
               <b-col>
-                <b-button type="submit" variant="success" size="sm" class="float-right"
-                          :disabled="pending"
-                          v-if="isNew || this.$app.user.can('edit users')"
+                <b-button
+                  type="submit"
+                  variant="success"
+                  size="sm"
+                  class="float-right"
+                  :disabled="pending"
+                  v-if="isNew || this.$app.user.can('edit users')"
                 >
                   {{ isNew ? $t('buttons.create') : $t('buttons.edit') }}
                 </b-button>

@@ -21,7 +21,7 @@ module.exports = {
     'vue/attributes-order': 'off',
     'vue/html-self-closing': ['error', {
       html: {
-        void: 'never',
+        void: 'always',
         normal: 'never',
         component: 'never'
       },

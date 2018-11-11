@@ -12,18 +12,32 @@
         <SidebarMinimizer></SidebarMinimizer>
       </Sidebar>
       <main class="main">
-        <b-alert variant="warning" class="alert-top mb-0" :show="$app.isImpersonation">
-          <span v-html="$t('labels.alerts.login_as', {'name': $app.user.name, 'route': $app.route('admin.logout'), 'admin': $app.usurperName})"></span>
+        <b-alert
+          variant="warning"
+          class="alert-top mb-0"
+          :show="$app.isImpersonation"
+        >
+          <span
+            v-html="
+              $t('labels.alerts.login_as', {
+                name: $app.user.name,
+                route: $app.route('admin.logout'),
+                admin: $app.usurperName
+              })
+            "
+          ></span>
         </b-alert>
         <breadcrumb :list="$route.matched"></breadcrumb>
         <div class="container-fluid">
           <router-view :key="$route.name"></router-view>
         </div>
       </main>
-      <Aside fixed></Aside>
+      <AppAside fixed></AppAside>
     </div>
-    <AppFooter :name="$app.appName" :editor-name="$app.editorName"
-               :editor-site-url="$app.editorSiteUrl"
+    <AppFooter
+      :name="$app.appName"
+      :editor-name="$app.editorName"
+      :editor-site-url="$app.editorSiteUrl"
     ></AppFooter>
   </div>
 </template>
@@ -34,10 +48,12 @@ import nav from '../_nav'
 import AppFooter from '../components/Footer'
 import AppHeader from '../components/Header'
 import AppSearch from '../components/Search'
+import AppAside from '../../vendor/coreui/components/Aside/Aside'
 
 export default {
   name: 'Full',
   components: {
+    AppAside,
     AppHeader,
     AppFooter,
     AppSearch

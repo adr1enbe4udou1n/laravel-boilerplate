@@ -3,10 +3,18 @@
     <b-row class="justify-content-center">
       <b-col xl="6">
         <b-card>
-          <h3 class="card-title" slot="header">{{ $t('labels.backend.form_submissions.titles.show') }}</h3>
-          <table class="table table-striped table-hover" v-if="submission !== null">
+          <h3 class="card-title" slot="header">
+            {{ $t('labels.backend.form_submissions.titles.show') }}
+          </h3>
+          <table
+            class="table table-striped table-hover"
+            v-if="submission !== null"
+          >
             <tbody>
-              <tr v-for="(value, name) in JSON.parse(submission.data)" :key="name">
+              <tr
+                v-for="(value, name) in JSON.parse(submission.data)"
+                :key="name"
+              >
                 <th>{{ $t(`validation.attributes.${name}`) }}</th>
                 <td>{{ value }}</td>
               </tr>
