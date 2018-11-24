@@ -15,7 +15,7 @@
         "guzzlehttp/guzzle": "^6.3",
         "hieu-le/active": "^3.5",
         "laravel/framework": "5.7.*",
-        "laravel/scout": "^6.0",
+        "laravel/scout": "^5.0",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.7",
@@ -30,7 +30,7 @@
         "spatie/laravel-tags": "^2.0",
         "spatie/laravel-translatable": "^3.0",
         "stevebauman/purify": "^2.0",
-        "teamtnt/laravel-scout-tntsearch-driver": "^3.0",
+        "teamtnt/laravel-scout-tntsearch-driver": "^3.3",
         "tightenco/ziggy": "^0.6.0"
     },
     "require-dev": {
