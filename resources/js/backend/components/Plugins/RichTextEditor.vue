@@ -1,5 +1,5 @@
 <template>
-  <div ref="editorEl" v-html="value"></div>
+  <div></div>
 </template>
 
 <script>
@@ -34,7 +34,7 @@ export default {
     async createInstance() {
       if (!this.editor) {
         try {
-          this.editor = await window.ClassicEditor.create(this.$refs.editorEl, {
+          this.editor = await ClassicEditor.create(this.$el, {
             toolbar: [
               'heading',
               'bold',
@@ -66,6 +66,10 @@ export default {
         }
 
         if (this.editor) {
+          if (this.value) {
+            this.editor.setData(this.value)
+          }
+
           this.editor.model.document.on('change', () => {
             this.$emit('input', this.editor.getData())
           })
