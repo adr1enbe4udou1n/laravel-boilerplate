@@ -25,11 +25,9 @@ class ImageController extends Controller
                     ->validateRequest('/img/'.$path, $request->all());
             }
 
-            $path = str_replace('storage/', '', $path);
-
             $server = ServerFactory::create([
                 'response' => new SymfonyResponseFactory($request),
-                'source'   => storage_path('app/public'),
+                'source'   => public_path(),
                 'cache'    => storage_path('app/cache'),
                 'base_url' => 'img',
             ]);

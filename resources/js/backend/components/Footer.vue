@@ -1,7 +1,7 @@
 <template>
   <AppFooter>
     <strong>
-      Copyright &copy; {{ new Date().getFullYear() }}
+      <span>Copyright &copy; {{ new Date().getFullYear() }}</span>
       <a href="/" target="_blank">{{ name }}</a>
     </strong>
     . {{ $t('labels.all_rights_reserved') }}

@@ -19,6 +19,7 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'vue/attributes-order': 'off',
+    'vue/component-name-in-template-casing': 'off',
     'vue/html-self-closing': ['error', {
       html: {
         void: 'always',
@@ -29,7 +30,9 @@ module.exports = {
       math: 'never'
     }],
     'vue/max-attributes-per-line': 'off',
+    'vue/multiline-html-element-content-newline': 'off',
     'vue/no-unused-vars': 'off',
-    'vue/no-v-html': 'off'
+    'vue/no-v-html': 'off',
+    'vue/singleline-html-element-content-newline': 'off'
   }
 }
