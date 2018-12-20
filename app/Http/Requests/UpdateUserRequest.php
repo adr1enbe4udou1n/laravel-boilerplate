@@ -27,7 +27,7 @@ class UpdateUserRequest extends FormRequest
 
         return [
             'email'                 => 'required|email|unique:users,email,'.$user->id,
-            'name'                  => 'required',
+            'name'                  => 'required|unique:users,name,'.$user->id,
             'password'              => 'nullable|min:6|confirmed',
             'password_confirmation' => 'nullable|min:6',
             'active'                => 'boolean',

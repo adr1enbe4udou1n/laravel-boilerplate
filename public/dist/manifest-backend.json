@@ -1,10 +1,10 @@
 {
-  "backend.css": "/dist/css/backend.fd97da3498a56a4e9865.css",
-  "backend.js": "/dist/js/backend.fd97da3498a56a4e9865.js",
-  "backend.css.map": "/dist/css/backend.fd97da3498a56a4e9865.css.map",
-  "backend.js.map": "/dist/js/backend.fd97da3498a56a4e9865.js.map",
-  "vendor-backend.js": "/dist/js/vendor-backend.ce319148a06ca281b6b0.js",
-  "vendor-backend.js.map": "/dist/js/vendor-backend.ce319148a06ca281b6b0.js.map",
+  "backend.css": "/dist/css/backend.66adc045a454996da03a.css",
+  "backend.js": "/dist/js/backend.66adc045a454996da03a.js",
+  "backend.css.map": "/dist/css/backend.66adc045a454996da03a.css.map",
+  "backend.js.map": "/dist/js/backend.66adc045a454996da03a.js.map",
+  "vendor-backend.js": "/dist/js/vendor-backend.f7e318faad4256bd9b53.js",
+  "vendor-backend.js.map": "/dist/js/vendor-backend.f7e318faad4256bd9b53.js.map",
   "fonts/app.scss": "/dist/fonts/feather-webfont.woff?2cf523cd335b115a5678b068b56c3011",
   "images/logo.png": "/dist/images/logo.png?dac075a09aa1174c83763064939c77c8"
 }
