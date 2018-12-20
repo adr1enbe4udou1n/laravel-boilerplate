@@ -11,21 +11,26 @@
                   : $t('labels.backend.roles.titles.edit')
               }}
             </h3>
+
             <b-form-group
               :label="$t('validation.attributes.name')"
               label-for="name"
               horizontal
               :label-cols="2"
-              :feedback="feedback('name')"
             >
-              <b-form-input
-                id="name"
-                name="name"
-                required
-                :placeholder="$t('validation.attributes.name')"
-                v-model="model.name"
-                :state="state('name')"
-              ></b-form-input>
+              <b-row>
+                <b-col md="6">
+                  <b-form-input
+                    id="name"
+                    name="name"
+                    required
+                    :placeholder="$t('validation.attributes.name')"
+                    v-model="model.name"
+                    :state="state('name')"
+                  ></b-form-input>
+                  <b-form-feedback>{{ feedback('name') }}</b-form-feedback>
+                </b-col>
+              </b-row>
             </b-form-group>
 
             <b-form-group
@@ -33,16 +38,22 @@
               label-for="display_name"
               horizontal
               :label-cols="2"
-              :feedback="feedback('display_name')"
             >
-              <b-form-input
-                id="display_name"
-                name="display_name"
-                required
-                :placeholder="$t('validation.attributes.display_name')"
-                v-model="model.display_name"
-                :state="state('display_name')"
-              ></b-form-input>
+              <b-row>
+                <b-col md="6">
+                  <b-form-input
+                    id="display_name"
+                    name="display_name"
+                    required
+                    :placeholder="$t('validation.attributes.display_name')"
+                    v-model="model.display_name"
+                    :state="state('display_name')"
+                  ></b-form-input>
+                  <b-form-feedback>
+                    {{ feedback('display_name') }}
+                  </b-form-feedback>
+                </b-col>
+              </b-row>
             </b-form-group>
 
             <b-form-group
