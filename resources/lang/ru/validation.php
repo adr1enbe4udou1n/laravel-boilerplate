@@ -132,7 +132,7 @@ return [
         'old_password'              => 'Старый пароль',
         'new_password'              => 'Новый пароль',
         'new_password_confirmation' => 'Подтверждение нового пароля',
-        'postal_code'               => 'Почтовы индекс',
+        'postal_code'               => 'Почтовый индекс',
         'city'                      => 'Город',
         'country'                   => 'Страна',
         'address'                   => 'Адрес',
