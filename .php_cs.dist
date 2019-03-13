@@ -26,7 +26,7 @@ return PhpCsFixer\Config::create()
         'no_useless_else' => true,
         'no_useless_return' => true,
         'not_operator_with_successor_space' => true,
-        'ordered_imports' => ['sortAlgorithm' => 'length'],
+        'ordered_imports' => ['sort_algorithm' => 'length'],
         'php_unit_strict' => true,
         'phpdoc_order' => true,
         'simplified_null_return' => true,
