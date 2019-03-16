@@ -8,7 +8,7 @@
                 <div class="col-md-4">
                     <div class="card p-4">
                         <div class="card-body">
-                            <form action="{{ route('login') }}" method="post">
+                            <form action="{{ route('password.email') }}" method="post">
                                 @csrf
 
                                 <h1>@lang('labels.user.login')</h1>
