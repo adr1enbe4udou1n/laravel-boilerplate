@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" class="btn btn-default" value="@lang('buttons.send')">
+                    <input type="submit" class="btn btn-primary" value="@lang('buttons.send')">
                 </div>
             </form>
         </div>

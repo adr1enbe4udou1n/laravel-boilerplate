@@ -65,7 +65,7 @@ export default createApp => {
     /**
      * Tel Input
      */
-    document.querySelectorAll('input[type="tel"]').forEach(input => {
+    ;[...document.querySelectorAll('input[type="tel"]')].forEach(input => {
       intlTelInput(input)
     })
 

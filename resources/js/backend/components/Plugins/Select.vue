@@ -44,10 +44,7 @@
 </template>
 
 <script>
-import formStateMixin from 'bootstrap-vue/src/mixins/form-state'
-
 export default {
-  mixins: [formStateMixin],
   props: {
     value: {
       type: [Array, Object],
@@ -88,6 +85,10 @@ export default {
     openDirection: {
       type: String,
       default: null
+    },
+    state: {
+      type: [Boolean, String],
+      default: null
     }
   },
   data() {
@@ -95,6 +96,26 @@ export default {
       mutableValue: this.value,
       showOptions: false,
       search: this.getSearchValue(this.value)
+    }
+  },
+  computed: {
+    computedState() {
+      const state = this.state
+      if (state === true || state === 'valid') {
+        return true
+      } else if (state === false || state === 'invalid') {
+        return false
+      }
+      return null
+    },
+    stateClass() {
+      const state = this.computedState
+      if (state === true) {
+        return 'is-valid'
+      } else if (state === false) {
+        return 'is-invalid'
+      }
+      return null
     }
   },
   watch: {

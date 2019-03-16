@@ -1,10 +1,10 @@
+import 'babel-polyfill'
 import './load-client-scripts'
 
 // Vue & axios
 import Vue from 'vue'
 import '../axios-config'
 
-import 'babel-polyfill'
 import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.esm'
 
 // Vendor plugins components
