@@ -15,8 +15,7 @@
             <b-form-group
               :label="$t('validation.attributes.name')"
               label-for="name"
-              horizontal
-              :label-cols="3"
+              label-cols-sm="3"
               :feedback="feedback('name')"
             >
               <b-form-input
@@ -32,8 +31,7 @@
             <b-form-group
               :label="$t('validation.attributes.email')"
               label-for="email"
-              horizontal
-              :label-cols="3"
+              label-cols-sm="3"
               :feedback="feedback('email')"
             >
               <b-form-input
@@ -62,8 +60,7 @@
             <b-form-group
               :label="$t('validation.attributes.password')"
               label-for="password"
-              horizontal
-              :label-cols="3"
+              label-cols-sm="3"
               :feedback="feedback('password')"
             >
               <b-form-input
@@ -79,8 +76,7 @@
             <b-form-group
               :label="$t('validation.attributes.password_confirmation')"
               label-for="password_confirmation"
-              horizontal
-              :label-cols="3"
+              label-cols-sm="3"
               :feedback="feedback('password_confirmation')"
             >
               <b-form-input
@@ -96,8 +92,7 @@
             <b-form-group
               :label="$t('validation.attributes.roles')"
               label-for="roles"
-              horizontal
-              :label-cols="3"
+              label-cols-sm="3"
             >
               <b-form-checkbox-group
                 stacked

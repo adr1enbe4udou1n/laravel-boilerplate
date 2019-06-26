@@ -15,8 +15,7 @@
             <b-form-group
               :label="$t('validation.attributes.name')"
               label-for="name"
-              horizontal
-              :label-cols="2"
+              label-cols-sm="2"
             >
               <b-row>
                 <b-col md="6">
@@ -36,8 +35,7 @@
             <b-form-group
               :label="$t('validation.attributes.display_name')"
               label-for="display_name"
-              horizontal
-              :label-cols="2"
+              label-cols-sm="2"
             >
               <b-row>
                 <b-col md="6">
@@ -59,8 +57,7 @@
             <b-form-group
               :label="$t('validation.attributes.description')"
               label-for="description"
-              horizontal
-              :label-cols="2"
+              label-cols-sm="2"
               :feedback="feedback('description')"
             >
               <b-form-input
@@ -75,8 +72,7 @@
             <b-form-group
               :label="$t('validation.attributes.order')"
               label-for="order"
-              horizontal
-              :label-cols="2"
+              label-cols-sm="2"
             >
               <b-row>
                 <b-col md="3">

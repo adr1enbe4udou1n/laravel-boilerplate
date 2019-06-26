@@ -14,8 +14,7 @@
             <b-form-group
               :label="$t('validation.attributes.form_type')"
               label-for="name"
-              horizontal
-              :label-cols="3"
+              label-cols-sm="3"
             >
               <select
                 id="name"
@@ -40,8 +39,7 @@
               :description="
                 $t('labels.backend.form_settings.descriptions.recipients')
               "
-              horizontal
-              :label-cols="3"
+              label-cols-sm="3"
               :feedback="feedback('recipients')"
             >
               <b-form-textarea
@@ -61,8 +59,7 @@
               :description="
                 $t('labels.backend.form_settings.descriptions.message')
               "
-              horizontal
-              :label-cols="3"
+              label-cols-sm="3"
               :feedback="feedback('message')"
             >
               <b-form-textarea
