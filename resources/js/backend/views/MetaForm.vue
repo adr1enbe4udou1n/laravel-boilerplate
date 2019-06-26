@@ -30,8 +30,7 @@
               <b-form-group
                 :label="$t('validation.attributes.route')"
                 label-for="route"
-                horizontal
-                :label-cols="3"
+                label-cols-sm="3"
                 :feedback="feedback('route')"
                 :state="state('route')"
               >
@@ -53,8 +52,7 @@
             <b-form-group
               :label="$t('validation.attributes.title')"
               label-for="title"
-              horizontal
-              :label-cols="3"
+              label-cols-sm="3"
               :feedback="feedback('title')"
             >
               <b-form-input
@@ -69,8 +67,7 @@
             <b-form-group
               :label="$t('validation.attributes.description')"
               label-for="description"
-              horizontal
-              :label-cols="3"
+              label-cols-sm="3"
               :feedback="feedback('description')"
             >
               <b-form-textarea

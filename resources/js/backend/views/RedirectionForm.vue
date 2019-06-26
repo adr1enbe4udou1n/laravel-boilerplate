@@ -15,8 +15,7 @@
             <b-form-group
               :label="$t('validation.attributes.source_path')"
               label-for="source"
-              horizontal
-              :label-cols="3"
+              label-cols-sm="3"
               :feedback="feedback('source')"
             >
               <b-form-input
@@ -44,8 +43,7 @@
             <b-form-group
               :label="$t('validation.attributes.target_path')"
               label-for="target"
-              horizontal
-              :label-cols="3"
+              label-cols-sm="3"
               :feedback="feedback('target')"
             >
               <b-form-input
@@ -61,8 +59,7 @@
             <b-form-group
               :label="$t('validation.attributes.redirect_type')"
               label-for="type"
-              horizontal
-              :label-cols="3"
+              label-cols-sm="3"
             >
               <b-form-radio-group
                 stacked

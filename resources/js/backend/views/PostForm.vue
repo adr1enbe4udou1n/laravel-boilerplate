@@ -14,8 +14,7 @@
             <b-form-group
               :label="$t('validation.attributes.title')"
               label-for="title"
-              horizontal
-              :label-cols="2"
+              label-cols-sm="2"
               :feedback="feedback('title')"
             >
               <b-form-input
@@ -31,8 +30,7 @@
             <b-form-group
               :label="$t('validation.attributes.summary')"
               label-for="summary"
-              horizontal
-              :label-cols="2"
+              label-cols-sm="2"
               :feedback="feedback('summary')"
             >
               <b-form-textarea
@@ -48,8 +46,7 @@
             <b-form-group
               :label="$t('validation.attributes.body')"
               label-for="body"
-              horizontal
-              :label-cols="2"
+              label-cols-sm="2"
             >
               <p-richtexteditor
                 name="body"
@@ -60,8 +57,7 @@
             <b-form-group
               :label="$t('validation.attributes.tags')"
               label-for="tags"
-              horizontal
-              :label-cols="2"
+              label-cols-sm="2"
             >
               <v-select
                 id="tags"
@@ -79,8 +75,7 @@
             <b-form-group
               :label="$t('validation.attributes.image')"
               label-for="featured_image"
-              horizontal
-              :label-cols="2"
+              label-cols-sm="2"
               :feedback="feedback('featured_image')"
             >
               <div class="media">
@@ -211,8 +206,7 @@
                     v-if="this.$app.user.can('publish posts')"
                     :label="$t('validation.attributes.published_at')"
                     label-for="published_at"
-                    horizontal
-                    :label-cols="3"
+                    label-cols-sm="3"
                   >
                     <b-input-group>
                       <p-datetimepicker
@@ -236,8 +230,7 @@
                     v-if="this.$app.user.can('publish posts')"
                     :label="$t('validation.attributes.unpublished_at')"
                     label-for="unpublished_at"
-                    horizontal
-                    :label-cols="3"
+                    label-cols-sm="3"
                   >
                     <b-input-group>
                       <p-datetimepicker
@@ -303,8 +296,7 @@
                     :description="
                       $t('labels.backend.posts.descriptions.meta_title')
                     "
-                    horizontal
-                    :label-cols="3"
+                    label-cols-sm="3"
                   >
                     <b-form-input
                       id="meta_title"
@@ -322,8 +314,7 @@
                     :description="
                       $t('labels.backend.posts.descriptions.meta_description')
                     "
-                    horizontal
-                    :label-cols="3"
+                    label-cols-sm="3"
                   >
                     <b-form-textarea
                       id="meta_description"
