@@ -23,7 +23,7 @@
     "babel-loader": "^8.0.4",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.1.3",
-    "bootstrap-vue": "^2.0.0-rc.11",
+    "bootstrap-vue": "^2.0.0-rc.12",
     "cross-env": "^5.2.0",
     "css-loader": "^2.0.1",
     "cssnano": "^4.1.4",
